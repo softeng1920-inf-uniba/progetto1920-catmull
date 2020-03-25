@@ -1,4 +1,4 @@
-# scacchi
+# scacchi [![Coverage Status](https://coveralls.io/repos/github/softeng1920-inf-uniba/docker_1920/badge.svg?branch=master)](https://coveralls.io/github/softeng1920-inf-uniba/docker_1920?branch=master)
 
 La struttura della repository si presenta nel seguente modo:
 ```
