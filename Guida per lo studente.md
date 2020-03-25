@@ -92,13 +92,13 @@ L'intervento iniziale a voi richiesto deve essere svolto da *un solo membro del 
 Il membro del team con i diritti di amministratore sul repository deve:
 
 - entrare nella pagina delle impostazioni del proprio profilo GitHub (click sull'immagine di profilo in alto a destra, poi click sulla voce *"Settings"* nel menù a tendina che compare);
-  ![SaveTokenInSecret_1](./res/img/guida-studente/SaveTokenInSecret_1.png)
+  ![SaveTokenInSecret_1](./res/img/guida-studente/image1.png)
 
 - entrare nella sezione delle impostazioni per sviluppatori, *"Developer Settings"*, facendo click sul relativo pulsante nella barra laterale;
-  ![SaveTokenInSecret_2](./res/img/guida-studente/SaveTokenInSecret_2.png)
+  ![SaveTokenInSecret_2](./res/img/guida-studente/image2.png)
 
 - selezionare *"Personal Access Token"* nella barra laterale e successivamente fare click su *"Generate new Token"*, in alto a destra; 
-  ![SaveTokenInSecret_3](./res/img/guida-studente/SaveTokenInSecret_3.png)
+  ![SaveTokenInSecret_3](./res/img/guida-studente/image3.png)
 
 - indicare nel campo *"Note"* l'utilizzo che si intende fare del token (ad es.: *"Uploads of Docker images to GitHub Packages"*). Tale appunto tornerà utile in futuro per ricordarsi a quale scopo era stato generato il token;
 
@@ -108,7 +108,7 @@ Il membro del team con i diritti di amministratore sul repository deve:
   - `write:packages`
   - `read:packages`
 
-  ![SaveTokenInSecret_4](./res/img/guida-studente/SaveTokenInSecret_4.png)
+  ![SaveTokenInSecret_4](./res/img/guida-studente/image4.png)
 
 - fare click sul pulsante *"Generate token"*, in basso nella pagina;
 - copiare il token che apparirà alla pagina seguente e memorizzarlo in un luogo sicuro.
@@ -122,9 +122,9 @@ A questo punto, il membro del team con i diritti di amministratore dovrà:
 
 - recarsi sulla pagina principale del repository e fare click sull'icona *"Settings"* (ultima tab in alto a destra);
   **N.B.**: solo l'amministratore visualizza questa tab!
-  ![SaveTokenInSecret_5](./res/img/guida-studente/SaveTokenInSecret_5.png)
+  ![SaveTokenInSecret_5](./res/img/guida-studente/image5.png)
 - selezionare la voce *"Secrets"* dalla barra laterale;
-  ![SaveTokenInSecret_6](./res/img/guida-studente/SaveTokenInSecret_6.png)
+  ![SaveTokenInSecret_6](./res/img/guida-studente/image8.png)
 - fare click sul link *"Add a new secret"*; compariranno una text box con l'etichetta *"Name"* e una text area con l'etichetta *"Value"*:
   - inserire la stringa `GITHUB_ACCESS_TOKEN` nella textbox con l'etichetta *"Name"*;
   - inserire il Personal Access Token precedentemente generato nella textarea con l'etichetta *"Value"*;
@@ -137,11 +137,11 @@ A questo punto, il membro del team con i diritti di amministratore dovrà:
 ## Aggiunta del badge di GitHub Actions nel README
 Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow (stato del workflow) all'interno del file README del vostro repository, seguire le seguenti istruzioni (vedi anche [Adding a workflow status badge to your repository](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository)):
 - entrare nella pagina principale del repository e cliccare su `Actions` (subito sotto il titolo, in alto al centro);
-![Update_GitHub_badge_1](./res/img/guida-studente/Update_GitHub_badge_1.png)
+![Update_GitHub_badge_1](./res/img/guida-studente/image6.png)
 - *"All workflows"*, riporta l'elenco delle esecuzioni del workflow  `ingsw1920.yml` (ogni push e ogni pull request sul repository inducono una nuova esecuzione); fare click sul record relativo alla run più recente (quello più in alto) che riporta il tag `master` (**N.B.**: svolgendo questa operazione all'inizio del progetto, in questa lista troverete soltanto un record, quello relativo all'unica esecuzione del workflow indotta dalla creazione del repository);
-  ![Update_GitHub_badge_2](./res/img/guida-studente/Update_GitHub_badge_2.png)
+  ![Update_GitHub_badge_2](./res/img/guida-studente/image7.png)
 - fare click sul pulsante `Create status badge` in alto a destra nella pagina e, lasciando invariate le impostazioni di default (`branch` e `event`), fare click su `Copy status badge Markdown`;
-  ![Update_GitHub_badge_3](./res/img/guida-studente/Update_GitHub_badge_3.png)
+  ![Update_GitHub_badge_3](./res/img/guida-studente/image9.png)
 - La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
 
 Il titolo del README.md dovrà apparire come nella seguente figura:
