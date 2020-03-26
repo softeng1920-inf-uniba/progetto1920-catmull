@@ -92,13 +92,13 @@ L'intervento iniziale a voi richiesto deve essere svolto da *un solo membro del 
 Il membro del team con i diritti di amministratore sul repository deve:
 
 - entrare nella pagina delle impostazioni del proprio profilo GitHub (click sull'immagine di profilo in alto a destra, poi click sulla voce *"Settings"* nel menù a tendina che compare);
-  ![SaveTokenInSecret_1](./res/img/guida-studente/SaveTokenInSecret_1.png)
+  ![SaveTokenInSecret_1](./res/img/guida-studente/image1.png)
 
 - entrare nella sezione delle impostazioni per sviluppatori, *"Developer Settings"*, facendo click sul relativo pulsante nella barra laterale;
-  ![SaveTokenInSecret_2](./res/img/guida-studente/SaveTokenInSecret_2.png)
+  ![SaveTokenInSecret_2](./res/img/guida-studente/image2.png)
 
 - selezionare *"Personal Access Token"* nella barra laterale e successivamente fare click su *"Generate new Token"*, in alto a destra; 
-  ![SaveTokenInSecret_3](./res/img/guida-studente/SaveTokenInSecret_3.png)
+  ![SaveTokenInSecret_3](./res/img/guida-studente/image3.png)
 
 - indicare nel campo *"Note"* l'utilizzo che si intende fare del token (ad es.: *"Uploads of Docker images to GitHub Packages"*). Tale appunto tornerà utile in futuro per ricordarsi a quale scopo era stato generato il token;
 
@@ -108,7 +108,7 @@ Il membro del team con i diritti di amministratore sul repository deve:
   - `write:packages`
   - `read:packages`
 
-  ![SaveTokenInSecret_4](./res/img/guida-studente/SaveTokenInSecret_4.png)
+  ![SaveTokenInSecret_4](./res/img/guida-studente/image4.png)
 
 - fare click sul pulsante *"Generate token"*, in basso nella pagina;
 - copiare il token che apparirà alla pagina seguente e memorizzarlo in un luogo sicuro.
@@ -122,9 +122,9 @@ A questo punto, il membro del team che ha generato il token dovrà:
 
 - recarsi sulla pagina principale del repository e fare click sull'icona *"Settings"* (ultima tab in alto a destra);
   **N.B.**: solo l'amministratore visualizza questa tab!
-  ![SaveTokenInSecret_5](./res/img/guida-studente/SaveTokenInSecret_5.png)
+  ![SaveTokenInSecret_5](./res/img/guida-studente/immagine.png)
 - selezionare la voce *"Secrets"* dalla barra laterale;
-  ![SaveTokenInSecret_6](./res/img/guida-studente/SaveTokenInSecret_6.png)
+  ![SaveTokenInSecret_6](./res/img/guida-studente/image8.png)
 - fare click sul link *"Add a new secret"*; compariranno una text box con l'etichetta *"Name"* e una text area con l'etichetta *"Value"*:
   - inserire la stringa `GITHUB_ACCESS_TOKEN` nella textbox con l'etichetta *"Name"*;
   - inserire il Personal Access Token precedentemente generato nella textarea con l'etichetta *"Value"*;
@@ -141,11 +141,11 @@ A questo punto, il membro del team che ha generato il token dovrà:
 ## Aggiunta del badge di GitHub Actions nel README
 Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow (stato del workflow) all'interno del file README del vostro repository, seguire le seguenti istruzioni (vedi anche [Adding a workflow status badge to your repository](https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#adding-a-workflow-status-badge-to-your-repository)):
 - entrare nella pagina principale del repository e cliccare su `Actions` (subito sotto il titolo, in alto al centro);
-![Update_GitHub_badge_1](./res/img/guida-studente/Update_GitHub_badge_1.png)
-- *"All workflows"*, riporta l'elenco delle esecuzioni del workflow  `ingsw1920.yml` (ogni push e ogni pull request sul repository inducono una nuova esecuzione); fare click sul record relativo alla run più recente (quello più in alto) che riporta il tag `master` (**N.B.**: svolgendo questa operazione all'inizio del progetto, in questa lista troverete soltanto un record, quello relativo all'unica esecuzione del workflow indotta dalla creazione del repository);
-  ![Update_GitHub_badge_2](./res/img/guida-studente/Update_GitHub_badge_2.png)
+![Update_GitHub_badge_1](./res/img/guida-studente/imm.png)
+- *"All workflows"*, riporta l'elenco delle esecuzioni del workflow  `ingsw1920.yml` (ogni push e ogni pull request sul repository inducono una nuova esecuzione); fare click sul record relativo alla run più recente (quello più in alto) che riporta il tag `issue2` (**N.B.**: svolgendo questa operazione all'inizio del progetto, in questa lista troverete soltanto un record, quello relativo all'unica esecuzione del workflow indotta dalla creazione del repository);
+  ![Update_GitHub_badge_2](./res/img/guida-studente/screen1.png)
 - fare click sul pulsante `Create status badge` in alto a destra nella pagina e, lasciando invariate le impostazioni di default (`branch` e `event`), fare click su `Copy status badge Markdown`;
-  ![Update_GitHub_badge_3](./res/img/guida-studente/Update_GitHub_badge_3.png)
+  ![Update_GitHub_badge_3](./res/img/guida-studente/screen3.png)
 - La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
 
 Il titolo del README.md dovrà apparire come nella seguente figura:
@@ -163,7 +163,7 @@ Per configurare Coveralls, collegarsi al [sito web del servizio](https://coveral
 Il repository `SOFTENG1920-INF-UNIBA/<nome repository>` dovrebbe essere immediatamente visibile nella pagina. Qualora non lo fosse, digitare le prime lettere del nome nel campo di testo. Se così facendo ancora non fosse visibile, andare in fondo alla pagina e cliccare sul bottone **REFRESH PRIVATE REPOS**. 
 Quando la riga relativa al progetto compare, fare click sul tasto OFF per trasformarlo in ON, come mostrato in figura.
 
-![](res/img/guida-studente/add_repo_coveralls.png)
+![](res/img/guida-studente/coverall0.png)
 
 Una volta attivato il progetto, fare click su **DETAILS** per visualizzare il _token privato_ associato al repository. Questo token andrà salvato in un Secret di GitHub denominato `COVERALLS_REPO_TOKEN`, seguendo la procedura riportata al passo precedente per il salvataggio del GitHub Access Token. Più precisamente:
 
@@ -185,9 +185,9 @@ Come GitHub Actions, anche Coveralls permette di arricchire il `README` del vost
 I passi per ottenere il badge di Coveralls sono i seguenti:
 
 - tornare sulla pagina "Details" dedicata al vostro repository sul sito di Coveralls (dove avete copiato il token). In uno dei riquadri in alto nella pagina è riportato il badge da aggiungere al README. Fare click sul tasto `EMBED` (vd. figura); 
-  ![CoverallsBadge_1](./res/img/guida-studente/CoverallsBadge_1.png)
+  ![CoverallsBadge_1](./res/img/guida-studente/coverall1.png)
 - copiare il codice markdown per la richiesta del badge;
-  ![CoverallsBadge_2](./res/img/guida-studente/CoverallsBadge_2.png)
+  ![CoverallsBadge_2](./res/img/guida-studente/coverall2.png)
 - La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
 - Alla fine, il file `README.md` dovrà mostrare due badge, simili a quelli riportati nella figura sottostante:
 ![actions+coveralls-badges](./res/img/guida-studente/actions+coveralls-badges.png)
@@ -248,7 +248,7 @@ La cartella di default per la generazione di *javadoc* è la cartella `doc`. Per
 
 - Premere il tasto destro sulla cartella di progetto di Eclipse. Scegliere quindi l’opzione *Properties*, in coda al menù contestuale.
   ![project_properties](./res/img/guida-studente/project_properties.png)
-- Individuare, tra le proprietà, quella denominata *Javadoc Location*.![](res/img/guida-studente/javadoc_location.png)
+- Individuare, tra le proprietà, quella denominata *Javadoc Location*.![](res/img/guida-studente/dockerim3.jpeg)
 
 - Tramite il pulsante *Browse*, selezionare il percorso `doc/javadoc` all’interno della cartella di progetto.
 - Chiudere la finestra con *Apply and Close*.
@@ -284,18 +284,18 @@ Questi passi devono essere eseguiti da un solo componente del gruppo di progetto
 1. Collegarsi alla [Piattaforma Google Cloud](https://console.cloud.google.com/home/dashboard) (è richiesta autenticazione tramite account Google).
 
 2. Create un nuovo progetto con il nome ***scacchi***, come in figura. L'altro campo non è necessario.
-   <img src="./res/img/guida-studente/googleAPIsetup_1.png" alt="googleAPIsetup_1" style="zoom:50%;" />
+   <img src="./res/img/guida-studente/cloud1.png" alt="googleAPIsetup_1" style="zoom:50%;" />
 
 3. Assicuratevi che il progetto sia selezionato nella dashboard, dopodiché dal menu a sinistra selezionate la voce `API e servizi > Libreria`.
-   ![googleAPIsetup_2](./res/img/guida-studente/googleAPIsetup_2.png)
+   ![googleAPIsetup_2](./res/img/guida-studente/cloud2.png)
 
 4. Cercate e selezionate l'API di ***Drive*** (`Google Drive API`), quindi attivatela premendo il tasto `Abilita`, nella pagina dedicata.
 
 5. Sempre dal menu a sinistra, selezionate la voce `API e servizi > Credenziali`.
-   ![googleAPIsetup_3](./res/img/guida-studente/googleAPIsetup_3.png)
+   ![googleAPIsetup_3](./res/img/guida-studente/cloud.png)
 
 6. Fate click sul pulsante **"CREA CREDENZIALI"** e successivamente sulla voce **"Account di servizio"**.
-   ![googleAPIsetup_4](./res/img/guida-studente/googleAPIsetup_4.png)
+   ![googleAPIsetup_4](./res/img/guida-studente/cloud3.png)
 
 7. Compilate i campi del wizard per la creazione dell'account di servizio come riportato nelle figure a seguire.
    **N.B.**: il valore del campo `ID account di servizio` è generato automaticamente. Bisogna annotare, invece, l'**ID di progetto**, evidenziato in rosso nella figura sottostante (in questo caso `scacchi-271210`), compreso tra il simbolo `@` e il resto della stringa `.iam...`.
@@ -369,14 +369,14 @@ Si svolgano le seguenti operazioni:
 
 - se si utilizza Windows selezionare `Switch to Linux containers` nel menu di Docker;
 
-- recarsi alla pagina principale del repository [softeng1920-inf-uniba/docker_1920](https://github.com/softeng1920-inf-uniba/docker_1920) su GitHub e fare click sul link *"package"*, nella barra evidenziata in figura;
-   **N.B.**: se i Secret menzionati in questa guida sono stati impostati correttamente e se almeno un'esecuzione del workflow di GitHub Actions è andata a buon fine, la vostra immagine Docker (nella sua ultima versione) dovrebbe essere disponibile tra quelle elencate alla pagina successiva.
-   ![ExecuteDockerImage_1](./res/img/guida-studente/ExecuteDockerImage_1.png)
+- recarsi alla pagina principale del repository su GitHub e fare click sul link *"package"*, nella barra evidenziata in figura;
+   **N.B.**: se i Secret menzionati in questa guida sono stati impostati correttamente e se almeno un'esecuzione del workflow di GitHub Actions è andata a buon fine, il numero a sinistra del link dovrebbe indicare la presenza di 1 package nel repository.
+   ![dockerim](./res/img/guida-studente/dockerim.jpeg)
 
 - nella pagina successiva, fare click sul link del package che riporta il nome del vostro team;
 
 - nella pagina dedicata al package è indicato il comando da copiare ed eseguire nel terminale per scaricare l'immagine Docker in locale.
-   ![ExecuteDockerImage_2](./res/img/guida-studente/ExecuteDockerImage_2.png)
+   ![ExecuteDockerImage_2](./res/img/guida-studente/dockerim2.jpeg)
    
 - incollare ed eseguire il comando nel terminale. Attendere che Docker scarichi l’immagine dell’applicazione
 
