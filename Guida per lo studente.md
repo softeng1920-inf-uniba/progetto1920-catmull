@@ -373,7 +373,6 @@ Si svolgano le seguenti operazioni:
    **N.B.**: se i Secret menzionati in questa guida sono stati impostati correttamente e se almeno un'esecuzione del workflow di GitHub Actions è andata a buon fine, il numero a sinistra del link dovrebbe indicare la presenza di 1 package nel repository.
    ![dockerim](./res/img/guida-studente/dockerim.jpeg)
 
-
 - nella pagina successiva, fare click sul link del package che riporta il nome del vostro team;
 
 - nella pagina dedicata al package è indicato il comando da copiare ed eseguire nel terminale per scaricare l'immagine Docker in locale.
