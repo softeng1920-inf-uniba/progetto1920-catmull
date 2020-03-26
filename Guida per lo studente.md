@@ -181,9 +181,9 @@ Come GitHub Actions, anche Coveralls permette di arricchire il `README` del vost
 I passi per ottenere il badge di Coveralls sono i seguenti:
 
 - tornare sulla pagina "Details" dedicata al vostro repository sul sito di Coveralls (dove avete copiato il token). In uno dei riquadri in alto nella pagina è riportato il badge da aggiungere al README. Fare click sul tasto `EMBED` (vd. figura); 
-  ![CoverallsBadge_1](./res/img/guida-studente/CoverallsBadge_1.png)
+  ![CoverallsBadge_1](./res/img/guida-studente/coverall1.png)
 - copiare il codice markdown per la richiesta del badge;
-  ![CoverallsBadge_2](./res/img/guida-studente/CoverallsBadge_2.png)
+  ![CoverallsBadge_2](./res/img/guida-studente/coverall2.png)
 - La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
 - Alla fine, il file `README.md` dovrà mostrare due badge, simili a quelli riportati nella figura sottostante:
 ![actions+coveralls-badges](./res/img/guida-studente/actions+coveralls-badges.png)
@@ -280,18 +280,18 @@ Questi passi devono essere eseguiti da un solo componente del gruppo di progetto
 1. Collegarsi alla [Piattaforma Google Cloud](https://console.cloud.google.com/home/dashboard) (è richiesta autenticazione tramite account Google).
 
 2. Create un nuovo progetto con il nome ***scacchi***, come in figura. L'altro campo non è necessario.
-   <img src="./res/img/guida-studente/googleAPIsetup_1.png" alt="googleAPIsetup_1" style="zoom:50%;" />
+   <img src="./res/img/guida-studente/cloud1.png" alt="googleAPIsetup_1" style="zoom:50%;" />
 
 3. Assicuratevi che il progetto sia selezionato nella dashboard, dopodiché dal menu a sinistra selezionate la voce `API e servizi > Libreria`.
-   ![googleAPIsetup_2](./res/img/guida-studente/googleAPIsetup_2.png)
+   ![googleAPIsetup_2](./res/img/guida-studente/cloud2.png)
 
 4. Cercate e selezionate l'API di ***Drive*** (`Google Drive API`), quindi attivatela premendo il tasto `Abilita`, nella pagina dedicata.
 
 5. Sempre dal menu a sinistra, selezionate la voce `API e servizi > Credenziali`.
-   ![googleAPIsetup_3](./res/img/guida-studente/googleAPIsetup_3.png)
+   ![googleAPIsetup_3](./res/img/guida-studente/cloud.png)
 
 6. Fate click sul pulsante **"CREA CREDENZIALI"** e successivamente sulla voce **"Account di servizio"**.
-   ![googleAPIsetup_4](./res/img/guida-studente/googleAPIsetup_4.png)
+   ![googleAPIsetup_4](./res/img/guida-studente/cloud3.png)
 
 7. Compilate i campi del wizard per la creazione dell'account di servizio come riportato nelle figure a seguire.
    **N.B.**: il valore del campo `ID account di servizio` è generato automaticamente. Bisogna annotare, invece, l'**ID di progetto**, evidenziato in rosso nella figura sottostante (in questo caso `scacchi-271210`), compreso tra il simbolo `@` e il resto della stringa `.iam...`.
