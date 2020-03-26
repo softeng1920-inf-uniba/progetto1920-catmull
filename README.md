@@ -1,4 +1,4 @@
-# scacchi
+# scacchi ![Gradle Check&Build + Image Push on GitHub Packages](https://github.com/softeng1920-inf-uniba/progetto1920-catmull/workflows/Gradle%20Check&Build%20+%20Image%20Push%20on%20GitHub%20Packages/badge.svg)
 
 La struttura della repository si presenta nel seguente modo:
 ```
@@ -15,7 +15,7 @@ La struttura della repository si presenta nel seguente modo:
 |    |–– checkstyle
 |–– doc
 |    |–– drawings
-|    |–– javadoc 
+|    |–– javadoc
 |    |–– Report.md
 |–– gradle
 |–– lib
@@ -43,7 +43,7 @@ Nel seguito si dettagliano i ruoli dei diversi componenti:
 - **res**: la cartella deve contenere tutte le risorse usate dal sistema (immagini, testi ecc.)
 - **src**: la cartella principale del progetto, in cui scrivere tutto il codice dell’applicazione. In *main* ci saranno i file sorgente e *test* conterrà i test di unità previsti.
 - **.gitignore**: specifica tutti i file che devono essere esclusi dal sistema di controllo versione.
-- **build.gradle**: esplicita le direttive e la configurazione per *Gradle*. 
+- **build.gradle**: esplicita le direttive e la configurazione per *Gradle*.
 - **Assegnazione progetto.md**: fare riferimento a questo file per la descrizione dettagliata del progetto assegnato;
 - **Guida per lo studente.md:** elenca e descrive tutti i passi di configurazione necessari per attivare l’intero flusso di lavoro dietro lo sviluppo del progetto;
 - **gradlew & gradlew.bat**: sono i file eseguibili di *Gradle*, rispettivamente per Unix e per Windows. Vengono generati automaticamente da Eclipse;
