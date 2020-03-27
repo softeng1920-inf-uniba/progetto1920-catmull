@@ -136,3 +136,6 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 .idea/
+
+#visualStudio
+.vs/
