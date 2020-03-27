@@ -376,7 +376,7 @@ Si svolgano le seguenti operazioni:
 - nella pagina successiva, fare click sul link del package che riporta il nome del vostro team;
 
 - nella pagina dedicata al package è indicato il comando da copiare ed eseguire nel terminale per scaricare l'immagine Docker in locale.
-   ![ExecuteDockerImage_2](./res/img/guida-studente/dockerim2.jpeg)
+   ![ExecuteDockerImage_2](./res/img/guida-studente/catmull.png)
    
 - incollare ed eseguire il comando nel terminale. Attendere che Docker scarichi l’immagine dell’applicazione
 
