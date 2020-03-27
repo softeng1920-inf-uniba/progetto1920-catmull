@@ -1,4 +1,4 @@
-name: "Gradle Check&Build + Image Push on GitHub Packages"
+name: "Gradle%20Check&Build%20+%20Image%20Push%20on%20GitHub%20Packages"
 
 on: [ pull_request ]
 
