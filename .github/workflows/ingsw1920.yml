@@ -1,4 +1,4 @@
-name: Gradle Check&Build + Image Push on GitHub Packages
+name: Gradle Check and Build with Image Push on GitHub Packages
 
 on: [ pull_request ]
 
