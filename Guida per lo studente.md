@@ -13,7 +13,7 @@
 - Configurazione Coveralls
   - Aggiunta del badge di Coveralls nel README
 - Configurazione locale del progetto
-- Eseguire l'applicazione
+<!-- - Eseguire l'applicazione -->
 - Lavoro sul codice dell’applicazione
 - Test automatici e Controlli di Qualità
 - Esecuzione immagine docker
@@ -221,13 +221,13 @@ Se l’operazione è andata a buon fine, siamo quasi pronti per partire… Ma pr
 
 Assicuarsi di aver installato [Java versione 8](https://www.oracle.com/technetwork/java/javase/overview/index.html) ed [Eclipse IDE for Java](https://www.eclipse.org/downloads/) versione 2019-12 (4.14.0) o superiore.
 
-###### Installazione Google Cloud Tools
+<!-- ###### Installazione Google Cloud Tools
 
 Dopo aver completato l'installazione, avviate Eclipse. Quindi, selezionate la voce del menu `Help > Eclipse Marketplace`.  Nella finestra, effettuate la ricerca delle parole chiave *Google cloud* per far comparire la componente *Google Cloud Tools for Eclipse*  come da figura.
 
 ![](res/img/guida-studente/marketplace.png)
 
-Completate l'installazione e riavviate.
+Completate l'installazione e riavviate. -->
 
 **Importazione del progetto in Eclipse**
 
@@ -253,7 +253,7 @@ La cartella di default per la generazione di *javadoc* è la cartella `doc`. Per
 - Tramite il pulsante *Browse*, selezionare il percorso `doc/javadoc` all’interno della cartella di progetto.
 - Chiudere la finestra con *Apply and Close*.
 
-###### Verifica setup librerie
+<!-- ###### Verifica setup librerie
 
 Verificate la presenza delle librerie nel build path di Java.
 
@@ -271,11 +271,11 @@ Se dovesse invece mancare la voce *Google Cloud Platform Libraries*, aggiungetel
 
 Quindi, premete su *"Finish"*, senza selezionare alcuna voce.
 
-![](res/img/guida-studente/gcloudlib2.png)
+![](res/img/guida-studente/gcloudlib2.png) -->
 
 
 
-## Eseguire l'applicazione
+<!-- ## Eseguire l'applicazione
 
 #### Attivare Google Service Account 
 
@@ -317,7 +317,7 @@ Questi passi devono essere eseguiti da un solo componente del gruppo di progetto
 
 12. È possibile che alcuni metodi dell'API richiedano l'ID del progetto: è quello annotato nel passo 7.
 
-13. Posizionatevi sul file `AppMain.java` ed eseguite come Java application da Eclipse.
+13. Posizionatevi sul file `AppMain.java` ed eseguite come Java application da Eclipse. -->
 
 
 
