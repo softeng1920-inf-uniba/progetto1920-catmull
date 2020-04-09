@@ -73,22 +73,23 @@
       <p>SpotBugs version: 4.0.0-RC3</p>
       <p>Code analyzed:</p>
       <ul>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\it\uniba\example\db\DatabaseConnection.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\it\uniba\example\utils\math\MathUtils.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\it\uniba\example\utils\strings\StringUtils.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\it\uniba\main\AppMain.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\it\uniba\sotorrent\GoogleDocsUtils.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\Pedine\Pezzo.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\Scacchiera\Cella.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\giocatore\Giocatore.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\it\uniba\example\db\DatabaseConnection.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\it\uniba\example\utils\math\MathUtils.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\it\uniba\example\utils\strings\StringUtils.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\it\uniba\main\AppMain.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\it\uniba\sotorrent\GoogleDocsUtils.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\pedine\Pezzo.class</li>
+         <li>E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\build\classes\java\main\scacchiera\Cella.class</li>
       </ul>
       <p>
          <br/>
          <br/>
       </p>
       <h2>Metrics</h2>
-      <p>164 lines of code analyzed,
-	in 7 classes, 
-	in 7 packages.</p>
+      <p>207 lines of code analyzed,
+	in 8 classes, 
+	in 8 packages.</p>
       <table width="500" cellpadding="5" cellspacing="2">
          <tr class="tableheader">
             <th align="left">Metric</th>
@@ -97,23 +98,23 @@
          </tr>
          <tr class="tablerow0">
             <td>High Priority Warnings</td>
-            <td align="right"/>
-            <td align="right">0.00</td>
+            <td align="right">1</td>
+            <td align="right">4.83</td>
          </tr>
          <tr class="tablerow1">
             <td>Medium Priority Warnings</td>
             <td align="right">2</td>
-            <td align="right">12.20</td>
+            <td align="right">9.66</td>
          </tr>
          <tr class="$totalClass">
             <td>
                <b>Total Warnings</b>
             </td>
             <td align="right">
-               <b>2</b>
+               <b>3</b>
             </td>
             <td align="right">
-               <b>12.20</b>
+               <b>14.49</b>
             </td>
          </tr>
       </table>
@@ -126,6 +127,9 @@
       </p>
       <h2>Contents</h2>
       <ul>
+         <li>
+            <a href="#Warnings_I18N">Internationalization Warnings</a>
+         </li>
          <li>
             <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
          </li>
@@ -144,27 +148,56 @@
          </tr>
          <tr class="tablerow0">
             <td>
-               <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+               <a href="#Warnings_I18N">Internationalization Warnings</a>
             </td>
             <td align="right">1</td>
          </tr>
          <tr class="tablerow1">
             <td>
-               <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+               <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
             </td>
             <td align="right">1</td>
          </tr>
          <tr class="tablerow0">
             <td>
+               <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+            </td>
+            <td align="right">1</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
                <b>Total</b>
             </td>
             <td align="right">
-               <b>2</b>
+               <b>3</b>
             </td>
          </tr>
       </table>
       <h1>Warnings</h1>
       <p>Click on a warning row to see full context information.</p>
+      <h2>
+         <a name="Warnings_I18N">Internationalization Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e44');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in new giocatore.Giocatore(boolean): new java.util.Scanner(InputStream)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e44" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class giocatore.Giocatore<br/>In method new giocatore.Giocatore(boolean)<br/>Called method new java.util.Scanner(InputStream)<br/>At Giocatore.java:[line 25]</p>
+            </td>
+         </tr>
+      </table>
       <h2>
          <a name="Warnings_PERFORMANCE">Performance Warnings</a>
       </h2>
@@ -173,7 +206,7 @@
             <th align="left">Code</th>
             <th align="left">Warning</th>
          </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e42');">
+         <tr class="tablerow1" onclick="toggleRow('d1e59');">
             <td>
                <span class="priority-2">Bx</span>
             </td>
@@ -182,7 +215,7 @@
          <tr class="detailrow1">
             <td/>
             <td>
-               <p id="d1e42" style="display: none;">
+               <p id="d1e59" style="display: none;">
                   <a href="#BX_BOXING_IMMEDIATELY_UNBOXED">Bug type BX_BOXING_IMMEDIATELY_UNBOXED (click for details)</a>
                   <br/>In class it.uniba.example.utils.math.MathUtils<br/>In method it.uniba.example.utils.math.MathUtils.divide(int, int)<br/>At MathUtils.java:[line 32]</p>
             </td>
@@ -196,7 +229,7 @@
             <th align="left">Code</th>
             <th align="left">Warning</th>
          </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e54');">
+         <tr class="tablerow1" onclick="toggleRow('d1e71');">
             <td>
                <span class="priority-2">ICAST</span>
             </td>
@@ -205,7 +238,7 @@
          <tr class="detailrow1">
             <td/>
             <td>
-               <p id="d1e54" style="display: none;">
+               <p id="d1e71" style="display: none;">
                   <a href="#ICAST_IDIV_CAST_TO_DOUBLE">Bug type ICAST_IDIV_CAST_TO_DOUBLE (click for details)</a>
                   <br/>In class it.uniba.example.utils.math.MathUtils<br/>In method it.uniba.example.utils.math.MathUtils.divide(int, int)<br/>At MathUtils.java:[line 32]</p>
             </td>
@@ -224,6 +257,12 @@ to immediately undo the work of the boxing.
 </p>
 
     <h2>
+         <a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
+      </h2>
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      <h2>
          <a name="ICAST_IDIV_CAST_TO_DOUBLE">ICAST_IDIV_CAST_TO_DOUBLE: Integral division result cast to double or float</a>
       </h2>
 

@@ -1,7 +1,7 @@
-package Pedine;
+package pedine;
 import java.util.ArrayList;
 
-import Scacchiera.*;
+import scacchiera.*;
 
 public abstract class Pezzo {
 

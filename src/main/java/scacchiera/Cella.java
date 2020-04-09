@@ -1,6 +1,6 @@
-package Scacchiera;
+package scacchiera;
 
-import Pedine.Pezzo;
+import pedine.Pezzo;
 
 public class Cella {
 	int x;
