@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Scacchiera.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">scacchiera</a> &gt; <span class="el_source">Scacchiera.java</span></div><h1>Scacchiera.java</h1><pre class="source lang-java linenums">package scacchiera;
+import java.util.ArrayList;
+import pedine.*;
+
+public class Scacchiera {
+
+<span class="nc" id="L7">	int numerocolonne=8;</span>
+<span class="nc" id="L8">	int numerorighe=8;</span>
+<span class="nc" id="L9">	int numeropezzi=32;</span>
+	public ArrayList&lt;Pezzo&gt; pezzidelgioco;
+	Cella[][] scacchiera;
+
+
+	public int getNumeroColonne() {
+<span class="nc" id="L15">		return numerocolonne;</span>
+	}
+	public int getNumeroRighe() {
+<span class="nc" id="L18">		return numerorighe;</span>
+	}
+	public Cella getCella(int x,int y) {
+<span class="nc" id="L21">		return scacchiera[x][y];</span>
+	}
+<span class="nc" id="L23">	public Scacchiera(){</span>
+
+<span class="nc" id="L25">		pezzidelgioco = new ArrayList&lt;Pezzo&gt;();</span>
+<span class="nc" id="L26">		scacchiera = new Cella[numerocolonne][numerorighe];</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">		for(int i=0;i&lt;8;i++) {</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">			for(int j=0;j&lt;8;j++) {</span>
+<span class="nc" id="L29">				scacchiera[i][j]=new Cella(i,j,null);</span>
+			}
+		}
+<span class="nc" id="L32">	}</span>
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
