@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.uniba.example.db.test.LocalDatabaseConnectionTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-04-09T16:00:52" hostname="LAPTOP-5EBE22AV" time="0.004">
+  <properties/>
+  <testcase name="testSomething()" classname="it.uniba.example.db.test.LocalDatabaseConnectionTest" time="0.004">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
