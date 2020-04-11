@@ -2,19 +2,22 @@ package pedine;
 
 import scacchiera.Cella;
 
-public class Cavallo extends Pezzo
-{
+public class Cavallo extends Pezzo {
 
-	public Cavallo(boolean colore, Cella posizioneCorrente) 
-	{
+	public Cavallo(boolean colore, Cella posizioneCorrente) {
 		super("Cavallo", colore, posizioneCorrente);
 		// TODO Auto-generated constructor stub
 	}
+
 	@Override
-	public void disegnapezzo() 
-	{
+	public void disegnapezzo() {
 		// TODO Auto-generated method stub
-		 char simbolo=getColore() ? 'N' : 'n';
-		 System.out.print(" "+simbolo+" ");
+		char simbolo;
+		if (getColore()) {
+			simbolo = 'N';
+		} else {
+			simbolo = 'n';
+		}
+		System.out.print(" " + simbolo + " ");
 	}
 }

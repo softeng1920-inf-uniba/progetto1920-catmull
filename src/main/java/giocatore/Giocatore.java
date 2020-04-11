@@ -1,6 +1,9 @@
 package giocatore;
-import pedine.*;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import pedine.Pezzo;
 
 public class Giocatore {
 
@@ -25,7 +28,7 @@ public class Giocatore {
 		try (Scanner scanner = new Scanner(System.in)) {
 
 			String nomecolore = colore ? "Bianche" : "Nere";
-			System.out.println("Inserire il nome del giocatore con le pedine ("+nomecolore+")");
+			System.out.println("Inserire il nome del giocatore con le pedine (" + nomecolore + ")");
 			this.nome = scanner.nextLine();
 
 		}
@@ -54,7 +57,7 @@ public class Giocatore {
 		return pezziMorti;
 	}
 
-	public ArrayList<String> getMosseGiocate(){
+	public ArrayList<String> getMosseGiocate() {
 		return mosseGiocate;
 	}
 

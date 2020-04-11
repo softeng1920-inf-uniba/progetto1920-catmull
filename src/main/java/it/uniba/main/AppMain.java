@@ -1,11 +1,8 @@
 package it.uniba.main;
 
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.security.GeneralSecurityException;
-
-import it.uniba.sotorrent.GoogleDocsUtils;
+import java.io.InputStreamReader;
 
 /**
  * The main class for the project. It must be customized to meet the project
@@ -23,32 +20,30 @@ public final class AppMain {
 	}
 
 	/**
-	 * 	 * This is the main entry of the application.
+	 * * This is the main entry of the application.
 	 *
 	 * @param args The command-line arguments.
 	 */
 	public static void main(final String[] args) {
 
-		System.out.println("Current working dir: " + System.getProperty("user.dir"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
 
-		if (args.length > 0) {
-			switch (args[0]) {
-			case "it":
-				System.out.println("Applicazione avviata.");
-				break;
+		try {
+			while (true) {
+				String menu = "";
+				menu = br.readLine();
+				switch (menu) {
+				case "":
+					break;
+				default:
 
-			case "en":
-				System.out.println("Application started.");
-				break;
+				}
 
-			default:
-				System.out.println("Specify the language. "
-								   + "Languages supported: 'it' or 'en'");
-				break;
 			}
-		} else {
-			System.out.println("Using default language 'en'");
-			System.out.println("Application started.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}
