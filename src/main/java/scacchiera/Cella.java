@@ -2,13 +2,15 @@ package scacchiera;
 
 import pedine.Pezzo;
 
-public class Cella {
+/** Classe per rappresentere le singole parti della scacchiera */
+public final class Cella {
 	private int x;
-	int y;
-	boolean occupato;
-	Pezzo pezzoCorrente;
+	private int y;
+	private boolean occupato;
+	private Pezzo pezzoCorrente;
 
-	public Cella(int x, int y, Pezzo pezzoCorrente) {
+	/** Costuttore */
+	public Cella(final int x, final int y, final Pezzo pezzoCorrente) {
 		this.x = x;
 		this.y = y;
 		this.pezzoCorrente = pezzoCorrente;
@@ -17,6 +19,7 @@ public class Cella {
 		}
 	}
 
+	/** Disegna il pezzo che contiene in output */
 	void stampapezzo() {
 		if (pezzoCorrente != null) {
 			pezzoCorrente.disegnapezzo();
@@ -27,50 +30,59 @@ public class Cella {
 
 	// ---------Metodi di setting---------
 
-	void setX(int x) {
-		this.x = x;
+	/** Modifica la coordinata x */
+	void setX(final int newx) {
+		x = newx;
 	}
 
-	void setY(int y) {
-		this.y = y;
+	/** Modifica la coordinata y */
+	void setY(final int newy) {
+		y = newy;
 	}
 
-	void setOccupato(boolean occupato) {
+	/** Modifica la variabile occupato */
+	void setOccupato(final boolean occupato) {
 		this.occupato = occupato;
 	}
 
-	public void setPezzoCorrente(Pezzo pezzoCorrente) {
+	/** Modifica il tipo di pezzo che contiene */
+	public void setPezzoCorrente(final Pezzo pezzoCorrente) {
 		this.pezzoCorrente = pezzoCorrente;
 	}
 
 	// --------Metodi di Get--------
 
+	/** Restituisce la coordinata x */
 	int getX() {
 		return x;
 	}
 
+	/** Restituisce la coordinata y */
 	int getY() {
 		return y;
 	}
 
+	/** Restituisce la variabile occupato */
 	boolean getOccupato() {
 		return occupato;
 	}
 
+	/** Restituisce il pezzo che contiene */
 	Pezzo getPezzoCorrente() {
 		return pezzoCorrente;
 	}
 
 	// ------Metodi per aggiugere o togliere pezzi dalla scacchiera
 
-	public void aggiugi_pezzo(Pezzo nuovoPezzo) {
+	/** Aggiunge un pezzo alla cella */
+	public void aggiugiPezzo(final Pezzo nuovoPezzo) {
 		pezzoCorrente = nuovoPezzo;
 		occupato = true;
 	}
 
+	/** Rimuove il pezzo nella cella */
 	public void rimuoviPezzoCorrente() {
 		occupato = false;
 		pezzoCorrente = null;
 	}
-
 }
