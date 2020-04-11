@@ -2,16 +2,19 @@ package pedine;
 
 import scacchiera.Cella;
 
-public class Alfiere extends Pezzo {
+/**
+ * Rappresentazione dell'astrazione del pezzo alfiere
+ */
+public final class Alfiere extends Pezzo {
 
-	public Alfiere(boolean colore, Cella posizioneCorrente) {
+	public Alfiere(final boolean colore, final Cella posizioneCorrente) {
 		super("Alfiere", colore, posizioneCorrente);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
 	public void disegnapezzo() {
-		// TODO Auto-generated method stub
+
 		char simbolo;
 		if (getColore()) {
 			simbolo = 'B';

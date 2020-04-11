@@ -5,26 +5,31 @@ import pedine.*;
 
 public class Scacchiera {
 
-	private int numerocolonne = 8;
-	private int numerorighe = 8;
-	private int numeropezzi = 32;
+	private static final int numerocolonne = 8;
+	private static final int numerorighe = 8;
+	private static final int numeropezzi = 32;
+
 	public ArrayList<Pezzo> pezzidelgioco;
 
 	Cella[][] scacchiera;
 
-	public int getNumeroColonne() {
+	public final int getNumeroColonne() {
 		return numerocolonne;
 	}
 
-	public int getNumeroRighe() {
+	public final int getNumeroRighe() {
 		return numerorighe;
 	}
 
-	public Cella getCella(int x, int y) {
+	public Cella getCella(final int x, final int y) {
 		return scacchiera[x][y];
 	}
 
-	public void setCella(Cella nuovaCella, int x, int y) {
+	public final int getNumeroPezzi() {
+		return numeropezzi;
+	}
+
+	public final void setCella(Cella nuovaCella, final int x, final int y) {
 		scacchiera[x][y] = nuovaCella;
 	}
 

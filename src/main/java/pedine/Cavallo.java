@@ -3,11 +3,13 @@ package pedine;
 
 import scacchiera.Cella;
 
+/** Rappresentazione astratta della classe cavallo
+ *
+ */
 public final class Cavallo extends Pezzo {
 
-	public Cavallo(boolean colore, Cella posizioneCorrente) {
+	public Cavallo(final boolean colore, final Cella posizioneCorrente) {
 		super("Cavallo", colore, posizioneCorrente);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

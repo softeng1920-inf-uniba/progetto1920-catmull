@@ -2,9 +2,12 @@ package pedine;
 
 import scacchiera.Cella;
 
-public class Torre extends Pezzo {
+/**
+ * Realizzazione della classe Torre, estensione della classe Pezzo
+ */
+public final class Torre extends Pezzo {
 
-	public Torre(boolean colore, Cella posizioneCorrente) {
+	public Torre(final boolean colore, final Cella posizioneCorrente) {
 		super("Regina", colore, posizioneCorrente);
 		// TODO Auto-generated constructor stub
 	}

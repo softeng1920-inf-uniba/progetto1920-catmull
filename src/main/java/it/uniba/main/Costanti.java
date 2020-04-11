@@ -8,5 +8,5 @@ package it.uniba.main;
  *
  */
 public enum Costanti {
-	nero,bianco
+	nero, bianco
 }

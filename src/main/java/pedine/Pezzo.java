@@ -1,17 +1,20 @@
 package pedine;
+
 import scacchiera.Cella;
 
-
+/**
+ * Classe Pezzo di tipo astratto
+ * Tale classe funge da punto di partenza per poi realizzare i pezzi del gioco nello specifico
+ **/
 public abstract class Pezzo {
-/** classe pezzo di tipo astratto; 
- * tale classe funge da punto di partenza per poi realizzare i pezzi del gioco nello specifico **/
-	
+
+
 	protected String nome;
 	protected boolean colore;
 	protected boolean vivo;
 	protected Cella posizioneCorrente;
 
-	public Pezzo(String nome,boolean colore, Cella posizioneCorrente) {
+	public Pezzo(String nome, boolean colore, Cella posizioneCorrente) {
 		this.nome = nome;
 		this.colore = colore;
 		this.posizioneCorrente = posizioneCorrente;
@@ -23,36 +26,38 @@ public abstract class Pezzo {
 
 	// --------Metodi di setting --------
 
-	/**  
-	 * setNome imposta il nome del pezzo 
+	/**
+	 * setNome imposta il nome del pezzo
 	 * 
 	 * @param nome
 	 */
-	 void setNome(String nome) {
+	void setNome(String nome) {
 		this.nome = nome;
 	}
 
 	/**
 	 * setColore imposta il colore del pezzo
+	 * 
 	 * @param colore
 	 */
-	
+
 	public void setColore(boolean colore) {
 		this.colore = colore;
 	}
 
 	/**
-	 * setVivo imposta lo stato del pezzo
-	 * se il pezzo è in campo restituisce true , altrimenti false
+	 * setVivo imposta lo stato del pezzo se il pezzo ï¿½ in campo restituisce true ,
+	 * altrimenti false
 	 * 
 	 * @param vivo
 	 */
-	public void setVivo (boolean vivo) {
+	public void setVivo(boolean vivo) {
 		this.vivo = vivo;
 	}
 
 	/**
 	 * setPosizioneCorrente imposta la posizione corrente del pezzo
+	 * 
 	 * @param posizioneCorrente
 	 */
 	public void setPosizioneCorrente(Cella posizioneCorrente) {
@@ -61,7 +66,8 @@ public abstract class Pezzo {
 
 	// --------Metodi di Get--------
 
-	/** getNome restituisce il nome del pezzo
+	/**
+	 * getNome restituisce il nome del pezzo
 	 * 
 	 * @return nome
 	 */
@@ -69,15 +75,17 @@ public abstract class Pezzo {
 		return nome;
 	}
 
-	/** getColore restituisce il colore del pezzo, quindi se il pezzo è bianco o nero
-	 * 	 
+	/**
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo ï¿½ bianco o nero
+	 * 
 	 * @return colore
 	 */
 	public boolean getColore() {
 		return colore;
 	}
-	
-	/** getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
+
+	/**
+	 * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
 	 * 
 	 * 
 	 * @return vivo
@@ -88,12 +96,12 @@ public abstract class Pezzo {
 
 	/**
 	 * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
-	 * @return posizioneCorrente 
+	 * 
+	 * @return posizioneCorrente
 	 */
 	public Cella getPosizioneCorrente() {
 		return posizioneCorrente;
 	}
-
 
 	@Override
 	public String toString() {

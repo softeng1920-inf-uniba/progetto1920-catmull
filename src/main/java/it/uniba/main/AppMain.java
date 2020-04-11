@@ -27,7 +27,6 @@ public final class AppMain {
 	public static void main(final String[] args) {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	
 
 		try {
 			while (true) {
