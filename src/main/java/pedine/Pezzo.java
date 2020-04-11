@@ -1,27 +1,31 @@
 package pedine;
 
 import scacchiera.Cella;
+import it.uniba.main.Colore;
 
 /**
- * Classe Pezzo di tipo astratto
- * Tale classe funge da punto di partenza per poi realizzare i pezzi del gioco nello specifico
+ * Classe Pezzo di tipo astratto Tale classe funge da punto di partenza per poi
+ * realizzare i pezzi del gioco nello specifico
  **/
 public abstract class Pezzo {
 
-
 	protected String nome;
-	protected boolean colore;
+	protected  Colore colore;
 	protected boolean vivo;
+	public String simbolo;
 	protected Cella posizioneCorrente;
 
-	public Pezzo(String nome, boolean colore, Cella posizioneCorrente) {
+	public Pezzo(String nome, Colore colore, Cella posizioneCorrente, String simbolo) {
 		this.nome = nome;
 		this.colore = colore;
 		this.posizioneCorrente = posizioneCorrente;
+		this.simbolo = simbolo;
 		vivo = true;
 	}
 
-	public abstract void disegnapezzo();
+	public void disegnapezzo() {
+		System.out.print("   " + this.simbolo + "   ");
+	}
 	// public abstract void mossevalide();
 
 	// --------Metodi di setting --------
@@ -41,18 +45,25 @@ public abstract class Pezzo {
 	 * @param colore
 	 */
 
-	public void setColore(boolean colore) {
+	public void setColore(Colore colore) {
 		this.colore = colore;
 	}
 
 	/**
-	 * setVivo imposta lo stato del pezzo se il pezzo � in campo restituisce true ,
-	 * altrimenti false
 	 * 
-	 * @param vivo
 	 */
 	public void setVivo(boolean vivo) {
 		this.vivo = vivo;
+	}
+
+	/**
+	 * setSimbolo modifica lo stato del simbolo
+	 * 
+	 * @param simbolo
+	 */
+
+	public void setSimbolo(String simbolo) {
+		this.simbolo = simbolo;
 	}
 
 	/**
@@ -76,11 +87,21 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o nero
+	 * getSimbolo restituisce il simbolo corrente del pezzo
+	 * 
+	 * @return simbolo
+	 */
+	public String getSimbolo() {
+		return simbolo;
+	}
+
+	/**
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
+	 * nero
 	 * 
 	 * @return colore
 	 */
-	public boolean getColore() {
+	public Colore getColore() {
 		return colore;
 	}
 
@@ -105,7 +126,6 @@ public abstract class Pezzo {
 
 	@Override
 	public String toString() {
-		String colore = this.colore ? "Bianco" : "Nero";
 		return String.format(nome + " " + colore);
 	}
 }

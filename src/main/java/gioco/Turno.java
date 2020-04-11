@@ -1,6 +1,7 @@
 package gioco;
 
 import giocatore.Giocatore;
+import it.uniba.main.Colore;
 
 /**
  * Rappresenta il turno per il gioco con i metodi
@@ -12,8 +13,8 @@ public class Turno {
 	private Giocatore giocatoreInAttesa;
 
 	public Turno() {
-		giocatoreInTurno = new Giocatore(true); // true corrisponde al giocatore col colore bianco
-		giocatoreInAttesa = new Giocatore(false); // false corrisponde al giocatore col colore nero
+		giocatoreInTurno = new Giocatore(Colore.bianco); // true corrisponde al giocatore col colore bianco
+		giocatoreInAttesa = new Giocatore(Colore.nero); // false corrisponde al giocatore col colore nero
 	}
 
 	public final void cambioTurno() {

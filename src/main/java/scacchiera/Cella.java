@@ -7,7 +7,7 @@ public final class Cella {
 	private int x;
 	private int y;
 	private boolean occupato;
-	private Pezzo pezzoCorrente;
+	Pezzo pezzoCorrente;
 
 	/** Costuttore */
 	public Cella(final int x, final int y, final Pezzo pezzoCorrente) {
@@ -68,7 +68,7 @@ public final class Cella {
 	}
 
 	/** Restituisce il pezzo che contiene */
-	Pezzo getPezzoCorrente() {
+	public Pezzo getPezzoCorrente() {
 		return pezzoCorrente;
 	}
 

@@ -23,6 +23,7 @@ public final class AppMain {
 	 * * This is the main entry of the application.
 	 *
 	 * @param args The command-line arguments.
+	 * @throws UnsupportedEncodingException
 	 */
 	public static void main(final String[] args) {
 
@@ -46,5 +47,4 @@ public final class AppMain {
 		}
 
 	}
-
 }

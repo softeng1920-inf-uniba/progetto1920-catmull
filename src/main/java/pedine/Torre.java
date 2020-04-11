@@ -1,5 +1,6 @@
 package pedine;
 
+import it.uniba.main.Colore;
 import scacchiera.Cella;
 
 /**
@@ -7,20 +8,8 @@ import scacchiera.Cella;
  */
 public final class Torre extends Pezzo {
 
-	public Torre(final boolean colore, final Cella posizioneCorrente) {
-		super("Regina", colore, posizioneCorrente);
+	public Torre(final Colore colore, final Cella posizioneCorrente, String simbolo) {
+		super("Regina", colore, posizioneCorrente, simbolo);
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public void disegnapezzo() {
-		// TODO Auto-generated method stub
-		char simbolo;
-		if (getColore()) {
-			simbolo = 'R';
-		} else {
-			simbolo = 'r';
-		}
-		System.out.print(" " + simbolo + " ");
 	}
 }

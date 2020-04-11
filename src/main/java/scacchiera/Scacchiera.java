@@ -1,7 +1,9 @@
 package scacchiera;
 
 import java.util.ArrayList;
-import pedine.*;
+
+
+import pedine.Pezzo;
 
 public class Scacchiera {
 
@@ -43,5 +45,4 @@ public class Scacchiera {
 			}
 		}
 	}
-
 }

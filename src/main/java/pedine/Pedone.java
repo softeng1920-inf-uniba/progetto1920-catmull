@@ -1,5 +1,6 @@
 package pedine;
 
+import it.uniba.main.Colore;
 import scacchiera.Cella;
 
 /**
@@ -12,14 +13,13 @@ public final class Pedone extends Pezzo {
 	/**
 	 * Costruttore
 	 */
-	public Pedone(final boolean colore, final Cella posizioneCorrente) {
-		super("Pedone", colore, posizioneCorrente);
+	public Pedone(final Colore colore, final Cella posizioneCorrente, String simbolo) {
+		super("Pedone", colore, posizioneCorrente, simbolo);
 		this.setPrimaMossa(true);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * Restituisce vero se Ã¨ la prima mossa, falso altrimenti
+	 * Restituisce vero se è la prima mossa, falso altrimenti
 	 */
 	public boolean primaMossa() {
 		return this.primaMossa;
@@ -32,18 +32,4 @@ public final class Pedone extends Pezzo {
 		this.primaMossa = primaMossa;
 	}
 
-	@Override
-	/**
-	 * Disegna il pezzo in output
-	 */
-	public void disegnapezzo() {
-		// TODO Auto-generated method stub
-		char simbolo;
-		if (getColore()) {
-			simbolo = 'P';
-		} else {
-			simbolo = 'p';
-		}
-		System.out.print(" " + simbolo + " ");
-	}
 }

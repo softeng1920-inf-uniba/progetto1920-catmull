@@ -1,5 +1,6 @@
 package pedine;
 
+import it.uniba.main.Colore;
 import scacchiera.Cella;
 
 /**
@@ -7,20 +8,9 @@ import scacchiera.Cella;
  */
 public final class Alfiere extends Pezzo {
 
-	public Alfiere(final boolean colore, final Cella posizioneCorrente) {
-		super("Alfiere", colore, posizioneCorrente);
+	public Alfiere(final Colore colore, final Cella posizioneCorrente, String simbolo) {
+		super("Alfiere", colore, posizioneCorrente, simbolo);
 
 	}
 
-	@Override
-	public void disegnapezzo() {
-
-		char simbolo;
-		if (getColore()) {
-			simbolo = 'B';
-		} else {
-			simbolo = 'b';
-		}
-		System.out.print(" " + simbolo + " ");
-	}
 }

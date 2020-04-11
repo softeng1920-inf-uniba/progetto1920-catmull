@@ -4,9 +4,9 @@
 package it.uniba.main;
 
 /**
- * @author Admin
+ * 
  *
  */
-public enum Costanti {
+public enum Colore {
 	nero, bianco
 }
