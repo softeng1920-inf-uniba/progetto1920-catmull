@@ -18,7 +18,9 @@ public class Main {
 				menu=scanner.nextLine();
 	
 				switch(menu) {
-				
+				case "quit" :
+					System.exit(0);
+					
 					default: 
 						break;
 				

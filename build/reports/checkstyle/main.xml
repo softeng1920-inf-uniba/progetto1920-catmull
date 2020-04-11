@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
 <error line="2" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - pedine.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="3" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
@@ -33,7 +33,7 @@
 <error line="61" column="9" severity="error" message="Class &apos;Giocatore&apos; looks like designed for extension (can be subclassed), but the method &apos;stampaPezziMorti&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Giocatore&apos; final or making the method &apos;stampaPezziMorti&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 <error line="65" column="9" severity="error" message="Class &apos;Giocatore&apos; looks like designed for extension (can be subclassed), but the method &apos;stampaMosseGiocate&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Giocatore&apos; final or making the method &apos;stampaMosseGiocate&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\gioco\Main.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Main.java">
 <error line="6" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="6" column="1" severity="error" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
 <error line="12" column="33" severity="error" message="Parameter args should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -46,15 +46,15 @@
 <error line="18" column="38" severity="error" message="&apos;=&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="19" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="20" column="39" severity="error" message="&apos;switch&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="21" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="22" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="23" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="24" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="26" column="26" severity="error" message="&apos;catch&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="26" column="26" severity="error" message="&apos;}&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="26" column="31" severity="error" message="&apos;catch&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="27" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="26" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
+<error line="28" column="26" severity="error" message="&apos;catch&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="28" column="26" severity="error" message="&apos;}&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="28" column="31" severity="error" message="&apos;catch&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="29" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\gioco\Turno.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Turno.java">
 <error line="2" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - giocatore.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="4" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="5" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
@@ -65,7 +65,7 @@
 <error line="14" column="30" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="19" column="5" severity="error" message="Class &apos;Turno&apos; looks like designed for extension (can be subclassed), but the method &apos;getGiocatoreInTurno&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Turno&apos; final or making the method &apos;getGiocatoreInTurno&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Alfiere.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Alfiere.java">
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="6" column="1" severity="error" message="&apos;{&apos; at column 1 should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
 <error line="8" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
@@ -83,7 +83,7 @@
 <error line="18" column="46" severity="error" message="&apos;+&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="18" column="47" severity="error" message="&apos;+&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Cavallo.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Cavallo.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="6" column="1" severity="error" message="&apos;{&apos; at column 1 should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
@@ -102,7 +102,7 @@
 <error line="18" column="46" severity="error" message="&apos;+&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="18" column="47" severity="error" message="&apos;+&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Pedone.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Pedone.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="6" column="1" severity="error" message="&apos;{&apos; at column 1 should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
@@ -131,7 +131,7 @@
 <error line="29" column="46" severity="error" message="&apos;+&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="29" column="47" severity="error" message="&apos;+&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Pezzo.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Pezzo.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="4" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - scacchiera.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="6" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
@@ -188,7 +188,7 @@
 <error line="70" column="39" severity="error" message="&apos;+&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="71" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Re.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Re.java">
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="5" column="30" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="7" column="19" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -202,7 +202,7 @@
 <error line="15" column="45" severity="error" message="&apos;+&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="15" column="46" severity="error" message="&apos;+&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Regina.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Regina.java">
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="5" column="34" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="7" column="23" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -216,7 +216,7 @@
 <error line="15" column="45" severity="error" message="&apos;+&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="15" column="46" severity="error" message="&apos;+&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Torre.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Torre.java">
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="5" column="33" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="7" column="22" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -230,7 +230,7 @@
 <error line="15" column="45" severity="error" message="&apos;+&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 <error line="15" column="46" severity="error" message="&apos;+&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="6" column="13" severity="error" message="Variable &apos;x&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 <error line="7" column="13" severity="error" message="Variable &apos;y&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
@@ -301,7 +301,7 @@
 <error line="64" column="5" severity="error" message="Class &apos;Cella&apos; looks like designed for extension (can be subclassed), but the method &apos;rimuoviPezzoCorrente&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Cella&apos; final or making the method &apos;rimuoviPezzoCorrente&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 <error line="64" column="39" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
 <error line="3" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - pedine.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="7" column="13" severity="error" message="Variable &apos;numerocolonne&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
