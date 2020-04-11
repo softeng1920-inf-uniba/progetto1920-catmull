@@ -9,7 +9,7 @@ public class Scacchiera {
 	private static final int numerorighe = 8;
 	private static final int numeropezzi = 32;
 
-	public ArrayList<Pezzo> pezzidelgioco;
+	public ArrayList<Pezzo> pezzi_gioco;
 
 	Cella[][] scacchiera;
 
@@ -35,7 +35,7 @@ public class Scacchiera {
 
 	public Scacchiera() {
 
-		pezzidelgioco = new ArrayList<Pezzo>();
+		pezzi_gioco = new ArrayList<Pezzo>();
 		scacchiera = new Cella[numerocolonne][numerorighe];
 		for (int i = 0; i < getNumeroColonne(); i++) {
 			for (int j = 0; j < getNumeroRighe(); j++) {

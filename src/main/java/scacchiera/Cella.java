@@ -20,7 +20,7 @@ public final class Cella {
 	}
 
 	/** Disegna il pezzo che contiene in output */
-	void stampapezzo() {
+	void stampaPezzo() {
 		if (pezzoCorrente != null) {
 			pezzoCorrente.disegnapezzo();
 		} else {
@@ -75,14 +75,16 @@ public final class Cella {
 	// ------Metodi per aggiugere o togliere pezzi dalla scacchiera
 
 	/** Aggiunge un pezzo alla cella */
-	public void aggiugiPezzo(final Pezzo nuovoPezzo) {
-		pezzoCorrente = nuovoPezzo;
-		occupato = true;
+	public void aggiungiPezzo(final Pezzo nuovoPezzo) {
+
+		setPezzoCorrente(nuovoPezzo);
+		setOccupato(true);
+
 	}
 
 	/** Rimuove il pezzo nella cella */
 	public void rimuoviPezzoCorrente() {
-		occupato = false;
-		pezzoCorrente = null;
+		setOccupato(false);
+		setPezzoCorrente(null);
 	}
 }
