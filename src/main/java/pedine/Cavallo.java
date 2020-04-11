@@ -1,8 +1,9 @@
+/** Classe per rappresentere il sottotipo di pezzo chiamato Cavallo */
 package pedine;
 
 import scacchiera.Cella;
 
-public class Cavallo extends Pezzo {
+public final class Cavallo extends Pezzo {
 
 	public Cavallo(boolean colore, Cella posizioneCorrente) {
 		super("Cavallo", colore, posizioneCorrente);

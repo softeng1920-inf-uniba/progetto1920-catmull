@@ -2,14 +2,17 @@ package pedine;
 
 import scacchiera.Cella;
 
-public class Re extends Pezzo {
+/** Classe per rappresentere il sottotipo di pezzo chiamato Re */
+public final class Re extends Pezzo {
 
-	public Re(boolean colore, Cella posizioneCorrente) {
+	/** Costruttore */
+	public Re(final boolean colore, final Cella posizioneCorrente) {
 		super("Re", colore, posizioneCorrente);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
+	/** Disegna il pezzo in output */
 	public void disegnapezzo() {
 		// TODO Auto-generated method stub
 		char simbolo;

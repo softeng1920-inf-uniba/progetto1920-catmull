@@ -2,25 +2,30 @@ package pedine;
 
 import scacchiera.Cella;
 
-public class Pedone extends Pezzo {
+/** Classe per rappresentere il sottotipo di pezzo chiamato Pedone */
+public final class Pedone extends Pezzo {
 
 	private boolean primaMossa;
 
-	public Pedone(boolean colore, Cella posizioneCorrente) {
+	/** Costruttore */
+	public Pedone(final boolean colore, final Cella posizioneCorrente) {
 		super("Pedone", colore, posizioneCorrente);
 		this.primaMossa = true;
 		// TODO Auto-generated constructor stub
 	}
 
+	/** Restituisce vero se è la prima mossa, falso altrimenti */
 	public boolean primaMossa() {
 		return this.primaMossa;
 	}
 
-	public void primaMossa(boolean primaMossa) {
+	/** Aggiorna la variabile prima mossa */
+	public void primaMossa(final boolean primaMossa) {
 		this.primaMossa = primaMossa;
 	}
 
 	@Override
+	/** Disegna il pezzo in output */
 	public void disegnapezzo() {
 		// TODO Auto-generated method stub
 		char simbolo;
