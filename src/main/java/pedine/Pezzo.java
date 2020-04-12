@@ -111,7 +111,7 @@ public abstract class Pezzo {
 	 * 
 	 * @return vivo
 	 */
-	public boolean getVivo() {
+	public boolean isVivo() {
 		return vivo;
 	}
 

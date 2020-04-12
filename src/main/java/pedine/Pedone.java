@@ -13,13 +13,13 @@ public final class Pedone extends Pezzo {
 	/**
 	 * Costruttore
 	 */
-	public Pedone(final Colore colore, final Cella posizioneCorrente, String simbolo) {
+	public Pedone(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
 		super("Pedone", colore, posizioneCorrente, simbolo);
 		this.setPrimaMossa(true);
 	}
 
 	/**
-	 * Restituisce vero se è la prima mossa, falso altrimenti
+	 * Restituisce vero se ï¿½ la prima mossa, falso altrimenti
 	 */
 	public boolean primaMossa() {
 		return this.primaMossa;

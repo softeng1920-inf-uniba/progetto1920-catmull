@@ -7,7 +7,7 @@ public final class Cella {
 	private int x;
 	private int y;
 	private boolean occupato;
-	Pezzo pezzoCorrente;
+	private Pezzo pezzoCorrente;
 
 	/** Costuttore */
 	public Cella(final int x, final int y, final Pezzo pezzoCorrente) {
@@ -87,4 +87,28 @@ public final class Cella {
 		setOccupato(false);
 		setPezzoCorrente(null);
 	}
+
+	/**
+	 * @param char coordX Carattere in minuscolo da convertire in intero
+	 * @return int Valore necessario per la scacchiera compreso fra 0 e 7
+	 */
+	public static int coordXinInt(char coordX) {
+
+		int a = 97; // Corrispondenza del codice ascii della lettera 'a'
+		return ((int) coordX - a);
+
+	}
+
+	/**
+	 * Restituisce il corrispondente valore della scacchiera
+	 *
+	 * @param int coordY Compreso fra 1 e 8
+	 * @return int Coordinata convertita in intero, compreso tra 0 e 7
+	 */
+	public static int coordYinInt(int coordY) {
+
+		return Math.abs(coordY - 8);
+
+	}
+
 }

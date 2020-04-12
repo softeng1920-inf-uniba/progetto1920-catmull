@@ -79,36 +79,4 @@ public class Giocatore {
 		return colore;
 	}
 
-	/**
-	 * Restituisce i pezzi morti del giocatore.
-	 * 
-	 * @return vettore dei pezzi morti.
-	 */
-	public ArrayList<Pezzo> getPezziMorti() {
-		return pezziMorti;
-	}
-
-	/**
-	 * Restituisce la storia delle mosse giocate dal giocatore.
-	 * 
-	 * @return vettore delle mosse giocate.
-	 */
-	public ArrayList<String> getMosseGiocate() {
-		return mosseGiocate;
-	}
-
-	/**
-	 * Stampa a video l'elenco dei pezzi morti del giocatore.
-	 */
-	public void stampaPezziMorti() {
-		System.out.println(pezziMorti.toString());
-	}
-
-	/**
-	 * Stampa a video l'elenco delle mosse giocate del giocatore.
-	 */
-	public void stampaMosseGiocate() {
-		System.out.println(mosseGiocate);
-	}
-
 }

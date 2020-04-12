@@ -7,8 +7,8 @@ import scacchiera.Cella;
 public final class Re extends Pezzo {
 
 	/** Costruttore */
-	public Re(final Colore colore, final Cella posizioneCorrente,String simbolo) {
-		super("Re",colore, posizioneCorrente,simbolo);
+	public Re(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
+		super("Re", colore, posizioneCorrente, simbolo);
 		// TODO Auto-generated constructor stub
 	}
 

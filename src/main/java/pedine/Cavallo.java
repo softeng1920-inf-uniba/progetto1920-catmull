@@ -10,7 +10,7 @@ import scacchiera.Cella;
  */
 public final class Cavallo extends Pezzo {
 
-	public Cavallo(final Colore colore, final Cella posizioneCorrente, String simbolo) {
+	public Cavallo(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
 		super("Cavallo", colore, posizioneCorrente, simbolo);
 	}
 
