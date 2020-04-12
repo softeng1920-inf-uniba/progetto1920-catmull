@@ -31,35 +31,34 @@ public class Giocatore {
 	 * 
 	 * @param colore
 	 */
-	public Giocatore(Colore colore) {
+	public Giocatore(final Colore colore) {
 
 		setColore(colore);
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Inserire il nome del giocatore con le pedine (" + colore + ")");
-		String nome = "";
+		String nome;
 
 		try {
-			nome = br.readLine();
 
+			nome = br.readLine();
+			setNome(nome);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		setNome(nome);
-
-		pezziMorti = new ArrayList<Pezzo>();
-		mosseGiocate = new ArrayList<String>();
+		// pezziMorti = new ArrayList<Pezzo>();
+		// mosseGiocate = new ArrayList<String>();
 
 	}
 
 	/**
-	 * Assegna il nome al campo nome del Giocatore.
+	 * Assegna il nome al campo nome del Giocatore. S
 	 * 
 	 * @param nome
 	 */
-	public void setNome(String nome) {
+	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
@@ -68,7 +67,7 @@ public class Giocatore {
 	 * 
 	 * @param colore
 	 */
-	public void setColore(Colore colore) {
+	public void setColore(final Colore colore) {
 		this.colore = colore;
 	}
 

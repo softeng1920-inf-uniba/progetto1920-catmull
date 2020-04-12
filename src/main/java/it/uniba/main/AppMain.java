@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
- * 
+ *
  * <b>DO NOT RENAME</b>
  */
 public final class AppMain {
@@ -31,14 +31,21 @@ public final class AppMain {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+		System.out.println("Benvenuto nel gioco degli scacchi. \n");
+
 		try {
 			while (true) {
-				String menu = br.readLine();
+
+				System.out.println("--- Menu principale --- \n");
+
+				String menu = "";
+				menu = br.readLine();
 				switch (menu) {
-				case "":
+				case "play":
+					c.inizializzaPartita();
 					break;
 				default:
-
+					System.out.println("Comando non trovato. Riprova \n");
 				}
 			}
 		} catch (IOException e) {
