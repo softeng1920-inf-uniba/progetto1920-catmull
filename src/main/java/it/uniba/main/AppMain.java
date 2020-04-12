@@ -16,7 +16,7 @@ public final class AppMain {
 	 * Private constructor. Change if needed.
 	 */
 	private AppMain() {
-		
+
 	}
 
 	/**
@@ -28,18 +28,27 @@ public final class AppMain {
 	public static void main(final String[] args) {
 
 		Controller c = new Controller();
-		
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("Benvenuto nel gioco degli scacchi. \n");
 
 		try {
 			while (true) {
+
+				System.out.println("--- Menu principale --- \n");
+
+				System.out.println("Inserisci uno tra i comandi disponibili: \n");
+				System.out.println("- play\n");
+
 				String menu = "";
 				menu = br.readLine();
 				switch (menu) {
-
+				case "play":
+					c.inizializzaPartita();
 					break;
 				default:
-
+					System.out.println("Comando non trovato. Riprova \n");
 				}
 
 			}

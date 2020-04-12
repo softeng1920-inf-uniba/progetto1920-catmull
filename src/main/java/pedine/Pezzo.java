@@ -9,13 +9,13 @@ import it.uniba.main.Colore;
  **/
 public abstract class Pezzo {
 
-	protected String nome;
-	protected  Colore colore;
-	protected boolean vivo;
-	public String simbolo;
-	protected Cella posizioneCorrente;
+	private String nome;
+	private Colore colore;
+	private boolean vivo;
+	private String simbolo;
+	private Cella posizioneCorrente;
 
-	public Pezzo(String nome, Colore colore, Cella posizioneCorrente, String simbolo) {
+	public Pezzo(final String nome, final Colore colore, final Cella posizioneCorrente, final String simbolo) {
 		this.nome = nome;
 		this.colore = colore;
 		this.posizioneCorrente = posizioneCorrente;
@@ -23,7 +23,7 @@ public abstract class Pezzo {
 		vivo = true;
 	}
 
-	public void disegnapezzo() {
+	public final void disegnapezzo() {
 		System.out.print("   " + this.simbolo + "   ");
 	}
 	// public abstract void mossevalide();
@@ -35,7 +35,7 @@ public abstract class Pezzo {
 	 * 
 	 * @param nome
 	 */
-	void setNome(String nome) {
+	void setNome(final String nome) {
 		this.nome = nome;
 	}
 
@@ -45,14 +45,14 @@ public abstract class Pezzo {
 	 * @param colore
 	 */
 
-	public void setColore(Colore colore) {
+	public void setColore(final Colore colore) {
 		this.colore = colore;
 	}
 
 	/**
 	 * 
 	 */
-	public void setVivo(boolean vivo) {
+	public void setVivo(final boolean vivo) {
 		this.vivo = vivo;
 	}
 
@@ -62,7 +62,7 @@ public abstract class Pezzo {
 	 * @param simbolo
 	 */
 
-	public void setSimbolo(String simbolo) {
+	public void setSimbolo(final String simbolo) {
 		this.simbolo = simbolo;
 	}
 
@@ -71,7 +71,7 @@ public abstract class Pezzo {
 	 * 
 	 * @param posizioneCorrente
 	 */
-	public void setPosizioneCorrente(Cella posizioneCorrente) {
+	public void setPosizioneCorrente(final Cella posizioneCorrente) {
 		this.posizioneCorrente = posizioneCorrente;
 	}
 
@@ -96,8 +96,7 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
-	 * nero
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o nero
 	 * 
 	 * @return colore
 	 */
@@ -125,7 +124,7 @@ public abstract class Pezzo {
 	}
 
 	@Override
-	public String toString() {
+	public final String toString() {
 		return String.format(nome + " " + colore);
 	}
 }
