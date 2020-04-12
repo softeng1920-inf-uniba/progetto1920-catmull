@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
-<error line="33" column="26" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="33" column="33" severity="error" message="&apos;colore&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="51" column="29" severity="error" message="Parameter nome should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="51" column="36" severity="error" message="&apos;nome&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="60" column="31" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="60" column="38" severity="error" message="&apos;colore&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
+<error line="34" column="26" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="34" column="33" severity="error" message="&apos;colore&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="41" column="24" severity="error" message="&apos;nome&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="62" column="29" severity="error" message="Parameter nome should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="62" column="36" severity="error" message="&apos;nome&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="71" column="31" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="71" column="38" severity="error" message="&apos;colore&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\gioco\Turno.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\gioco\Turno.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\it\uniba\main\AppMain.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\AppMain.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\it\uniba\main\Colore.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\Colore.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\it\uniba\main\Controller.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\Controller.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\pedine\Alfiere.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Alfiere.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\pedine\Cavallo.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Cavallo.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\pedine\Pedone.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Pedone.java">
 <error line="31" column="49" severity="error" message="&apos;primaMossa&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\pedine\Pezzo.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Pezzo.java">
 <error line="12" column="26" severity="error" message="Variable &apos;nome&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 <error line="13" column="27" severity="error" message="Variable &apos;colore&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 <error line="14" column="27" severity="error" message="Variable &apos;vivo&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
@@ -50,13 +51,13 @@
 <error line="74" column="48" severity="error" message="&apos;posizioneCorrente&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="127" column="9" severity="error" message="Class &apos;Pezzo&apos; looks like designed for extension (can be subclassed), but the method &apos;toString&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Pezzo&apos; final or making the method &apos;toString&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\pedine\Re.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Re.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\pedine\Regina.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Regina.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\pedine\Torre.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Torre.java">
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
 <error line="13" column="32" severity="error" message="&apos;x&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="13" column="45" severity="error" message="&apos;y&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="13" column="60" severity="error" message="&apos;pezzoCorrente&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
@@ -67,15 +68,13 @@
 <error line="108" column="39" severity="error" message="Parameter coordY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="110" column="42" severity="error" message="&apos;8&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
-<file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
+<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
+<error line="3" column="8" severity="error" message="Unused import - java.util.ArrayList." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 <error line="4" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - pedine.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="11" column="34" severity="error" message="Name &apos;numerocolonne&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
 <error line="12" column="34" severity="error" message="Name &apos;numerorighe&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
 <error line="13" column="34" severity="error" message="Name &apos;numeropezzi&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
-<error line="15" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
-<error line="15" column="26" severity="error" message="Name &apos;pezzi_gioco&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
-<error line="15" column="26" severity="error" message="Variable &apos;pezzi_gioco&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
-<error line="42" column="9" severity="error" message="Class &apos;Scacchiera&apos; looks like designed for extension (can be subclassed), but the method &apos;getCella&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Scacchiera&apos; final or making the method &apos;getCella&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="46" column="36" severity="error" message="Parameter nuovaCella should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="39" column="9" severity="error" message="Class &apos;Scacchiera&apos; looks like designed for extension (can be subclassed), but the method &apos;getCella&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Scacchiera&apos; final or making the method &apos;getCella&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="43" column="36" severity="error" message="Parameter nuovaCella should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
 </checkstyle>

@@ -12,13 +12,10 @@ public class Scacchiera {
 	private static final int numerorighe = 8;
 	private static final int numeropezzi = 32;
 
-	ArrayList<Pezzo> pezzi_gioco; // TODO: inserire metodi di accesso
-
 	private Cella[][] scacchiera;
 
 	public Scacchiera() {
 
-		pezzi_gioco = new ArrayList<Pezzo>(getNumeroPezzi());
 		scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 		for (int i = 0; i < getNumeroColonne(); i++) {
 			for (int j = 0; j < getNumeroRighe(); j++) {

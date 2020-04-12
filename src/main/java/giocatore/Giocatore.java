@@ -11,8 +11,8 @@ import pedine.Pezzo;
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
  * possono essere solo due giocatori. Al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi morti e mosse giocate.
- * Il primo è bianco e il secondo nero: al giocatore che fa la prima mossa sarà
- * assegnato il colore bianco.
+ * Il primo è bianco e il secondo nero: al giocatore che fa la prima mossa
+ * sarà assegnato il colore bianco.
  *
  */
 public class Giocatore {
@@ -26,8 +26,8 @@ public class Giocatore {
 	 * Costruttore della classe Giocatore che assegna al campo colore il nome del
 	 * colore dei pezzi. Il giocatore che gioca il primo turno è bianco, quello
 	 * successivo è nero. Nel vettore "pezziMorti" ci saranno conservati tutti i
-	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sarà la storia delle
-	 * mosse giocate dal giocatore.
+	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sarà la storia
+	 * delle mosse giocate dal giocatore.
 	 * 
 	 * @param colore
 	 */

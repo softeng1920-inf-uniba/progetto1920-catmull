@@ -16,7 +16,7 @@ public final class AppMain {
 	 * Private constructor. Change if needed.
 	 */
 	private AppMain() {
-		
+
 	}
 
 	/**
@@ -28,20 +28,18 @@ public final class AppMain {
 	public static void main(final String[] args) {
 
 		Controller c = new Controller();
-		
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		try {
 			while (true) {
-				String menu = "";
-				menu = br.readLine();
+				String menu = br.readLine();
 				switch (menu) {
-
+				case "":
 					break;
 				default:
 
 				}
-
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
