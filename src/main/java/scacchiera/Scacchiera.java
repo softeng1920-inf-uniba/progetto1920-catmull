@@ -1,6 +1,7 @@
 package scacchiera;
 
 import java.util.ArrayList;
+import pedine.*;
 
 /**
  * Rappresentazione astratta della scacchiera
