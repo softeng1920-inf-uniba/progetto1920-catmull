@@ -16,7 +16,7 @@ public final class AppMain {
 	 * Private constructor. Change if needed.
 	 */
 	private AppMain() {
-
+		
 	}
 
 	/**
@@ -27,6 +27,8 @@ public final class AppMain {
 	 */
 	public static void main(final String[] args) {
 
+		Controller c = new Controller();
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		try {
@@ -34,7 +36,7 @@ public final class AppMain {
 				String menu = "";
 				menu = br.readLine();
 				switch (menu) {
-				case "":
+
 					break;
 				default:
 
