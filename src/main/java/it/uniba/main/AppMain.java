@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 74cc8d0... Miglioria metodo di stampa
 /**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
@@ -29,12 +33,16 @@ public final class AppMain {
 	public static void main(final String[] args) throws IOException {
 
 		Controller c = new Controller();
+<<<<<<< HEAD
 		Menu m = new Menu();
+=======
+>>>>>>> 74cc8d0... Miglioria metodo di stampa
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   		System.out.println("Benvenuto nel gioco degli scacchi. \n");
     	System.out.println("--- Menu principale --- \n");
 
 			while (true) {
+<<<<<<< HEAD
 				String nomeMenu = br.readLine();
 		
 				if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
@@ -49,6 +57,15 @@ public final class AppMain {
 					c.inizializzaPartita();
 				} else {
 					System.out.println("Comando non riconosciuto");
+=======
+				String menu = br.readLine();
+				switch (menu) {
+				case "":
+					break;
+
+				default:
+
+>>>>>>> 74cc8d0... Miglioria metodo di stampa
 				}
 			}
     
