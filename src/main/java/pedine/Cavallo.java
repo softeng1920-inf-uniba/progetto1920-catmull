@@ -13,9 +13,9 @@ public final class Cavallo extends Pezzo {
 	public Cavallo(final Colore colore, final Cella posizioneCorrente) {
 		super("Cavallo", colore, posizioneCorrente);
 		if (colore == Colore.nero) {
-			simbolo = '♞';
+			simbolo = '\u265e';
 		} else {
-			simbolo = '♘';
+			simbolo = '\u2658';
 		}
 	}
 

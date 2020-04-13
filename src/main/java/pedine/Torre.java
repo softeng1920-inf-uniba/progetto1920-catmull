@@ -11,9 +11,9 @@ public final class Torre extends Pezzo {
 	public Torre(final Colore colore, final Cella posizioneCorrente) {
 		super("Torre", colore, posizioneCorrente);
 		if (colore == Colore.nero) {
-			simbolo = '♜';
+			simbolo = '\u265c';
 		} else {
-			simbolo = '♖';
+			simbolo = '\u2656';
 		}
 		// TODO Auto-generated constructor stub
 	}

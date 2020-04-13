@@ -50,7 +50,7 @@ public class Scacchiera {
 		scacchiera[x][y] = nuovaCella;
 	}
 
-	public void InizializzaScacchiera() {
+	public final void InizializzaScacchiera() {
 		Pezzo pedinadamettere;
 
 		// PEDONI NERI

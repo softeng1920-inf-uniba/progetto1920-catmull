@@ -10,9 +10,9 @@ public final class Regina extends Pezzo {
 	public Regina(final Colore colore, final Cella posizioneCorrente) {
 		super("Regina", colore, posizioneCorrente);
 		if (colore == Colore.nero) {
-			simbolo = '♛';
+			simbolo = '\u265b';
 		} else {
-			simbolo = '♕';
+			simbolo = '\u2655';
 		}
 		// TODO Auto-generated constructor stub
 	}

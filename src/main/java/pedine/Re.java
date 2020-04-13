@@ -10,9 +10,9 @@ public final class Re extends Pezzo {
 	public Re(final Colore colore, final Cella posizioneCorrente) {
 		super("Re", colore, posizioneCorrente);
 		if (colore == Colore.nero) {
-			simbolo = '♔';
+			simbolo = '\u265a';
 		} else {
-			simbolo = '♚';
+			simbolo = '\u2654';
 		}
 		// TODO Auto-generated constructor stub
 	}

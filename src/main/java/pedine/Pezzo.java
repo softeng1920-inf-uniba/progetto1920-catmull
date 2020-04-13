@@ -27,7 +27,7 @@ public abstract class Pezzo {
 	 * disegnapezzo consente di rappresentare il pezzo nella scacchiera
 	 */
 	public void disegnapezzo() {
-		System.out.print(this.simbolo + "  ");
+		System.out.print(this.simbolo);
 	}
 	// public abstract void mossevalide();
 

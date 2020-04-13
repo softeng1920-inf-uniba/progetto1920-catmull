@@ -11,9 +11,9 @@ public final class Alfiere extends Pezzo {
 	public Alfiere(final Colore colore, final Cella posizioneCorrente) {
 		super("Alfiere", colore, posizioneCorrente);
 		if (colore == Colore.nero) {
-			simbolo = '♝';
+			simbolo = '\u265d';
 		} else {
-			simbolo = '♗';
+			simbolo = '\u2657';
 		}
 	}
 

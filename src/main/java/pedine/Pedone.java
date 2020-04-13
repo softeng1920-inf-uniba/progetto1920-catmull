@@ -17,9 +17,9 @@ public final class Pedone extends Pezzo {
 		super("Pedone", colore, posizioneCorrente);
 		this.setPrimaMossa(true);
 		if (colore == Colore.nero) {
-			simbolo = '♟';
+			simbolo = '\u265f';
 		} else {
-			simbolo = '♙';
+			simbolo = '\u2659';
 		}
 	}
 
