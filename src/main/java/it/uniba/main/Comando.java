@@ -2,18 +2,34 @@ package it.uniba.main;
 
 public class Comando {
 
-	String nome;
-	String descrizione;
+	private String nome;
+	private String descrizione;
 
+	/**
+	 * Metodo Costruttore
+	 * 
+	 * @param nome
+	 * @param descrizione
+	 */
 	Comando(String nome, String descrizione) {
 		setNome(nome);
 		setDescrizione(descrizione);
 	}
 
+	/**
+	 * Metodo che permette di modificare il nome del comando
+	 * 
+	 * @param nome
+	 */
 	void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * Metodo che permette di modificare la descrizione del comando
+	 * 
+	 * @param descrizione
+	 */
 	void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
@@ -24,5 +40,13 @@ public class Comando {
 
 	String getDescrizione() {
 		return descrizione;
+	}
+
+	/**
+	 * Metodo che permette di visualizzarre i comandi
+	 */
+	@Override
+	public String toString() {
+		return String.format(nome + " " + descrizione);
 	}
 }
