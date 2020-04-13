@@ -23,6 +23,9 @@ public abstract class Pezzo {
 		vivo = true;
 	}
 
+	/**
+	 * disegnapezzo consente di rappresentare il pezzo nella scacchiera
+	 */
 	public void disegnapezzo() {
 		System.out.print("   " + this.simbolo + "   ");
 	}
@@ -50,7 +53,7 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * 
+	 * setVivo riporta lo stato del pezzo
 	 */
 	public void setVivo(boolean vivo) {
 		this.vivo = vivo;
@@ -124,6 +127,9 @@ public abstract class Pezzo {
 		return posizioneCorrente;
 	}
 
+	/**
+	 * toString consente di rappresentare un oggetto come una stringa
+	 */
 	@Override
 	public String toString() {
 		return String.format(nome + " " + colore);
