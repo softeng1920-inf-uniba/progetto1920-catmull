@@ -23,28 +23,32 @@ public final class AppMain {
 	 * * This is the main entry of the application.
 	 *
 	 * @param args The command-line arguments.
+	 * @throws IOException 
 	 * @throws UnsupportedEncodingException
 	 */
-	public static void main(final String[] args) {
+	public static void main(final String[] args) throws IOException {
 
 		Controller c = new Controller();
+		Menu m = new Menu();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		try {
 			while (true) {
-				String menu = br.readLine();
-				switch (menu) {
-				case "":
-					break;
-				default:
-
+				String nomeMenu = br.readLine();
+		
+				if (nomeMenu.equals(m.help().getNome())) {
+					//METODO STAMPA COMANDI
+				} else if (nomeMenu.equals(m.board().getNome())) {
+					//METODO STAMPA SCACCHIERA
+				} else if (nomeMenu.equals(m.quit().getNome())) {
+					//METODO CHIUDI IL GIOCO
+				} else if (nomeMenu.equals(m.play().getNome())) {
+					//METODO INIZIA PARTITA
+				} else {
+					System.out.println("Comando non riconosciuto");
 				}
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 
 	}
 }
