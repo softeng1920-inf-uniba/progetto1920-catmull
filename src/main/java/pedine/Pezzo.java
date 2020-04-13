@@ -1,7 +1,7 @@
 package pedine;
 
-import scacchiera.Cella;
 import it.uniba.main.Colore;
+import scacchiera.Cella;
 
 /**
  * Classe Pezzo di tipo astratto Tale classe funge da punto di partenza per poi
@@ -9,24 +9,27 @@ import it.uniba.main.Colore;
  **/
 public abstract class Pezzo {
 
-	private String nome;
-	private Colore colore;
-	private boolean vivo;
-	private String simbolo;
-	private Cella posizioneCorrente;
+	protected String nome;
+	protected Colore colore;
+	protected boolean vivo;
+	public char simbolo;
+	protected Cella posizioneCorrente;
 
-	public Pezzo(final String nome, final Colore colore, final Cella posizioneCorrente, final String simbolo) {
-		this.nome = nome;
-		this.colore = colore;
-		this.posizioneCorrente = posizioneCorrente;
-		this.simbolo = simbolo;
+	public Pezzo(String n, Colore c, Cella pC) {
+		this.nome = n;
+		this.colore = c;
+		this.posizioneCorrente = pC;
+		this.simbolo = ' ';
 		vivo = true;
 	}
 
-	// public abstract void mossevalide();
-	public final void disegnapezzo() {
-		System.out.print("   " + this.simbolo + "   ");
+	/**
+	 * disegnapezzo consente di rappresentare il pezzo nella scacchiera
+	 */
+	public void disegnapezzo() {
+		System.out.print(this.simbolo);
 	}
+	// public abstract void mossevalide();
 
 	// --------Metodi di setting --------
 
@@ -35,8 +38,8 @@ public abstract class Pezzo {
 	 *
 	 * @param nome
 	 */
-	void setNome(final String nome) {
-		this.nome = nome;
+	void setNome(String n) {
+		this.nome = n;
 	}
 
 	/**
@@ -45,15 +48,15 @@ public abstract class Pezzo {
 	 * @param colore
 	 */
 
-	public void setColore(final Colore colore) {
-		this.colore = colore;
+	public void setColore(Colore c) {
+		this.colore = c;
 	}
 
 	/**
 	 * setVivo riporta lo stato del pezzo
 	 */
-	public void setVivo(final boolean vivo) {
-		this.vivo = vivo;
+	public void setVivo(boolean v) {
+		this.vivo = v;
 	}
 
 	/**
@@ -62,8 +65,8 @@ public abstract class Pezzo {
 	 * @param simbolo
 	 */
 
-	public void setSimbolo(final String simbolo) {
-		this.simbolo = simbolo;
+	public void setSimbolo(char s) {
+		this.simbolo = s;
 	}
 
 	/**
@@ -71,8 +74,8 @@ public abstract class Pezzo {
 	 *
 	 * @param posizioneCorrente
 	 */
-	public void setPosizioneCorrente(final Cella posizioneCorrente) {
-		this.posizioneCorrente = posizioneCorrente;
+	public void setPosizioneCorrente(Cella pC) {
+		this.posizioneCorrente = pC;
 	}
 
 	// --------Metodi di Get--------
@@ -91,14 +94,14 @@ public abstract class Pezzo {
 	 *
 	 * @return simbolo
 	 */
-	public String getSimbolo() {
+	public char getSimbolo() {
 		return simbolo;
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo è bianco o
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
 	 * nero
-	 * 
+	 *
 	 * @return colore
 	 */
 	public Colore getColore() {
@@ -128,7 +131,8 @@ public abstract class Pezzo {
 	 * toString consente di rappresentare un oggetto come una stringa
 	 */
 	@Override
-	public final String toString() {
-		return String.format(nome + " " + colore + " " + simbolo);
+	public String toString() {
+		return String.format(nome + " " + colore);
 	}
+
 }

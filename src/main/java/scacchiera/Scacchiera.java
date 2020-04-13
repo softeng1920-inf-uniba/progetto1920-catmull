@@ -1,13 +1,12 @@
 package scacchiera;
 
+import it.uniba.main.Colore;
+import pedine.Alfiere;
+import pedine.Cavallo;
 import pedine.Pedone;
 import pedine.Re;
-import pedine.Alfiere;
 import pedine.Regina;
 import pedine.Torre;
-import pedine.Cavallo;
-
-import it.uniba.main.Colore;
 
 /**
  * Rappresentazione astratta della scacchiera
@@ -56,57 +55,71 @@ public class Scacchiera {
 
 		// Inizializzazione della torre
 		getCella(Cella.coordXinInt('a'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Torre(Colore.bianco, getCella(Cella.coordXinInt('a'), Cella.coordYinInt(1)), "\u2656"));
+				new Torre(Colore.bianco, getCella(Cella.coordXinInt('a'), Cella.coordYinInt(1))));
 		getCella(Cella.coordXinInt('h'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Torre(Colore.bianco, getCella(Cella.coordXinInt('h'), Cella.coordYinInt(1)), "\u2656"));
+				new Torre(Colore.bianco, getCella(Cella.coordXinInt('h'), Cella.coordYinInt(1))));
 
 		getCella(Cella.coordXinInt('a'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Torre(Colore.nero, getCella(Cella.coordXinInt('a'), Cella.coordYinInt(8)), "\u265C"));
+				new Torre(Colore.nero, getCella(Cella.coordXinInt('a'), Cella.coordYinInt(8))));
 		getCella(Cella.coordXinInt('h'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Torre(Colore.nero, getCella(Cella.coordXinInt('h'), Cella.coordYinInt(8)), "\u265C"));
+				new Torre(Colore.nero, getCella(Cella.coordXinInt('h'), Cella.coordYinInt(8))));
 
 		// Inizializzazione del cavallo
 		getCella(Cella.coordXinInt('b'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('b'), Cella.coordYinInt(1)), "\u2658"));
+				new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('b'), Cella.coordYinInt(1))));
 		getCella(Cella.coordXinInt('g'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('g'), Cella.coordYinInt(1)), "\u2658"));
+				new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('g'), Cella.coordYinInt(1))));
 
 		getCella(Cella.coordXinInt('b'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Cavallo(Colore.nero, getCella(Cella.coordXinInt('b'), Cella.coordYinInt(8)), "\u265e"));
+				new Cavallo(Colore.nero, getCella(Cella.coordXinInt('b'), Cella.coordYinInt(8))));
 		getCella(Cella.coordXinInt('g'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Cavallo(Colore.nero, getCella(Cella.coordXinInt('g'), Cella.coordYinInt(8)), "\u265e"));
+				new Cavallo(Colore.nero, getCella(Cella.coordXinInt('g'), Cella.coordYinInt(8))));
 
 		// Inizializzazione dell'alfiere
 		getCella(Cella.coordXinInt('c'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('c'), Cella.coordYinInt(1)), "\u2657"));
+				new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('c'), Cella.coordYinInt(1))));
 		getCella(Cella.coordXinInt('f'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('f'), Cella.coordYinInt(1)), "\u2657"));
+				new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('f'), Cella.coordYinInt(1))));
 
 		getCella(Cella.coordXinInt('c'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Alfiere(Colore.nero, getCella(Cella.coordXinInt('c'), Cella.coordYinInt(8)), "\u265D"));
+				new Alfiere(Colore.nero, getCella(Cella.coordXinInt('c'), Cella.coordYinInt(8))));
 		getCella(Cella.coordXinInt('f'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Alfiere(Colore.nero, getCella(Cella.coordXinInt('f'), Cella.coordYinInt(8)), "\u265D"));
+				new Alfiere(Colore.nero, getCella(Cella.coordXinInt('f'), Cella.coordYinInt(8))));
 
 		// Inizializzazione della regina
 		getCella(Cella.coordXinInt('d'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Regina(Colore.bianco, getCella(Cella.coordXinInt('d'), Cella.coordYinInt(1)), "\u2655"));
+				new Regina(Colore.bianco, getCella(Cella.coordXinInt('d'), Cella.coordYinInt(1))));
 		getCella(Cella.coordXinInt('d'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Regina(Colore.nero, getCella(Cella.coordXinInt('d'), Cella.coordYinInt(8)), "\u265B"));
+				new Regina(Colore.nero, getCella(Cella.coordXinInt('d'), Cella.coordYinInt(8))));
 
 		// Inizializzazione del re
 		getCella(Cella.coordXinInt('e'), Cella.coordYinInt(1)).setPezzoCorrente(
-				new Re(Colore.bianco, getCella(Cella.coordXinInt('e'), Cella.coordYinInt(1)), "\u2654"));
+				new Re(Colore.bianco, getCella(Cella.coordXinInt('e'), Cella.coordYinInt(1))));
 		getCella(Cella.coordXinInt('e'), Cella.coordYinInt(8)).setPezzoCorrente(
-				new Re(Colore.nero, getCella(Cella.coordXinInt('e'), Cella.coordYinInt(8)), "\u265A"));
+				new Re(Colore.nero, getCella(Cella.coordXinInt('e'), Cella.coordYinInt(8))));
 
 		// Inizializzazione dei pedoni
 		for (int i = 0; i < getNumeroColonne(); i++) {
 			getCella(i, Cella.coordYinInt(7))
-					.setPezzoCorrente(new Pedone(Colore.nero, getCella(i, Cella.coordYinInt(7)), "\u265F"));
+					.setPezzoCorrente(new Pedone(Colore.nero, getCella(i, Cella.coordYinInt(7))));
 			getCella(i, Cella.coordYinInt(2))
-					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt(2)), "\u2659"));
+					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt(2))));
 		}
 
 	}
 
+	public final void stampa() {
+		System.out.println("     a    b   c    d   e    f   g   h");
+		for (int j = 8; j > 0; j--) {
+			System.out.println("  --------------------------------------");
+			System.out.print(j + "  ");
+			for (int i = 0; i < 8; i++) {
+				System.out.print("| ");
+				getCella(i, Math.abs(j - 8)).stampaPezzo();
+				System.out.print(" ");
+			}
+			System.out.print("|\n");
+		}
+		System.out.println("  --------------------------------------");
+	}
 }

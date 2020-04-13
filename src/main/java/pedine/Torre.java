@@ -8,8 +8,14 @@ import scacchiera.Cella;
  */
 public final class Torre extends Pezzo {
 
-	public Torre(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
-		super("Torre", colore, posizioneCorrente, simbolo);
+	/** Costruttore */
+	public Torre(final Colore colore, final Cella posizioneCorrente) {
+		super("Torre", colore, posizioneCorrente);
+		if (colore == Colore.nero) {
+			simbolo = '\u265c';
+		} else {
+			simbolo = '\u2656';
+		}
 		// TODO Auto-generated constructor stub
 	}
 }
