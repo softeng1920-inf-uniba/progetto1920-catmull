@@ -157,6 +157,8 @@ tasks.register("initialize") {
         println "\nGradle initialized.\n"
     }
 }
-
+run {
+    standardInput = System.in
+}
 // Main class
 mainClassName = 'it.uniba.main/AppMain'

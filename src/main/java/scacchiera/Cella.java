@@ -2,69 +2,113 @@ package scacchiera;
 
 import pedine.Pezzo;
 
-public class Cella {
-	int x;
-	int y;
-	boolean occupato;
-	Pezzo pezzoCorrente;
-	
-	
-	public Cella(int x,int y,Pezzo pezzoCorrente) {
-		this.x=x;
-		this.y=y;
-		this.pezzoCorrente=pezzoCorrente;
-		if(this.pezzoCorrente!=null)
-			this.occupato=true;
+/** Classe per rappresentere le singole parti della scacchiera */
+public final class Cella {
+	private int x;
+	private int y;
+	private boolean occupato;
+	private Pezzo pezzoCorrente;
+
+	/** Costuttore */
+	public Cella(final int x, final int y, final Pezzo pezzoCorrente) {
+		this.x = x;
+		this.y = y;
+		this.pezzoCorrente = pezzoCorrente;
+		if (this.pezzoCorrente != null) {
+			this.occupato = true;
+		}
 	}
 
-	void stampapezzo() {
-		if(pezzoCorrente!=null)
+	/** Disegna il pezzo che contiene in output */
+	void stampaPezzo() {
+		if (pezzoCorrente != null) {
 			pezzoCorrente.disegnapezzo();
-		else
+		} else {
 			System.out.print(" . ");
+		}
 	}
-	
-	//---------Metodi di setting---------
 
-	void setX(int x) {
-		this.x=x;
+	// ---------Metodi di setting---------
+
+	/** Modifica la coordinata x */
+	void setX(final int newx) {
+		x = newx;
 	}
-	void setY(int y) {
-		this.y=y;
+
+	/** Modifica la coordinata y */
+	void setY(final int newy) {
+		y = newy;
 	}
-	void setOccupato(boolean occupato) {
-		this.occupato=occupato;
+
+	/** Modifica la variabile occupato */
+	void setOccupato(final boolean occupato) {
+		this.occupato = occupato;
 	}
-	public void setPezzoCorrente(Pezzo pezzoCorrente) {
-		this.pezzoCorrente=pezzoCorrente;
+
+	/** Modifica il tipo di pezzo che contiene */
+	public void setPezzoCorrente(final Pezzo pezzoCorrente) {
+		this.pezzoCorrente = pezzoCorrente;
 	}
-    
-	//--------Metodi di Get--------
-	
+
+	// --------Metodi di Get--------
+
+	/** Restituisce la coordinata x */
 	int getX() {
 		return x;
 	}
+
+	/** Restituisce la coordinata y */
 	int getY() {
 		return y;
 	}
+
+	/** Restituisce la variabile occupato */
 	boolean getOccupato() {
 		return occupato;
 	}
-	Pezzo getPezzoCorrente() {
+
+	/** Restituisce il pezzo che contiene */
+	public Pezzo getPezzoCorrente() {
 		return pezzoCorrente;
 	}
 
-	//------Metodi per aggiugere o togliere pezzi dalla scacchiera
-	
-	public void aggiugi_pezzo(Pezzo nuovoPezzo){
-        pezzoCorrente=nuovoPezzo;
-        occupato = true;
-    }
+	// ------Metodi per aggiugere o togliere pezzi dalla scacchiera
 
-    public void rimuoviPezzoCorrente(){
-        occupato = false;
-        pezzoCorrente = null;
-    }
+	/** Aggiunge un pezzo alla cella */
+	public void aggiungiPezzo(final Pezzo nuovoPezzo) {
 
+		setPezzoCorrente(nuovoPezzo);
+		setOccupato(true);
+
+	}
+
+	/** Rimuove il pezzo nella cella */
+	public void rimuoviPezzoCorrente() {
+		setOccupato(false);
+		setPezzoCorrente(null);
+	}
+
+	/**
+	 * @param char coordX Carattere in minuscolo da convertire in intero
+	 * @return int Valore necessario per la scacchiera compreso fra 0 e 7
+	 */
+	public static int coordXinInt(char coordX) {
+
+		int a = 97; // Corrispondenza del codice ascii della lettera 'a'
+		return ((int) coordX - a);
+
+	}
+
+	/**
+	 * Restituisce il corrispondente valore della scacchiera
+	 *
+	 * @param int coordY Compreso fra 1 e 8
+	 * @return int Coordinata convertita in intero, compreso tra 0 e 7
+	 */
+	public static int coordYinInt(int coordY) {
+
+		return Math.abs(coordY - 8);
+
+	}
 
 }

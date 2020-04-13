@@ -1,20 +1,14 @@
 package pedine;
 
+import it.uniba.main.Colore;
 import scacchiera.Cella;
 
-public class Regina extends Pezzo{
+/** Classe per rappresentere il sottotipo di pezzo chiamato Regina */
+public final class Regina extends Pezzo {
 
-	public Regina(boolean colore, Cella posizioneCorrente) {
-		super("Regina", colore, posizioneCorrente);
+	/** Costruttore */
+	public Regina(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
+		super("Regina", colore, posizioneCorrente, simbolo);
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public void disegnapezzo() {
-		// TODO Auto-generated method stub
-		char simbolo=getColore() ? 'Q' : 'q';
-		System.out.print(" "+simbolo+" ");
-	}
-
-
-
 }

@@ -1,73 +1,137 @@
 package pedine;
-import java.util.ArrayList;
 
-import scacchiera.*;
+import scacchiera.Cella;
+import it.uniba.main.Colore;
 
+/**
+ * Classe Pezzo di tipo astratto Tale classe funge da punto di partenza per poi
+ * realizzare i pezzi del gioco nello specifico
+ **/
 public abstract class Pezzo {
 
-	String nome;
-	boolean colore;
-	boolean vivo;
-	Cella posizioneCorrente;
-    ArrayList<Pezzo> pezziMangiati = new ArrayList<Pezzo>();
-    
-    public Pezzo(String nome, boolean colore, Cella posizioneCorrente){
-        this.nome = nome;
-        this.colore = colore;
-        this.posizioneCorrente = posizioneCorrente;
-        vivo = true;
-    }
-    
-    public abstract void disegnapezzo();
-    //public abstract void mossevalide();
-    
-    //--------Metodi di setting --------
-    
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	protected String nome;
+	protected Colore colore;
+	protected boolean vivo;
+	public String simbolo;
+	protected Cella posizioneCorrente;
 
-    public void setColore(boolean colore) {
-        this.colore = colore;
-    }
+	public Pezzo(String n, Colore c, Cella pC, String s) {
+		this.nome = n;
+		this.colore = c;
+		this.posizioneCorrente = pC;
+		this.simbolo = s;
+		vivo = true;
+	}
 
-    public void setVivo(boolean vivo) {
-        this.vivo = vivo;
-    }
+	/**
+	 * disegnapezzo consente di rappresentare il pezzo nella scacchiera
+	 */
+	public void disegnapezzo() {
+		System.out.print("   " + this.simbolo + "   ");
+	}
+	// public abstract void mossevalide();
 
-    public void setPosizioneCorrente(Cella posizioneCorrente) {
-        this.posizioneCorrente = posizioneCorrente;
-    }
+	// --------Metodi di setting --------
 
-    public void setPezziMangiati(ArrayList<Pezzo> pezziMangiati) {
-        this.pezziMangiati = pezziMangiati;
-    }
+	/**
+	 * setNome imposta il nome del pezzo
+	 * 
+	 * @param nome
+	 */
+	void setNome(String n) {
+		this.nome = n;
+	}
 
-    //--------Metodi di Get--------
-    
+	/**
+	 * setColore imposta il colore del pezzo
+	 * 
+	 * @param colore
+	 */
+
+	public void setColore(Colore c) {
+		this.colore = c;
+	}
+
+	/**
+	 * setVivo riporta lo stato del pezzo
+	 */
+	public void setVivo(boolean v) {
+		this.vivo = v;
+	}
+
+	/**
+	 * setSimbolo modifica lo stato del simbolo
+	 * 
+	 * @param simbolo
+	 */
+
+	public void setSimbolo(String s) {
+		this.simbolo = s;
+	}
+
+	/**
+	 * setPosizioneCorrente imposta la posizione corrente del pezzo
+	 * 
+	 * @param posizioneCorrente
+	 */
+	public void setPosizioneCorrente(Cella pC) {
+		this.posizioneCorrente = pC;
+	}
+
+	// --------Metodi di Get--------
+
+	/**
+	 * getNome restituisce il nome del pezzo
+	 * 
+	 * @return nome
+	 */
 	public String getNome() {
-        return nome;
-    }
+		return nome;
+	}
 
-    public boolean getColore() {
-        return colore;
-    }
+	/**
+	 * getSimbolo restituisce il simbolo corrente del pezzo
+	 * 
+	 * @return simbolo
+	 */
+	public String getSimbolo() {
+		return simbolo;
+	}
 
-    public boolean getVivo() {
-        return vivo;
-    }
+	/**
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
+	 * nero
+	 * 
+	 * @return colore
+	 */
+	public Colore getColore() {
+		return colore;
+	}
 
-    public Cella getPosizioneCorrente() {
-        return posizioneCorrente;
-    }
-    public ArrayList<Pezzo> getPezziMangiati() {
-        return pezziMangiati;
-    }
-   
-    @Override
-    public String toString() { 
-		String colore=this.colore ? "Bianco":"Nero";
-        return String.format(nome+" "+colore); 
-    } 
+	/**
+	 * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
+	 * 
+	 * 
+	 * @return vivo
+	 */
+	public boolean isVivo() {
+		return vivo;
+	}
 
+	/**
+	 * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
+	 * 
+	 * @return posizioneCorrente
+	 */
+	public Cella getPosizioneCorrente() {
+		return posizioneCorrente;
+	}
+
+	/**
+	 * toString consente di rappresentare un oggetto come una stringa
+	 */
+	@Override
+	public String toString() {
+		return String.format(nome + " " + colore);
+	}
 }

@@ -1,20 +1,16 @@
 package pedine;
 
+import it.uniba.main.Colore;
 import scacchiera.Cella;
 
-public class Alfiere extends Pezzo
-{
+/**
+ * Rappresentazione dell'astrazione del pezzo alfiere
+ */
+public final class Alfiere extends Pezzo {
 
-	public Alfiere(boolean colore, Cella posizioneCorrente) 
-	{
-		super("Alfiere", colore, posizioneCorrente);
-		// TODO Auto-generated constructor stub
+	public Alfiere(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
+		super("Alfiere", colore, posizioneCorrente, simbolo);
+
 	}
-	@Override
-	public void disegnapezzo() 
-	{
-		// TODO Auto-generated method stub
-		 char simbolo=getColore() ? 'B' : 'b';
-		 System.out.print(" "+simbolo+" ");
-	}
+
 }

@@ -68,32 +68,34 @@
       <h1>
          <a href="https://spotbugs.github.io/">SpotBugs</a> Report</h1>
       <h2>Project Information</h2>
-      <p>Project: 
+      <p>Project:
 		root project 'scacchi' (main)</p>
       <p>SpotBugs version: 4.0.0-RC3</p>
       <p>Code analyzed:</p>
       <ul>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\giocatore\Giocatore.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\gioco\Main.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\gioco\Turno.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\pedine\Alfiere.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\pedine\Cavallo.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\pedine\Pedone.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\pedine\Pezzo.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\pedine\Re.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\pedine\Regina.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\pedine\Torre.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\scacchiera\Cella.class</li>
-         <li>C:\Users\Admin\progetto1920-catmull\build\classes\java\main\scacchiera\Scacchiera.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\giocatore\Giocatore.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\gioco\Turno.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\it\uniba\main\AppMain.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\it\uniba\main\Colore.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\it\uniba\main\Controller.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\pedine\Alfiere.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\pedine\Cavallo.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\pedine\Pedone.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\pedine\Pezzo.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\pedine\Re.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\pedine\Regina.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\pedine\Torre.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\scacchiera\Cella.class</li>
+         <li>C:\Users\Miriana Calvano\progetto1920-catmull\build\classes\java\main\scacchiera\Scacchiera.class</li>
       </ul>
       <p>
          <br/>
          <br/>
       </p>
       <h2>Metrics</h2>
-      <p>238 lines of code analyzed,
-	in 12 classes, 
-	in 4 packages.</p>
+      <p>229 lines of code analyzed,
+	in 14 classes,
+	in 5 packages.</p>
       <table width="500" cellpadding="5" cellspacing="2">
          <tr class="tableheader">
             <th align="left">Metric</th>
@@ -102,13 +104,13 @@
          </tr>
          <tr class="tablerow0">
             <td>High Priority Warnings</td>
-            <td align="right">2</td>
-            <td align="right">8.40</td>
+            <td align="right">3</td>
+            <td align="right">13.10</td>
          </tr>
          <tr class="tablerow1">
             <td>Medium Priority Warnings</td>
-            <td align="right">3</td>
-            <td align="right">12.61</td>
+            <td align="right">2</td>
+            <td align="right">8.73</td>
          </tr>
          <tr class="$totalClass">
             <td>
@@ -118,7 +120,7 @@
                <b>5</b>
             </td>
             <td align="right">
-               <b>21.01</b>
+               <b>21.83</b>
             </td>
          </tr>
       </table>
@@ -157,7 +159,7 @@
             <td>
                <a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
             </td>
-            <td align="right">1</td>
+            <td align="right">2</td>
          </tr>
          <tr class="tablerow1">
             <td>
@@ -196,18 +198,32 @@
             <th align="left">Code</th>
             <th align="left">Warning</th>
          </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e80');">
+         <tr class="tablerow1" onclick="toggleRow('d1e55');">
             <td>
                <span class="priority-2">RV</span>
             </td>
-            <td>Return value of String.hashCode() ignored in gioco.Main.main(String[])</td>
+            <td>Found reliance on default encoding in new giocatore.Giocatore(Colore): new java.io.InputStreamReader(InputStream)</td>
          </tr>
          <tr class="detailrow1">
             <td/>
             <td>
-               <p id="d1e80" style="display: none;">
-                  <a href="#RV_RETURN_VALUE_IGNORED">Bug type RV_RETURN_VALUE_IGNORED (click for details)</a>
-                  <br/>In class gioco.Main<br/>In method gioco.Main.main(String[])<br/>Called method String.hashCode()<br/>At Main.java:[line 20]</p>
+               <p id="d1e55" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class giocatore.Giocatore<br/>In method new giocatore.Giocatore(Colore)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Giocatore.java:[line 38]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e113');">
+            <td>
+               <span class="priority-1">Dm</span>
+            </td>
+            <td>Found reliance on default encoding in it.uniba.main.AppMain.main(String[]): new java.io.InputStreamReader(InputStream)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e113" style="display: none;">
+                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
+                  <br/>In class it.uniba.main.AppMain<br/>In method it.uniba.main.AppMain.main(String[])<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At AppMain.java:[line 32]</p>
             </td>
          </tr>
       </table>
@@ -219,32 +235,32 @@
             <th align="left">Code</th>
             <th align="left">Warning</th>
          </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e50');">
+         <tr class="tablerow1" onclick="toggleRow('d1e70');">
             <td>
-               <span class="priority-1">Dm</span>
+               <span class="priority-2">UrF</span>
             </td>
-            <td>Found reliance on default encoding in new giocatore.Giocatore(boolean): new java.util.Scanner(InputStream)</td>
+            <td>Unread field: giocatore.Giocatore.mosseGiocate</td>
          </tr>
          <tr class="detailrow1">
             <td/>
             <td>
-               <p id="d1e50" style="display: none;">
-                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class giocatore.Giocatore<br/>In method new giocatore.Giocatore(boolean)<br/>Called method new java.util.Scanner(InputStream)<br/>At Giocatore.java:[line 25]</p>
+               <p id="d1e70" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class giocatore.Giocatore<br/>Field giocatore.Giocatore.mosseGiocate<br/>At Giocatore.java:[line 53]</p>
             </td>
          </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e65');">
+         <tr class="tablerow0" onclick="toggleRow('d1e83');">
             <td>
                <span class="priority-1">Dm</span>
             </td>
-            <td>Found reliance on default encoding in gioco.Main.main(String[]): new java.util.Scanner(InputStream)</td>
+            <td>Unread field: giocatore.Giocatore.pezziMorti</td>
          </tr>
          <tr class="detailrow0">
             <td/>
             <td>
-               <p id="d1e65" style="display: none;">
-                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class gioco.Main<br/>In method gioco.Main.main(String[])<br/>Called method new java.util.Scanner(InputStream)<br/>At Main.java:[line 16]</p>
+               <p id="d1e83" style="display: none;">
+                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
+                  <br/>In class giocatore.Giocatore<br/>Field giocatore.Giocatore.pezziMorti<br/>At Giocatore.java:[line 52]</p>
             </td>
          </tr>
       </table>
@@ -256,41 +272,18 @@
             <th align="left">Code</th>
             <th align="left">Warning</th>
          </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e95');">
+         <tr class="tablerow1" onclick="toggleRow('d1e96');">
             <td>
-               <span class="priority-2">UrF</span>
+               <span class="priority-1">DLS</span>
             </td>
-            <td>Unread field: scacchiera.Scacchiera.numeropezzi</td>
+            <td>Dead store to c in it.uniba.main.AppMain.main(String[])</td>
          </tr>
          <tr class="detailrow1">
             <td/>
             <td>
-               <p id="d1e95" style="display: none;">
-                  <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
-                  <br/>In class scacchiera.Scacchiera<br/>Field scacchiera.Scacchiera.numeropezzi<br/>At Scacchiera.java:[line 9]</p>
-            </td>
-         </tr>
-      </table>
-      <h2>
-         <a name="Warnings_STYLE">Dodgy code Warnings</a>
-      </h2>
-      <table class="warningtable" width="100%" cellspacing="0">
-         <tr class="tableheader">
-            <th align="left">Code</th>
-            <th align="left">Warning</th>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e108');">
-            <td>
-               <span class="priority-2">UrF</span>
-            </td>
-            <td>Unread public/protected field: scacchiera.Scacchiera.pezzidelgioco</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e108" style="display: none;">
-                  <a href="#URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD">Bug type URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD (click for details)</a>
-                  <br/>In class scacchiera.Scacchiera<br/>Field scacchiera.Scacchiera.pezzidelgioco<br/>At Scacchiera.java:[line 29]</p>
+               <p id="d1e96" style="display: none;">
+                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
+                  <br/>In class it.uniba.main.AppMain<br/>In method it.uniba.main.AppMain.main(String[])<br/>Local variable named c<br/>At AppMain.java:[line 30]</p>
             </td>
          </tr>
       </table>
@@ -298,44 +291,32 @@
          <a name="Details">Details</a>
       </h1>
       <h2>
+         <a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
+      </h2>
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because SpotBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    <h2>
          <a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
       </h2>
 
 <p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
 
       <h2>
-         <a name="RV_RETURN_VALUE_IGNORED">RV_RETURN_VALUE_IGNORED: Method ignores return value</a>
-      </h2>
-
-   <p> The return value of this method should be checked. One common
-cause of this warning is to invoke a method on an immutable object,
-thinking that it updates the object. For example, in the following code
-fragment,</p>
-<pre><code>String dateString = getHeaderField(name);
-dateString.trim();
-</code></pre>
-<p>the programmer seems to be thinking that the trim() method will update
-the String referenced by dateString. But since Strings are immutable, the trim()
-function returns a new String value, which is being ignored here. The code
-should be corrected to: </p>
-<pre><code>String dateString = getHeaderField(name);
-dateString = dateString.trim();
-</code></pre>
-
-    <h2>
          <a name="URF_UNREAD_FIELD">URF_UNREAD_FIELD: Unread field</a>
       </h2>
 
   <p> This field is never read.&nbsp; Consider removing it from the class.</p>
-
-    <h2>
-         <a name="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD">URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD: Unread public/protected field</a>
-      </h2>
-
-  <p> This field is never read.&nbsp;
-The field is public or protected, so perhaps
-    it is intended to be used with classes not seen as part of the analysis. If not,
-consider removing it from the class.</p>
 
     </body>
 </html>

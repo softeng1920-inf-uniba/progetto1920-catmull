@@ -1,20 +1,17 @@
+/** Classe per rappresentere il sottotipo di pezzo chiamato Cavallo */
 package pedine;
 
+import it.uniba.main.Colore;
 import scacchiera.Cella;
 
-public class Cavallo extends Pezzo
-{
+/**
+ * Rappresentazione astratta della classe cavallo
+ *
+ */
+public final class Cavallo extends Pezzo {
 
-	public Cavallo(boolean colore, Cella posizioneCorrente) 
-	{
-		super("Cavallo", colore, posizioneCorrente);
-		// TODO Auto-generated constructor stub
+	public Cavallo(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
+		super("Cavallo", colore, posizioneCorrente, simbolo);
 	}
-	@Override
-	public void disegnapezzo() 
-	{
-		// TODO Auto-generated method stub
-		 char simbolo=getColore() ? 'N' : 'n';
-		 System.out.print(" "+simbolo+" ");
-	}
+
 }
