@@ -51,7 +51,6 @@ public class Scacchiera {
 		scacchiera[x][y] = nuovaCella;
 	}
 
-<<<<<<< HEAD
 	public final void inizializzaScacchiera() {
 
 		// Inizializzazione della torre
@@ -105,21 +104,6 @@ public class Scacchiera {
 					.setPezzoCorrente(new Pedone(Colore.nero, getCella(i, Cella.coordYinInt(7))));
 			getCella(i, Cella.coordYinInt(2))
 					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt(2))));
-=======
-	public final void InizializzaScacchiera() {
-		Pezzo pedinadamettere;
-
-		// PEDONI NERI
-		for (int i = 6, j = 0; j < getNumeroColonne(); j++) {
-			pedinadamettere = new Pedone(Colore.nero, getCella(i, j));
-			getCella(i, j).setPezzoCorrente(pedinadamettere);
-
-		}
-		// PEDONI BIANCHI
-		for (int i = 1, j = 0; j < getNumeroColonne(); j++) {
-			pedinadamettere = new Pedone(Colore.bianco, getCella(i, j));
-			getCella(i, j).setPezzoCorrente(pedinadamettere);
->>>>>>> 74cc8d0... Miglioria metodo di stampa
 		}
 
 	}
