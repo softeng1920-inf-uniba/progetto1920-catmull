@@ -8,14 +8,16 @@ public class Menu {
 	private Comando board;
 	private Comando captures;
 	private Comando play;
+	private Comando exit;
 
 	Menu() {
-		help = new Comando("help", "");
-		history = new Comando("history", "Visualizza la cronologia delle mosse giocate");
-		quit = new Comando("quit", "Esci dal gioco");
-		board = new Comando("board", "Visualizza la posizione sulla scacchiera");
-		captures = new Comando("captures", "Visualizza le catture del Bianco e del Nero");
-		play = new Comando("play", "Inizia una nuova partita");
+		help = new Comando("Help", "");
+		history = new Comando("History", "Visualizza la cronologia delle mosse giocate");
+		quit = new Comando("Quit", "Esci dal gioco");
+		board = new Comando("Board", "Visualizza la posizione sulla scacchiera");
+		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
+		play = new Comando("Play", "Inizia una nuova partita");
+		exit = new Comando("Menu","Ritorna al menu principale");
 	}
 
 	public Comando help() {
@@ -41,4 +43,9 @@ public class Menu {
 	public Comando play() {
 		return play;
 	}
+	
+	public Comando exit() {
+		return exit;
+	}
+	
 }
