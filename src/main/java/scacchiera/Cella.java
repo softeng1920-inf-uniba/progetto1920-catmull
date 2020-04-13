@@ -98,8 +98,10 @@ public final class Cella {
 	 * @param char coordX Carattere in minuscolo da convertire in intero
 	 * @return int Valore necessario per la scacchiera compreso fra 0 e 7
 	 */
-	public static int coordXinInt(final char coordX) {
-		return coordX - 97;
+	public static int coordXinInt(char coordX) {
+
+		int a = 97; // Corrispondenza del codice ascii della lettera 'a'
+		return (coordX - a);
 
 	}
 

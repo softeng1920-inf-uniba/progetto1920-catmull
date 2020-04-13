@@ -3,7 +3,7 @@ package it.uniba.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import java.io.UnsupportedEncodingException;
 /**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
@@ -30,10 +30,7 @@ public final class AppMain {
 
 		Controller c = new Controller();
 		Menu m = new Menu();
-
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-
   		System.out.println("Benvenuto nel gioco degli scacchi. \n");
     	System.out.println("--- Menu principale --- \n");
 
