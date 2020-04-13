@@ -81,7 +81,7 @@ public class Controller {
 	 * @return
 	 */
 	private boolean isComandoValido(final String comando) {
-		for (String s : Costanti.COMANDI) {
+		for (String s : Costanti.getComandi()) {
 			if (s.equals(comando)) {
 				return true;
 			}

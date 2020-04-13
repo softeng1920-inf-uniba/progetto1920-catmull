@@ -8,16 +8,14 @@ import pedine.Torre;
 import pedine.Cavallo;
 
 import it.uniba.main.Colore;
-import it.uniba.main.Costanti;
 
 /**
  * Rappresentazione astratta della scacchiera
  */
 public class Scacchiera {
 
-	private static final int numerocolonne = 8;
-	private static final int numerorighe = 8;
-	private static final int numeropezzi = 32;
+	private static final int NUMEROCOLONNE = 8;
+	private static final int NUMERORIGHE = 8;
 
 	private Cella[][] scacchiera;
 
@@ -32,20 +30,16 @@ public class Scacchiera {
 	}
 
 	public final int getNumeroColonne() {
-		return Costanti.N_COLONNE;
+		return this.NUMEROCOLONNE;
 	}
 
 	public final int getNumeroRighe() {
-		return Costanti.N_RIGHE;
-	}
-
-	public final int getNumeroPezzi() {
-		return Costanti.N_PEZZI;
+		return this.NUMERORIGHE;
 	}
 
 	/**
 	 * Date le coordinate, ritorno il riferimento di una cella della scacchiera.
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 * @return

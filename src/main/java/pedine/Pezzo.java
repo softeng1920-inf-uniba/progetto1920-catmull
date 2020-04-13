@@ -23,8 +23,10 @@ public abstract class Pezzo {
 		vivo = true;
 	}
 
-
 	// public abstract void mossevalide();
+	public final void disegnapezzo() {
+		System.out.print("   " + this.simbolo + "   ");
+	}
 
 	// --------Metodi di setting --------
 
@@ -94,8 +96,8 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o nero
-	 *
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo è bianco o nero
+	 * 
 	 * @return colore
 	 */
 	public Colore getColore() {

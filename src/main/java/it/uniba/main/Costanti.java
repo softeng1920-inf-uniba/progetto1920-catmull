@@ -16,7 +16,8 @@ public final class Costanti {
 	protected static final String[] COMANDI = {"play", "quit", "exit", "board" };
 
 	public static final int ASCII_A_MINUSCOLA = 97;
-	public static final int N_COLONNE = 8;
-	public static final int N_RIGHE = 8;
-	public static final int N_PEZZI = 32;
+
+	public static String[] getComandi() {
+		return COMANDI;
+	}
 }
