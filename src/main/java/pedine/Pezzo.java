@@ -10,16 +10,16 @@ import it.uniba.main.Colore;
 public abstract class Pezzo {
 
 	protected String nome;
-	protected  Colore colore;
+	protected Colore colore;
 	protected boolean vivo;
 	public String simbolo;
 	protected Cella posizioneCorrente;
 
-	public Pezzo(String nome, Colore colore, Cella posizioneCorrente, String simbolo) {
-		this.nome = nome;
-		this.colore = colore;
-		this.posizioneCorrente = posizioneCorrente;
-		this.simbolo = simbolo;
+	public Pezzo(String n, Colore c, Cella pC, String s) {
+		this.nome = n;
+		this.colore = c;
+		this.posizioneCorrente = pC;
+		this.simbolo = s;
 		vivo = true;
 	}
 
@@ -38,8 +38,8 @@ public abstract class Pezzo {
 	 * 
 	 * @param nome
 	 */
-	void setNome(String nome) {
-		this.nome = nome;
+	void setNome(String n) {
+		this.nome = n;
 	}
 
 	/**
@@ -48,15 +48,15 @@ public abstract class Pezzo {
 	 * @param colore
 	 */
 
-	public void setColore(Colore colore) {
-		this.colore = colore;
+	public void setColore(Colore c) {
+		this.colore = c;
 	}
 
 	/**
 	 * setVivo riporta lo stato del pezzo
 	 */
-	public void setVivo(boolean vivo) {
-		this.vivo = vivo;
+	public void setVivo(boolean v) {
+		this.vivo = v;
 	}
 
 	/**
@@ -65,8 +65,8 @@ public abstract class Pezzo {
 	 * @param simbolo
 	 */
 
-	public void setSimbolo(String simbolo) {
-		this.simbolo = simbolo;
+	public void setSimbolo(String s) {
+		this.simbolo = s;
 	}
 
 	/**
@@ -74,8 +74,8 @@ public abstract class Pezzo {
 	 * 
 	 * @param posizioneCorrente
 	 */
-	public void setPosizioneCorrente(Cella posizioneCorrente) {
-		this.posizioneCorrente = posizioneCorrente;
+	public void setPosizioneCorrente(Cella pC) {
+		this.posizioneCorrente = pC;
 	}
 
 	// --------Metodi di Get--------
