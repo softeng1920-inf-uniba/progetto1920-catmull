@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import gioco.Turno;
 
 /**
- * Classe che gestisce le varie funzionalit√† del gioco.
+ * Classe che gestisce le varie funzionalit‡ del gioco.
  */
 public class Controller {
 
@@ -52,12 +52,14 @@ public class Controller {
 			case "exit":
 				return;
 			case "board":
-				System.out.println("Questa √® una scacchiera");
-
+				System.out.println("Questa Ë una scacchiera");
+				break;
+			case "history":
+				visualizzareCatture();
 				break;
 			default:
 				if (isNotazioneAlgebrica(comando)) {
-					// se √® una mossa consentita...
+					// se Ë una mossa consentita...
 					System.out.println("OK");
 					t.cambioTurno();
 					// Altrimenti stampa mossa illegale
@@ -73,8 +75,8 @@ public class Controller {
 	}
 
 	/**
-	 * La seguente funzione riconosce se il comando inserito √® un comando scritto
-	 * sottoforma di notazione algebrica Il seguente comando pu√≤ essere anche una
+	 * La seguente funzione riconosce se il comando inserito Ë un comando scritto
+	 * sottoforma di notazione algebrica Il seguente comando puÚ essere anche una
 	 * mossa non valida
 	 * 
 	 * @param comando
@@ -93,5 +95,19 @@ public class Controller {
 
 		String regex = "[a-h][1-8]\\ [a-h][1-8]";
 		return mossa.matches(regex);
+	}
+
+	/**
+	 * Mostra le catture di entrambi i giocatori
+	 */
+	void visualizzareCatture() {
+
+		if (!t.getGiocatoreInTurno().isVuotoPedineMangiate()) {
+			t.getGiocatoreInTurno().stampaPedineMangiate();
+		}
+		if (!t.getGiocatoreInAttesa().isVuotoPedineMangiate()) {
+			t.getGiocatoreInAttesa().stampaPedineMangiate();
+		}
+
 	}
 }
