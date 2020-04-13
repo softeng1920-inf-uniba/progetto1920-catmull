@@ -54,7 +54,7 @@ public class Controller {
 			case "board":
 				System.out.println("Questa è una scacchiera");
 				break;
-			case "history":
+			case "captures":
 				visualizzareCatture();
 				break;
 			default:

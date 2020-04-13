@@ -13,7 +13,7 @@ public final class Costanti {
 		// TODO Auto-generated constructor stub
 	}
 
-	protected static final String[] COMANDI = {"play", "quit", "exit", "board" };
+	protected static final String[] COMANDI = {"play", "quit", "board", "exit"};
 
 	public static final int ASCII_A_MINUSCOLA = 97;
 
