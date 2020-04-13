@@ -24,7 +24,7 @@ public final class Cella {
 		if (pezzoCorrente != null) {
 			pezzoCorrente.disegnapezzo();
 		} else {
-			System.out.print(" . ");
+			System.out.print(".  ");
 		}
 	}
 
@@ -95,7 +95,7 @@ public final class Cella {
 	public static int coordXinInt(char coordX) {
 
 		int a = 97; // Corrispondenza del codice ascii della lettera 'a'
-		return ((int) coordX - a);
+		return (coordX - a);
 
 	}
 

@@ -7,8 +7,13 @@ import scacchiera.Cella;
 public final class Regina extends Pezzo {
 
 	/** Costruttore */
-	public Regina(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
-		super("Regina", colore, posizioneCorrente, simbolo);
+	public Regina(final Colore colore, final Cella posizioneCorrente) {
+		super("Regina", colore, posizioneCorrente);
+		if (colore == Colore.nero) {
+			simbolo = '♛';
+		} else {
+			simbolo = '♕';
+		}
 		// TODO Auto-generated constructor stub
 	}
 }

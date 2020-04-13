@@ -8,9 +8,13 @@ import scacchiera.Cella;
  */
 public final class Alfiere extends Pezzo {
 
-	public Alfiere(final Colore colore, final Cella posizioneCorrente, final String simbolo) {
-		super("Alfiere", colore, posizioneCorrente, simbolo);
-
+	public Alfiere(final Colore colore, final Cella posizioneCorrente) {
+		super("Alfiere", colore, posizioneCorrente);
+		if (colore == Colore.nero) {
+			simbolo = '♝';
+		} else {
+			simbolo = '♗';
+		}
 	}
 
 }
