@@ -18,9 +18,10 @@ public class Controller {
 
 	private Scacchiera s;
 	private Turno t;
+	private Menu menu;
 
 	public Controller() {
-
+		menu = new Menu();
 		s = new Scacchiera();
 
 	}
@@ -34,42 +35,37 @@ public class Controller {
 
 		s.inizializzaScacchiera();
 
-		System.out.println("Puoi ritornare al menu principale digitando il comando 'exit'. \n");
+		System.out.println("Puoi ritornare al menu principale digitando il comando 'Menu'. \n");
 
 		while (true) {
 
-			System.out.println("E' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
-					+ t.getGiocatoreInTurno().getColore() + "\n");
-			System.out.println("Inserisci una mossa nella notazione algebrica\n");
+			System.out.println("\nE' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
+					+ t.getGiocatoreInTurno().getColore() + "");
+			System.out.println("Inserisci una mossa nella notazione algebrica");
 
 			try {
 				comando = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
-			switch (comando) {
-			case "exit":
-				return;
-			case "board":
-				System.out.println("Questa è una scacchiera");
-				break;
-			case "captures":
+			if (comando.equalsIgnoreCase(menu.help().getNome())) {
+				// METODO STAMPA COMANDI
+			} else if (comando.equalsIgnoreCase(menu.board().getNome())) {
+				// METODO STAMPA SCACCHIERA
+			} else if (comando.equalsIgnoreCase(menu.back().getNome())) {
+				// METODO TORNA AL MENU PRINCIPALE
+			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
+				System.out.println("4");
+				// METODO VISUALIZZA CRONOLOGIA MOSSE GIOCATE
+			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 				visualizzareCatture();
-				break;
-			default:
-				if (isNotazioneAlgebrica(comando)) {
-					// se è una mossa consentita...
-					System.out.println("OK");
-					t.cambioTurno();
-					// Altrimenti stampa mossa illegale
-				} else if (!isComandoValido(comando)) {
-					System.out.println("Comando non corretto. Riprova \n");
-					break;
-				}
-
 			}
 
+			if (isNotazioneAlgebrica(comando)) {
+				t.cambioTurno();
+			} else if (!isComandoValido(comando)) {
+				System.out.println("Comando non corretto. Riprova");
+			}
 		}
 
 	}
@@ -83,10 +79,12 @@ public class Controller {
 	 * @return
 	 */
 	private boolean isComandoValido(final String comando) {
-		for (String s : Costanti.getComandi()) {
-			if (s.equals(comando)) {
-				return true;
-			}
+
+		if (comando.equalsIgnoreCase(menu.help().getNome()) || comando.equalsIgnoreCase(menu.back().getNome())
+				|| comando.equalsIgnoreCase(menu.board().getNome())
+				|| comando.equalsIgnoreCase(menu.captures().getNome())
+				|| comando.equalsIgnoreCase(menu.history().getNome())) {
+			return true;
 		}
 		return false;
 	}
@@ -102,10 +100,10 @@ public class Controller {
 	 */
 	void visualizzareCatture() {
 
-		if (!t.getGiocatoreInTurno().isVuotoPedineMangiate()) {
+		if (!t.getGiocatoreInTurno().isEmptyPedineMangiate()) {
 			t.getGiocatoreInTurno().stampaPedineMangiate();
 		}
-		if (!t.getGiocatoreInAttesa().isVuotoPedineMangiate()) {
+		if (!t.getGiocatoreInAttesa().isEmptyPedineMangiate()) {
 			t.getGiocatoreInAttesa().stampaPedineMangiate();
 		}
 

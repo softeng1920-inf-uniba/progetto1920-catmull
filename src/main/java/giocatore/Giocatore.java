@@ -19,7 +19,7 @@ public class Giocatore {
 
 	private String nome;
 	private Colore colore;
-	ArrayList<Pezzo> pedineMangiate;
+	private ArrayList<Pezzo> pezziCatturati;
 	ArrayList<String> mosseGiocate;
 
 	/**
@@ -49,7 +49,7 @@ public class Giocatore {
 
 		setNome(nome);
 
-		pedineMangiate = new ArrayList<Pezzo>();
+		pezziCatturati = new ArrayList<Pezzo>();
 		mosseGiocate = new ArrayList<String>();
 
 	}
@@ -96,8 +96,8 @@ public class Giocatore {
 	 * 
 	 * @param p
 	 */
-	public void aggiungiPedinaMangiata(Pezzo p) {
-		pedineMangiate.add(p);
+	public void addPezziCatturati(Pezzo p) {
+		pezziCatturati.add(p);
 	}
 
 	/**
@@ -107,19 +107,29 @@ public class Giocatore {
 	 *
 	 */
 
-	public ArrayList<Pezzo> getPedineMangiate() {
-		return pedineMangiate;
+	public ArrayList<Pezzo> getPezziCatturati() {
+		return pezziCatturati;
 	}
 
+	/**
+	 * Funzione che permette di visualizzare le pedine che l'avversario ti ha
+	 * mangiato
+	 */
 	public void stampaPedineMangiate() {
 
 		System.out.println(nome.toUpperCase() + " ecco le pedine che il tuo avversario ti ha mangiato:");
-		for (Pezzo pezzoMangiato : getPedineMangiate()) {
+		for (Pezzo pezzoMangiato : getPezziCatturati()) {
 			System.out.println(pezzoMangiato);
 		}
 	}
 
-	public boolean isVuotoPedineMangiate() {
-		return pedineMangiate.isEmpty();
+	/**
+	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno,nel caso
+	 * contiene qualche pezzo restituisce true e viceversa
+	 * 
+	 * @return
+	 */
+	public boolean isEmptyPedineMangiate() {
+		return pezziCatturati.isEmpty();
 	}
 }
