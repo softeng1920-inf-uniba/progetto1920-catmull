@@ -4,7 +4,6 @@ import it.uniba.main.Colore;
 import pedine.Alfiere;
 import pedine.Cavallo;
 import pedine.Pedone;
-import pedine.Pezzo;
 import pedine.Re;
 import pedine.Regina;
 import pedine.Torre;
@@ -51,68 +50,60 @@ public class Scacchiera {
 	}
 
 	/* metodo che inzializza la scacchiera e la prepara per una nuova partita */
-	public final void InizializzaScacchiera() {
-		Pezzo pedinadamettere;
+	public final void inizializzaScacchiera() {
 
-		// PEDONI NERI
-		for (int i = 6, j = 0; j < getNumeroColonne(); j++) {
-			pedinadamettere = new Pedone(Colore.nero, getCella(i, j));
-			getCella(i, j).setPezzoCorrente(pedinadamettere);
+		// Inizializzazione della torre
+		getCella(Cella.coordXinInt('a'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Torre(Colore.bianco, getCella(Cella.coordXinInt('a'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('h'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Torre(Colore.bianco, getCella(Cella.coordXinInt('h'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('a'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Torre(Colore.nero, getCella(Cella.coordXinInt('a'), Cella.coordYinInt(8))));
+		getCella(Cella.coordXinInt('h'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Torre(Colore.nero, getCella(Cella.coordXinInt('h'), Cella.coordYinInt(8))));
 
+		// Inizializzazione del cavallo
+		getCella(Cella.coordXinInt('b'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('b'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('g'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('g'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('b'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Cavallo(Colore.nero, getCella(Cella.coordXinInt('b'), Cella.coordYinInt(8))));
+		getCella(Cella.coordXinInt('g'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Cavallo(Colore.nero, getCella(Cella.coordXinInt('g'), Cella.coordYinInt(8))));
+
+		// Inizializzazione dell'alfiere
+		getCella(Cella.coordXinInt('c'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('c'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('f'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('f'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('c'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Alfiere(Colore.nero, getCella(Cella.coordXinInt('c'), Cella.coordYinInt(8))));
+		getCella(Cella.coordXinInt('f'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Alfiere(Colore.nero, getCella(Cella.coordXinInt('f'), Cella.coordYinInt(8))));
+
+		// Inizializzazione della regina
+
+		getCella(Cella.coordXinInt('d'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Regina(Colore.bianco, getCella(Cella.coordXinInt('d'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('d'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Regina(Colore.nero, getCella(Cella.coordXinInt('d'), Cella.coordYinInt(8))));
+
+		// Inizializzazione del re
+
+		getCella(Cella.coordXinInt('e'), Cella.coordYinInt(1))
+				.setPezzoCorrente(new Re(Colore.bianco, getCella(Cella.coordXinInt('e'), Cella.coordYinInt(1))));
+		getCella(Cella.coordXinInt('e'), Cella.coordYinInt(8))
+				.setPezzoCorrente(new Re(Colore.nero, getCella(Cella.coordXinInt('e'), Cella.coordYinInt(8))));
+
+		// Inizializzazione dei pedoni
+		for (int i = 0; i < getNumeroColonne(); i++) {
+			getCella(i, Cella.coordYinInt(7))
+					.setPezzoCorrente(new Pedone(Colore.nero, getCella(i, Cella.coordYinInt(7))));
+			getCella(i, Cella.coordYinInt(2))
+					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt(2))));
 		}
-		// PEDONI BIANCHI
-		for (int i = 1, j = 0; j < getNumeroColonne(); j++) {
-			pedinadamettere = new Pedone(Colore.bianco, getCella(i, j));
-			getCella(i, j).setPezzoCorrente(pedinadamettere);
-		}
-		// TORRI NERE
-		pedinadamettere = new Torre(Colore.nero, getCella(7, 0));
-		getCella(7, 0).setPezzoCorrente(pedinadamettere);
-		pedinadamettere = new Torre(Colore.nero, getCella(7, 7));
-		getCella(7, 7).setPezzoCorrente(pedinadamettere);
-		// TORRI BIANCHE
-		pedinadamettere = new Torre(Colore.bianco, getCella(0, 0));
-		getCella(0, 0).setPezzoCorrente(pedinadamettere);
-		getCella(0, 7).setPezzoCorrente(pedinadamettere);
-
-		// ALFIERI NERI
-		pedinadamettere = new Alfiere(Colore.nero, getCella(7, 2));
-		getCella(7, 2).setPezzoCorrente(pedinadamettere);
-		pedinadamettere = new Alfiere(Colore.nero, getCella(7, 5));
-		getCella(7, 5).setPezzoCorrente(pedinadamettere);
-		// ALFIERI BIANCHI
-		pedinadamettere = new Alfiere(Colore.bianco, getCella(0, 2));
-		getCella(0, 2).setPezzoCorrente(pedinadamettere);
-		pedinadamettere = new Alfiere(Colore.bianco, getCella(0, 5));
-		getCella(0, 5).setPezzoCorrente(pedinadamettere);
-
-		// CAVALLI NERI
-		pedinadamettere = new Cavallo(Colore.nero, getCella(7, 1));
-		getCella(7, 1).setPezzoCorrente(pedinadamettere);
-		pedinadamettere = new Cavallo(Colore.nero, getCella(7, 6));
-		getCella(7, 6).setPezzoCorrente(pedinadamettere);
-		// CAVALLI BIANCHI
-		pedinadamettere = new Cavallo(Colore.bianco, getCella(0, 1));
-		getCella(0, 1).setPezzoCorrente(pedinadamettere);
-		pedinadamettere = new Cavallo(Colore.bianco, getCella(0, 6));
-		getCella(0, 6).setPezzoCorrente(pedinadamettere);
-
-		// REGINA NERA
-		pedinadamettere = new Regina(Colore.nero, getCella(7, 4));
-		getCella(7, 4).setPezzoCorrente(pedinadamettere);
-		// REGINA BIANCA
-		pedinadamettere = new Regina(Colore.bianco, getCella(7, 4));
-		getCella(0, 4).setPezzoCorrente(pedinadamettere);
-
-		// RE NERO
-		pedinadamettere = new Re(Colore.nero, getCella(7, 3));
-		getCella(7, 3).setPezzoCorrente(pedinadamettere);
-		// RE BIANCO
-		pedinadamettere = new Re(Colore.bianco, getCella(0, 3));
-		getCella(0, 3).setPezzoCorrente(pedinadamettere);
-
 	}
-
 	/* metodo per stampare nella console la scacchiera */
 	public final void stampa() {
 		System.out.println("     a    b   c    d   e    f   g   h");
@@ -120,7 +111,7 @@ public class Scacchiera {
 		System.out.print("8  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(7, i).stampaPezzo();
+			getCella(i, 0).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
@@ -128,7 +119,7 @@ public class Scacchiera {
 		System.out.print("7  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(6, i).stampaPezzo();
+			getCella(i, 1).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
@@ -136,7 +127,7 @@ public class Scacchiera {
 		System.out.print("6  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(5, i).stampaPezzo();
+			getCella(i, 2).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
@@ -144,7 +135,7 @@ public class Scacchiera {
 		System.out.print("5  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(4, i).stampaPezzo();
+			getCella(i, 3).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
@@ -152,7 +143,7 @@ public class Scacchiera {
 		System.out.print("4  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(3, i).stampaPezzo();
+			getCella(i, 4).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
@@ -160,7 +151,7 @@ public class Scacchiera {
 		System.out.print("3  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(2, i).stampaPezzo();
+			getCella(i, 5).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
@@ -168,7 +159,7 @@ public class Scacchiera {
 		System.out.print("2  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(1, i).stampaPezzo();
+			getCella(i, 6).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
@@ -176,7 +167,7 @@ public class Scacchiera {
 		System.out.print("1  ");
 		for (int i = 0; i < 8; i++) {
 			System.out.print("| ");
-			getCella(0, i).stampaPezzo();
+			getCella(i, 7).stampaPezzo();
 			System.out.print(" ");
 		}
 		System.out.print("|\n");
