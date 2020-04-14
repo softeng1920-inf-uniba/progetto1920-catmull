@@ -115,7 +115,7 @@ public class Giocatore {
 	 * Funzione che permette di visualizzare le pedine che l'avversario ti ha
 	 * mangiato
 	 */
-	public void stampaPedineMangiate() {
+	public void stampaPezziCatturati() {
 
 		System.out.println(nome.toUpperCase() + " ecco le pedine che il tuo avversario ti ha mangiato:");
 		for (Pezzo pezzoMangiato : getPezziCatturati()) {
@@ -129,7 +129,7 @@ public class Giocatore {
 	 * 
 	 * @return
 	 */
-	public boolean isEmptyPedineMangiate() {
+	public boolean isEmptyPezziCatturati() {
 		return pezziCatturati.isEmpty();
 	}
 }

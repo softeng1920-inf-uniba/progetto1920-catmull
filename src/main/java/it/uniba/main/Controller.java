@@ -100,11 +100,11 @@ public class Controller {
 	 */
 	void visualizzareCatture() {
 
-		if (!t.getGiocatoreInTurno().isEmptyPedineMangiate()) {
-			t.getGiocatoreInTurno().stampaPedineMangiate();
+		if (!t.getGiocatoreInTurno().isEmptyPezziCatturati()) {
+			t.getGiocatoreInTurno().stampaPezziCatturati();
 		}
-		if (!t.getGiocatoreInAttesa().isEmptyPedineMangiate()) {
-			t.getGiocatoreInAttesa().stampaPedineMangiate();
+		if (!t.getGiocatoreInAttesa().isEmptyPezziCatturati()) {
+			t.getGiocatoreInAttesa().stampaPezziCatturati();
 		}
 
 	}
