@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
+
 <file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
 </file>
 <file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\gioco\Turno.java">
@@ -29,5 +30,6 @@
 <file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
 </file>
 <file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
+
 </file>
 </checkstyle>

@@ -23,35 +23,36 @@ public final class AppMain {
 	 * * This is the main entry of the application.
 	 *
 	 * @param args The command-line arguments.
+	 * @throws IOException 
 	 * @throws UnsupportedEncodingException
 	 */
-	public static void main(final String[] args) {
+	public static void main(final String[] args) throws IOException {
 
 		Controller c = new Controller();
+		Menu m = new Menu();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		System.out.println("Benvenuto nel gioco degli scacchi. \n");
 
-		try {
+  		System.out.println("Benvenuto nel gioco degli scacchi. \n");
+    	System.out.println("--- Menu principale --- \n");
+
 			while (true) {
-
-				System.out.println("--- Menu principale --- \n");
-
-				String menu = "";
-				menu = br.readLine();
-				switch (menu) {
-				case "play":
-					c.inizializzaPartita();
-					break;
-				default:
-					System.out.println("Comando non trovato. Riprova \n");
+				String nomeMenu = br.readLine();
+		
+				if (nomeMenu.equals(m.help().getNome())) {
+					//METODO STAMPA COMANDI
+				} else if (nomeMenu.equals(m.board().getNome())) {
+					//METODO STAMPA SCACCHIERA
+				} else if (nomeMenu.equals(m.quit().getNome())) {
+          	c.inizializzaPartita();
+					//METODO CHIUDI IL GIOCO
+				} else if (nomeMenu.equals(m.play().getNome())) {
+					//METODO INIZIA PARTITA
+				} else {
+					System.out.println("Comando non riconosciuto");
 				}
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+    
 	}
 }
