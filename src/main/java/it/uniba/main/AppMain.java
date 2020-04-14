@@ -27,17 +27,14 @@ public final class AppMain {
 	 * @throws UnsupportedEncodingException
 	 */
 	public static void main(final String[] args) {
-
 		Controller c = new Controller();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 		try {
 			while (true) {
 				String menu = br.readLine();
 				switch (menu) {
 				case "":
 					break;
-
 				default:
 
 				}
