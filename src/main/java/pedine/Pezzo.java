@@ -29,7 +29,6 @@ public abstract class Pezzo {
 	public void disegnapezzo() {
 		System.out.print(this.simbolo);
 	}
-	// public abstract void mossevalide();
 
 	// --------Metodi di setting --------
 
@@ -38,8 +37,8 @@ public abstract class Pezzo {
 	 *
 	 * @param nome
 	 */
-	void setNome(String n) {
-		this.nome = n;
+	void setNome(final String nome) {
+		this.nome = nome;
 	}
 
 	/**
@@ -48,15 +47,15 @@ public abstract class Pezzo {
 	 * @param colore
 	 */
 
-	public void setColore(Colore c) {
-		this.colore = c;
+	public void setColore(final Colore colore) {
+		this.colore = colore;
 	}
 
 	/**
 	 * setVivo riporta lo stato del pezzo
 	 */
-	public void setVivo(boolean v) {
-		this.vivo = v;
+	public void setVivo(final boolean vivo) {
+		this.vivo = vivo;
 	}
 
 	/**
@@ -65,8 +64,8 @@ public abstract class Pezzo {
 	 * @param simbolo
 	 */
 
-	public void setSimbolo(char s) {
-		this.simbolo = s;
+	public void setSimbolo(final String simbolo) {
+		this.simbolo = simbolo;
 	}
 
 	/**
@@ -74,8 +73,8 @@ public abstract class Pezzo {
 	 *
 	 * @param posizioneCorrente
 	 */
-	public void setPosizioneCorrente(Cella pC) {
-		this.posizioneCorrente = pC;
+	public void setPosizioneCorrente(final Cella posizioneCorrente) {
+		this.posizioneCorrente = posizioneCorrente;
 	}
 
 	// --------Metodi di Get--------
@@ -99,9 +98,8 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
-	 * nero
-	 *
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo è bianco o nero
+	 * 
 	 * @return colore
 	 */
 	public Colore getColore() {
@@ -131,7 +129,7 @@ public abstract class Pezzo {
 	 * toString consente di rappresentare un oggetto come una stringa
 	 */
 	@Override
-	public String toString() {
+	public final String toString() {
 		return String.format(nome + " " + colore);
 	}
 }

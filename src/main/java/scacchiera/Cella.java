@@ -2,6 +2,7 @@ package scacchiera;
 
 import it.uniba.main.Colore;
 import pedine.Pezzo;
+import it.uniba.main.Costanti;
 
 /** Classe per rappresentere le singole parti della scacchiera */
 public final class Cella {
@@ -15,9 +16,6 @@ public final class Cella {
 		this.x = x;
 		this.y = y;
 		this.pezzoCorrente = pezzoCorrente;
-		if (this.pezzoCorrente != null) {
-			this.occupato = true;
-		}
 	}
 
 	/** Disegna il pezzo che contiene in output */
@@ -56,6 +54,9 @@ public final class Cella {
 	/** Modifica il tipo di pezzo che contiene */
 	public void setPezzoCorrente(final Pezzo pezzoCorrente) {
 		this.pezzoCorrente = pezzoCorrente;
+		if (pezzoCorrente != null) {
+			this.occupato = true;
+		}
 	}
 
 	// --------Metodi di Get--------
@@ -100,11 +101,9 @@ public final class Cella {
 	 * @param char coordX Carattere in minuscolo da convertire in intero
 	 * @return int Valore necessario per la scacchiera compreso fra 0 e 7
 	 */
-	public static int coordXinInt(char coordX) {
+	public static int coordXinInt(final char coordX) {
 
-		int a = 97; // Corrispondenza del codice ascii della lettera 'a'
-		return (coordX - a);
-
+		return (int) coordX - Costanti.ASCII_A_MINUSCOLA;
 	}
 
 	/**
@@ -113,7 +112,7 @@ public final class Cella {
 	 * @param int coordY Compreso fra 1 e 8
 	 * @return int Coordinata convertita in intero, compreso tra 0 e 7
 	 */
-	public static int coordYinInt(int coordY) {
+	public static int coordYinInt(final int coordY) {
 
 		return Math.abs(coordY - 8);
 

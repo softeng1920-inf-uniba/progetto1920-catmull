@@ -13,9 +13,8 @@ import pedine.Torre;
  */
 public class Scacchiera {
 
-	private static final int numerocolonne = 8;
-	private static final int numerorighe = 8;
-	private static final int numeropezzi = 32;
+	private static final int NUMEROCOLONNE = 8;
+	private static final int NUMERORIGHE = 8;
 
 	private Cella[][] scacchiera;
 
@@ -30,25 +29,28 @@ public class Scacchiera {
 	}
 
 	public final int getNumeroColonne() {
-		return numerocolonne;
+		return this.NUMEROCOLONNE;
 	}
 
 	public final int getNumeroRighe() {
-		return numerorighe;
+		return this.NUMERORIGHE;
 	}
 
-	public final int getNumeroPezzi() {
-		return numeropezzi;
-	}
-
+	/**
+	 * Date le coordinate, ritorno il riferimento di una cella della scacchiera.
+	 *
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public Cella getCella(final int x, final int y) {
 		return scacchiera[x][y];
 	}
 
-	public final void setCella(Cella nuovaCella, final int x, final int y) {
+	public final void setCella(final Cella nuovaCella, final int x, final int y) {
 		scacchiera[x][y] = nuovaCella;
 	}
-
+  
 	/* metodo che inzializza la scacchiera e la prepara per una nuova partita */
 	public final void inizializzaScacchiera() {
 
