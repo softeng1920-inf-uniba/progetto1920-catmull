@@ -99,7 +99,7 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
 	 * nero
 	 *
 	 * @return colore

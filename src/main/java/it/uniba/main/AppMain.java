@@ -16,7 +16,8 @@ public final class AppMain {
 	/**
 	 * Private constructor. Change if needed.
 	 */
-	private AppMain() {}
+	private AppMain() {
+	}
 
 	/**
 	 * * This is the main entry of the application.
@@ -29,26 +30,27 @@ public final class AppMain {
 		Controller c = new Controller();
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-  		System.out.println("Benvenuto nel gioco degli scacchi. \n");
-    	System.out.println("--- Menu principale --- \n");
-  
-			while (true) {
-				String nomeMenu = br.readLine();
 
-				if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
-					//METODO STAMPA COMANDI
-				} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
-					c.stampaScacchiera();
-				} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
+		System.out.println("Benvenuto nel gioco degli scacchi. \n");
+		System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
 
-					//METODO CHIUDI IL GIOCO
-				} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
 
-					c.inizializzaPartita();
-				} else {
-					System.out.println("Comando non riconosciuto");
+		while (true) {
+			String nomeMenu = br.readLine();
+
+			if (nomeMenu.equals(m.help().getNome())) {
+				c.mostrareElencoComandiMenu();
+			} else if (nomeMenu.equals(m.board().getNome())) {
+				c.stampaScacchiera();
+			} else if (nomeMenu.equals(m.quit().getNome())) {
+				c.chiudiGioco();
+			} else if (nomeMenu.equals(m.play().getNome())) {
+				c.inizializzaPartita();
+
+			} else {
+				System.out.println("Comando non riconosciuto");
 
 			}
+		}
 	}
-}
 }
