@@ -40,13 +40,13 @@ public final class AppMain {
 			while (true) {
 				String nomeMenu = br.readLine();
 		
-				if (nomeMenu.equals(m.help().getNome())) {
+				if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
 					//METODO STAMPA COMANDI
-				} else if (nomeMenu.equals(m.board().getNome())) {
+				} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
 					//METODO STAMPA SCACCHIERA
-				} else if (nomeMenu.equals(m.quit().getNome())) {
-					c.chiudiGioco();// CHIUDE IL GIOCO CON IL COMANDO Quit
-				} else if (nomeMenu.equals(m.play().getNome())) {
+				} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
+					c.chiudiGioco();// METODO CHIUDE IL GIOCO 
+				} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
 					//METODO INIZIA PARTITA
 					c.inizializzaPartita();
 				} else {
