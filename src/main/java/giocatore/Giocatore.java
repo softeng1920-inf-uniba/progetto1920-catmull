@@ -75,7 +75,7 @@ public class Giocatore {
 	/**
 	 * Restituisce il nome del giocatore.
 	 * 
-	 * @return nome del giocatore.
+	 * @return nome
 	 */
 	public String getNome() {
 		return nome;
@@ -84,14 +84,14 @@ public class Giocatore {
 	/**
 	 * Restituisce il colore dei pezzi del giocatore.
 	 * 
-	 * @return
+	 * @return colore
 	 */
 	public Colore getColore() {
 		return colore;
 	}
 
 	/**
-	 * Aggiunta la pedina p mangiata dal giocatore avversarsio al vettore pedine
+	 * Aggiunta la pedina p mangiata dal giocatore avversario al vettore pedine
 	 * mangiate
 	 * 
 	 * @param p
@@ -103,7 +103,7 @@ public class Giocatore {
 	/**
 	 * Funzione che restituisce le pedine mangiate dal giocatore avversario
 	 *
-	 * @return pedineMangiate
+	 * @return pezziCatturati
 	 *
 	 */
 
@@ -127,7 +127,7 @@ public class Giocatore {
 	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno,nel caso
 	 * contiene qualche pezzo restituisce true e viceversa
 	 * 
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isEmptyPezziCatturati() {
 		return pezziCatturati.isEmpty();

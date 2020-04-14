@@ -29,12 +29,11 @@ public class Controller {
 	final void inizializzaPartita() {
 
 		t = new Turno();
-
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String comando = "";
-
+		
 		s.inizializzaScacchiera();
-
 		System.out.println("Puoi ritornare al menu principale digitando il comando 'Menu'. \n");
 
 		while (true) {
@@ -55,8 +54,8 @@ public class Controller {
 			} else if (comando.equalsIgnoreCase(menu.back().getNome())) {
 				// METODO TORNA AL MENU PRINCIPALE
 			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
-				System.out.println("4");
-				// METODO VISUALIZZA CRONOLOGIA MOSSE GIOCATE
+				System.out.println("--- Menu principale --- \n");
+				return;
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 				visualizzareCatture();
 			}
@@ -76,7 +75,8 @@ public class Controller {
 	 * mossa non valida
 	 * 
 	 * @param comando
-	 * @return
+	 * 
+	 * @return boolean
 	 */
 	private boolean isComandoValido(final String comando) {
 

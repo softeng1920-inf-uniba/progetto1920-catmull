@@ -95,7 +95,7 @@
          <br/>
       </p>
       <h2>Metrics</h2>
-      <p>378 lines of code analyzed,
+      <p>379 lines of code analyzed,
 	in 16 classes, 
 	in 5 packages.</p>
       <table width="500" cellpadding="5" cellspacing="2">
@@ -107,22 +107,22 @@
          <tr class="tablerow0">
             <td>High Priority Warnings</td>
             <td align="right">3</td>
-            <td align="right">7.94</td>
+            <td align="right">7.92</td>
          </tr>
          <tr class="tablerow1">
             <td>Medium Priority Warnings</td>
-            <td align="right">1</td>
-            <td align="right">2.65</td>
+            <td align="right">2</td>
+            <td align="right">5.28</td>
          </tr>
          <tr class="$totalClass">
             <td>
                <b>Total Warnings</b>
             </td>
             <td align="right">
-               <b>4</b>
+               <b>5</b>
             </td>
             <td align="right">
-               <b>10.58</b>
+               <b>13.19</b>
             </td>
          </tr>
       </table>
@@ -140,6 +140,9 @@
          </li>
          <li>
             <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_STYLE">Dodgy code Warnings</a>
          </li>
          <li>
             <a href="#Details">Details</a>
@@ -165,10 +168,16 @@
          </tr>
          <tr class="tablerow0">
             <td>
+               <a href="#Warnings_STYLE">Dodgy code Warnings</a>
+            </td>
+            <td align="right">1</td>
+         </tr>
+         <tr class="tablerow1">
+            <td>
                <b>Total</b>
             </td>
             <td align="right">
-               <b>4</b>
+               <b>5</b>
             </td>
          </tr>
       </table>
@@ -248,6 +257,29 @@
             </td>
          </tr>
       </table>
+      <h2>
+         <a name="Warnings_STYLE">Dodgy code Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e117');">
+            <td>
+               <span class="priority-2">NP</span>
+            </td>
+            <td>Dereference of the result of readLine() without nullcheck in it.uniba.main.Controller.inizializzaPartita()</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e117" style="display: none;">
+                  <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.inizializzaPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 50]</p>
+            </td>
+         </tr>
+      </table>
       <h1>
          <a name="Details">Details</a>
       </h1>
@@ -258,6 +290,14 @@
 <p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
 
       <h2>
+         <a name="NP_DEREFERENCE_OF_READLINE_VALUE">NP_DEREFERENCE_OF_READLINE_VALUE: Dereference of the result of readLine() without nullcheck</a>
+      </h2>
+
+  <p> The result of invoking readLine() is dereferenced without checking to see if the result is null. If there are no more lines of text
+to read, readLine() will return null and dereferencing that will generate a null pointer exception.
+</p>
+
+    <h2>
          <a name="URF_UNREAD_FIELD">URF_UNREAD_FIELD: Unread field</a>
       </h2>
 
