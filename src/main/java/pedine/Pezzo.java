@@ -64,7 +64,7 @@ public abstract class Pezzo {
 	 * @param simbolo
 	 */
 
-	public void setSimbolo(final String simbolo) {
+	public void setSimbolo(final char simbolo) {
 		this.simbolo = simbolo;
 	}
 
