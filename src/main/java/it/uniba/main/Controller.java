@@ -52,10 +52,10 @@ public class Controller {
 			} else if (comando.equalsIgnoreCase(menu.board().getNome())) {
 				// METODO STAMPA SCACCHIERA
 			} else if (comando.equalsIgnoreCase(menu.back().getNome())) {
-				// METODO TORNA AL MENU PRINCIPALE
-			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
 				System.out.println("--- Menu principale --- \n");
 				return;
+			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
+				//METODO CHE VISUALIZZA LE MOSSE GIOCATE
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 				visualizzareCatture();
 			}
