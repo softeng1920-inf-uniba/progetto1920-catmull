@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
- * 
+ *
  * <b>DO NOT RENAME</b>
  */
 public final class AppMain {
@@ -33,6 +33,10 @@ public final class AppMain {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+
+  		System.out.println("Benvenuto nel gioco degli scacchi. \n");
+    	System.out.println("--- Menu principale --- \n");
+
 			while (true) {
 				String nomeMenu = br.readLine();
 		
@@ -41,6 +45,7 @@ public final class AppMain {
 				} else if (nomeMenu.equals(m.board().getNome())) {
 					//METODO STAMPA SCACCHIERA
 				} else if (nomeMenu.equals(m.quit().getNome())) {
+          	c.inizializzaPartita();
 					//METODO CHIUDI IL GIOCO
 				} else if (nomeMenu.equals(m.play().getNome())) {
 					//METODO INIZIA PARTITA
@@ -48,7 +53,6 @@ public final class AppMain {
 					System.out.println("Comando non riconosciuto");
 				}
 			}
-
-
+    
 	}
 }

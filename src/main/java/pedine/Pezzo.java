@@ -9,80 +9,77 @@ import it.uniba.main.Colore;
  **/
 public abstract class Pezzo {
 
-	protected String nome;
-	protected Colore colore;
-	protected boolean vivo;
-	public String simbolo;
-	protected Cella posizioneCorrente;
+	private String nome;
+	private Colore colore;
+	private boolean vivo;
+	private String simbolo;
+	private Cella posizioneCorrente;
 
-	public Pezzo(String n, Colore c, Cella pC, String s) {
-		this.nome = n;
-		this.colore = c;
-		this.posizioneCorrente = pC;
-		this.simbolo = s;
+	public Pezzo(final String nome, final Colore colore, final Cella posizioneCorrente, final String simbolo) {
+		this.nome = nome;
+		this.colore = colore;
+		this.posizioneCorrente = posizioneCorrente;
+		this.simbolo = simbolo;
 		vivo = true;
 	}
 
-	/**
-	 * disegnapezzo consente di rappresentare il pezzo nella scacchiera
-	 */
-	public void disegnapezzo() {
+	// public abstract void mossevalide();
+	public final void disegnapezzo() {
 		System.out.print("   " + this.simbolo + "   ");
 	}
-	// public abstract void mossevalide();
 
 	// --------Metodi di setting --------
 
 	/**
 	 * setNome imposta il nome del pezzo
-	 * 
+	 *
 	 * @param nome
 	 */
-	void setNome(String n) {
-		this.nome = n;
+	void setNome(final String nome) {
+		this.nome = nome;
 	}
 
 	/**
 	 * setColore imposta il colore del pezzo
-	 * 
+	 *
 	 * @param colore
 	 */
 
-	public void setColore(Colore c) {
-		this.colore = c;
+	public void setColore(final Colore colore) {
+		this.colore = colore;
 	}
 
 	/**
 	 * setVivo riporta lo stato del pezzo
 	 */
-	public void setVivo(boolean v) {
-		this.vivo = v;
+	public void setVivo(final boolean vivo) {
+		this.vivo = vivo;
 	}
 
 	/**
 	 * setSimbolo modifica lo stato del simbolo
-	 * 
+	 *
 	 * @param simbolo
 	 */
 
-	public void setSimbolo(String s) {
-		this.simbolo = s;
+	public void setSimbolo(final String simbolo) {
+		this.simbolo = simbolo;
 	}
 
 	/**
 	 * setPosizioneCorrente imposta la posizione corrente del pezzo
-	 * 
+	 *
 	 * @param posizioneCorrente
 	 */
-	public void setPosizioneCorrente(Cella pC) {
-		this.posizioneCorrente = pC;
+	public void setPosizioneCorrente(final Cella posizioneCorrente) {
+		this.posizioneCorrente = posizioneCorrente;
 	}
 
 	// --------Metodi di Get--------
 
 	/**
 	 * getNome restituisce il nome del pezzo
-	 * 
+	 *
 	 * @return nome
 	 */
 	public String getNome() {
@@ -91,7 +88,7 @@ public abstract class Pezzo {
 
 	/**
 	 * getSimbolo restituisce il simbolo corrente del pezzo
-	 * 
+	 *
 	 * @return simbolo
 	 */
 	public String getSimbolo() {
@@ -99,8 +96,7 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
-	 * nero
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo è bianco o nero
 	 * 
 	 * @return colore
 	 */
@@ -110,8 +106,8 @@ public abstract class Pezzo {
 
 	/**
 	 * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
-	 * 
-	 * 
+	 *
+	 *
 	 * @return vivo
 	 */
 	public boolean isVivo() {
@@ -120,7 +116,7 @@ public abstract class Pezzo {
 
 	/**
 	 * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
-	 * 
+	 *
 	 * @return posizioneCorrente
 	 */
 	public Cella getPosizioneCorrente() {
@@ -131,7 +127,7 @@ public abstract class Pezzo {
 	 * toString consente di rappresentare un oggetto come una stringa
 	 */
 	@Override
-	public String toString() {
+	public final String toString() {
 		return String.format(nome + " " + colore);
 	}
 }
