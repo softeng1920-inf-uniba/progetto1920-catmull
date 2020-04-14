@@ -30,7 +30,7 @@ public class Comando {
 	 * 
 	 * @param descrizione
 	 */
-	void setDescrizione(String descrizione) {
+	void setDescrizione(final String descrizione) {
 		this.descrizione = descrizione;
 	}
 
