@@ -15,10 +15,10 @@ public abstract class Pezzo {
 	public char simbolo;
 	protected Cella posizioneCorrente;
 
-	public Pezzo(String n, Colore c, Cella pC) {
-		this.nome = n;
-		this.colore = c;
-		this.posizioneCorrente = pC;
+	public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
+		this.nome = name;
+		this.colore = colore;
+		this.posizioneCorrente = posizioneCorrente;
 		this.simbolo = ' ';
 		vivo = true;
 	}
