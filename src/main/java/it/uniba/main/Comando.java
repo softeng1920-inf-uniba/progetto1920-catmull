@@ -43,7 +43,7 @@ public class Comando {
 	}
 
 	/**
-	 * Metodo che permette di visualizzarre i comandi
+	 * Metodo che permette di visualizzare i comandi
 	 */
 	@Override
 	public String toString() {
