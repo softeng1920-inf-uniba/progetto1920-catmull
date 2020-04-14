@@ -26,7 +26,6 @@ public final class AppMain {
 	 * @throws UnsupportedEncodingException
 	 */
 	public static void main(final String[] args) throws IOException {
-
 		Controller c = new Controller();
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

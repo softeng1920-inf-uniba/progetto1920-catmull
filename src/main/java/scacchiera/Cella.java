@@ -29,6 +29,7 @@ public final class Cella {
 			System.out.print('\u3000');
 			System.out.print("    ");
 		}
+
 	}
 
 	// ---------Metodi di setting---------

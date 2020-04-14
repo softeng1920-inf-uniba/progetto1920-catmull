@@ -108,6 +108,7 @@ public class Scacchiera {
 
 	}
 
+	/* metodo per stampare nella console la scacchiera */
 	public final void stampa() {
 		System.out.println("     a    b   c    d   e    f   g   h");
 		for (int j = 8; j > 0; j--) {

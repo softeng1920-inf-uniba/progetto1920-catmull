@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.005" hostname="LAPTOP-5EBE22AV" timestamp="2020-04-14T22:05:25">
 
 =======
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.005" hostname="DESKTOP-7CRH8OC" timestamp="2020-04-13T22:49:50">
 >>>>>>> 74cc8d0... Miglioria metodo di stampa
+=======
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.007" hostname="DESKTOP-7CRH8OC" timestamp="2020-04-14T15:36:24">
+>>>>>>> 3c59431... Ulteriori migliorie
 <properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>
