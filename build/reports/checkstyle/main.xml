@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
 </file>
@@ -33,6 +34,8 @@
 <file name="E:\Università non sync\Ingegneria del sw\Progetti GIT\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
 
 =======
+=======
+>>>>>>> 6d31c2fa2c33037ae6fccd1952204bcd7fc1dbf2
 <file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
 <error line="2" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - pedine.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
 <error line="3" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - java.util.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
