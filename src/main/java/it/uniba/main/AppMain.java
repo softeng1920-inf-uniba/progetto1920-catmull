@@ -38,7 +38,7 @@ public final class AppMain {
 				if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
 					//METODO STAMPA COMANDI
 				} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
-					//METODO STAMPA SCACCHIERA
+					c.stampaScacchiera();
 				} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
 
 					//METODO CHIUDI IL GIOCO

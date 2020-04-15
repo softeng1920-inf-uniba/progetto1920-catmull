@@ -115,4 +115,8 @@ public class Controller {
 		}
 
 	}
+
+	void stampaScacchiera() {
+		s.stampa();
+	}
 }
