@@ -40,15 +40,14 @@ public final class AppMain {
 			while (true) {
 				String nomeMenu = br.readLine();
 		
-				if (nomeMenu.equals(m.help().getNome())) {
+				if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
 					//METODO STAMPA COMANDI
-				} else if (nomeMenu.equals(m.board().getNome())) {
+				} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
 					//METODO STAMPA SCACCHIERA
-				} else if (nomeMenu.equals(m.quit().getNome())) {
-          	c.inizializzaPartita();
+				} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
 					//METODO CHIUDI IL GIOCO
-				} else if (nomeMenu.equals(m.play().getNome())) {
-					//METODO INIZIA PARTITA
+				} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
+					c.inizializzaPartita();
 				} else {
 					System.out.println("Comando non riconosciuto");
 				}

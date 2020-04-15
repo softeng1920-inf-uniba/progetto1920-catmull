@@ -96,7 +96,8 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo è bianco o nero
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo è bianco o
+	 * nero
 	 * 
 	 * @return colore
 	 */
@@ -128,6 +129,6 @@ public abstract class Pezzo {
 	 */
 	@Override
 	public final String toString() {
-		return String.format(nome + " " + colore);
+		return String.format(nome + " " + colore + " " + simbolo);
 	}
 }
