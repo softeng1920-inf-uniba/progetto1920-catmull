@@ -31,29 +31,25 @@ public final class AppMain {
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		System.out.println("Benvenuto nel gioco degli scacchi. \n");
 		System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
-
+		System.out.println("Digitare help per visualizzare la lista dei comandi");
 
 		while (true) {
 			String nomeMenu = br.readLine();
 
-			if (nomeMenu.equals(m.help().getNome())) {
+			if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
 				c.mostrareElencoComandiMenu();
-			} else if (nomeMenu.equals(m.board().getNome())) {
+			} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
 				c.stampaScacchiera();
-			} else if (nomeMenu.equals(m.quit().getNome())) {
+			} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
 				c.chiudiGioco();
-			} else if (nomeMenu.equals(m.play().getNome())) {
+			} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
 				c.inizializzaPartita();
-
 			} else {
 				System.out.println("Comando non riconosciuto");
 
 			}
 		}
-
-
 
 	}
 }

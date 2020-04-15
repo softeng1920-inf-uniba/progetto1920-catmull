@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.009" hostname="LAPTOP-N9R260GT" timestamp="2020-04-15T22:06:24">
-=======
-<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.007" hostname="LAPTOP-N9R260GT" timestamp="2020-04-15T21:45:55">
->>>>>>> apportate modifiche di perfezionamento sulla stampa dei comandi
-=======
-<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.007" hostname="LAPTOP-N9R260GT" timestamp="2020-04-15T21:45:55">
-=======
-<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.009" hostname="LAPTOP-N9R260GT" timestamp="2020-04-15T15:59:03">
->>>>>>> Miglioramento interfaccia grafica
->>>>>>> Miglioramento interfaccia grafica
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.005" hostname="LAPTOP-N9R260GT" timestamp="2020-04-15T22:46:08">
 <properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>

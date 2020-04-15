@@ -28,7 +28,7 @@ public class Giocatore {
 	 * successivo e' nero. Nel vettore "pezziCatturati" ci saranno conservati tutti
 	 * i pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sara' la storia
 	 * delle mosse giocate dal giocatore.
-
+	 * 
 	 * 
 	 * @param colore
 	 */
@@ -38,10 +38,8 @@ public class Giocatore {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + colore + " \u2193");
-		String nome="";
-
+		String nome = "";
 
 		try {
 			nome = br.readLine();
@@ -94,8 +92,8 @@ public class Giocatore {
 	}
 
 	/**
-	 * Aggiunta la pedina p mangiata dal giocatore avversario al vettore pedine
-	 * mangiate
+	 * Aggiunta la pedina p mangiata dal giocatore avversario al vettore
+	 * pezziCatturati
 	 * 
 	 * @param p
 	 */
@@ -128,7 +126,7 @@ public class Giocatore {
 
 	/**
 	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno,nel caso
-	 * contiene qualche pezzo restituisce true e viceversa
+	 * contienga qualche pezzo restituisce true e viceversa
 	 * 
 	 * @return boolean
 	 */

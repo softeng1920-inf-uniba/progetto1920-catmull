@@ -24,8 +24,8 @@ public final class Pedone extends Pezzo {
 	}
 
 	/**
-  * Restituisce vero se e' la prima mossa, falso altrimenti
-  */
+	 * Restituisce vero se e' la prima mossa, falso altrimenti
+	 */
 	public boolean primaMossa() {
 		return this.primaMossa;
 	}

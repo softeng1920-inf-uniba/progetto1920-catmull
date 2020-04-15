@@ -24,32 +24,8 @@
 <error line="41" column="9" severity="error" message="Class &apos;Comando&apos; looks like designed for extension (can be subclassed), but the method &apos;getDescrizione&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Comando&apos; final or making the method &apos;getDescrizione&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 </file>
 <file name="C:\Users\samba\progetto1920-catmull\src\main\java\it\uniba\main\Controller.java">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<error line="33" column="9" severity="error" message="&apos;{&apos; at column 2 should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="54" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="73" column="89" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="129" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="154" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="171" column="9" severity="error" message="Class &apos;Controller&apos; looks like designed for extension (can be subclassed), but the method &apos;mostrareElencoComandiMenu&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Controller&apos; final or making the method &apos;mostrareElencoComandiMenu&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="177" column="9" severity="error" message="Class &apos;Controller&apos; looks like designed for extension (can be subclassed), but the method &apos;mostrareElencoComandiGioco&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Controller&apos; final or making the method &apos;mostrareElencoComandiGioco&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="186" column="9" severity="error" message="Class &apos;Controller&apos; looks like designed for extension (can be subclassed), but the method &apos;stampaScacchiera&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Controller&apos; final or making the method &apos;stampaScacchiera&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-=======
-=======
->>>>>>> Miglioramento interfaccia grafica
-<error line="32" column="9" severity="error" message="&apos;{&apos; at column 2 should be on the previous line." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
-<error line="66" column="88" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="68" column="89" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="149" column="9" severity="error" message="Class &apos;Controller&apos; looks like designed for extension (can be subclassed), but the method &apos;stampaScacchiera&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Controller&apos; final or making the method &apos;stampaScacchiera&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<<<<<<< HEAD
->>>>>>> apportate modifiche di perfezionamento sulla stampa dei comandi
-=======
-=======
-<error line="65" column="86" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="70" column="88" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="72" column="89" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
->>>>>>> Miglioramento interfaccia grafica
->>>>>>> Miglioramento interfaccia grafica
+<error line="199" column="9" severity="error" message="Class &apos;Controller&apos; looks like designed for extension (can be subclassed), but the method &apos;stampaScacchiera&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Controller&apos; final or making the method &apos;stampaScacchiera&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 </file>
 <file name="C:\Users\samba\progetto1920-catmull\src\main\java\it\uniba\main\Menu.java">
 <error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
@@ -91,6 +67,5 @@
 <file name="C:\Users\samba\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
 </file>
 <file name="C:\Users\samba\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
-<error line="53" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 </checkstyle>

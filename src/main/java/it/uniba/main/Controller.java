@@ -12,7 +12,7 @@ import gioco.Turno;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita'  del gioco.
+ * Classe che gestisce le varie funzionalita' del gioco.
  */
 public class Controller {
 
@@ -27,19 +27,16 @@ public class Controller {
 	}
 
 	/**
-<<<<<<< HEAD
-	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema operativo
-=======
-	 * funzione che consente di chiudere il gioco e lasciare il controllo al sistema
+	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema
 	 * operativo
->>>>>>> Miglioramento interfaccia grafica
+	 * 
 	 */
 	final void chiudiGioco() {
 		System.exit(0);
 	}
 
 	final void inizializzaPartita() {
-
+		System.out.println("Benvenuto nel gioco degli scacchi.");
 		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
 		System.out.println("\u2022" + " Digita 'Help' per visualizzare l'elenco dei comandi.");
 		t = new Turno();
@@ -53,12 +50,9 @@ public class Controller {
 
 			System.out.println("\nE' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
 					+ t.getGiocatoreInTurno().getColore() + ".");
-<<<<<<< HEAD
-			System.out.println("Inserisci una mossa nella notazione algebrica:");
-=======
+
 			System.out.println(
 					"-> Inserisci una mossa nella notazione algebrica (es. e1 e4); altrimenti digita una voce del menu.");
->>>>>>> Miglioramento interfaccia grafica
 
 			try {
 				comando = br.readLine();
@@ -71,12 +65,11 @@ public class Controller {
 			} else if (comando.equalsIgnoreCase(menu.board().getNome())) {
 				s.stampa();
 			} else if (comando.equalsIgnoreCase(menu.back().getNome())) {
-				System.out.println("\u265A" + "\u265B" + " Menu principale " + "\u2655" + "\u2656" + " \n");
+				System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
+				System.out.println("Digitare help per visualizzare la lista dei comandi");
 				return;
 			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
-
 				stampaMosseGiocate();
-
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
@@ -134,20 +127,23 @@ public class Controller {
 			t.getGiocatoreInAttesa().stampaPezziCatturati();
 		}
 	}
-	
+
 	/**
 	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
-	 * La fusione avviene in modo alternato.
-	 * Permette di avere una visione completa delle mosse giocate totali.
+	 * La fusione avviene in modo alternato. Permette di avere una visione completa
+	 * delle mosse giocate totali.
+	 * 
 	 * @return ArrayList di stringhe.
 	 */
 	private ArrayList<String> fusioneListe() {
-		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate() + t.getGiocatoreInTurno().getNumeroMosseGiocate();
+		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
+				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
 		int i = 0;
 		int j = 0;
 		int k = 0;
-		while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate() && j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
+		while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate()
+				&& j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
 			mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(i++));
 			mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(j++));
 		}
@@ -159,13 +155,14 @@ public class Controller {
 		}
 		return mosseGiocateTotali;
 	}
-	
+
 	/**
 	 * Stampa a video l'elenco delle mosse giocate del giocatore.
 	 */
 	public void stampaMosseGiocate() {
 		System.out.println("Storia delle mosse giocate");
-		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate() + t.getGiocatoreInTurno().getNumeroMosseGiocate();
+		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
+				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		for (int i = 0; i < dimensione; i++) {
 			if ((i % 2) == 0) {
 				System.out.println("Bianco " + "[" + fusioneListe().get(i) + "]");
@@ -187,7 +184,7 @@ public class Controller {
 	}
 
 	/**
-	 * Metodo che permette la visualizzazione dell 'elenco comandi del menu di
+	 * Metodo che permette la visualizzazione dell' elenco comandi del menu di
 	 * gioco: Quit board captures history back
 	 */
 	public void mostrareElencoComandiGioco() {
