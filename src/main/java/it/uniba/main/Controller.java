@@ -36,8 +36,8 @@ public class Controller {
 
 	final void inizializzaPartita() {
 
-		System.out.println("\u2022" + " Digita 'Menu' per tornare al menu principale.");
-		System.out.println("\u2022" + " Digita 'Help' per visualizzare l'elenco dei comandi .");
+		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
+		System.out.println("\u2022" + " Digita 'Help' per visualizzare l'elenco dei comandi.");
 		t = new Turno();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -45,19 +45,17 @@ public class Controller {
 
 		s.inizializzaScacchiera();
 
-
 		while (true) {
 
 			System.out.println("\nE' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
 					+ t.getGiocatoreInTurno().getColore() + ".");
 			System.out.println("Inserisci una mossa nella notazione algebrica:");
-			
+
 			try {
 				comando = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 
 			if (comando.equalsIgnoreCase(menu.help().getNome())) {
 				mostrareElencoComandiGioco();
@@ -72,7 +70,8 @@ public class Controller {
 
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 
-
+			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
+				chiudiGioco();
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
@@ -80,7 +79,7 @@ public class Controller {
 				t.cambioTurno();
 			} else if (!isComandoValido(comando)) {
 
-				System.out.println("Comando non corretto. Riprova !");
+				System.out.println("Comando non corretto. Riprova!");
 
 			}
 		}
@@ -167,6 +166,10 @@ public class Controller {
 		}
 	}
 
+	/**
+	 * Metodo che permette la visualizzazione dell 'elenco comandi del menu
+	 * principale: Quit play board
+	 */
 
 	public void mostrareElencoComandiMenu() {
 		System.out.println(menu.quit().toString());
@@ -174,6 +177,10 @@ public class Controller {
 		System.out.println(menu.board().toString());
 	}
 
+	/**
+	 * Metodo che permette la visualizzazione dell 'elenco comandi del menu di
+	 * gioco: Quit board captures history back
+	 */
 	public void mostrareElencoComandiGioco() {
 		System.out.println(menu.back().toString());
 		System.out.println(menu.board().toString());
