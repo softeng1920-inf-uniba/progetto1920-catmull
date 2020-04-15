@@ -8,7 +8,7 @@ public class Menu {
 	private Comando board;
 	private Comando captures;
 	private Comando play;
-	private Comando exit;
+	private Comando back;
 
 	Menu() {
 		help = new Comando("Help", "");
@@ -17,7 +17,7 @@ public class Menu {
 		board = new Comando("Board", "Visualizza la posizione sulla scacchiera");
 		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
 		play = new Comando("Play", "Inizia una nuova partita");
-		exit = new Comando("Menu","Ritorna al menu principale");
+		back = new Comando("Menu", "Ritorna al menu principale");
 	}
 
 	public Comando help() {
@@ -43,9 +43,9 @@ public class Menu {
 	public Comando play() {
 		return play;
 	}
-	
-	public Comando exit() {
-		return exit;
+
+	public Comando back() {
+		return back;
 	}
-	
+
 }

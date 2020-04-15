@@ -30,11 +30,11 @@ public class Scacchiera {
 	}
 
 	public final int getNumeroColonne() {
-		return this.NUMEROCOLONNE;
+		return NUMEROCOLONNE;
 	}
 
 	public final int getNumeroRighe() {
-		return this.NUMERORIGHE;
+		return NUMERORIGHE;
 	}
 
 	/**

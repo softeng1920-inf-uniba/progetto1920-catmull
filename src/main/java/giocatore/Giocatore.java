@@ -11,54 +11,55 @@ import pedine.Pezzo;
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
  * possono essere solo due giocatori. Al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi morti e mosse giocate.
- * Il primo √® bianco e il secondo nero: al giocatore che fa la prima mossa
- * sar√† assegnato il colore bianco.
+ * Il primo Ë bianco e il secondo nero: al giocatore che fa la prima mossa sar‡
+ * assegnato il colore bianco.
  *
  */
 public class Giocatore {
 
 	private String nome;
 	private Colore colore;
-	private ArrayList<Pezzo> pezziMorti;
-	private ArrayList<String> mosseGiocate;
+	private ArrayList<Pezzo> pezziCatturati;
+	ArrayList<String> mosseGiocate;
 
 	/**
 	 * Costruttore della classe Giocatore che assegna al campo colore il nome del
-	 * colore dei pezzi. Il giocatore che gioca il primo turno √® bianco, quello
-	 * successivo √® nero. Nel vettore "pezziMorti" ci saranno conservati tutti i
-	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sar√† la storia
-	 * delle mosse giocate dal giocatore.
+	 * colore dei pezzi. Il giocatore che gioca il primo turno Ë bianco, quello
+	 * successivo Ë nero. Nel vettore "pezziMorti" ci saranno conservati tutti i
+	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sar‡ la storia delle
+	 * mosse giocate dal giocatore.
 	 * 
 	 * @param colore
 	 */
-	public Giocatore(final Colore colore) {
+	public Giocatore(Colore colore) {
 
 		setColore(colore);
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Inserire il nome del giocatore con le pedine (" + colore + ")");
-		String nome;
+		String nome = "";
 
 		try {
-
 			nome = br.readLine();
-			setNome(nome);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		// pezziMorti = new ArrayList<Pezzo>();
-		// mosseGiocate = new ArrayList<String>();
+		setNome(nome);
+
+		pezziCatturati = new ArrayList<Pezzo>();
+		mosseGiocate = new ArrayList<String>();
 
 	}
 
 	/**
-	 * Assegna il nome al campo nome del Giocatore. S
+	 * Assegna il nome al campo nome del Giocatore.
 	 * 
 	 * @param nome
 	 */
-	public void setNome(final String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
@@ -67,14 +68,14 @@ public class Giocatore {
 	 * 
 	 * @param colore
 	 */
-	public void setColore(final Colore colore) {
+	public void setColore(Colore colore) {
 		this.colore = colore;
 	}
 
 	/**
 	 * Restituisce il nome del giocatore.
 	 * 
-	 * @return nome del giocatore.
+	 * @return nome
 	 */
 	public String getNome() {
 		return nome;
@@ -83,10 +84,52 @@ public class Giocatore {
 	/**
 	 * Restituisce il colore dei pezzi del giocatore.
 	 * 
-	 * @return
+	 * @return colore
 	 */
 	public Colore getColore() {
 		return colore;
 	}
 
+	/**
+	 * Aggiunta la pedina p mangiata dal giocatore avversario al vettore pedine
+	 * mangiate
+	 * 
+	 * @param p
+	 */
+	public void addPezziCatturati(Pezzo p) {
+		pezziCatturati.add(p);
+	}
+
+	/**
+	 * Funzione che restituisce le pedine mangiate dal giocatore avversario
+	 *
+	 * @return pezziCatturati
+	 *
+	 */
+
+	public ArrayList<Pezzo> getPezziCatturati() {
+		return pezziCatturati;
+	}
+
+	/**
+	 * Funzione che permette di visualizzare le pedine che l'avversario ti ha
+	 * mangiato
+	 */
+	public void stampaPezziCatturati() {
+
+		System.out.println(nome.toUpperCase() + " ecco le pedine che il tuo avversario ti ha mangiato:");
+		for (Pezzo pezzoMangiato : getPezziCatturati()) {
+			System.out.println(pezzoMangiato);
+		}
+	}
+
+	/**
+	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno,nel caso
+	 * contiene qualche pezzo restituisce true e viceversa
+	 * 
+	 * @return boolean
+	 */
+	public boolean isEmptyPezziCatturati() {
+		return pezziCatturati.isEmpty();
+	}
 }

@@ -12,15 +12,16 @@ import java.io.InputStreamReader;
 import gioco.Turno;
 
 /**
- * Classe che gestisce le varie funzionalit√† del gioco.
+ * Classe che gestisce le varie funzionalit‡ del gioco.
  */
 public class Controller {
 
 	private Scacchiera s;
 	private Turno t;
+	private Menu menu;
 
 	public Controller() {
-
+		menu = new Menu();
 		s = new Scacchiera();
 
 	}
@@ -36,63 +37,62 @@ public class Controller {
 	final void inizializzaPartita() {
 
 		t = new Turno();
-
+		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String comando = "";
-
+		
 		s.inizializzaScacchiera();
-
-		System.out.println("Puoi ritornare al menu principale digitando il comando 'exit'. \n");
+		System.out.println("Puoi ritornare al menu principale digitando il comando 'Menu'. \n");
 
 		while (true) {
 
-			System.out.println("E' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
-					+ t.getGiocatoreInTurno().getColore() + "\n");
-			System.out.println("Inserisci una mossa nella notazione algebrica\n");
+			System.out.println("\nE' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
+					+ t.getGiocatoreInTurno().getColore() + "");
+			System.out.println("Inserisci una mossa nella notazione algebrica");
 
 			try {
 				comando = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
-			switch (comando) {
-			case "exit":
+			if (comando.equalsIgnoreCase(menu.help().getNome())) {
+				// METODO STAMPA COMANDI
+			} else if (comando.equalsIgnoreCase(menu.board().getNome())) {
+				// METODO STAMPA SCACCHIERA
+			} else if (comando.equalsIgnoreCase(menu.back().getNome())) {
+				System.out.println("--- Menu principale --- \n");
 				return;
-			case "board":
-				System.out.println("Questa √® una scacchiera");
-
-				break;
-			default:
-				if (isNotazioneAlgebrica(comando)) {
-					// se √® una mossa consentita...
-					System.out.println("OK");
-					t.cambioTurno();
-					// Altrimenti stampa mossa illegale
-				} else if (!isComandoValido(comando)) {
-					System.out.println("Comando non corretto. Riprova \n");
-					break;
-				}
-
+			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
+				//METODO CHE VISUALIZZA LE MOSSE GIOCATE
+			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
+				visualizzareCatture();
 			}
 
+			if (isNotazioneAlgebrica(comando)) {
+				t.cambioTurno();
+			} else if (!isComandoValido(comando)) {
+				System.out.println("Comando non corretto. Riprova");
+			}
 		}
 
 	}
 
 	/**
-	 * La seguente funzione riconosce se il comando inserito √® un comando scritto
-	 * sottoforma di notazione algebrica Il seguente comando pu√≤ essere anche una
+	 * La seguente funzione riconosce se il comando inserito Ë un comando scritto
+	 * sottoforma di notazione algebrica Il seguente comando puÚ essere anche una
 	 * mossa non valida
 	 * 
 	 * @param comando
-	 * @return
+	 * 
+	 * @return boolean
 	 */
 	private boolean isComandoValido(final String comando) {
-		for (String s : Costanti.getComandi()) {
-			if (s.equals(comando)) {
-				return true;
-			}
+
+		if (comando.equalsIgnoreCase(menu.help().getNome()) || comando.equalsIgnoreCase(menu.back().getNome())
+				|| comando.equalsIgnoreCase(menu.board().getNome())
+				|| comando.equalsIgnoreCase(menu.captures().getNome())
+				|| comando.equalsIgnoreCase(menu.history().getNome())) {
+			return true;
 		}
 		return false;
 	}
@@ -101,5 +101,19 @@ public class Controller {
 
 		String regex = "[a-h][1-8]\\ [a-h][1-8]";
 		return mossa.matches(regex);
+	}
+
+	/**
+	 * Mostra le catture di entrambi i giocatori
+	 */
+	void visualizzareCatture() {
+
+		if (!t.getGiocatoreInTurno().isEmptyPezziCatturati()) {
+			t.getGiocatoreInTurno().stampaPezziCatturati();
+		}
+		if (!t.getGiocatoreInAttesa().isEmptyPezziCatturati()) {
+			t.getGiocatoreInAttesa().stampaPezziCatturati();
+		}
+
 	}
 }

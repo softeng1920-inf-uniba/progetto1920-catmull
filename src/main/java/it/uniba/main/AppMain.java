@@ -45,9 +45,10 @@ public final class AppMain {
 				} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
 					//METODO STAMPA SCACCHIERA
 				} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
-					c.chiudiGioco();// METODO CHIUDE IL GIOCO 
+
+					//METODO CHIUDI IL GIOCO
 				} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
-					//METODO INIZIA PARTITA
+
 					c.inizializzaPartita();
 				} else {
 					System.out.println("Comando non riconosciuto");
