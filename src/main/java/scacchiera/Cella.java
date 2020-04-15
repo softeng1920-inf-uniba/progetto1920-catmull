@@ -2,7 +2,6 @@ package scacchiera;
 
 import it.uniba.main.Colore;
 import pedine.Pezzo;
-import it.uniba.main.Costanti;
 
 /** Classe per rappresentere le singole parti della scacchiera */
 public final class Cella {
@@ -102,8 +101,7 @@ public final class Cella {
 	 * @return int Valore necessario per la scacchiera compreso fra 0 e 7
 	 */
 	public static int coordXinInt(final char coordX) {
-
-		return (int) coordX - Costanti.ASCII_A_MINUSCOLA;
+		return (int) coordX - 97;
 	}
 
 	/**
