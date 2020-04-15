@@ -24,9 +24,9 @@ public class Giocatore {
 
 	/**
 	 * Costruttore della classe Giocatore che assegna al campo colore il nome del
-	 * colore dei pezzi. Il giocatore che gioca il primo turno � bianco, quello
-	 * successivo � nero. Nel vettore "pezziMorti" ci saranno conservati tutti i
-	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sar� la storia delle
+	 * colore dei pezzi. Il giocatore che gioca il primo turno è bianco, quello
+	 * successivo è nero. Nel vettore "pezziMorti" ci saranno conservati tutti i
+	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sarà la storia delle
 	 * mosse giocate dal giocatore.
 	 * 
 	 * @param colore
