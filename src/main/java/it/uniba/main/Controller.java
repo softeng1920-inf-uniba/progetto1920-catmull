@@ -1,9 +1,7 @@
 /**
- * 
+ *
  */
 package it.uniba.main;
-
-import scacchiera.Scacchiera;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,6 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Turno;
+import scacchiera.Scacchiera;
 
 /**
  * Classe che gestisce le varie funzionalità del gioco.
@@ -34,14 +33,14 @@ public class Controller {
 	{
 		System.exit(0);
 	}
-	
+
 	final void inizializzaPartita() {
 
 		t = new Turno();
-		
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String comando = "";
-		
+
 		s.inizializzaScacchiera();
 		System.out.println("Puoi ritornare al menu principale digitando il comando 'Menu'. \n");
 
@@ -59,7 +58,7 @@ public class Controller {
 			if (comando.equalsIgnoreCase(menu.help().getNome())) {
 				// METODO STAMPA COMANDI
 			} else if (comando.equalsIgnoreCase(menu.board().getNome())) {
-				// METODO STAMPA SCACCHIERA
+				s.stampa();
 			} else if (comando.equalsIgnoreCase(menu.back().getNome())) {
 				System.out.println("--- Menu principale --- \n");
 				return;
@@ -83,9 +82,9 @@ public class Controller {
 	 * La seguente funzione riconosce se il comando inserito è scritto
 	 * sottoforma di notazione algebrica. Il seguente comando può essere anche una
 	 * mossa non valida
-	 * 
+	 *
 	 * @param comando
-	 * 
+	 *
 	 * @return boolean
 	 */
 	private boolean isComandoValido(final String comando) {
@@ -156,5 +155,9 @@ public class Controller {
 				System.out.println("Nero   " + "[" + fusioneListe().get(i) + "]");
 			}
 		}
+	}
+
+	void stampaScacchiera() {
+		s.stampa();
 	}
 }
