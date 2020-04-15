@@ -2,6 +2,7 @@ package pedine;
 
 import it.uniba.main.Colore;
 import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 /**
  * Rappresentazione dell'astrazione del pezzo alfiere
@@ -16,4 +17,8 @@ public final class Alfiere extends Pezzo {
 			simbolo = '\u2657';
 		}
 	}
+	
+	public boolean isMossaValida(String mossa, Scacchiera s) {
+		return true;
+	}	
 }

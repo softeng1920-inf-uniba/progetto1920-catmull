@@ -4,6 +4,7 @@
 package it.uniba.main;
 
 import java.io.BufferedReader;
+import scacchiera.Cella;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -11,7 +12,7 @@ import gioco.Turno;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalità del gioco.
+ * Classe che gestisce le varie funzionalitï¿½ del gioco.
  */
 public class Controller {
 
@@ -63,11 +64,13 @@ public class Controller {
 				return;
 			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
 				//METODO CHE VISUALIZZA LE MOSSE GIOCATE
+				
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 				visualizzareCatture();
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
+				applicaMossa(comando);
 				t.cambioTurno();
 			} else if (!isComandoValido(comando)) {
 				System.out.println("Comando non corretto. Riprova");
@@ -77,8 +80,8 @@ public class Controller {
 	}
 
 	/**
-	 * La seguente funzione riconosce se il comando inserito è un comando scritto
-	 * sottoforma di notazione algebrica Il seguente comando può essere anche una
+	 * La seguente funzione riconosce se il comando inserito ï¿½ un comando scritto
+	 * sottoforma di notazione algebrica Il seguente comando puï¿½ essere anche una
 	 * mossa non valida
 	 *
 	 * @param comando
@@ -119,4 +122,21 @@ public class Controller {
 	void stampaScacchiera() {
 		s.stampa();
 	}
+	
+	public final void applicaMossa(String comando) {
+	    if(s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).getPezzoCorrente().isMossaValida(comando,s)) {
+	        if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()) {
+	            mangiaPezzo(comando);
+	        }
+	        s.scambiaCella(comando);   
+	    }
+	    else { 
+	      System.out.println("mossa non valida");
+	    }
+	}
+	
+	public final void mangiaPezzo(String comando){
+		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).getPezzoCorrente());
+		s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).rimuoviPezzoCorrente();
+		}
 }

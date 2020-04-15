@@ -1,7 +1,7 @@
 package pedine;
 
 import it.uniba.main.Colore;
-import scacchiera.Cella;
+import scacchiera.*;
 
 /**
  * Classe per rappresentere il sottotipo di pezzo chiamato Pedone
@@ -36,5 +36,8 @@ public final class Pedone extends Pezzo {
 	public void setPrimaMossa(final boolean primaMossa) {
 		this.primaMossa = primaMossa;
 	}
-
+	
+	public boolean isMossaValida(String mossa, Scacchiera s) {
+		return true;
+	}	
 }

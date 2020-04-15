@@ -3,6 +3,7 @@ package pedine;
 
 import it.uniba.main.Colore;
 import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 /**
  * Rappresentazione astratta della classe cavallo
@@ -18,5 +19,8 @@ public final class Cavallo extends Pezzo {
 			simbolo = '\u2658';
 		}
 	}
-
+	
+	public boolean isMossaValida(String mossa, Scacchiera s) {
+		return true;
+	}	
 }

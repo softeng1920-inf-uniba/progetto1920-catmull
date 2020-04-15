@@ -2,6 +2,7 @@ package pedine;
 
 import it.uniba.main.Colore;
 import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 /** Classe per rappresentere il sottotipo di pezzo chiamato Regina */
 public final class Regina extends Pezzo {
@@ -16,4 +17,8 @@ public final class Regina extends Pezzo {
 		}
 		// TODO Auto-generated constructor stub
 	}
+	
+	public boolean isMossaValida(String mossa, Scacchiera s) {
+		return true;
+	}	
 }

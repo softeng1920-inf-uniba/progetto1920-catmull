@@ -2,6 +2,7 @@ package pedine;
 
 import it.uniba.main.Colore;
 import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 /**
  * Realizzazione della classe Torre, estensione della classe Pezzo
@@ -18,4 +19,8 @@ public final class Torre extends Pezzo {
 		}
 		// TODO Auto-generated constructor stub
 	}
+	
+	public boolean isMossaValida(String mossa, Scacchiera s) {
+		return true;
+	}	
 }
