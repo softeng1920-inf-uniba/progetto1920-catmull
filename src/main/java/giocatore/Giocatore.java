@@ -11,7 +11,7 @@ import pedine.Pezzo;
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
  * possono essere solo due giocatori. Al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi morti e mosse giocate.
- * Il primo Ë bianco e il secondo nero: al giocatore che fa la prima mossa sar‡
+ * Il primo √® bianco e il secondo nero: al giocatore che fa la prima mossa sar√†
  * assegnato il colore bianco.
  *
  */
@@ -20,13 +20,13 @@ public class Giocatore {
 	private String nome;
 	private Colore colore;
 	private ArrayList<Pezzo> pezziCatturati;
-	ArrayList<String> mosseGiocate;
+	private ArrayList<String> mosseGiocate;
 
 	/**
 	 * Costruttore della classe Giocatore che assegna al campo colore il nome del
-	 * colore dei pezzi. Il giocatore che gioca il primo turno Ë bianco, quello
-	 * successivo Ë nero. Nel vettore "pezziMorti" ci saranno conservati tutti i
-	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sar‡ la storia delle
+	 * colore dei pezzi. Il giocatore che gioca il primo turno √® bianco, quello
+	 * successivo √® nero. Nel vettore "pezziMorti" ci saranno conservati tutti i
+	 * pezzi morti del giocatore. Nel vettore "mosseGiocate" ci sar√† la storia delle
 	 * mosse giocate dal giocatore.
 	 * 
 	 * @param colore
@@ -131,5 +131,38 @@ public class Giocatore {
 	 */
 	public boolean isEmptyPezziCatturati() {
 		return pezziCatturati.isEmpty();
+	}
+	
+	/**
+	 * Aggiunge la mossa corrente alla lista mosseGiocate
+	 * @param mossa
+	 */
+	public void setMosseGiocate(String mossa) {
+		mosseGiocate.add(mossa);
+	}
+	
+	/**
+	 * Restituisce la storia delle mosse giocate dal giocatore.
+	 * @return lista delle mosse giocate.
+	 */
+	public ArrayList<String> getMosseGiocate() {
+		return mosseGiocate;
+	}
+	
+	/**
+	 * Restituisce l'i-esima mossa giocata dal giocatore.
+	 * @param i
+	 * @return Stringa che contiene la mossa giocata.
+	 */
+	public String getMossaGiocata(int i) {
+		return mosseGiocate.get(i);
+	}
+	
+	/**
+	 * Restituisce il numero delle mosse giocate dal giocatore
+	 * @return dimensione della lista delle mosse giocate
+	 */
+	public int getNumeroMosseGiocate() {
+		return mosseGiocate.size();
 	}
 }

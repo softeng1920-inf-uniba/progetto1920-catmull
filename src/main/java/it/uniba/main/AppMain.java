@@ -31,7 +31,7 @@ public final class AppMain {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
   		System.out.println("Benvenuto nel gioco degli scacchi. \n");
     	System.out.println("--- Menu principale --- \n");
-
+  
 			while (true) {
 				String nomeMenu = br.readLine();
 

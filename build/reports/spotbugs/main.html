@@ -73,6 +73,7 @@
       <p>SpotBugs version: 4.0.0-RC3</p>
       <p>Code analyzed:</p>
       <ul>
+
          <li>C:\Users\lomon\progetto1920-catmull\build\classes\java\main\giocatore\Giocatore.class</li>
          <li>C:\Users\lomon\progetto1920-catmull\build\classes\java\main\gioco\Turno.class</li>
          <li>C:\Users\lomon\progetto1920-catmull\build\classes\java\main\it\uniba\main\AppMain.class</li>
@@ -95,7 +96,9 @@
          <br/>
       </p>
       <h2>Metrics</h2>
+
       <p>420 lines of code analyzed,
+        
 	in 16 classes, 
 	in 5 packages.</p>
       <table width="500" cellpadding="5" cellspacing="2">
@@ -107,18 +110,21 @@
          <tr class="tablerow0">
             <td>High Priority Warnings</td>
             <td align="right">3</td>
+
             <td align="right">7.14</td>
          </tr>
          <tr class="tablerow1">
             <td>Medium Priority Warnings</td>
             <td align="right">3</td>
             <td align="right">7.14</td>
+
          </tr>
          <tr class="$totalClass">
             <td>
                <b>Total Warnings</b>
             </td>
             <td align="right">
+
                <b>6</b>
             </td>
             <td align="right">
@@ -140,9 +146,6 @@
          </li>
          <li>
             <a href="#Warnings_I18N">Internationalization Warnings</a>
-         </li>
-         <li>
-            <a href="#Warnings_PERFORMANCE">Performance Warnings</a>
          </li>
          <li>
             <a href="#Warnings_STYLE">Dodgy code Warnings</a>
@@ -177,6 +180,7 @@
          </tr>
          <tr class="tablerow1">
             <td>
+
                <a href="#Warnings_STYLE">Dodgy code Warnings</a>
             </td>
             <td align="right">1</td>
@@ -186,6 +190,7 @@
                <b>Total</b>
             </td>
             <td align="right">
+
                <b>6</b>
             </td>
          </tr>
@@ -237,7 +242,9 @@
                   <br/>In class giocatore.Giocatore<br/>In method new giocatore.Giocatore(Colore)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Giocatore.java:[line 38]</p>
             </td>
          </tr>
+
          <tr class="tablerow0" onclick="toggleRow('d1e87');">
+
             <td>
                <span class="priority-1">Dm</span>
             </td>
@@ -247,11 +254,13 @@
             <td/>
             <td>
                <p id="d1e87" style="display: none;">
+
                   <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
                   <br/>In class it.uniba.main.AppMain<br/>In method it.uniba.main.AppMain.main(String[])<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At AppMain.java:[line 31]</p>
             </td>
          </tr>
          <tr class="tablerow1" onclick="toggleRow('d1e102');">
+
             <td>
                <span class="priority-1">Dm</span>
             </td>
@@ -260,6 +269,7 @@
          <tr class="detailrow1">
             <td/>
             <td>
+
                <p id="d1e102" style="display: none;">
                   <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
                   <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.inizializzaPartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 40]</p>
@@ -286,6 +296,7 @@
                <p id="d1e74" style="display: none;">
                   <a href="#URF_UNREAD_FIELD">Bug type URF_UNREAD_FIELD (click for details)</a>
                   <br/>In class giocatore.Giocatore<br/>Field giocatore.Giocatore.mosseGiocate<br/>At Giocatore.java:[line 53]</p>
+
             </td>
          </tr>
       </table>
@@ -297,7 +308,9 @@
             <th align="left">Code</th>
             <th align="left">Warning</th>
          </tr>
+
          <tr class="tablerow1" onclick="toggleRow('d1e129');">
+
             <td>
                <span class="priority-2">NP</span>
             </td>
@@ -306,6 +319,7 @@
          <tr class="detailrow1">
             <td/>
             <td>
+
                <p id="d1e129" style="display: none;">
                   <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
                   <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.inizializzaPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 57]</p>
@@ -337,12 +351,6 @@
   <p> The result of invoking readLine() is dereferenced without checking to see if the result is null. If there are no more lines of text
 to read, readLine() will return null and dereferencing that will generate a null pointer exception.
 </p>
-
-    <h2>
-         <a name="URF_UNREAD_FIELD">URF_UNREAD_FIELD: Unread field</a>
-      </h2>
-
-  <p> This field is never read.&nbsp; Consider removing it from the class.</p>
 
     </body>
 </html>
