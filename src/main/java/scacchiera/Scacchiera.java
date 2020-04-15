@@ -109,70 +109,16 @@ public class Scacchiera {
 	/* metodo per stampare nella console la scacchiera */
 	public final void stampa() {
 		System.out.println("     a    b   c    d   e    f   g   h");
-		System.out.println("  --------------------------------------");
-		System.out.print("8  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 0).stampaPezzo();
-			System.out.print(" ");
+		for (int j = 8; j > 0; j--) {
+			System.out.println("  --------------------------------------");
+			System.out.print(j + "  ");
+			for (int i = 0; i < 8; i++) {
+				System.out.print("| ");
+				getCella(i, Math.abs(j - 8)).stampaPezzo();
+				System.out.print(" ");
+			}
+			System.out.print("|\n");
 		}
-		System.out.print("|\n");
-		System.out.println("  --------------------------------------");
-		System.out.print("7  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 1).stampaPezzo();
-			System.out.print(" ");
-		}
-		System.out.print("|\n");
-		System.out.println("  --------------------------------------");
-		System.out.print("6  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 2).stampaPezzo();
-			System.out.print(" ");
-		}
-		System.out.print("|\n");
-		System.out.println("  --------------------------------------");
-		System.out.print("5  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 3).stampaPezzo();
-			System.out.print(" ");
-		}
-		System.out.print("|\n");
-		System.out.println("  --------------------------------------");
-		System.out.print("4  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 4).stampaPezzo();
-			System.out.print(" ");
-		}
-		System.out.print("|\n");
-		System.out.println("  --------------------------------------");
-		System.out.print("3  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 5).stampaPezzo();
-			System.out.print(" ");
-		}
-		System.out.print("|\n");
-		System.out.println("  --------------------------------------");
-		System.out.print("2  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 6).stampaPezzo();
-			System.out.print(" ");
-		}
-		System.out.print("|\n");
-		System.out.println("  --------------------------------------");
-		System.out.print("1  ");
-		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
-			getCella(i, 7).stampaPezzo();
-			System.out.print(" ");
-		}
-		System.out.print("|\n");
 		System.out.println("  --------------------------------------");
 	}
 }
