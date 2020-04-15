@@ -72,8 +72,8 @@ public class Controller {
 	}
 
 	/**
-	 * La seguente funzione riconosce se il comando inserito � un comando scritto
-	 * sottoforma di notazione algebrica Il seguente comando pu� essere anche una
+	 * La seguente funzione riconosce se il comando inserito è scritto
+	 * sottoforma di notazione algebrica. Il seguente comando può essere anche una
 	 * mossa non valida
 	 * 
 	 * @param comando
