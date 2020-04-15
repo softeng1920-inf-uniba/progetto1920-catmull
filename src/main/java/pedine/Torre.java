@@ -8,6 +8,7 @@ import scacchiera.Cella;
  */
 public final class Torre extends Pezzo {
 
+	/** Costruttore */
 	public Torre(final Colore colore, final Cella posizioneCorrente) {
 		super("Torre", colore, posizioneCorrente);
 		if (colore == Colore.nero) {
