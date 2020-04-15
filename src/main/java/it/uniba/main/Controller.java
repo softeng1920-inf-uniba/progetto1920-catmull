@@ -27,6 +27,14 @@ public class Controller {
 
 	}
 
+	/**
+	 * funzione che consente di chiudere il gioco e lasciare il controllo al sistema operativo
+	 */
+	final void chiudiGioco()
+	{
+		System.exit(0);
+	}
+	
 	final void inizializzaPartita() {
 
 		t = new Turno();
