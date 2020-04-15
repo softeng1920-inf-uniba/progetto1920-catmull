@@ -50,7 +50,8 @@ public class Scacchiera {
 	public final void setCella(final Cella nuovaCella, final int x, final int y) {
 		scacchiera[x][y] = nuovaCella;
 	}
-
+  
+	/* metodo che inzializza la scacchiera e la prepara per una nuova partita */
 	public final void inizializzaScacchiera() {
 
 		// Inizializzazione della torre
@@ -105,7 +106,6 @@ public class Scacchiera {
 			getCella(i, Cella.coordYinInt(2))
 					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt(2))));
 		}
-
 	}
 
 	/* metodo per stampare nella console la scacchiera */
