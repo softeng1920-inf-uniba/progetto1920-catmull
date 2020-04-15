@@ -36,10 +36,9 @@ public final class AppMain {
 
   		System.out.println("Benvenuto nel gioco degli scacchi. \n");
     	System.out.println("--- Menu principale --- \n");
-
+  
 			while (true) {
 				String nomeMenu = br.readLine();
-		
 				if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
 					//METODO STAMPA COMANDI
 				} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
