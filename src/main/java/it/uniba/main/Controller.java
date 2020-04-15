@@ -27,10 +27,14 @@ public class Controller {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema operativo
+=======
+	 * funzione che consente di chiudere il gioco e lasciare il controllo al sistema
+	 * operativo
+>>>>>>> Miglioramento interfaccia grafica
 	 */
-	final void chiudiGioco()
-	{
+	final void chiudiGioco() {
 		System.exit(0);
 	}
 
@@ -49,7 +53,12 @@ public class Controller {
 
 			System.out.println("\nE' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
 					+ t.getGiocatoreInTurno().getColore() + ".");
+<<<<<<< HEAD
 			System.out.println("Inserisci una mossa nella notazione algebrica:");
+=======
+			System.out.println(
+					"-> Inserisci una mossa nella notazione algebrica (es. e1 e4); altrimenti digita una voce del menu.");
+>>>>>>> Miglioramento interfaccia grafica
 
 			try {
 				comando = br.readLine();

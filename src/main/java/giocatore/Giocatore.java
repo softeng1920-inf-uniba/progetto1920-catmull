@@ -38,8 +38,10 @@ public class Giocatore {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		System.out.println("Inserisci il nome del giocatore con le pedine di colore " + colore + " \u2193");
-		String nome = "";
+
+		System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + colore + " \u2193");
+		String nome="";
+
 
 		try {
 			nome = br.readLine();
