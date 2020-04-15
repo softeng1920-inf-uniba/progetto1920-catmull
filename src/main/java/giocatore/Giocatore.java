@@ -11,7 +11,7 @@ import pedine.Pezzo;
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
  * possono essere solo due giocatori. Al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi morti e mosse giocate.
- * Il primo � bianco e il secondo nero: al giocatore che fa la prima mossa sar�
+ * Il primo è bianco e il secondo nero: al giocatore che fa la prima mossa sarà
  * assegnato il colore bianco.
  *
  */
