@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import gioco.Turno;
 
 /**
- * Classe che gestisce le varie funzionalit� del gioco.
+ * Classe che gestisce le varie funzionalità del gioco.
  */
 public class Controller {
 
