@@ -50,11 +50,12 @@ public class Scacchiera {
 	public final void setCella(final Cella nuovaCella, final int x, final int y) {
 		scacchiera[x][y] = nuovaCella;
 	}
-  
+
 	/* metodo che inzializza la scacchiera e la prepara per una nuova partita */
 	public final void inizializzaScacchiera() {
 
 		// Inizializzazione della torre
+
 		getCella(Cella.coordXinInt('a'), Cella.coordYinInt('1')).setPezzoCorrente(
 				new Torre(Colore.bianco, getCella(Cella.coordXinInt('a'), Cella.coordYinInt('1'))));
 		getCella(Cella.coordXinInt('h'), Cella.coordYinInt('1')).setPezzoCorrente(

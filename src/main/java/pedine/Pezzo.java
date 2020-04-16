@@ -5,7 +5,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe Pezzo di tipo astratto Tale classe funge da punto di partenza per poi
+ * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
  * realizzare i pezzi del gioco nello specifico
  **/
 public abstract class Pezzo {
@@ -25,7 +25,7 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * disegnapezzo consente di rappresentare il pezzo nella scacchiera
+	 * Disegnapezzo consente di rappresentare il pezzo nella scacchiera
 	 */
 	public void disegnapezzo() {
 		System.out.print(this.simbolo);
@@ -100,7 +100,7 @@ public abstract class Pezzo {
 	}
 
 	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo � bianco o
+	 * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
 	 * nero
 	 *
 	 * @return colore

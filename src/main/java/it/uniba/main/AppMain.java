@@ -32,20 +32,18 @@ public final class AppMain {
 		Controller c = new Controller();
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Benvenuto nel gioco degli scacchi. \n");
-		System.out.println("--- Menu principale --- \n");
+		System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
+		System.out.println("Digitare help per visualizzare la lista dei comandi");
 
 		while (true) {
 			String nomeMenu = br.readLine();
 
 			if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
-				// METODO STAMPA COMANDI
+				c.mostrareElencoComandiMenu();
 			} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
-				System.setOut(utf8Out);
 				c.stampaScacchiera();
 			} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
-
-				// METODO CHIUDI IL GIOCO
+				c.chiudiGioco();
 			} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
 
 				c.inizializzaPartita();
@@ -54,5 +52,6 @@ public final class AppMain {
 
 			}
 		}
+
 	}
 }

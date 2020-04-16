@@ -47,6 +47,6 @@ public class Comando {
 	 */
 	@Override
 	public String toString() {
-		return String.format(nome + " " + descrizione);
+		return String.format("\u2022 " + nome + " -->    " + descrizione);
 	}
 }

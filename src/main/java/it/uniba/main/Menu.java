@@ -18,6 +18,7 @@ public class Menu {
 		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
 		play = new Comando("Play", "Inizia una nuova partita");
 		back = new Comando("Menu", "Ritorna al menu principale");
+
 	}
 
 	public Comando help() {
