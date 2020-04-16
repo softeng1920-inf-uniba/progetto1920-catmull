@@ -123,32 +123,29 @@ public class Controller {
 		s.stampa();
 	}
 
-	public final void applicaMossa(String comando) 
-	{
-		if(t.getGiocatoreInTurno().getColore() == Colore.bianco)
-		{
-			if(s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).getPezzoCorrente().isMossaValidaBianco(comando,s)) {
-				if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()) {
-	            mangiaPezzo(comando);
-	        }
-	        s.scambiaCella(comando);   
-	    }
-			else 
-			{ 
+	public final void applicaMossa(String comando) {
+		if (t.getGiocatoreInTurno().getColore() == Colore.bianco) {
+			if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+					.getPezzoCorrente().isMossaValidaBianco(comando, s)) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
+						.isOccupato()) {
+					mangiaPezzo(comando);
+				}
+				s.scambiaCella(comando);
+			} else {
 				System.out.println("mossa non valida");
 			}
 		}
-		
-		if(t.getGiocatoreInTurno().getColore() == Colore.nero)
-		{
-			if(s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).getPezzoCorrente().isMossaValidaNero(comando,s)) {
-				if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()) {
-	            mangiaPezzo(comando);
-	        }
-	        s.scambiaCella(comando);   
-	    }
-			else 
-			{ 
+
+		if (t.getGiocatoreInTurno().getColore() == Colore.nero) {
+			if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+					.getPezzoCorrente().isMossaValidaNero(comando, s)) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
+						.isOccupato()) {
+					mangiaPezzo(comando);
+				}
+				s.scambiaCella(comando);
+			} else {
 				System.out.println("mossa non valida");
 			}
 		}

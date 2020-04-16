@@ -19,11 +19,11 @@ public final class Torre extends Pezzo {
 		}
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public boolean isMossaValidaNero(String mossa, Scacchiera s) {
-		return false;// non posso muovere altri pedoni, cioè opposti
-	}	
-	
+		return false; // non posso muovere altri pedoni, cioè opposti
+	}
+
 	public boolean isMossaValidaBianco(String mossa, Scacchiera s) {
 		return false;
 	}

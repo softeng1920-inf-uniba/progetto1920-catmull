@@ -17,7 +17,8 @@ public final class AppMain {
 	/**
 	 * Private constructor. Change if needed.
 	 */
-	private AppMain() {}
+	private AppMain() {
+	}
 
 	/**
 	 * * This is the main entry of the application.
