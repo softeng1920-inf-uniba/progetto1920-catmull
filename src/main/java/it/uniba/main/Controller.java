@@ -14,7 +14,7 @@ import gioco.Turno;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco.
+ * Classe che gestisce le varie funzionalita'ï¿½del gioco.
 
  */
 public class Controller {
@@ -80,9 +80,10 @@ public class Controller {
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
-				applicaMossa(comando);
-				t.getGiocatoreInTurno().setMosseGiocate(comando);
-				t.cambioTurno();
+				if(applicaMossa(comando)) {
+					t.getGiocatoreInTurno().setMosseGiocate(comando);
+					t.cambioTurno();
+				}
 			} else if (!isComandoValido(comando)) {
 
 				System.out.println("Comando non corretto. Riprova!");
@@ -204,7 +205,8 @@ public class Controller {
 		s.stampa();
 	}
 
-	public final void applicaMossa(String comando) {
+	public final boolean applicaMossa(String comando) {
+		if((s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).isOccupato())) {
 		if (t.getGiocatoreInTurno().getColore() == Colore.bianco) {
 			if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
 					.getPezzoCorrente().isMossaValidaBianco(comando, s)) {
@@ -213,6 +215,7 @@ public class Controller {
 					mangiaPezzo(comando);
 				}
 				s.scambiaCella(comando);
+				return true;
 			} else {
 				System.out.println("mossa non valida");
 			}
@@ -226,10 +229,16 @@ public class Controller {
 					mangiaPezzo(comando);
 				}
 				s.scambiaCella(comando);
+				return true;
 			} else {
 				System.out.println("mossa non valida");
+				}
 			}
 		}
+		else {
+			System.out.println("mossa non valida: cella vuota");
+		}
+		return false;
 	}
 
 	public final void mangiaPezzo(String comando) {

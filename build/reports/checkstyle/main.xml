@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\giocatore\Giocatore.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/giocatore/Giocatore.java">
 <error line="35" column="26" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="63" column="29" severity="error" message="Parameter nome should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="72" column="31" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -8,14 +8,14 @@
 <error line="142" column="37" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="161" column="39" severity="error" message="Parameter i should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Turno.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Turno.java">
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\it\uniba\main\AppMain.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/AppMain.java">
 <error line="7" column="8" severity="error" message="Unused import - java.io.UnsupportedEncodingException." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\it\uniba\main\Colore.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/Colore.java">
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\it\uniba\main\Comando.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/Comando.java">
 <error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="14" column="17" severity="error" message="Parameter nome should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="14" column="30" severity="error" message="Parameter descrizione should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -23,13 +23,15 @@
 <error line="37" column="9" severity="error" message="Class &apos;Comando&apos; looks like designed for extension (can be subclassed), but the method &apos;getNome&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Comando&apos; final or making the method &apos;getNome&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 <error line="41" column="9" severity="error" message="Class &apos;Comando&apos; looks like designed for extension (can be subclassed), but the method &apos;getDescrizione&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Comando&apos; final or making the method &apos;getDescrizione&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\it\uniba\main\Controller.java">
-<error line="75" column="89" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
-<error line="202" column="9" severity="error" message="Class &apos;Controller&apos; looks like designed for extension (can be subclassed), but the method &apos;stampaScacchiera&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Controller&apos; final or making the method &apos;stampaScacchiera&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="206" column="40" severity="error" message="Parameter comando should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="234" column="39" severity="error" message="Parameter comando should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/Controller.java">
+<error line="76" column="89" severity="error" message="Must have at least one statement." source="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
+<error line="203" column="9" severity="error" message="Class &apos;Controller&apos; looks like designed for extension (can be subclassed), but the method &apos;stampaScacchiera&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Controller&apos; final or making the method &apos;stampaScacchiera&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="207" column="40" severity="error" message="Parameter comando should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="235" column="39" severity="error" message="Parameter comando should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="239" severity="error" message="Line is longer than 160 characters (found 166)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="241" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\it\uniba\main\Menu.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/Menu.java">
 <error line="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 <error line="24" column="9" severity="error" message="Class &apos;Menu&apos; looks like designed for extension (can be subclassed), but the method &apos;help&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Menu&apos; final or making the method &apos;help&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 <error line="28" column="9" severity="error" message="Class &apos;Menu&apos; looks like designed for extension (can be subclassed), but the method &apos;history&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Menu&apos; final or making the method &apos;history&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
@@ -39,7 +41,7 @@
 <error line="44" column="9" severity="error" message="Class &apos;Menu&apos; looks like designed for extension (can be subclassed), but the method &apos;play&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Menu&apos; final or making the method &apos;play&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 <error line="48" column="9" severity="error" message="Class &apos;Menu&apos; looks like designed for extension (can be subclassed), but the method &apos;back&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Menu&apos; final or making the method &apos;back&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Alfiere.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/pedine/Alfiere.java">
 <error line="20" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="21" column="42" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="21" column="56" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -49,13 +51,13 @@
 <error line="25" column="58" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Cavallo.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/pedine/Cavallo.java">
 <error line="23" column="42" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="23" column="56" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" column="44" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" column="58" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Pedone.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/pedine/Pedone.java">
 <error line="41" column="16" severity="error" message="Redundant &apos;final&apos; modifier." source="com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck"/>
 <error line="41" column="48" severity="error" message="Parameter comando should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="41" column="64" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -82,7 +84,7 @@
 <error line="127" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="129" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Pezzo.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/pedine/Pezzo.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="13" column="26" severity="error" message="Variable &apos;nome&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 <error line="14" column="26" severity="error" message="Variable &apos;colore&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
@@ -100,27 +102,27 @@
 <error line="139" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="140" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Re.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/pedine/Re.java">
 <error line="21" column="42" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="21" column="56" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="25" column="44" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="25" column="58" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Regina.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/pedine/Regina.java">
 <error line="21" column="42" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="21" column="56" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="25" column="44" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="25" column="58" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\pedine\Torre.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/pedine/Torre.java">
 <error line="23" column="42" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="23" column="56" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" column="44" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" column="58" severity="error" message="Parameter s should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/Cella.java">
 </file>
-<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/Scacchiera.java">
 <error line="128" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="129" column="9" severity="error" message="Class &apos;Scacchiera&apos; looks like designed for extension (can be subclassed), but the method &apos;scambiaCella&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;Scacchiera&apos; final or making the method &apos;scambiaCella&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
 <error line="129" column="34" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
