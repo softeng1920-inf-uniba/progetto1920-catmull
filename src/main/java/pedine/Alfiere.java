@@ -18,7 +18,11 @@ public final class Alfiere extends Pezzo {
 		}
 	}
 	
-	public boolean isMossaValida(String mossa, Scacchiera s) {
-		return true;
+	public boolean isMossaValidaNero(String mossa, Scacchiera s) {
+		return false;// non posso muovere altri pedoni, cioè opposti
+	}	
+	
+	public boolean isMossaValidaBianco(String mossa, Scacchiera s) {
+		return false;
 	}	
 }

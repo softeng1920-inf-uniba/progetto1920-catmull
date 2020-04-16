@@ -136,5 +136,6 @@ public abstract class Pezzo {
 		return String.format(nome + " " + colore);
 	}
 	
-	public abstract boolean isMossaValida(String mossa, Scacchiera s);	
+	public abstract boolean isMossaValidaBianco(String mossa, Scacchiera s);	
+	public abstract boolean isMossaValidaNero(String mossa, Scacchiera s);	
 }

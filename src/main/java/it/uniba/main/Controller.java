@@ -27,10 +27,10 @@ public class Controller {
 	}
 
 	/**
-	 * funzione che consente di chiudere il gioco e lasciare il controllo al sistema operativo
+	 * funzione che consente di chiudere il gioco e lasciare il controllo al sistema
+	 * operativo
 	 */
-	final void chiudiGioco()
-	{
+	final void chiudiGioco() {
 		System.exit(0);
 	}
 
@@ -63,8 +63,8 @@ public class Controller {
 				System.out.println("--- Menu principale --- \n");
 				return;
 			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
-				//METODO CHE VISUALIZZA LE MOSSE GIOCATE
-				
+				// METODO CHE VISUALIZZA LE MOSSE GIOCATE
+
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 				visualizzareCatture();
 			}
@@ -122,21 +122,42 @@ public class Controller {
 	void stampaScacchiera() {
 		s.stampa();
 	}
-	
-	public final void applicaMossa(String comando) {
-	    if(s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).getPezzoCorrente().isMossaValida(comando,s)) {
-	        if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()) {
+
+	public final void applicaMossa(String comando) 
+	{
+		if(t.getGiocatoreInTurno().getColore() == Colore.bianco)
+		{
+			if(s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).getPezzoCorrente().isMossaValidaBianco(comando,s)) {
+				if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()) {
 	            mangiaPezzo(comando);
 	        }
 	        s.scambiaCella(comando);   
 	    }
-	    else { 
-	      System.out.println("mossa non valida");
-	    }
-	}
-	
-	public final void mangiaPezzo(String comando){
-		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).getPezzoCorrente());
-		s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).rimuoviPezzoCorrente();
+			else 
+			{ 
+				System.out.println("mossa non valida");
+			}
 		}
+		
+		if(t.getGiocatoreInTurno().getColore() == Colore.nero)
+		{
+			if(s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).getPezzoCorrente().isMossaValidaNero(comando,s)) {
+				if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()) {
+	            mangiaPezzo(comando);
+	        }
+	        s.scambiaCella(comando);   
+	    }
+			else 
+			{ 
+				System.out.println("mossa non valida");
+			}
+		}
+	}
+
+	public final void mangiaPezzo(String comando) {
+		t.getGiocatoreInAttesa().addPezziCatturati(
+				s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
+						.getPezzoCorrente());
+		s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).rimuoviPezzoCorrente();
+	}
 }

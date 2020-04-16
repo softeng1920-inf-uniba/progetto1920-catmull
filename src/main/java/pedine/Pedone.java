@@ -26,7 +26,7 @@ public final class Pedone extends Pezzo {
 	/**
   * Restituisce vero se è la prima mossa, falso altrimenti
   */
-	public boolean primaMossa() {
+	public boolean isPrimaMossa() {
 		return this.primaMossa;
 	}
 
@@ -37,7 +37,109 @@ public final class Pedone extends Pezzo {
 		this.primaMossa = primaMossa;
 	}
 	
-	public boolean isMossaValida(String mossa, Scacchiera s) {
-		return true;
-	}	
+	
+	public final boolean isMossaValidaNero(String comando, Scacchiera s) 
+	{
+		if ((Cella.coordXinInt(comando.charAt(0)) == Cella.coordXinInt(comando.charAt(3)))) //movimento verticale
+		{
+			if(Cella.coordYinInt(comando.charAt(1)) + 2 == Cella.coordYinInt(comando.charAt(4)) && isPrimaMossa())
+			{
+					if(!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()))
+					{
+						setPrimaMossa(false);
+						return true;
+						
+					}
+					else
+						return false;
+			}
+			
+			else if(Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4)))
+			{
+				if(!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()))
+				{
+					setPrimaMossa(false);
+					return true;
+					
+				}	
+				else
+						return false;
+			}
+			else 
+				return false;
+		}
+			 // a1 b3
+			//  01234 
+		else //movimento obliquo
+		{
+			if ((Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))  || Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))) && Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4)) )
+			{
+				if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato() && s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).getPezzoCorrente().getColore() != getColore()) 
+					//in codice getCella(Cella.coordXinInt(comando[1]+1), Cella.coordYinInt(comando[2]+1))
+				{
+					setPrimaMossa(false);
+					return true;
+					
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		}					
+	}
+	
+	public final boolean isMossaValidaBianco(String comando, Scacchiera s) 
+	{
+		if ((Cella.coordXinInt(comando.charAt(0)) == Cella.coordXinInt(comando.charAt(3)))) //movimento verticale
+		{
+			if(Cella.coordYinInt(comando.charAt(1)) - 2 == Cella.coordYinInt(comando.charAt(4)) && isPrimaMossa())
+			{
+					if(!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()))
+					{
+						setPrimaMossa(false);
+						return true;
+						
+					}
+					else
+						return false;
+			}
+			
+	
+			else if(Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4)))
+			{
+				if(!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()))
+				{
+					setPrimaMossa(false);
+					return true;
+					
+				}
+				else
+					return false;
+			}
+			else 
+				return false;
+		}
+			 // a1 b3
+			//  01234 
+		else //movimento obliquo
+		{
+			if ((Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))  || Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))) && Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4)) )
+			{
+				if(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato() && s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).getPezzoCorrente().getColore() != getColore()) 
+					//in codice getCella(Cella.coordXinInt(comando[1]+1), Cella.coordYinInt(comando[2]+1))
+				{
+					setPrimaMossa(false);
+					return true;
+					
+				}
+				else
+					return false;
+			}
+			else
+				return false;
+		}
+	}
+	
+	
 }

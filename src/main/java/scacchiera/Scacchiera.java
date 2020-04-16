@@ -129,4 +129,6 @@ public class Scacchiera {
 		getCella(Cella.coordXinInt(mossa.charAt(3)), Cella.coordYinInt(mossa.charAt(4))).setPezzoCorrente(getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt(mossa.charAt(1))).getPezzoCorrente());
 		getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt(mossa.charAt(1))).rimuoviPezzoCorrente();
 	}
+	
+
 }
