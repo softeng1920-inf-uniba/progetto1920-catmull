@@ -1,3 +1,4 @@
+
 /**
  *
  */
@@ -235,6 +236,8 @@ public class Controller {
 		t.getGiocatoreInAttesa().addPezziCatturati(
 				s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
 						.getPezzoCorrente());
+		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).getPezzoCorrente());
 		s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).rimuoviPezzoCorrente();
+		
 	}
 }
