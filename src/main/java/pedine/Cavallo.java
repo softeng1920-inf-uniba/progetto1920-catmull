@@ -27,4 +27,9 @@ public final class Cavallo extends Pezzo {
 	public boolean isMossaValidaBianco(String mossa, Scacchiera s) {
 		return false;
 	}
+	
+	@Override
+	public final boolean isEnPassant(String comando, Scacchiera s) {
+		return false;
+	}
 }

@@ -38,15 +38,13 @@ public final class Pedone extends Pezzo {
 	}
 
 	public final boolean isMossaValidaNero(String comando, Scacchiera s) {
-		System.out.println(Cella.coordXinInt(comando.charAt(0)) + "" + "" + Cella.coordYinInt(comando.charAt(1)));
-		System.out.println(Cella.coordXinInt(comando.charAt(3)) + "" + "" + Cella.coordYinInt(comando.charAt(4)));
 		if ((Cella.coordXinInt(comando.charAt(0)) == Cella.coordXinInt(comando.charAt(3)))) { // movimento verticale
 			if (Cella.coordYinInt(comando.charAt(1)) + 2 == Cella.coordYinInt(comando.charAt(4)) && (Cella.coordYinInt(comando.charAt(1)) == 1 )) {
 				if (!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
 						.isOccupato())) {
 						setMuoviDiDue(true);
-						return true;	
-					
+						return true;
+
 				} else
 					return false;
 				} else if (Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
@@ -82,6 +80,7 @@ public final class Pedone extends Pezzo {
 		}
 	}
 
+	@Override
 	public final boolean isMossaValidaBianco(String comando, Scacchiera s) {
 		System.out.println(Cella.coordXinInt(comando.charAt(0)) + "" + "" + Cella.coordYinInt(comando.charAt(1)));
 		System.out.println(Cella.coordXinInt(comando.charAt(3)) + "" + "" + Cella.coordYinInt(comando.charAt(4)));
@@ -130,4 +129,48 @@ public final class Pedone extends Pezzo {
 		}
 	}
 
+	@Override
+	public final boolean isEnPassant(String comando, Scacchiera s) {
+		if (getColore() == Colore.nero) {
+			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
+					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
+
+				} else
+					return false;
+			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
+					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
+
+				} else
+					return false;
+			} else
+				return false;
+		} else if (getColore() == Colore.bianco) {
+			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
+					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
+
+				} else
+					return false;
+			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
+					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
+
+				} else
+					return false;
+			} else
+				return false;
+		}
+		else
+			return false;
+	}
 }
