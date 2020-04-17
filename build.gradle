@@ -62,7 +62,7 @@ dependencies {
 
     // For internal usage
     implementation('com.google.guava:guava:21.0')
-    
+
     // JUnit Jupiter API and TestEngine implementation
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.1.0')
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.1.0')
@@ -148,17 +148,19 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
-    
+
     finalizedBy jacocoTestReport
 }
 
-tasks.register("initialize") {
-    doLast {
-        println "\nGradle initialized.\n"
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'it.uniba.main/AppMain'
     }
+    archiveBaseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
-run {
-    standardInput = System.in
-}
+project.tasks.getByName('build').dependsOn fatJar
+
 // Main class
 mainClassName = 'it.uniba.main/AppMain'
