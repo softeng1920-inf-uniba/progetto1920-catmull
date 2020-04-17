@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
-
+  
 /** Classe che gestisce le varie funzionalita' del gioco
  */
 public class Controller {
@@ -72,7 +72,7 @@ public class Controller {
 			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
 				stampaMosseGiocate();
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
-
+				visualizzareCatture();
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
 				chiudiGioco();
 			}
@@ -93,8 +93,8 @@ public class Controller {
 
 	/**
 	 * La seguente funzione riconosce se il comando inserito e' un comando scritto
-	 * sottoforma di notazione algebrica.Il seguente comando puo' essere anche una
-	 * mossa non valida
+	 * sottoforma di notazione algebrica.
+	 * Il seguente comando puo' essere anche una mossa non valida
 	 *
 	 * @param comando
 	 *
@@ -112,6 +112,12 @@ public class Controller {
 		return false;
 	}
 
+	/**
+	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
+	 * dall'utente è riconosciuta come notazione algebrica.
+	 * @param mossa
+	 * @return boolean
+	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
 
 		String regex = "[a-h][1-8]\\ [a-h][1-8]";
@@ -135,7 +141,6 @@ public class Controller {
 	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
 	 * La fusione avviene in modo alternato. Permette di avere una visione completa
 	 * delle mosse giocate totali.
-	 *
 	 * @return ArrayList di stringhe.
 	 */
 	private ArrayList<String> fusioneListe() {
@@ -203,6 +208,11 @@ public class Controller {
 		s.stampa();
 	}
 
+	/**
+	 * Applica la mossa data in input tramite stringa.
+	 * @param comando
+	 * @return booleano true se la mossa è applicabile, false altrimenti
+	 */
 	public final boolean applicaMossa(String comando) {
 		if ((s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).isOccupato())) {
 			if (t.getGiocatoreInTurno().getColore() == Colore.bianco) {
@@ -216,61 +226,60 @@ public class Controller {
 					return true;
 				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
 						.getPezzoCorrente().isEnPassant(comando, s)) {
-					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1)
-							- 46)
-							+ ' '
+					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
 							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					System.out.println(c);
 					if (c.equals(t.getGiocatoreInAttesa()
 							.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
 						s.scambiaCella(comando);
 						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
 						return true;
 					} else {
-						System.out.println("mossa non valida");
+						System.out.println("Mossa illegale");
 						return false;
 					}
-				}
-				else
+				} else
 					return false;
 			} else if (t.getGiocatoreInTurno().getColore() == Colore.nero) {
-					if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-							.getPezzoCorrente().isMossaValidaNero(comando, s)) {
-						if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-								.isOccupato()) {
-							mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)));
-						}
-						s.scambiaCella(comando);
-						return true;
-						// b4 a3
-						// a2 a4
-					} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-							.getPezzoCorrente().isEnPassant(comando, s)) {
-						String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 50) + ' '
-								+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-						System.out.println(c);
-						if (c.equals(t.getGiocatoreInAttesa()
-								.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
-							s.scambiaCella(comando);
-							mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
-							return true;
-						} else
-							return false;
-					} else {
-						System.out.println("mossa non valida");
-						return false;
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().isMossaValidaNero(comando, s)) {
+					if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
+							.isOccupato()) {
+						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)));
 					}
+					s.scambiaCella(comando);
+					return true;
+					// b4 a3
+					// a2 a4
+				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().isEnPassant(comando, s)) {
+					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 50) + ' '
+							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
+					if (c.equals(t.getGiocatoreInAttesa()
+							.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
+						s.scambiaCella(comando);
+						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
+						return true;
+					} else
+						return false;
 				} else {
-					System.out.println("mossa non valida: cella vuota");
+					System.out.println("Mossa illegale");
 					return false;
 				}
+			} else {
+				System.out.println("Mossa illegale");
+				return false;
 			}
-			else
+		} else
 			return false;
 	}
 
+	/**
+	 * Mangia il pezzo avversario.
+	 * Aggiunge il pezzo mangiato alla lista dei pezzi mangiati del giocatore in attesa.
+	 * @param x
+	 * @param y
+	 */
 	public final void mangiaPezzo(int x, int y) {
-		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(x, y).getPezzoCorrente());
 		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(x, y).getPezzoCorrente());
 		s.getCella(x, y).rimuoviPezzoCorrente();
 
