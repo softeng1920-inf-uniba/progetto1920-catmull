@@ -3,8 +3,8 @@ package it.uniba.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
-
 /**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
@@ -27,6 +27,7 @@ public final class AppMain {
 	 * @throws UnsupportedEncodingException
 	 */
 	public static void main(final String[] args) throws IOException {
+		PrintStream utf8Out = new PrintStream(System.out, false, "UTF-8");
 		Controller c = new Controller();
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
