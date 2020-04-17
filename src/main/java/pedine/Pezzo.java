@@ -133,7 +133,7 @@ public abstract class Pezzo {
 	 */
 	@Override
 	public String toString() {
-		return String.format(nome + " " + colore);
+		return String.format(nome + " " + colore + " " + simbolo);
 	}
 	
 	public abstract boolean isMossaValidaBianco(String mossa, Scacchiera s);

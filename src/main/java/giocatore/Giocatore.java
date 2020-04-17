@@ -125,8 +125,8 @@ public class Giocatore {
 	}
 
 	/**
-	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno,nel caso
-	 * contienga qualche pezzo restituisce true e viceversa
+	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno,
+	 * nel caso contenga qualche pezzo restituisce true e viceversa.
 	 * 
 	 * @return boolean
 	 */
@@ -135,7 +135,7 @@ public class Giocatore {
 	}
 
 	/**
-	 * Aggiunge la mossa corrente alla lista mosseGiocate
+	 * Aggiunge la mossa corrente alla lista mosseGiocate.
 	 * 
 	 * @param mossa
 	 */
