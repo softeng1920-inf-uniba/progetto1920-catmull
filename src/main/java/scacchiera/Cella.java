@@ -65,7 +65,7 @@ public final class Cella {
 	}
 
 	/** Restituisce la variabile occupato */
-	public boolean isOccupato() {
+	boolean getOccupato() {
 		return occupato;
 	}
 
@@ -104,9 +104,9 @@ public final class Cella {
 	 * @param int coordY Compreso fra 1 e 8
 	 * @return int Coordinata convertita in intero, compreso tra 0 e 7
 	 */
-	public static int coordYinInt(final char coordY) {
+	public static int coordYinInt(final int coordY) {
 
-		return Math.abs((coordY - 49) - 7);
+		return Math.abs(coordY - 8);
 
 	}
 

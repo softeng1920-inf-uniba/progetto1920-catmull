@@ -1,4 +1,3 @@
-
 /**
  *
  */
@@ -10,10 +9,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Turno;
-import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/** Classe che gestisce le varie funzionalita' del gioco
+/**
+ * Classe che gestisce le varie funzionalita' del gioco.
  */
 public class Controller {
 
@@ -30,7 +29,7 @@ public class Controller {
 	/**
 	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema
 	 * operativo
-	 *
+	 * 
 	 */
 	final void chiudiGioco() {
 		System.exit(0);
@@ -78,10 +77,8 @@ public class Controller {
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
-				if (applicaMossa(comando)) {
-					t.getGiocatoreInTurno().setMosseGiocate(comando);
-					t.cambioTurno();
-				}
+				t.getGiocatoreInTurno().setMosseGiocate(comando);
+				t.cambioTurno();
 			} else if (!isComandoValido(comando)) {
 
 				System.out.println("Comando non corretto. Riprova!");
@@ -135,7 +132,7 @@ public class Controller {
 	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
 	 * La fusione avviene in modo alternato. Permette di avere una visione completa
 	 * delle mosse giocate totali.
-	 *
+	 * 
 	 * @return ArrayList di stringhe.
 	 */
 	private ArrayList<String> fusioneListe() {
@@ -201,78 +198,5 @@ public class Controller {
 
 	void stampaScacchiera() {
 		s.stampa();
-	}
-
-	public final boolean applicaMossa(String comando) {
-		if ((s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).isOccupato())) {
-			if (t.getGiocatoreInTurno().getColore() == Colore.bianco) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isMossaValidaBianco(comando, s)) {
-					if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-							.isOccupato()) {
-						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)));
-					}
-					s.scambiaCella(comando);
-					return true;
-				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s)) {
-					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1)
-							- 46)
-							+ ' '
-							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					System.out.println(c);
-					if (c.equals(t.getGiocatoreInAttesa()
-							.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
-						s.scambiaCella(comando);
-						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
-						return true;
-					} else {
-						System.out.println("mossa non valida");
-						return false;
-					}
-				}
-				else
-					return false;
-			} else if (t.getGiocatoreInTurno().getColore() == Colore.nero) {
-					if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-							.getPezzoCorrente().isMossaValidaNero(comando, s)) {
-						if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-								.isOccupato()) {
-							mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)));
-						}
-						s.scambiaCella(comando);
-						return true;
-						// b4 a3
-						// a2 a4
-					} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-							.getPezzoCorrente().isEnPassant(comando, s)) {
-						String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 50) + ' '
-								+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-						System.out.println(c);
-						if (c.equals(t.getGiocatoreInAttesa()
-								.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
-							s.scambiaCella(comando);
-							mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
-							return true;
-						} else
-							return false;
-					} else {
-						System.out.println("mossa non valida");
-						return false;
-					}
-				} else {
-					System.out.println("mossa non valida: cella vuota");
-					return false;
-				}
-			}
-			else
-			return false;
-	}
-
-	public final void mangiaPezzo(int x, int y) {
-		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(x, y).getPezzoCorrente());
-		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(x, y).getPezzoCorrente());
-		s.getCella(x, y).rimuoviPezzoCorrente();
-
 	}
 }

@@ -1,6 +1,5 @@
 package it.uniba.main;
 
-import java.io.PrintStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,12 +27,11 @@ public final class AppMain {
 	 * @throws UnsupportedEncodingException
 	 */
 	public static void main(final String[] args) throws IOException {
-
 		System.setOut(new PrintStream(System.out, false, "UTF-8"));
-
 		Controller c = new Controller();
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 		System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
 		System.out.println("Digitare help per visualizzare la lista dei comandi");
 
@@ -47,7 +45,6 @@ public final class AppMain {
 			} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
 				c.chiudiGioco();
 			} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
-
 				c.inizializzaPartita();
 			} else {
 				System.out.println("Comando non riconosciuto");
