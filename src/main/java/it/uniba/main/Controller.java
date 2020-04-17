@@ -234,7 +234,7 @@ public class Controller {
 						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
 						return true;
 					} else {
-						System.out.println("mossa non valida");
+						System.out.println("Mossa illegale");
 						return false;
 					}
 				} else
@@ -262,11 +262,11 @@ public class Controller {
 					} else
 						return false;
 				} else {
-					System.out.println("mossa non valida");
+					System.out.println("Mossa illegale");
 					return false;
 				}
 			} else {
-				System.out.println("mossa non valida: cella vuota");
+				System.out.println("Mossa illegale");
 				return false;
 			}
 		} else
