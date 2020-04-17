@@ -13,12 +13,7 @@ import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/**
- * <<<<<<< HEAD Classe che gestisce le varie funzionalita' del gioco.
- *
- * ======= Classe che gestisce le varie funzionalita'ï¿½del gioco.
- *
- * >>>>>>> f0c8e3a3b4a234460781063f154e188f199fcac5
+/** Classe che gestisce le varie funzionalita'Â del gioco
  */
 public class Controller {
 
