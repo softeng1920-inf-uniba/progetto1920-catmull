@@ -112,18 +112,20 @@ public class Scacchiera {
 
 	/* metodo per stampare nella console la scacchiera */
 	public final void stampa() {
-		System.out.println("     a    b   c    d   e    f   g   h");
+		System.out.println("      a     b     c     d     e     f     g     h");
 		for (int j = 8; j > 0; j--) {
-			System.out.println("  --------------------------------------");
+			System.out.println("  --------------------------------------------------");
 			System.out.print(j + "  ");
 			for (int i = 0; i < 8; i++) {
 				System.out.print("| ");
 				getCella(i, Math.abs(j - 8)).stampaPezzo();
-				System.out.print(" ");
+				System.out.print("  ");
 			}
-			System.out.print("|\n");
+			System.out.print("|");
+			System.out.println("  " + j);
 		}
-		System.out.println("  --------------------------------------");
+		System.out.println("  --------------------------------------------------");
+		System.out.println("      a     b     c     d     e     f     g     h");
 	}
 	
 	public void scambiaCella(String mossa) {

@@ -1,6 +1,5 @@
 package scacchiera;
 
-import it.uniba.main.Colore;
 import pedine.Pezzo;
 
 /** Classe per rappresentere le singole parti della scacchiera */
@@ -20,14 +19,10 @@ public final class Cella {
 	/** Disegna il pezzo che contiene in output */
 	void stampaPezzo() {
 		if (pezzoCorrente != null) {
-			pezzoCorrente.disegnapezzo();
-			if (getPezzoCorrente().getColore() == Colore.nero && getPezzoCorrente().getNome() == "Pedone") {
-				System.out.print(" ");
-			}
 			System.out.print(" ");
+			pezzoCorrente.disegnapezzo();
 		} else {
-			System.out.print('\u3000');
-			System.out.print("    ");
+			System.out.print("  ");
 		}
 
 	}
