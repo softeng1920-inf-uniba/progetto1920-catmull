@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.005" hostname="LAPTOP-871GRCT0" timestamp="2020-04-17T17:56:52">
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.004" hostname="LAPTOP-871GRCT0" timestamp="2020-04-17T22:56:42">
 <properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>
@@ -13,7 +13,7 @@
 <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_241\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
 <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_241\jre"/>
 <property name="java.io.tmpdir" value="C:\Users\MIRIAN~1\AppData\Local\Temp\"/>
-<property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_241\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_241/bin/server;C:/Program Files/Java/jre1.8.0_241/bin;C:/Program Files/Java/jre1.8.0_241/lib/amd64;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Java\jdk1.8.0_241\bin;;C:\Users\Miriana Calvano\Desktop;;."/>
+<property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_241\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_241/bin/server;C:/Program Files/Java/jre1.8.0_241/bin;C:/Program Files/Java/jre1.8.0_241/lib/amd64;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_241\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;;C:\Users\Miriana Calvano\Desktop;;."/>
 <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
 <property name="java.runtime.version" value="1.8.0_241-b07"/>
 <property name="java.specification.name" value="Java Platform API Specification"/>

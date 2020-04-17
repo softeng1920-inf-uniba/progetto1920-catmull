@@ -19,7 +19,7 @@ public final class Alfiere extends Pezzo {
 	}
 
 	public boolean isMossaValidaNero(String mossa, Scacchiera s) {
-		return false; // non posso muovere altri pedoni, cioè opposti
+		return false;
 	}
 
 	public boolean isMossaValidaBianco(String mossa, Scacchiera s) {
@@ -30,5 +30,4 @@ public final class Alfiere extends Pezzo {
 	public final boolean isEnPassant(String comando, Scacchiera s) {
 		return false;
 	}
-
 }

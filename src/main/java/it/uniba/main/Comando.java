@@ -1,5 +1,8 @@
 package it.uniba.main;
 
+/**
+ * Classe che implementa il comando
+ */
 public class Comando {
 
 	private String nome;
@@ -34,10 +37,18 @@ public class Comando {
 		this.descrizione = descrizione;
 	}
 
+	/**
+	 * getNome da come output il nome del comando
+	 * @return nome
+	 */
 	String getNome() {
 		return nome;
 	}
 
+	/**
+	 * getNome da come output la descrizione del comando
+	 * @return descrizione
+	 */
 	String getDescrizione() {
 		return descrizione;
 	}
