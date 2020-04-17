@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.005" hostname="MBP-di-Antonio" timestamp="2020-04-17T22:49:04">
 <properties>
 <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
@@ -14,6 +15,7 @@
 <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"/>
 <property name="java.io.tmpdir" value="/var/folders/bx/1jr_p2r545z00kcp9drf1fz80000gn/T/"/>
 <property name="java.library.path" value="/Users/antoniocurci/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+
 <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
 <property name="java.runtime.version" value="11+28"/>
 <property name="java.specification.name" value="Java Platform API Specification"/>
