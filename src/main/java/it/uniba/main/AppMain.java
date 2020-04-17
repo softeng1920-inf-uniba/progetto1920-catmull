@@ -27,7 +27,7 @@ public final class AppMain {
 	 * @throws UnsupportedEncodingException
 	 */
 	public static void main(final String[] args) throws IOException {
-		PrintStream utf8Out = new PrintStream(System.out, false, "UTF-8");
+		System.setOut(new PrintStream(System.out, false, "UTF-8"));
 		Controller c = new Controller();
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
