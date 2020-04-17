@@ -237,8 +237,10 @@ public class Controller {
 						System.out.println("Mossa illegale");
 						return false;
 					}
-				} else
+				} else {
+					System.out.println("Mossa illegale");
 					return false;
+					}
 			} else if (t.getGiocatoreInTurno().getColore() == Colore.nero) {
 				if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
 						.getPezzoCorrente().isMossaValidaNero(comando, s)) {
@@ -259,18 +261,23 @@ public class Controller {
 						s.scambiaCella(comando);
 						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
 						return true;
-					} else
+					} else {
+						System.out.println("Mossa illegale");
 						return false;
+						}
+						
 				} else {
 					System.out.println("Mossa illegale");
 					return false;
-				}
+					}
 			} else {
 				System.out.println("Mossa illegale");
 				return false;
 			}
-		} else
+		} else {
+			System.out.println("Mossa illegale");
 			return false;
+		}
 	}
 
 	/**
