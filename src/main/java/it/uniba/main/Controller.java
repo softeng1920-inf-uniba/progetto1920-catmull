@@ -232,9 +232,13 @@ public class Controller {
 			variazione = -49;
 		} else
 			variazione = -47;
-
+		
 		mossaConvertita = String.valueOf(mossa.charAt(0)) + String.valueOf(mossa.charAt(3) + variazione) + ' '
 				+ String.valueOf(mossa.charAt(2)) + String.valueOf(mossa.charAt(3));
+		
+		if(mossa.length()>=4) {
+			mossaConvertita = mossaConvertita + mossa.substring(4);
+		}
 
 		return mossaConvertita;
 
@@ -338,7 +342,11 @@ public class Controller {
 	void stampaScacchiera() {
 		s.stampa();
 	}
-
+	
+	private boolean isMossaEnPassant(String mossa){
+			return mossa.length()>=4 && (mossa.substring(6) == "e.p.");
+	}
+	
 	/**
 	 * Applica la mossa data in input tramite stringa.
 	 * 
@@ -359,7 +367,7 @@ public class Controller {
 					s.scambiaCella(comando);
 					return true;
 				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s)) {
+						.getPezzoCorrente().isEnPassant(comando, s) && isMossaEnPassant(comando)) {
 					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
 							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
 					if (c.equals(t.getGiocatoreInAttesa()
@@ -389,7 +397,7 @@ public class Controller {
 					// b4 a3
 					// a2 a4
 				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s)) {
+						.getPezzoCorrente().isEnPassant(comando, s) && isMossaEnPassant(comando)) {
 					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 50) + ' '
 							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
 					if (c.equals(t.getGiocatoreInAttesa()
