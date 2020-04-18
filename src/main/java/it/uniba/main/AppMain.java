@@ -4,8 +4,8 @@ import java.io.PrintStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
+
 /**
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
@@ -34,6 +34,8 @@ public final class AppMain {
 		Controller c = new Controller();
 		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println("Benvenuto nel gioco degli scacchi.");
 		System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
 		System.out.println("Digitare help per visualizzare la lista dei comandi");
 

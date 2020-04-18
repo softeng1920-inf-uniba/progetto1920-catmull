@@ -131,45 +131,58 @@ public final class Pedone extends Pezzo {
 
 	@Override
 	public final boolean isEnPassant(String comando, Scacchiera s) {
-		if (getColore() == Colore.nero) {
-			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
-					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
+        if (getColore() == Colore.nero && Cella.coordYinInt(comando.charAt(1)) < 7) {
+            if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
+                    && Cella.coordXinInt(comando.charAt(0)) > 2
+                    && Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
+                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
+                        .getPezzoCorrente().getColore() != getColore()) {
+                    return true;
 
-				} else
-					return false;
-			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
-					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
+ 
 
-				} else
-					return false;
-			} else
-				return false;
-		} else if (getColore() == Colore.bianco) {
-			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
-					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
+                } else
+                    return false;
+            } else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
+                    && Cella.coordXinInt(comando.charAt(
+                            0)) < 7
+                    && Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
+                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
+                        .getPezzoCorrente().getColore() != getColore()) {
+                    return true;
 
-				} else
-					return false;
-			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
-					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
+ 
 
-				} else
-					return false;
-			} else
-				return false;
-		} else
-			return false;
-	}
+                } else
+                    return false;
+            } else
+                return false;
+        } else if (getColore() == Colore.bianco && Cella.coordYinInt(comando.charAt(1)) > 2) {
+            if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
+                    && Cella.coordXinInt(comando.charAt(0)) > 2
+                    && Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
+                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
+                        .getPezzoCorrente().getColore() != getColore()) {
+                    return true;
+
+ 
+
+                } else
+                    return false;
+            } else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
+                    && Cella.coordXinInt(comando.charAt(0)) < 7
+                    && Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
+                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
+                        .getPezzoCorrente().getColore() != getColore()) {
+                    return true;
+
+ 
+
+                } else
+                    return false;
+            } else
+                return false;
+        } else
+            return false;
+    }
 }
