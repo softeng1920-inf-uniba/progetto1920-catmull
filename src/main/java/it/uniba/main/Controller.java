@@ -9,11 +9,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import giocatore.Giocatore;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
   
-/** Classe che gestisce le varie funzionalita' del gioco
+/** 
+ * Classe che gestisce le varie funzionalita' del gioco
  */
 public class Controller {
 
@@ -75,9 +77,14 @@ public class Controller {
 				visualizzareCatture();
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
 				chiudiGioco();
+			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {
+				inizializzaPartita();
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
+				if (isCatturaPedone(comando)) {
+					comando = convertiCatturaPedone(t.getGiocatoreInTurno(), comando);
+				}
 				if (applicaMossa(comando)) {
 					t.getGiocatoreInTurno().setMosseGiocate(comando);
 					t.cambioTurno();
@@ -112,6 +119,25 @@ public class Controller {
 		return false;
 	}
 
+	private String convertiCatturaPedone(Giocatore g, String mossa) {
+		
+		int variazione;
+		String mossa_convertita = "";
+
+		if (g.getColore() == Colore.bianco) {
+			variazione = -49;
+		} else
+			variazione = -47;
+				
+		mossa_convertita = 	String.valueOf(mossa.charAt(0)) + 
+							String.valueOf(mossa.charAt(3) + variazione) + ' ' +
+							String.valueOf(mossa.charAt(2)) +
+							String.valueOf(mossa.charAt(3));
+
+		return mossa_convertita;
+
+	}
+	
 	/**
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
 	 * dall'utente è riconosciuta come notazione algebrica.
@@ -120,10 +146,38 @@ public class Controller {
 	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
 
-		String regex = "[a-h][1-8]\\ [a-h][1-8]";
+		// Espressione regolare completa
+		/*
+		 * 
+		 * [TACRD][a-h][1-8]| [TACRD][a-h]x[a-h][1-8]| [TACRD][a-h][1-8]x[a-h][1-8]|
+		 * [TACRD][a-h][1-8][a-h][1-8]| [TACRD][a-h][a-h][1-8]| [TACRD]x[a-h][1-8]|
+		 * [a-h]x[a-h][1-8]=(A+T+D+C)| [a-h]x[a-h][1-8]|
+		 * [a-h][1-8]x[a-h][1-8]=(B+R+Q+N)| [a-h][1-8]x[a-h][1-8]|
+		 * [a-h][1-8][a-h][1-8]=(B+R+Q+N)| [a-h][1-8][a-h][1-8]| [a-h][1-8]=(A+T+D+C)|
+		 * [a-h][1-8]| [ATDCR][1-8]x[a-h][1-8]| [ATDCR][1-8][a-h][1-8]
+		 */
+
+		/*
+		 * Obiettivi: - Riconoscere mossa pedone //[a-h][1-8]\ [a-h][1-8] - Riconoscere
+		 * mossa non pedone //(T|A|C|R|D)?(1-8)?[a-h]([a-h])?[1-8]\ [a-h][1-8] -
+		 * Riconoscere cattura [a-h](x|:)([a-h][1-8])
+		 */
+		// String regex_cattura_pezzo = "[a-h](x|:)([a-h][1-8])";
+
+		String regex = String.join("|", new String[] { 
+				"[a-h][1-8]", // mossa del pedone
+				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
+		});
+
 		return mossa.matches(regex);
 	}
 
+	private boolean isCatturaPedone(String mossa) {
+		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
+		String regex = "[a-h](x|:)([a-h][1-8])";
+		return mossa.matches(regex); // Se è una mossa di cattura
+
+	}
 	/**
 	 * Mostra le catture di entrambi i giocatori
 	 */

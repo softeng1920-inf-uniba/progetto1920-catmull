@@ -107,6 +107,12 @@ public class Scacchiera {
 			getCella(i, Cella.coordYinInt('2'))
 					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt('2'))));
 		}
+		
+		for (int k = 2; k < 6; k++) {
+            for (int j = 0; j < getNumeroColonne(); j++) {
+                scacchiera[j][k] = new Cella(j, k,  null);
+            }
+		}
 
 	}
 
