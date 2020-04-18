@@ -78,7 +78,7 @@ public class Controller {
 				System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
 				System.out.println("Digitare help per visualizzare la lista dei comandi");
 				return;
-			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
+			} else if (comando.equalsIgnoreCase(menu.moves().getNome())) {
 				stampaMosseGiocate();
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 				visualizzareCatture();
@@ -132,7 +132,7 @@ public class Controller {
 		if (comando.equalsIgnoreCase(menu.help().getNome()) || comando.equalsIgnoreCase(menu.back().getNome())
 				|| comando.equalsIgnoreCase(menu.board().getNome())
 				|| comando.equalsIgnoreCase(menu.captures().getNome())
-				|| comando.equalsIgnoreCase(menu.history().getNome())
+				|| comando.equalsIgnoreCase(menu.moves().getNome())
 				|| comando.equalsIgnoreCase(menu.quit().getNome())) {
 			return true;
 		}
@@ -328,7 +328,7 @@ public class Controller {
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		for (int i = 0; i < dimensione-1; i++) {
-				mossa=(i+1)+". "+fusioneListe().get(i)+" , "+fusioneListe().get(i+1);
+				mossa=(i+1)+". "+fusioneListe().get(i)+", "+fusioneListe().get(i+1);
 				System.out.println(mossa);
 			
 		}
@@ -353,7 +353,7 @@ public class Controller {
 		System.out.println(menu.back().toString());
 		System.out.println(menu.board().toString());
 		System.out.println(menu.captures().toString());
-		System.out.println(menu.history().toString());
+		System.out.println(menu.moves().toString());
 		System.out.println(menu.quit().toString());
 
 	}

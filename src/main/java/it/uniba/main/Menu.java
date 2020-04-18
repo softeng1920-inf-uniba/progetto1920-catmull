@@ -6,7 +6,7 @@ package it.uniba.main;
 public class Menu {
 
 	private Comando help;
-	private Comando history;
+	private Comando moves;
 	private Comando quit;
 	private Comando board;
 	private Comando captures;
@@ -15,7 +15,7 @@ public class Menu {
 
 	Menu() {
 		help = new Comando("Help", "");
-		history = new Comando("History", "Visualizza la cronologia delle mosse giocate");
+		moves = new Comando("Moves", "Visualizza la cronologia delle mosse giocate");
 		quit = new Comando("Quit", "Esci dal gioco");
 		board = new Comando("Board", "Visualizza la posizione sulla scacchiera");
 		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
@@ -36,8 +36,8 @@ public class Menu {
 	 * history consente di chiamare il comando "history" in controller
 	 * @return history
 	 */
-	public Comando history() {
-		return history;
+	public Comando moves() {
+		return moves;
 	}
 
 	/**
