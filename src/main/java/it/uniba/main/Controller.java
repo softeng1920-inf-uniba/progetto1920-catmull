@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import giocatore.Giocatore;
 import gioco.Turno;
+import pedine.Pezzo;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -21,13 +22,16 @@ public class Controller {
 	private Scacchiera s;
 	private Turno t;
 	private Menu menu;
-
+	private ArrayList<String> mosseConvertite;
+	
 	public Controller() {
+		mosseConvertite=new ArrayList<String>();
 		menu = new Menu();
 		s = new Scacchiera();
 
 	}
 
+	
 	/**
 	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema
 	 * operativo
@@ -74,7 +78,7 @@ public class Controller {
 				System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
 				System.out.println("Digitare help per visualizzare la lista dei comandi");
 				return;
-			} else if (comando.equalsIgnoreCase(menu.history().getNome())) {
+			} else if (comando.equalsIgnoreCase(menu.moves().getNome())) {
 				stampaMosseGiocate();
 			} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
 				visualizzareCatture();
@@ -97,10 +101,13 @@ public class Controller {
 				if (s.controllaRange(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))) && (s
 						.controllaRange(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))))) {
 					if (applicaMossa(comando)) {
+						addMosseConvertite(comando);
 						t.getGiocatoreInTurno().setMosseGiocate(comandoNonConvertito);
 						t.cambioTurno();
 					}
 
+				}else {
+					System.out.println("Mossa illegale.");
 				}
 			} else if (!isComandoValido(comando)) {
 
@@ -125,7 +132,7 @@ public class Controller {
 		if (comando.equalsIgnoreCase(menu.help().getNome()) || comando.equalsIgnoreCase(menu.back().getNome())
 				|| comando.equalsIgnoreCase(menu.board().getNome())
 				|| comando.equalsIgnoreCase(menu.captures().getNome())
-				|| comando.equalsIgnoreCase(menu.history().getNome())
+				|| comando.equalsIgnoreCase(menu.moves().getNome())
 				|| comando.equalsIgnoreCase(menu.quit().getNome())) {
 			return true;
 		}
@@ -149,13 +156,15 @@ public class Controller {
 
 		if (g.getColore() == Colore.bianco) {
 
-			if ((int) mossa.charAt(1) == '4') { // traversa
+			if ((int) mossa.charAt(1) == '4' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).isOccupato() || !s
+					.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).getPezzoCorrente().getNome().equals("Pedone"))) { // traversa
 				variazione = -50;
 			} else {
 				variazione = -49;
 			}
 		} else { // giocatore è pedine nere
-			if ((int) mossa.charAt(1) == '5') {
+			if ((int) mossa.charAt(1) == '5' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).isOccupato() || !s
+					.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).getPezzoCorrente().getNome().equals("Pedone"))) {
 				variazione = -46;
 			} else
 				variazione = -47;
@@ -216,7 +225,9 @@ public class Controller {
 	private boolean isCatturaPedone(String mossa) {
 
 		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
-		String regex = "[a-h](x|:)([a-h][1-8])( e.p.) ?";
+
+		String regex = "[a-h](x|:)([a-h][1-8])( e.p.)?";
+
 		return mossa.matches(regex); // Se è una mossa di cattura
 
 	}
@@ -312,15 +323,14 @@ public class Controller {
 	 * Stampa a video l'elenco delle mosse giocate del giocatore.
 	 */
 	public void stampaMosseGiocate() {
+		String mossa = null;
 		System.out.println("Storia delle mosse giocate");
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		for (int i = 0; i < dimensione; i++) {
-			if ((i % 2) == 0) {
-				System.out.println("Bianco " + "[" + fusioneListe().get(i) + "]");
-			} else {
-				System.out.println("Nero   " + "[" + fusioneListe().get(i) + "]");
-			}
+		for (int i = 0; i < dimensione-1; i++) {
+				mossa=(i+1)+". "+fusioneListe().get(i)+", "+fusioneListe().get(i+1);
+				System.out.println(mossa);
+			
 		}
 	}
 
@@ -343,7 +353,7 @@ public class Controller {
 		System.out.println(menu.back().toString());
 		System.out.println(menu.board().toString());
 		System.out.println(menu.captures().toString());
-		System.out.println(menu.history().toString());
+		System.out.println(menu.moves().toString());
 		System.out.println(menu.quit().toString());
 
 	}
@@ -359,7 +369,8 @@ public class Controller {
 	 * @return
 	 */
 	private boolean isMossaEnPassant(String mossa) {
-		return mossa.length() >= 4 && mossa.substring(6).equals("e.p.");
+		
+		return  mossa.length() >5 && mossa.substring(6).equals("e.p.");
 	}
 
 	/**
@@ -369,6 +380,7 @@ public class Controller {
 	 * @return booleano true se la mossa è applicabile, false altrimenti
 	 */
 	public final boolean applicaMossa(String comando) {
+
 		if ((s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).isOccupato())) {
 			if (t.getGiocatoreInTurno().getColore() == Colore.bianco
 					&& s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
@@ -381,17 +393,16 @@ public class Controller {
 					}
 					s.scambiaCella(comando);
 					return true;
-				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s) && isMossaEnPassant(comando)) {
+				} else if (isMossaEnPassant(comando) &&  s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().isEnPassant(comando, s)) {
 					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
 							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					if (c.equals(t.getGiocatoreInAttesa()
-							.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
+					if (c.equals(getMosseConvertite().get(getMosseConvertite().size()-1))) {
 						s.scambiaCella(comando);
 						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
 						return true;
 					} else {
-						System.out.println("Mossa illegale");
+ 						System.out.println("Mossa illegale");
 						return false;
 					}
 				} else {
@@ -409,14 +420,12 @@ public class Controller {
 					}
 					s.scambiaCella(comando);
 					return true;
-					// b4 a3
-					// a2 a4
-				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s) && isMossaEnPassant(comando)) {
-					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 50) + ' '
+
+				} else if (isMossaEnPassant(comando) && s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().isEnPassant(comando, s) ) {
+					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
 							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					if (c.equals(t.getGiocatoreInAttesa()
-							.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
+					if (c.equals(getMosseConvertite().get(getMosseConvertite().size()-1))) {
 						s.scambiaCella(comando);
 						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
 						return true;
@@ -450,5 +459,15 @@ public class Controller {
 		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(x, y).getPezzoCorrente());
 		s.getCella(x, y).rimuoviPezzoCorrente();
 
+	}
+
+
+	public ArrayList<String> getMosseConvertite() {
+		return mosseConvertite;
+	}
+
+
+	public void addMosseConvertite(String mossa) {
+		mosseConvertite.add(mossa);
 	}
 }

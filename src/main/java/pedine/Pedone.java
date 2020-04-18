@@ -38,6 +38,7 @@ public final class Pedone extends Pezzo {
 	}
 
 	public final boolean isMossaValidaNero(String comando, Scacchiera s) {
+
 		if ((Cella.coordXinInt(comando.charAt(0)) == Cella.coordXinInt(comando.charAt(3)))) { // movimento verticale
 			if (Cella.coordYinInt(comando.charAt(1)) + 2 == Cella.coordYinInt(comando.charAt(4))
 					&& (Cella.coordYinInt(comando.charAt(1)) == 1)) {
@@ -59,8 +60,7 @@ public final class Pedone extends Pezzo {
 			} else
 				return false;
 		}
-		// a1 b3
-		// 01234
+
 		else { // movimento obliquo
 			if ((Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
 					|| Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3)))
@@ -68,8 +68,7 @@ public final class Pedone extends Pezzo {
 				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()
 						&& s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
 								.getPezzoCorrente().getColore() != getColore())
-				// in codice getCella(Cella.coordXinInt(comando[1]+1),
-				// Cella.coordYinInt(comando[2]+1))
+
 				{
 					setMuoviDiDue(false);
 					return true;
@@ -116,8 +115,7 @@ public final class Pedone extends Pezzo {
 				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()
 						&& s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
 								.getPezzoCorrente().getColore() != getColore())
-				// in codice getCella(Cella.coordXinInt(comando[1]+1),
-				// Cella.coordYinInt(comando[2]+1))
+
 				{
 					setMuoviDiDue(false);
 					return true;
@@ -131,58 +129,46 @@ public final class Pedone extends Pezzo {
 
 	@Override
 	public final boolean isEnPassant(String comando, Scacchiera s) {
-        if (getColore() == Colore.nero && Cella.coordYinInt(comando.charAt(1)) < 7) {
-            if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
-                    && Cella.coordXinInt(comando.charAt(0)) > 2
-                    && Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
-                        .getPezzoCorrente().getColore() != getColore()) {
-                    return true;
+		if (getColore() == Colore.nero) {
+			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
+					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
 
- 
+				} else
+					return false;
+			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
+					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
 
-                } else
-                    return false;
-            } else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
-                    && Cella.coordXinInt(comando.charAt(
-                            0)) < 7
-                    && Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
-                        .getPezzoCorrente().getColore() != getColore()) {
-                    return true;
+				} else
+					return false;
+			} else
+				return false;
+		} else if (getColore() == Colore.bianco) {
+			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
 
- 
+					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
 
-                } else
-                    return false;
-            } else
-                return false;
-        } else if (getColore() == Colore.bianco && Cella.coordYinInt(comando.charAt(1)) > 2) {
-            if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
-                    && Cella.coordXinInt(comando.charAt(0)) > 2
-                    && Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
-                        .getPezzoCorrente().getColore() != getColore()) {
-                    return true;
+				} else
+					return false;
+			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
+					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
+				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().getColore() != getColore()) {
+					return true;
 
- 
-
-                } else
-                    return false;
-            } else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
-                    && Cella.coordXinInt(comando.charAt(0)) < 7
-                    && Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-                if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
-                        .getPezzoCorrente().getColore() != getColore()) {
-                    return true;
-
- 
-
-                } else
-                    return false;
-            } else
-                return false;
-        } else
-            return false;
-    }
+				} else
+					return false;
+			} else
+				return false;
+		} else
+			return false;
+	}
 }

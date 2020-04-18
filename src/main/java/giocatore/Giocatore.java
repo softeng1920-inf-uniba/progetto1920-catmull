@@ -125,8 +125,8 @@ public class Giocatore {
 	}
 
 	/**
-	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno,
-	 * nel caso contenga qualche pezzo restituisce true e viceversa.
+	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno, nel caso
+	 * contenga qualche pezzo restituisce true e viceversa.
 	 * 
 	 * @return boolean
 	 */
