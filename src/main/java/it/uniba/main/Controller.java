@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import giocatore.Giocatore;
 import gioco.Turno;
+import pedine.Pezzo;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -21,13 +22,16 @@ public class Controller {
 	private Scacchiera s;
 	private Turno t;
 	private Menu menu;
-
+	private ArrayList<String> mosseConvertite;
+	
 	public Controller() {
+		mosseConvertite=new ArrayList<String>();
 		menu = new Menu();
 		s = new Scacchiera();
 
 	}
 
+	
 	/**
 	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema
 	 * operativo
@@ -97,10 +101,13 @@ public class Controller {
 				if (s.controllaRange(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))) && (s
 						.controllaRange(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))))) {
 					if (applicaMossa(comando)) {
+						addMosseConvertite(comando);
 						t.getGiocatoreInTurno().setMosseGiocate(comandoNonConvertito);
 						t.cambioTurno();
 					}
 
+				}else {
+					System.out.println("Mossa illegale.");
 				}
 			} else if (!isComandoValido(comando)) {
 
@@ -149,13 +156,15 @@ public class Controller {
 
 		if (g.getColore() == Colore.bianco) {
 
-			if ((int) mossa.charAt(1) == '4') { // traversa
+			if ((int) mossa.charAt(1) == '4' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).isOccupato() || !s
+					.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).getPezzoCorrente().getNome().equals("Pedone"))) { // traversa
 				variazione = -50;
 			} else {
 				variazione = -49;
 			}
 		} else { // giocatore è pedine nere
-			if ((int) mossa.charAt(1) == '5') {
+			if ((int) mossa.charAt(1) == '5' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).isOccupato() || !s
+					.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).getPezzoCorrente().getNome().equals("Pedone"))) {
 				variazione = -46;
 			} else
 				variazione = -47;
@@ -216,7 +225,9 @@ public class Controller {
 	private boolean isCatturaPedone(String mossa) {
 
 		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
-		String regex = "[a-h](x|:)([a-h][1-8])( e.p.) ?";
+
+		String regex = "[a-h](x|:)([a-h][1-8])( e.p.)?";
+
 		return mossa.matches(regex); // Se è una mossa di cattura
 
 	}
@@ -359,7 +370,10 @@ public class Controller {
 	 * @return
 	 */
 	private boolean isMossaEnPassant(String mossa) {
-		return mossa.length() >= 4 && mossa.substring(6).equals("e.p.");
+		
+		boolean a = mossa.length() >5;
+		boolean b = mossa.substring(6).equals("e.p.");
+		return true;
 	}
 
 	/**
@@ -369,6 +383,7 @@ public class Controller {
 	 * @return booleano true se la mossa è applicabile, false altrimenti
 	 */
 	public final boolean applicaMossa(String comando) {
+
 		if ((s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).isOccupato())) {
 			if (t.getGiocatoreInTurno().getColore() == Colore.bianco
 					&& s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
@@ -381,17 +396,16 @@ public class Controller {
 					}
 					s.scambiaCella(comando);
 					return true;
-				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s) && isMossaEnPassant(comando)) {
+				} else if (isMossaEnPassant(comando) &&  s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().isEnPassant(comando, s)) {
 					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
 							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					if (c.equals(t.getGiocatoreInAttesa()
-							.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
+					if (c.equals(getMosseConvertite().get(getMosseConvertite().size()-1))) {
 						s.scambiaCella(comando);
 						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
 						return true;
 					} else {
-						System.out.println("Mossa illegale");
+ 						System.out.println("Mossa illegale");
 						return false;
 					}
 				} else {
@@ -411,12 +425,11 @@ public class Controller {
 					return true;
 					// b4 a3
 					// a2 a4
-				} else if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s) && isMossaEnPassant(comando)) {
-					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 50) + ' '
+				} else if (isMossaEnPassant(comando) && s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+						.getPezzoCorrente().isEnPassant(comando, s) ) {
+					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
 							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					if (c.equals(t.getGiocatoreInAttesa()
-							.getMossaGiocata(t.getGiocatoreInAttesa().getNumeroMosseGiocate() - 1))) {
+					if (c.equals(getMosseConvertite().get(getMosseConvertite().size()-1))) {
 						s.scambiaCella(comando);
 						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
 						return true;
@@ -450,5 +463,15 @@ public class Controller {
 		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(x, y).getPezzoCorrente());
 		s.getCella(x, y).rimuoviPezzoCorrente();
 
+	}
+
+
+	public ArrayList<String> getMosseConvertite() {
+		return mosseConvertite;
+	}
+
+
+	public void addMosseConvertite(String mossa) {
+		mosseConvertite.add(mossa);
 	}
 }
