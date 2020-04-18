@@ -48,6 +48,7 @@ public class Controller {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String comando = "";
+		String comandoNonConvertito = "";
 
 		s.inizializzaScacchiera();
 
@@ -84,15 +85,17 @@ public class Controller {
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
-
+				comandoNonConvertito = comando;
 				if (isAvanzataPedone(comando)) {
 					comando = convertiAvanzataPedone(t.getGiocatoreInTurno(), comando);
-				} else if (isCatturaPedone(comando)) {
-					comando = convertiCatturaPedone(t.getGiocatoreInTurno(), comando);
+				} else {
+					if (isCatturaPedone(comando)) {
+						comando = convertiCatturaPedone(t.getGiocatoreInTurno(), comando);
+					}
 				}
 
 				if (applicaMossa(comando)) {
-					t.getGiocatoreInTurno().setMosseGiocate(comando);
+					t.getGiocatoreInTurno().setMosseGiocate(comandoNonConvertito);
 					t.cambioTurno();
 				}
 			} else if (!isComandoValido(comando)) {
