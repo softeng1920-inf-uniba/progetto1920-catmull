@@ -51,7 +51,15 @@ public class Scacchiera {
 		scacchiera[x][y] = nuovaCella;
 	}
 
-	/* metodo che inzializza la scacchiera e la prepara per una nuova partita */
+	public final boolean controllaRange(int x, int y)
+	{
+		if(x< NUMERORIGHE && y< NUMEROCOLONNE && x>= 0 && y>= 0)
+			return true;
+		else
+			return false;
+	}
+	
+	/* metodo che inizializza la scacchiera e la prepara per una nuova partita */
 	public final void inizializzaScacchiera() {
 
 		// Inizializzazione della torre

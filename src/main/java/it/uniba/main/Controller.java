@@ -14,7 +14,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco 
+ * Classe che gestisce le varie funzionalita' del gioco
  */
 public class Controller {
 
@@ -57,7 +57,7 @@ public class Controller {
 					+ t.getGiocatoreInTurno().getColore() + ".");
 
 			System.out.println(
-					"-> Inserisci una mossa nella notazione algebrica (es. e1 e4); altrimenti digita una voce del menu.");
+					"-> Inserisci una mossa nella notazione algebrica (es. e4, exd3, exd3 e.p.); altrimenti digita una voce del menu.");
 
 			try {
 				comando = br.readLine();
@@ -90,10 +90,12 @@ public class Controller {
 				} else if (isCatturaPedone(comando)) {
 					comando = convertiCatturaPedone(t.getGiocatoreInTurno(), comando);
 				}
-
-				if (applicaMossa(comando)) {
-					t.getGiocatoreInTurno().setMosseGiocate(comando);
-					t.cambioTurno();
+				if (s.controllaRange(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))) && (s
+						.controllaRange(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))))) {
+					if (applicaMossa(comando)) {
+						t.getGiocatoreInTurno().setMosseGiocate(comando);
+						t.cambioTurno();
+					}
 				}
 			} else if (!isComandoValido(comando)) {
 
@@ -209,7 +211,7 @@ public class Controller {
 	private boolean isCatturaPedone(String mossa) {
 
 		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
-		String regex = "[a-h](x|:)([a-h][1-8])( e.p.) ?" ;
+		String regex = "[a-h](x|:)([a-h][1-8])( e.p.) ?";
 		return mossa.matches(regex); // Se è una mossa di cattura
 
 	}
@@ -347,6 +349,7 @@ public class Controller {
 
 	/**
 	 * controlla che la mossa finisca con e.p.
+	 * 
 	 * @param mossa
 	 * @return
 	 */
