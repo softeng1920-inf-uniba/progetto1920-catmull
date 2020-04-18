@@ -56,49 +56,49 @@ public class Scacchiera {
 
 		// Inizializzazione della torre
 
-		getCella(Cella.coordXinInt('a'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Torre(Colore.bianco, getCella(Cella.coordXinInt('a'), Cella.coordYinInt('1'))));
-		getCella(Cella.coordXinInt('h'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Torre(Colore.bianco, getCella(Cella.coordXinInt('h'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('a'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Torre(Colore.bianco, getCella(Cella.coordXinInt('a'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('h'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Torre(Colore.bianco, getCella(Cella.coordXinInt('h'), Cella.coordYinInt('1'))));
 
-		getCella(Cella.coordXinInt('a'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Torre(Colore.nero, getCella(Cella.coordXinInt('a'), Cella.coordYinInt('8'))));
-		getCella(Cella.coordXinInt('h'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Torre(Colore.nero, getCella(Cella.coordXinInt('h'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('a'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Torre(Colore.nero, getCella(Cella.coordXinInt('a'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('h'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Torre(Colore.nero, getCella(Cella.coordXinInt('h'), Cella.coordYinInt('8'))));
 
 		// Inizializzazione del cavallo
-		getCella(Cella.coordXinInt('b'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('b'), Cella.coordYinInt('1'))));
-		getCella(Cella.coordXinInt('g'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('g'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('b'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('b'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('g'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Cavallo(Colore.bianco, getCella(Cella.coordXinInt('g'), Cella.coordYinInt('1'))));
 
-		getCella(Cella.coordXinInt('b'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Cavallo(Colore.nero, getCella(Cella.coordXinInt('b'), Cella.coordYinInt('8'))));
-		getCella(Cella.coordXinInt('g'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Cavallo(Colore.nero, getCella(Cella.coordXinInt('g'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('b'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Cavallo(Colore.nero, getCella(Cella.coordXinInt('b'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('g'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Cavallo(Colore.nero, getCella(Cella.coordXinInt('g'), Cella.coordYinInt('8'))));
 
 		// Inizializzazione dell'alfiere
-		getCella(Cella.coordXinInt('c'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('c'), Cella.coordYinInt('1'))));
-		getCella(Cella.coordXinInt('f'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('f'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('c'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('c'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('f'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Alfiere(Colore.bianco, getCella(Cella.coordXinInt('f'), Cella.coordYinInt('1'))));
 
-		getCella(Cella.coordXinInt('c'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Alfiere(Colore.nero, getCella(Cella.coordXinInt('c'), Cella.coordYinInt('8'))));
-		getCella(Cella.coordXinInt('f'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Alfiere(Colore.nero, getCella(Cella.coordXinInt('f'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('c'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Alfiere(Colore.nero, getCella(Cella.coordXinInt('c'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('f'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Alfiere(Colore.nero, getCella(Cella.coordXinInt('f'), Cella.coordYinInt('8'))));
 
 		// Inizializzazione della regina
-		getCella(Cella.coordXinInt('d'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Regina(Colore.bianco, getCella(Cella.coordXinInt('d'), Cella.coordYinInt('1'))));
-		getCella(Cella.coordXinInt('d'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Regina(Colore.nero, getCella(Cella.coordXinInt('d'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('d'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Regina(Colore.bianco, getCella(Cella.coordXinInt('d'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('d'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Regina(Colore.nero, getCella(Cella.coordXinInt('d'), Cella.coordYinInt('8'))));
 
 		// Inizializzazione del re
-		getCella(Cella.coordXinInt('e'), Cella.coordYinInt('1')).setPezzoCorrente(
-				new Re(Colore.bianco, getCella(Cella.coordXinInt('e'), Cella.coordYinInt('1'))));
-		getCella(Cella.coordXinInt('e'), Cella.coordYinInt('8')).setPezzoCorrente(
-				new Re(Colore.nero, getCella(Cella.coordXinInt('e'), Cella.coordYinInt('8'))));
+		getCella(Cella.coordXinInt('e'), Cella.coordYinInt('1'))
+				.setPezzoCorrente(new Re(Colore.bianco, getCella(Cella.coordXinInt('e'), Cella.coordYinInt('1'))));
+		getCella(Cella.coordXinInt('e'), Cella.coordYinInt('8'))
+				.setPezzoCorrente(new Re(Colore.nero, getCella(Cella.coordXinInt('e'), Cella.coordYinInt('8'))));
 
 		// Inizializzazione dei pedoni
 		for (int i = 0; i < getNumeroColonne(); i++) {
@@ -107,11 +107,11 @@ public class Scacchiera {
 			getCella(i, Cella.coordYinInt('2'))
 					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt('2'))));
 		}
-		
+
 		for (int k = 2; k < 6; k++) {
-            for (int j = 0; j < getNumeroColonne(); j++) {
-                scacchiera[j][k] = new Cella(j, k,  null);
-            }
+			for (int j = 0; j < getNumeroColonne(); j++) {
+				scacchiera[j][k] = new Cella(j, k, null);
+			}
 		}
 
 	}
@@ -133,11 +133,11 @@ public class Scacchiera {
 		System.out.println("  --------------------------------------------------");
 		System.out.println("      a     b     c     d     e     f     g     h");
 	}
-	
+
 	public void scambiaCella(String mossa) {
-		getCella(Cella.coordXinInt(mossa.charAt(3)), Cella.coordYinInt(mossa.charAt(4))).setPezzoCorrente(getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt(mossa.charAt(1))).getPezzoCorrente());
+		getCella(Cella.coordXinInt(mossa.charAt(3)), Cella.coordYinInt(mossa.charAt(4))).setPezzoCorrente(
+				getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt(mossa.charAt(1))).getPezzoCorrente());
 		getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt(mossa.charAt(1))).rimuoviPezzoCorrente();
 	}
-	
 
 }

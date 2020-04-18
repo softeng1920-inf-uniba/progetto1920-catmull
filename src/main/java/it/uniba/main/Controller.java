@@ -13,8 +13,8 @@ import giocatore.Giocatore;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
-  
-/** 
+
+/**
  * Classe che gestisce le varie funzionalita' del gioco
  */
 public class Controller {
@@ -82,9 +82,13 @@ public class Controller {
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
-				if (isCatturaPedone(comando)) {
+
+				if (isAvanzataPedone(comando)) {
+					comando = convertiAvanzataPedone(t.getGiocatoreInTurno(), comando);
+				} else if (isCatturaPedone(comando)) {
 					comando = convertiCatturaPedone(t.getGiocatoreInTurno(), comando);
 				}
+
 				if (applicaMossa(comando)) {
 					t.getGiocatoreInTurno().setMosseGiocate(comando);
 					t.cambioTurno();
@@ -100,8 +104,8 @@ public class Controller {
 
 	/**
 	 * La seguente funzione riconosce se il comando inserito e' un comando scritto
-	 * sottoforma di notazione algebrica.
-	 * Il seguente comando puo' essere anche una mossa non valida
+	 * sottoforma di notazione algebrica. Il seguente comando puo' essere anche una
+	 * mossa non valida
 	 *
 	 * @param comando
 	 *
@@ -119,28 +123,49 @@ public class Controller {
 		return false;
 	}
 
-	private String convertiCatturaPedone(Giocatore g, String mossa) {
-		
-		int variazione;
-		String mossa_convertita = "";
+	/**
+	 * Funzione che converte la notazione algebrica per l'avanzata del pedone nella
+	 * sintassi di coordinate (partenza) - (arrivo)
+	 * 
+	 * @param Giocatore g - Necessario per determinare il colore del pezzo
+	 * @param String    mossa - Mossa in input che rispetti la regex [a-h][1-8]
+	 * 
+	 * @return String mossaConvertita - Mossa convertita in regex [a-h][1-8]\\
+	 *         [a-h][1-8]
+	 */
+	private String convertiAvanzataPedone(Giocatore g, String mossa) {
+
+		int variazione = 0;
+		String mossaConvertita = "";
 
 		if (g.getColore() == Colore.bianco) {
-			variazione = -49;
-		} else
-			variazione = -47;
-				
-		mossa_convertita = 	String.valueOf(mossa.charAt(0)) + 
-							String.valueOf(mossa.charAt(3) + variazione) + ' ' +
-							String.valueOf(mossa.charAt(2)) +
-							String.valueOf(mossa.charAt(3));
 
-		return mossa_convertita;
+			if ((int) mossa.charAt(1) == '4') { // traversa
+				variazione = -50;
+			} else {
+				variazione = -49;
+			}
+		} else { // giocatore è pedine nere
+			if ((int) mossa.charAt(1) == '5') {
+				variazione = -46;
+			} else
+				variazione = -47;
+
+		}
+
+		mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1° traversa
+				String.valueOf(mossa.charAt(1) + variazione) + // 1° colonna
+				' ' + String.valueOf(mossa.charAt(0)) + // 2° traversa
+				String.valueOf(mossa.charAt(1)); // 2° colonna
+
+		return mossaConvertita;
 
 	}
-	
+
 	/**
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
 	 * dall'utente è riconosciuta come notazione algebrica.
+	 * 
 	 * @param mossa
 	 * @return boolean
 	 */
@@ -164,20 +189,71 @@ public class Controller {
 		 */
 		// String regex_cattura_pezzo = "[a-h](x|:)([a-h][1-8])";
 
-		String regex = String.join("|", new String[] { 
-				"[a-h][1-8]", // mossa del pedone
+		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
 				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
 		});
 
 		return mossa.matches(regex);
 	}
 
+	/**
+	 * Funzione che ritorna un valore booleano, in base al fatto che una mossa sia
+	 * di cattura di un pedone oppure no
+	 * 
+	 * @param String mossa
+	 * @return boolean Se la mossa è di una cattura di un pedone (da parte di un
+	 *         altro pedone) o meno
+	 */
 	private boolean isCatturaPedone(String mossa) {
+
 		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
-		String regex = "[a-h](x|:)([a-h][1-8])";
+		String regex = "[a-h](x|:)([a-h][1-8])( e.p.)?";
 		return mossa.matches(regex); // Se è una mossa di cattura
 
 	}
+
+	/**
+	 * Funzione che converte la notazione algebrica per la cattura di un pedone
+	 * nella sintassi con coordinate (partenza) - (arrivo)
+	 * 
+	 * @param Giocatore g - Necessario per determinare il colore del pezzo
+	 * @param String    mossa - Mossa in input che rispetti la regex di cattura
+	 *                  pedone (vedi isCatturaPedone)
+	 * 
+	 * @return String mossaConvertita - Mossa convertita in regex [a-h][1-8]\\
+	 *         [a-h][1-8]
+	 */
+	private String convertiCatturaPedone(Giocatore g, String mossa) {
+
+		int variazione;
+		String mossaConvertita = "";
+
+		if (g.getColore() == Colore.bianco) {
+			variazione = -49;
+		} else
+			variazione = -47;
+
+		mossaConvertita = String.valueOf(mossa.charAt(0)) + String.valueOf(mossa.charAt(3) + variazione) + ' '
+				+ String.valueOf(mossa.charAt(2)) + String.valueOf(mossa.charAt(3));
+
+		return mossaConvertita;
+
+	}
+
+	/**
+	 * Un'avanzata del pedone è una mossa che rispetta l'espressione regolare
+	 * [a-h][1-8]
+	 * 
+	 * @param String mossa
+	 * @return boolean (true | false)
+	 */
+	private boolean isAvanzataPedone(String mossa) {
+
+		String regex = "[a-h][1-8]";
+		return mossa.matches(regex);
+
+	}
+
 	/**
 	 * Mostra le catture di entrambi i giocatori
 	 */
@@ -195,6 +271,7 @@ public class Controller {
 	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
 	 * La fusione avviene in modo alternato. Permette di avere una visione completa
 	 * delle mosse giocate totali.
+	 * 
 	 * @return ArrayList di stringhe.
 	 */
 	private ArrayList<String> fusioneListe() {
@@ -264,12 +341,15 @@ public class Controller {
 
 	/**
 	 * Applica la mossa data in input tramite stringa.
+	 * 
 	 * @param comando
 	 * @return booleano true se la mossa è applicabile, false altrimenti
 	 */
 	public final boolean applicaMossa(String comando) {
 		if ((s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).isOccupato())) {
-			if (t.getGiocatoreInTurno().getColore() == Colore.bianco) {
+			if (t.getGiocatoreInTurno().getColore() == Colore.bianco
+					&& s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+							.getPezzoCorrente().getColore() == Colore.bianco) {
 				if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
 						.getPezzoCorrente().isMossaValidaBianco(comando, s)) {
 					if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
@@ -294,8 +374,10 @@ public class Controller {
 				} else {
 					System.out.println("Mossa illegale");
 					return false;
-					}
-			} else if (t.getGiocatoreInTurno().getColore() == Colore.nero) {
+				}
+			} else if (t.getGiocatoreInTurno().getColore() == Colore.nero
+					&& s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
+							.getPezzoCorrente().getColore() == Colore.nero) {
 				if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
 						.getPezzoCorrente().isMossaValidaNero(comando, s)) {
 					if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
@@ -318,12 +400,12 @@ public class Controller {
 					} else {
 						System.out.println("Mossa illegale");
 						return false;
-						}
-						
+					}
+
 				} else {
 					System.out.println("Mossa illegale");
 					return false;
-					}
+				}
 			} else {
 				System.out.println("Mossa illegale");
 				return false;
@@ -335,8 +417,9 @@ public class Controller {
 	}
 
 	/**
-	 * Mangia il pezzo avversario.
-	 * Aggiunge il pezzo mangiato alla lista dei pezzi mangiati del giocatore in attesa.
+	 * Mangia il pezzo avversario. Aggiunge il pezzo mangiato alla lista dei pezzi
+	 * mangiati del giocatore in attesa.
+	 * 
 	 * @param x
 	 * @param y
 	 */
