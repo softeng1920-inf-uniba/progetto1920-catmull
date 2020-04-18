@@ -1,4 +1,3 @@
-
 /**
  *
  */
@@ -15,7 +14,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco
+ * Classe che gestisce le varie funzionalita' del gioco 
  */
 public class Controller {
 
@@ -38,6 +37,9 @@ public class Controller {
 		System.exit(0);
 	}
 
+	/**
+	 * inizializzaPartita implementa la fase iniziale della partita
+	 */
 	final void inizializzaPartita() {
 		System.out.println("Benvenuto nel gioco degli scacchi.");
 		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
@@ -207,7 +209,7 @@ public class Controller {
 	private boolean isCatturaPedone(String mossa) {
 
 		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
-		String regex = "[a-h](x|:)([a-h][1-8])( e.p.)?";
+		String regex = "[a-h](x|:)([a-h][1-8])( e.p.) ?" ;
 		return mossa.matches(regex); // Se è una mossa di cattura
 
 	}
@@ -232,11 +234,11 @@ public class Controller {
 			variazione = -49;
 		} else
 			variazione = -47;
-		
+
 		mossaConvertita = String.valueOf(mossa.charAt(0)) + String.valueOf(mossa.charAt(3) + variazione) + ' '
 				+ String.valueOf(mossa.charAt(2)) + String.valueOf(mossa.charAt(3));
-		
-		if(mossa.length()>=4) {
+
+		if (mossa.length() >= 4) {
 			mossaConvertita = mossaConvertita + mossa.substring(4);
 		}
 
@@ -342,11 +344,16 @@ public class Controller {
 	void stampaScacchiera() {
 		s.stampa();
 	}
-	
-	private boolean isMossaEnPassant(String mossa){
-			return mossa.length()>=4 && (mossa.substring(6) == "e.p.");
+
+	/**
+	 * controlla che la mossa finisca con e.p.
+	 * @param mossa
+	 * @return
+	 */
+	private boolean isMossaEnPassant(String mossa) {
+		return mossa.length() >= 4 && mossa.substring(6).equals("e.p.");
 	}
-	
+
 	/**
 	 * Applica la mossa data in input tramite stringa.
 	 * 
