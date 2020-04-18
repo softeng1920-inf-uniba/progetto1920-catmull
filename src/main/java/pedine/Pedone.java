@@ -1,6 +1,5 @@
 package pedine;
 
-import giocatore.Giocatore;
 import it.uniba.main.Colore;
 import scacchiera.Scacchiera;
 import scacchiera.Cella;
@@ -37,35 +36,6 @@ public final class Pedone extends Pezzo {
 	public void setMuoviDiDue(final boolean primaMossa) {
 		this.primaMossa = primaMossa;
 	}
-//
-//	private String convertiAvanzataPedone(String mossa) {
-//
-//		int variazione = 0;
-//		String mossaConvertita = "";
-//
-//		if (this.getColore() == Colore.bianco) {
-//
-//			if ((int) mossa.charAt(1) == '4' && isMuoviDiDue()) { // traversa
-//				variazione = -50;
-//			} else {
-//				variazione = -49;
-//			}
-//		} else { // giocatore è pedine nere
-//			if ((int) mossa.charAt(1) == '5' && isMuoviDiDue()) {
-//				variazione = -46;
-//			} else
-//				variazione = -47;
-//
-//		}
-//
-//		mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1° traversa
-//				String.valueOf(mossa.charAt(1) + variazione) + // 1° colonna
-//				' ' + String.valueOf(mossa.charAt(0)) + // 2° traversa
-//				String.valueOf(mossa.charAt(1)); // 2° colonna
-//
-//		return mossaConvertita;
-//
-//	}
 
 	public final boolean isMossaValidaNero(String comando, Scacchiera s) {
 
@@ -90,8 +60,7 @@ public final class Pedone extends Pezzo {
 			} else
 				return false;
 		}
-		// a1 b3
-		// 01234
+
 		else { // movimento obliquo
 			if ((Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
 					|| Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3)))
@@ -99,8 +68,7 @@ public final class Pedone extends Pezzo {
 				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()
 						&& s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
 								.getPezzoCorrente().getColore() != getColore())
-				// in codice getCella(Cella.coordXinInt(comando[1]+1),
-				// Cella.coordYinInt(comando[2]+1))
+
 				{
 					setMuoviDiDue(false);
 					return true;
@@ -147,8 +115,7 @@ public final class Pedone extends Pezzo {
 				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()
 						&& s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
 								.getPezzoCorrente().getColore() != getColore())
-				// in codice getCella(Cella.coordXinInt(comando[1]+1),
-				// Cella.coordYinInt(comando[2]+1))
+
 				{
 					setMuoviDiDue(false);
 					return true;

@@ -323,15 +323,14 @@ public class Controller {
 	 * Stampa a video l'elenco delle mosse giocate del giocatore.
 	 */
 	public void stampaMosseGiocate() {
+		String mossa = null;
 		System.out.println("Storia delle mosse giocate");
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		for (int i = 0; i < dimensione; i++) {
-			if ((i % 2) == 0) {
-				System.out.println("Bianco " + "[" + fusioneListe().get(i) + "]");
-			} else {
-				System.out.println("Nero   " + "[" + fusioneListe().get(i) + "]");
-			}
+		for (int i = 0; i < dimensione-1; i++) {
+				mossa=(i+1)+". "+fusioneListe().get(i)+" , "+fusioneListe().get(i+1);
+				System.out.println(mossa);
+			
 		}
 	}
 
@@ -371,9 +370,7 @@ public class Controller {
 	 */
 	private boolean isMossaEnPassant(String mossa) {
 		
-		boolean a = mossa.length() >5;
-		boolean b = mossa.substring(6).equals("e.p.");
-		return true;
+		return  mossa.length() >5 && mossa.substring(6).equals("e.p.");
 	}
 
 	/**
@@ -423,8 +420,7 @@ public class Controller {
 					}
 					s.scambiaCella(comando);
 					return true;
-					// b4 a3
-					// a2 a4
+
 				} else if (isMossaEnPassant(comando) && s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
 						.getPezzoCorrente().isEnPassant(comando, s) ) {
 					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
