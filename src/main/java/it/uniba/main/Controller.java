@@ -294,7 +294,7 @@ public class Controller {
 					s.getCella(endX, endY))) {
 				if (s.getCella(endX, endY).isOccupato()) {
 					t.getGiocatoreInTurno().addPezziCatturati(s.getCella(endX, endY).getPezzoCorrente());
-					s.mangiaPezzo(endX, startY);
+					s.mangiaPezzo(endX, endY);
 				}
 				s.scambiaCella(s.getCella(startX, startY), s.getCella(endX, endY));
 				return true;
