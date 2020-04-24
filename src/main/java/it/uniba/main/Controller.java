@@ -189,38 +189,67 @@ public class Controller {
 	 * @return ArrayList di stringhe.
 	 */
 	private ArrayList<String> fusioneListe() {
+		int i, j, k;
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
-		int i = 0;
-		int j = 0;
-		int k = 0;
-		while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate()
-				&& j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
-			mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(i++));
-			mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(j++));
+		if(t.getGiocatoreInTurno().getColore() == Colore.bianco) {
+			i = 0;
+			j = 0;
+			k = 0;
+			while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate()
+					&& j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
+				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(i++));
+				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(j++));
+			}
+			while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
+				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(i++));
+			}
+			while (j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
+				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(j++));
+			}
+		} else {
+			i = 0;
+			j = 0;
+			k = 0;
+			while (i < t.getGiocatoreInAttesa().getNumeroMosseGiocate()
+					&& j < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
+				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(i++));
+				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(j++));
+			}
+			while (i < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
+				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(i++));
+			}
+			while (j < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
+				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(j++));
+			}
+			
 		}
-		while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
-			mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(i++));
-		}
-		while (j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
-			mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(j++));
-		}
+		
 		return mosseGiocateTotali;
 	}
+
 
 	/**
 	 * Stampa a video l'elenco delle mosse giocate del giocatore.
 	 */
 	public void stampaMosseGiocate() {
 		String mossa = null;
+		int counter=1;
 		System.out.println("Storia delle mosse giocate");
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		for (int i = 0; i < dimensione - 1; i++) {
-			mossa = (i + 1) + ". " + fusioneListe().get(i) + ", " + fusioneListe().get(i + 1);
-			System.out.println(mossa);
-
+		for (int i = 0; i < dimensione; i++) {
+			if(i == dimensione-1) {
+				mossa = counter + ". " + fusioneListe().get(i);
+				System.out.println(mossa);
+			}
+			else {
+				mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i+1);
+				System.out.println(mossa);
+			}
+			i++;
+			counter++;
 		}
 	}
 
