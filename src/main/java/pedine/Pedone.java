@@ -1,6 +1,8 @@
 package pedine;
 
 import java.util.ArrayList;
+
+import giocatore.Giocatore;
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -56,7 +58,7 @@ public final class Pedone extends Pezzo {
 		return false;
 	}
 
-	public boolean isPedone(Cella c) {
+	private boolean isPedone(Cella c) {
 
 		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(this.nome);
 	}
@@ -86,4 +88,45 @@ public final class Pedone extends Pezzo {
 		return false;
 	}
 
+	// metodo di classe che converte il comando in input in una stringa con
+	// coordinate cella partenza, spazio e coordinate cella di arrivo
+	public static String ConvertiMossa(String mossa, Scacchiera s, Giocatore g) {
+		int variazione = 0;
+		String mossaConvertita = "";
+		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
+		String regex = "[a-h](x|:)([a-h][1-8])( e.p.)?";
+
+		if (mossa.matches(regex)) { // mossa in diagonale di cattura
+			if (g.getColore() == Colore.bianco) {
+				variazione = -49;
+			} else
+				variazione = -47;
+
+			mossaConvertita = String.valueOf(mossa.charAt(0)) + String.valueOf(mossa.charAt(3) + variazione) + ' '
+					+ String.valueOf(mossa.charAt(2)) + String.valueOf(mossa.charAt(3));
+		} else { // mosse semplici
+			if (g.getColore() == Colore.bianco) {
+				// contolla se è una possibile avanti di due o di uno
+				if (mossa.charAt(1) == '4' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).isOccupato() || !s
+						.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).getPezzoCorrente().getNome().equals("Pedone"))) // traversa
+					variazione = -50;
+				else
+					variazione = -49;
+
+			} else { // giocatore pedine nere
+				// contolla se è una possibile avanti di due o di uno
+				if (mossa.charAt(1) == '5' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).isOccupato() || !s
+						.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).getPezzoCorrente().getNome().equals("Pedone")))
+					variazione = -46;
+				else
+					variazione = -47;
+			}
+			// mossa finale pedone semplice
+			mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1° traversa
+					String.valueOf(mossa.charAt(1) + variazione) + // 1° colonna
+					' ' + String.valueOf(mossa.charAt(0)) + // 2° traversa
+					String.valueOf(mossa.charAt(1)); // 2° colonna
+		}
+		return mossaConvertita;
+	}
 }

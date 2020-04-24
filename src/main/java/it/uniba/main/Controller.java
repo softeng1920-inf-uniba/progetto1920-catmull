@@ -8,9 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import giocatore.Giocatore;
 import gioco.Turno;
-import pedine.Pezzo;
+import pedine.Pedone;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -23,15 +22,14 @@ public class Controller {
 	private Turno t;
 	private Menu menu;
 	private ArrayList<String> mosseConvertite;
-	
+
 	public Controller() {
-		mosseConvertite=new ArrayList<String>();
+		mosseConvertite = new ArrayList<String>();
 		menu = new Menu();
 		s = new Scacchiera();
 
 	}
 
-	
 	/**
 	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema
 	 * operativo
@@ -90,23 +88,20 @@ public class Controller {
 
 			if (isNotazioneAlgebrica(comando)) {
 				comandoNonConvertito = comando;
-				if (isAvanzataPedone(comando)) {
-					comando = convertiAvanzataPedone(t.getGiocatoreInTurno(), comando);
-				} else {
-					if (isCatturaPedone(comando)) {
-						comando = convertiCatturaPedone(t.getGiocatoreInTurno(), comando);
-					}
-				}
+				comando = ConvertiMossa(comando);
 
 				if (s.controllaRange(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))) && (s
 						.controllaRange(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))))) {
-					if (applicaMossa(comando)) {
+					if (applicaMossa(startX(comando), startY(comando), endX(comando), endY(comando), s,
+							mosseConvertite)) {
 						addMosseConvertite(comando);
 						t.getGiocatoreInTurno().setMosseGiocate(comandoNonConvertito);
 						t.cambioTurno();
+					} else {
+						System.out.println("Mossa illegale.");
 					}
 
-				}else {
+				} else {
 					System.out.println("Mossa illegale.");
 				}
 			} else if (!isComandoValido(comando)) {
@@ -140,50 +135,9 @@ public class Controller {
 	}
 
 	/**
-	 * Funzione che converte la notazione algebrica per l'avanzata del pedone nella
-	 * sintassi di coordinate (partenza) - (arrivo)
-	 * 
-	 * @param Giocatore g - Necessario per determinare il colore del pezzo
-	 * @param String    mossa - Mossa in input che rispetti la regex [a-h][1-8]
-	 * 
-	 * @return String mossaConvertita - Mossa convertita in regex [a-h][1-8]\\
-	 *         [a-h][1-8]
-	 */
-	private String convertiAvanzataPedone(Giocatore g, String mossa) {
-
-		int variazione = 0;
-		String mossaConvertita = "";
-
-		if (g.getColore() == Colore.bianco) {
-
-			if ((int) mossa.charAt(1) == '4' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).isOccupato() || !s
-					.getCella(Cella.coordXinInt(mossa.charAt(0)), 5).getPezzoCorrente().getNome().equals("Pedone"))) { // traversa
-				variazione = -50;
-			} else {
-				variazione = -49;
-			}
-		} else { // giocatore è pedine nere
-			if ((int) mossa.charAt(1) == '5' && (!s.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).isOccupato() || !s
-					.getCella(Cella.coordXinInt(mossa.charAt(0)), 2).getPezzoCorrente().getNome().equals("Pedone"))) {
-				variazione = -46;
-			} else
-				variazione = -47;
-
-		}
-
-		mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1° traversa
-				String.valueOf(mossa.charAt(1) + variazione) + // 1° colonna
-				' ' + String.valueOf(mossa.charAt(0)) + // 2° traversa
-				String.valueOf(mossa.charAt(1)); // 2° colonna
-
-		return mossaConvertita;
-
-	}
-
-	/**
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
 	 * dall'utente è riconosciuta come notazione algebrica.
-	 * 
+	 *
 	 * @param mossa
 	 * @return boolean
 	 */
@@ -191,7 +145,7 @@ public class Controller {
 
 		// Espressione regolare completa
 		/*
-		 * 
+		 *
 		 * [TACRD][a-h][1-8]| [TACRD][a-h]x[a-h][1-8]| [TACRD][a-h][1-8]x[a-h][1-8]|
 		 * [TACRD][a-h][1-8][a-h][1-8]| [TACRD][a-h][a-h][1-8]| [TACRD]x[a-h][1-8]|
 		 * [a-h]x[a-h][1-8]=(A+T+D+C)| [a-h]x[a-h][1-8]|
@@ -215,70 +169,6 @@ public class Controller {
 	}
 
 	/**
-	 * Funzione che ritorna un valore booleano, in base al fatto che una mossa sia
-	 * di cattura di un pedone oppure no
-	 * 
-	 * @param String mossa
-	 * @return boolean Se la mossa è di una cattura di un pedone (da parte di un
-	 *         altro pedone) o meno
-	 */
-	private boolean isCatturaPedone(String mossa) {
-
-		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
-
-		String regex = "[a-h](x|:)([a-h][1-8])( e.p.)?";
-
-		return mossa.matches(regex); // Se è una mossa di cattura
-
-	}
-
-	/**
-	 * Funzione che converte la notazione algebrica per la cattura di un pedone
-	 * nella sintassi con coordinate (partenza) - (arrivo)
-	 * 
-	 * @param Giocatore g - Necessario per determinare il colore del pezzo
-	 * @param String    mossa - Mossa in input che rispetti la regex di cattura
-	 *                  pedone (vedi isCatturaPedone)
-	 * 
-	 * @return String mossaConvertita - Mossa convertita in regex [a-h][1-8]\\
-	 *         [a-h][1-8]
-	 */
-	private String convertiCatturaPedone(Giocatore g, String mossa) {
-
-		int variazione;
-		String mossaConvertita = "";
-
-		if (g.getColore() == Colore.bianco) {
-			variazione = -49;
-		} else
-			variazione = -47;
-
-		mossaConvertita = String.valueOf(mossa.charAt(0)) + String.valueOf(mossa.charAt(3) + variazione) + ' '
-				+ String.valueOf(mossa.charAt(2)) + String.valueOf(mossa.charAt(3));
-
-		if (mossa.length() >= 4) {
-			mossaConvertita = mossaConvertita + mossa.substring(4);
-		}
-
-		return mossaConvertita;
-
-	}
-
-	/**
-	 * Un'avanzata del pedone è una mossa che rispetta l'espressione regolare
-	 * [a-h][1-8]
-	 * 
-	 * @param String mossa
-	 * @return boolean (true | false)
-	 */
-	private boolean isAvanzataPedone(String mossa) {
-
-		String regex = "[a-h][1-8]";
-		return mossa.matches(regex);
-
-	}
-
-	/**
 	 * Mostra le catture di entrambi i giocatori
 	 */
 	void visualizzareCatture() {
@@ -295,7 +185,7 @@ public class Controller {
 	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
 	 * La fusione avviene in modo alternato. Permette di avere una visione completa
 	 * delle mosse giocate totali.
-	 * 
+	 *
 	 * @return ArrayList di stringhe.
 	 */
 	private ArrayList<String> fusioneListe() {
@@ -327,10 +217,10 @@ public class Controller {
 		System.out.println("Storia delle mosse giocate");
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		for (int i = 0; i < dimensione-1; i++) {
-				mossa=(i+1)+". "+fusioneListe().get(i)+", "+fusioneListe().get(i+1);
-				System.out.println(mossa);
-			
+		for (int i = 0; i < dimensione - 1; i++) {
+			mossa = (i + 1) + ". " + fusioneListe().get(i) + ", " + fusioneListe().get(i + 1);
+			System.out.println(mossa);
+
 		}
 	}
 
@@ -363,111 +253,71 @@ public class Controller {
 	}
 
 	/**
-	 * controlla che la mossa finisca con e.p.
-	 * 
-	 * @param mossa
-	 * @return
-	 */
-	private boolean isMossaEnPassant(String mossa) {
-		
-		return  mossa.length() >5 && mossa.substring(6).equals("e.p.");
-	}
-
-	/**
 	 * Applica la mossa data in input tramite stringa.
-	 * 
+	 *
 	 * @param comando
 	 * @return booleano true se la mossa è applicabile, false altrimenti
 	 */
-	public final boolean applicaMossa(String comando) {
-
-		if ((s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1))).isOccupato())) {
-			if (t.getGiocatoreInTurno().getColore() == Colore.bianco
-					&& s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-							.getPezzoCorrente().getColore() == Colore.bianco) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isMossaValidaBianco(comando, s)) {
-					if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-							.isOccupato()) {
-						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)));
-					}
-					s.scambiaCella(comando);
-					return true;
-				} else if (isMossaEnPassant(comando) &&  s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s)) {
-					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
-							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					if (c.equals(getMosseConvertite().get(getMosseConvertite().size()-1))) {
-						s.scambiaCella(comando);
-						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
-						return true;
-					} else {
- 						System.out.println("Mossa illegale");
-						return false;
-					}
-				} else {
-					System.out.println("Mossa illegale");
-					return false;
+	public final boolean applicaMossa(int startX, int startY, int endX, int endY, Scacchiera s,
+			ArrayList<String> mosse) {
+		if ((s.getCella(startX, startY).isOccupato())) {
+			if (s.getCella(startX, startY).getPezzoCorrente().isMossaValida(s.getCella(startX, startY),
+					s.getCella(endX, endY))) {
+				if (s.getCella(endX, endY).isOccupato()) {
+					t.getGiocatoreInTurno().addPezziCatturati(s.getCella(endX, endY).getPezzoCorrente());
+					s.mangiaPezzo(endX, startY);
 				}
-			} else if (t.getGiocatoreInTurno().getColore() == Colore.nero
-					&& s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-							.getPezzoCorrente().getColore() == Colore.nero) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isMossaValidaNero(comando, s)) {
-					if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-							.isOccupato()) {
-						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)));
-					}
-					s.scambiaCella(comando);
-					return true;
-
-				} else if (isMossaEnPassant(comando) && s.getCella(Cella.coordXinInt(comando.charAt(0)), Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().isEnPassant(comando, s) ) {
-					String c = String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1) - 46) + ' '
-							+ String.valueOf(comando.charAt(3)) + String.valueOf(comando.charAt(1));
-					if (c.equals(getMosseConvertite().get(getMosseConvertite().size()-1))) {
-						s.scambiaCella(comando);
-						mangiaPezzo(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(1)));
-						return true;
-					} else {
-						System.out.println("Mossa illegale");
-						return false;
-					}
-
-				} else {
-					System.out.println("Mossa illegale");
-					return false;
-				}
-			} else {
-				System.out.println("Mossa illegale");
-				return false;
+				s.scambiaCella(s.getCella(startX, startY), s.getCella(endX, endY));
+				return true;
+			} else if (s.getCella(startX, startY).getPezzoCorrente().isMossaSpeciale(s.getCella(startX, startY),
+					s.getCella(endX, endY), s, mosse)) {
+				t.getGiocatoreInTurno().addPezziCatturati(s.getCella(endX, startY).getPezzoCorrente());
+				s.mangiaPezzo(endX, startY);
+				s.scambiaCella(s.getCella(startX, startY), s.getCella(endX, endY));
+				return true;
 			}
-		} else {
-			System.out.println("Mossa illegale");
-			return false;
+
 		}
+
+		return false;
 	}
-
-	/**
-	 * Mangia il pezzo avversario. Aggiunge il pezzo mangiato alla lista dei pezzi
-	 * mangiati del giocatore in attesa.
-	 * 
-	 * @param x
-	 * @param y
-	 */
-	public final void mangiaPezzo(int x, int y) {
-		t.getGiocatoreInAttesa().addPezziCatturati(s.getCella(x, y).getPezzoCorrente());
-		s.getCella(x, y).rimuoviPezzoCorrente();
-
-	}
-
 
 	public ArrayList<String> getMosseConvertite() {
 		return mosseConvertite;
 	}
 
-
 	public void addMosseConvertite(String mossa) {
 		mosseConvertite.add(mossa);
+	}
+
+	/**
+	 * metodo che serve a modificare il comando a seconda del pezzo da muovere
+	 *
+	 * @param mossa
+	 * @return String
+	 */
+	private final String ConvertiMossa(String mossa) {
+		if (mossa.charAt(0) >= 'a') {
+			return Pedone.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+		} else {
+			// controllo futuro per le altre pedine
+			return mossa;
+		}
+	}
+
+	private static int startX(String m) {
+		return Cella.coordXinInt(m.charAt(0));
+	}
+
+	private static int startY(String m) {
+		return Cella.coordYinInt(m.charAt(1));
+	}
+
+	private static int endX(String m) {
+		return Cella.coordXinInt(m.charAt(3));
+	}
+
+	private static int endY(String m) {
+		return Cella.coordYinInt(m.charAt(4));
 	}
 }

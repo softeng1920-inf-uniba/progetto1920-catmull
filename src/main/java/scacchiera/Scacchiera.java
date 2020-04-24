@@ -51,6 +51,13 @@ public class Scacchiera {
 		scacchiera[x][y] = nuovaCella;
 	}
 
+	/**
+	 * contolla che le coordinate in input siano valide
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public final boolean controllaRange(int x, int y)
 	{
 		if(x< NUMERORIGHE && y< NUMEROCOLONNE && x>= 0 && y>= 0)
@@ -58,8 +65,10 @@ public class Scacchiera {
 		else
 			return false;
 	}
-	
-	/* metodo che inizializza la scacchiera e la prepara per una nuova partita */
+
+	/**
+	 * metodo che inizializza la scacchiera e la prepara per una nuova partita
+	 */
 	public final void inizializzaScacchiera() {
 
 		// Inizializzazione della torre
@@ -124,7 +133,9 @@ public class Scacchiera {
 
 	}
 
-	/* metodo per stampare nella console la scacchiera */
+	/**
+	 * metodo per stampare nella console la scacchiera
+	 */
 	public final void stampa() {
 		System.out.println("      a     b     c     d     e     f     g     h");
 		for (int j = 8; j > 0; j--) {
@@ -142,10 +153,27 @@ public class Scacchiera {
 		System.out.println("      a     b     c     d     e     f     g     h");
 	}
 
-	public void scambiaCella(String mossa) {
-		getCella(Cella.coordXinInt(mossa.charAt(3)), Cella.coordYinInt(mossa.charAt(4))).setPezzoCorrente(
-				getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt(mossa.charAt(1))).getPezzoCorrente());
-		getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt(mossa.charAt(1))).rimuoviPezzoCorrente();
+	/**
+	 * simula il movimento di un pezzo nella scacchiera
+	 * 
+	 * @param c1
+	 * @param c2
+	 */
+	public void scambiaCella(Cella c1, Cella c2) {
+		c2.setPezzoCorrente(c1.getPezzoCorrente());
+		c2.setOccupato(c1.isOccupato());
+		c1.setOccupato(false);
+		c1.rimuoviPezzoCorrente();
 	}
 
+	/**
+	 * permette di simulare la mossa in cui un pezzo mangia un altro
+	 * 
+	 * @param x
+	 * @param y
+	 */
+	public final void mangiaPezzo(int x, int y) {
+		getCella(x, y).rimuoviPezzoCorrente();
+
+	}
 }
