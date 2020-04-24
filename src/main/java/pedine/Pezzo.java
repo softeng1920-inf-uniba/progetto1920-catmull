@@ -1,5 +1,7 @@
 package pedine;
 
+import java.util.ArrayList;
+
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -28,12 +30,10 @@ public abstract class Pezzo {
 	 * Disegnapezzo consente di rappresentare il pezzo nella scacchiera
 	 * 
 	 */
-	
-	
+
 	public void disegnapezzo() {
 		System.out.print(this.simbolo);
 	}
-	// public abstract void mossevalide();
 
 	// --------Metodi di setting --------
 
@@ -138,10 +138,24 @@ public abstract class Pezzo {
 	public String toString() {
 		return String.format(nome + " " + colore + " " + simbolo);
 	}
+	/**
+	 * Metodo che permette di controllare se la mossa
+	 * data sia valida
+	 * @param start
+	 * @param end
+	 * @return boolean
+	 */
+	public abstract boolean isMossaValida(Cella start, Cella end);
 
-	public abstract boolean isMossaValidaBianco(String mossa, Scacchiera s);
+	/**
+	 * Metodo che permette di controllare se la mossa speciale
+	 * data sia valida
+	 * @param start
+	 * @param end
+	 * @param s
+	 * @param mosse
+	 * @return boolean
+	 */
+	public abstract boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse);
 
-	public abstract boolean isMossaValidaNero(String mossa, Scacchiera s);
-
-	public abstract boolean isEnPassant(String comando, Scacchiera s);
 }

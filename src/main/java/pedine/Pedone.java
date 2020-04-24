@@ -1,15 +1,14 @@
 package pedine;
 
+import java.util.ArrayList;
 import it.uniba.main.Colore;
-import scacchiera.Scacchiera;
 import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 /**
  * Classe per rappresentere il sottotipo di pezzo chiamato Pedone
  */
 public final class Pedone extends Pezzo {
-
-	private boolean primaMossa;
 
 	/**
 	 * Costruttore
@@ -26,149 +25,65 @@ public final class Pedone extends Pezzo {
 	/**
 	 * Restituisce vero se e' la prima mossa, falso altrimenti
 	 */
-	public boolean isMuoviDiDue() {
-		return this.primaMossa;
+	@Override
+	public boolean isMossaValida(Cella start, Cella end) {
+
+		if (this.colore == Colore.bianco) {
+			// movimento semplice
+			if (start.getX() == end.getX() && !end.isOccupato()) {
+				if (((start.getY() - 1) == end.getY())) // avanti di una cella
+					return true;
+				else if (((start.getY() - 2) == end.getY()) && start.getY() == 6) // 6 indica la riga di partenza del
+					// pedone
+					return true;
+				// movimento obliquo
+			} else if ((start.getY() - 1 == end.getY()) && (Math.abs(start.getX() - end.getX()) == 1)
+					&& end.isOccupato() && end.getPezzoCorrente().getColore() != this.colore)
+				return true;
+
+		} // mosse NERO semplice
+		else if (start.getX() == end.getX() && !end.isOccupato()) {
+			if (((start.getY() + 1) == end.getY()) && !end.isOccupato()) // avanti di una cella
+				return true;
+			else if (((start.getY() + 2) == end.getY()) && start.getY() == 1) // avanti di due
+				return true;
+
+		} // mossa obliqua NERO
+		else if (start.getY() + 1 == end.getY() && (Math.abs(start.getX() - end.getX()) == 1) && end.isOccupato()
+				&& end.getPezzoCorrente().getColore() != this.colore)
+			return true;
+
+		return false;
 	}
 
-	/**
-	 * Aggiorna la variabile prima mossa
-	 */
-	public void setMuoviDiDue(final boolean primaMossa) {
-		this.primaMossa = primaMossa;
-	}
+	public boolean isPedone(Cella c) {
 
-	public final boolean isMossaValidaNero(String comando, Scacchiera s) {
-
-		if ((Cella.coordXinInt(comando.charAt(0)) == Cella.coordXinInt(comando.charAt(3)))) { // movimento verticale
-			if (Cella.coordYinInt(comando.charAt(1)) + 2 == Cella.coordYinInt(comando.charAt(4))
-					&& (Cella.coordYinInt(comando.charAt(1)) == 1)) {
-				if (!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-						.isOccupato())) {
-					setMuoviDiDue(true);
-					return true;
-
-				} else
-					return false;
-			} else if (Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-						.isOccupato())) {
-					setMuoviDiDue(false);
-					return true;
-
-				} else
-					return false;
-			} else
-				return false;
-		}
-
-		else { // movimento obliquo
-			if ((Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
-					|| Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3)))
-					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()
-						&& s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-								.getPezzoCorrente().getColore() != getColore())
-
-				{
-					setMuoviDiDue(false);
-					return true;
-
-				} else
-					return false;
-			} else
-				return false;
-		}
+		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(this.nome);
 	}
 
 	@Override
-	public final boolean isMossaValidaBianco(String comando, Scacchiera s) {
-		if ((Cella.coordXinInt(comando.charAt(0)) == Cella.coordXinInt(comando.charAt(3)))) { // movimento verticale
-			if (Cella.coordYinInt(comando.charAt(1)) - 2 == Cella.coordYinInt(comando.charAt(4))
-					&& (Cella.coordYinInt(comando.charAt(1)) == 6)) {
-				if (!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-						.isOccupato())) {
-					setMuoviDiDue(true);
+	public boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse) {
+		Cella pedone;
+		char x = (char) (end.getX() + 97);
+		char y1 = (char) (Math.abs(end.getY() - 9) + 48);
+		char y2 = (char) (Math.abs(end.getY() - 7) + 48);
+		String pedoneAvversarioBianco = x + "" + y2 + " " + x + "" + y1;
+		String pedoneAvversarioNero = x + "" + y1 + " " + x + "" + y2;
+
+		pedone = s.getCella(end.getX(), start.getY());
+		if (isPedone(pedone) && pedone.getPezzoCorrente().getColore() != this.colore) {
+			if (this.colore == Colore.bianco) {
+
+				if ((start.getY() - 1 == end.getY()) && (Math.abs(start.getX() - end.getX()) == 1) && !end.isOccupato()
+						&& mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero))
 					return true;
+			} else if ((start.getY() + 1 == end.getY()) && (Math.abs(start.getX() - end.getX()) == 1)
+					&& !end.isOccupato() && mosse.get(mosse.size() - 1).equals(pedoneAvversarioBianco))
+				return true;
 
-				} else
-					return false;
-			}
-
-			else if (Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (!(s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-						.isOccupato())) {
-					setMuoviDiDue(false);
-					return true;
-
-				} else
-					return false;
-			} else
-				return false;
 		}
-		// a1 b3
-		// 01234
-		else // movimento obliquo
-		{
-			if ((Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
-					|| Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3)))
-					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4))).isOccupato()
-						&& s.getCella(Cella.coordXinInt(comando.charAt(3)), Cella.coordYinInt(comando.charAt(4)))
-								.getPezzoCorrente().getColore() != getColore())
 
-				{
-					setMuoviDiDue(false);
-					return true;
-
-				} else
-					return false;
-			} else
-				return false;
-		}
+		return false;
 	}
 
-	@Override
-	public final boolean isEnPassant(String comando, Scacchiera s) {
-		if (getColore() == Colore.nero) {
-			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
-					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
-
-				} else
-					return false;
-			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
-					&& Cella.coordYinInt(comando.charAt(1)) + 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
-
-				} else
-					return false;
-			} else
-				return false;
-		} else if (getColore() == Colore.bianco) {
-			if (Cella.coordXinInt(comando.charAt(0)) - 1 == Cella.coordXinInt(comando.charAt(3))
-
-					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) - 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
-
-				} else
-					return false;
-			} else if (Cella.coordXinInt(comando.charAt(0)) + 1 == Cella.coordXinInt(comando.charAt(3))
-					&& Cella.coordYinInt(comando.charAt(1)) - 1 == Cella.coordYinInt(comando.charAt(4))) {
-				if (s.getCella(Cella.coordXinInt(comando.charAt(0)) + 1, Cella.coordYinInt(comando.charAt(1)))
-						.getPezzoCorrente().getColore() != getColore()) {
-					return true;
-
-				} else
-					return false;
-			} else
-				return false;
-		} else
-			return false;
-	}
 }
