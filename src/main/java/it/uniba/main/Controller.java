@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Turno;
-import pedine.Pedone;
+import pedine.*;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -192,7 +192,9 @@ public class Controller {
 		// String regex_cattura_pezzo = "[a-h](x|:)([a-h][1-8])";
 
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
-				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilit√† dell'en passant
+				"[a-h](x|:)([a-h][1-8])( e.p.)?",// cattura del pedone, con possibilit√† dell'en passant
+				"[A]([a-h]|[1-8])?(x|:)[a-h][1-8]", //mossa alfiere per mangiare con ambiguit‡
+				"[A]([a-h]|[1-8])?[a-h][1-8]" //mossa alfiere con ambiguit‡ oppure con case di arrivo
 		});
 
 		return mossa.matches(regex);
@@ -359,6 +361,9 @@ public class Controller {
 			return Pedone.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 		} else {
 			// controllo futuro per le altre pedine
+			if(mossa.charAt(0) == 'A') {
+				return 	Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			return mossa;
 		}
 	}
