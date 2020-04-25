@@ -113,15 +113,25 @@ public final class Cella {
 	 * @param char coordX intero da convertire in carattere
 	 * @return char Valore necessario per la scacchiera compreso fra a e h
 	 */
+
 	public static char coordXinChar(final int coordX) {
-		return (char)(coordX + 97);
+
+		return (char) (coordX + 97);
+
 	}
-	
+
 	/**
+	 * 
 	 * @param char coordY intero da convertire in carattere
+	 * 
 	 * @return char Valore necessario per la scacchiera compreso fra 1 e 8
+	 * 
 	 */
+
 	public static char coordYinChar(final int coordY) {
-		return (char)Math.abs((coordY - 8));
+
+		return (char) Math.abs((coordY - 8));
+
 	}
+
 }

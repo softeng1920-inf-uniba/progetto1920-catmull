@@ -9,8 +9,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Turno;
-import pedine.Pedone;
+import pedine.Alfiere;
 import pedine.Cavallo;
+import pedine.Pedone;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -43,7 +44,7 @@ public class Controller {
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
 	final void inizializzaPartita() {
-		
+
 		clearConsole();
 		System.out.println("Benvenuto nel gioco degli scacchi.");
 		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
@@ -85,7 +86,7 @@ public class Controller {
 				visualizzareCatture();
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
 				chiudiGioco();
-			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {			
+			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {
 				if( utenteConfermaRiavvioPartita() ) {
 					inizializzaPartita();
 				} else continue;
@@ -119,12 +120,12 @@ public class Controller {
 	}
 
 	private boolean utenteConfermaRiavvioPartita() {
-		
+
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.println("Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
- 
+
 		while( true ) {
 			try {
 				comando = br.readLine();
@@ -141,7 +142,7 @@ public class Controller {
 
 			}
 		}
-		
+
 	}
 
 	/**
@@ -194,11 +195,11 @@ public class Controller {
 
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
 				"[a-h](x|:)([a-h][1-8])( e.p.)?",
-				"[C]([a-h])?[x|:]([a-h][1-8])", 
+				"[C]([a-h])?[x|:]([a-h][1-8])",
 				"[C]([1-8])?[x|:]([a-h][1-8])",
-				"[C]([a-h])?([a-h][1-8])", 
-				"[C]([1-8])?([a-h][1-8])"
-				// cattura del pedone, con possibilità dell'en passant
+				"[C]([a-h])?([a-h][1-8])",
+				"[C]([1-8])?([a-h][1-8])",
+				"[A](x|:)?[a-h][1-8]", //mossa alfiere per mangiare con ambiguit�
 		});
 
 		return mossa.matches(regex);
@@ -377,10 +378,13 @@ public class Controller {
 				return Cavallo.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
 			// controllo futuro per le altre pedine
+			if(mossa.charAt(0) == 'A') {
+				return 	Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			return mossa;
 		}
 	}
-	
+
 	/**
 	 * Converte la coordinata X di partenza data in input in intero.
 	 * @param m
@@ -389,7 +393,7 @@ public class Controller {
 	private static int startX(String m) {
 		return Cella.coordXinInt(m.charAt(0));
 	}
-	
+
 	/**
 	 * Converte la coordinata Y di partenza data in input in intero.
 	 * @param m
@@ -416,7 +420,7 @@ public class Controller {
 	private static int endY(String m) {
 		return Cella.coordYinInt(m.charAt(4));
 	}
-	
+
 	public final static void clearConsole()	{
 		for (int i = 0; i < 100; ++i)
 			System.out.println();
