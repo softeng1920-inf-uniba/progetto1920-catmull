@@ -53,7 +53,7 @@ public class Scacchiera {
 
 	/**
 	 * contolla che le coordinate in input siano valide
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 * @return
@@ -155,7 +155,7 @@ public class Scacchiera {
 
 	/**
 	 * simula il movimento di un pezzo nella scacchiera
-	 * 
+	 *
 	 * @param c1
 	 * @param c2
 	 */
@@ -168,12 +168,19 @@ public class Scacchiera {
 
 	/**
 	 * permette di simulare la mossa in cui un pezzo mangia un altro
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 */
 	public final void mangiaPezzo(int x, int y) {
 		getCella(x, y).rimuoviPezzoCorrente();
 
+	}
+
+	public final String getNomePezzo(int x, int y) {
+		if (controllaRange(x, y) && getCella(x, y).isOccupato()) {
+			return getCella(x, y).getPezzoCorrente().getNome();
+		}
+		return "Vuota";
 	}
 }

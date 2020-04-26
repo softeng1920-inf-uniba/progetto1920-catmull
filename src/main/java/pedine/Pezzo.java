@@ -28,7 +28,7 @@ public abstract class Pezzo {
 
 	/**
 	 * Disegnapezzo consente di rappresentare il pezzo nella scacchiera
-	 * 
+	 *
 	 */
 
 	public void disegnapezzo() {
@@ -145,7 +145,7 @@ public abstract class Pezzo {
 	 * @param end
 	 * @return boolean
 	 */
-	public abstract boolean isMossaValida(Cella start, Cella end);
+	public abstract boolean isMossaValida(Cella start, Cella end, Scacchiera s);
 
 	/**
 	 * Metodo che permette di controllare se la mossa speciale

@@ -28,7 +28,7 @@ public final class Pedone extends Pezzo {
 	 * Restituisce vero se e' la prima mossa, falso altrimenti
 	 */
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
 
 		if (this.colore == Colore.bianco) {
 			// movimento semplice
