@@ -79,57 +79,32 @@ public final class Alfiere extends Pezzo {
 	}
 
 	public static String ConvertiMossa(String mossa, Scacchiera s, Giocatore g) {
-		// "[A]([a-h]|[1-8])(x|:)[a-h][1-8]"
-		// "[A]([a-h]|[1-8])[a-h][1-8]"
+		// "[A](x|:)?[a-h][1-8]"
+
 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
-		int ambiguita = 0;
 
 		if (mossa.matches("[A][a-h][1-8]")) {// si muove senza ambiguità
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
-			if(s.getNomePezzo(endX,endY)!= "Vuoto")
+			if(s.getNomePezzo(endX,endY)!= "Vuota")
+			{
 				return mossaConvertita;
+			}
 		}
 
 		if (mossa.matches("[A][x|:][a-h][1-8]")) { // mangia senza ambiguità
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
-			if(s.getNomePezzo(endX,endY)== "Vuoto")
+			if(s.getNomePezzo(endX,endY)== "Vuota")
+			{
 				return mossaConvertita;
+			}
 		}
-		if (mossa.matches("[A][1-8][x|:][a-h][1-8]")) {// mangia con ambiguità sulle righe(numeri)
-			endX = Cella.coordXinInt(mossa.charAt(3));
-			endY = Cella.coordYinInt(mossa.charAt(4));
-			startY = Cella.coordYinInt(mossa.charAt(1));
-			if(s.getNomePezzo(endX,endY)== "Vuoto")
-				return mossaConvertita;
-		}
-		if (mossa.matches("[A][a-h][x|:][a-h][1-8]")) {// mangia con ambiguità sulle colonne(lettere)
-			endX = Cella.coordXinInt(mossa.charAt(3));
-			endY = Cella.coordYinInt(mossa.charAt(4));
-			startX = Cella.coordXinInt(mossa.charAt(1));
-			if(s.getNomePezzo(endX,endY)== "Vuoto")
-				return mossaConvertita;
-
-		}
-		if (mossa.matches("[A][1-8][a-h][1-8]")) {// si muove con ambiguità sulle righe
-			endX = Cella.coordXinInt(mossa.charAt(2));
-			endY = Cella.coordYinInt(mossa.charAt(3));
-			startY = Cella.coordYinInt(mossa.charAt(1));
-			if(s.getNomePezzo(endX,endY)!= "Vuoto")
-				return mossaConvertita;
-		}
-		if (mossa.matches("[A][a-h][a-h][1-8]")) {// si muove con ambiguità sulle colonne
-			endX = Cella.coordXinInt(mossa.charAt(2));
-			endY = Cella.coordYinInt(mossa.charAt(3));
-			startX = Cella.coordXinInt(mossa.charAt(1));
-			if(s.getNomePezzo(endX,endY)!= "Vuoto")
-				return mossaConvertita;
-		}
+		
 		if (startX != -1) {
 			for (int i = 0; i < s.getNumeroRighe(); i++) {
 				if (s.getNomePezzo(startX, i) == "Alfiere"
@@ -148,14 +123,14 @@ public final class Alfiere extends Pezzo {
 				}
 			}
 
-		} else {
+		}
 			// aumenta x e aumenta y
 			for (int i = 1; endX + i < s.getNumeroColonne() && endY + i < s.getNumeroRighe(); i++) {
 				if (s.getNomePezzo(endX + i, endY + i) == "Alfiere"
 						&& s.getCella(endX + i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
 					startX = endX + i;
 					startY = endY + i;
-					ambiguita++;
+				
 					break;
 				}
 			}
@@ -165,7 +140,7 @@ public final class Alfiere extends Pezzo {
 						&& s.getCella(endX + i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
 					startX = endX + i;
 					startY = endY - i;
-					ambiguita++;
+	
 					break;
 				}
 			}
@@ -175,7 +150,7 @@ public final class Alfiere extends Pezzo {
 						&& s.getCella(endX - i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
 					startX = endX - i;
 					startY = endY + i;
-					ambiguita++;
+					
 					break;
 				}
 			}
@@ -185,17 +160,16 @@ public final class Alfiere extends Pezzo {
 						&& s.getCella(endX - i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
 					startX = endX - i;
 					startY = endY - i;
-					ambiguita++;
+				
 					break;
 				}
 			}
-		}
-		if (s.controllaRange(startX, startY) && s.getCella(startX, startY).isOccupato() && ambiguita <= 1) {
+		
+		if (s.controllaRange(startX, startY) && s.getCella(startX, startY).isOccupato()) {
 
 			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
 					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
 		}
-		System.out.println(mossaConvertita);
 		return mossaConvertita;
 
 	}
