@@ -322,7 +322,7 @@ public class Controller {
 			ArrayList<String> mosse) {
 		if ((s.getCella(startX, startY).isOccupato())) {
 			if (s.getCella(startX, startY).getPezzoCorrente().isMossaValida(s.getCella(startX, startY),
-					s.getCella(endX, endY))) {
+					s.getCella(endX, endY), s)) {
 				if (s.getCella(endX, endY).isOccupato()) {
 					t.getGiocatoreInTurno().addPezziCatturati(s.getCella(endX, endY).getPezzoCorrente());
 					s.mangiaPezzo(endX, endY);

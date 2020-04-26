@@ -21,7 +21,7 @@ public final class Regina extends Pezzo {
 	}
 
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
 		// TODO Auto-generated method stub
 		return false;
 	}
