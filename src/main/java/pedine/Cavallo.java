@@ -24,7 +24,7 @@ public final class Cavallo extends Pezzo {
 	}
 	
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
 		if (end.isOccupato()) {
 			if (this.colore != end.getPezzoCorrente().getColore()) {
 				return true;
@@ -64,34 +64,52 @@ public final class Cavallo extends Pezzo {
 			startX = Cella.coordXinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
+			if (s.getNomePezzo(endX, endY) == "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: Cxe4
 		if (mossa.matches("[C][x|:]([a-h][1-8])")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
+			if (s.getNomePezzo(endX, endY) == "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: C6xe4
 		if (mossa.matches("[C][1-8][x|:]([a-h][1-8])")) {
 			startY= Cella.coordYinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
+			if (s.getNomePezzo(endX, endY) == "Vuota") {
+				return mossaConvertita;
+			}
 		} 
 		//esempio: Cde4
 		if (mossa.matches("[C][a-h]([a-h][1-8])")) {
 			startX = Cella.coordXinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
+			if (s.getNomePezzo(endX, endY) != "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: C3e4 
 		if (mossa.matches("[C][1-8]([a-h][1-8])")) {
 			startY = Cella.coordYinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
+			if (s.getNomePezzo(endX, endY) != "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: Ce4 
 		if (mossa.matches("[C]([a-h][1-8])")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
+			if (s.getNomePezzo(endX, endY) != "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		
 		//ricaviamo X o Y a seconda di quella diversa da -1
@@ -191,7 +209,7 @@ public final class Cavallo extends Pezzo {
 		if (s.controllaRange(startX, startY) && s.getCella(startX, startY).isOccupato() &&
 				ambiguita <= 1) {
 				mossaConvertita = Cella.coordXinChar(startX) + "" +
-						+ Cella.coordYinChar(startY) + " " 
+						+ Cella.coordYinChar(startY) + " "
 						+ Cella.coordXinChar(endX) + "" +
 						+ Cella.coordYinChar(endY);
 			}

@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import gioco.Turno;
 import pedine.Pedone;
 import pedine.Cavallo;
+import pedine.Re;
+import pedine.Regina;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -167,7 +169,9 @@ public class Controller {
 				"[C]([a-h])?[x|:]([a-h][1-8])", 
 				"[C]([1-8])?[x|:]([a-h][1-8])",
 				"[C]([a-h])?([a-h][1-8])", 
-				"[C]([1-8])?([a-h][1-8])"
+				"[C]([1-8])?([a-h][1-8])", 
+				"0-0(-0)?", 
+				"[D](x:|)?[a-h][1-8]"
 				// cattura del pedone, con possibilità dell'en passant
 		});
 
@@ -300,7 +304,7 @@ public class Controller {
 			ArrayList<String> mosse) {
 		if ((s.getCella(startX, startY).isOccupato())) {
 			if (s.getCella(startX, startY).getPezzoCorrente().isMossaValida(s.getCella(startX, startY),
-					s.getCella(endX, endY))) {
+					s.getCella(endX, endY), s)) {
 				if (s.getCella(endX, endY).isOccupato()) {
 					t.getGiocatoreInTurno().addPezziCatturati(s.getCella(endX, endY).getPezzoCorrente());
 					s.mangiaPezzo(endX, endY);
@@ -346,6 +350,9 @@ public class Controller {
 		} else {
 			if (mossa.charAt(0) == 'C') {
 				return Cavallo.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
+			if (mossa.matches("0-0(-0)?") || mossa.charAt(0) == 'R') {
+				Re.convertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
 			// controllo futuro per le altre pedine
 			return mossa;
