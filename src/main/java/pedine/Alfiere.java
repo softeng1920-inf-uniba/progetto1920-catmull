@@ -22,7 +22,7 @@ public final class Alfiere extends Pezzo {
 	}
 
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
 		// TODO Auto-generated method stub
 		// movimento in 4 direzioni
 		/*if (((Math.abs(start.getY() - end.getY()) >= 1)) && (Math.abs(start.getX() - end.getX()) >= 1)

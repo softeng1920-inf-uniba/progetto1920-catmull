@@ -53,7 +53,7 @@ public class Scacchiera {
 
 	/**
 	 * contolla che le coordinate in input siano valide
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 * @return
@@ -154,7 +154,7 @@ public class Scacchiera {
 
 	/**
 	 * simula il movimento di un pezzo nella scacchiera
-	 * 
+	 *
 	 * @param c1
 	 * @param c2
 	 */
@@ -167,7 +167,7 @@ public class Scacchiera {
 
 	/**
 	 * permette di simulare la mossa in cui un pezzo mangia un altro
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 */
@@ -176,10 +176,11 @@ public class Scacchiera {
 
 	}
 
+
 	/**
 	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici
 	 * errati e cella vuota.
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 * @return

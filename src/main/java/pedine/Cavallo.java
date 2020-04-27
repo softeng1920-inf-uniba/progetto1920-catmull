@@ -22,9 +22,9 @@ public final class Cavallo extends Pezzo {
 			simbolo = '\u2658';
 		}
 	}
-	
+
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
 		if (end.isOccupato()) {
 			if (this.colore != end.getPezzoCorrente().getColore()) {
 				return true;
@@ -41,7 +41,7 @@ public final class Cavallo extends Pezzo {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione applicaMossa.
 	 * Ad esempio: Cde4 ==> d2 e4
@@ -57,8 +57,8 @@ public final class Cavallo extends Pezzo {
 		int endY = -1;
 		int ambiguita = 0;
 		//stringa standard da restituire in caso di mossa non valida per i controlli nella classe controller
-		String mossaConvertita = "a0 a0"; 	
-		
+		String mossaConvertita = "a0 a0";
+
 		//esempio: Cdxe4
 		if (mossa.matches("[C][a-h][x|:]([a-h][1-8])")) {
 			startX = Cella.coordXinInt(mossa.charAt(1));
@@ -75,29 +75,29 @@ public final class Cavallo extends Pezzo {
 			startY= Cella.coordYinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
-		} 
+		}
 		//esempio: Cde4
 		if (mossa.matches("[C][a-h]([a-h][1-8])")) {
 			startX = Cella.coordXinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 		}
-		//esempio: C3e4 
+		//esempio: C3e4
 		if (mossa.matches("[C][1-8]([a-h][1-8])")) {
 			startY = Cella.coordYinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 		}
-		//esempio: Ce4 
+		//esempio: Ce4
 		if (mossa.matches("[C]([a-h][1-8])")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 		}
-		
+
 		//ricaviamo X o Y a seconda di quella diversa da -1
 		if(startX != -1) { //startX data in input
 			if(Math.abs(startX - endX) == 2) {
-				if(s.getNomePezzo(startX, endY - 1) == "Cavallo" && 
+				if(s.getNomePezzo(startX, endY - 1) == "Cavallo" &&
 						g.getColore() == s.getCella(startX, endY - 1).getPezzoCorrente().getColore()) {
 					startY = endY - 1;
 				}
@@ -187,11 +187,11 @@ public final class Cavallo extends Pezzo {
 				ambiguita++;
 			}
 		}
-		
+
 		if (s.controllaRange(startX, startY) && s.getCella(startX, startY).isOccupato() &&
 				ambiguita <= 1) {
 				mossaConvertita = Cella.coordXinChar(startX) + "" +
-						+ Cella.coordYinChar(startY) + " " 
+						+ Cella.coordYinChar(startY) + " "
 						+ Cella.coordXinChar(endX) + "" +
 						+ Cella.coordYinChar(endY);
 			}

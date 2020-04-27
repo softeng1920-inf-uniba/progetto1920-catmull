@@ -12,6 +12,7 @@ import gioco.Turno;
 import pedine.Alfiere;
 import pedine.Cavallo;
 import pedine.Pedone;
+import pedine.Regina;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -200,6 +201,7 @@ public class Controller {
 				"[C]([a-h])?([a-h][1-8])",
 				"[C]([1-8])?([a-h][1-8])",
 				"[A](x|:)?[a-h][1-8]", //mossa alfiere per mangiare con ambiguit�
+				"(D)(x|:)?[a-h][1-8]", // mossa della regina
 		});
 
 		return mossa.matches(regex);
@@ -330,7 +332,7 @@ public class Controller {
 			ArrayList<String> mosse) {
 		if ((s.getCella(startX, startY).isOccupato())) {
 			if (s.getCella(startX, startY).getPezzoCorrente().isMossaValida(s.getCella(startX, startY),
-					s.getCella(endX, endY))) {
+					s.getCella(endX, endY), s)) {
 				if (s.getCella(endX, endY).isOccupato()) {
 					t.getGiocatoreInTurno().addPezziCatturati(s.getCella(endX, endY).getPezzoCorrente());
 					s.mangiaPezzo(endX, endY);
@@ -381,6 +383,8 @@ public class Controller {
 			if(mossa.charAt(0) == 'A') {
 				return 	Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
+			if (mossa.charAt(0) == 'D')
+				return Regina.convertiMossa(mossa, s, t.getGiocatoreInTurno());
 			return mossa;
 		}
 	}
