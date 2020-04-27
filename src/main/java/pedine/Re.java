@@ -27,7 +27,7 @@ public final class Re extends Pezzo {
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
-		if (!isScacco(end, s)) {
+		if (!isScacco(end, s, start.getPezzoCorrente().colore)) {
 			// MOVIMENTI LINEARI
 			// sulla stessa colonna
 			if (start.getX() == end.getX()) {
@@ -104,12 +104,14 @@ public final class Re extends Pezzo {
 		return mossaConvertita;
 	}
 
-	public boolean isScacco(Cella ReCella, Scacchiera s) {
-		Re reTemp=new Re(this.colore,ReCella);
+	public boolean isScacco(Cella ReCella, Scacchiera s, Colore c) {
+		Re reTemp = new Re(c, ReCella);
 		Cella temp = new Cella(ReCella.getX(), ReCella.getY(), reTemp);
+		temp.setOccupato(true);
 		for (int i = 0; i < s.getNumeroRighe(); i++) {
 			for (int j = 0; j < s.getNumeroColonne(); j++) {
-				if (s.getNomePezzo(i, j) != "Vuota" && s.getCella(i, j).getPezzoCorrente().getColore() != this.colore
+				if (s.getNomePezzo(i, j) != "Vuota" && s.getCella(i, j).getPezzoCorrente()
+						.getColore() != c
 						&& s.getNomePezzo(i,
 								j) != "Re"
 						&& s.getCella(i, j).getPezzoCorrente().isMossaValida(s.getCella(i, j), temp, s))
