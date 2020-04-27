@@ -25,39 +25,38 @@ public final class Alfiere extends Pezzo {
 	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
 		// aumenta x e aumenta y = aumenta x diminuisce y
 		int j;
-		if (end.getX() > start.getX() && end.getY() > start.getY()) {
+		if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() > 0) {
 			j = start.getY() + 1;
 			for (int i = start.getX() + 1; end.getX() > i && end.getY() > j; i++) {
 				if (s.getCella(i, j).isOccupato())
 					return false;
 				j++;
-
 			}
 		}
-		// diminuisce x e aumenta y == diminuisce x e diminuisce y
-		else if (end.getX() < start.getX() && end.getY() > start.getY()) {
+		// diminuisce x e aumenta y
+		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
+				&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) {
 			j = start.getY() + 1;
 			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
 				if (s.getCella(i, j).isOccupato())
 					return false;
 				j++;
+
 			}
-			
 		}
-		// diminuisce x e diminuisce y == diminuisce x e palaumenta y
-		else if (end.getX() < start.getX() && end.getY() < start.getY()) {
+		// diminuisce x e diminuisce y
+		else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() < 0) {
 			j = start.getY() - 1;
 			for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
-				
 				if (s.getCella(i, j).isOccupato())
 					return false;
 				j--;
 			}
-			
 		}
 
-		// aumenta x e diminuisce y == aumenta x e aumenta y
-		else if (end.getX() > start.getX() && end.getY() < start.getY()) {
+		// aumenta x e diminuisce y
+		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
+				&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) {
 			j = start.getY() - 1;
 			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
 				if (s.getCella(i, j).isOccupato())
@@ -170,7 +169,6 @@ public final class Alfiere extends Pezzo {
 					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
 		}
 		return mossaConvertita;
-		
 
 	}
 
