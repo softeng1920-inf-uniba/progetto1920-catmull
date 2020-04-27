@@ -23,52 +23,53 @@ public final class Alfiere extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
-		// aumenta x e aumenta y
+		// aumenta x e aumenta y = aumenta x diminuisce y
+		int j;
 		if (end.getX() > start.getX() && end.getY() > start.getY()) {
-			for (int i = start.getX() + 1; end.getX() > i; i++) {
-				for (int j = start.getY() +1; end.getY() > j; j++) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+			j = start.getY() + 1;
+			for (int i = start.getX() + 1; end.getX() > i && end.getY() > j; i++) {
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j++;
+
 			}
 		}
-		// diminuisce x e aumenta y
-		if (end.getX() < start.getX() && end.getY() > start.getY()) {
-			for (int i = start.getX() - 1; end.getX() < i; i--) {
-				for (int j = start.getY() + 1; end.getY() > j; j++) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+		// diminuisce x e aumenta y == diminuisce x e diminuisce y
+		else if (end.getX() < start.getX() && end.getY() > start.getY()) {
+			j = start.getY() + 1;
+			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j++;
 			}
+			
 		}
-		// diminuisce x e diminuisce y
-		if (end.getX() < start.getX() && end.getY() < start.getY()) {
-			for (int i = start.getX() - 1; end.getX() < i; i--) {
-				for (int j = start.getY() - 1; end.getY() < j; j--) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+		// diminuisce x e diminuisce y == diminuisce x e palaumenta y
+		else if (end.getX() < start.getX() && end.getY() < start.getY()) {
+			j = start.getY() - 1;
+			for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
+				
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j--;
 			}
+			
 		}
 
-		// aumenta x e diminuisce y
-		if (end.getX() > start.getX() && end.getY() > start.getY()) {
-			for (int i = start.getX() + 1; end.getX() > i; i++) {
-				for (int j = start.getY() - 1; end.getY() < j; j--) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+		// aumenta x e diminuisce y == aumenta x e aumenta y
+		else if (end.getX() > start.getX() && end.getY() < start.getY()) {
+			j = start.getY() - 1;
+			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j--;
 			}
-		}
+		} else
+			return false;
 		// controllo se può mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
-
 		return true;
 	}
 
@@ -90,8 +91,7 @@ public final class Alfiere extends Pezzo {
 		if (mossa.matches("[A][a-h][1-8]")) {// si muove senza ambiguità
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
-			if(s.getNomePezzo(endX,endY)!= "Vuota")
-			{
+			if (s.getNomePezzo(endX, endY) != "Vuota") {
 				return mossaConvertita;
 			}
 		}
@@ -99,12 +99,11 @@ public final class Alfiere extends Pezzo {
 		if (mossa.matches("[A][x|:][a-h][1-8]")) { // mangia senza ambiguità
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
-			if(s.getNomePezzo(endX,endY)== "Vuota")
-			{
+			if (s.getNomePezzo(endX, endY) == "Vuota") {
 				return mossaConvertita;
 			}
 		}
-		
+
 		if (startX != -1) {
 			for (int i = 0; i < s.getNumeroRighe(); i++) {
 				if (s.getNomePezzo(startX, i) == "Alfiere"
@@ -124,53 +123,54 @@ public final class Alfiere extends Pezzo {
 			}
 
 		}
-			// aumenta x e aumenta y
-			for (int i = 1; endX + i < s.getNumeroColonne() && endY + i < s.getNumeroRighe(); i++) {
-				if (s.getNomePezzo(endX + i, endY + i) == "Alfiere"
-						&& s.getCella(endX + i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
-					startX = endX + i;
-					startY = endY + i;
-				
-					break;
-				}
+		// aumenta x e aumenta y
+		for (int i = 1; endX + i < s.getNumeroColonne() && endY + i < s.getNumeroRighe(); i++) {
+			if (s.getNomePezzo(endX + i, endY + i) == "Alfiere"
+					&& s.getCella(endX + i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
+				startX = endX + i;
+				startY = endY + i;
+
+				break;
 			}
-			// aumenta x e diminuisce y
-			for (int i = 1; endX + i < s.getNumeroColonne() && endY - i < s.getNumeroRighe(); i++) {
-				if (s.getNomePezzo(endX + i, endY - i) == "Alfiere"
-						&& s.getCella(endX + i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
-					startX = endX + i;
-					startY = endY - i;
-	
-					break;
-				}
+		}
+		// aumenta x e diminuisce y
+		for (int i = 1; endX + i < s.getNumeroColonne() && endY - i < s.getNumeroRighe(); i++) {
+			if (s.getNomePezzo(endX + i, endY - i) == "Alfiere"
+					&& s.getCella(endX + i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
+				startX = endX + i;
+				startY = endY - i;
+
+				break;
 			}
-			// diminuisce x e aumenta y
-			for (int i = 1; endX - i < s.getNumeroColonne() && endY + i < s.getNumeroRighe(); i++) {
-				if (s.getNomePezzo(endX - i, endY + i) == "Alfiere"
-						&& s.getCella(endX - i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
-					startX = endX - i;
-					startY = endY + i;
-					
-					break;
-				}
+		}
+		// diminuisce x e aumenta y
+		for (int i = 1; endX - i < s.getNumeroColonne() && endY + i < s.getNumeroRighe(); i++) {
+			if (s.getNomePezzo(endX - i, endY + i) == "Alfiere"
+					&& s.getCella(endX - i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
+				startX = endX - i;
+				startY = endY + i;
+
+				break;
 			}
-			// diminuisce x e diminuisce y
-			for (int i = 1; endX - i < s.getNumeroColonne() && endY - i < s.getNumeroRighe(); i++) {
-				if (s.getNomePezzo(endX - i, endY - i) == "Alfiere"
-						&& s.getCella(endX - i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
-					startX = endX - i;
-					startY = endY - i;
-				
-					break;
-				}
+		}
+		// diminuisce x e diminuisce y
+		for (int i = 1; endX - i < s.getNumeroColonne() && endY - i < s.getNumeroRighe(); i++) {
+			if (s.getNomePezzo(endX - i, endY - i) == "Alfiere"
+					&& s.getCella(endX - i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
+				startX = endX - i;
+				startY = endY - i;
+
+				break;
 			}
-		
+		}
+
 		if (s.controllaRange(startX, startY) && s.getCella(startX, startY).isOccupato()) {
 
 			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
 					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
 		}
 		return mossaConvertita;
+		
 
 	}
 
