@@ -26,81 +26,81 @@ public final class Regina extends Pezzo {
 	 */
 	@Override
 	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
+		int j;
 		// MOVIMENTI LINEARI
 		// stessa x, aumenta y
 		if (end.getX() == start.getX() && end.getY() > start.getY()) {
-			for (int j = start.getY() + 1; end.getY() > j; j++) {
-				if (s.getCella(end.getX(), j).isOccupato()) {
+			for (int i = start.getY() + 1; end.getY() > i; i++) {
+				if (s.getCella(end.getX(), i).isOccupato()) {
 					return false;
 				}
 			}
 		}
 		// stessa x, diminuisce y
-		if (end.getX() == start.getX() && end.getY() < start.getY()) {
-			for (int j = start.getY() - 1; end.getY() < j; j--) {
-				if (s.getCella(end.getX(), j).isOccupato()) {
+		else if (end.getX() == start.getX() && end.getY() < start.getY()) {
+			for (int i = start.getY() - 1; end.getY() < i; i--) {
+				if (s.getCella(end.getX(), i).isOccupato()) {
 					return false;
 				}
 			}
 		}
 		// aumenta x, stessa y
-		if (end.getY() == start.getY() && end.getX() > start.getX()) {
-			for (int j = start.getX() + 1; end.getX() > j; j++) {
-				if (s.getCella(j, end.getY()).isOccupato()) {
+		else if (end.getY() == start.getY() && end.getX() > start.getX()) {
+			for (int i = start.getX() + 1; end.getX() > i; i++) {
+				if (s.getCella(i, end.getY()).isOccupato()) {
 					return false;
 				}
 			}
 		}
 		// diminuisce x, stessa y
-		if (end.getY() == start.getY() && end.getX() < start.getX()) {
-			for (int j = start.getX() - 1; end.getX() < j; j--) {
-				if (s.getCella(j, end.getY()).isOccupato()) {
+		else if (end.getY() == start.getY() && end.getX() < start.getX()) {
+			for (int i = start.getX() - 1; end.getX() < i; i--) {
+				if (s.getCella(i, end.getY()).isOccupato()) {
 					return false;
 				}
 			}
 		}
 
 		// MOVIMENTI DIAGONALI (ALFIERE)
-		if (end.getX() > start.getX() && end.getY() > start.getY()) {
-			for (int i = start.getX() + 1; end.getX() > i; i++) {
-				for (int j = start.getY() + 1; end.getY() > j; j++) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+		else if (end.getX() > start.getX() && end.getY() > start.getY()) {
+			j = start.getY() + 1;
+			for (int i = start.getX() + 1; end.getX() > i && end.getY() > j; i++) {
+				j++;
+				if (s.getCella(i, j).isOccupato())
+					return false;
+
 			}
 		}
 		// diminuisce x e aumenta y
-		if (end.getX() < start.getX() && end.getY() > start.getY()) {
-			for (int i = start.getX() - 1; end.getX() < i; i--) {
-				for (int j = start.getY() + 1; end.getY() > j; j++) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+		else if (end.getX() < start.getX() && end.getY() > start.getY()) {
+			j = start.getY() + 1;
+			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
+				j++;
+				if (s.getCella(i, j).isOccupato())
+					return false;
+
 			}
 		}
 		// diminuisce x e diminuisce y
-		if (end.getX() < start.getX() && end.getY() < start.getY()) {
-			for (int i = start.getX() - 1; end.getX() < i; i--) {
-				for (int j = start.getY() - 1; end.getY() < j; j--) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+		else if (end.getX() < start.getX() && end.getY() < start.getY()) {
+			j = start.getY() - 1;
+			for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
+				j--;
+				if (s.getCella(i, j).isOccupato())
+					return false;
 			}
 		}
 
 		// aumenta x e diminuisce y
-		if (end.getX() > start.getX() && end.getY() > start.getY()) {
-			for (int i = start.getX() + 1; end.getX() > i; i++) {
-				for (int j = start.getY() - 1; end.getY() < j; j--) {
-					if (s.getCella(i, j).isOccupato()) {
-						return false;
-					}
-				}
+		else if (end.getX() > start.getX() && end.getY() > start.getY()) {
+			j = start.getY() - 1;
+			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
+				j--;
+				if (s.getCella(i, j).isOccupato())
+					return false;
 			}
-		}
+		} else
+			return false;
 		// controllo se può mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
