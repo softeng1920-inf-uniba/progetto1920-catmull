@@ -95,7 +95,7 @@
          <br/>
       </p>
       <h2>Metrics</h2>
-      <p>737 lines of code analyzed,
+      <p>801 lines of code analyzed,
 	in 16 classes, 
 	in 5 packages.</p>
       <table width="500" cellpadding="5" cellspacing="2">
@@ -106,23 +106,23 @@
          </tr>
          <tr class="tablerow0">
             <td>High Priority Warnings</td>
-            <td align="right">4</td>
-            <td align="right">5.43</td>
+            <td align="right">6</td>
+            <td align="right">7.49</td>
          </tr>
          <tr class="tablerow1">
             <td>Medium Priority Warnings</td>
             <td align="right">5</td>
-            <td align="right">6.78</td>
+            <td align="right">6.24</td>
          </tr>
          <tr class="$totalClass">
             <td>
                <b>Total Warnings</b>
             </td>
             <td align="right">
-               <b>9</b>
+               <b>11</b>
             </td>
             <td align="right">
-               <b>12.21</b>
+               <b>13.73</b>
             </td>
          </tr>
       </table>
@@ -137,6 +137,9 @@
       <ul>
          <li>
             <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+         </li>
+         <li>
+            <a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
          </li>
          <li>
             <a href="#Warnings_I18N">Internationalization Warnings</a>
@@ -162,22 +165,28 @@
          </tr>
          <tr class="tablerow1">
             <td>
+               <a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+            </td>
+            <td align="right">2</td>
+         </tr>
+         <tr class="tablerow0">
+            <td>
                <a href="#Warnings_I18N">Internationalization Warnings</a>
             </td>
             <td align="right">4</td>
          </tr>
-         <tr class="tablerow0">
+         <tr class="tablerow1">
             <td>
                <a href="#Warnings_STYLE">Dodgy code Warnings</a>
             </td>
             <td align="right">3</td>
          </tr>
-         <tr class="tablerow1">
+         <tr class="tablerow0">
             <td>
                <b>Total</b>
             </td>
             <td align="right">
-               <b>9</b>
+               <b>11</b>
             </td>
          </tr>
       </table>
@@ -202,7 +211,7 @@
             <td>
                <p id="d1e134" style="display: none;">
                   <a href="#DM_EXIT">Bug type DM_EXIT (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.chiudiGioco()<br/>At Controller.java:[line 39]</p>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.chiudiGioco()<br/>At Controller.java:[line 40]</p>
             </td>
          </tr>
          <tr class="tablerow0" onclick="toggleRow('d1e174');">
@@ -217,6 +226,43 @@
                <p id="d1e174" style="display: none;">
                   <a href="#NM_METHOD_NAMING_CONVENTION">Bug type NM_METHOD_NAMING_CONVENTION (click for details)</a>
                   <br/>In class pedine.Pedone<br/>In method pedine.Pedone.ConvertiMossa(String, Scacchiera, Giocatore)<br/>At Pedone.java:[lines 94-130]</p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         <a name="Warnings_CORRECTNESS">Correctness Warnings</a>
+      </h2>
+      <table class="warningtable" width="100%" cellspacing="0">
+         <tr class="tableheader">
+            <th align="left">Code</th>
+            <th align="left">Warning</th>
+         </tr>
+         <tr class="tablerow1" onclick="toggleRow('d1e186');">
+            <td>
+               <span class="priority-1">RpC</span>
+            </td>
+            <td>Repeated conditional test in pedine.Re.isMossaValida(Cella, Cella, Scacchiera)</td>
+         </tr>
+         <tr class="detailrow1">
+            <td/>
+            <td>
+               <p id="d1e186" style="display: none;">
+                  <a href="#RpC_REPEATED_CONDITIONAL_TEST">Bug type RpC_REPEATED_CONDITIONAL_TEST (click for details)</a>
+                  <br/>In class pedine.Re<br/>In method pedine.Re.isMossaValida(Cella, Cella, Scacchiera)<br/>At Re.java:[line 47]<br/>At Re.java:[line 47]</p>
+            </td>
+         </tr>
+         <tr class="tablerow0" onclick="toggleRow('d1e201');">
+            <td>
+               <span class="priority-1">RpC</span>
+            </td>
+            <td>Repeated conditional test in pedine.Re.isMossaValida(Cella, Cella, Scacchiera)</td>
+         </tr>
+         <tr class="detailrow0">
+            <td/>
+            <td>
+               <p id="d1e201" style="display: none;">
+                  <a href="#RpC_REPEATED_CONDITIONAL_TEST">Bug type RpC_REPEATED_CONDITIONAL_TEST (click for details)</a>
+                  <br/>In class pedine.Re<br/>In method pedine.Re.isMossaValida(Cella, Cella, Scacchiera)<br/>At Re.java:[line 49]<br/>At Re.java:[line 49]</p>
             </td>
          </tr>
       </table>
@@ -267,7 +313,7 @@
             <td>
                <p id="d1e104" style="display: none;">
                   <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.inizializzaPartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 53]</p>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.inizializzaPartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 54]</p>
             </td>
          </tr>
          <tr class="tablerow0" onclick="toggleRow('d1e119');">
@@ -281,7 +327,7 @@
             <td>
                <p id="d1e119" style="display: none;">
                   <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 124]</p>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 125]</p>
             </td>
          </tr>
       </table>
@@ -318,7 +364,7 @@
             <td>
                <p id="d1e146" style="display: none;">
                   <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.inizializzaPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 74]</p>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.inizializzaPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 75]</p>
             </td>
          </tr>
          <tr class="tablerow1" onclick="toggleRow('d1e160');">
@@ -332,7 +378,7 @@
             <td>
                <p id="d1e160" style="display: none;">
                   <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 134]</p>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 135]</p>
             </td>
          </tr>
       </table>
@@ -368,6 +414,15 @@ to read, readLine() will return null and dereferencing that will generate a null
 
   <p>
 Methods should be verbs, in mixed case with the first letter lowercase, with the first letter of each internal word capitalized.
+</p>
+
+    <h2>
+         <a name="RpC_REPEATED_CONDITIONAL_TEST">RpC_REPEATED_CONDITIONAL_TEST: Repeated conditional tests</a>
+      </h2>
+
+<p>The code contains a conditional test is performed twice, one right after the other
+(e.g., <code>x == 0 || x == 0</code>). Perhaps the second occurrence is intended to be something else
+(e.g., <code>x == 0 || y == 0</code>).
 </p>
 
     </body>
