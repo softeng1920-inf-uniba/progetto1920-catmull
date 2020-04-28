@@ -61,14 +61,14 @@ Il nome del gruppo sarà il nome del repository su GitHub Classroom.
 
 ### Accettazione assignment e accesso al repository su GitHub
 Sarà necessario aspettare che il docente crei il team e il repository ad esso associato su GitHub.
-Una volta creato il team, riceverete via email un invito a farne parte che dovrete accettare. 
+Una volta creato il team, riceverete via email un invito a farne parte che dovrete accettare.
 Questo passo terminerà con successo se tutti i membri del gruppo potranno accedere al repository con URL ``` https://github.com/softeng1920-inf-uniba/progetto1920-<nome del gruppo> ```.
 
 
 
 ### Creazione di un Personal Access Token e impostazione del Secret per l'autenticazione su GitHub Packages
 
-Il repository che vi è stato assegnato contiene tutto il necessario per cominciare lo sviluppo della vostra applicazione. Oltre a una versione base del codice sorgente, esso presenta la struttura di directory alla quale dovrete attenervi durante lo svolgimento del progetto e i file di configurazione per i principali strumenti inclusi nella pipeline. 
+Il repository che vi è stato assegnato contiene tutto il necessario per cominciare lo sviluppo della vostra applicazione. Oltre a una versione base del codice sorgente, esso presenta la struttura di directory alla quale dovrete attenervi durante lo svolgimento del progetto e i file di configurazione per i principali strumenti inclusi nella pipeline.
 
 In particolare, in `.github/workflows`, trovate un file di configurazione di GitHub Actions, denominato `ingsw1920.yml`. [Actions](https://github.com/features/actions) è una nuova funzionalità di GitHub che consente la definizione e l'esecuzione automatizzata di pipeline di CI (Continuous Integration) e CD (Continuous Deployment). In GitHub Actions, i passaggi di una pipeline vengono specificati in un file `.yml`, detto *workflow*. Generalmente, le pipeline di CI/CD comprendono operazioni di testing, releasing e deployment di un sistema software. Nello specifico, la vostra pipeline è impostata per realizzare:
 
@@ -76,7 +76,7 @@ In particolare, in `.github/workflows`, trovate un file di configurazione di Git
 2. la costruzione di un eseguibile (build) a partire dai sorgenti che svilupperete;
 3. la costruzione di un'immagine Docker con la vostra applicazione e il caricamento della stessa su [GitHub Packages](https://github.com/features/packages).
 
-Il workflow predisposto in `ingsw1920.yml` delega i primi due step a [Gradle](https://gradle.org/) - sistema di build-automation adottato per questo progetto - attraverso l'invocazione del task `gradle build`; in seguito, il workflow si occupa di realizzare autonomamente il terzo step, costruendo e caricando su GitHub Packages un'immagine Docker con l'eseguibile appena assemblato. 
+Il workflow predisposto in `ingsw1920.yml` delega i primi due step a [Gradle](https://gradle.org/) - sistema di build-automation adottato per questo progetto - attraverso l'invocazione del task `gradle build`; in seguito, il workflow si occupa di realizzare autonomamente il terzo step, costruendo e caricando su GitHub Packages un'immagine Docker con l'eseguibile appena assemblato.
 
 Affinché vada a buon fine, quest'ultimo passaggio necessita di un piccolo intervento da parte vostra, da svolgere soltanto una volta, nella fase di impostazione iniziale del progetto. Dal momento che ciascuna nuova esecuzione del workflow avviene in una macchina virtuale Ubuntu costruita ex-novo da GitHub Actions, è necessario che - ad ogni run - il processo preposto al caricamento dell'immagine Docker su Packages si autentichi al servizio (effettuando un login). Al posto della classica coppia di credenziali (username e password) è possibile usare, a questo scopo, un Personal Access Token di GitHub, da passare in input al comando che effettua la connessione a Packages. Tuttaiva, dal momento che tale comando viene riportato in chiaro nel file di workflow (`ingsw1920.yml`), passargli in input il token in modo esplicito significherebbe memorizzarne una copia che resti visibile a chiunque abbia accesso al repository; ciò non è affatto sicuro e andrebbe assolutamente evitato (un token appartiene ad uno specifico utente di GitHub e deve restare noto soltanto a lui). Per questo genere di esigenze, GitHub offre ai suoi utenti un'ulteriore funzionalità: i cosiddetti Secrets (valori crittografati associati ai repository e accessibili come variabili d'ambiente all'interno dei workflow). Una volta generato, il Personal Access può essere memorizzato in tutta sicurezza in un Secret. Al momento opportuno, il valore ivi contenuto verrà passato al comando di accesso a Packages che ne ha bisogno.
 
@@ -97,7 +97,7 @@ Il membro del team con i diritti di amministratore sul repository deve:
 - entrare nella sezione delle impostazioni per sviluppatori, *"Developer Settings"*, facendo click sul relativo pulsante nella barra laterale;
   ![SaveTokenInSecret_2](./res/img/guida-studente/image2.png)
 
-- selezionare *"Personal Access Token"* nella barra laterale e successivamente fare click su *"Generate new Token"*, in alto a destra; 
+- selezionare *"Personal Access Token"* nella barra laterale e successivamente fare click su *"Generate new Token"*, in alto a destra;
   ![SaveTokenInSecret_3](./res/img/guida-studente/image3.png)
 
 - indicare nel campo *"Note"* l'utilizzo che si intende fare del token (ad es.: *"Uploads of Docker images to GitHub Packages"*). Tale appunto tornerà utile in futuro per ricordarsi a quale scopo era stato generato il token;
@@ -159,8 +159,8 @@ Il colore e lo stato del badge potranno cambiare dopo ogni build, riflettendo lo
 ## Configurazione Coveralls
 Coveralls è un servizio web che aiuta a monitorare nel tempo la copertura del codice di un progetto ([code coverage](https://en.wikipedia.org/wiki/Code_coverage)) e a verificare che, di volta in volta, tutto il codice che si aggiunge sia adeguatamente coperto da casi di test.
 
-Per configurare Coveralls, collegarsi al [sito web del servizio](https://coveralls.io) ed effettuare il login tramite il proprio account GitHub. Nel menu a comparsa sulla sinistra, selezionare la voce **+ ADD REPOS**. 
-Il repository `SOFTENG1920-INF-UNIBA/<nome repository>` dovrebbe essere immediatamente visibile nella pagina. Qualora non lo fosse, digitare le prime lettere del nome nel campo di testo. Se così facendo ancora non fosse visibile, andare in fondo alla pagina e cliccare sul bottone **REFRESH PRIVATE REPOS**. 
+Per configurare Coveralls, collegarsi al [sito web del servizio](https://coveralls.io) ed effettuare il login tramite il proprio account GitHub. Nel menu a comparsa sulla sinistra, selezionare la voce **+ ADD REPOS**.
+Il repository `SOFTENG1920-INF-UNIBA/<nome repository>` dovrebbe essere immediatamente visibile nella pagina. Qualora non lo fosse, digitare le prime lettere del nome nel campo di testo. Se così facendo ancora non fosse visibile, andare in fondo alla pagina e cliccare sul bottone **REFRESH PRIVATE REPOS**.
 Quando la riga relativa al progetto compare, fare click sul tasto OFF per trasformarlo in ON, come mostrato in figura.
 
 ![](res/img/guida-studente/coverall0.png)
@@ -184,7 +184,7 @@ Come GitHub Actions, anche Coveralls permette di arricchire il `README` del vost
 
 I passi per ottenere il badge di Coveralls sono i seguenti:
 
-- tornare sulla pagina "Details" dedicata al vostro repository sul sito di Coveralls (dove avete copiato il token). In uno dei riquadri in alto nella pagina è riportato il badge da aggiungere al README. Fare click sul tasto `EMBED` (vd. figura); 
+- tornare sulla pagina "Details" dedicata al vostro repository sul sito di Coveralls (dove avete copiato il token). In uno dei riquadri in alto nella pagina è riportato il badge da aggiungere al README. Fare click sul tasto `EMBED` (vd. figura);
   ![CoverallsBadge_1](./res/img/guida-studente/coverall1.png)
 - copiare il codice markdown per la richiesta del badge;
   ![CoverallsBadge_2](./res/img/guida-studente/coverall2.png)
@@ -277,9 +277,9 @@ Quindi, premete su *"Finish"*, senza selezionare alcuna voce.
 
 <!-- ## Eseguire l'applicazione
 
-#### Attivare Google Service Account 
+#### Attivare Google Service Account
 
-Questi passi devono essere eseguiti da un solo componente del gruppo di progetto. 
+Questi passi devono essere eseguiti da un solo componente del gruppo di progetto.
 
 1. Collegarsi alla [Piattaforma Google Cloud](https://console.cloud.google.com/home/dashboard) (è richiesta autenticazione tramite account Google).
 
@@ -377,7 +377,7 @@ Si svolgano le seguenti operazioni:
 
 - nella pagina dedicata al package è indicato il comando da copiare ed eseguire nel terminale per scaricare l'immagine Docker in locale.
    ![ExecuteDockerImage_2](./res/img/guida-studente/catmull.png)
-   
+
 - incollare ed eseguire il comando nel terminale. Attendere che Docker scarichi l’immagine dell’applicazione
 
 - digitare infine il comando:
@@ -385,17 +385,17 @@ Si svolgano le seguenti operazioni:
 	`docker run -it --rm <nome_immagine>`
 
 	dove per `<nome_immagine>` si intende l'url riportato nel comando precedente, immediatamente dopo le prime due parole (`docker pull`).
-	
+
 
 Ad esempio, se il comando precedente (copiato da GitHub dal riquadro mostrato in figura), è:
 ```
-docker pull docker.pkg.github.com/softeng1920-inf-uniba/provaprogetto1920-prova/prova:latest
+docker pull docker.pkg.github.com/softeng1920-inf-uniba/progetto1920-catmull/scacchi-catmull:latest
 ```
 
 il comando per eseguire il container sarà:
 
 ```
-docker run -it --rm docker.pkg.github.com/softeng1920-inf-uniba/provaprogetto1920-prova/prova:latest
+docker run -it --rm docker.pkg.github.com/softeng1920-inf-uniba/progetto1920-catmull/scacchi-catmull:latest
 ```
 
 (in altre parole, il secondo comando si ottiene dal primo sostituendo a `docker pull` le parole `docker run -it --rm`).
