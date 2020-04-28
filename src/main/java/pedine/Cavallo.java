@@ -1,6 +1,8 @@
 /** Classe per rappresentere il sottotipo di pezzo chiamato Cavallo */
 package pedine;
 
+import java.util.ArrayList;
+
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -20,16 +22,17 @@ public final class Cavallo extends Pezzo {
 		}
 	}
 
-	public boolean isMossaValidaNero(String mossa, Scacchiera s) {
-		return false;
-	}
-
-	public boolean isMossaValidaBianco(String mossa, Scacchiera s) {
+	@Override
+	public boolean isMossaValida(Cella start, Cella end) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public final boolean isEnPassant(String comando, Scacchiera s) {
+	public boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse) {
+		// TODO Auto-generated method stub
 		return false;
 	}
+
+
 }

@@ -1,5 +1,7 @@
 package pedine;
 
+import java.util.ArrayList;
+
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -18,15 +20,16 @@ public final class Regina extends Pezzo {
 		// TODO Auto-generated constructor stub
 	}
 
-	public boolean isMossaValidaNero(String mossa, Scacchiera s) {
+	@Override
+	public boolean isMossaValida(Cella start, Cella end) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public boolean isMossaValidaBianco(String mossa, Scacchiera s) {
+	@Override
+	public boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public final boolean isEnPassant(String comando, Scacchiera s) {
-		return false;
-	}
 }

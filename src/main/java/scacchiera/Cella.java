@@ -55,12 +55,12 @@ public final class Cella {
 	// --------Metodi di Get--------
 
 	/** Restituisce la coordinata x */
-	int getX() {
+	public int getX() {
 		return x;
 	}
 
 	/** Restituisce la coordinata y */
-	int getY() {
+	public int getY() {
 		return y;
 	}
 
