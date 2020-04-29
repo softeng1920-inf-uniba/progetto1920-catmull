@@ -9,15 +9,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Turno;
-import pedine.Pedone;
-import pedine.Cavallo;
-import pedine.Re;
-import pedine.Regina;
+import pedine.*;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco
+ * Classe che gestisce le varie funzionalita'Â del gioco
  */
 public class Controller {
 
@@ -30,7 +27,6 @@ public class Controller {
 		mosseConvertite = new ArrayList<String>();
 		menu = new Menu();
 		s = new Scacchiera();
-
 	}
 
 	/**
@@ -46,6 +42,8 @@ public class Controller {
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
 	final void inizializzaPartita() {
+
+		clearConsole();
 		System.out.println("Benvenuto nel gioco degli scacchi.");
 		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
 		System.out.println("\u2022" + " Digita 'Help' per visualizzare l'elenco dei comandi.");
@@ -70,6 +68,7 @@ public class Controller {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			System.out.println("\n");
 
 			if (comando.equalsIgnoreCase(menu.help().getNome())) {
 				mostrareElencoComandiGioco();
@@ -86,7 +85,10 @@ public class Controller {
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
 				chiudiGioco();
 			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {
-				inizializzaPartita();
+				if (utenteConfermaRiavvioPartita()) {
+					inizializzaPartita();
+				} else
+					continue;
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
@@ -116,6 +118,33 @@ public class Controller {
 
 	}
 
+	private boolean utenteConfermaRiavvioPartita() {
+
+		String comando = "";
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		System.out.println(
+				"Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
+
+		while (true) {
+			try {
+				comando = br.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			switch (comando) {
+			case "y":
+				return true;
+			case "n":
+				return false;
+			default:
+				System.out.println("Il comando inserito non e' valido. Riprova \n");
+
+			}
+		}
+
+	}
+
 	/**
 	 * La seguente funzione riconosce se il comando inserito e' un comando scritto
 	 * sottoforma di notazione algebrica. Il seguente comando puo' essere anche una
@@ -139,7 +168,7 @@ public class Controller {
 
 	/**
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
-	 * dall'utente è riconosciuta come notazione algebrica.
+	 * dall'utente Ã¨ riconosciuta come notazione algebrica.
 	 *
 	 * @param mossa
 	 * @return boolean
@@ -168,7 +197,8 @@ public class Controller {
 				"[a-h](x|:)([a-h][1-8])( e.p.)?",
 				"C([a-h])?([x|:])?([a-h][1-8])", 
 				"C([1-8])?([x|:])?([a-h][1-8])",
-				// cattura del pedone, con possibilità dell'en passant
+				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilitÃ  dell'en passant
+				"[A](x|:)?[a-h][1-8]", // mossa alfiere per mangiare con ambiguità
 		});
 
 		return mossa.matches(regex);
@@ -199,7 +229,7 @@ public class Controller {
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
-		if(t.getGiocatoreInTurno().getColore() == Colore.bianco) {
+		if (t.getGiocatoreInTurno().getColore() == Colore.bianco) {
 			i = 0;
 			j = 0;
 			k = 0;
@@ -229,29 +259,27 @@ public class Controller {
 			while (j < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
 				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(j++));
 			}
-			
+
 		}
-		
+
 		return mosseGiocateTotali;
 	}
-
 
 	/**
 	 * Stampa a video l'elenco delle mosse giocate del giocatore.
 	 */
 	public void stampaMosseGiocate() {
 		String mossa = null;
-		int counter=1;
+		int counter = 1;
 		System.out.println("Storia delle mosse giocate");
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		for (int i = 0; i < dimensione; i++) {
-			if(i == dimensione-1) {
+			if (i == dimensione - 1) {
 				mossa = counter + ". " + fusioneListe().get(i);
 				System.out.println(mossa);
-			}
-			else {
-				mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i+1);
+			} else {
+				mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i + 1);
 				System.out.println(mossa);
 			}
 			i++;
@@ -276,6 +304,7 @@ public class Controller {
 	 */
 	public void mostrareElencoComandiGioco() {
 		System.out.println(menu.back().toString());
+		System.out.println(menu.play().toString());
 		System.out.println(menu.board().toString());
 		System.out.println(menu.captures().toString());
 		System.out.println(menu.moves().toString());
@@ -294,7 +323,7 @@ public class Controller {
 	 * Applica la mossa data in input tramite stringa.
 	 *
 	 * @param comando
-	 * @return booleano true se la mossa è applicabile, false altrimenti
+	 * @return booleano true se la mossa Ã¨ applicabile, false altrimenti
 	 */
 	public final boolean applicaMossa(int startX, int startY, int endX, int endY, Scacchiera s,
 			ArrayList<String> mosse) {
@@ -348,6 +377,9 @@ public class Controller {
 				return Cavallo.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
 			// controllo futuro per le altre pedine
+			if (mossa.charAt(0) == 'A') {
+				return Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			return mossa;
 		}
 	}
@@ -386,5 +418,10 @@ public class Controller {
 	 */
 	private static int endY(String m) {
 		return Cella.coordYinInt(m.charAt(4));
+	}
+
+	public final static void clearConsole() {
+		for (int i = 0; i < 100; ++i)
+			System.out.println();
 	}
 }

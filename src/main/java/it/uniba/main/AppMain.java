@@ -49,7 +49,6 @@ public final class AppMain {
 			} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
 				c.chiudiGioco();
 			} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
-
 				c.inizializzaPartita();
 			} else {
 				System.out.println("Comando non riconosciuto");
