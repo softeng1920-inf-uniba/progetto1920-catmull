@@ -166,10 +166,8 @@ public class Controller {
 
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
 				"[a-h](x|:)([a-h][1-8])( e.p.)?",
-				"[C]([a-h])?[x|:]([a-h][1-8])", 
-				"[C]([1-8])?[x|:]([a-h][1-8])",
-				"[C]([a-h])?([a-h][1-8])", 
-				"[C]([1-8])?([a-h][1-8])", 
+				"C([a-h])?([x|:])?([a-h][1-8])", 
+				"C([1-8])?([x|:])?([a-h][1-8])",
 				// cattura del pedone, con possibilità dell'en passant
 		});
 
