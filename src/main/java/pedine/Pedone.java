@@ -127,6 +127,10 @@ public final class Pedone extends Pezzo {
 					' ' + String.valueOf(mossa.charAt(0)) + // 2° traversa
 					String.valueOf(mossa.charAt(1)); // 2° colonna
 		}
+		// controlla che nella cella di partenza ci sia un pedone
+		if (s.getNomePezzo(Cella.coordXinInt(mossaConvertita.charAt(0)),
+				Cella.coordYinInt(mossaConvertita.charAt(1))) != "Pedone")
+			return "a0 a0";
 		return mossaConvertita;
 	}
 }
