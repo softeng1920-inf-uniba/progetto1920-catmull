@@ -136,7 +136,73 @@ public final class Torre extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
-		// TODO Auto-generated method stub
+		Cella cellaCorrente;
+		Pezzo pezzoCorrente;
+		if (start.getX() != end.getX() || start.getY() != end.getY()) {
+			if (start.getY() > end.getY()) {
+				// Movimento verso l'alto
+
+				for (int i = start.getY() - 1; i >= end.getY(); i--) {
+
+					cellaCorrente = s.getCella(start.getX(), i);
+					pezzoCorrente = cellaCorrente.getPezzoCorrente();
+
+					if (cellaCorrente.isOccupato()) {
+						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && cattura)
+							return true;
+						else
+							return false;
+					}
+				}
+			} else {
+				// Movimento verso il basso
+				for (int i = start.getY() + 1; i <= end.getY(); i++) {
+
+					cellaCorrente = s.getCella(start.getX(), i);
+					pezzoCorrente = cellaCorrente.getPezzoCorrente();
+
+					if (cellaCorrente.isOccupato()) {
+						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && cattura)
+							return true;
+						else
+							return false;
+					}
+				}
+			}
+
+			if (start.getX() > end.getX()) {
+				// Movimento verso sx
+				for (int i = start.getX() - 1; i >= end.getX(); i--) {
+
+					cellaCorrente = s.getCella(i, start.getY());
+					pezzoCorrente = cellaCorrente.getPezzoCorrente();
+
+					if (cellaCorrente.isOccupato()) {
+						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && cattura)
+							return true;
+						else
+							return false;
+					}
+				}
+			} else {
+				// Movimento verso dx
+				for (int i = start.getX() + 1; i <= end.getX(); i++) {
+
+					cellaCorrente = s.getCella(i, start.getY());
+					pezzoCorrente = cellaCorrente.getPezzoCorrente();
+
+					if (cellaCorrente.isOccupato()) {
+						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && cattura)
+							return true;
+						else
+							return false;
+					}
+				}
+			}
+
+			return true;
+		}
+
 		return false;
 	}
 }
