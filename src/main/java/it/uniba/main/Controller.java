@@ -194,10 +194,10 @@ public class Controller {
 		// String regex_cattura_pezzo = "[a-h](x|:)([a-h][1-8])";
 
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
-				"[a-h](x|:)([a-h][1-8])( e.p.)?",
+				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
+				"(D)(x|:)?[a-h][1-8]", // mossa della regina
 				"C([a-h])?([x|:])?([a-h][1-8])", 
 				"C([1-8])?([x|:])?([a-h][1-8])",
-				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilitÃ  dell'en passant
 				"[A](x|:)?[a-h][1-8]", // mossa alfiere per mangiare con ambiguità
 		});
 
@@ -373,6 +373,8 @@ public class Controller {
 		if (mossa.charAt(0) >= 'a') {
 			return Pedone.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 		} else {
+			if (mossa.charAt(0) == 'D')
+				return Regina.convertiMossa(mossa, s, t.getGiocatoreInTurno());
 			if (mossa.charAt(0) == 'C') {
 				return Cavallo.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
@@ -419,7 +421,7 @@ public class Controller {
 	private static int endY(String m) {
 		return Cella.coordYinInt(m.charAt(4));
 	}
-
+  
 	public final static void clearConsole() {
 		for (int i = 0; i < 100; ++i)
 			System.out.println();

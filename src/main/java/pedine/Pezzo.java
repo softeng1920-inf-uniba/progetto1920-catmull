@@ -28,7 +28,7 @@ public abstract class Pezzo {
 
 	/**
 	 * Disegnapezzo consente di rappresentare il pezzo nella scacchiera
-	 * 
+	 *
 	 */
 
 	public void disegnapezzo() {
