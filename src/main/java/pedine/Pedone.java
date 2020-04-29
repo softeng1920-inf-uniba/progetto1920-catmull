@@ -28,14 +28,14 @@ public final class Pedone extends Pezzo {
 	 * Restituisce vero se e' la prima mossa, falso altrimenti
 	 */
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
 
 		if (this.colore == Colore.bianco) {
 			// movimento semplice
 			if (start.getX() == end.getX() && !end.isOccupato()) {
 				if (((start.getY() - 1) == end.getY())) // avanti di una cella
 					return true;
-				else if (((start.getY() - 2) == end.getY()) && start.getY() == 6) // 6 indica la riga di partenza del
+				else if (((start.getY() - 2) == end.getY()) && start.getY() == 6 && !(s.getCella(end.getX(), (start.getY() - 1)).isOccupato())) // 6 indica la riga di partenza del
 					// pedone
 					return true;
 				// movimento obliquo
@@ -47,7 +47,7 @@ public final class Pedone extends Pezzo {
 		else if (start.getX() == end.getX() && !end.isOccupato()) {
 			if (((start.getY() + 1) == end.getY()) && !end.isOccupato()) // avanti di una cella
 				return true;
-			else if (((start.getY() + 2) == end.getY()) && start.getY() == 1) // avanti di due
+			else if (((start.getY() + 2) == end.getY()) && start.getY() == 1  && !(s.getCella(end.getX(), (start.getY() + 1)).isOccupato())) // avanti di due
 				return true;
 
 		} // mossa obliqua NERO
