@@ -34,6 +34,6 @@ public final class Re extends Pezzo {
 	}
 	
 	public static String convertiMossa(String mossa, Scacchiera s, Giocatore g) {
-  return '';
+           return "";
 	}
 }
