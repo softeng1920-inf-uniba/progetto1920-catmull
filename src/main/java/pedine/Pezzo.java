@@ -138,9 +138,10 @@ public abstract class Pezzo {
 	public String toString() {
 		return String.format(nome + " " + colore + " " + simbolo);
 	}
+
 	/**
-	 * Metodo che permette di controllare se la mossa
-	 * data sia valida
+	 * Metodo che permette di controllare se la mossa data sia valida
+	 * 
 	 * @param start
 	 * @param end
 	 * @return boolean
@@ -148,8 +149,8 @@ public abstract class Pezzo {
 	public abstract boolean isMossaValida(Cella start, Cella end, Scacchiera s);
 
 	/**
-	 * Metodo che permette di controllare se la mossa speciale
-	 * data sia valida
+	 * Metodo che permette di controllare se la mossa speciale data sia valida
+	 * 
 	 * @param start
 	 * @param end
 	 * @param s
