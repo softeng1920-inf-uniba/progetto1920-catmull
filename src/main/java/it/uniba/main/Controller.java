@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Turno;
-import pedine.Pedone;
+import pedine.*;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -42,7 +42,7 @@ public class Controller {
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
 	final void inizializzaPartita() {
-		
+
 		clearConsole();
 		System.out.println("Benvenuto nel gioco degli scacchi.");
 		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
@@ -84,10 +84,11 @@ public class Controller {
 				visualizzareCatture();
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
 				chiudiGioco();
-			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {			
-				if( utenteConfermaRiavvioPartita() ) {
+			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {
+				if (utenteConfermaRiavvioPartita()) {
 					inizializzaPartita();
-				} else continue;
+				} else
+					continue;
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
@@ -118,29 +119,30 @@ public class Controller {
 	}
 
 	private boolean utenteConfermaRiavvioPartita() {
-		
+
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		System.out.println("Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
- 
-		while( true ) {
+		System.out.println(
+				"Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
+
+		while (true) {
 			try {
 				comando = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			switch(comando) {
-				case "y":
-					return true;
-				case "n":
-					return false;
-				default:
-					System.out.println("Il comando inserito non e' valido. Riprova \n");
+			switch (comando) {
+			case "y":
+				return true;
+			case "n":
+				return false;
+			default:
+				System.out.println("Il comando inserito non e' valido. Riprova \n");
 
 			}
 		}
-		
+
 	}
 
 	/**
@@ -193,6 +195,8 @@ public class Controller {
 
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
 				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilit√† dell'en passant
+				"[A](x|:)?[a-h][1-8]", // mossa alfiere per mangiare con ambiguit‡
+
 		});
 
 		return mossa.matches(regex);
@@ -320,7 +324,7 @@ public class Controller {
 			ArrayList<String> mosse) {
 		if ((s.getCella(startX, startY).isOccupato())) {
 			if (s.getCella(startX, startY).getPezzoCorrente().isMossaValida(s.getCella(startX, startY),
-					s.getCella(endX, endY))) {
+					s.getCella(endX, endY), s)) {
 				if (s.getCella(endX, endY).isOccupato()) {
 					t.getGiocatoreInTurno().addPezziCatturati(s.getCella(endX, endY).getPezzoCorrente());
 					s.mangiaPezzo(endX, endY);
@@ -359,6 +363,9 @@ public class Controller {
 			return Pedone.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 		} else {
 			// controllo futuro per le altre pedine
+			if (mossa.charAt(0) == 'A') {
+				return Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			return mossa;
 		}
 	}
@@ -378,8 +385,8 @@ public class Controller {
 	private static int endY(String m) {
 		return Cella.coordYinInt(m.charAt(4));
 	}
-	
-	public final static void clearConsole()	{
+
+	public final static void clearConsole() {
 		for (int i = 0; i < 100; ++i)
 			System.out.println();
 	}
