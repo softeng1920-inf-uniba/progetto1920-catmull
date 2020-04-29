@@ -9,12 +9,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Turno;
-import pedine.Pedone;
+import pedine.*;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco
+ * Classe che gestisce le varie funzionalita'Â del gioco
  */
 public class Controller {
 
@@ -42,7 +42,7 @@ public class Controller {
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
 	final void inizializzaPartita() {
-		
+
 		clearConsole();
 		System.out.println("Benvenuto nel gioco degli scacchi.");
 		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
@@ -84,10 +84,11 @@ public class Controller {
 				visualizzareCatture();
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
 				chiudiGioco();
-			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {			
-				if( utenteConfermaRiavvioPartita() ) {
+			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {
+				if (utenteConfermaRiavvioPartita()) {
 					inizializzaPartita();
-				} else continue;
+				} else
+					continue;
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
@@ -118,29 +119,30 @@ public class Controller {
 	}
 
 	private boolean utenteConfermaRiavvioPartita() {
-		
+
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		System.out.println("Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
- 
-		while( true ) {
+		System.out.println(
+				"Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
+
+		while (true) {
 			try {
 				comando = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			switch(comando) {
-				case "y":
-					return true;
-				case "n":
-					return false;
-				default:
-					System.out.println("Il comando inserito non e' valido. Riprova \n");
+			switch (comando) {
+			case "y":
+				return true;
+			case "n":
+				return false;
+			default:
+				System.out.println("Il comando inserito non e' valido. Riprova \n");
 
 			}
 		}
-		
+
 	}
 
 	/**
@@ -166,7 +168,7 @@ public class Controller {
 
 	/**
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
-	 * dall'utente è riconosciuta come notazione algebrica.
+	 * dall'utente Ã¨ riconosciuta come notazione algebrica.
 	 *
 	 * @param mossa
 	 * @return boolean
@@ -192,7 +194,11 @@ public class Controller {
 		// String regex_cattura_pezzo = "[a-h](x|:)([a-h][1-8])";
 
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
-				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
+				"[a-h](x|:)([a-h][1-8])( e.p.)?",
+				"C([a-h])?([x|:])?([a-h][1-8])", 
+				"C([1-8])?([x|:])?([a-h][1-8])",
+				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilitÃ  dell'en passant
+				"[A](x|:)?[a-h][1-8]", // mossa alfiere per mangiare con ambiguità
 		});
 
 		return mossa.matches(regex);
@@ -306,6 +312,9 @@ public class Controller {
 
 	}
 
+	/**
+	 * Stampa la scacchiera.
+	 */
 	void stampaScacchiera() {
 		s.stampa();
 	}
@@ -314,7 +323,7 @@ public class Controller {
 	 * Applica la mossa data in input tramite stringa.
 	 *
 	 * @param comando
-	 * @return booleano true se la mossa è applicabile, false altrimenti
+	 * @return booleano true se la mossa Ã¨ applicabile, false altrimenti
 	 */
 	public final boolean applicaMossa(int startX, int startY, int endX, int endY, Scacchiera s,
 			ArrayList<String> mosse) {
@@ -336,14 +345,20 @@ public class Controller {
 			}
 
 		}
-
 		return false;
 	}
 
+	/**
+	 * Restituisce la lista delle mosse convertite in notazione comprensibile da applicaMossa.
+	 * @return mosseConverite
+	 */
 	public ArrayList<String> getMosseConvertite() {
 		return mosseConvertite;
 	}
 
+	/**
+	 * Restituisce la lista delle mosse convertite in notazione comprensibile da applicaMossa.
+	 */
 	public void addMosseConvertite(String mossa) {
 		mosseConvertite.add(mossa);
 	}
@@ -358,28 +373,54 @@ public class Controller {
 		if (mossa.charAt(0) >= 'a') {
 			return Pedone.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 		} else {
+			if (mossa.charAt(0) == 'C') {
+				return Cavallo.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			// controllo futuro per le altre pedine
+			if (mossa.charAt(0) == 'A') {
+				return Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			return mossa;
 		}
 	}
-
+	
+	/**
+	 * Converte la coordinata X di partenza data in input in intero.
+	 * @param m
+	 * @return
+	 */
 	private static int startX(String m) {
 		return Cella.coordXinInt(m.charAt(0));
 	}
-
+	
+	/**
+	 * Converte la coordinata Y di partenza data in input in intero.
+	 * @param m
+	 * @return
+	 */
 	private static int startY(String m) {
 		return Cella.coordYinInt(m.charAt(1));
 	}
 
+	/**
+	 * Converte la coordinata X di partenza data in input in intero.
+	 * @param m
+	 * @return
+	 */
 	private static int endX(String m) {
 		return Cella.coordXinInt(m.charAt(3));
 	}
 
+	/**
+	 * Converte la coordinata Y di partenza data in input in intero.
+	 * @param m
+	 * @return
+	 */
 	private static int endY(String m) {
 		return Cella.coordYinInt(m.charAt(4));
 	}
-	
-	public final static void clearConsole()	{
+
+	public final static void clearConsole() {
 		for (int i = 0; i < 100; ++i)
 			System.out.println();
 	}

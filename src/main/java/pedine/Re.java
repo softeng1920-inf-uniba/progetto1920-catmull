@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import it.uniba.main.Colore;
 import scacchiera.Cella;
+import giocatore.Giocatore;
 import scacchiera.Scacchiera;
 
 /** Classe per rappresentere il sottotipo di pezzo chiamato Re */
@@ -31,5 +32,8 @@ public final class Re extends Pezzo {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
+	public static String convertiMossa(String mossa, Scacchiera s, Giocatore g) {
+           return "";
+	}
 }
