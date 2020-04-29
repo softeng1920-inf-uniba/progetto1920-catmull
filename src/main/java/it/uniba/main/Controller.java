@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import gioco.Turno;
 import pedine.Pedone;
-import pedine.Re;
 import pedine.Regina;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -196,7 +195,6 @@ public class Controller {
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
 				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
 				"(D)(x|:)?[a-h][1-8]", // mossa della regina
-				"(R)(x|:)?[a-h][1-8]" // mossa del re
 		});
 
 		return mossa.matches(regex);
@@ -364,8 +362,6 @@ public class Controller {
 		} else {
 			if (mossa.charAt(0) == 'D')
 				return Regina.convertiMossa(mossa, s, t.getGiocatoreInTurno());
-			if (mossa.charAt(0) == 'R')
-				return Re.convertiMossa(mossa, s, t.getGiocatoreInTurno());
 			return mossa;
 		}
 	}
