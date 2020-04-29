@@ -170,8 +170,6 @@ public class Controller {
 				"[C]([1-8])?[x|:]([a-h][1-8])",
 				"[C]([a-h])?([a-h][1-8])", 
 				"[C]([1-8])?([a-h][1-8])", 
-				"0-0(-0)?", 
-				"[D](x:|)?[a-h][1-8]"
 				// cattura del pedone, con possibilità dell'en passant
 		});
 
