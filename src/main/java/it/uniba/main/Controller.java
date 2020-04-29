@@ -349,9 +349,6 @@ public class Controller {
 			if (mossa.charAt(0) == 'C') {
 				return Cavallo.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
-			if (mossa.matches("0-0(-0)?") || mossa.charAt(0) == 'R') {
-				Re.convertiMossa(mossa, s, t.getGiocatoreInTurno());
-			}
 			// controllo futuro per le altre pedine
 			return mossa;
 		}
