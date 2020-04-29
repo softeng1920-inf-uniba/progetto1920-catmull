@@ -58,9 +58,8 @@ public class Scacchiera {
 	 * @param y
 	 * @return
 	 */
-	public final boolean controllaRange(int x, int y)
-	{
-		if(x< NUMERORIGHE && y< NUMEROCOLONNE && x>= 0 && y>= 0)
+	public final boolean controllaRange(int x, int y) {
+		if (x < NUMERORIGHE && y < NUMEROCOLONNE && x >= 0 && y >= 0)
 			return true;
 		else
 			return false;
@@ -177,6 +176,14 @@ public class Scacchiera {
 
 	}
 
+	/**
+	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici
+	 * errati e cella vuota.
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public final String getNomePezzo(int x, int y) {
 		if (controllaRange(x, y) && getCella(x, y).isOccupato()) {
 			return getCella(x, y).getPezzoCorrente().getNome();
