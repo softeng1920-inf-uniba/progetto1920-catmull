@@ -119,20 +119,24 @@ public final class Cavallo extends Pezzo {
 				if(Scacchiera.getNomePezzo(startX, endY - 1) == "Cavallo" &&
 						g.getColore() == Scacchiera.getCella(startX, endY - 1).getPezzoCorrente().getColore()) {
 					startY = endY - 1;
+					ambiguita++;
 				}
 				if(Scacchiera.getNomePezzo(startX, endY + 1) == "Cavallo" &&
 						g.getColore() == Scacchiera.getCella(startX, endY + 1).getPezzoCorrente().getColore()) {
 					startY = endY + 1;
+					ambiguita++;
 				}
 			}
 				if(Math.abs(startX - endX) == 1) {
 					if(Scacchiera.getNomePezzo(startX, endY - 2) == "Cavallo" &&
 							g.getColore() == Scacchiera.getCella(startX, endY - 2).getPezzoCorrente().getColore()) {
 						startY = endY - 2;
+						ambiguita++;
 					}
 					if(Scacchiera.getNomePezzo(startX, endY + 2) == "Cavallo" &&
 							g.getColore() == Scacchiera.getCella(startX, endY + 2).getPezzoCorrente().getColore()) {
 						startY = endY + 2;
+						ambiguita++;
 					}
 				}
 		} else if (startY != -1) { //startY data in input
@@ -140,20 +144,24 @@ public final class Cavallo extends Pezzo {
 				if(Scacchiera.getNomePezzo(endX - 1, startY) == "Cavallo" &&
 						g.getColore() == Scacchiera.getCella(endX - 1, startY).getPezzoCorrente().getColore()) {
 					startX = endX - 1;
+					ambiguita++;
 				}
 				if(Scacchiera.getNomePezzo(endX + 1, startY) == "Cavallo" &&
 						g.getColore() == Scacchiera.getCella(endX + 1, startY).getPezzoCorrente().getColore()) {
 					startX = endX + 1;
+					ambiguita++;
 				}
 			}
 			if (Math.abs(startY - endY) == 1) {
 				if(Scacchiera.getNomePezzo(endX - 2, startY) == "Cavallo" &&
 						g.getColore() == Scacchiera.getCella(endX - 2, startY).getPezzoCorrente().getColore()) {
 					startX = endX - 2;
+					ambiguita++;
 				}
 				if(Scacchiera.getNomePezzo(endX + 2, startY) == "Cavallo" &&
 						g.getColore() == Scacchiera.getCella(endX + 2, startY).getPezzoCorrente().getColore()) {
 					startX = endX + 2;
+					ambiguita++;
 				}
 			}
 		} else { // startX e startY uguali entrambe a -1, quindi entrambe non date in input
