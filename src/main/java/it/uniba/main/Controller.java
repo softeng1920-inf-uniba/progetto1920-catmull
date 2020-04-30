@@ -215,9 +215,7 @@ public class Controller {
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
-			return false; // Se il try catturerà un'eccezione, riprende il controllo di esecuzione da qui,
-							// quindi per default ritornerò un valore falso
+			}	
 		}
 
 	}
