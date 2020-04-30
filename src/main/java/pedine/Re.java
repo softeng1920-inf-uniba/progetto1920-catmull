@@ -2,7 +2,7 @@ package pedine;
 
 import java.util.ArrayList;
 
-import giocatore.Giocatore;
+import gioco.Giocatore;
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -18,16 +18,15 @@ public final class Re extends Pezzo {
 		} else {
 			simbolo = '\u2654';
 		}
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
+	public boolean isMossaValida(Cella start, Cella end) {
 		// controllo se può mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
-		if (!isScacco(end, s, start.getPezzoCorrente().colore)) {
+		if (!isScacco(end, start.getPezzoCorrente().colore)) {
 			// MOVIMENTI LINEARI
 			// sulla stessa colonna
 			if (start.getX() == end.getX()) {
@@ -52,18 +51,17 @@ public final class Re extends Pezzo {
 				return true;
 			if (start.getX() == end.getX() - 1 && start.getX() == end.getX() + 1)
 				return true;
-
 		}
 		return false;
 	}
 
 	@Override
-	public boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse) {
+	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public static String convertiMossa(String mossa, Scacchiera s, Giocatore g) {
+	public static String convertiMossa(String mossa, Giocatore g) {
 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
@@ -73,20 +71,21 @@ public final class Re extends Pezzo {
 		if (mossa.matches("(R)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
-			if (s.getNomePezzo(endX, endY) != "Vuota")
+			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota")
 				return mossaConvertita;
 		}
 		// mossa di cattura
 		if (mossa.matches("(R)(x|:)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
-			if (s.getNomePezzo(endX, endY) == "Vuota")
+			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")
 				return mossaConvertita;
 		}
 		// ricerca il re del giocatore in turno
-		for (int i = 0; i < s.getNumeroColonne(); i++) {
-			for (int j = 0; j < s.getNumeroRighe(); j++) {
-				if (s.getNomePezzo(i, j) == "Re" && s.getCella(i, j).getPezzoCorrente().getColore() == g.getColore()) {
+		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
+			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
+				if (Scacchiera.getNomePezzo(i, j) == "Re"
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() == g.getColore()) {
 					startX = i;
 					startY = j;
 					break;
@@ -104,20 +103,20 @@ public final class Re extends Pezzo {
 		return mossaConvertita;
 	}
 
-	public boolean isScacco(Cella ReCella, Scacchiera s, Colore c) {
+	public boolean isScacco(Cella ReCella, Colore c) {
 		Re reTemp = new Re(c, ReCella);
 		Cella temp = new Cella(ReCella.getX(), ReCella.getY(), reTemp);
 		temp.setOccupato(true);
-		for (int i = 0; i < s.getNumeroRighe(); i++) {
-			for (int j = 0; j < s.getNumeroColonne(); j++) {
-				if (s.getNomePezzo(i, j) != "Vuota" && s.getCella(i, j).getPezzoCorrente()
-						.getColore() != c
-						&& s.getNomePezzo(i,
+		for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {
+			for (int j = 0; j < Scacchiera.getNumeroColonne(); j++) {
+				if (Scacchiera.getNomePezzo(i, j) != "Vuota"
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c && Scacchiera.getNomePezzo(i,
 								j) != "Re"
-						&& s.getCella(i, j).getPezzoCorrente().isMossaValida(s.getCella(i, j), temp, s))
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().isMossaValida(Scacchiera.getCella(i, j), temp))
 					return true;
 			}
 		}
 		return false;
 	}
+
 }

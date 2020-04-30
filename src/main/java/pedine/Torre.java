@@ -2,7 +2,7 @@ package pedine;
 
 import java.util.ArrayList;
 
-import giocatore.Giocatore;
+import gioco.Giocatore;
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -11,7 +11,7 @@ import scacchiera.Scacchiera;
  * Realizzazione della classe Torre, estensione della classe Pezzo
  */
 public final class Torre extends Pezzo {
-	static boolean cattura;
+	static boolean isMossaCattura;
 	static final String mossaNonValida = "a0 a0";
 
 	/** Costruttore */
@@ -22,16 +22,9 @@ public final class Torre extends Pezzo {
 		} else {
 			simbolo = '\u2656';
 		}
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public static String ConvertiMossa(String mossa, Scacchiera s, Giocatore g) {
+	public static String convertiMossa(String mossa, Giocatore g) {
 		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 		char x = mossa.charAt(mossa.length() - 2);
 		char y = mossa.charAt(mossa.length() - 1);
@@ -40,10 +33,7 @@ public final class Torre extends Pezzo {
 		// Controlla eventuale Cattura
 
 		if (mossa.matches(regex)) {
-			if (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':')
-				cattura = true;
-			else
-				cattura = false;
+				isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
 
 			// Controllo Ambiguita
 
@@ -57,8 +47,8 @@ public final class Torre extends Pezzo {
 				}
 			} else {
 
-				String posColonna = checkPosTorreColonna(cellaDestinazione, s, g);
-				String posRiga = checkPosTorreRiga(cellaDestinazione, s, g);
+				String posColonna = checkPosTorreColonna(cellaDestinazione, g);
+				String posRiga = checkPosTorreRiga(cellaDestinazione, g);
 
 				if (posColonna != mossaNonValida && posRiga != mossaNonValida) {
 					if (posRiga.charAt(posRiga.length() - 1) == '0'
@@ -81,7 +71,7 @@ public final class Torre extends Pezzo {
 
 	}
 
-	private static String checkPosTorreRiga(String cellafinale, Scacchiera s, Giocatore g) {
+	private static String checkPosTorreRiga(String cellafinale, Giocatore g) {
 
 		int y = Cella.coordYinInt(cellafinale.charAt(1));
 		int celleOccupate = 0;
@@ -89,8 +79,8 @@ public final class Torre extends Pezzo {
 		String cellaIniziale = "";
 		int numTorre = 0;
 
-		for (int x = 0; x < s.getNumeroRighe(); x++) {
-			Cella cellaCorrente = s.getCella(x, y);
+		for (int x = 0; x < Scacchiera.getNumeroRighe(); x++) {
+			Cella cellaCorrente = Scacchiera.getCella(x, y);
 			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
 			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore()
 					&& pezzoCorrente.getNome().equals("Torre")) {
@@ -107,21 +97,21 @@ public final class Torre extends Pezzo {
 		return mossaNonValida;
 	}
 
-	private static String checkPosTorreColonna(String cellafinale, Scacchiera s, Giocatore g) {
+	private static String checkPosTorreColonna(String cellafinale, Giocatore g) {
 		String cellaIniziale = "";
 		int numTorre = 0;
 		int x = Cella.coordXinInt(cellafinale.charAt(0));
 		int celleOccupate = 0;
-		for (int y = 0; y < s.getNumeroColonne(); y++) {
+		for (int y = 0; y < Scacchiera.getNumeroColonne(); y++) {
 
-			Cella cellaCorrente = s.getCella(x, y);
+			Cella cellaCorrente = Scacchiera.getCella(x, y);
 			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore()
 					&& pezzoCorrente.getNome().equals("Torre")) {
 				numTorre++;
 
-				cellaIniziale = cellafinale.charAt(0) + "" + Math.abs(y - s.getNumeroColonne());
+				cellaIniziale = cellafinale.charAt(0) + "" + Math.abs(y - Scacchiera.getNumeroColonne());
 			} else if (cellaCorrente.isOccupato())
 				celleOccupate++;
 		}
@@ -135,7 +125,7 @@ public final class Torre extends Pezzo {
 	}
 
 	@Override
-	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
+	public boolean isMossaValida(Cella start, Cella end) {
 		Cella cellaCorrente;
 		Pezzo pezzoCorrente;
 		if (start.getX() != end.getX() || start.getY() != end.getY()) {
@@ -144,11 +134,10 @@ public final class Torre extends Pezzo {
 
 				for (int i = start.getY() - 1; i >= end.getY(); i--) {
 
-					cellaCorrente = s.getCella(start.getX(), i);
+					cellaCorrente = Scacchiera.getCella(start.getX(), i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()) {
-						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && cattura)
+						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
 							return true;
 						else
 							return false;
@@ -158,11 +147,11 @@ public final class Torre extends Pezzo {
 				// Movimento verso il basso
 				for (int i = start.getY() + 1; i <= end.getY(); i++) {
 
-					cellaCorrente = s.getCella(start.getX(), i);
+					cellaCorrente = Scacchiera.getCella(start.getX(), i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato()) {
-						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && cattura)
+						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
 							return true;
 						else
 							return false;
@@ -174,11 +163,11 @@ public final class Torre extends Pezzo {
 				// Movimento verso sx
 				for (int i = start.getX() - 1; i >= end.getX(); i--) {
 
-					cellaCorrente = s.getCella(i, start.getY());
+					cellaCorrente = Scacchiera.getCella(i, start.getY());
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato()) {
-						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && cattura)
+						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
 							return true;
 						else
 							return false;
@@ -188,11 +177,11 @@ public final class Torre extends Pezzo {
 				// Movimento verso dx
 				for (int i = start.getX() + 1; i <= end.getX(); i++) {
 
-					cellaCorrente = s.getCella(i, start.getY());
+					cellaCorrente = Scacchiera.getCella(i, start.getY());
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato()) {
-						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && cattura)
+						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
 							return true;
 						else
 							return false;
@@ -204,5 +193,11 @@ public final class Torre extends Pezzo {
 		}
 
 		return false;
+	}
+
+
+	@Override
+	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
+			return false;
 	}
 }

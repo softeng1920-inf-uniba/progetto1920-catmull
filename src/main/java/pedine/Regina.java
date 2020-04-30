@@ -2,7 +2,7 @@ package pedine;
 
 import java.util.ArrayList;
 
-import giocatore.Giocatore;
+import gioco.Giocatore;
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -18,20 +18,19 @@ public final class Regina extends Pezzo {
 		} else {
 			simbolo = '\u2655';
 		}
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * Controlla se la mossa della regina è valida
 	 */
 	@Override
-	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
+	public boolean isMossaValida(Cella start, Cella end) {
 		int j;
 		// MOVIMENTI LINEARI
 		// stessa x, aumenta y
 		if (end.getX() == start.getX() && end.getY() > start.getY()) {
 			for (int i = start.getY() + 1; end.getY() > i; i++) {
-				if (s.getCella(end.getX(), i).isOccupato()) {
+				if (Scacchiera.getCella(end.getX(), i).isOccupato()) {
 					return false;
 				}
 			}
@@ -39,7 +38,7 @@ public final class Regina extends Pezzo {
 		// stessa x, diminuisce y
 		else if (end.getX() == start.getX() && end.getY() < start.getY()) {
 			for (int i = start.getY() - 1; end.getY() < i; i--) {
-				if (s.getCella(end.getX(), i).isOccupato()) {
+				if (Scacchiera.getCella(end.getX(), i).isOccupato()) {
 					return false;
 				}
 			}
@@ -47,7 +46,7 @@ public final class Regina extends Pezzo {
 		// aumenta x, stessa y
 		else if (end.getY() == start.getY() && end.getX() > start.getX()) {
 			for (int i = start.getX() + 1; end.getX() > i; i++) {
-				if (s.getCella(i, end.getY()).isOccupato()) {
+				if (Scacchiera.getCella(i, end.getY()).isOccupato()) {
 					return false;
 				}
 			}
@@ -55,7 +54,7 @@ public final class Regina extends Pezzo {
 		// diminuisce x, stessa y
 		else if (end.getY() == start.getY() && end.getX() < start.getX()) {
 			for (int i = start.getX() - 1; end.getX() < i; i--) {
-				if (s.getCella(i, end.getY()).isOccupato()) {
+				if (Scacchiera.getCella(i, end.getY()).isOccupato()) {
 					return false;
 				}
 			}
@@ -66,7 +65,7 @@ public final class Regina extends Pezzo {
 		else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() > 0) {
 			j = start.getY() + 1;
 			for (int i = start.getX() + 1; end.getX() > i && end.getY() > j; i++) {
-				if (s.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato())
 					return false;
 				j++;
 			}
@@ -76,7 +75,7 @@ public final class Regina extends Pezzo {
 				&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) {
 			j = start.getY() + 1;
 			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
-				if (s.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato())
 					return false;
 				j++;
 
@@ -86,7 +85,7 @@ public final class Regina extends Pezzo {
 		else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() < 0) {
 			j = start.getY() - 1;
 			for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
-				if (s.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato())
 					return false;
 				j--;
 			}
@@ -97,7 +96,7 @@ public final class Regina extends Pezzo {
 				&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) {
 			j = start.getY() - 1;
 			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
-				if (s.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato())
 					return false;
 				j--;
 			}
@@ -111,8 +110,7 @@ public final class Regina extends Pezzo {
 	}
 
 	@Override
-	public boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse) {
-		// TODO Auto-generated method stub
+	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
 		return false;
 	}
 
@@ -125,7 +123,7 @@ public final class Regina extends Pezzo {
 	 * @param g
 	 * @return
 	 */
-	public static String convertiMossa(String mossa, Scacchiera s, Giocatore g) {
+	public static String convertiMossa(String mossa, Giocatore g) {
 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
@@ -135,21 +133,21 @@ public final class Regina extends Pezzo {
 		if (mossa.matches("(D)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
-			if (s.getNomePezzo(endX, endY) != "Vuota")
+			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota")
 				return mossaConvertita;
 		}
 		// mossa di cattura
 		if (mossa.matches("(D)(x|:)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
-			if (s.getNomePezzo(endX, endY) == "Vuota")
+			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")
 				return mossaConvertita;
 		}
 		// ricerca la regina del giocatore in turno
-		for (int i = 0; i < s.getNumeroColonne(); i++) {
-			for (int j = 0; j < s.getNumeroRighe(); j++) {
-				if (s.getNomePezzo(i, j) == "Regina"
-						&& s.getCella(i, j).getPezzoCorrente().getColore() == g.getColore()) {
+		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
+			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
+				if (Scacchiera.getNomePezzo(i, j) == "Regina"
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() == g.getColore()) {
 					startX = i;
 					startY = j;
 					break;

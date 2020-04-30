@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.004" hostname="DESKTOP-7CRH8OC" timestamp="2020-04-27T18:06:43">
 =======
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.01" hostname="LAPTOP-5EBE22AV" timestamp="2020-04-29T20:58:43">
 >>>>>>> 3d3aa73faa5f4a7bdba2fe15f65189775aedec8c
+=======
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.017" hostname="LAPTOP-5EBE22AV" timestamp="2020-04-30T16:06:26">
+>>>>>>> d64131bebf1d379fa90ecda0e8465e6b96a99a94
 <properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>
