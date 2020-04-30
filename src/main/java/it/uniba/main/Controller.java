@@ -175,30 +175,16 @@ public class Controller {
 	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
 
-		// Espressione regolare completa
-		/*
-		 *
-		 * [TACRD][a-h][1-8]| [TACRD][a-h]x[a-h][1-8]| [TACRD][a-h][1-8]x[a-h][1-8]|
-		 * [TACRD][a-h][1-8][a-h][1-8]| [TACRD][a-h][a-h][1-8]| [TACRD]x[a-h][1-8]|
-		 * [a-h]x[a-h][1-8]=(A+T+D+C)| [a-h]x[a-h][1-8]|
-		 * [a-h][1-8]x[a-h][1-8]=(B+R+Q+N)| [a-h][1-8]x[a-h][1-8]|
-		 * [a-h][1-8][a-h][1-8]=(B+R+Q+N)| [a-h][1-8][a-h][1-8]| [a-h][1-8]=(A+T+D+C)|
-		 * [a-h][1-8]| [ATDCR][1-8]x[a-h][1-8]| [ATDCR][1-8][a-h][1-8]
-		 */
-
-		/*
-		 * Obiettivi: - Riconoscere mossa pedone //[a-h][1-8]\ [a-h][1-8] - Riconoscere
-		 * mossa non pedone //(T|A|C|R|D)?(1-8)?[a-h]([a-h])?[1-8]\ [a-h][1-8] -
-		 * Riconoscere cattura [a-h](x|:)([a-h][1-8])
-		 */
-		// String regex_cattura_pezzo = "[a-h](x|:)([a-h][1-8])";
-
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
 				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
 				"(D)(x|:)?[a-h][1-8]", // mossa della regina
-				"C([a-h])?([x|:])?([a-h][1-8])", 
-				"C([1-8])?([x|:])?([a-h][1-8])",
-				"[A](x|:)?[a-h][1-8]", // mossa alfiere per mangiare con ambiguità
+				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
+				"C([a-h])?([x|:])?([a-h][1-8])", "C([1-8])?([x|:])?([a-h][1-8])", "[A](x|:)?[a-h][1-8]", // mossa
+																											// alfiere
+																											// per
+																											// mangiare
+																											// con
+																											// ambiguità
 		});
 
 		return mossa.matches(regex);
@@ -349,7 +335,9 @@ public class Controller {
 	}
 
 	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da applicaMossa.
+	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
+	 * applicaMossa.
+	 * 
 	 * @return mosseConverite
 	 */
 	public ArrayList<String> getMosseConvertite() {
@@ -357,7 +345,8 @@ public class Controller {
 	}
 
 	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da applicaMossa.
+	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
+	 * applicaMossa.
 	 */
 	public void addMosseConvertite(String mossa) {
 		mosseConvertite.add(mossa);
@@ -382,21 +371,26 @@ public class Controller {
 			if (mossa.charAt(0) == 'A') {
 				return Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
+			if (mossa.charAt(0) == 'T') {
+				return Torre.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			return mossa;
 		}
 	}
-	
+
 	/**
 	 * Converte la coordinata X di partenza data in input in intero.
+	 * 
 	 * @param m
 	 * @return
 	 */
 	private static int startX(String m) {
 		return Cella.coordXinInt(m.charAt(0));
 	}
-	
+
 	/**
 	 * Converte la coordinata Y di partenza data in input in intero.
+	 * 
 	 * @param m
 	 * @return
 	 */
@@ -406,6 +400,7 @@ public class Controller {
 
 	/**
 	 * Converte la coordinata X di partenza data in input in intero.
+	 * 
 	 * @param m
 	 * @return
 	 */
@@ -415,13 +410,14 @@ public class Controller {
 
 	/**
 	 * Converte la coordinata Y di partenza data in input in intero.
+	 * 
 	 * @param m
 	 * @return
 	 */
 	private static int endY(String m) {
 		return Cella.coordYinInt(m.charAt(4));
 	}
-  
+
 	public final static void clearConsole() {
 		for (int i = 0; i < 100; ++i)
 			System.out.println();
