@@ -25,15 +25,17 @@ public final class Cavallo extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
-		if (end.isOccupato()) {
-			if (this.colore != end.getPezzoCorrente().getColore()) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return true;
-		}
+		if (end.isOccupato() && this.colore == end.getPezzoCorrente().getColore())
+            return false;
+        if (start.getX() == end.getX() + 2 && (start.getY() == end.getY() - 1 || start.getY() == end.getY() + 1))
+            return true;
+        else if (start.getX() == end.getX() - 2 && (start.getY() == end.getY() - 1 || start.getY() == end.getY() + 1))
+            return true;
+        else if (start.getX() == end.getX() + 1 && (start.getY() == end.getY() - 2 || start.getY() == end.getY() + 2))
+            return true;
+        else if (start.getX() == end.getX() - 1 && (start.getY() == end.getY() - 2 || start.getY() == end.getY() + 2))
+            return true;
+        return false;
 	}
 
 	@Override
@@ -64,11 +66,17 @@ public final class Cavallo extends Pezzo {
 			startX = Cella.coordXinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
+			if (s.getNomePezzo(endX, endY) == "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: Cxe4
 		if (mossa.matches("[C][x|:]([a-h][1-8])")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
+			if (s.getNomePezzo(endX, endY) == "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: C6xe4
 		if (mossa.matches("[C][1-8][x|:]([a-h][1-8])")) {
@@ -81,17 +89,26 @@ public final class Cavallo extends Pezzo {
 			startX = Cella.coordXinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
+			if (s.getNomePezzo(endX, endY) != "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: C3e4
 		if (mossa.matches("[C][1-8]([a-h][1-8])")) {
 			startY = Cella.coordYinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
+			if (s.getNomePezzo(endX, endY) != "Vuota") {
+				return mossaConvertita;
+			}
 		}
 		//esempio: Ce4
 		if (mossa.matches("[C]([a-h][1-8])")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
+			if (s.getNomePezzo(endX, endY) != "Vuota") {
+				return mossaConvertita;
+			}
 		}
 
 		//ricaviamo X o Y a seconda di quella diversa da -1

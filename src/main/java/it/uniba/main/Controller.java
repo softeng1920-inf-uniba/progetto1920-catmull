@@ -12,13 +12,13 @@ import gioco.Turno;
 import pedine.Alfiere;
 import pedine.Cavallo;
 import pedine.Pedone;
-import pedine.Re;
 import pedine.Regina;
+import pedine.Torre;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco
+ * Classe che gestisce le varie funzionalita'Â del gioco
  */
 public class Controller {
 
@@ -89,9 +89,10 @@ public class Controller {
 			} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
 				chiudiGioco();
 			} else if (comando.equalsIgnoreCase(menu.play().getNome())) {
-				if( utenteConfermaRiavvioPartita() ) {
+				if (utenteConfermaRiavvioPartita()) {
 					inizializzaPartita();
-				} else continue;
+				} else
+					continue;
 			}
 
 			if (isNotazioneAlgebrica(comando)) {
@@ -125,9 +126,7 @@ public class Controller {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
 		System.out.println("Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
-
 		while( true ) {
 			try {
 				comando = br.readLine();
@@ -170,40 +169,21 @@ public class Controller {
 
 	/**
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
-	 * dall'utente è riconosciuta come notazione algebrica.
+	 * dall'utente Ã¨ riconosciuta come notazione algebrica.
 	 *
 	 * @param mossa
 	 * @return boolean
 	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
 
-		// Espressione regolare completa
-		/*
-		 *
-		 * [TACRD][a-h][1-8]| [TACRD][a-h]x[a-h][1-8]| [TACRD][a-h][1-8]x[a-h][1-8]|
-		 * [TACRD][a-h][1-8][a-h][1-8]| [TACRD][a-h][a-h][1-8]| [TACRD]x[a-h][1-8]|
-		 * [a-h]x[a-h][1-8]=(A+T+D+C)| [a-h]x[a-h][1-8]|
-		 * [a-h][1-8]x[a-h][1-8]=(B+R+Q+N)| [a-h][1-8]x[a-h][1-8]|
-		 * [a-h][1-8][a-h][1-8]=(B+R+Q+N)| [a-h][1-8][a-h][1-8]| [a-h][1-8]=(A+T+D+C)|
-		 * [a-h][1-8]| [ATDCR][1-8]x[a-h][1-8]| [ATDCR][1-8][a-h][1-8]
-		 */
-
-		/*
-		 * Obiettivi: - Riconoscere mossa pedone //[a-h][1-8]\ [a-h][1-8] - Riconoscere
-		 * mossa non pedone //(T|A|C|R|D)?(1-8)?[a-h]([a-h])?[1-8]\ [a-h][1-8] -
-		 * Riconoscere cattura [a-h](x|:)([a-h][1-8])
-		 */
-		// String regex_cattura_pezzo = "[a-h](x|:)([a-h][1-8])";
-
 		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
-				"[a-h](x|:)([a-h][1-8])( e.p.)?",
-				"[C]([a-h])?[x|:]([a-h][1-8])",
-				"[C]([1-8])?[x|:]([a-h][1-8])",
-				"[C]([a-h])?([a-h][1-8])",
-				"[C]([1-8])?([a-h][1-8])",
-				"[A](x|:)?[a-h][1-8]", //mossa alfiere per mangiare con ambiguit�
-				"(D)(x|:)?[a-h][1-8]", // mossa della regina
+				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
+				"D(x|:)?[a-h][1-8]", // mossa della regina
+				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
+				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
+				"[A](x|:)?[a-h][1-8]", // mossa alfiere
 				"(R)(x|:)?[a-h][1-8]" // mossa del re
+
 		});
 
 		return mossa.matches(regex);
@@ -328,7 +308,7 @@ public class Controller {
 	 * Applica la mossa data in input tramite stringa.
 	 *
 	 * @param comando
-	 * @return booleano true se la mossa è applicabile, false altrimenti
+	 * @return booleano true se la mossa Ã¨ applicabile, false altrimenti
 	 */
 	public final boolean applicaMossa(int startX, int startY, int endX, int endY, Scacchiera s,
 			ArrayList<String> mosse) {
@@ -354,7 +334,9 @@ public class Controller {
 	}
 
 	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da applicaMossa.
+	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
+	 * applicaMossa.
+	 *
 	 * @return mosseConverite
 	 */
 	public ArrayList<String> getMosseConvertite() {
@@ -362,7 +344,8 @@ public class Controller {
 	}
 
 	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da applicaMossa.
+	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
+	 * applicaMossa.
 	 */
 	public void addMosseConvertite(String mossa) {
 		mosseConvertite.add(mossa);
@@ -378,23 +361,24 @@ public class Controller {
 		if (mossa.charAt(0) >= 'a') {
 			return Pedone.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 		} else {
+			if (mossa.charAt(0) == 'D')
+				return Regina.convertiMossa(mossa, s, t.getGiocatoreInTurno());
 			if (mossa.charAt(0) == 'C') {
 				return Cavallo.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
-			// controllo futuro per le altre pedine
-			if(mossa.charAt(0) == 'A') {
-				return 	Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			if (mossa.charAt(0) == 'A') {
+				return Alfiere.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
 			}
-			if (mossa.charAt(0) == 'D')
-				return Regina.convertiMossa(mossa, s, t.getGiocatoreInTurno());
-			if (mossa.charAt(0) == 'R')
-				return Re.convertiMossa(mossa, s, t.getGiocatoreInTurno());
+			if (mossa.charAt(0) == 'T') {
+				return Torre.ConvertiMossa(mossa, s, t.getGiocatoreInTurno());
+			}
 			return mossa;
 		}
 	}
 
 	/**
 	 * Converte la coordinata X di partenza data in input in intero.
+	 *
 	 * @param m
 	 * @return
 	 */
@@ -404,6 +388,7 @@ public class Controller {
 
 	/**
 	 * Converte la coordinata Y di partenza data in input in intero.
+	 *
 	 * @param m
 	 * @return
 	 */
@@ -413,6 +398,7 @@ public class Controller {
 
 	/**
 	 * Converte la coordinata X di partenza data in input in intero.
+	 *
 	 * @param m
 	 * @return
 	 */
@@ -422,6 +408,7 @@ public class Controller {
 
 	/**
 	 * Converte la coordinata Y di partenza data in input in intero.
+	 *
 	 * @param m
 	 * @return
 	 */

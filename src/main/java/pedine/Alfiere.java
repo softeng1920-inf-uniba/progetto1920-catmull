@@ -23,20 +23,53 @@ public final class Alfiere extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
-		// TODO Auto-generated method stub
-		// movimento in 4 direzioni
-		/*if (((Math.abs(start.getY() - end.getY()) >= 1)) && (Math.abs(start.getX() - end.getX()) >= 1)
-				&& end.isOccupato() && end.getPezzoCorrente().getColore() == null)
-			return true;
-		if (((Math.abs(start.getY() - end.getY()) <= 1)) && (Math.abs(start.getX() - end.getX()) <= 1)
-				&& end.isOccupato() && end.getPezzoCorrente().getColore() == null)
-			return true;
-		if (((Math.abs(start.getY() - end.getY()) <= 1)) && (Math.abs(start.getX() - end.getX()) >= 1)
-				&& end.isOccupato() && end.getPezzoCorrente().getColore() == null)
-			return true;
-		if (((Math.abs(start.getY() - end.getY()) >= 1)) && (Math.abs(start.getX() - end.getX()) >= 1)
-				&& end.isOccupato() && end.getPezzoCorrente().getColore() == null)*/
-			return true;
+		// aumenta x e aumenta y = aumenta x diminuisce y
+		int j;
+		if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() > 0) {
+			j = start.getY() + 1;
+			for (int i = start.getX() + 1; end.getX() > i && end.getY() > j; i++) {
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j++;
+			}
+		}
+		// diminuisce x e aumenta y
+		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
+				&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) {
+			j = start.getY() + 1;
+			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j++;
+
+			}
+		}
+		// diminuisce x e diminuisce y
+		else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() < 0) {
+			j = start.getY() - 1;
+			for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j--;
+			}
+		}
+
+		// aumenta x e diminuisce y
+		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
+				&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) {
+			j = start.getY() - 1;
+			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
+				if (s.getCella(i, j).isOccupato())
+					return false;
+				j--;
+			}
+		} else
+			return false;
+		// controllo se puÃ² mangiare pezzo
+		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -55,32 +88,32 @@ public final class Alfiere extends Pezzo {
 		String mossaConvertita = "a0 a0";
 		int ambiguita = 0;
 
-		if (mossa.matches("[A][a-h][1-8]")) {// si muove senza ambiguità
+		if (mossa.matches("[A][a-h][1-8]")) {// si muove senza ambiguitï¿½
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 		}
 
-		if (mossa.matches("[A][x|:][a-h][1-8]")) { // mangia senza ambiguità
+		if (mossa.matches("[A][x|:][a-h][1-8]")) { // mangia senza ambiguitï¿½
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 		}
-		if (mossa.matches("[A][1-8][x|:][a-h][1-8]")) {// mangia con ambiguità sulle righe(numeri)
+		if (mossa.matches("[A][1-8][x|:][a-h][1-8]")) {// mangia con ambiguitï¿½ sulle righe(numeri)
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
 			startY = Cella.coordYinInt(mossa.charAt(1));
 		}
-		if (mossa.matches("[A][a-h][x|:][a-h][1-8]")) {// mangia con ambiguità sulle colonne(lettere)
+		if (mossa.matches("[A][a-h][x|:][a-h][1-8]")) {// mangia con ambiguitï¿½ sulle colonne(lettere)
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
 			startX = Cella.coordXinInt(mossa.charAt(1));
 
 		}
-		if (mossa.matches("[A][1-8][a-h][1-8]")) {// si muove con ambiguità sulle righe
+		if (mossa.matches("[A][1-8][a-h][1-8]")) {// si muove con ambiguitï¿½ sulle righe
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			startY = Cella.coordYinInt(mossa.charAt(1));
 		}
-		if (mossa.matches("[A][a-h][a-h][1-8]")) {// si muove con ambiguità sulle colonne
+		if (mossa.matches("[A][a-h][a-h][1-8]")) {// si muove con ambiguitï¿½ sulle colonne
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			startX = Cella.coordXinInt(mossa.charAt(1));
