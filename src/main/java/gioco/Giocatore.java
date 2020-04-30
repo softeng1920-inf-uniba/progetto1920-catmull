@@ -1,4 +1,4 @@
-package giocatore;
+package gioco;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,7 +42,12 @@ public class Giocatore {
 		String nome = "";
 
 		try {
-			nome = br.readLine();
+			while (nome.equals("")) {
+				nome = br.readLine();
+				if (nome.equals("")) {
+					System.out.println("INSERIRE il nome del giocatore !");
+				}
+			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -118,7 +123,7 @@ public class Giocatore {
 	 */
 	public void stampaPezziCatturati() {
 
-		System.out.println(nome.toUpperCase() + " ecco le pedine che il tuo avversario ti ha mangiato:");
+		System.out.println("Pezzi catturati dal giocatore " + nome.toUpperCase() + ":");
 		for (Pezzo pezzoMangiato : getPezziCatturati()) {
 			System.out.println(pezzoMangiato);
 		}

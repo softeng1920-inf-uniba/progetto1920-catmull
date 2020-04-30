@@ -18,6 +18,9 @@ public abstract class Pezzo {
 	public char simbolo;
 	protected Cella posizioneCorrente;
 
+	public final static int ARROCCO_CORTO = 1;
+	public final static int ARROCCO_LUNGO = 2;
+	
 	public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
 		this.nome = name;
 		this.colore = colore;
@@ -146,7 +149,7 @@ public abstract class Pezzo {
 	 * @param end
 	 * @return boolean
 	 */
-	public abstract boolean isMossaValida(Cella start, Cella end, Scacchiera s);
+	public abstract boolean isMossaValida(Cella start, Cella end);
 
 	/**
 	 * Metodo che permette di controllare se la mossa speciale data sia valida
@@ -157,6 +160,6 @@ public abstract class Pezzo {
 	 * @param mosse
 	 * @return boolean
 	 */
-	public abstract boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse);
+	public abstract boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse);
 
 }

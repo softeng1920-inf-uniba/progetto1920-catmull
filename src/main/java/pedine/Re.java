@@ -2,11 +2,8 @@ package pedine;
 
 import java.util.ArrayList;
 
-import giocatore.Giocatore;
 import it.uniba.main.Colore;
 import scacchiera.Cella;
-import giocatore.Giocatore;
-import scacchiera.Scacchiera;
 
 /** Classe per rappresentere il sottotipo di pezzo chiamato Re */
 public final class Re extends Pezzo {
@@ -19,22 +16,18 @@ public final class Re extends Pezzo {
 		} else {
 			simbolo = '\u2654';
 		}
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean isMossaValida(Cella start, Cella end, Scacchiera s) {
-		// TODO Auto-generated method stub
+	public boolean isMossaValida(Cella start, Cella end) {
+		// TODO Se la mossa è valida dobbiamo impostare il primaMossaEffettuata a falso
+
 		return false;
 	}
 
 	@Override
-	public boolean isMossaSpeciale(Cella start, Cella end, Scacchiera s, ArrayList<String> mosse) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
+			return false;
 	}
-	
-	public static String convertiMossa(String mossa, Scacchiera s, Giocatore g) {
-           return "";
-	}
+
 }

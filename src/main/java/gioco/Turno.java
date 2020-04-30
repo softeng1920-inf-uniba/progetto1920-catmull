@@ -1,6 +1,5 @@
 package gioco;
 
-import giocatore.Giocatore;
 import it.uniba.main.Colore;
 
 /**
