@@ -334,19 +334,24 @@ public class Controller {
 	public void stampaMosseGiocate() {
 		String mossa = null;
 		int counter = 1;
-		System.out.println("Storia delle mosse giocate");
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		for (int i = 0; i < dimensione; i++) {
-			if (i == dimensione - 1) {
-				mossa = counter + ". " + fusioneListe().get(i);
-				System.out.println(mossa);
-			} else {
-				mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i + 1);
-				System.out.println(mossa);
+		if (dimensione == 0) {
+			System.out.println("Non è stata giocata alcuna mossa");
+		}
+		else {
+			System.out.println("Storia delle mosse giocate");
+			for (int i = 0; i < dimensione; i++) {
+				if (i == dimensione - 1) {
+					mossa = counter + ". " + fusioneListe().get(i);
+					System.out.println(mossa);
+				} else {
+					mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i + 1);
+					System.out.println(mossa);
+				}
+				i++;
+				counter++;
 			}
-			i++;
-			counter++;
 		}
 	}
 
