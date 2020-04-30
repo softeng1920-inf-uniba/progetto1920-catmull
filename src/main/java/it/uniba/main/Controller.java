@@ -215,7 +215,7 @@ public class Controller {
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
-			}	
+			}
 		}
 
 	}
@@ -250,8 +250,7 @@ public class Controller {
 	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
 
-		String regex = String.join("|", new String[] { 
-				"([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
+		String regex = String.join("|", new String[] { "([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
 				"D([x|:])?[a-h][1-8]", // mossa della regina
 				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
 				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
@@ -335,9 +334,8 @@ public class Controller {
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		if (dimensione == 0) {
-			System.out.println("Non è stata giocata alcuna mossa");
-		}
-		else {
+			System.out.println("Non e' stata giocata alcuna mossa");
+		} else {
 			System.out.println("Storia delle mosse giocate");
 			for (int i = 0; i < dimensione; i++) {
 				if (i == dimensione - 1) {
