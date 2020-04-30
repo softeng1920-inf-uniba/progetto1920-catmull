@@ -14,6 +14,7 @@ import pedine.Alfiere;
 import pedine.Cavallo;
 import pedine.Pedone;
 import pedine.Pezzo;
+import pedine.Re;
 import pedine.Regina;
 import pedine.Torre;
 import scacchiera.Cella;
@@ -452,7 +453,7 @@ public class Controller {
 			comandi.add(Alfiere.convertiMossa(mossa, t.getGiocatoreInTurno()));
 			break;
 		case 'R': // Re
-
+			comandi.add(Re.convertiMossa(mossa, t.getGiocatoreInTurno()));
 			break;
 		case 'D': // Donna
 			comandi.add(Regina.convertiMossa(mossa, t.getGiocatoreInTurno()));
