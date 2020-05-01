@@ -24,7 +24,17 @@ public final class Torre extends Pezzo {
 		}
 	}
 
+	/**
+	 * Metodo che,data una stringa: mossa in notazione algebrica ridotta, la
+	 * converte in notazione estesa.
+	 * 
+	 * @param mossa
+	 * @param g
+	 * @return String
+	 */
+
 	public static String convertiMossa(String mossa, Giocatore g) {
+
 		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 		char destX = mossa.charAt(mossa.length() - 2);
 		char destY = mossa.charAt(mossa.length() - 1);
@@ -45,28 +55,32 @@ public final class Torre extends Pezzo {
 			// Controlla eventuale Cattura
 			isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
 
-			// Controllo Ambiguita
+			// Controllo se nella mossa è presente un carattere che mi indica l'ambiguita'
 			if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
 
 				if (Character.isDigit(ambiguita)) {
+					// Ambihuita Sulle Colonne
 					cellaCorrente = Scacchiera.getCella(eX, Cella.coordYinInt(ambiguita));
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 					if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente)
 						return destX + "" + ambiguita + " " + destX + "" + destY;
 				} else {
-
+					// Ambihuita Sulle Righe
 					cellaCorrente = Scacchiera.getCella(Cella.coordXinInt(ambiguita), eY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 					if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente)
 						return ambiguita + "" + destY + " " + destX + "" + destY;
 				}
 			} else {
+				
 				possibiliPosizioniColonna = checkPosTorreColonna(eX, colorepedineGiocatoreCorrente);
 				possibiliPosizioniRiga = checkPosTorreRiga(eY, colorepedineGiocatoreCorrente);
 
 				posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
 				posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
-				if (!posColonna.equals(mossaNonValida) && !posRiga.equals(mossaNonValida)) {
+					
+				if (!posColonna.equals(mossaNonValida) && !posRiga.equals(mossaNonValida)) { 
+					//Indica una potenziale ambiguita' sulle righe/colonne non segnalata dall'utente 
 					return mossaNonValida;
 				} else if (!posColonna.equals(mossaNonValida))
 					return posColonna;
@@ -103,7 +117,7 @@ public final class Torre extends Pezzo {
 			return posColonna;
 
 		// Ritorna mossa non valida se nel vettore possibiliPosizioniColonna sono
-		// presente due possibili posizioni
+		// presenti due possibili posizioni
 		// di partenza della torre valide pertanto siamo nel caso di ambiguita
 		return mossaNonValida;
 
@@ -132,21 +146,22 @@ public final class Torre extends Pezzo {
 		if (count == 1)
 			return posRiga;
 
-		// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presente
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presenti
 		// due possibili posizioni
 		// di partenza della torre valide pertanto siamo nel caso di ambiguita
 		return mossaNonValida;
 	}
 
 	/**
-	 * Metodo che cerca le possibili posizioni della torre nella scacchiera
+	 * Metodo che cerca le possibili posizioni della torre di colore di valore
+	 * colorepedineGiocatoreCorrente nella scacchiera in colonna esima y e riga x.
+	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
+	 * occupate dalla torre nella scacchiera.
 	 * 
-	 * conoscendo la cella di destinazione data dall'utente. restituisce un vettore
-	 * di stringhe contenente tutte le possibili posizioni
 	 * 
 	 * 
-	 * @param cellafinale
-	 * @param g
+	 * @param y
+	 * @param colorepedineGiocatoreCorrente
 	 * @return ArrayList<String>
 	 */
 	private static ArrayList<String> checkPosTorreRiga(int y, Colore colorepedineGiocatoreCorrente) {
@@ -168,6 +183,18 @@ public final class Torre extends Pezzo {
 		return possibiliPosizioni;
 	}
 
+	/**
+	 * Metodo che cerca le possibili posizioni della torre di colore di valore
+	 * colorepedineGiocatoreCorrente nella scacchiera in traversa esima x e riga y.
+	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
+	 * occupate dalla torre nella scacchiera.
+	 * 
+	 * 
+	 * 
+	 * @param x
+	 * @param colorepedineGiocatoreCorrente
+	 * @return ArrayList<String>
+	 */
 	private static ArrayList<String> checkPosTorreColonna(int x, Colore colorepedineGiocatoreCorrente) {
 
 		ArrayList<String> possibiliPosizioni = new ArrayList<String>();
@@ -195,6 +222,20 @@ public final class Torre extends Pezzo {
 		return isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
 	}
 
+	/**
+	 * Metodo che verifica il seguente scenario: date le coordinate sX e
+	 * sY,indicanti la traversa e la colonna di origine del pezzo da muovere, e le
+	 * coordinate eX e eY,indicanti la traversa e la colonna di arrivo del pezzo da
+	 * muovere, viene effettuato un controllo sul movimento del pezzo dalle
+	 * coordinate di partenza a quelle di arrivo.
+	 * 
+	 * @param sX
+	 * @param sY
+	 * @param eX
+	 * @param eY
+	 * @param colorePezzoCorrente
+	 * @return boolean
+	 */
 	private static boolean isMossaValida(int sX, int sY, int eX, int eY, Colore colorePezzoCorrente) {
 		Cella cellaCorrente;
 		Pezzo pezzoCorrente;
