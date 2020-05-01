@@ -10,7 +10,13 @@ import java.util.ArrayList;
 
 import gioco.Giocatore;
 import gioco.Turno;
-import pedine.*;
+import pedine.Alfiere;
+import pedine.Cavallo;
+import pedine.Pedone;
+import pedine.Pezzo;
+import pedine.Re;
+import pedine.Regina;
+import pedine.Torre;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -198,11 +204,8 @@ public class Controller {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		System.out.println(
-				"Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
-
-		while (true) {
+		System.out.println("Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
+		while( true ) {
 			try {
 				comando = br.readLine();
 				switch (comando) {
@@ -249,12 +252,12 @@ public class Controller {
 	 * @return boolean
 	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
-
 		String regex = String.join("|", new String[] { "([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
 				"D([x|:])?[a-h][1-8]", // mossa della regina
 				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
 				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
-				"A(x|:)?[a-h][1-8]", // mossa alfiere
+				"[A](x|:)?[a-h][1-8]", // mossa alfiere
+				"(R)(x|:)?[a-h][1-8]" // mossa del re
 		});
 
 		return mossa.matches(regex);
@@ -444,7 +447,7 @@ public class Controller {
 			comandi.add(Alfiere.convertiMossa(mossa, t.getGiocatoreInTurno()));
 			break;
 		case 'R': // Re
-
+			comandi.add(Re.convertiMossa(mossa, t.getGiocatoreInTurno()));
 			break;
 		case 'D': // Donna
 			comandi.add(Regina.convertiMossa(mossa, t.getGiocatoreInTurno()));

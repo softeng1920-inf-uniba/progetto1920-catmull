@@ -168,6 +168,7 @@ public class Scacchiera {
 
 	}
 
+
 	/**
 	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici
 	 * errati e cella vuota.
