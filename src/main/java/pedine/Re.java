@@ -99,7 +99,6 @@ public final class Re extends Pezzo {
 			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
 					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
 		}
-		System.out.println(mossaConvertita);
 		return mossaConvertita;
 	}
 
