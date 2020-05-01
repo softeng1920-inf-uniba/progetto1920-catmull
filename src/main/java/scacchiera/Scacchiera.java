@@ -16,7 +16,8 @@ public class Scacchiera {
 	private static final int NUMEROCOLONNE = 8;
 	private static final int NUMERORIGHE = 8;
 
-	private Cella[][] scacchiera;
+	private static Cella[][] scacchiera;
+
 
 	public Scacchiera() {
 
@@ -28,11 +29,11 @@ public class Scacchiera {
 		}
 	}
 
-	public final int getNumeroColonne() {
+	public static final int getNumeroColonne() {
 		return NUMEROCOLONNE;
 	}
 
-	public final int getNumeroRighe() {
+	public static final int getNumeroRighe() {
 		return NUMERORIGHE;
 	}
 
@@ -43,7 +44,7 @@ public class Scacchiera {
 	 * @param y
 	 * @return
 	 */
-	public Cella getCella(final int x, final int y) {
+	public static Cella getCella(final int x, final int y) {
 		return scacchiera[x][y];
 	}
 
@@ -58,17 +59,14 @@ public class Scacchiera {
 	 * @param y
 	 * @return
 	 */
-	public final boolean controllaRange(int x, int y) {
-		if (x < NUMERORIGHE && y < NUMEROCOLONNE && x >= 0 && y >= 0)
-			return true;
-		else
-			return false;
+	public static boolean isRangeValido(int x, int y) {
+			return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
 	}
 
 	/**
 	 * metodo che inizializza la scacchiera e la prepara per una nuova partita
 	 */
-	public final void inizializzaScacchiera() {
+	public static void inizializzaScacchiera() {
 
 		// Inizializzazione della torre
 
@@ -124,18 +122,12 @@ public class Scacchiera {
 					.setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt('2'))));
 		}
 
-		for (int k = 2; k < 6; k++) {
-			for (int j = 0; j < getNumeroColonne(); j++) {
-				scacchiera[j][k] = new Cella(j, k, null);
-			}
-		}
-
 	}
 
 	/**
 	 * metodo per stampare nella console la scacchiera
 	 */
-	public final void stampa() {
+	public static final void stampa() {
 		System.out.println("      a     b     c     d     e     f     g     h");
 		for (int j = 8; j > 0; j--) {
 			System.out.println("  --------------------------------------------------");
@@ -158,7 +150,7 @@ public class Scacchiera {
 	 * @param c1
 	 * @param c2
 	 */
-	public void scambiaCella(Cella c1, Cella c2) {
+	public static void scambiaCella(Cella c1, Cella c2) {
 		c2.setPezzoCorrente(c1.getPezzoCorrente());
 		c2.setOccupato(c1.isOccupato());
 		c1.setOccupato(false);
@@ -179,13 +171,13 @@ public class Scacchiera {
 	/**
 	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici
 	 * errati e cella vuota.
-	 * 
+	 *
 	 * @param x
 	 * @param y
 	 * @return
 	 */
-	public final String getNomePezzo(int x, int y) {
-		if (controllaRange(x, y) && getCella(x, y).isOccupato()) {
+	public static final String getNomePezzo(int x, int y) {
+		if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {
 			return getCella(x, y).getPezzoCorrente().getNome();
 		}
 		return "Vuota";
