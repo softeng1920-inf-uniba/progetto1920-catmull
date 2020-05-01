@@ -73,16 +73,16 @@ public final class Pedone extends Pezzo {
 		String pedoneAvversarioBianco = x + "" + y2 + " " + x + "" + y1;
 
 		cellaPedone = Scacchiera.getCella(end.getX(), start.getY());	// Prendo la colonna della destinazione, e la traversa di partenza -- cellaPedoneDaCatturare
-		if ( isPedone(cellaPedone) && cellaPedone.getPezzoCorrente().getColore() != this.colore) { // se la cella è occupata da un pedone di un colore opposto
+		if ( isPedone(cellaPedone) && cellaPedone.getPezzoCorrente().getColore() != this.colore) { // se la cella Ã¨ occupata da un pedone di un colore opposto
 			if (this.colore == Colore.bianco) {
 				
 				String pedoneAvversarioNero = x + "" + y1 + " " + x + "" + y2; // calcolo ultima mossa del pedone da catturare E.P.
 
 				if (
-						(start.getY() - 1 == end.getY() ) &&	// Se la traversa di partenza + 1 è uguale a quella di destinazione
+						(start.getY() - 1 == end.getY() ) &&	// Se la traversa di partenza + 1 Ã¨ uguale a quella di destinazione
 						(Math.abs(start.getX() - end.getX()) == 1) && // E mi sto spostando in obliquo
-						!end.isOccupato() && // E la cella di dest. non è occupata
-						mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero) // E l'ultima mossa è quella prevista per l'e.p. 
+						!end.isOccupato() && // E la cella di dest. non Ã¨ occupata
+						mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero) // E l'ultima mossa Ã¨ quella prevista per l'e.p. 
 						)
 					return true;
 			} else {
@@ -102,7 +102,7 @@ public final class Pedone extends Pezzo {
 	
 	/**
 	 * metodo di classe che converte il comando in input in una stringa nel formato a2 a4
-	 * @param mossa - può essere un'avanzata (es. a2) oppure una cattura (es. axb3
+	 * @param mossa - puÃ² essere un'avanzata (es. a2) oppure una cattura (es. axb3
 	 * @param s
 	 * @param g
 	 * @return
@@ -112,7 +112,7 @@ public final class Pedone extends Pezzo {
 		int variazione = 0;
 		String mossaConvertita = "";
 		
-		// Il formato della mossa sarà del tipo [a-h](x|:)([a-h][1-8])
+		// Il formato della mossa sarÃ  del tipo [a-h](x|:)([a-h][1-8])
 		String regexCattura = "[a-h](x|:)([a-h][1-8])( e.p.)?";
 
 		if (mossa.matches(regexCattura)) { // Mossa di cattura in diagonale
@@ -123,7 +123,7 @@ public final class Pedone extends Pezzo {
 			
 		} else { // avanzata
 			
-			// controlla se è possibile avanti di due o di uno
+			// controlla se Ã¨ possibile avanti di due o di uno
 			
 			if (g.getColore() == Colore.bianco) {
 				Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt('3')); 
@@ -133,7 +133,7 @@ public final class Pedone extends Pezzo {
 							! c.getPezzoCorrente().getNome().equals("Pedone")
 							)
 						) 
-					variazione = -50; // Se la terza traversa non è occupata da un pedone allora vengo dalla 2° traversa
+					variazione = -50; // Se la terza traversa non Ã¨ occupata da un pedone allora vengo dalla 2Â° traversa
 				else
 					variazione = -49;
 
@@ -150,10 +150,10 @@ public final class Pedone extends Pezzo {
 			}
 			
 			// mossa finale pedone semplice
-			mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1° traversa
-					String.valueOf(mossa.charAt(1) + variazione) + // 1° colonna
-					' ' + String.valueOf(mossa.charAt(0)) + // 2° traversa
-					String.valueOf(mossa.charAt(1)); // 2° colonna
+			mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1Â° traversa
+					String.valueOf(mossa.charAt(1) + variazione) + // 1Â° colonna
+					' ' + String.valueOf(mossa.charAt(0)) + // 2Â° traversa
+					String.valueOf(mossa.charAt(1)); // 2Â° colonna
 		}
 		// controlla che nella cella di partenza ci sia un pedone
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\gioco\Giocatore.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\gioco\Giocatore.java">
 <error line="35" column="26" severity="error" message="Parameter colore should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="35" column="33" severity="error" message="&apos;colore&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="42" column="24" severity="error" message="&apos;nome&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
@@ -12,14 +12,14 @@
 <error line="147" column="37" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="166" column="39" severity="error" message="Parameter i should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\gioco\Turno.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\gioco\Turno.java">
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\AppMain.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\it\uniba\main\AppMain.java">
 <error line="7" column="8" severity="error" message="Unused import - java.io.UnsupportedEncodingException." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\Colore.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\it\uniba\main\Colore.java">
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\Comando.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\it\uniba\main\Comando.java">
 <error line="17" column="17" severity="error" message="Parameter nome should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="17" column="24" severity="error" message="&apos;nome&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="17" column="30" severity="error" message="Parameter descrizione should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -28,7 +28,7 @@
 <error line="27" column="29" severity="error" message="&apos;nome&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="36" column="42" severity="error" message="&apos;descrizione&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\Controller.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\it\uniba\main\Controller.java">
 <error line="60" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="64" severity="error" message="Line is longer than 120 characters (found 164)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="78" severity="error" message="Line is longer than 120 characters (found 133)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -46,12 +46,12 @@
 <error line="150" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="151" severity="error" message="Line is longer than 120 characters (found 135)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="152" severity="error" message="Line is longer than 120 characters (found 226)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="153" severity="error" message="Line is longer than 120 characters (found 229)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="153" severity="error" message="Line is longer than 120 characters (found 231)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="154" severity="error" message="Line is longer than 120 characters (found 229)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="166" column="47" severity="error" message="Parameter comandiArr should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="166" column="77" severity="error" message="Parameter storicoMosse should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="175" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="175" severity="error" message="Line is longer than 120 characters (found 132)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="175" severity="error" message="Line is longer than 120 characters (found 134)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="176" severity="error" message="Line is longer than 120 characters (found 189)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="178" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="198" column="44" severity="error" message="Parameter startX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -59,7 +59,7 @@
 <error line="198" column="68" severity="error" message="Parameter endX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="198" column="78" severity="error" message="Parameter endY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="207" severity="error" message="Line is longer than 120 characters (found 132)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="208" column="22" severity="error" message="&apos;while&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="208" column="22" severity="error" message="&apos;while&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="208" column="23" severity="error" message="&apos;(&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 <error line="208" column="28" severity="error" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 <error line="255" column="63" severity="error" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
@@ -83,9 +83,9 @@
 <error line="505" column="33" severity="error" message="Parameter m should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="506" column="51" severity="error" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\it\uniba\main\Menu.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\it\uniba\main\Menu.java">
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Alfiere.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\pedine\Alfiere.java">
 <error line="25" column="38" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="25" column="51" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="31" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
@@ -110,7 +110,7 @@
 <error line="127" severity="error" message="Line is longer than 120 characters (found 133)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="137" severity="error" message="Line is longer than 120 characters (found 133)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Cavallo.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\pedine\Cavallo.java">
 <error line="27" column="38" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" column="51" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="28" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
@@ -132,31 +132,31 @@
 <error line="84" column="63" severity="error" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="93" column="63" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="102" column="63" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="117" column="19" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="118" column="27" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="119" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="117" column="19" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="118" column="27" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="119" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="119" column="91" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="120" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="124" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="124" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="124" column="91" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="125" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="130" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
-<error line="131" column="43" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="130" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="131" column="43" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="131" column="99" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="132" severity="error" message="Line is longer than 120 characters (found 144)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="136" column="43" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="136" column="43" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="136" column="99" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="137" severity="error" message="Line is longer than 120 characters (found 144)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="144" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="144" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="144" column="91" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="145" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="149" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="149" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="149" column="91" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="150" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="156" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="156" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="156" column="91" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="157" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="161" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="161" column="35" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
 <error line="161" column="91" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="162" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="168" column="86" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
@@ -181,7 +181,7 @@
 <error line="221" column="81" severity="error" message="&apos;+&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="222" column="50" severity="error" message="&apos;+&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Pedone.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\pedine\Pedone.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="31" column="38" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="31" column="51" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -208,16 +208,16 @@
 <error line="72" column="57" severity="error" message="&apos;7&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="72" column="62" severity="error" message="&apos;48&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="75" severity="error" message="Line is longer than 120 characters (found 172)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="76" severity="error" message="Line is longer than 120 characters (found 167)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="76" severity="error" message="Line is longer than 120 characters (found 169)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="76" column="21" severity="error" message="&apos;(&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 <error line="78" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="79" severity="error" message="Line is longer than 120 characters (found 147)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="81" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="82" severity="error" message="Line is longer than 120 characters (found 156)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="82" severity="error" message="Line is longer than 120 characters (found 158)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="82" column="80" severity="error" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 <error line="83" severity="error" message="Line is longer than 120 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="85" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="85" severity="error" message="Line is longer than 120 characters (found 155)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="85" severity="error" message="Line is longer than 120 characters (found 157)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="89" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="89" column="37" severity="error" message="&apos;(&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
 <error line="89" column="72" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
@@ -252,7 +252,7 @@
 <error line="132" column="74" severity="error" message="&apos;||&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
 <error line="133" column="58" severity="error" message="&apos;!&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
 <error line="135" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="136" severity="error" message="Line is longer than 120 characters (found 142)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="136" severity="error" message="Line is longer than 120 characters (found 146)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="136" column="54" severity="error" message="&apos;-50&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 <error line="137" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="138" column="54" severity="error" message="&apos;-49&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
@@ -270,7 +270,7 @@
 <error line="151" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 <error line="160" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Pezzo.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\pedine\Pezzo.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="7" column="8" severity="error" message="Unused import - scacchiera.Scacchiera." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 <error line="15" column="26" severity="error" message="Variable &apos;nome&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
@@ -292,7 +292,7 @@
 <error line="75" column="43" severity="error" message="&apos;simbolo&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
 <error line="84" column="42" severity="error" message="Parameter pC should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Re.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\pedine\Re.java">
 <error line="24" column="38" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="24" column="51" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="26" column="38" severity="error" message="Expression can be simplified." source="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck"/>
@@ -321,7 +321,7 @@
 <error line="112" severity="error" message="Line is longer than 120 characters (found 142)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="114" severity="error" message="Line is longer than 120 characters (found 143)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Regina.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\pedine\Regina.java">
 <error line="27" column="38" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" column="51" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="37" column="17" severity="error" message="&apos;}&apos; at column 3 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally)." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
@@ -348,76 +348,81 @@
 <error line="150" severity="error" message="Line is longer than 120 characters (found 127)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="156" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\pedine\Torre.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\pedine\Torre.java">
 <error line="14" column="24" severity="error" message="Variable &apos;isMossaCattura&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 <error line="15" column="29" severity="error" message="Name &apos;mossaNonValida&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
 <error line="27" column="44" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="27" column="58" severity="error" message="Parameter g should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="40" severity="error" message="Line is longer than 120 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="40" column="73" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="40" column="116" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="44" severity="error" message="Line is longer than 120 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="44" column="46" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="46" severity="error" message="Line is longer than 120 characters (found 132)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="48" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="53" severity="error" message="Line is longer than 120 characters (found 132)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="55" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="65" severity="error" message="Line is longer than 120 characters (found 121)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="73" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="84" severity="error" message="Line is longer than 120 characters (found 127)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="95" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="103" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="110" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="119" severity="error" message="Line is longer than 120 characters (found 127)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="126" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="137" column="60" severity="error" message="Parameter cellafinale should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="137" column="80" severity="error" message="Parameter g should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="148" column="78" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="156" column="63" severity="error" message="Parameter cellafinale should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="156" column="83" severity="error" message="Parameter g should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="170" severity="error" message="Line is longer than 120 characters (found 122)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="180" column="38" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="180" column="51" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="184" column="46" severity="error" message="Parameter sX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="184" column="54" severity="error" message="Parameter sY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="184" column="62" severity="error" message="Parameter eX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="184" column="70" severity="error" message="Parameter eY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="184" column="78" severity="error" message="Parameter colorePezzoCorrente should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="197" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="197" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="197" column="49" severity="error" message="Conditional logic can be removed." source="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
-<error line="199" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="46" severity="error" message="Line is longer than 120 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="46" column="73" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="46" column="116" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="49" severity="error" message="Line is longer than 120 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="49" column="46" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="54" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="54" severity="error" message="Line is longer than 120 characters (found 133)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="60" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="60" severity="error" message="Line is longer than 120 characters (found 133)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="67" severity="error" message="Line is longer than 120 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="68" severity="error" message="Line is longer than 120 characters (found 134)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="71" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="73" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="82" column="54" severity="error" message="Parameter possibiliPosizioniColonna should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="82" column="99" severity="error" message="Parameter eX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="82" column="107" severity="error" message="Parameter eY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="83" column="25" severity="error" message="Parameter colorepedineGiocatoreCorrente should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="102" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="112" column="51" severity="error" message="Parameter possibiliPosizioniRiga should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="112" column="93" severity="error" message="Parameter eX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="112" column="101" severity="error" message="Parameter eY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="113" column="25" severity="error" message="Parameter colorepedineGiocatoreCorrente should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="132" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="152" column="60" severity="error" message="Parameter y should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="152" column="67" severity="error" message="Parameter colorepedineGiocatoreCorrente should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="171" column="63" severity="error" message="Parameter x should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="171" column="70" severity="error" message="Parameter colorepedineGiocatoreCorrente should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="194" column="38" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="194" column="51" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="198" column="46" severity="error" message="Parameter sX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="198" column="54" severity="error" message="Parameter sY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="198" column="62" severity="error" message="Parameter eX should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="198" column="70" severity="error" message="Parameter eY should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="198" column="78" severity="error" message="Parameter colorePezzoCorrente should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="211" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="211" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="211" column="49" severity="error" message="Conditional logic can be removed." source="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
 <error line="213" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="227" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="227" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="227" column="49" severity="error" message="Conditional logic can be removed." source="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
-<error line="229" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="225" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="225" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="225" column="49" severity="error" message="Conditional logic can be removed." source="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
+<error line="227" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="241" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
 <error line="241" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="241" column="49" severity="error" message="Conditional logic can be removed." source="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
 <error line="243" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-<error line="255" column="46" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="255" column="59" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
-<error line="255" column="70" severity="error" message="Parameter mosse should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="255" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="255" severity="error" message="Line is longer than 120 characters (found 130)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="255" column="49" severity="error" message="Conditional logic can be removed." source="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
+<error line="257" severity="error" message="&apos;else&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="269" column="46" severity="error" message="Parameter start should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="269" column="59" severity="error" message="Parameter end should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="269" column="70" severity="error" message="Parameter mosse should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
 <error line="9" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
-<error line="9" severity="error" message="Line is longer than 120 characters (found 168)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
-<error line="13" column="32" severity="error" message="&apos;x&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="13" column="45" severity="error" message="&apos;y&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="13" column="60" severity="error" message="&apos;pezzoCorrente&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="43" column="47" severity="error" message="&apos;occupato&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="48" column="50" severity="error" message="&apos;pezzoCorrente&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
-<error line="98" column="33" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="109" column="43" severity="error" message="&apos;49&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="109" column="49" severity="error" message="&apos;7&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="119" column="41" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="133" column="50" severity="error" message="&apos;8&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="10" severity="error" message="Line is longer than 120 characters (found 122)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="14" column="32" severity="error" message="&apos;x&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="14" column="45" severity="error" message="&apos;y&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="14" column="60" severity="error" message="&apos;pezzoCorrente&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="44" column="47" severity="error" message="&apos;occupato&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="49" column="50" severity="error" message="&apos;pezzoCorrente&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="99" column="33" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="110" column="43" severity="error" message="&apos;49&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="110" column="49" severity="error" message="&apos;7&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="120" column="41" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="134" column="51" severity="error" message="&apos;8&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="134" column="57" severity="error" message="&apos;48&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
-<file name="C:\Users\Admin\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
+<file name="C:\Users\samba\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
 <error line="62" column="45" severity="error" message="Parameter x should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="62" column="52" severity="error" message="Parameter y should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
 <error line="74" severity="error" message="Line is longer than 120 characters (found 134)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>

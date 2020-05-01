@@ -22,7 +22,7 @@ public final class Re extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
-		// controllo se può mangiare pezzo
+		// controllo se puÃ² mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}

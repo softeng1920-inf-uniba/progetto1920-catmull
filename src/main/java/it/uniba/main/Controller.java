@@ -21,7 +21,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita'Â del gioco
+ * Classe che gestisce le varie funzionalita'Ã‚Â del gioco
  */
 public class Controller {
 
@@ -150,7 +150,7 @@ public class Controller {
 		else if (pezzoCorrente.getNome().equals("Pedone")
 				&& pezzoCorrente.isMossaSpecialeValida(cellaPartenza, cellaDestinazione, mosseEffettuate)) // Controllo
 																											// se l'en
-																											// Passant è
+																											// Passant Ã¨
 																											// consentito
 			return 1;
 
@@ -160,7 +160,7 @@ public class Controller {
 
 	/**
 	 *
-	 * @param comandiArr Array di comandi già convertiti
+	 * @param comandiArr Array di comandi giÃ  convertiti
 	 * @return
 	 */
 	private boolean controllaArrayComandi(ArrayList<String> comandiArr, ArrayList<String> storicoMosse) {
@@ -172,10 +172,10 @@ public class Controller {
 			if (isCoordinateValide(startX(comando), startY(comando), endX(comando), endY(comando))) {
 				Cella cellaPartenza = Scacchiera.getCella(startX(comando), startY(comando));
 				Cella cellaDestinazione = Scacchiera.getCella(endX(comando), endY(comando));
-				if (getTipoMossa(cellaPartenza, cellaDestinazione, storicoMosse) == -1) // La mossa è valida ma non
+				if (getTipoMossa(cellaPartenza, cellaDestinazione, storicoMosse) == -1) // La mossa Ã¨ valida ma non
 																						// consentita
 					return false;
-			} else // La mossa inserita non è valida, va oltre i limiti della scacchiera
+			} else // La mossa inserita non Ã¨ valida, va oltre i limiti della scacchiera
 				return false;
 			i += 1;
 		}
@@ -185,9 +185,9 @@ public class Controller {
 
 	/**
 	 * Restituisce se le coordinate (necessariamente in interi, presi dalla stringa
-	 * principale del comando) sono valide. Non posso passare le celle perchè
+	 * principale del comando) sono valide. Non posso passare le celle perchÃ¨
 	 * altrimenti se il comando non fosse valido (es. b0 b1), il sistema
-	 * controllando b0 prenderà la cella -1 e andrà in eccezione)
+	 * controllando b0 prenderÃ  la cella -1 e andrÃ  in eccezione)
 	 *
 	 * @param startX
 	 * @param startY
@@ -246,7 +246,7 @@ public class Controller {
 
 	/**
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
-	 * dall'utente è riconosciuta come notazione algebrica.
+	 * dall'utente Ã¨ riconosciuta come notazione algebrica.
 	 *
 	 * @param mossa
 	 * @return boolean

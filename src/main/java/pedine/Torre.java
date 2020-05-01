@@ -28,105 +28,50 @@ public final class Torre extends Pezzo {
 		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 		char destX = mossa.charAt(mossa.length() - 2);
 		char destY = mossa.charAt(mossa.length() - 1);
-		String cellaDestinazione = destX + "" + destY;
+		int eX = Cella.coordXinInt(destX);
+		int eY = Cella.coordYinInt(destY);
+		Colore colorepedineGiocatoreCorrente = g.getColore();
+		ArrayList<String> possibiliPosizioniColonna = new ArrayList<String>();
+		ArrayList<String> possibiliPosizioniRiga = new ArrayList<String>();
+		String posRiga = "";
+		String posColonna = "";
 		Cella cellaCorrente;
+
 		Pezzo pezzoCorrente;
 		char ambiguita = mossa.charAt(1);
 
-
-		// Controlla eventuale Cattura
-
 		if (mossa.matches(regex)) {
+
+			// Controlla eventuale Cattura
 			isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
 
 			// Controllo Ambiguita
-
 			if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
-				if (Character.isDigit(ambiguita)) {
-					cellaCorrente = Scacchiera.getCella(Cella.coordXinInt(destX), Cella.coordYinInt(ambiguita));
-					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-					if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore())
-						return destX + "" + ambiguita + " " + cellaDestinazione;
 
+				if (Character.isDigit(ambiguita)) {
+					cellaCorrente = Scacchiera.getCella(eX, Cella.coordYinInt(ambiguita));
+					pezzoCorrente = cellaCorrente.getPezzoCorrente();
+					if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente)
+						return destX + "" + ambiguita + " " + destX + "" + destY;
 				} else {
 
-					cellaCorrente = Scacchiera.getCella(Cella.coordXinInt(ambiguita), Cella.coordYinInt(destY));
+					cellaCorrente = Scacchiera.getCella(Cella.coordXinInt(ambiguita), eY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-					if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore())
-						return ambiguita + "" + destY + " " + cellaDestinazione;
-
+					if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente)
+						return ambiguita + "" + destY + " " + destX + "" + destY;
 				}
 			} else {
+				possibiliPosizioniColonna = checkPosTorreColonna(eX, colorepedineGiocatoreCorrente);
+				possibiliPosizioniRiga = checkPosTorreRiga(eY, colorepedineGiocatoreCorrente);
 
-				boolean isColonnaValida = false;
-				boolean isRigaValida = false;
-				String posRiga = "";
-				String posColonna = "";
-				ArrayList<String> possibiliPosizioniColonna = checkPosTorreColonna(cellaDestinazione, g);
-				ArrayList<String> possibiliPosizioniRiga = checkPosTorreRiga(cellaDestinazione, g);
-				if (!possibiliPosizioniColonna.isEmpty() && !possibiliPosizioniRiga.isEmpty()) {
-					int i = 0;
-
-					while (i < possibiliPosizioniColonna.size()) {
-						posColonna = possibiliPosizioniColonna.get(i);
-						isColonnaValida = isMossaValida(Cella.coordXinInt(posColonna.charAt(0)),
-								Cella.coordYinInt(posColonna.charAt(1)), Cella.coordXinInt(destX),
-								Cella.coordYinInt(destY), g.getColore());
-						if (isColonnaValida) {
-							break;
-						}
-						i++;
-					}
-					i = 0;
-					while (i < possibiliPosizioniRiga.size()) {
-						posRiga = possibiliPosizioniRiga.get(i);
-						isRigaValida = isMossaValida(Cella.coordXinInt(posRiga.charAt(0)),
-								Cella.coordYinInt(posRiga.charAt(1)), Cella.coordXinInt(destX),
-								Cella.coordYinInt(destY), g.getColore());
-						if (isRigaValida) {
-							break;
-						}
-						i++;
-					}
-					if (isColonnaValida && isRigaValida) {
-						return mossaNonValida;
-					} else if (isRigaValida) {
-						return posRiga + " " + cellaDestinazione;
-					} else
-						return posColonna + " " + cellaDestinazione;
-				} else if (!possibiliPosizioniColonna.isEmpty()) {
-					int count = 0;
-					int i = 0;
-					while (i < possibiliPosizioniColonna.size()) {
-						posColonna = possibiliPosizioniColonna.get(i);
-						isColonnaValida = isMossaValida(Cella.coordXinInt(posColonna.charAt(0)),
-								Cella.coordYinInt(posColonna.charAt(1)), Cella.coordXinInt(destX),
-								Cella.coordYinInt(destY), g.getColore());
-						if (isColonnaValida) {
-							count++;
-						}
-						i++;
-					}
-					if (count == 1)
-						return posColonna + " " + cellaDestinazione;
-
-				} else if (!possibiliPosizioniRiga.isEmpty()) {
-					int count = 0;
-					int i = 0;
-					while (i < possibiliPosizioniRiga.size()) {
-						posRiga = possibiliPosizioniRiga.get(i);
-						isRigaValida = isMossaValida(Cella.coordXinInt(posRiga.charAt(0)),
-								Cella.coordYinInt(posRiga.charAt(1)), Cella.coordXinInt(destX),
-								Cella.coordYinInt(destY), g.getColore());
-						if (isRigaValida) {
-							count++;
-						}
-						i++;
-					}
-					if (count == 1)
-						return posRiga + " " + cellaDestinazione;
-				}
-
+				posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
+				posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
+				if (!posColonna.equals(mossaNonValida) && !posRiga.equals(mossaNonValida)) {
+					return mossaNonValida;
+				} else if (!posColonna.equals(mossaNonValida))
+					return posColonna;
+				else if (!posRiga.equals(mossaNonValida))
+					return posRiga;
 			}
 		}
 
@@ -134,18 +79,88 @@ public final class Torre extends Pezzo {
 
 	}
 
-	private static ArrayList<String> checkPosTorreRiga(String cellafinale, Giocatore g) {
+	private static String posizioneValidaColonna(ArrayList<String> possibiliPosizioniColonna, int eX, int eY,
+			Colore colorepedineGiocatoreCorrente) {
+		String posColonna = "";
+		String temp;
+		int sX = 0;
+		int sY = 0;
 
-		int y = Cella.coordYinInt(cellafinale.charAt(1));
+		int count = 0;
+		int i = 0;
+
+		while (i < possibiliPosizioniColonna.size()) {
+			temp = possibiliPosizioniColonna.get(i);
+			sX = Cella.coordXinInt(temp.charAt(0));
+			sY = Cella.coordYinInt(temp.charAt(1));
+			if (isMossaValida(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {
+				count++;
+				posColonna = temp + " " + Cella.coordXinChar(eX) + "" + Cella.coordYinChar(eY);
+			}
+			i++;
+		}
+		if (count == 1)
+			return posColonna;
+
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniColonna sono
+		// presente due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
+
+	}
+
+	private static String posizioneValidaRiga(ArrayList<String> possibiliPosizioniRiga, int eX, int eY,
+			Colore colorepedineGiocatoreCorrente) {
+
+		String posRiga = "";
+		String temp;
+		int sX = 0;
+		int sY = 0;
+		int count = 0;
+		int i = 0;
+		while (i < possibiliPosizioniRiga.size()) {
+			temp = possibiliPosizioniRiga.get(i);
+			sX = Cella.coordXinInt(temp.charAt(0));
+			sY = Cella.coordYinInt(temp.charAt(1));
+
+			if (isMossaValida(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {
+				count++;
+				posRiga = temp + " " + Cella.coordXinChar(eX) + "" + Cella.coordYinChar(eY);
+			}
+			i++;
+		}
+		if (count == 1)
+			return posRiga;
+
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presente
+		// due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
+	}
+
+	/**
+	 * Metodo che cerca le possibili posizioni della torre nella scacchiera
+	 * 
+	 * conoscendo la cella di destinazione data dall'utente. restituisce un vettore
+	 * di stringhe contenente tutte le possibili posizioni
+	 * 
+	 * 
+	 * @param cellafinale
+	 * @param g
+	 * @return ArrayList<String>
+	 */
+	private static ArrayList<String> checkPosTorreRiga(int y, Colore colorepedineGiocatoreCorrente) {
+
+		// int y = Cella.coordYinInt(destY);
 		ArrayList<String> possibiliPosizioni = new ArrayList<String>();
 		int numTorre = 0;
 
 		for (int x = 0; x < Scacchiera.getNumeroRighe(); x++) {
 			Cella cellaCorrente = Scacchiera.getCella(x, y);
 			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
-			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore()
+			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
 					&& pezzoCorrente.getNome().equals("Torre")) {
-				possibiliPosizioni.add(numTorre, (char) (x + 97) + "" + cellafinale.charAt(1));
+				possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
 				numTorre++;
 			}
 		}
@@ -153,21 +168,20 @@ public final class Torre extends Pezzo {
 		return possibiliPosizioni;
 	}
 
-	private static ArrayList<String> checkPosTorreColonna(String cellafinale, Giocatore g) {
+	private static ArrayList<String> checkPosTorreColonna(int x, Colore colorepedineGiocatoreCorrente) {
 
 		ArrayList<String> possibiliPosizioni = new ArrayList<String>();
 		int numTorre = 0;
 
-		int x = Cella.coordXinInt(cellafinale.charAt(0));
+		// int x = Cella.coordXinInt(destX);
 
 		for (int y = 0; y < Scacchiera.getNumeroColonne(); y++) {
 
 			Cella cellaCorrente = Scacchiera.getCella(x, y);
 			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
-			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore()
+			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
 					&& pezzoCorrente.getNome().equals("Torre")) {
-				possibiliPosizioni.add(numTorre,
-						cellafinale.charAt(0) + "" + Math.abs(y - Scacchiera.getNumeroColonne()));
+				possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
 				numTorre++;
 			}
 		}
