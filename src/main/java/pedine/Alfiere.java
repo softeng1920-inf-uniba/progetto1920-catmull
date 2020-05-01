@@ -100,48 +100,9 @@ public final class Alfiere extends Pezzo {
 				return mossaConvertita;
 			}
 		}
-		if (mossa.matches("[A][1-8][x|:][a-h][1-8]")) {// mangia con ambiguit� sulle righe(numeri)
-			endX = Cella.coordXinInt(mossa.charAt(3));
-			endY = Cella.coordYinInt(mossa.charAt(4));
-			startY = Cella.coordYinInt(mossa.charAt(1));
-		}
-		if (mossa.matches("[A][a-h][x|:][a-h][1-8]")) {// mangia con ambiguit� sulle colonne(lettere)
-			endX = Cella.coordXinInt(mossa.charAt(3));
-			endY = Cella.coordYinInt(mossa.charAt(4));
-			startX = Cella.coordXinInt(mossa.charAt(1));
-
-		}
-		if (mossa.matches("[A][1-8][a-h][1-8]")) {// si muove con ambiguit� sulle righe
-			endX = Cella.coordXinInt(mossa.charAt(2));
-			endY = Cella.coordYinInt(mossa.charAt(3));
-			startY = Cella.coordYinInt(mossa.charAt(1));
-		}
-		if (mossa.matches("[A][a-h][a-h][1-8]")) {// si muove con ambiguit� sulle colonne
-			endX = Cella.coordXinInt(mossa.charAt(2));
-			endY = Cella.coordYinInt(mossa.charAt(3));
-			startX = Cella.coordXinInt(mossa.charAt(1));
-		}
-		if (startX != -1) {
-			for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {
-				if (Scacchiera.getNomePezzo(startX, i) == "Alfiere"
-						&& Scacchiera.getCella(startX, i).getPezzoCorrente().getColore() == g.getColore()) {
-					startY = i;
-					break;
-				}
-			}
-
-		} else if (startY != -1) {
-			for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
-				if (Scacchiera.getNomePezzo(i, startY) == "Alfiere"
-						&& Scacchiera.getCella(i, startY).getPezzoCorrente().getColore() == g.getColore()) {
-					startX = i;
-					break;
-				}
-			}
-
-		}
+    
 		// aumenta x e aumenta y
-		for (int i = 1; endX + i < Scacchiera.getNumeroColonne() && endY + i < Scacchiera.getNumeroRighe(); i++) {
+		for (int i = 1; Scacchiera.isRangeValido(endX + i, endY + i); i++) {
 			if (Scacchiera.getNomePezzo(endX + i, endY + i) == "Alfiere"
 					&& Scacchiera.getCella(endX + i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
 				startX = endX + i;
@@ -151,7 +112,7 @@ public final class Alfiere extends Pezzo {
 			}
 		}
 		// aumenta x e diminuisce y
-		for (int i = 1; endX + i < Scacchiera.getNumeroColonne() && endY - i < Scacchiera.getNumeroRighe(); i++) {
+		for (int i = 1; Scacchiera.isRangeValido(endX + i, endY - i); i++) {
 			if (Scacchiera.getNomePezzo(endX + i, endY - i) == "Alfiere"
 					&& Scacchiera.getCella(endX + i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
 				startX = endX + i;
@@ -161,7 +122,7 @@ public final class Alfiere extends Pezzo {
 			}
 		}
 		// diminuisce x e aumenta y
-		for (int i = 1; endX - i < Scacchiera.getNumeroColonne() && endY + i < Scacchiera.getNumeroRighe(); i++) {
+		for (int i = 1; Scacchiera.isRangeValido(endX - i, endY + i); i++) {
 			if (Scacchiera.getNomePezzo(endX - i, endY + i) == "Alfiere"
 					&& Scacchiera.getCella(endX - i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
 				startX = endX - i;
@@ -171,7 +132,7 @@ public final class Alfiere extends Pezzo {
 			}
 		}
 		// diminuisce x e diminuisce y
-		for (int i = 1; endX - i < Scacchiera.getNumeroColonne() && endY - i < Scacchiera.getNumeroRighe(); i++) {
+		for (int i = 1; Scacchiera.isRangeValido(endX - i, endY - i); i++) {
 			if (Scacchiera.getNomePezzo(endX - i, endY - i) == "Alfiere"
 					&& Scacchiera.getCella(endX - i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
 				startX = endX - i;

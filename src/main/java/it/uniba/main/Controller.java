@@ -219,15 +219,6 @@ public class Controller {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			switch(comando) {
-				case "y":
-					return true;
-				case "n":
-					return false;
-				default:
-					System.out.println("Il comando inserito non e' valido. Riprova \n");
-
-			}
 		}
 
 	}
@@ -261,9 +252,8 @@ public class Controller {
 	 * @return boolean
 	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
-		String regex = String.join("|", new String[] { "[a-h][1-8]", // mossa del pedone
-				"[a-h](x|:)([a-h][1-8])( e.p.)?", // cattura del pedone, con possibilità dell'en passant
-				"D(x|:)?[a-h][1-8]", // mossa della regina
+		String regex = String.join("|", new String[] { "([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
+				"D([x|:])?[a-h][1-8]", // mossa della regina
 				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
 				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
 				"[A](x|:)?[a-h][1-8]", // mossa alfiere
@@ -344,19 +334,23 @@ public class Controller {
 	public void stampaMosseGiocate() {
 		String mossa = null;
 		int counter = 1;
-		System.out.println("Storia delle mosse giocate");
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		for (int i = 0; i < dimensione; i++) {
-			if (i == dimensione - 1) {
-				mossa = counter + ". " + fusioneListe().get(i);
-				System.out.println(mossa);
-			} else {
-				mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i + 1);
-				System.out.println(mossa);
+		if (dimensione == 0) {
+			System.out.println("Non e' stata giocata alcuna mossa");
+		} else {
+			System.out.println("Storia delle mosse giocate");
+			for (int i = 0; i < dimensione; i++) {
+				if (i == dimensione - 1) {
+					mossa = counter + ". " + fusioneListe().get(i);
+					System.out.println(mossa);
+				} else {
+					mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i + 1);
+					System.out.println(mossa);
+				}
+				i++;
+				counter++;
 			}
-			i++;
-			counter++;
 		}
 	}
 
