@@ -61,7 +61,7 @@ public final class Cavallo extends Pezzo {
 		String mossaConvertita = "a0 a0";
 
 		//esempio: Cdxe4
-		if (mossa.matches("[C][a-h][x|:]([a-h][1-8])")) {
+		if (mossa.matches("C[a-h][x|:]([a-h][1-8])")) {
 			startX = Cella.coordXinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
@@ -70,7 +70,7 @@ public final class Cavallo extends Pezzo {
 			}
 		}
 		//esempio: Cxe4
-		if (mossa.matches("[C][x|:]([a-h][1-8])")) {
+		if (mossa.matches("C[x|:]([a-h][1-8])")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
@@ -78,7 +78,7 @@ public final class Cavallo extends Pezzo {
 			}
 		}
 		//esempio: C6xe4
-		if (mossa.matches("[C][1-8][x|:]([a-h][1-8])")) {
+		if (mossa.matches("C[1-8][x|:]([a-h][1-8])")) {
 			startY= Cella.coordYinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(3));
 			endY = Cella.coordYinInt(mossa.charAt(4));
@@ -87,7 +87,7 @@ public final class Cavallo extends Pezzo {
 			}
 		}
 		//esempio: Cde4
-		if (mossa.matches("[C][a-h]([a-h][1-8])")) {
+		if (mossa.matches("C[a-h]([a-h][1-8])")) {
 			startX = Cella.coordXinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
@@ -96,7 +96,7 @@ public final class Cavallo extends Pezzo {
 			}
 		}
 		//esempio: C3e4
-		if (mossa.matches("[C][1-8]([a-h][1-8])")) {
+		if (mossa.matches("C[1-8]([a-h][1-8])")) {
 			startY = Cella.coordYinInt(mossa.charAt(1));
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
@@ -105,7 +105,7 @@ public final class Cavallo extends Pezzo {
 			}
 		}
 		//esempio: Ce4
-		if (mossa.matches("[C]([a-h][1-8])")) {
+		if (mossa.matches("C([a-h][1-8])")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {

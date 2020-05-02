@@ -11,7 +11,6 @@ public class Menu {
 	private static Comando board;
 	private static Comando captures;
 	private static Comando play;
-	private static Comando back;
 
 	public static void newMenu() {
 		help = new Comando("Help", "Visualizza nome e descrizione dell'elenco comandi");
@@ -20,7 +19,6 @@ public class Menu {
 		board = new Comando("Board", "Visualizza la posizione sulla scacchiera");
 		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
 		play = new Comando("Play", "Inizia una nuova partita");
-		back = new Comando("Menu", "Ritorna al menu principale");
 
 	}
 
@@ -76,8 +74,4 @@ public class Menu {
 	 * back consente di chiamare il comando "back" in controller
 	 * @return back
 	 */
-	public static Comando back() {
-		return back;
-	}
-
 }

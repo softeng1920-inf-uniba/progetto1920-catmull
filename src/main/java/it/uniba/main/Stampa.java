@@ -257,12 +257,11 @@ public class Stampa {
 	 */
 	public static void mostrareElencoComandiGioco() {
 		System.out.println();
-		System.out.println(Menu.back().toString());
 		System.out.println(Menu.play().toString());
+		System.out.println(Menu.quit().toString());
 		System.out.println(Menu.board().toString());
 		System.out.println(Menu.captures().toString());
 		System.out.println(Menu.moves().toString());
-		System.out.println(Menu.quit().toString());
 		System.out.println(Menu.help().toString());
 		System.out.println();
 	}

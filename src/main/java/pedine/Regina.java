@@ -130,14 +130,14 @@ public final class Regina extends Pezzo {
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
 		// mossa semplice
-		if (mossa.matches("(D)[a-h][1-8]")) {
+		if (mossa.matches("D[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota")
 				return mossaConvertita;
 		}
 		// mossa di cattura
-		if (mossa.matches("(D)(x|:)[a-h][1-8]")) {
+		if (mossa.matches("D(x|:)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")

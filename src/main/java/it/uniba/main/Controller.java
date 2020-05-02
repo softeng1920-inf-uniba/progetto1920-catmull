@@ -63,8 +63,6 @@ public class Controller {
 					Stampa.mostrareElencoComandiGioco();
 				} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
 					Stampa.stampaScacchiera();
-				} else if (comando.equalsIgnoreCase(Menu.back().getNome())) {
-					Stampa.stampaMenu();
 				} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
 					Stampa.stampaMosseGiocate(t);
 				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
@@ -223,7 +221,7 @@ public class Controller {
 	 */
 	private boolean isComandoValido(final String comando) {
 
-		if (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.back().getNome())
+		if (comando.equalsIgnoreCase(Menu.help().getNome())
 				|| comando.equalsIgnoreCase(Menu.board().getNome())
 				|| comando.equalsIgnoreCase(Menu.captures().getNome())
 				|| comando.equalsIgnoreCase(Menu.moves().getNome())
@@ -246,8 +244,8 @@ public class Controller {
 				"D([x|:])?[a-h][1-8]", // mossa della regina
 				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
 				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
-				"[A](x|:)?[a-h][1-8]", // mossa alfiere
-				"(R)(x|:)?[a-h][1-8]" // mossa del re
+				"A(x|:)?[a-h][1-8]", // mossa alfiere
+				"R(x|:)?[a-h][1-8]" // mossa del re
 		});
 
 		return mossa.matches(regex);
