@@ -144,8 +144,7 @@ public final class Alfiere extends Pezzo {
 
 		if (Scacchiera.isRangeValido(startX, startY) && Scacchiera.getCella(startX, startY).isOccupato()) {
 
-			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
-					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}
 		System.out.println(mossaConvertita);
 		return mossaConvertita;

@@ -216,10 +216,7 @@ public final class Cavallo extends Pezzo {
 		}
 		if (Scacchiera.isRangeValido(startX, startY) && Scacchiera.getCella(startX, startY).isOccupato() &&
 				ambiguita <= 1) {
-				mossaConvertita = Cella.coordXinChar(startX) + "" +
-						+ Cella.coordYinChar(startY) + " "
-						+ Cella.coordXinChar(endX) + "" +
-						+ Cella.coordYinChar(endY);
+				mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 			}
 		return mossaConvertita;
 	}

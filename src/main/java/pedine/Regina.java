@@ -158,8 +158,7 @@ public final class Regina extends Pezzo {
 		}
 		// solo se ha trovato la regina ha senso convertire la mossa
 		if (startX != -1 && startY != -1) {
-			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
-					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}
 		return mossaConvertita;
 	}
