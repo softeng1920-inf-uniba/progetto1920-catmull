@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import it.uniba.main.Colore;
 import scacchiera.Cella;
-import scacchiera.Scacchiera;
 
 /**
  * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
