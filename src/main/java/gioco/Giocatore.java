@@ -46,7 +46,6 @@ public class Giocatore {
 			while (nome.equals("")) {
 				nome = br.readLine();
 				if (nome.equals("")) {
-					Stampa.stampaComandoErrato();
 					Stampa.stampaInserireGiocatore(colore);
 				}
 			}

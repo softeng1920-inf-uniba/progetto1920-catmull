@@ -5,10 +5,20 @@ import scacchiera.*;
 import pedine.*;
 
 public class Stampa {
-
-	public Stampa() {
-		// TODO Auto-generated constructor stub
-	}
+	//colore carattere e font
+	private static final String WHITE_BOLD = "\033[1;37m";
+	private static final String WHITE_BOLD_BRIGHT = "\033[1;97m";
+	private static final String BLACK_UNDERLINED = "\033[4;30m";
+	private static final String WHITE_UNDERLINED = "\033[4;37m";
+    private static final String WHITE_UNDERLINED_BRIGHT = "\033[4;97m";
+    
+	//sfondo cella
+    private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m"; //grigio
+    private static final String ANSI_WHITE_BACKGROUND_BRIGHT = "\033[0;107m"; //bianco
+    
+    //reset sfondo e carattere a default
+    private static final String ANSI_RESET = "\u001B[0m";
+    
 
 	/**
 	 * Stampa a video il simbolo del pezzo in input
@@ -16,7 +26,7 @@ public class Stampa {
 	 * @param p
 	 */
 	private static void disegnaPezzo(Pezzo p) {
-		System.out.print(p.getSimbolo());
+		System.out.print("\033[1;30m" + p.getSimbolo());
 	}
 
 	/**
@@ -38,29 +48,85 @@ public class Stampa {
 	 * stampa nella console la scacchiera
 	 */
 	public static final void stampaScacchiera() {
-		System.out.println("      a     b     c     d     e     f     g     h");
+		boolean cost;
+		System.out.println("      a   b    c    d    e    f    g    h");
 		for (int j = 8; j > 0; j--) {
-			System.out.println("  --------------------------------------------------");
-			System.out.print(j + "  ");
+			if(j%2==0) {
+				cost=false;
+			} else {
+				cost=true;
+			}
+			System.out.print("   ");
 			for (int i = 0; i < 8; i++) {
-				System.out.print("| ");
+				if(cost) {
+					if(i%2==0) {
+						System.out.print(ANSI_WHITE_BACKGROUND  + " ");
+					}else {
+						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
+					}
+				} else {
+					if(i%2==0) {
+						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
+					}else {
+						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+					}
+				}
+				System.out.print("    ");
+				System.out.print(ANSI_RESET);
+			}
+			System.out.println();
+			System.out.print(j + "  ");
+			
+			for (int i = 0; i < 8; i++) {
+				if(cost) {
+					if(i%2==0) {
+						System.out.print(ANSI_WHITE_BACKGROUND  + " ");
+					}else {
+						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
+					}
+				} else {
+					if(i%2==0) {
+						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
+					}else {
+						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+					}
+				}
 				stampaPezzo(Scacchiera.getCella(i, Math.abs(j - 8)));
 				System.out.print("  ");
+				System.out.print(ANSI_RESET);
 			}
-			System.out.print("|");
+			System.out.print(ANSI_RESET);
 			System.out.println("  " + j);
+			System.out.print("   ");
+			for (int i = 0; i < 8; i++) {
+				if(cost) {
+					if(i%2==0) {
+						System.out.print(ANSI_WHITE_BACKGROUND  + " ");
+					}else {
+						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
+					}
+				} else {
+					if(i%2==0) {
+						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
+					}else {
+						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+					}
+				}
+				System.out.print("    ");
+				System.out.print(ANSI_RESET);
+			}
+			
+			System.out.println();
+			
 		}
-		System.out.println("  --------------------------------------------------");
-		System.out.println("      a     b     c     d     e     f     g     h");
+		System.out.println("      a   b    c    d    e    f    g    h");
 	}
 
 	/**
 	 * stampa a video il messaggio di introduzione del gioco
 	 */
-	public static void stampaIntroPlay() {
-		System.out.println("Benvenuto nel gioco degli scacchi");
-		System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
-		System.out.println("\u2022" + " Digita 'Help' per visualizzare l'elenco dei comandi.");
+	public static void stampaIntro() {
+		//stampa iniziale
 	}
 
 	/**
@@ -68,42 +134,56 @@ public class Stampa {
 	 * @param g
 	 */
 	public static void stampaTurno(Giocatore g) {
-		System.out.println("\nE' il turno di " + g.getNome() + " con le pedine di colore " + g.getColore() + ".");
+		if(g.getColore() == Colore.bianco) {
+			System.out.println("\nE' il turno di " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT + g.getNome() + ANSI_RESET + " con le pedine di colore "
+					+ WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT + g.getColore() + ANSI_RESET + ".");
+		} else {
+			System.out.println("\nE' il turno di " + WHITE_BOLD + WHITE_UNDERLINED + g.getNome() + ANSI_RESET +  " con le pedine di colore "
+					+ WHITE_BOLD + WHITE_UNDERLINED + g.getColore() + ANSI_RESET + ".");
+		}
 
 		System.out.println(
-				"-> Inserisci una mossa nella notazione algebrica (es. e4, Cxd3, exd3 e.p.); altrimenti digita una voce del menu.");
+				"-> Inserisci una mossa nella notazione algebrica (es. e4, Cxd3, exd3 e.p.), altrimenti digita una voce del menu.");
 	}
 
 	/**
 	 * stampa a video i comandi
 	 */
-	public static void stampaComandi() {
+	public static void stampaMenu() {
 		System.out.println();
-		System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
-		System.out.println("Digitare help per visualizzare la lista dei comandi");
-		return;
+		System.out.println("\u265A" + "\u265B" + WHITE_BOLD_BRIGHT + "  MENU PRINCIPALE " + ANSI_RESET + "\u2655" + "\u2656" + " \n");
+		mostrareElencoComandiMenu();
 	}
 
 	/**
 	 * stampa a video il messaggio illegale
 	 */
 	public static void stampaMossaIllegale() {
-		System.out.println("Mossa Illegale");
+		System.out.println(WHITE_BOLD_BRIGHT + "Mossa Illegale!" + ANSI_RESET);
 	}
 
 	/**
 	 * stampa a video il messaggio comando errato
 	 */
 	public static void stampaComandoErrato() {
-		System.out.println("Comando errato. Riprova!");
+		System.out.println(WHITE_BOLD_BRIGHT + "Comando errato. Riprova!" + ANSI_RESET);
 	}
 
 	/**
-	 * stampa a video il messaggio per iniziare una nuova partita
+	 * stampa a video il messaggio di conferma per iniziare una nuova partita
+	 */
+	public static void stampaConfermaNuovaPartita() {
+		System.out.println();
+		System.out.println(
+				"Sei sicuro di voler iniziare una nuova partita? \n(Digita 'y' per confermare, 'n' altrimenti)");
+		
+	}
+	
+	/**
+	 * Stampa a video messaggio nuova partita.
 	 */
 	public static void stampaNuovaPartita() {
-		System.out.println(
-				"Sei sicuro di voler iniziare una nuova partita? \n (Digita 'y' per confermare, 'n' altrimenti)");
+		System.out.println("\n" + WHITE_BOLD + "~ Nuova partita ~" + ANSI_RESET);
 	}
 	
 	/**
@@ -112,7 +192,7 @@ public class Stampa {
 	 */
 	private static void stampaPezziCatturati(Giocatore g) {
 
-		System.out.println("Pezzi catturati dal giocatore " + g.getNome().toUpperCase() + ":");
+		System.out.println("\nPezzi catturati dal giocatore " + WHITE_BOLD_BRIGHT + g.getNome().toUpperCase() + ANSI_RESET + ":");
 		for (Pezzo pezzoMangiato : g.getPezziCatturati()) {
 			System.out.println(pezzoMangiato);
 		}
@@ -132,7 +212,7 @@ public class Stampa {
 			if (!giocatoreAttesa.isEmptyPezziCatturati()) // Se il giocatore in attesa ha catturato dei pezzi, li stampo
 				stampaPezziCatturati(giocatoreAttesa);
 		} else
-			System.out.println("Non ci sono pezzi catturati da entrambi i giocatori.");
+			System.out.println("\nNon ci sono pezzi catturati da entrambi i giocatori.");
 	}
 
 	/**
@@ -144,9 +224,9 @@ public class Stampa {
 		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
 				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
 		if (dimensione == 0) {
-			System.out.println("Non e' stata giocata alcuna mossa");
+			System.out.println("\nNon e' stata giocata alcuna mossa.");
 		} else {
-			System.out.println("Storia delle mosse giocate");
+			System.out.println("\nStoria delle mosse giocate: ");
 			for (int i = 0; i < dimensione; i++) {
 				if (i == dimensione - 1) {
 					mossa = counter + ". " + t.fusioneListe().get(i);
@@ -165,21 +245,26 @@ public class Stampa {
 	 * Permette la visualizzazione dell' elenco dei comandi del menu principale
 	 */
 	public static void mostrareElencoComandiMenu() {
-		System.out.println(Menu.quit().toString());
 		System.out.println(Menu.play().toString());
+		System.out.println(Menu.quit().toString());
 		System.out.println(Menu.board().toString());
+		System.out.println(Menu.help().toString());
+		System.out.println();
 	}
 
 	/**
 	 * Permette la visualizzazione dell' elenco dei comandi del menu di gioco
 	 */
 	public static void mostrareElencoComandiGioco() {
+		System.out.println();
 		System.out.println(Menu.back().toString());
 		System.out.println(Menu.play().toString());
 		System.out.println(Menu.board().toString());
 		System.out.println(Menu.captures().toString());
 		System.out.println(Menu.moves().toString());
 		System.out.println(Menu.quit().toString());
+		System.out.println(Menu.help().toString());
+		System.out.println();
 	}
 
 	/**
@@ -187,7 +272,12 @@ public class Stampa {
 	 * @param c
 	 */
 	public static void stampaInserireGiocatore(Colore c) {
-		System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + c + " \u2193");
+		if(c == Colore.bianco) {
+			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " +  WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT + c + ANSI_RESET + " \u2193");
+		} else {
+			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + BLACK_UNDERLINED + WHITE_BOLD + c + ANSI_RESET + " \u2193");
+		}
+		
 	}
 	
 	

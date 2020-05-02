@@ -35,7 +35,8 @@ public final class AppMain {
 		Controller c = new Controller();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Menu.newMenu();
-		Stampa.stampaIntroPlay();
+		Stampa.stampaIntro();
+		Stampa.stampaMenu();
 
 		while (true) {
 			String nomeMenu = br.readLine();
@@ -47,6 +48,7 @@ public final class AppMain {
 			} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
 				c.chiudiGioco();
 			} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
+				Stampa.stampaNuovaPartita();
 				c.playGame();
 			} else {
 				Stampa.stampaComandoErrato();

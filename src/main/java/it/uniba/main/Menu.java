@@ -14,7 +14,7 @@ public class Menu {
 	private static Comando back;
 
 	public static void newMenu() {
-		help = new Comando("Help", "");
+		help = new Comando("Help", "Visualizza nome e descrizione dell'elenco comandi");
 		moves = new Comando("Moves", "Visualizza la cronologia delle mosse giocate");
 		quit = new Comando("Quit", "Esci dal gioco");
 		board = new Comando("Board", "Visualizza la posizione sulla scacchiera");

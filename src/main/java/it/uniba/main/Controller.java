@@ -45,7 +45,6 @@ public class Controller {
 			
 			Scacchiera.inizializzaScacchiera();
 
-			Stampa.stampaComandi();
 			t = new Turno();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -65,7 +64,7 @@ public class Controller {
 				} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
 					Stampa.stampaScacchiera();
 				} else if (comando.equalsIgnoreCase(Menu.back().getNome())) {
-					Stampa.stampaComandi();
+					Stampa.stampaMenu();
 				} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
 					Stampa.stampaMosseGiocate(t);
 				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
@@ -74,6 +73,7 @@ public class Controller {
 					chiudiGioco();
 				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 					if (utenteConfermaRiavvioPartita()) {
+						Stampa.stampaNuovaPartita();
 						utenteVuoleRicominciare = true;
 						new Scacchiera(); // Svuoto la scacchiera
 						break;
@@ -193,7 +193,7 @@ public class Controller {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Stampa.stampaNuovaPartita();
+		Stampa.stampaConfermaNuovaPartita();
 		while (true) {
 			try {
 				comando = br.readLine();
