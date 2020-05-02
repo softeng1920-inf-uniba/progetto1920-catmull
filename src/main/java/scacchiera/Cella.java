@@ -16,16 +16,7 @@ public final class Cella {
 		this.pezzoCorrente = pezzoCorrente;
 	}
 
-	/** Disegna il pezzo che contiene in output */
-	void stampaPezzo() {
-		if (pezzoCorrente != null) {
-			System.out.print(" ");
-			pezzoCorrente.disegnapezzo();
-		} else {
-			System.out.print("  ");
-		}
 
-	}
 
 	// ---------Metodi di setting---------
 

@@ -147,7 +147,6 @@ public final class Alfiere extends Pezzo {
 			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
 					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
 		}
-		System.out.println(mossaConvertita);
 		return mossaConvertita;
 
 	}

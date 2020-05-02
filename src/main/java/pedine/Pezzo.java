@@ -1,10 +1,9 @@
 package pedine;
 
 import java.util.ArrayList;
-
 import it.uniba.main.Colore;
-import scacchiera.Cella;
-import scacchiera.Scacchiera;
+import scacchiera.*;
+
 
 /**
  * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
@@ -29,14 +28,7 @@ public abstract class Pezzo {
 		vivo = true;
 	}
 
-	/**
-	 * Disegnapezzo consente di rappresentare il pezzo nella scacchiera
-	 *
-	 */
 
-	public void disegnapezzo() {
-		System.out.print(this.simbolo);
-	}
 
 	// --------Metodi di setting --------
 

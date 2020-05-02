@@ -26,12 +26,10 @@ import scacchiera.Scacchiera;
 public class Controller {
 
 	private Turno t;
-	private Menu menu;
 	private ArrayList<String> mosseConvertite;
 
 	public Controller() {
 		mosseConvertite = new ArrayList<String>();
-		menu = new Menu();
 		new Scacchiera();
 
 	}
@@ -42,14 +40,12 @@ public class Controller {
 	final void playGame() {
 
 		boolean utenteVuoleRicominciare = false;
-
+		Menu.newMenu();
 		do {
-
+			
 			Scacchiera.inizializzaScacchiera();
 
-			System.out.println("Benvenuto nel gioco degli scacchi.");
-			System.out.println("\n\u2022" + " Digita 'Menu' per tornare al menu principale.");
-			System.out.println("\u2022" + " Digita 'Help' per visualizzare l'elenco dei comandi.");
+			Stampa.stampaComandi();
 			t = new Turno();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -57,34 +53,26 @@ public class Controller {
 
 			while (true) {
 
-				System.out.println("\nE' il turno di " + t.getGiocatoreInTurno().getNome() + " con le pedine di colore "
-						+ t.getGiocatoreInTurno().getColore() + ".");
-
-				System.out.println(
-						"-> Inserisci una mossa nella notazione algebrica (es. e4, exd3, exd3 e.p.); altrimenti digita una voce del menu.");
-
+				Stampa.stampaTurno(t.getGiocatoreInTurno());
 				try {
 					comando = br.readLine();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				System.out.println("\n");
 
-				if (comando.equalsIgnoreCase(menu.help().getNome())) {
-					mostrareElencoComandiGioco();
-				} else if (comando.equalsIgnoreCase(menu.board().getNome())) {
-					Scacchiera.stampa();
-				} else if (comando.equalsIgnoreCase(menu.back().getNome())) {
-					System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
-					System.out.println("Digitare help per visualizzare la lista dei comandi");
-					return;
-				} else if (comando.equalsIgnoreCase(menu.moves().getNome())) {
-					stampaMosseGiocate();
-				} else if (comando.equalsIgnoreCase(menu.captures().getNome())) {
-					visualizzareCatture();
-				} else if (comando.equalsIgnoreCase(menu.quit().getNome())) {
+				if (comando.equalsIgnoreCase(Menu.help().getNome())) {
+					Stampa.mostrareElencoComandiGioco();
+				} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
+					Stampa.stampaScacchiera();
+				} else if (comando.equalsIgnoreCase(Menu.back().getNome())) {
+					Stampa.stampaComandi();
+				} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
+					Stampa.stampaMosseGiocate(t);
+				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
+					Stampa.visualizzareCatture(t);
+				} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
 					chiudiGioco();
-				} else if (comando.equalsIgnoreCase(menu.play().getNome())) {
+				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 					if (utenteConfermaRiavvioPartita()) {
 						utenteVuoleRicominciare = true;
 						new Scacchiera(); // Svuoto la scacchiera
@@ -117,11 +105,11 @@ public class Controller {
 						t.cambioTurno();
 
 					} else {
-						System.out.println("Mossa illegale.");
+						Stampa.stampaMossaIllegale();
 					}
 				} else if (!isComandoValido(comando)) {
 
-					System.out.println("Comando non corretto. Riprova!");
+					Stampa.stampaComandoErrato();
 
 				}
 			}
@@ -150,7 +138,8 @@ public class Controller {
 		else if (pezzoCorrente.getNome().equals("Pedone")
 				&& pezzoCorrente.isMossaSpecialeValida(cellaPartenza, cellaDestinazione, mosseEffettuate)) // Controllo
 																											// se l'en
-																											// Passant è
+																											// Passant
+																											// è
 																											// consentito
 			return 1;
 
@@ -204,8 +193,8 @@ public class Controller {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
-		while( true ) {
+		Stampa.stampaNuovaPartita();
+		while (true) {
 			try {
 				comando = br.readLine();
 				switch (comando) {
@@ -214,7 +203,7 @@ public class Controller {
 				case "n":
 					return false;
 				default:
-					System.out.println("Il comando inserito non e' valido. Riprova \n");
+					Stampa.stampaComandoErrato();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -234,11 +223,11 @@ public class Controller {
 	 */
 	private boolean isComandoValido(final String comando) {
 
-		if (comando.equalsIgnoreCase(menu.help().getNome()) || comando.equalsIgnoreCase(menu.back().getNome())
-				|| comando.equalsIgnoreCase(menu.board().getNome())
-				|| comando.equalsIgnoreCase(menu.captures().getNome())
-				|| comando.equalsIgnoreCase(menu.moves().getNome())
-				|| comando.equalsIgnoreCase(menu.quit().getNome())) {
+		if (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.back().getNome())
+				|| comando.equalsIgnoreCase(Menu.board().getNome())
+				|| comando.equalsIgnoreCase(Menu.captures().getNome())
+				|| comando.equalsIgnoreCase(Menu.moves().getNome())
+				|| comando.equalsIgnoreCase(Menu.quit().getNome())) {
 			return true;
 		}
 		return false;
@@ -252,7 +241,8 @@ public class Controller {
 	 * @return boolean
 	 */
 	private boolean isNotazioneAlgebrica(final String mossa) {
-		String regex = String.join("|", new String[] { "([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
+		String regex = String.join("|", new String[] { 
+				"([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
 				"D([x|:])?[a-h][1-8]", // mossa della regina
 				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
 				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
@@ -263,120 +253,8 @@ public class Controller {
 		return mossa.matches(regex);
 	}
 
-	/**
-	 * Mostra le catture di entrambi i giocatori
-	 */
-	private void visualizzareCatture() {
-
-		Giocatore giocatoreAttivo = t.getGiocatoreInTurno();
-		Giocatore giocatoreAttesa = t.getGiocatoreInAttesa();
-		if (!giocatoreAttivo.isEmptyPezziCatturati() || !giocatoreAttesa.isEmptyPezziCatturati()) {
-			if (!giocatoreAttivo.isEmptyPezziCatturati()) // Se il giocatore attivo ha catturato dei pezzi, li stampo
-				giocatoreAttivo.stampaPezziCatturati();
-
-			if (!giocatoreAttesa.isEmptyPezziCatturati()) // Se il giocatore in attesa ha catturato dei pezzi, li stampo
-				giocatoreAttesa.stampaPezziCatturati();
-		} else
-			System.out.println("Non ci sono pezzi catturati da entrambi i giocatori.");
-	}
-
-	/**
-	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
-	 * La fusione avviene in modo alternato. Permette di avere una visione completa
-	 * delle mosse giocate totali.
-	 *
-	 * @return ArrayList di stringhe.
-	 */
-	private ArrayList<String> fusioneListe() {
-		int i, j, k;
-		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
-				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
-		if (t.getGiocatoreInTurno().getColore() == Colore.bianco) {
-			i = 0;
-			j = 0;
-			k = 0;
-			while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate()
-					&& j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
-				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(i++));
-				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(j++));
-			}
-			while (i < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
-				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(i++));
-			}
-			while (j < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
-				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(j++));
-			}
-		} else {
-			i = 0;
-			j = 0;
-			k = 0;
-			while (i < t.getGiocatoreInAttesa().getNumeroMosseGiocate()
-					&& j < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
-				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(i++));
-				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(j++));
-			}
-			while (i < t.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
-				mosseGiocateTotali.add(k++, t.getGiocatoreInAttesa().getMossaGiocata(i++));
-			}
-			while (j < t.getGiocatoreInTurno().getNumeroMosseGiocate()) {
-				mosseGiocateTotali.add(k++, t.getGiocatoreInTurno().getMossaGiocata(j++));
-			}
-
-		}
-
-		return mosseGiocateTotali;
-	}
-
-	/**
-	 * Stampa a video l'elenco delle mosse giocate del giocatore.
-	 */
-	public void stampaMosseGiocate() {
-		String mossa = null;
-		int counter = 1;
-		int dimensione = t.getGiocatoreInAttesa().getNumeroMosseGiocate()
-				+ t.getGiocatoreInTurno().getNumeroMosseGiocate();
-		if (dimensione == 0) {
-			System.out.println("Non e' stata giocata alcuna mossa");
-		} else {
-			System.out.println("Storia delle mosse giocate");
-			for (int i = 0; i < dimensione; i++) {
-				if (i == dimensione - 1) {
-					mossa = counter + ". " + fusioneListe().get(i);
-					System.out.println(mossa);
-				} else {
-					mossa = counter + ". " + fusioneListe().get(i) + " " + fusioneListe().get(i + 1);
-					System.out.println(mossa);
-				}
-				i++;
-				counter++;
-			}
-		}
-	}
-
-	/**
-	 * Metodo che permette la visualizzazione dell 'elenco comandi del menu
-	 * principale: Quit play board
-	 */
-	public void mostrareElencoComandiMenu() {
-		System.out.println(menu.quit().toString());
-		System.out.println(menu.play().toString());
-		System.out.println(menu.board().toString());
-	}
-
-	/**
-	 * Metodo che permette la visualizzazione dell' elenco comandi del menu di
-	 * gioco: Quit board captures moves back play
-	 */
-	public void mostrareElencoComandiGioco() {
-		System.out.println(menu.back().toString());
-		System.out.println(menu.play().toString());
-		System.out.println(menu.board().toString());
-		System.out.println(menu.captures().toString());
-		System.out.println(menu.moves().toString());
-		System.out.println(menu.quit().toString());
-	}
-
+	
+	
 	/**
 	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema
 	 * operativo

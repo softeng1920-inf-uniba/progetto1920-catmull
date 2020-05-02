@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-import scacchiera.Scacchiera;
 
 /**
  * The main class for the project. It must be customized to meet the project
@@ -34,26 +33,23 @@ public final class AppMain {
 		System.setOut(new PrintStream(System.out, false, "UTF-8"));
 
 		Controller c = new Controller();
-		Menu m = new Menu();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		System.out.println("Benvenuto nel gioco degli scacchi.");
-		System.out.println("\u265A" + "\u265B" + "  Menu principale " + "\u2655" + "\u2656" + " \n");
-		System.out.println("Digitare help per visualizzare la lista dei comandi");
+		Menu.newMenu();
+		Stampa.stampaIntroPlay();
 
 		while (true) {
 			String nomeMenu = br.readLine();
 
-			if (nomeMenu.equalsIgnoreCase(m.help().getNome())) {
-				c.mostrareElencoComandiMenu();
-			} else if (nomeMenu.equalsIgnoreCase(m.board().getNome())) {
-				Scacchiera.stampa();
-			} else if (nomeMenu.equalsIgnoreCase(m.quit().getNome())) {
+			if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {
+				Stampa.mostrareElencoComandiMenu();
+			} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {
+				Stampa.stampaScacchiera();
+			} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
 				c.chiudiGioco();
-			} else if (nomeMenu.equalsIgnoreCase(m.play().getNome())) {
+			} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
 				c.playGame();
 			} else {
-				System.out.println("Comando non riconosciuto");
+				Stampa.stampaComandoErrato();
 			}
 		}
 
