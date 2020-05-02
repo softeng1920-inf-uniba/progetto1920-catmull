@@ -150,9 +150,15 @@ public class Controller {
 		else if (pezzoCorrente.getNome().equals("Pedone")
 				&& pezzoCorrente.isMossaSpecialeValida(cellaPartenza, cellaDestinazione, mosseEffettuate)) // Controllo
 																											// se l'en
-																											// Passant Ã¨
+																											// Passant
+																											// e'
 																											// consentito
 			return 1;
+		else if ((pezzoCorrente.getNome().equals("Torre") || pezzoCorrente.getNome().equals("Re"))
+				&& pezzoCorrente.isMossaSpecialeValida(cellaPartenza, cellaDestinazione, mosseEffettuate)) // Controllo
+			// arrocco
+			// valido
+			return 2;
 
 		return -1;
 
@@ -204,8 +210,9 @@ public class Controller {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
-		while( true ) {
+		System.out.println(
+				"Sei sicuro di voler iniziare una nuova partita? (Digita 'y' per confermare, 'n' altrimenti)\n");
+		while (true) {
 			try {
 				comando = br.readLine();
 				switch (comando) {
@@ -257,8 +264,9 @@ public class Controller {
 				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
 				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
 				"[A](x|:)?[a-h][1-8]", // mossa alfiere
-				"(R)(x|:)?[a-h][1-8]" // mossa del re
-		});
+				"(R)(x|:)?[a-h][1-8]", // mossa del re
+				"(0|o|O)-(0|o|O)(-(0|o|O))?" // arrocco corto o lungo	
+				});
 
 		return mossa.matches(regex);
 	}
@@ -392,20 +400,21 @@ public class Controller {
 		Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 		Giocatore giocatoreAttivo = t.getGiocatoreInTurno();
 		switch (tipoMossa) {
+
 		case 0: // Caso Mossa Normale(Spostamento,Cattura) di un pezzo
 			if (cellaDestinazione.isOccupato()) {
 				giocatoreAttivo.addPezziCatturati(pezzoInCellaDestinazione);
 				cellaDestinazione.rimuoviPezzoCorrente();
 			}
-			Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
 			break;
 		case 1:// Caso mossa speciale ep
 			giocatoreAttivo.addPezziCatturati(cellaAdiacenteEp.getPezzoCorrente());
 			cellaAdiacenteEp.rimuoviPezzoCorrente();
-			Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
 			break;
-
+		default:
 		}
+
+		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
 
 	}
 
@@ -456,7 +465,11 @@ public class Controller {
 			comandi.add(Cavallo.convertiMossa(mossa, t.getGiocatoreInTurno()));
 			break;
 		case '0':
-
+		case 'o':
+		case 'O':
+			int tipoArrocco = getTipoArrocco(mossa);
+			comandi.add(Torre.convertiMossaSpeciale(tipoArrocco, t.getGiocatoreInTurno()));
+			comandi.add(Re.convertiMossaSpeciale(tipoArrocco, t.getGiocatoreInTurno()));
 			break;
 		default:
 			// pedone
@@ -506,4 +519,9 @@ public class Controller {
 		return Cella.coordYinInt(m.charAt(4));
 	}
 
+	// Si da per certo (poichè è stato già validato precedentemente il comando) che
+	// i tipi di mossa siano questi due
+	private static int getTipoArrocco(String mossa) {
+		return (mossa.matches("(0-0)|(o-o)|(O-O)") ? Pezzo.ARROCCO_CORTO : Pezzo.ARROCCO_LUNGO);
+	}
 }

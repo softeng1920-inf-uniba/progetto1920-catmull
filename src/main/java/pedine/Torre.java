@@ -12,6 +12,7 @@ import scacchiera.Scacchiera;
  */
 public final class Torre extends Pezzo {
 	static boolean isMossaCattura;
+	private boolean primaMossaEffettuata = false;
 	static final String mossaNonValida = "a0 a0";
 
 	/** Costruttore */
@@ -27,7 +28,7 @@ public final class Torre extends Pezzo {
 	/**
 	 * Metodo che,data una stringa: mossa in notazione algebrica ridotta, la
 	 * converte in notazione estesa.
-	 * 
+	 *
 	 * @param mossa
 	 * @param g
 	 * @return String
@@ -155,9 +156,9 @@ public final class Torre extends Pezzo {
 	 * colorepedineGiocatoreCorrente nella scacchiera in colonna esima y e riga x.
 	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
 	 * occupate dalla torre nella scacchiera.
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
 	 * @param y
 	 * @param colorepedineGiocatoreCorrente
 	 * @return ArrayList<String>
@@ -186,9 +187,9 @@ public final class Torre extends Pezzo {
 	 * colorepedineGiocatoreCorrente nella scacchiera in traversa esima x e riga y.
 	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
 	 * occupate dalla torre nella scacchiera.
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
 	 * @param x
 	 * @param colorepedineGiocatoreCorrente
 	 * @return ArrayList<String>
@@ -217,7 +218,12 @@ public final class Torre extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
-		return isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
+
+		boolean isMossaValida = isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
+		if(!isPrimaMossaEffettuata() && isMossaValida)
+			setPrimaMossaEffettuata(true);
+
+		return isMossaValida;
 	}
 
 	/**
@@ -226,7 +232,7 @@ public final class Torre extends Pezzo {
 	 * coordinate eX e eY,indicanti la traversa e la colonna di arrivo del pezzo da
 	 * muovere, viene effettuato un controllo sul movimento del pezzo dalle
 	 * coordinate di partenza a quelle di arrivo.
-	 * 
+	 *
 	 * @param sX
 	 * @param sY
 	 * @param eX
@@ -253,7 +259,7 @@ public final class Torre extends Pezzo {
 						return true;
 					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
 						return false;
-					
+
 				}
 			} else {
 				// Movimento verso il basso
@@ -267,7 +273,7 @@ public final class Torre extends Pezzo {
 						return true;
 					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
 						return false;
-					
+
 				}
 			}
 
@@ -283,7 +289,7 @@ public final class Torre extends Pezzo {
 						return true;
 					else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato())
 						return false;
-					
+
 				}
 			} else {
 				// Movimento verso dx
@@ -307,6 +313,56 @@ public final class Torre extends Pezzo {
 
 	@Override
 	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
-		return false;
+
+		int sX = start.getX();
+		int sY = start.getY();
+		int eX = end.getX();
+		Cella cellaCorrente = null;
+		Pezzo pezzoCorrente = null;
+
+		if (!isPrimaMossaEffettuata()) {
+			if (tipoArrocco(start, end) == ARROCCO_CORTO) {
+
+				// Arrocco corto
+				for (int i = sX - 1; i >= eX; i--) {
+
+					cellaCorrente = Scacchiera.getCella(i, sY);
+					pezzoCorrente = cellaCorrente.getPezzoCorrente();
+
+					if (cellaCorrente.isOccupato() && !pezzoCorrente.getNome().equals("Re")
+							&& pezzoCorrente.getColore() == getColore())
+						return false;
+				}
+				return true;
+
+			} else {
+				// Arrocco lungo
+				return false;
+			}
+		} else
+			return false;
+	}
+
+	public static String convertiMossaSpeciale(int tipoArrocco, Giocatore g) {
+
+		if (tipoArrocco == ARROCCO_CORTO)
+			return (g.getColore() == Colore.bianco) ? "h1 f1" : "h8 f8";
+		else {
+			// arrocco lungo
+			return "";
+		}
+
+	}
+
+	private int tipoArrocco(Cella start, Cella end) {
+		return start.getX() > end.getX() ? ARROCCO_CORTO : ARROCCO_LUNGO;
+	}
+
+	public boolean isPrimaMossaEffettuata() {
+		return primaMossaEffettuata;
+	}
+
+	public void setPrimaMossaEffettuata(boolean primaMossaEffettuata) {
+		this.primaMossaEffettuata = primaMossaEffettuata;
 	}
 }
