@@ -50,13 +50,13 @@ public final class Re extends Pezzo {
 
     public boolean isArroccoValido(Cella startRe, Cella endRe, Cella startTorre, Cella endTorre, ArrayList<String> storicoMosse, int tipoArrocco) {
 
-	
+
 	int sX = startRe.getX();
 	int sY = startRe.getY();
 	int eX = endRe.getX();
 	Cella cellaCorrente = null;
 	Pezzo pezzoCorrente = null;
-	
+
 	if (!isPrimaMossaEffettuata(storicoMosse) && !isReSottoScacco(endRe)) {
 
 	    if (tipoArrocco == Comando.ARROCCO_CORTO) {
@@ -72,7 +72,7 @@ public final class Re extends Pezzo {
 		    if (cellaCorrente.isOccupato() && !pezzoCorrente.getNome().equals("Torre")
 			    && pezzoCorrente.getColore() == getColore() && !isReSottoScacco(cellaCorrente))
 			return false;
-		}	
+		}
 
 		return true;
 
@@ -93,7 +93,7 @@ public final class Re extends Pezzo {
 		return "";
 	}
     }
-    
+
     public static String convertiMossa(String mossa) {
 	int startX = -1;
 	int startY = -1;
@@ -136,8 +136,8 @@ public final class Re extends Pezzo {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param ReCella cella di destinazione del re
      * @return boolean se il re è sotto scacco o meno
      */
@@ -160,12 +160,12 @@ public final class Re extends Pezzo {
 
     /**
      * Controlla se il re o la torre si sono mai spostati
-     * 
+     *
      * @param storicoMosse
      * @return
      */
     public static boolean isPrimaMossaEffettuata(ArrayList<String> storicoMosse) {
-	
+
 	for (int i = 0; i < storicoMosse.size(); i++) {
 		  if ( storicoMosse.get(i).matches("(h|e)(1|8) [a-h][1-8]") )
 	                return true;
