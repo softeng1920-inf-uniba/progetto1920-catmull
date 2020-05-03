@@ -81,15 +81,23 @@ public final class Torre extends Pezzo {
 
 				}
 			} else if (!posColonna.equals(mossaNonValida))
-				return posColonna;
+				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+					if (posColonna.charAt(1) == ambiguita || posColonna.charAt(0) == ambiguita) {
+						return posColonna;
+					}
+				} else
+					return posColonna;
 			else if (!posRiga.equals(mossaNonValida))
-				return posRiga;
+				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+					if (posRiga.charAt(1) == ambiguita || posRiga.charAt(0) == ambiguita) {
+						return posRiga;
+					}
+				} else
+					return posRiga;
+
 		}
 		return mossaNonValida;
 	}
-
-
-
 
 	private static String posizioneValidaColonna(ArrayList<String> possibiliPosizioniColonna, int eX, int eY,
 			Colore colorepedineGiocatoreCorrente) {
@@ -253,7 +261,7 @@ public final class Torre extends Pezzo {
 						return true;
 					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
 						return false;
-					
+
 				}
 			} else {
 				// Movimento verso il basso
@@ -267,7 +275,7 @@ public final class Torre extends Pezzo {
 						return true;
 					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
 						return false;
-					
+
 				}
 			}
 
@@ -283,7 +291,7 @@ public final class Torre extends Pezzo {
 						return true;
 					else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato())
 						return false;
-					
+
 				}
 			} else {
 				// Movimento verso dx
