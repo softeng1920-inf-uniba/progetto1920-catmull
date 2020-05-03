@@ -153,7 +153,6 @@ public class Scacchiera {
 	public static void scambiaCella(Cella c1, Cella c2) {
 		c2.setPezzoCorrente(c1.getPezzoCorrente());
 		c2.setOccupato(c1.isOccupato());
-		c1.setOccupato(false);
 		c1.rimuoviPezzoCorrente();
 	}
 

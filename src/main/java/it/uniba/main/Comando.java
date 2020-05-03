@@ -5,6 +5,10 @@ package it.uniba.main;
  */
 public class Comando {
 
+	public final static int ARROCCO_CORTO = 1;
+	public final static int ARROCCO_LUNGO = 2;
+	
+    
 	private String nome;
 	private String descrizione;
 
@@ -59,5 +63,19 @@ public class Comando {
 	@Override
 	public String toString() {
 		return String.format("\u2022 " + nome + " -->    " + descrizione);
+	}
+	
+	/**
+	 * Data la mossa, se è un arrocco restituisce il tipo, altrimenti -1
+	 * 
+	 * @param mossa
+	 * @return
+	 */
+	public static int isArrocco(String mossa) {
+		
+		if(mossa.matches("(0|o|O)-(0|o|O)")) 
+			return ARROCCO_CORTO;
+		else return -1;
+			
 	}
 }

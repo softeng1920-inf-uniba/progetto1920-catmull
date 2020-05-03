@@ -2,8 +2,9 @@ package pedine;
 
 import java.util.ArrayList;
 
-import gioco.Giocatore;
+import gioco.Turno;
 import it.uniba.main.Colore;
+import it.uniba.main.Comando;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -12,7 +13,6 @@ import scacchiera.Scacchiera;
  */
 public final class Torre extends Pezzo {
 	static boolean isMossaCattura;
-	private boolean primaMossaEffettuata = false;
 	static final String mossaNonValida = "a0 a0";
 
 	/** Costruttore */
@@ -34,14 +34,14 @@ public final class Torre extends Pezzo {
 	 * @return String
 	 */
 
-	public static String convertiMossa(String mossa, Giocatore g) {
+	public static String convertiMossa(String mossa) {
 
 		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 		char destX = mossa.charAt(mossa.length() - 2);
 		char destY = mossa.charAt(mossa.length() - 1);
 		int eX = Cella.coordXinInt(destX);
 		int eY = Cella.coordYinInt(destY);
-		Colore colorepedineGiocatoreCorrente = g.getColore();
+		Colore colorepedineGiocatoreCorrente = Turno.getGiocatoreInTurno().getColore();
 		ArrayList<String> possibiliPosizioniColonna = new ArrayList<String>();
 		ArrayList<String> possibiliPosizioniRiga = new ArrayList<String>();
 		String posRiga = "";
@@ -218,12 +218,7 @@ public final class Torre extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
-
-		boolean isMossaValida = isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
-		if(!isPrimaMossaEffettuata() && isMossaValida)
-			setPrimaMossaEffettuata(true);
-
-		return isMossaValida;
+		return isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
 	}
 
 	/**
@@ -311,58 +306,13 @@ public final class Torre extends Pezzo {
 		return false;
 	}
 
-	@Override
-	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
-
-		int sX = start.getX();
-		int sY = start.getY();
-		int eX = end.getX();
-		Cella cellaCorrente = null;
-		Pezzo pezzoCorrente = null;
-
-		if (!isPrimaMossaEffettuata()) {
-			if (tipoArrocco(start, end) == ARROCCO_CORTO) {
-
-				// Arrocco corto
-				for (int i = sX - 1; i >= eX; i--) {
-
-					cellaCorrente = Scacchiera.getCella(i, sY);
-					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
-					if (cellaCorrente.isOccupato() && !pezzoCorrente.getNome().equals("Re")
-							&& pezzoCorrente.getColore() == getColore())
-						return false;
-				}
-				return true;
-
-			} else {
-				// Arrocco lungo
-				return false;
-			}
-		} else
-			return false;
-	}
-
-	public static String convertiMossaSpeciale(int tipoArrocco, Giocatore g) {
-
-		if (tipoArrocco == ARROCCO_CORTO)
-			return (g.getColore() == Colore.bianco) ? "h1 f1" : "h8 f8";
+	 public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
+		if (tipoArrocco == Comando.ARROCCO_CORTO)
+			return (c == Colore.bianco) ? "h1 f1" : "h8 f8";
 		else {
 			// arrocco lungo
 			return "";
 		}
+	    }
 
-	}
-
-	private int tipoArrocco(Cella start, Cella end) {
-		return start.getX() > end.getX() ? ARROCCO_CORTO : ARROCCO_LUNGO;
-	}
-
-	public boolean isPrimaMossaEffettuata() {
-		return primaMossaEffettuata;
-	}
-
-	public void setPrimaMossaEffettuata(boolean primaMossaEffettuata) {
-		this.primaMossaEffettuata = primaMossaEffettuata;
-	}
 }

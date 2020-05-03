@@ -1,8 +1,6 @@
 package pedine;
 
-import java.util.ArrayList;
-
-import gioco.Giocatore;
+import gioco.Turno;
 import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -109,11 +107,6 @@ public final class Regina extends Pezzo {
 		return true;
 	}
 
-	@Override
-	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
-		return false;
-	}
-
 	/**
 	 * Converte la mossa in input nell stringa con le coordinate della cella
 	 * iniziale e le coordinate della cella finale
@@ -123,12 +116,13 @@ public final class Regina extends Pezzo {
 	 * @param g
 	 * @return
 	 */
-	public static String convertiMossa(String mossa, Giocatore g) {
+	public static String convertiMossa(String mossa) {
 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
+		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore(); 
 		// mossa semplice
 		if (mossa.matches("(D)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
@@ -147,7 +141,7 @@ public final class Regina extends Pezzo {
 		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
 			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
 				if (Scacchiera.getNomePezzo(i, j) == "Regina"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() == g.getColore()) {
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {
 					startX = i;
 					startY = j;
 					break;
