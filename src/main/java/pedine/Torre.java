@@ -58,28 +58,28 @@ public final class Torre extends Pezzo {
 			posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
 			posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
 
-			if (!posColonna.equals(mossaNonValida) && !posRiga.equals(mossaNonValida)) {
-				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
-					if (Character.isDigit(ambiguita)) {
-						if (posRiga.charAt(1) == ambiguita)
-							return posRiga;
-						else if (posColonna.charAt(1) == ambiguita)
-							return posColonna;
-					} else if (posRiga.charAt(0) == ambiguita)
+			if (!posColonna.equals(mossaNonValida) && !posRiga.equals(mossaNonValida) && mossa.length() > 3
+					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+
+				if (Character.isDigit(ambiguita)) {
+					if (posRiga.charAt(1) == ambiguita)
 						return posRiga;
-					else if (posColonna.charAt(0) == ambiguita)
+					else if (posColonna.charAt(1) == ambiguita)
 						return posColonna;
-				}
-			} else if (posColonna.equals(mossaNonValida) && posRiga.equals(mossaNonValida)) {
-				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
-					if (Character.isDigit(ambiguita)) {
-						if (isMossaValida(eX, Cella.coordYinInt(ambiguita), eX, eY, colorepedineGiocatoreCorrente))
-							return destX + "" + ambiguita + " " + destX + "" + destY;
+				} else if (posRiga.charAt(0) == ambiguita)
+					return posRiga;
+				else if (posColonna.charAt(0) == ambiguita)
+					return posColonna;
 
-					} else if (isMossaValida(Cella.coordXinInt(ambiguita), eY, eX, eY, colorepedineGiocatoreCorrente))
-						return ambiguita + "" + destY + " " + destX + "" + destY;
+			} else if (posColonna.equals(mossaNonValida) && posRiga.equals(mossaNonValida) && mossa.length() > 3
+					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+				if (Character.isDigit(ambiguita)) {
+					if (isMossaValida(eX, Cella.coordYinInt(ambiguita), eX, eY, colorepedineGiocatoreCorrente))
+						return destX + "" + ambiguita + " " + destX + "" + destY;
 
-				}
+				} else if (isMossaValida(Cella.coordXinInt(ambiguita), eY, eX, eY, colorepedineGiocatoreCorrente))
+					return ambiguita + "" + destY + " " + destX + "" + destY;
+
 			} else if (!posColonna.equals(mossaNonValida))
 				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
 					if (posColonna.charAt(1) == ambiguita || posColonna.charAt(0) == ambiguita) {
@@ -97,6 +97,7 @@ public final class Torre extends Pezzo {
 
 		}
 		return mossaNonValida;
+
 	}
 
 	private static String posizioneValidaColonna(ArrayList<String> possibiliPosizioniColonna, int eX, int eY,
