@@ -19,6 +19,9 @@ public class Stampa {
     //reset sfondo e carattere a default
     private static final String ANSI_RESET = "\u001B[0m";
     
+    //colore Intro
+    public static final String ANSI_CYAN = "\u001B[36m";
+    
 
 	/**
 	 * Stampa a video il simbolo del pezzo in input
@@ -123,11 +126,18 @@ public class Stampa {
 	}
 
 	/**
-	 * stampa a video il messaggio di introduzione del gioco
+	 * stampa introduttiva del gioco
 	 */
-	public static void stampaIntro() {
+	public static void stampaIntro(String colore,String ripristino) {
 		//stampa iniziale
+		System.out.println(colore+"\n _/|"+ripristino+"    #"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"   #"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"     #"+colore+"     #"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"   #"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+" #"+colore+"     #"+colore+" #"+ripristino+"#"+colore+"#"+colore+"    |\\_");
+		System.out.println(colore+"// o\\"+colore+"   #"+ripristino+"      #"+colore+"        #"+colore+"   #"+ripristino+"  #"+colore+"       #"+ripristino+"      #"+ripristino+"     #"+colore+"  #"+colore+"    /o \\\\");
+		System.out.println(colore+"|| ._)"+ripristino+"  #"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"  #"+ripristino+"       #"+ripristino+"     #"+colore+" #"+ripristino+"       #"+colore+"      #"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"  #"+colore+"   (_. ||");
+		System.out.println(colore+"//__\\"+colore+"       #"+ripristino+"  #"+colore+"       #"+ripristino+" #"+colore+"#"+ripristino+"#"+colore+" #"+ripristino+" #"+colore+"       #"+ripristino+"      #"+ripristino+"     #"+colore+"  #"+colore+"    /__\\\\");
+		System.out.println(colore+")___("+ripristino+"   #"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"   #"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"  #"+ripristino+"     #"+colore+"  #"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"   #"+colore+"#"+ripristino+"#"+colore+"#"+ripristino+"#"+colore+" #"+colore+"     #"+colore+" #"+ripristino+"#"+colore+"#"+colore+"   )___(");
+		System.out.print(ripristino);
 	}
+	
 
 	/**
 	 * stampa a video il giocatore in turno

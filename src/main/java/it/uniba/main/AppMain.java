@@ -35,7 +35,7 @@ public final class AppMain {
 		Controller c = new Controller();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Menu.newMenu();
-		Stampa.stampaIntro();
+		Stampa.stampaIntro("\u001B[36m","\u001B[0m");
 		Stampa.stampaMenu();
 
 		while (true) {
