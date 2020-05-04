@@ -63,7 +63,7 @@ public final class Alfiere extends Pezzo {
 			}
 		} else
 			return false;
-		// controllo se puÃ² mangiare pezzo
+		// controllo se puo' mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
@@ -78,7 +78,7 @@ public final class Alfiere extends Pezzo {
 		int endX = -1;
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
-		if (mossa.matches("[A][a-h][1-8]")) {// si muove senza ambiguitï¿½
+		if (mossa.matches("[A][a-h][1-8]")) {// si muove senza ambiguita'
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
@@ -86,7 +86,7 @@ public final class Alfiere extends Pezzo {
 			}
 		}
 
-		if (mossa.matches("[A][x|:][a-h][1-8]")) { // mangia senza ambiguitï¿½
+		if (mossa.matches("[A][x|:][a-h][1-8]")) { // mangia senza ambiguita'
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
