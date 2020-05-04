@@ -11,7 +11,7 @@ import pedine.Torre;
 /**
  * Rappresentazione della scacchiera
  * 
- * La classe Scacchiera è di tipo ENTITY
+ * La classe Scacchiera e' di tipo ENTITY
  * 
  */
 public class Scacchiera {

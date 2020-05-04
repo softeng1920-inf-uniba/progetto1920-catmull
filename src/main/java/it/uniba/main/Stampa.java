@@ -5,19 +5,19 @@ import gioco.*;
 import scacchiera.*;
 import pedine.*;
 
-/** la classe Stampa è di tipo BOUNDARY
+/** la classe Stampa e' di tipo BOUNDARY
  *
  */
 public class Stampa {
 	// colore carattere e font
-	private static final String WHITE_BOLD = "\033[1;37m";
+	private static final String CYAN_BOLD = "\033[1;96m";
 	private static final String WHITE_BOLD_BRIGHT = "\033[1;97m";
 	private static final String BLACK_UNDERLINED = "\033[4;30m";
-	private static final String WHITE_UNDERLINED = "\033[4;37m";
+	private static final String CYAN_UNDERLINED = "\033[4;96m";
 	private static final String WHITE_UNDERLINED_BRIGHT = "\033[4;97m";
 
 	// sfondo cella
-	private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m"; // grigio
+	private static final String ANSI_CYAN_BACKGROUND = "\u001B[46m"; // grigio
 	private static final String ANSI_WHITE_BACKGROUND_BRIGHT = "\033[0;107m"; // bianco
 
 	// reset sfondo e carattere a default
@@ -63,7 +63,7 @@ public class Stampa {
 			for (int i = 0; i < 8; i++) {
 				if (cost) {
 					if (i % 2 == 0) {
-						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+						System.out.print(ANSI_CYAN_BACKGROUND + " ");
 					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					}
@@ -71,7 +71,7 @@ public class Stampa {
 					if (i % 2 == 0) {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					} else {
-						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+						System.out.print(ANSI_CYAN_BACKGROUND + " ");
 					}
 				}
 				System.out.print("    ");
@@ -83,7 +83,7 @@ public class Stampa {
 			for (int i = 0; i < 8; i++) {
 				if (cost) {
 					if (i % 2 == 0) {
-						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+						System.out.print(ANSI_CYAN_BACKGROUND + " ");
 					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					}
@@ -91,7 +91,7 @@ public class Stampa {
 					if (i % 2 == 0) {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					} else {
-						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+						System.out.print(ANSI_CYAN_BACKGROUND + " ");
 					}
 				}
 				stampaPezzo(Scacchiera.getCella(i, Math.abs(j - 8)));
@@ -104,7 +104,7 @@ public class Stampa {
 			for (int i = 0; i < 8; i++) {
 				if (cost) {
 					if (i % 2 == 0) {
-						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+						System.out.print(ANSI_CYAN_BACKGROUND + " ");
 					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					}
@@ -112,7 +112,7 @@ public class Stampa {
 					if (i % 2 == 0) {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					} else {
-						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+						System.out.print(ANSI_CYAN_BACKGROUND + " ");
 					}
 				}
 				System.out.print("    ");
@@ -143,8 +143,8 @@ public class Stampa {
 					+ ANSI_RESET + " con le pedine di colore " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT
 					+ g.getColore() + ANSI_RESET + ".");
 		} else {
-			System.out.println("\nE' il turno di " + WHITE_BOLD + WHITE_UNDERLINED + g.getNome() + ANSI_RESET
-					+ " con le pedine di colore " + WHITE_BOLD + WHITE_UNDERLINED + g.getColore() + ANSI_RESET + ".");
+			System.out.println("\nE' il turno di " + CYAN_BOLD + CYAN_UNDERLINED + g.getNome() + ANSI_RESET
+					+ " con le pedine di colore " + CYAN_BOLD + CYAN_UNDERLINED + g.getColore() + ANSI_RESET + ".");
 		}
 
 		System.out.println(
@@ -189,7 +189,7 @@ public class Stampa {
 	 * Stampa a video messaggio nuova partita.
 	 */
 	public static void stampaNuovaPartita() {
-		System.out.println("\n" + WHITE_BOLD + "~ Nuova partita ~" + ANSI_RESET);
+		System.out.println("\n" + WHITE_BOLD_BRIGHT + "~ Nuova partita ~" + ANSI_RESET);
 	}
 
 	/**
@@ -284,8 +284,8 @@ public class Stampa {
 			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + WHITE_BOLD_BRIGHT
 					+ WHITE_UNDERLINED_BRIGHT + c + ANSI_RESET + " \u2193");
 		} else {
-			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + BLACK_UNDERLINED
-					+ WHITE_BOLD + c + ANSI_RESET + " \u2193");
+			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + CYAN_UNDERLINED
+					+ CYAN_BOLD + c + ANSI_RESET + " \u2193");
 		}
 
 	}

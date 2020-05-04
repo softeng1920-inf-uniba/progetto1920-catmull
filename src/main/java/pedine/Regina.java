@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
 
 /** Classe per rappresentere il sottotipo di pezzo chiamato Regina 
  * 
- *  La classe Regina è di tipo noECB
+ *  La classe Regina e' di tipo noECB
  */
 public final class Regina extends Pezzo {
 

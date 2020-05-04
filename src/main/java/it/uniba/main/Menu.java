@@ -3,7 +3,7 @@ package it.uniba.main;
 /**
  * la classe Menu implementa il menu'
  * 
- * La classe Menu è di tipo Entity
+ * La classe Menu e' di tipo Entity
  */
 public class Menu {
 

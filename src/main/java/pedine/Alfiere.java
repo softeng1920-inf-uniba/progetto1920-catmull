@@ -10,7 +10,7 @@ import scacchiera.Scacchiera;
 /**
  * Rappresentazione dell'astrazione del pezzo alfiere
  * 
- * La classe Alfiere è di tipo noECB
+ * La classe Alfiere e' di tipo noECB
  */
 public final class Alfiere extends Pezzo {
 

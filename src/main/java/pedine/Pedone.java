@@ -10,7 +10,7 @@ import scacchiera.Scacchiera;
 /**
  * Classe per rappresentere il sottotipo di pezzo chiamato Pedone
  * 
- * La classe Pedone è di tipo noECB
+ * La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 

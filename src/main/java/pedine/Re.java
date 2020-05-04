@@ -10,7 +10,7 @@ import scacchiera.Scacchiera;
 /**
  * Classe per rappresentere il sottotipo di pezzo chiamato Re
  * 
- * La classe Re è di tipo noECB
+ * La classe Re e' di tipo noECB
  */
 
 public final class Re extends Pezzo {

@@ -7,7 +7,7 @@ import it.uniba.main.Colore;
 /**
  * Rappresenta il turno per il gioco con i metodi
  * 
- * La classe turno è di tipo ENTITY
+ * La classe turno e' di tipo ENTITY
  */
 public class Turno {
 

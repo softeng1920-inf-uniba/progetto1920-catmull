@@ -1,7 +1,7 @@
 package it.uniba.main;
 
 /**
- * La classe colore è di tipo noECB
+ * La classe colore e' di tipo noECB
  *
  */
 public enum Colore {

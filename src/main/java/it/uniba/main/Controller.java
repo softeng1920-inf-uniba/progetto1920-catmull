@@ -10,9 +10,9 @@ import pedine.*;
 import scacchiera.*;
 
 /**
- * Classe che gestisce le varie funzionalita'‚ del gioco
+ * Classe che gestisce le varie funzionalita' del gioco
  * 
- * La classe Controller è di tipo CONTROL
+ * La classe Controller e' di tipo CONTROL
  */
 public class Controller {
 
