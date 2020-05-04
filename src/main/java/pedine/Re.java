@@ -50,40 +50,27 @@ public final class Re extends Pezzo {
 
 	public boolean isArroccoValido(Cella startRe, Cella endRe, Cella startTorre, Cella endTorre,
 			ArrayList<String> storicoMosse, int tipoArrocco) {
-
 		int sX = startRe.getX();
 		int sY = startRe.getY();
 		int eX = endRe.getX();
-		Cella cellaCorrente = null;
-		Pezzo pezzoCorrente = null;
 
-		if (!isPrimaMossaEffettuata(storicoMosse) && !isReSottoScacco(endRe)) {
-
+		if (!isPrimaMossaEffettuata(storicoMosse) && !isReSottoScacco(startRe)) {
+			
+			// Itera dalla cella corrente :start fino alla cella di destinazione:end e
+			// controlla che non ci siano pezzi intermedi e che nello spostamento del re non
+			// è sotto scacco
+			
 			if (tipoArrocco == Comando.ARROCCO_CORTO) {
-
-				// Itera dalla cella corrente :start fino alla cella di destinazione:end e
-				// controlla che non ci siano pezzi intermedi e che nello spostamento del re non
-				// è sotto scacco
-
 				// Arrocco Corto
-				for (int i = sX + 1; i < eX; i++) {
-					cellaCorrente = Scacchiera.getCella(i, sY);
-					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-					if (cellaCorrente.isOccupato() && !pezzoCorrente.getNome().equals("Torre")
-							&& pezzoCorrente.getColore() == getColore() && !isReSottoScacco(cellaCorrente))
+				for (int i = sX + 1; i < eX + 1; i++) {
+					if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != "Vuota")
 						return false;
 				}
-
 				return true;
-
 			} else {
 				// Arrocco Lungo
-
-				for (int i = sX - 1; i > eX; i--) {
-					cellaCorrente = Scacchiera.getCella(i, sY);
-					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-					if (cellaCorrente.isOccupato() && !pezzoCorrente.getNome().equals("Torre")
-							&& pezzoCorrente.getColore() == getColore() && !isReSottoScacco(cellaCorrente))
+				for (int i = sX - 1; i > eX - 1; i--) {
+					if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != "Vuota")
 						return false;
 				}
 				return true;
