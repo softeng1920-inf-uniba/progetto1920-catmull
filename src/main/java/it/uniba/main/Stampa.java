@@ -12,9 +12,9 @@ public class Stampa {
 	// colore carattere e font
 	private static final String CYAN_BOLD = "\033[1;96m";
 	private static final String WHITE_BOLD_BRIGHT = "\033[1;97m";
-	private static final String BLACK_UNDERLINED = "\033[4;30m";
 	private static final String CYAN_UNDERLINED = "\033[4;96m";
 	private static final String WHITE_UNDERLINED_BRIGHT = "\033[4;97m";
+	private static final String CYAN = "\u001B[36m";
 
 	// sfondo cella
 	private static final String ANSI_CYAN_BACKGROUND = "\u001B[46m"; // grigio
@@ -22,6 +22,11 @@ public class Stampa {
 
 	// reset sfondo e carattere a default
 	private static final String ANSI_RESET = "\u001B[0m";
+
+    
+    //colore Intro
+    public static final String ANSI_CYAN = "\u001B[36m";
+
 
 	/**
 	 * Stampa a video il simbolo del pezzo in input
@@ -126,11 +131,17 @@ public class Stampa {
 	}
 
 	/**
-	 * stampa a video il messaggio di introduzione del gioco
+	 * stampa introduttiva del gioco
 	 */
 	public static void stampaIntro() {
-		// stampa iniziale
+		System.out.println(CYAN + "\n _/|"+ANSI_RESET+"    #"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"   #"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"     #"+CYAN+"     #"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"   #"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+" #"+CYAN+"     #"+CYAN+" #"+ANSI_RESET+"#"+CYAN+"#"+CYAN+"    |\\_");
+		System.out.println(CYAN+"// o\\"+CYAN+"   #"+ANSI_RESET+"      #"+CYAN+"        #"+CYAN+"   #"+ANSI_RESET+"  #"+CYAN+"       #"+ANSI_RESET+"      #"+ANSI_RESET+"     #"+CYAN+"  #"+CYAN+"    /o \\\\");
+		System.out.println(CYAN+"|| ._)"+ANSI_RESET+"  #"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"  #"+ANSI_RESET+"       #"+ANSI_RESET+"     #"+CYAN+" #"+ANSI_RESET+"       #"+CYAN+"      #"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"  #"+CYAN+"   (_. ||");
+		System.out.println(CYAN+"//__\\"+CYAN+"       #"+ANSI_RESET+"  #"+CYAN+"       #"+ANSI_RESET+" #"+CYAN+"#"+ANSI_RESET+"#"+CYAN+" #"+ANSI_RESET+" #"+CYAN+"       #"+ANSI_RESET+"      #"+ANSI_RESET+"     #"+CYAN+"  #"+CYAN+"    /__\\\\");
+		System.out.println(CYAN+")___("+ANSI_RESET+"   #"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"   #"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"  #"+ANSI_RESET+"     #"+CYAN+"  #"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"   #"+CYAN+"#"+ANSI_RESET+"#"+CYAN+"#"+ANSI_RESET+"#"+CYAN+" #"+CYAN+"     #"+CYAN+" #"+ANSI_RESET+"#"+CYAN+"#"+CYAN+"   )___(");
+		System.out.print(ANSI_RESET);
 	}
+	
 
 	/**
 	 * stampa a video il giocatore in turno
