@@ -1,24 +1,27 @@
 package it.uniba.main;
 
 import gioco.*;
+
 import scacchiera.*;
 import pedine.*;
 
+/** la classe Stampa è di tipo BOUNDARY
+ *
+ */
 public class Stampa {
-	//colore carattere e font
+	// colore carattere e font
 	private static final String WHITE_BOLD = "\033[1;37m";
 	private static final String WHITE_BOLD_BRIGHT = "\033[1;97m";
 	private static final String BLACK_UNDERLINED = "\033[4;30m";
 	private static final String WHITE_UNDERLINED = "\033[4;37m";
-    private static final String WHITE_UNDERLINED_BRIGHT = "\033[4;97m";
-    
-	//sfondo cella
-    private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m"; //grigio
-    private static final String ANSI_WHITE_BACKGROUND_BRIGHT = "\033[0;107m"; //bianco
-    
-    //reset sfondo e carattere a default
-    private static final String ANSI_RESET = "\u001B[0m";
-    
+	private static final String WHITE_UNDERLINED_BRIGHT = "\033[4;97m";
+
+	// sfondo cella
+	private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m"; // grigio
+	private static final String ANSI_WHITE_BACKGROUND_BRIGHT = "\033[0;107m"; // bianco
+
+	// reset sfondo e carattere a default
+	private static final String ANSI_RESET = "\u001B[0m";
 
 	/**
 	 * Stampa a video il simbolo del pezzo in input
@@ -51,23 +54,23 @@ public class Stampa {
 		boolean cost;
 		System.out.println("      a   b    c    d    e    f    g    h");
 		for (int j = 8; j > 0; j--) {
-			if(j%2==0) {
-				cost=false;
+			if (j % 2 == 0) {
+				cost = false;
 			} else {
-				cost=true;
+				cost = true;
 			}
 			System.out.print("   ");
 			for (int i = 0; i < 8; i++) {
-				if(cost) {
-					if(i%2==0) {
-						System.out.print(ANSI_WHITE_BACKGROUND  + " ");
-					}else {
+				if (cost) {
+					if (i % 2 == 0) {
+						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					}
 				} else {
-					if(i%2==0) {
+					if (i % 2 == 0) {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
-					}else {
+					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND + " ");
 					}
 				}
@@ -76,18 +79,18 @@ public class Stampa {
 			}
 			System.out.println();
 			System.out.print(j + "  ");
-			
+
 			for (int i = 0; i < 8; i++) {
-				if(cost) {
-					if(i%2==0) {
-						System.out.print(ANSI_WHITE_BACKGROUND  + " ");
-					}else {
+				if (cost) {
+					if (i % 2 == 0) {
+						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					}
 				} else {
-					if(i%2==0) {
+					if (i % 2 == 0) {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
-					}else {
+					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND + " ");
 					}
 				}
@@ -99,25 +102,25 @@ public class Stampa {
 			System.out.println("  " + j);
 			System.out.print("   ");
 			for (int i = 0; i < 8; i++) {
-				if(cost) {
-					if(i%2==0) {
-						System.out.print(ANSI_WHITE_BACKGROUND  + " ");
-					}else {
+				if (cost) {
+					if (i % 2 == 0) {
+						System.out.print(ANSI_WHITE_BACKGROUND + " ");
+					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
 					}
 				} else {
-					if(i%2==0) {
+					if (i % 2 == 0) {
 						System.out.print(ANSI_WHITE_BACKGROUND_BRIGHT + " ");
-					}else {
+					} else {
 						System.out.print(ANSI_WHITE_BACKGROUND + " ");
 					}
 				}
 				System.out.print("    ");
 				System.out.print(ANSI_RESET);
 			}
-			
+
 			System.out.println();
-			
+
 		}
 		System.out.println("      a   b    c    d    e    f    g    h");
 	}
@@ -126,20 +129,22 @@ public class Stampa {
 	 * stampa a video il messaggio di introduzione del gioco
 	 */
 	public static void stampaIntro() {
-		//stampa iniziale
+		// stampa iniziale
 	}
 
 	/**
 	 * stampa a video il giocatore in turno
+	 * 
 	 * @param g
 	 */
 	public static void stampaTurno(Giocatore g) {
-		if(g.getColore() == Colore.bianco) {
-			System.out.println("\nE' il turno di " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT + g.getNome() + ANSI_RESET + " con le pedine di colore "
-					+ WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT + g.getColore() + ANSI_RESET + ".");
+		if (g.getColore() == Colore.bianco) {
+			System.out.println("\nE' il turno di " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT + g.getNome()
+					+ ANSI_RESET + " con le pedine di colore " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT
+					+ g.getColore() + ANSI_RESET + ".");
 		} else {
-			System.out.println("\nE' il turno di " + WHITE_BOLD + WHITE_UNDERLINED + g.getNome() + ANSI_RESET +  " con le pedine di colore "
-					+ WHITE_BOLD + WHITE_UNDERLINED + g.getColore() + ANSI_RESET + ".");
+			System.out.println("\nE' il turno di " + WHITE_BOLD + WHITE_UNDERLINED + g.getNome() + ANSI_RESET
+					+ " con le pedine di colore " + WHITE_BOLD + WHITE_UNDERLINED + g.getColore() + ANSI_RESET + ".");
 		}
 
 		System.out.println(
@@ -151,7 +156,8 @@ public class Stampa {
 	 */
 	public static void stampaMenu() {
 		System.out.println();
-		System.out.println("\u265A" + "\u265B" + WHITE_BOLD_BRIGHT + "  MENU PRINCIPALE " + ANSI_RESET + "\u2655" + "\u2656" + " \n");
+		System.out.println("\u265A" + "\u265B" + WHITE_BOLD_BRIGHT + "  MENU PRINCIPALE " + ANSI_RESET + "\u2655"
+				+ "\u2656" + " \n");
 		mostrareElencoComandiMenu();
 	}
 
@@ -176,23 +182,25 @@ public class Stampa {
 		System.out.println();
 		System.out.println(
 				"Sei sicuro di voler iniziare una nuova partita? \n(Digita 'y' per confermare, 'n' altrimenti)");
-		
+
 	}
-	
+
 	/**
 	 * Stampa a video messaggio nuova partita.
 	 */
 	public static void stampaNuovaPartita() {
 		System.out.println("\n" + WHITE_BOLD + "~ Nuova partita ~" + ANSI_RESET);
 	}
-	
+
 	/**
 	 * stampa a video i pezzi catturati per ogni giocatore
+	 * 
 	 * @param g
 	 */
 	private static void stampaPezziCatturati(Giocatore g) {
 
-		System.out.println("\nPezzi catturati dal giocatore " + WHITE_BOLD_BRIGHT + g.getNome().toUpperCase() + ANSI_RESET + ":");
+		System.out.println(
+				"\nPezzi catturati dal giocatore " + WHITE_BOLD_BRIGHT + g.getNome().toUpperCase() + ANSI_RESET + ":");
 		for (Pezzo pezzoMangiato : g.getPezziCatturati()) {
 			System.out.println(pezzoMangiato);
 		}
@@ -268,18 +276,18 @@ public class Stampa {
 
 	/**
 	 * stampa a video il messaggio per l'inserimento del nome del giocatore
+	 * 
 	 * @param c
 	 */
 	public static void stampaInserireGiocatore(Colore c) {
-		if(c == Colore.bianco) {
-			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " +  WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT + c + ANSI_RESET + " \u2193");
+		if (c == Colore.bianco) {
+			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + WHITE_BOLD_BRIGHT
+					+ WHITE_UNDERLINED_BRIGHT + c + ANSI_RESET + " \u2193");
 		} else {
-			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + BLACK_UNDERLINED + WHITE_BOLD + c + ANSI_RESET + " \u2193");
+			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + BLACK_UNDERLINED
+					+ WHITE_BOLD + c + ANSI_RESET + " \u2193");
 		}
-		
-	}
-	
-	
 
+	}
 
 }

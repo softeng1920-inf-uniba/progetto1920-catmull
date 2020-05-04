@@ -1,6 +1,3 @@
-/**
- *
- */
 package it.uniba.main;
 
 import java.io.BufferedReader;
@@ -8,20 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import gioco.Giocatore;
-import gioco.Turno;
-import pedine.Alfiere;
-import pedine.Cavallo;
-import pedine.Pedone;
-import pedine.Pezzo;
-import pedine.Re;
-import pedine.Regina;
-import pedine.Torre;
-import scacchiera.Cella;
-import scacchiera.Scacchiera;
+import gioco.*;
+import pedine.*;
+import scacchiera.*;
 
 /**
- * Classe che gestisce le varie funzionalita'Ã‚Â del gioco
+ * Classe che gestisce le varie funzionalita'‚ del gioco
+ * 
+ * La classe Controller è di tipo CONTROL
  */
 public class Controller {
 

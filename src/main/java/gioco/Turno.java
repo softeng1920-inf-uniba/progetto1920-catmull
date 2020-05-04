@@ -7,6 +7,7 @@ import it.uniba.main.Colore;
 /**
  * Rappresenta il turno per il gioco con i metodi
  * 
+ * La classe turno è di tipo ENTITY
  */
 public class Turno {
 
@@ -49,8 +50,7 @@ public class Turno {
 	 */
 	public ArrayList<String> fusioneListe() {
 		int i, j, k;
-		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate()
-				+ getGiocatoreInTurno().getNumeroMosseGiocate();
+		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
 		if (getGiocatoreInTurno().getColore() == Colore.bianco) {
 			i = 0;
@@ -87,7 +87,5 @@ public class Turno {
 
 		return mosseGiocateTotali;
 	}
-
-	
 
 }

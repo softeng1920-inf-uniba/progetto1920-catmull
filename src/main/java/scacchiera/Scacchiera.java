@@ -10,6 +10,9 @@ import pedine.Torre;
 
 /**
  * Rappresentazione della scacchiera
+ * 
+ * La classe Scacchiera è di tipo ENTITY
+ * 
  */
 public class Scacchiera {
 
@@ -17,7 +20,6 @@ public class Scacchiera {
 	private static final int NUMERORIGHE = 8;
 
 	private static Cella[][] scacchiera;
-
 
 	public Scacchiera() {
 
@@ -60,7 +62,7 @@ public class Scacchiera {
 	 * @return
 	 */
 	public static boolean isRangeValido(int x, int y) {
-			return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
+		return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
 	}
 
 	/**
@@ -124,8 +126,6 @@ public class Scacchiera {
 
 	}
 
-	
-
 	/**
 	 * simula il movimento di un pezzo nella scacchiera
 	 *
@@ -149,7 +149,6 @@ public class Scacchiera {
 		getCella(x, y).rimuoviPezzoCorrente();
 
 	}
-
 
 	/**
 	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici

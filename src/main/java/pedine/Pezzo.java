@@ -8,6 +8,8 @@ import scacchiera.*;
 /**
  * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
  * realizzare i pezzi del gioco nello specifico
+ * 
+ * La classe Pezzo è di tipo ENTITY
  **/
 public abstract class Pezzo {
 

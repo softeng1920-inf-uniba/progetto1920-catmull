@@ -7,7 +7,12 @@ import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/** Classe per rappresentere il sottotipo di pezzo chiamato Re */
+/**
+ * Classe per rappresentere il sottotipo di pezzo chiamato Re
+ * 
+ * La classe Re è di tipo noECB
+ */
+
 public final class Re extends Pezzo {
 
 	/** Costruttore */
@@ -109,8 +114,8 @@ public final class Re extends Pezzo {
 		for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {
 			for (int j = 0; j < Scacchiera.getNumeroColonne(); j++) {
 				if (Scacchiera.getNomePezzo(i, j) != "Vuota"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c && Scacchiera.getNomePezzo(i,
-								j) != "Re"
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c
+						&& Scacchiera.getNomePezzo(i, j) != "Re"
 						&& Scacchiera.getCella(i, j).getPezzoCorrente().isMossaValida(Scacchiera.getCella(i, j), temp))
 					return true;
 			}

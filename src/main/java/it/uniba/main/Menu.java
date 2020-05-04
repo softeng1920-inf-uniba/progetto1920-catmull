@@ -2,6 +2,8 @@ package it.uniba.main;
 
 /**
  * la classe Menu implementa il menu'
+ * 
+ * La classe Menu è di tipo Entity
  */
 public class Menu {
 
@@ -69,9 +71,4 @@ public class Menu {
 	public static Comando play() {
 		return play;
 	}
-
-	/**
-	 * back consente di chiamare il comando "back" in controller
-	 * @return back
-	 */
 }

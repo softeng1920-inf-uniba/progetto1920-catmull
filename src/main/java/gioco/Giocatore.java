@@ -15,6 +15,7 @@ import pedine.Pezzo;
  * giocate. Il primo giocatore e' bianco e il secondo nero: al giocatore che fa
  * la prima mossa sar√† assegnato il colore bianco.
  *
+ *La classe giocatore Ë di tipo ENTITY
  */
 public class Giocatore {
 

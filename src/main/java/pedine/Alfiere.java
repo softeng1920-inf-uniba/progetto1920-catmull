@@ -9,6 +9,8 @@ import scacchiera.Scacchiera;
 
 /**
  * Rappresentazione dell'astrazione del pezzo alfiere
+ * 
+ * La classe Alfiere è di tipo noECB
  */
 public final class Alfiere extends Pezzo {
 
@@ -100,7 +102,7 @@ public final class Alfiere extends Pezzo {
 				return mossaConvertita;
 			}
 		}
-    
+
 		// aumenta x e aumenta y
 		for (int i = 1; Scacchiera.isRangeValido(endX + i, endY + i); i++) {
 			if (Scacchiera.getNomePezzo(endX + i, endY + i) == "Alfiere"

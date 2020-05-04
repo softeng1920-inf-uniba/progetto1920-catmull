@@ -8,6 +8,8 @@ import java.io.UnsupportedEncodingException;
 
 
 /**
+ * La classe AppMain è di tipo BOUNDARY
+ * 
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
  *

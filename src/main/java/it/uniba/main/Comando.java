@@ -2,6 +2,8 @@ package it.uniba.main;
 
 /**
  * Classe che implementa il comando
+ * 
+ * La classe Comando è di tipo ENTITY
  */
 public class Comando {
 

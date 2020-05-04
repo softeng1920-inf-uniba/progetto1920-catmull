@@ -7,7 +7,10 @@ import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/** Classe per rappresentere il sottotipo di pezzo chiamato Regina */
+/** Classe per rappresentere il sottotipo di pezzo chiamato Regina 
+ * 
+ *  La classe Regina è di tipo noECB
+ */
 public final class Regina extends Pezzo {
 
 	/** Costruttore */
