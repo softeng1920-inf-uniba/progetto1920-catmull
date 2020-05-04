@@ -108,7 +108,7 @@ public final class Pedone extends Pezzo {
      * metodo di classe che converte il comando in input in una stringa nel formato
      * a2 a4
      * 
-     * @param mossa - puÃ² essere un'avanzata (es. a2) oppure una cattura (es. axb3
+     * @param mossa - puo' essere un'avanzata (es. a2) oppure una cattura (es. axb3
      * @param s
      * @param g
      * @return
@@ -131,7 +131,7 @@ public final class Pedone extends Pezzo {
 
 	} else { // avanzata
 
-	    // controlla se Ã¨ possibile avanti di due o di uno
+	    // controlla se e' possibile avanti di due o di uno
 
 	    if (coloreGiocatoreAttuale == Colore.bianco) {
 		Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt('3'));
