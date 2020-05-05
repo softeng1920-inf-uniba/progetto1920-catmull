@@ -6,7 +6,8 @@ import pedine.Pezzo;
 public final class Cella {
 	private int x;
 	private int y;
-	private boolean occupato; //TODO: lo stato occupato si può ottenere dalla cella, se contiene un pezzo o meno. Si potrebbe pensare di eliminare questa variabile
+	private boolean occupato; // TODO: lo stato occupato si puÃ² ottenere dalla cella, se contiene un pezzo o
+								// meno. Si potrebbe pensare di eliminare questa variabile
 	private Pezzo pezzoCorrente;
 
 	/** Costuttore */
@@ -130,7 +131,7 @@ public final class Cella {
 
 	public static char coordYinChar(final int coordY) {
 
-		return (char) Math.abs((coordY - 8));
+		return (char) (Math.abs((coordY - 8)) + 48);
 
 	}
 

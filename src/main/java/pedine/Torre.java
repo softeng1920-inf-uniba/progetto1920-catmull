@@ -24,180 +24,298 @@ public final class Torre extends Pezzo {
 		}
 	}
 
-	public static String convertiMossa(String mossa, Giocatore g) {
-		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
-		char x = mossa.charAt(mossa.length() - 2);
-		char y = mossa.charAt(mossa.length() - 1);
-		String cellaDestinazione = x + "" + y;
+	/**
+	 * Metodo che,data una stringa: mossa in notazione algebrica ridotta, la
+	 * converte in notazione estesa.
+	 * 
+	 * @param mossa
+	 * @param g
+	 * @return String
+	 */
 
-		// Controlla eventuale Cattura
+	public static String convertiMossa(String mossa, Giocatore g) {
+
+		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
+		char destX = mossa.charAt(mossa.length() - 2);
+		char destY = mossa.charAt(mossa.length() - 1);
+		int eX = Cella.coordXinInt(destX);
+		int eY = Cella.coordYinInt(destY);
+		Colore colorepedineGiocatoreCorrente = g.getColore();
+		ArrayList<String> possibiliPosizioniColonna = new ArrayList<String>();
+		ArrayList<String> possibiliPosizioniRiga = new ArrayList<String>();
+		String posRiga = "";
+		String posColonna = "";
+		char ambiguita = mossa.charAt(1);
 
 		if (mossa.matches(regex)) {
-				isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
 
-			// Controllo Ambiguita
+			// Controlla eventuale Cattura
+			isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
 
-			char ambiguita = mossa.charAt(1);
+			possibiliPosizioniColonna = checkPosTorreColonna(eX, colorepedineGiocatoreCorrente);
+			possibiliPosizioniRiga = checkPosTorreRiga(eY, colorepedineGiocatoreCorrente);
 
-			if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+			posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
+			posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
+
+			if (!posColonna.equals(mossaNonValida) && !posRiga.equals(mossaNonValida) && mossa.length() > 3
+					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+
 				if (Character.isDigit(ambiguita)) {
-					return x + "" + ambiguita + " " + cellaDestinazione;
-				} else {
-					return ambiguita + "" + y + " " + cellaDestinazione;
-				}
-			} else {
+					if (posRiga.charAt(1) == ambiguita)
+						return posRiga;
+					else if (posColonna.charAt(1) == ambiguita)
+						return posColonna;
+				} else if (posRiga.charAt(0) == ambiguita)
+					return posRiga;
+				else if (posColonna.charAt(0) == ambiguita)
+					return posColonna;
 
-				String posColonna = checkPosTorreColonna(cellaDestinazione, g);
-				String posRiga = checkPosTorreRiga(cellaDestinazione, g);
+			} else if (posColonna.equals(mossaNonValida) && posRiga.equals(mossaNonValida) && mossa.length() > 3
+					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+				if (Character.isDigit(ambiguita)) {
+					if (isMossaValida(eX, Cella.coordYinInt(ambiguita), eX, eY, colorepedineGiocatoreCorrente))
+						return destX + "" + ambiguita + " " + destX + "" + destY;
 
-				if (posColonna != mossaNonValida && posRiga != mossaNonValida) {
-					if (posRiga.charAt(posRiga.length() - 1) == '0'
-							&& posColonna.charAt(posColonna.length() - 1) == '0')
-						return mossaNonValida;
-					else if (posColonna != mossaNonValida && posColonna.charAt(posColonna.length() - 1) == '0') {
-						return posColonna.substring(0, posColonna.length() - 2) + " " + cellaDestinazione;
-					} else if (posRiga.charAt(posRiga.length() - 1) == '0')
-						return posRiga.substring(0, posRiga.length() - 2) + " " + cellaDestinazione;
+				} else if (isMossaValida(Cella.coordXinInt(ambiguita), eY, eX, eY, colorepedineGiocatoreCorrente))
+					return ambiguita + "" + destY + " " + destX + "" + destY;
 
-				} else if (posColonna != mossaNonValida) {
-					return posColonna.substring(0, posColonna.length() - 2) + " " + cellaDestinazione;
+			} else if (!posColonna.equals(mossaNonValida))
+				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+					if (posColonna.charAt(1) == ambiguita || posColonna.charAt(0) == ambiguita) {
+						return posColonna;
+					}
 				} else
-					return posRiga.substring(0, posRiga.length() - 2) + " " + cellaDestinazione;
+					return posColonna;
+			else if (!posRiga.equals(mossaNonValida))
+				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+					if (posRiga.charAt(1) == ambiguita || posRiga.charAt(0) == ambiguita) {
+						return posRiga;
+					}
+				} else
+					return posRiga;
 
-			}
 		}
-
 		return mossaNonValida;
 
 	}
 
-	private static String checkPosTorreRiga(String cellafinale, Giocatore g) {
+	private static String posizioneValidaColonna(ArrayList<String> possibiliPosizioniColonna, int eX, int eY,
+			Colore colorepedineGiocatoreCorrente) {
+		String posColonna = "";
+		String temp;
+		int sX = 0;
+		int sY = 0;
 
-		int y = Cella.coordYinInt(cellafinale.charAt(1));
-		int celleOccupate = 0;
+		int count = 0;
+		int i = 0;
 
-		String cellaIniziale = "";
+		while (i < possibiliPosizioniColonna.size()) {
+			temp = possibiliPosizioniColonna.get(i);
+			sX = Cella.coordXinInt(temp.charAt(0));
+			sY = Cella.coordYinInt(temp.charAt(1));
+			if (isMossaValida(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {
+				count++;
+				posColonna = temp + " " + Cella.coordXinChar(eX) + "" + Cella.coordYinChar(eY);
+			}
+			i++;
+		}
+		if (count == 1)
+			return posColonna;
+
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniColonna sono
+		// presenti due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
+
+	}
+
+	private static String posizioneValidaRiga(ArrayList<String> possibiliPosizioniRiga, int eX, int eY,
+			Colore colorepedineGiocatoreCorrente) {
+
+		String posRiga = "";
+		String temp;
+		int sX = 0;
+		int sY = 0;
+		int count = 0;
+		int i = 0;
+		while (i < possibiliPosizioniRiga.size()) {
+			temp = possibiliPosizioniRiga.get(i);
+			sX = Cella.coordXinInt(temp.charAt(0));
+			sY = Cella.coordYinInt(temp.charAt(1));
+
+			if (isMossaValida(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {
+				count++;
+				posRiga = temp + " " + Cella.coordXinChar(eX) + "" + Cella.coordYinChar(eY);
+			}
+			i++;
+		}
+		if (count == 1)
+			return posRiga;
+
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presenti
+		// due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
+	}
+
+	/**
+	 * Metodo che cerca le possibili posizioni della torre di colore di valore
+	 * colorepedineGiocatoreCorrente nella scacchiera in colonna esima y e riga x.
+	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
+	 * occupate dalla torre nella scacchiera.
+	 * 
+	 * 
+	 * 
+	 * @param y
+	 * @param colorepedineGiocatoreCorrente
+	 * @return ArrayList<String>
+	 */
+	private static ArrayList<String> checkPosTorreRiga(int y, Colore colorepedineGiocatoreCorrente) {
+
+		// int y = Cella.coordYinInt(destY);
+		ArrayList<String> possibiliPosizioni = new ArrayList<String>();
 		int numTorre = 0;
 
 		for (int x = 0; x < Scacchiera.getNumeroRighe(); x++) {
 			Cella cellaCorrente = Scacchiera.getCella(x, y);
 			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
-			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore()
+			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
 					&& pezzoCorrente.getNome().equals("Torre")) {
+				possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
 				numTorre++;
-				cellaIniziale = (char) (x + 97) + "" + cellafinale.charAt(1);
-			} else if (cellaCorrente.isOccupato())
-				celleOccupate++;
+			}
 		}
 
-		if (numTorre == 1) {
-			return cellaIniziale + " " + celleOccupate;
-		}
-
-		return mossaNonValida;
+		return possibiliPosizioni;
 	}
 
-	private static String checkPosTorreColonna(String cellafinale, Giocatore g) {
-		String cellaIniziale = "";
+	/**
+	 * Metodo che cerca le possibili posizioni della torre di colore di valore
+	 * colorepedineGiocatoreCorrente nella scacchiera in traversa esima x e riga y.
+	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
+	 * occupate dalla torre nella scacchiera.
+	 * 
+	 * 
+	 * 
+	 * @param x
+	 * @param colorepedineGiocatoreCorrente
+	 * @return ArrayList<String>
+	 */
+	private static ArrayList<String> checkPosTorreColonna(int x, Colore colorepedineGiocatoreCorrente) {
+
+		ArrayList<String> possibiliPosizioni = new ArrayList<String>();
 		int numTorre = 0;
-		int x = Cella.coordXinInt(cellafinale.charAt(0));
-		int celleOccupate = 0;
+
+		// int x = Cella.coordXinInt(destX);
+
 		for (int y = 0; y < Scacchiera.getNumeroColonne(); y++) {
 
 			Cella cellaCorrente = Scacchiera.getCella(x, y);
 			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
-			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == g.getColore()
+			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
 					&& pezzoCorrente.getNome().equals("Torre")) {
+				possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
 				numTorre++;
-
-				cellaIniziale = cellafinale.charAt(0) + "" + Math.abs(y - Scacchiera.getNumeroColonne());
-			} else if (cellaCorrente.isOccupato())
-				celleOccupate++;
+			}
 		}
 
-		if (numTorre == 1) {
-			return cellaIniziale + " " + celleOccupate;
-		}
-
-		return mossaNonValida;
+		return possibiliPosizioni;
 
 	}
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
-		Cella cellaCorrente;
-		Pezzo pezzoCorrente;
-		if (start.getX() != end.getX() || start.getY() != end.getY()) {
-			if (start.getY() > end.getY()) {
+		return isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
+	}
+
+	/**
+	 * Metodo che verifica il seguente scenario: date le coordinate sX e
+	 * sY,indicanti la traversa e la colonna di origine del pezzo da muovere, e le
+	 * coordinate eX e eY,indicanti la traversa e la colonna di arrivo del pezzo da
+	 * muovere, viene effettuato un controllo sul movimento del pezzo dalle
+	 * coordinate di partenza a quelle di arrivo.
+	 * 
+	 * @param sX
+	 * @param sY
+	 * @param eX
+	 * @param eY
+	 * @param colorePezzoCorrente
+	 * @return boolean
+	 */
+	private static boolean isMossaValida(int sX, int sY, int eX, int eY, Colore colorePezzoGiocatoreCorrente) {
+		Cella cellaCorrente = Scacchiera.getCella(sX, sY);
+		Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
+
+		if ((sX != eX || sY != eY) && cellaCorrente.isOccupato()
+				&& pezzoCorrente.getColore() == colorePezzoGiocatoreCorrente) {
+			if (sY > eY) {
 				// Movimento verso l'alto
 
-				for (int i = start.getY() - 1; i >= end.getY(); i--) {
+				for (int i = sY - 1; i >= eY; i--) {
 
-					cellaCorrente = Scacchiera.getCella(start.getX(), i);
+					cellaCorrente = Scacchiera.getCella(sX, i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-					if (cellaCorrente.isOccupato()) {
-						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
-							return true;
-						else
-							return false;
-					}
+
+					if (cellaCorrente.isOccupato() && i == eY
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+						return true;
+					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
+						return false;
+
 				}
 			} else {
 				// Movimento verso il basso
-				for (int i = start.getY() + 1; i <= end.getY(); i++) {
+				for (int i = sY + 1; i <= eY; i++) {
 
-					cellaCorrente = Scacchiera.getCella(start.getX(), i);
+					cellaCorrente = Scacchiera.getCella(sX, i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
-					if (cellaCorrente.isOccupato()) {
-						if (i == end.getY() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
-							return true;
-						else
-							return false;
-					}
+					if (cellaCorrente.isOccupato() && i == eY
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+						return true;
+					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
+						return false;
+
 				}
 			}
 
-			if (start.getX() > end.getX()) {
+			if (sX > eX) {
 				// Movimento verso sx
-				for (int i = start.getX() - 1; i >= end.getX(); i--) {
+				for (int i = sX - 1; i >= eX; i--) {
 
-					cellaCorrente = Scacchiera.getCella(i, start.getY());
+					cellaCorrente = Scacchiera.getCella(i, sY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
-					if (cellaCorrente.isOccupato()) {
-						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
-							return true;
-						else
-							return false;
-					}
+					if (cellaCorrente.isOccupato() && i == eX
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+						return true;
+					else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato())
+						return false;
+
 				}
 			} else {
 				// Movimento verso dx
-				for (int i = start.getX() + 1; i <= end.getX(); i++) {
+				for (int i = sX + 1; i <= eX; i++) {
 
-					cellaCorrente = Scacchiera.getCella(i, start.getY());
+					cellaCorrente = Scacchiera.getCella(i, sY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
-					if (cellaCorrente.isOccupato()) {
-						if (i == end.getX() && pezzoCorrente.getColore() != getColore() && isMossaCattura)
-							return true;
-						else
-							return false;
-					}
+					if (cellaCorrente.isOccupato() && i == eX
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+						return true;
+					else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato())
+						return false;
 				}
 			}
 
 			return true;
 		}
-
 		return false;
 	}
 
-
 	@Override
 	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
-			return false;
+		return false;
 	}
 }

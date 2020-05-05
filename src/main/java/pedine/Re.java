@@ -22,7 +22,7 @@ public final class Re extends Pezzo {
 
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
-		// controllo se può mangiare pezzo
+		// controllo se puÃ² mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
@@ -96,8 +96,7 @@ public final class Re extends Pezzo {
 		}
 		// solo se ha trovato il re ha senso convertire la mossa
 		if (startX != -1 && startY != -1) {
-			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
-					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}
 		return mossaConvertita;
 	}

@@ -21,7 +21,7 @@ public final class Regina extends Pezzo {
 	}
 
 	/**
-	 * Controlla se la mossa della regina è valida
+	 * Controlla se la mossa della regina Ã¨ valida
 	 */
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
@@ -102,7 +102,7 @@ public final class Regina extends Pezzo {
 			}
 		} else
 			return false;
-		// controllo se può mangiare pezzo
+		// controllo se puÃ² mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
@@ -158,8 +158,7 @@ public final class Regina extends Pezzo {
 		}
 		// solo se ha trovato la regina ha senso convertire la mossa
 		if (startX != -1 && startY != -1) {
-			mossaConvertita = Cella.coordXinChar(startX) + "" + +Cella.coordYinChar(startY) + " "
-					+ Cella.coordXinChar(endX) + "" + +Cella.coordYinChar(endY);
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}
 		return mossaConvertita;
 	}
