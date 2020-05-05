@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import it.uniba.main.Colore;
-import it.uniba.main.Stampa;
+
 import pedine.Pezzo;
 
 /**

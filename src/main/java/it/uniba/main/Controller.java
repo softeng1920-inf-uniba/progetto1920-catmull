@@ -5,14 +5,24 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import gioco.*;
-import pedine.*;
-import scacchiera.*;
+import gioco.Giocatore;
+import gioco.Menu;
+import gioco.Stampa;
+import gioco.Turno;
+import pedine.Alfiere;
+import pedine.Cavallo;
+import pedine.Pedone;
+import pedine.Pezzo;
+import pedine.Re;
+import pedine.Regina;
+import pedine.Torre;
+import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 /**
- * 
+ *
  * Classe che gestisce le varie funzionalita' del gioco
- * 
+ *
  * La classe Controller e' di tipo CONTROL
  */
 public class Controller {
@@ -244,11 +254,11 @@ public class Controller {
 	 * operativo
 	 *
 	 */
-	public void chiudiGioco() {
+	void chiudiGioco() {
 		System.exit(0);
 	}
 
-	public final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
+	private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
 		Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
@@ -274,18 +284,8 @@ public class Controller {
 	/**
 	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
 	 * applicaMossa.
-	 *
-	 * @return mosseConverite
 	 */
-	public ArrayList<String> getMosseConvertite() {
-		return mosseConvertite;
-	}
-
-	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
-	 * applicaMossa.
-	 */
-	public void addMosseConvertite(String mossa) {
+	private void addMosseConvertite(String mossa) {
 		mosseConvertite.add(mossa);
 	}
 

@@ -1,8 +1,8 @@
-package it.uniba.main;
+package gioco;
 
 /**
  * Classe che implementa il comando
- * 
+ *
  * La classe Comando e' di tipo ENTITY
  */
 public class Comando {
@@ -12,7 +12,7 @@ public class Comando {
 
 	/**
 	 * Metodo Costruttore
-	 * 
+	 *
 	 * @param nome
 	 * @param descrizione
 	 */
@@ -23,7 +23,7 @@ public class Comando {
 
 	/**
 	 * Metodo che permette di modificare il nome del comando
-	 * 
+	 *
 	 * @param nome
 	 */
 	void setNome(String nome) {
@@ -32,7 +32,7 @@ public class Comando {
 
 	/**
 	 * Metodo che permette di modificare la descrizione del comando
-	 * 
+	 *
 	 * @param descrizione
 	 */
 	void setDescrizione(final String descrizione) {
@@ -43,7 +43,7 @@ public class Comando {
 	 * getNome da come output il nome del comando
 	 * @return nome
 	 */
-	String getNome() {
+	public String getNome() {
 		return nome;
 	}
 
@@ -51,7 +51,7 @@ public class Comando {
 	 * getNome da come output la descrizione del comando
 	 * @return descrizione
 	 */
-	String getDescrizione() {
+	public String getDescrizione() {
 		return descrizione;
 	}
 

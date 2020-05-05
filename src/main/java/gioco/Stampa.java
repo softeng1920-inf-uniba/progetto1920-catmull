@@ -1,6 +1,4 @@
-package it.uniba.main;
-
-import gioco.*;
+package gioco;
 
 import scacchiera.*;
 import pedine.*;

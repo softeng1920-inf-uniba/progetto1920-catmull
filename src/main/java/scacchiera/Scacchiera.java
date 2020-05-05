@@ -1,6 +1,6 @@
 package scacchiera;
 
-import it.uniba.main.Colore;
+import gioco.Colore;
 import pedine.Alfiere;
 import pedine.Cavallo;
 import pedine.Pedone;

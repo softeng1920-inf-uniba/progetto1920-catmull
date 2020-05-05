@@ -2,8 +2,8 @@ package scacchiera;
 
 import pedine.Pezzo;
 
-/** Classe per rappresentere le singole parti della scacchiera 
- * 
+/** Classe per rappresentere le singole parti della scacchiera
+ *
  * La classe Cella e' di tipo ENTITY
  */
 public final class Cella {
@@ -24,23 +24,13 @@ public final class Cella {
 
 	// ---------Metodi di setting---------
 
-	/** Modifica la coordinata x */
-	void setX(final int newx) {
-		x = newx;
-	}
-
-	/** Modifica la coordinata y */
-	void setY(final int newy) {
-		y = newy;
-	}
-
 	/** Modifica la variabile occupato */
 	public void setOccupato(final boolean occupato) {
 		this.occupato = occupato;
 	}
 
 	/** Modifica il tipo di pezzo che contiene */
-	public void setPezzoCorrente(final Pezzo pezzoCorrente) {
+	void setPezzoCorrente(final Pezzo pezzoCorrente) {
 		this.pezzoCorrente = pezzoCorrente;
 		if (pezzoCorrente != null) {
 			this.occupato = true;

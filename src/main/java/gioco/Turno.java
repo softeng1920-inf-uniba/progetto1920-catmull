@@ -2,8 +2,6 @@ package gioco;
 
 import java.util.ArrayList;
 
-import it.uniba.main.Colore;
-
 /**
  * Rappresenta il turno per il gioco con i metodi
  * 

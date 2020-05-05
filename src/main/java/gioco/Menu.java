@@ -1,4 +1,4 @@
-package it.uniba.main;
+package gioco;
 
 /**
  * la classe Menu implementa il menu'

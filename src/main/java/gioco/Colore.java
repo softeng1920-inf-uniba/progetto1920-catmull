@@ -1,4 +1,4 @@
-package it.uniba.main;
+package gioco;
 
 /**
  * La classe colore e' di tipo noECB

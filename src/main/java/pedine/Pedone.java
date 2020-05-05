@@ -2,8 +2,8 @@ package pedine;
 
 import java.util.ArrayList;
 
+import gioco.Colore;
 import gioco.Giocatore;
-import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
