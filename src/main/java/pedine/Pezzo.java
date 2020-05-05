@@ -1,10 +1,7 @@
 package pedine;
 
-import java.util.ArrayList;
-
 import it.uniba.main.Colore;
 import scacchiera.Cella;
-import scacchiera.Scacchiera;
 
 /**
  * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
@@ -17,9 +14,6 @@ public abstract class Pezzo {
 	protected boolean vivo;
 	public char simbolo;
 	protected Cella posizioneCorrente;
-
-	public final static int ARROCCO_CORTO = 1;
-	public final static int ARROCCO_LUNGO = 2;
 	
 	public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
 		this.nome = name;
@@ -150,16 +144,5 @@ public abstract class Pezzo {
 	 * @return boolean
 	 */
 	public abstract boolean isMossaValida(Cella start, Cella end);
-
-	/**
-	 * Metodo che permette di controllare se la mossa speciale data sia valida
-	 * 
-	 * @param start
-	 * @param end
-	 * @param s
-	 * @param mosse
-	 * @return boolean
-	 */
-	public abstract boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse);
 
 }

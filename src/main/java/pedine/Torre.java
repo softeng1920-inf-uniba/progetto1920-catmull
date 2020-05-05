@@ -2,8 +2,9 @@ package pedine;
 
 import java.util.ArrayList;
 
-import gioco.Giocatore;
+import gioco.Turno;
 import it.uniba.main.Colore;
+import it.uniba.main.Comando;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
@@ -27,20 +28,20 @@ public final class Torre extends Pezzo {
 	/**
 	 * Metodo che,data una stringa: mossa in notazione algebrica ridotta, la
 	 * converte in notazione estesa.
-	 * 
+	 *
 	 * @param mossa
 	 * @param g
 	 * @return String
 	 */
 
-	public static String convertiMossa(String mossa, Giocatore g) {
+	public static String convertiMossa(String mossa) {
 
 		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 		char destX = mossa.charAt(mossa.length() - 2);
 		char destY = mossa.charAt(mossa.length() - 1);
 		int eX = Cella.coordXinInt(destX);
 		int eY = Cella.coordYinInt(destY);
-		Colore colorepedineGiocatoreCorrente = g.getColore();
+		Colore colorepedineGiocatoreCorrente = Turno.getGiocatoreInTurno().getColore();
 		ArrayList<String> possibiliPosizioniColonna = new ArrayList<String>();
 		ArrayList<String> possibiliPosizioniRiga = new ArrayList<String>();
 		String posRiga = "";
@@ -164,9 +165,9 @@ public final class Torre extends Pezzo {
 	 * colorepedineGiocatoreCorrente nella scacchiera in colonna esima y e riga x.
 	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
 	 * occupate dalla torre nella scacchiera.
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
 	 * @param y
 	 * @param colorepedineGiocatoreCorrente
 	 * @return ArrayList<String>
@@ -195,9 +196,9 @@ public final class Torre extends Pezzo {
 	 * colorepedineGiocatoreCorrente nella scacchiera in traversa esima x e riga y.
 	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
 	 * occupate dalla torre nella scacchiera.
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
 	 * @param x
 	 * @param colorepedineGiocatoreCorrente
 	 * @return ArrayList<String>
@@ -235,7 +236,7 @@ public final class Torre extends Pezzo {
 	 * coordinate eX e eY,indicanti la traversa e la colonna di arrivo del pezzo da
 	 * muovere, viene effettuato un controllo sul movimento del pezzo dalle
 	 * coordinate di partenza a quelle di arrivo.
-	 * 
+	 *
 	 * @param sX
 	 * @param sY
 	 * @param eX
@@ -314,8 +315,13 @@ public final class Torre extends Pezzo {
 		return false;
 	}
 
-	@Override
-	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
-		return false;
-	}
+	 public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
+		if (tipoArrocco == Comando.ARROCCO_CORTO)
+			return (c == Colore.bianco) ? "h1 f1" : "h8 f8";
+		else {
+			// arrocco lungo
+			return "";
+		}
+	    }
+
 }
