@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe per rappresentere il sottotipo di pezzo chiamato Re
- * 
+ *
  * La classe Re e' di tipo noECB
  */
 
@@ -48,13 +48,13 @@ public final class Re extends Pezzo {
 					return true;
 			}
 			// MOVIMENTI DIAGONALI
-			if (start.getX() == end.getX() + 1 && start.getX() == end.getX() + 1)
+			if (start.getX() == end.getX() + 1 && start.getY() == end.getY() + 1)
 				return true;
-			if (start.getX() == end.getX() - 1 && start.getX() == end.getX() - 1)
+			if (start.getX() == end.getX() - 1 && start.getY() == end.getY() - 1)
 				return true;
-			if (start.getX() == end.getX() + 1 && start.getX() == end.getX() - 1)
+			if (start.getX() == end.getX() + 1 && start.getY() == end.getY() - 1)
 				return true;
-			if (start.getX() == end.getX() - 1 && start.getX() == end.getX() + 1)
+			if (start.getX() == end.getX() - 1 && start.getY() == end.getY() + 1)
 				return true;
 		}
 		return false;
