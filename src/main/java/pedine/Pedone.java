@@ -153,7 +153,7 @@ public final class Pedone extends Pezzo {
 	    }
 
 	    // mossa finale pedone semplice
-	    mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1Â° traversa
+	    mossaConvertita = String.valueOf(mossa.charAt(0)) + // prima traversa
 		    String.valueOf(mossa.charAt(1) + variazione) + // 1Â° colonna
 		    ' ' + String.valueOf(mossa.charAt(0)) + // 2Â° traversa
 		    String.valueOf(mossa.charAt(1)); // 2Â° colonna
