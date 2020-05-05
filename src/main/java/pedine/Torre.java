@@ -315,13 +315,13 @@ public final class Torre extends Pezzo {
 		return false;
 	}
 
-	 public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
+	public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
 		if (tipoArrocco == Comando.ARROCCO_CORTO)
 			return (c == Colore.bianco) ? "h1 f1" : "h8 f8";
 		else {
 			// arrocco lungo
-			return "";
+			return (c == Colore.bianco) ? "a1 d1" : "a8 d8";
 		}
-	    }
+	}
 
 }
