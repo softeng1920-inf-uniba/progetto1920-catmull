@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.006" hostname="DESKTOP-4L7G6SD" timestamp="2020-05-03T21:26:35">
-<properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>
 <property name="file.encoding.pkg" value="sun.io"/>
