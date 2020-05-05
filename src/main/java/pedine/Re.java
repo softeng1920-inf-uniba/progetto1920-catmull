@@ -21,6 +21,7 @@ public final class Re extends Pezzo {
 		}
 	}
 
+
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
 
@@ -87,6 +88,7 @@ public final class Re extends Pezzo {
 			return (c == Colore.bianco) ? "e1 c1" : "e8 c8";
 
 		}
+
 	}
 
 	public static String convertiMossa(String mossa) {
@@ -130,6 +132,7 @@ public final class Re extends Pezzo {
 		return mossaConvertita;
 	}
 
+
 	/**
 	 *
 	 *
@@ -167,5 +170,6 @@ public final class Re extends Pezzo {
 		}
 		return false;
 	}
+
 
 }

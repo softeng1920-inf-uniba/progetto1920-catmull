@@ -139,7 +139,7 @@ public final class Pedone extends Pezzo {
 		if (mossa.charAt(1) == '4' && // Se mi voglio spostare nella 4 traversa, devo determinare se voglio
 					      // avanzare di 2
 			(!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone")))
-		    variazione = -50; // Se la terza traversa non Ã¨ occupata da un pedone allora vengo dalla 2Â°
+		    variazione = -50; // Se la terza traversa non è occupata da un pedone allora vengo dalla seconda traversa
 				      // traversa
 		else
 		    variazione = -49;
@@ -153,7 +153,7 @@ public final class Pedone extends Pezzo {
 	    }
 
 	    // mossa finale pedone semplice
-	    mossaConvertita = String.valueOf(mossa.charAt(0)) + // 1Â° traversa
+	    mossaConvertita = String.valueOf(mossa.charAt(0)) + // prima traversa
 		    String.valueOf(mossa.charAt(1) + variazione) + // 1Â° colonna
 		    ' ' + String.valueOf(mossa.charAt(0)) + // 2Â° traversa
 		    String.valueOf(mossa.charAt(1)); // 2Â° colonna
