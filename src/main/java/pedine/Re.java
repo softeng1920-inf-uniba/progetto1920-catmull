@@ -7,7 +7,12 @@ import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/** Classe per rappresentere il sottotipo di pezzo chiamato Re */
+/**
+ * Classe per rappresentere il sottotipo di pezzo chiamato Re
+ * 
+ * La classe Re e' di tipo noECB
+ */
+
 public final class Re extends Pezzo {
 
 	/** Costruttore */
@@ -68,14 +73,14 @@ public final class Re extends Pezzo {
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
 		// mossa semplice
-		if (mossa.matches("(R)[a-h][1-8]")) {
+		if (mossa.matches("R[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota")
 				return mossaConvertita;
 		}
 		// mossa di cattura
-		if (mossa.matches("(R)(x|:)[a-h][1-8]")) {
+		if (mossa.matches("R(x|:)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")
@@ -108,8 +113,8 @@ public final class Re extends Pezzo {
 		for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {
 			for (int j = 0; j < Scacchiera.getNumeroColonne(); j++) {
 				if (Scacchiera.getNomePezzo(i, j) != "Vuota"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c && Scacchiera.getNomePezzo(i,
-								j) != "Re"
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c
+						&& Scacchiera.getNomePezzo(i, j) != "Re"
 						&& Scacchiera.getCella(i, j).getPezzoCorrente().isMossaValida(Scacchiera.getCella(i, j), temp))
 					return true;
 			}

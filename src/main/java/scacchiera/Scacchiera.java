@@ -9,7 +9,10 @@ import pedine.Regina;
 import pedine.Torre;
 
 /**
- * Rappresentazione astratta della scacchiera
+ * Rappresentazione della scacchiera
+ * 
+ * La classe Scacchiera e' di tipo ENTITY
+ * 
  */
 public class Scacchiera {
 
@@ -17,7 +20,6 @@ public class Scacchiera {
 	private static final int NUMERORIGHE = 8;
 
 	private static Cella[][] scacchiera;
-
 
 	public Scacchiera() {
 
@@ -60,7 +62,7 @@ public class Scacchiera {
 	 * @return
 	 */
 	public static boolean isRangeValido(int x, int y) {
-			return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
+		return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
 	}
 
 	/**
@@ -125,26 +127,6 @@ public class Scacchiera {
 	}
 
 	/**
-	 * metodo per stampare nella console la scacchiera
-	 */
-	public static final void stampa() {
-		System.out.println("      a     b     c     d     e     f     g     h");
-		for (int j = 8; j > 0; j--) {
-			System.out.println("  --------------------------------------------------");
-			System.out.print(j + "  ");
-			for (int i = 0; i < 8; i++) {
-				System.out.print("| ");
-				getCella(i, Math.abs(j - 8)).stampaPezzo();
-				System.out.print("  ");
-			}
-			System.out.print("|");
-			System.out.println("  " + j);
-		}
-		System.out.println("  --------------------------------------------------");
-		System.out.println("      a     b     c     d     e     f     g     h");
-	}
-
-	/**
 	 * simula il movimento di un pezzo nella scacchiera
 	 *
 	 * @param c1
@@ -167,7 +149,6 @@ public class Scacchiera {
 		getCella(x, y).rimuoviPezzoCorrente();
 
 	}
-
 
 	/**
 	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici

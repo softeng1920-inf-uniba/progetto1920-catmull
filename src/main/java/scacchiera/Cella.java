@@ -2,7 +2,10 @@ package scacchiera;
 
 import pedine.Pezzo;
 
-/** Classe per rappresentere le singole parti della scacchiera */
+/** Classe per rappresentere le singole parti della scacchiera 
+ * 
+ * La classe Cella e' di tipo ENTITY
+ */
 public final class Cella {
 	private int x;
 	private int y;
@@ -17,16 +20,7 @@ public final class Cella {
 		this.pezzoCorrente = pezzoCorrente;
 	}
 
-	/** Disegna il pezzo che contiene in output */
-	void stampaPezzo() {
-		if (pezzoCorrente != null) {
-			System.out.print(" ");
-			pezzoCorrente.disegnapezzo();
-		} else {
-			System.out.print("  ");
-		}
 
-	}
 
 	// ---------Metodi di setting---------
 

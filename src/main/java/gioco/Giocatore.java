@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import it.uniba.main.Colore;
+import it.uniba.main.Stampa;
 import pedine.Pezzo;
 
 /**
@@ -14,6 +15,7 @@ import pedine.Pezzo;
  * giocate. Il primo giocatore e' bianco e il secondo nero: al giocatore che fa
  * la prima mossa sarÃ  assegnato il colore bianco.
  *
+ *La classe giocatore e' di tipo ENTITY
  */
 public class Giocatore {
 
@@ -37,15 +39,15 @@ public class Giocatore {
 		setColore(colore);
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + colore + " \u2193");
+		Stampa.stampaInserireGiocatore(colore);
+		
 		String nome = "";
 
 		try {
 			while (nome.equals("")) {
 				nome = br.readLine();
 				if (nome.equals("")) {
-					System.out.println("INSERIRE il nome del giocatore !");
+					Stampa.stampaInserireGiocatore(colore);
 				}
 			}
 
@@ -117,18 +119,7 @@ public class Giocatore {
 		return pezziCatturati;
 	}
 
-	/**
-	 * Funzione che permette di visualizzare le pedine che l'avversario ti ha
-	 * mangiato
-	 */
-	public void stampaPezziCatturati() {
-
-		System.out.println("Pezzi catturati dal giocatore " + nome.toUpperCase() + ":");
-		for (Pezzo pezzoMangiato : getPezziCatturati()) {
-			System.out.println(pezzoMangiato);
-		}
-	}
-
+	
 	/**
 	 * Funzione che controlla che l'array pezziCatturati sia vuoto o pieno, nel caso
 	 * contenga qualche pezzo restituisce true e viceversa.

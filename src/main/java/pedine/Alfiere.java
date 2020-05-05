@@ -9,6 +9,8 @@ import scacchiera.Scacchiera;
 
 /**
  * Rappresentazione dell'astrazione del pezzo alfiere
+ * 
+ * La classe Alfiere e' di tipo noECB
  */
 public final class Alfiere extends Pezzo {
 
@@ -78,14 +80,14 @@ public final class Alfiere extends Pezzo {
 	}
 
 	public static String convertiMossa(String mossa, Giocatore g) {
-		// "[A](x|:)?[a-h][1-8]"
+		// "A(x|:)?[a-h][1-8]"
 
 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
-		if (mossa.matches("[A][a-h][1-8]")) {// si muove senza ambiguitï¿½
+		if (mossa.matches("A[a-h][1-8]")) {// si muove senza ambiguita'
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
@@ -93,14 +95,15 @@ public final class Alfiere extends Pezzo {
 			}
 		}
 
-		if (mossa.matches("[A][x|:][a-h][1-8]")) { // mangia senza ambiguitï¿½
+
+		if (mossa.matches("A[x|:][a-h][1-8]")) { // mangia senza ambiguita'
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
 				return mossaConvertita;
 			}
 		}
-    
+
 		// aumenta x e aumenta y
 		for (int i = 1; Scacchiera.isRangeValido(endX + i, endY + i); i++) {
 			if (Scacchiera.getNomePezzo(endX + i, endY + i) == "Alfiere"

@@ -9,6 +9,8 @@ import scacchiera.Scacchiera;
 
 /**
  * Realizzazione della classe Torre, estensione della classe Pezzo
+ * 
+ * La classe Torre e' di tipo noECB
  */
 public final class Torre extends Pezzo {
 	static boolean isMossaCattura;
@@ -48,6 +50,8 @@ public final class Torre extends Pezzo {
 		char ambiguita = mossa.charAt(1);
 
 		if (mossa.matches(regex)) {
+			isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
+
 
 			// Controlla eventuale Cattura
 			isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');

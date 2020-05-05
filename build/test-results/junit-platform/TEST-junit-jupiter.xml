@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.006" hostname="LAPTOP-N9R260GT" timestamp="2020-05-04T01:13:26">
+=======
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.005" hostname="LAPTOP-N9R260GT" timestamp="2020-05-04T15:15:19">
+>>>>>>> 1faf50278d4332cf67f75e46a609df83ca7400d9
 <properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>
