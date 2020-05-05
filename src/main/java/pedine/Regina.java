@@ -19,7 +19,7 @@ public final class Regina extends Pezzo {
 	}
 
 	/**
-	 * Controlla se la mossa della regina Ã¨ valida
+	 * Controlla se la mossa della regina e' valida
 	 */
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
@@ -100,7 +100,7 @@ public final class Regina extends Pezzo {
 			}
 		} else
 			return false;
-		// controllo se puÃ² mangiare pezzo
+		// controllo se puo' mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
