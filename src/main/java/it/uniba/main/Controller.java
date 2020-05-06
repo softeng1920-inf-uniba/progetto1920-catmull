@@ -20,9 +20,9 @@ import pedine.Regina;
 import pedine.Torre;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
-
 /**
- * Classe che gestisce le varie funzionalita' del gioco
+ * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare 
+ * una nuova partita o di effettuarne una.
  * La classe Controller e' di tipo CONTROL
  */
 public class Controller {

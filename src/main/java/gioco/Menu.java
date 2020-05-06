@@ -1,9 +1,10 @@
 package gioco;
 
-/**
- * La classe Menu e' di tipo Entity
- *
- *
+/*
+ * La classe Menu implementa i menu: il menu principale che compare all'inizio
+ * del gioco e il menu che compare durante la partita. La classe contiene le
+ * informazioni riguardo ai comandi: help, moves, quit, board, captures e play.
+ * La classe Menu e' di tipo Entity. 
  */
 public class Menu {
 

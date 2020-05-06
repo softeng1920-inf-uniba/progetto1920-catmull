@@ -9,12 +9,11 @@ import pedine.Pezzo;
 
 /**
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
- * possono essere solo due giocatori. Al suo interno sono presenti tutte le
+ * possono essere solo due giocatori e, al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi catturati e mosse
- * giocate. Il primo giocatore e' bianco e il secondo nero. Al giocatore che fa
- * la prima mossa sara' assegnato il colore bianco.
- *
- *La classe Giocatore e' di tipo ENTITY
+ * giocate. Il primo giocatore e' bianco e il secondo nero: al giocatore che fa
+ * la prima mossa sara' assegnato il colore bianco. 
+ * La classe Giocatore e' di tipo ENTITY.
  */
 
 public class Giocatore {

@@ -3,8 +3,9 @@ package gioco;
 import java.util.ArrayList;
 
 /**
- * Rappresenta il turno per il gioco con i metodi
- * 
+ * La classe turno serve per identificare il turno corrente e di attesa del
+ * gioco, quindi definisce se sta giocando il giocatore bianco o nero;
+ * Contiene le informazioni riguardo al turno del giocatore.
  * La classe Turno e' di tipo ENTITY
  */
 

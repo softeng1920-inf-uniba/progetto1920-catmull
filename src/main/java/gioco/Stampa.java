@@ -4,8 +4,12 @@ import scacchiera.*;
 import pedine.*;
 
 /**
- * la classe Stampa e' di tipo BOUNDARY
+ * La classe Stampa contiene i messaggi stampati a video e i metodi di stampa
+ * dell'intero gioco. Contiene anche informazioni riguardo ai colori utilizzati
+ * nelle stampe.
+ * La classe Stampa e' di tipo BOUNDARY.
  */
+
 public class Stampa {
     // colore carattere e font
     private static final String CYAN_BOLD = "\033[1;96m";

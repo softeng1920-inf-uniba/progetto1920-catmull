@@ -9,8 +9,9 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe per rappresentare il sottotipo di pezzo chiamato Re
- *La classe Re e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
+ * il movimento del Re è valido.
+ * La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
