@@ -263,7 +263,6 @@ public class Controller {
 	private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
-		Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		switch (tipoMossa) {
 
@@ -274,6 +273,7 @@ public class Controller {
 			}
 			break;
 		case 1:
+			Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 			giocatoreAttivo.addPezziCatturati(cellaAdiacenteEp.getPezzoCorrente());
 			cellaAdiacenteEp.rimuoviPezzoCorrente();
 			break;
