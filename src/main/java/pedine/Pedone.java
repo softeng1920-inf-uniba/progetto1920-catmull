@@ -3,12 +3,14 @@ package pedine;
 import java.util.ArrayList;
 
 import gioco.Turno;
-import it.uniba.main.Colore;
+import gioco.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe per rappresentere il sottotipo di pezzo chiamato Pedone
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
+ * il movimento del Pedone è valido.
+ * La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 
@@ -107,10 +109,8 @@ public final class Pedone extends Pezzo {
     /**
      * metodo di classe che converte il comando in input in una stringa nel formato
      * a2 a4
-     * 
+     *
      * @param mossa - puo' essere un'avanzata (es. a2) oppure una cattura (es. axb3
-     * @param s
-     * @param g
      * @return
      */
     public static String convertiMossa(String mossa) {
@@ -121,7 +121,6 @@ public final class Pedone extends Pezzo {
 	// Il formato della mossa sara'  del tipo [a-h](x|:)([a-h][1-8])
 	String regexCattura = "[a-h](x|:)([a-h][1-8])( e.p.)?";
 	Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
-
 
 	if (mossa.matches(regexCattura)) { // Mossa di cattura in diagonale
 
@@ -139,7 +138,8 @@ public final class Pedone extends Pezzo {
 		if (mossa.charAt(1) == '4' && // Se mi voglio spostare nella 4 traversa, devo determinare se voglio
 					      // avanzare di 2
 			(!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone")))
-		    variazione = -50; // Se la terza traversa non è occupata da un pedone allora vengo dalla seconda traversa
+		    variazione = -50; // Se la terza traversa non è occupata da un pedone allora vengo dalla seconda
+				      // traversa
 				      // traversa
 		else
 		    variazione = -49;
@@ -154,9 +154,10 @@ public final class Pedone extends Pezzo {
 
 	    // mossa finale pedone semplice
 	    mossaConvertita = String.valueOf(mossa.charAt(0)) + // prima traversa
-		    String.valueOf(mossa.charAt(1) + variazione) + // 1Â° colonna
-		    ' ' + String.valueOf(mossa.charAt(0)) + // 2Â° traversa
-		    String.valueOf(mossa.charAt(1)); // 2Â° colonna
+		    String.valueOf(mossa.charAt(1) + variazione) + // prima colonna
+		    ' ' + String.valueOf(mossa.charAt(0)) + // seconda traversa
+		    String.valueOf(mossa.charAt(1)); // seconda colonna
+
 	}
 	// controlla che nella cella di partenza ci sia un pedone
 
@@ -164,5 +165,6 @@ public final class Pedone extends Pezzo {
 		Cella.coordYinInt(mossaConvertita.charAt(1))) != "Pedone")
 	    return "a0 a0";
 	return mossaConvertita;
+
     }
 }

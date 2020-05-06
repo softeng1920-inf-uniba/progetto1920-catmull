@@ -1,148 +1,147 @@
 package pedine;
 
-import it.uniba.main.Colore;
+import gioco.Colore;
 import scacchiera.Cella;
 
 /**
- * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
- * realizzare i pezzi del gioco nello specifico
+ * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per poi
+ * realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i seguenti attributi 
+ * che ne definiscono lo stato:
+ * <ul>
+ * 	<li><b>nome</b></li>
+ *  <li><b>colore</b></li>
+ *  <li><b>simbolo</b></li>
+ *  <li><b>vivo</b></li>
+ *  <li><b>posisizioneCorrente</b></li>
+ * </ul> 
+ * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
+    protected String nome;
+    protected Colore colore;
+    protected boolean vivo;
+    public char simbolo;
+    protected Cella posizioneCorrente;
 
-	protected String nome;
-	protected Colore colore;
-	protected boolean vivo;
-	public char simbolo;
-	protected Cella posizioneCorrente;
-	
-	public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
-		this.nome = name;
-		this.colore = colore;
-		this.posizioneCorrente = posizioneCorrente;
-		this.simbolo = ' ';
-		vivo = true;
-	}
+    public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
+	this.nome = name;
+	this.colore = colore;
+	this.posizioneCorrente = posizioneCorrente;
+	this.simbolo = ' ';
+	vivo = true;
+    }
 
-	/**
-	 * Disegnapezzo consente di rappresentare il pezzo nella scacchiera
-	 *
-	 */
+    // --------Metodi di setting --------
 
-	public void disegnapezzo() {
-		System.out.print(this.simbolo);
-	}
+    /**
+     * setNome imposta il nome del pezzo
+     *
+     * @param nome
+     */
+    void setNome(String n) {
+	this.nome = n;
+    }
 
-	// --------Metodi di setting --------
+    /**
+     * setColore imposta il colore del pezzo
+     *
+     * @param colore
+     */
 
-	/**
-	 * setNome imposta il nome del pezzo
-	 *
-	 * @param nome
-	 */
-	void setNome(String n) {
-		this.nome = n;
-	}
+    public void setColore(Colore c) {
+	this.colore = c;
+    }
 
-	/**
-	 * setColore imposta il colore del pezzo
-	 *
-	 * @param colore
-	 */
+    /**
+     * setVivo riporta lo stato del pezzo
+     */
+    public void setVivo(boolean v) {
+	this.vivo = v;
+    }
 
-	public void setColore(Colore c) {
-		this.colore = c;
-	}
+    /**
+     * setSimbolo modifica lo stato del simbolo
+     *
+     * @param simbolo
+     */
 
-	/**
-	 * setVivo riporta lo stato del pezzo
-	 */
-	public void setVivo(boolean v) {
-		this.vivo = v;
-	}
+    public void setSimbolo(final char simbolo) {
+	this.simbolo = simbolo;
+    }
 
-	/**
-	 * setSimbolo modifica lo stato del simbolo
-	 *
-	 * @param simbolo
-	 */
+    /**
+     * setPosizioneCorrente imposta la posizione corrente del pezzo
+     *
+     * @param posizioneCorrente
+     */
+    public void setPosizioneCorrente(Cella pC) {
+	this.posizioneCorrente = pC;
+    }
 
-	public void setSimbolo(final char simbolo) {
-		this.simbolo = simbolo;
-	}
+    // --------Metodi di Get--------
 
-	/**
-	 * setPosizioneCorrente imposta la posizione corrente del pezzo
-	 *
-	 * @param posizioneCorrente
-	 */
-	public void setPosizioneCorrente(Cella pC) {
-		this.posizioneCorrente = pC;
-	}
+    /**
+     * getNome restituisce il nome del pezzo
+     *
+     * @return nome
+     */
+    public String getNome() {
+	return nome;
+    }
 
-	// --------Metodi di Get--------
+    /**
+     * getSimbolo restituisce il simbolo corrente del pezzo
+     *
+     * @return simbolo
+     */
+    public char getSimbolo() {
+	return simbolo;
+    }
 
-	/**
-	 * getNome restituisce il nome del pezzo
-	 *
-	 * @return nome
-	 */
-	public String getNome() {
-		return nome;
-	}
+    /**
+     * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
+     * nero
+     *
+     * @return colore
+     */
+    public Colore getColore() {
+	return colore;
+    }
 
-	/**
-	 * getSimbolo restituisce il simbolo corrente del pezzo
-	 *
-	 * @return simbolo
-	 */
-	public char getSimbolo() {
-		return simbolo;
-	}
+    /**
+     * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
+     *
+     *
+     * @return vivo
+     */
+    public boolean isVivo() {
+	return vivo;
+    }
 
-	/**
-	 * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
-	 * nero
-	 *
-	 * @return colore
-	 */
-	public Colore getColore() {
-		return colore;
-	}
+    /**
+     * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
+     *
+     * @return posizioneCorrente
+     */
+    public Cella getPosizioneCorrente() {
+	return posizioneCorrente;
+    }
 
-	/**
-	 * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
-	 *
-	 *
-	 * @return vivo
-	 */
-	public boolean isVivo() {
-		return vivo;
-	}
+    /**
+     * toString consente di rappresentare un oggetto come una stringa
+     */
+    @Override
+    public String toString() {
+	return String.format(nome + " " + colore + " " + simbolo);
+    }
 
-	/**
-	 * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
-	 *
-	 * @return posizioneCorrente
-	 */
-	public Cella getPosizioneCorrente() {
-		return posizioneCorrente;
-	}
-
-	/**
-	 * toString consente di rappresentare un oggetto come una stringa
-	 */
-	@Override
-	public String toString() {
-		return String.format(nome + " " + colore + " " + simbolo);
-	}
-
-	/**
-	 * Metodo che permette di controllare se la mossa data sia valida
-	 * 
-	 * @param start
-	 * @param end
-	 * @return boolean
-	 */
-	public abstract boolean isMossaValida(Cella start, Cella end);
+    /**
+     * Metodo che permette di controllare se la mossa data sia valida
+     *
+     * @param start
+     * @param end
+     * @return boolean
+     */
+    public abstract boolean isMossaValida(Cella start, Cella end);
 
 }
