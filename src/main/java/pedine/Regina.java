@@ -1,14 +1,12 @@
 package pedine;
 
-import java.util.ArrayList;
-
 import gioco.Colore;
-import gioco.Giocatore;
+import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/** Classe per rappresentere il sottotipo di pezzo chiamato Regina 
- * 
+/** Classe per rappresentere il sottotipo di pezzo chiamato Regina
+ *
  *  La classe Regina e' di tipo noECB
  */
 public final class Regina extends Pezzo {
@@ -24,7 +22,7 @@ public final class Regina extends Pezzo {
 	}
 
 	/**
-	 * Controlla se la mossa della regina Ã¨ valida
+	 * Controlla se la mossa della regina e' valida
 	 */
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
@@ -105,16 +103,11 @@ public final class Regina extends Pezzo {
 			}
 		} else
 			return false;
-		// controllo se puÃ² mangiare pezzo
+		// controllo se puo' mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
 		return true;
-	}
-
-	@Override
-	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
-		return false;
 	}
 
 	/**
@@ -126,12 +119,13 @@ public final class Regina extends Pezzo {
 	 * @param g
 	 * @return
 	 */
-	public static String convertiMossa(String mossa, Giocatore g) {
+	public static String convertiMossa(String mossa) {
 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
+		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
 		// mossa semplice
 		if (mossa.matches("D[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
@@ -150,7 +144,7 @@ public final class Regina extends Pezzo {
 		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
 			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
 				if (Scacchiera.getNomePezzo(i, j) == "Regina"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() == g.getColore()) {
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {
 					startX = i;
 					startY = j;
 					break;
