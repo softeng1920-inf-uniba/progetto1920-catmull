@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import gioco.Comando;
 import gioco.Giocatore;
 import gioco.Menu;
 import gioco.Stampa;
@@ -81,7 +82,7 @@ public class Controller {
 						continue; // Faccio ripartire il loop interno
 				}
 
-				if (isNotazioneAlgebrica(comando)) {
+				if (Comando.isNotazioneAlgebrica(comando)) {
 
 					// ritorna un array di comandi
 					ArrayList<String> notazioneEstesa = convertiNotazioneRidottaInEstesa(comando);
@@ -107,7 +108,7 @@ public class Controller {
 					} else {
 						Stampa.stampaMossaIllegale();
 					}
-				} else if (!isComandoValido(comando)) {
+				} else if (!Comando.isComandoValido(comando)) {
 
 					Stampa.stampaComandoErrato();
 
@@ -211,45 +212,6 @@ public class Controller {
 	}
 
 	/**
-	 * La seguente funzione riconosce se il comando inserito e' un comando scritto
-	 * sottoforma di notazione algebrica. Il seguente comando puo' essere anche una
-	 * mossa non valida
-	 *
-	 * @param comando
-	 *
-	 * @return boolean
-	 */
-	private boolean isComandoValido(final String comando) {
-
-		if (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.board().getNome())
-				|| comando.equalsIgnoreCase(Menu.captures().getNome())
-				|| comando.equalsIgnoreCase(Menu.moves().getNome())
-				|| comando.equalsIgnoreCase(Menu.quit().getNome())) {
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
-	 * dall'utente Ã¨ riconosciuta come notazione algebrica.
-	 *
-	 * @param mossa
-	 * @return boolean
-	 */
-	private boolean isNotazioneAlgebrica(final String mossa) {
-		String regex = String.join("|", new String[] { "([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
-				"D([x|:])?[a-h][1-8]", // mossa della regina
-				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
-				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
-				"A(x|:)?[a-h][1-8]", // mossa alfiere
-				"R(x|:)?[a-h][1-8]" // mossa del re
-		});
-
-		return mossa.matches(regex);
-	}
-
-	/**
 	 * Funzione che consente di chiudere il gioco e lasciare il controllo al sistema
 	 * operativo
 	 *
@@ -258,6 +220,14 @@ public class Controller {
 		System.exit(0);
 	}
 
+	/**
+	 * Metodo che dati in input informazioni di una mossa, la applica all'interno
+	 * della scacchiera
+	 * 
+	 * @param cellaPartenza
+	 * @param cellaDestinazione
+	 * @param tipoMossa
+	 */
 	private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
