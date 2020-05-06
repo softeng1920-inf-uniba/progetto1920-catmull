@@ -26,7 +26,7 @@ public class Turno {
     }
 
     public static Giocatore getGiocatoreInTurno() {
-	return giocatoreInAttesa;
+	return giocatoreInTurno;
     }
 
     public static void setGiocatoreInTurno(final Giocatore g) {
