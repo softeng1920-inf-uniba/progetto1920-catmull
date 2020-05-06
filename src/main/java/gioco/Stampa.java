@@ -1,7 +1,8 @@
 package gioco;
 
-import scacchiera.*;
-import pedine.*;
+import pedine.Pezzo;
+import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 /**
  * La classe Stampa contiene i messaggi stampati a video e i metodi di stampa
@@ -30,7 +31,7 @@ public class Stampa {
 
     /**
      * Stampa a video il simbolo del pezzo in input
-     * 
+     *
      * @param p
      */
     private static void disegnaPezzo(Pezzo p) {
@@ -39,7 +40,7 @@ public class Stampa {
 
     /**
      * Stampa a video il pezzo nella cella corrente
-     * 
+     *
      * @param cellaPezzo
      */
     private static void stampaPezzo(Cella cellaPezzo) {
@@ -159,7 +160,7 @@ public class Stampa {
 
     /**
      * Stampa a video il giocatore in turno
-     * 
+     *
      * @param giocatoreAttivo
      */
     public static void stampaTurno(Giocatore giocatoreAttivo) {
@@ -220,10 +221,10 @@ public class Stampa {
 
     /**
      * Stampa a video i pezzi catturati per ogni giocatore
-     * 
+     *
      * @param giocatoreInteressato
      */
-    private static void stampaPezziCatturati(Giocatore giocatoreInteressato) {
+	public static void stampaPezziCatturati(Giocatore giocatoreInteressato) {
 
 	System.out.println("\nPezzi catturati dal giocatore " + WHITE_BOLD_BRIGHT
 		+ giocatoreInteressato.getNome().toUpperCase() + ANSI_RESET + ":");
@@ -302,7 +303,7 @@ public class Stampa {
 
     /**
      * Stampa a video il messaggio per l'inserimento del nome del giocatore
-     * 
+     *
      * @param c
      */
     public static void stampaInserireGiocatore(Colore c) {

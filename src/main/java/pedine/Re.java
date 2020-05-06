@@ -1,6 +1,7 @@
 package pedine;
 
 import java.util.ArrayList;
+
 import gioco.Colore;
 import gioco.Comando;
 import gioco.Turno;
@@ -174,21 +175,6 @@ public final class Re extends Pezzo {
 	}
 	return false;
     }
-
-	/**
-	 * Controlla se il re o la torre si sono mai spostati
-	 *
-	 * @param storicoMosse
-	 * @return
-	 */
-	public static boolean isPrimaMossaEffettuata(ArrayList<String> storicoMosse) {
-
-		for (int i = 0; i < storicoMosse.size(); i++) {
-			if (storicoMosse.get(i).matches("(h|e|a)(1|8) [a-h][1-8]"))
-				return true;
-		}
-		return false;
-	}
 
 
 }
