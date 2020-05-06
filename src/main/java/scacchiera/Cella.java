@@ -4,8 +4,8 @@ import pedine.Pezzo;
 
 /**
  * Classe per rappresentere le singole parti della scacchiera
+ * La classe Cella e' di tipo ENTITY
  */
-// La classe Cella e' di tipo ENTITY
 public final class Cella {
     private int x;
     private int y;

@@ -2,8 +2,9 @@ package gioco;
 
 /**
  * Classe che implementa il comando
+ * 
+ *La classe Comando e' di tipo ENTITY
  */
-//La classe Comando e' di tipo ENTITY
 public class Comando {
 
     public final static int ARROCCO_CORTO = 1;

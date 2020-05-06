@@ -22,9 +22,9 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco
+ * Classe che gestisce le varie funzionalita' del gioco
+ * La classe Controller e' di tipo CONTROL
  */
-// La classe Controller e' di tipo CONTROL
 public class Controller {
 
     private static ArrayList<String> mosseConvertite;

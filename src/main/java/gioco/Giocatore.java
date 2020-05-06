@@ -14,8 +14,9 @@ import pedine.Pezzo;
  * giocate. Il primo giocatore e' bianco e il secondo nero. Al giocatore che fa
  * la prima mossa sara' assegnato il colore bianco.
  *
+ *La classe Giocatore e' di tipo ENTITY
  */
-// La classe Giocatore e' di tipo ENTITY
+
 public class Giocatore {
 
     private String nome;

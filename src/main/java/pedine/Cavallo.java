@@ -8,8 +8,8 @@ import scacchiera.Scacchiera;
 
 /**
  * Rappresentazione astratta della classe cavallo
+ *La classe Cavallo e' di tipo noECB
  */
-// La classe Cavallo e' di tipo noECB
 public final class Cavallo extends Pezzo {
 
     public Cavallo(final Colore colore, final Cella posizioneCorrente) {

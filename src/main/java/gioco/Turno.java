@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 /**
  * Rappresenta il turno per il gioco con i metodi
+ * 
+ * La classe Turno e' di tipo ENTITY
  */
-// La classe Turno e' di tipo ENTITY
+
 public class Turno {
 
     private static Giocatore giocatoreInTurno;

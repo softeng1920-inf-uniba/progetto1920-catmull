@@ -3,7 +3,9 @@ package gioco;
 import scacchiera.*;
 import pedine.*;
 
-// la classe Stampa e' di tipo BOUNDARY
+/**
+ * la classe Stampa e' di tipo BOUNDARY
+ */
 public class Stampa {
     // colore carattere e font
     private static final String CYAN_BOLD = "\033[1;96m";

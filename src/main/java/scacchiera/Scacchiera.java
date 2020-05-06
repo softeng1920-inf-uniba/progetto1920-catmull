@@ -10,8 +10,8 @@ import pedine.Torre;
 
 /**
  * Rappresentazione della scacchiera
+ *La classe Scacchiera e' di tipo ENTITY
  */
-//La classe Scacchiera e' di tipo ENTITY
 public class Scacchiera {
 
     private static final int NUMEROCOLONNE = 8;

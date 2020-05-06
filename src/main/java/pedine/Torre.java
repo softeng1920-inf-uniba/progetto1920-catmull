@@ -10,8 +10,8 @@ import scacchiera.Scacchiera;
 
 /**
  * Realizzazione della classe Torre, estensione della classe Pezzo
+ *La classe Torre e' di tipo noECB
  */
-// La classe Torre e' di tipo noECB
 public final class Torre extends Pezzo {
     static boolean isMossaCattura;
     static final String mossaNonValida = "a0 a0";

@@ -6,8 +6,8 @@ import scacchiera.Cella;
 /**
  * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
  * realizzare i pezzi del gioco nello specifico
- **/
-//La classe Pezzo e' di tipo ENTITY
+ *La classe Pezzo e' di tipo ENTITY
+ */
 public abstract class Pezzo {
 
     protected String nome;

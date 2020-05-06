@@ -1,6 +1,10 @@
 package gioco;
 
-// La classe Menu e' di tipo Entity
+/**
+ * La classe Menu e' di tipo Entity
+ *
+ *
+ */
 public class Menu {
 
     private static Comando help;
