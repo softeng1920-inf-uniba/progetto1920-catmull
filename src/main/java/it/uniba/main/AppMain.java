@@ -10,13 +10,12 @@ import gioco.Menu;
 import gioco.Stampa;
 
 /**
- * 
+ * La classe AppMain e' di tipo BOUNDARY
  * The main class for the project. It must be customized to meet the project
  * assignment specifications.
  *
  * <b>DO NOT RENAME</b>
  */
-// La classe AppMain e' di tipo BOUNDARY
 public final class AppMain {
 
     /**

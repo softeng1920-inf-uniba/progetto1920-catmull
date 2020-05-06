@@ -1,10 +1,11 @@
 package gioco;
 
 /**
- * Classe che implementa il comando
- * 
- *La classe Comando e' di tipo ENTITY
+ * La classe Comando definisce la struttura dei comandi mostrati nel menu del
+ * gioco attraverso gli attributi nome e descrizione.
+ * La classe Comando e' di tipo ENTITY.
  */
+
 public class Comando {
 
     public final static int ARROCCO_CORTO = 1;

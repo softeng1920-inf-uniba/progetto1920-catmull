@@ -4,10 +4,18 @@ import gioco.Colore;
 import scacchiera.Cella;
 
 /**
- * Classe Pezzo di tipo astratto. Tale classe funge da punto di partenza per poi
- * realizzare i pezzi del gioco nello specifico
- *La classe Pezzo e' di tipo ENTITY
- */
+ * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per poi
+ * realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i seguenti attributi 
+ * che ne definiscono lo stato:
+ * <ul>
+ * 	<li><b>nome</b></li>
+ *  <li><b>colore</b></li>
+ *  <li><b>simbolo</b></li>
+ *  <li><b>vivo</b></li>
+ *  <li><b>posisizioneCorrente</b></li>
+ * </ul> 
+ * La classe Pezzo e' di tipo ENTITY.
+ **/
 public abstract class Pezzo {
 
     protected String nome;

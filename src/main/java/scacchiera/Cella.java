@@ -3,14 +3,17 @@ package scacchiera;
 import pedine.Pezzo;
 
 /**
- * Classe per rappresentere le singole parti della scacchiera
+ * La classe Cella contiene le informazioni riguardanti ogni singola cella della
+ * scacchiera, definendola con gli attributi: x indica la coordinata delle
+ * ascisse, y indica la coordinata delle ordinate, occupato indica lo stato
+ * della cella e pezzoCorrente da informazioni riguardo al pezzo contenuto nella
+ * cella.
  * La classe Cella e' di tipo ENTITY
  */
 public final class Cella {
     private int x;
     private int y;
-    private boolean occupato; // TODO: lo stato occupato si puo' ottenere dalla cella, se contiene un pezzo o
-			      // meno. Si potrebbe pensare di eliminare questa variabile
+    private boolean occupato; 
     private Pezzo pezzoCorrente;
 
     /** Costuttore */

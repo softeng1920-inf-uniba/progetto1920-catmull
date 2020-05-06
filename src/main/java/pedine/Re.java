@@ -9,9 +9,8 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
-<<<<<<< HEAD
- * Classe per rappresentere il sottotipo di pezzo chiamato Re
- * 
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
+ * il movimento del Re è valido.
  * La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
@@ -75,40 +74,12 @@ public final class Re extends Pezzo {
 		    if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != "Vuota")
 			return false;
 		}
-<<<<<<< HEAD
-		if (!isScacco(end, start.getPezzoCorrente().colore)) {
-			// MOVIMENTI LINEARI
-			// sulla stessa colonna
-			if (start.getX() == end.getX()) {
-				if (start.getY() == end.getY() + 1)
-					return true;
-				if (start.getY() == end.getY() - 1)
-					return true;
-			}
-			// sulla stessa riga
-			if (start.getY() == end.getY()) {
-				if (start.getX() == end.getX() + 1)
-					return true;
-				if (start.getX() == end.getX() - 1)
-					return true;
-			}
-			// MOVIMENTI DIAGONALI
-			if (start.getX() == end.getX() + 1 && start.getX() == end.getX() + 1)
-				return true;
-			if (start.getX() == end.getX() - 1 && start.getX() == end.getX() - 1)
-				return true;
-			if (start.getX() == end.getX() + 1 && start.getX() == end.getX() - 1)
-				return true;
-			if (start.getX() == end.getX() - 1 && start.getX() == end.getX() + 1)
-				return true;
-=======
 		return true;
 	    } else {
 		// Arrocco Lungo
 		for (int i = sX - 1; i > eX - 1; i--) {
 		    if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != "Vuota")
 			return false;
->>>>>>> bd81d73be7009b3833c9bc97e0e7163ef5b0c003
 		}
 		return true;
 	    }

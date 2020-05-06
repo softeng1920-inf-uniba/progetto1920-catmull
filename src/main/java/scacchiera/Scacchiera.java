@@ -9,8 +9,11 @@ import pedine.Regina;
 import pedine.Torre;
 
 /**
- * Rappresentazione della scacchiera
- *La classe Scacchiera e' di tipo ENTITY
+ * La classe scacchiera permette di rappresentare lo stato del gioco,
+ * visualizzando i pezzi in essa. E'costituita da un numero costante
+ * di colonne e di righe. La classe scacchiera è una matrice NxM
+ * di Celle. 
+ * La classe Scacchiera e' di tipo ENTITY
  */
 public class Scacchiera {
 
