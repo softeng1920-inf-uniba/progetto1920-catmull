@@ -1,11 +1,15 @@
 package pedine;
-
+import gioco.Colore;
 import gioco.Turno;
-import it.uniba.main.Colore;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/** Classe per rappresentere il sottotipo di pezzo chiamato Regina */
+/**
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
+ * il movimento della Regina è valido.
+ * La classe Regina e' di tipo noECB
+ */
+
 public final class Regina extends Pezzo {
 
 	/** Costruttore */
@@ -122,16 +126,16 @@ public final class Regina extends Pezzo {
 		int endX = -1;
 		int endY = -1;
 		String mossaConvertita = "a0 a0";
-		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore(); 
+		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
 		// mossa semplice
-		if (mossa.matches("(D)[a-h][1-8]")) {
+		if (mossa.matches("D[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(1));
 			endY = Cella.coordYinInt(mossa.charAt(2));
 			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota")
 				return mossaConvertita;
 		}
 		// mossa di cattura
-		if (mossa.matches("(D)(x|:)[a-h][1-8]")) {
+		if (mossa.matches("D(x|:)[a-h][1-8]")) {
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
 			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")

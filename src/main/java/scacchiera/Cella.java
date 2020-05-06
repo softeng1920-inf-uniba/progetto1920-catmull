@@ -2,7 +2,14 @@ package scacchiera;
 
 import pedine.Pezzo;
 
-/** Classe per rappresentere le singole parti della scacchiera */
+/**
+ * La classe Cella contiene le informazioni riguardanti ogni singola cella della
+ * scacchiera, definendola con gli attributi: x indica la coordinata delle
+ * ascisse, y indica la coordinata delle ordinate, occupato indica lo stato
+ * della cella e pezzoCorrente da informazioni riguardo al pezzo contenuto nella
+ * cella.
+ * La classe Cella e' di tipo ENTITY
+ */
 public final class Cella {
     private int x;
     private int y;
@@ -17,18 +24,20 @@ public final class Cella {
 	this.pezzoCorrente = pezzoCorrente;
     }
 
-    /** Disegna il pezzo che contiene in output */
-    void stampaPezzo() {
-	if (pezzoCorrente != null) {
-	    System.out.print(" ");
-	    pezzoCorrente.disegnapezzo();
-	} else {
-	    System.out.print("  ");
-	}
+    // ---------Metodi di setting---------
 
+    /** Modifica la variabile occupato */
+    public void setOccupato(final boolean occupato) {
+	this.occupato = occupato;
     }
 
-    // ---------Metodi di setting---------
+    /** Modifica il tipo di pezzo che contiene */
+    void setPezzoCorrente(final Pezzo pezzoCorrente) {
+	this.pezzoCorrente = pezzoCorrente;
+	if (pezzoCorrente != null) {
+	    this.occupato = true;
+	}
+    }
 
     /** Modifica la coordinata x */
     void setX(final int newx) {
@@ -38,19 +47,6 @@ public final class Cella {
     /** Modifica la coordinata y */
     void setY(final int newy) {
 	y = newy;
-    }
-
-    /** Modifica la variabile occupato */
-    public void setOccupato(final boolean occupato) {
-	this.occupato = occupato;
-    }
-
-    /** Modifica il tipo di pezzo che contiene */
-    public void setPezzoCorrente(final Pezzo pezzoCorrente) {
-	this.pezzoCorrente = pezzoCorrente;
-	if (pezzoCorrente != null) {
-	    this.occupato = true;
-	}
     }
 
     // --------Metodi di Get--------
