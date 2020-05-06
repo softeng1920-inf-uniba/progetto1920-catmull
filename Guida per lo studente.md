@@ -389,13 +389,13 @@ Si svolgano le seguenti operazioni:
 
 Ad esempio, se il comando precedente (copiato da GitHub dal riquadro mostrato in figura), è:
 ```
-docker pull docker.pkg.github.com/softeng1920-inf-uniba/progetto1920-catmull/scacchi-catmull:latest
+docker pull docker.pkg.github.com/softeng1920-inf-uniba/docker_1920/catmull:latest
 ```
 
 il comando per eseguire il container sarà:
 
 ```
-docker run -it --rm docker.pkg.github.com/softeng1920-inf-uniba/progetto1920-catmull/scacchi-catmull:latest
+docker run -it --rm docker.pkg.github.com/softeng1920-inf-uniba/docker_1920/catmull:latest
 ```
 
 (in altre parole, il secondo comando si ottiene dal primo sostituendo a `docker pull` le parole `docker run -it --rm`).
