@@ -5,6 +5,5 @@ package gioco;
  *
  */
 public enum Colore {
-	nero, bianco
-
+    nero, bianco
 }

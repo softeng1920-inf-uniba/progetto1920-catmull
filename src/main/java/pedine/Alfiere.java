@@ -1,17 +1,14 @@
 package pedine;
 
-import java.util.ArrayList;
-
 import gioco.Colore;
-import gioco.Giocatore;
+import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
  * Rappresentazione dell'astrazione del pezzo alfiere
- * 
- * La classe Alfiere e' di tipo noECB
  */
+// La classe Alfiere e' di tipo noECB
 public final class Alfiere extends Pezzo {
 
 	public Alfiere(final Colore colore, final Cella posizioneCorrente) {
@@ -67,20 +64,15 @@ public final class Alfiere extends Pezzo {
 			}
 		} else
 			return false;
-		// controllo se puÃ² mangiare pezzo
+		// controllo se puo' mangiare pezzo
 		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
 			return false;
 		}
 		return true;
 	}
 
-	@Override
-	public boolean isMossaSpecialeValida(Cella start, Cella end, ArrayList<String> mosse) {
-		return false;
-	}
-
-	public static String convertiMossa(String mossa, Giocatore g) {
-		// "A(x|:)?[a-h][1-8]"
+	public static String convertiMossa(String mossa) {
+		// "[A](x|:)?[a-h][1-8]"
 
 		int startX = -1;
 		int startY = -1;
@@ -104,10 +96,12 @@ public final class Alfiere extends Pezzo {
 			}
 		}
 
+		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
+
 		// aumenta x e aumenta y
 		for (int i = 1; Scacchiera.isRangeValido(endX + i, endY + i); i++) {
 			if (Scacchiera.getNomePezzo(endX + i, endY + i) == "Alfiere"
-					&& Scacchiera.getCella(endX + i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
+					&& Scacchiera.getCella(endX + i, endY + i).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {
 				startX = endX + i;
 				startY = endY + i;
 
@@ -117,7 +111,7 @@ public final class Alfiere extends Pezzo {
 		// aumenta x e diminuisce y
 		for (int i = 1; Scacchiera.isRangeValido(endX + i, endY - i); i++) {
 			if (Scacchiera.getNomePezzo(endX + i, endY - i) == "Alfiere"
-					&& Scacchiera.getCella(endX + i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
+					&& Scacchiera.getCella(endX + i, endY - i).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {
 				startX = endX + i;
 				startY = endY - i;
 
@@ -127,7 +121,7 @@ public final class Alfiere extends Pezzo {
 		// diminuisce x e aumenta y
 		for (int i = 1; Scacchiera.isRangeValido(endX - i, endY + i); i++) {
 			if (Scacchiera.getNomePezzo(endX - i, endY + i) == "Alfiere"
-					&& Scacchiera.getCella(endX - i, endY + i).getPezzoCorrente().getColore() == g.getColore()) {
+					&& Scacchiera.getCella(endX - i, endY + i).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {
 				startX = endX - i;
 				startY = endY + i;
 
@@ -137,7 +131,7 @@ public final class Alfiere extends Pezzo {
 		// diminuisce x e diminuisce y
 		for (int i = 1; Scacchiera.isRangeValido(endX - i, endY - i); i++) {
 			if (Scacchiera.getNomePezzo(endX - i, endY - i) == "Alfiere"
-					&& Scacchiera.getCella(endX - i, endY - i).getPezzoCorrente().getColore() == g.getColore()) {
+					&& Scacchiera.getCella(endX - i, endY - i).getPezzoCorrente().getColore() == Turno.getGiocatoreInTurno().getColore()) {
 				startX = endX - i;
 				startY = endY - i;
 
