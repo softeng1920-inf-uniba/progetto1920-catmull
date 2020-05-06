@@ -10,7 +10,6 @@ import java.util.ArrayList;
  */
 
 public class Turno {
-
     private static Giocatore giocatoreInTurno;
     private static Giocatore giocatoreInAttesa;
 
@@ -18,7 +17,7 @@ public class Turno {
 	giocatoreInTurno = new Giocatore(Colore.bianco);
 	giocatoreInAttesa = new Giocatore(Colore.nero);
     }
-
+	
     public static final void cambioTurno() {
 	Giocatore temp = giocatoreInTurno;
 	giocatoreInTurno = giocatoreInAttesa;
@@ -82,7 +81,6 @@ public class Turno {
 	    while (j < getGiocatoreInTurno().getNumeroMosseGiocate()) {
 		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(j++));
 	    }
-
 	}
 
 	return mosseGiocateTotali;

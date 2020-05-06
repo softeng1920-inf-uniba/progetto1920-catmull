@@ -89,7 +89,6 @@ public final class Alfiere extends Pezzo {
 			}
 		}
 
-
 		if (mossa.matches("A[x|:][a-h][1-8]")) { // mangia senza ambiguita'
 			endX = Cella.coordXinInt(mossa.charAt(2));
 			endY = Cella.coordYinInt(mossa.charAt(3));
@@ -97,9 +96,7 @@ public final class Alfiere extends Pezzo {
 				return mossaConvertita;
 			}
 		}
-
 		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
-
 		// aumenta x e aumenta y
 		for (int i = 1; Scacchiera.isRangeValido(endX + i, endY + i); i++) {
 			if (Scacchiera.getNomePezzo(endX + i, endY + i) == "Alfiere"

@@ -1,5 +1,4 @@
 package pedine;
-
 import gioco.Colore;
 import gioco.Turno;
 import scacchiera.Cella;

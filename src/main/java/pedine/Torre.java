@@ -1,7 +1,6 @@
 package pedine;
 
 import java.util.ArrayList;
-
 import gioco.Colore;
 import gioco.Comando;
 import gioco.Turno;
@@ -285,7 +284,6 @@ public final class Torre extends Pezzo {
 	    if (sX > eX) {
 		// Movimento verso sx
 		for (int i = sX - 1; i >= eX; i--) {
-
 		    cellaCorrente = Scacchiera.getCella(i, sY);
 		    pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
@@ -294,12 +292,10 @@ public final class Torre extends Pezzo {
 			return true;
 		    else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato())
 			return false;
-
 		}
 	    } else {
 		// Movimento verso dx
 		for (int i = sX + 1; i <= eX; i++) {
-
 		    cellaCorrente = Scacchiera.getCella(i, sY);
 		    pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
@@ -310,7 +306,6 @@ public final class Torre extends Pezzo {
 			return false;
 		}
 	    }
-
 	    return true;
 	}
 	return false;

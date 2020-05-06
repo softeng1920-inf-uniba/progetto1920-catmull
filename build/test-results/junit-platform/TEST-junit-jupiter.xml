@@ -22,7 +22,7 @@
 <property name="java.vendor" value="Oracle Corporation"/>
 <property name="java.vendor.url" value="http://java.oracle.com/"/>
 <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
-<property name="java.version" value="1.8.0_241"/>
+<property name="java.version" value="1.8.0_241"/>r
 <property name="java.vm.info" value="mixed mode"/>
 <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
 <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>

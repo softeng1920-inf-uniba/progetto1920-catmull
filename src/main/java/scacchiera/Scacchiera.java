@@ -125,7 +125,7 @@ public class Scacchiera {
 		    .setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt('2'))));
 	}
 
-    }
+}
 
     /**
      * simula il movimento di un pezzo nella scacchiera

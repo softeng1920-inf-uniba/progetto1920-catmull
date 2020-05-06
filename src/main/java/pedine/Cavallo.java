@@ -109,7 +109,6 @@ public final class Cavallo extends Pezzo {
 				return mossaConvertita;
 			}
 		}
-
 		// ricaviamo X o Y a seconda di quella diversa da -1
 		if (startX != -1) { // startX data in input
 			if (Math.abs(startX - endX) == 2) {

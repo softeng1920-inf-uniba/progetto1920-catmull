@@ -17,7 +17,6 @@ import scacchiera.Cella;
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
-
     protected String nome;
     protected Colore colore;
     protected boolean vivo;

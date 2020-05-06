@@ -13,7 +13,8 @@ import pedine.Pezzo;
 public final class Cella {
     private int x;
     private int y;
-    private boolean occupato; 
+    private boolean occupato; // TODO: lo stato occupato si puo' ottenere dalla cella, se contiene un pezzo o
+			      // meno. Si potrebbe pensare di eliminare questa variabile
     private Pezzo pezzoCorrente;
 
     /** Costuttore */

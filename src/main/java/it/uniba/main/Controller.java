@@ -26,7 +26,6 @@ import scacchiera.Scacchiera;
  * La classe Controller e' di tipo CONTROL
  */
 public class Controller {
-
     private static ArrayList<String> mosseConvertite;
 
     public Controller() {
@@ -199,6 +198,7 @@ public class Controller {
 		e.printStackTrace();
 	    }
 	}
+
     }
 
     /**
@@ -225,6 +225,88 @@ public class Controller {
 	    // pedone
 	    return Pedone.convertiMossa(mossa);
 	}
+	return false;
+    }
+
+    /**
+     * Controlla, attraverso un'espressione regolare, se la stringa inserita
+     * dall'utente Ã¨ riconosciuta come notazione algebrica.
+     *
+     * @param mossa
+     * @return boolean
+     */
+    private boolean isNotazioneAlgebrica(final String mossa) {
+	String regex = String.join("|", new String[] { "([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
+		"D([x|:])?[a-h][1-8]", // mossa della regina
+		"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
+		"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
+		"A(x|:)?[a-h][1-8]", // mossa alfiere
+		"R(x|:)?[a-h][1-8]", // mossa del re
+		"(0|o|O)-(0|o|O)(-(0|o|O))?" // arrocco corto o lungo
+	});
+
+	return mossa.matches(regex);
+    }
+
+    /**
+     * Mostra le catture di entrambi i giocatori
+     */
+    private void visualizzareCatture() {
+
+	Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
+	Giocatore giocatoreAttesa = Turno.getGiocatoreInAttesa();
+	if (!giocatoreAttivo.isEmptyPezziCatturati() || !giocatoreAttesa.isEmptyPezziCatturati()) {
+	    if (!giocatoreAttivo.isEmptyPezziCatturati()) // Se il giocatore attivo ha catturato dei pezzi, li stampo
+		giocatoreAttivo.stampaPezziCatturati();
+
+	    if (!giocatoreAttesa.isEmptyPezziCatturati()) // Se il giocatore in attesa ha catturato dei pezzi, li stampo
+		giocatoreAttesa.stampaPezziCatturati();
+	} else
+	    System.out.println("Non ci sono pezzi catturati da entrambi i giocatori.");
+    }
+
+    /**
+     * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
+     * La fusione avviene in modo alternato. Permette di avere una visione completa
+     * delle mosse giocate totali.
+     *
+     * @return ArrayList di stringhe.
+     */
+    private ArrayList<String> fusioneListe() {
+	int i, j, k;
+	int dimensione = Turno.getGiocatoreInAttesa().getNumeroMosseGiocate()
+		+ Turno.getGiocatoreInTurno().getNumeroMosseGiocate();
+	ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
+	if (Turno.getGiocatoreInTurno().getColore() == Colore.bianco) {
+	    i = 0;
+	    j = 0;
+	    k = 0;
+	    while (i < Turno.getGiocatoreInTurno().getNumeroMosseGiocate()
+		    && j < Turno.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInTurno().getMossaGiocata(i++));
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInAttesa().getMossaGiocata(j++));
+	    }
+	    while (i < Turno.getGiocatoreInTurno().getNumeroMosseGiocate()) {
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInTurno().getMossaGiocata(i++));
+	    }
+	    while (j < Turno.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInAttesa().getMossaGiocata(j++));
+	    }
+	} else {
+	    i = 0;
+	    j = 0;
+	    k = 0;
+	    while (i < Turno.getGiocatoreInAttesa().getNumeroMosseGiocate()
+		    && j < Turno.getGiocatoreInTurno().getNumeroMosseGiocate()) {
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInAttesa().getMossaGiocata(i++));
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInTurno().getMossaGiocata(j++));
+	    }
+	    while (i < Turno.getGiocatoreInAttesa().getNumeroMosseGiocate()) {
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInAttesa().getMossaGiocata(i++));
+	    }
+	    while (j < Turno.getGiocatoreInTurno().getNumeroMosseGiocate()) {
+		mosseGiocateTotali.add(k++, Turno.getGiocatoreInTurno().getMossaGiocata(j++));
+	    }
 
     }
 
@@ -359,6 +441,10 @@ public class Controller {
 	}
 
 	return false;
+
+    }
+
+	return false; // L'arrocco è stato chiamato con pezzi non compatibili / celle vuote
 
     }
 
