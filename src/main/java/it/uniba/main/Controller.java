@@ -80,7 +80,7 @@ public class Controller {
 			continue; // Faccio ripartire il loop interno
 		}
 
-		if (isNotazioneAlgebrica(comando)) {
+		if (Comando.isNotazioneAlgebrica(comando)) {
 
 		    int tipoArrocco;
 		    if ((tipoArrocco = Comando.isArrocco(comando)) != -1) { // Se è un arrocco
@@ -138,7 +138,7 @@ public class Controller {
 			} else
 			    Stampa.stampaMossaIllegale();
 		    }
-		} else if (!isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un comando di
+		} else if (!Comando.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un comando di
 		    // gioco...
 		    Stampa.stampaComandoErrato();
 
@@ -176,7 +176,7 @@ public class Controller {
 
     /**
      * Viene richiesto all'utente una conferma se vuole riavviare la partita
-     * 
+     *
      * @return true se l'utente vuole ricominciare la partita, false altrimenti.
      */
     private boolean utenteConfermaRiavvioPartita() {
@@ -203,7 +203,7 @@ public class Controller {
 
     /**
      * Trasforma il comando a seconda del pezzo da muovere
-     * 
+     *
      * @param mossa in notazione algebrica
      * @return String comando in colonna e traversa di partenza seguite da uno
      *         spazio, ed infine colonna e traversa di destinazione
@@ -245,34 +245,11 @@ public class Controller {
     }
 
     /**
-     * Riconosce se il comando dato in input rientra tra quelli del menu di gioco
-     * 
-     * @param comando
-     *
-     * @return true se il comando rientra tra quelli del menu di gioco, false
-     *         altrimenti
-     *         
-     *         I comandi validi nel menu di gioco sono:
-     *         - help
-     *         - board
-     *         - captures
-     *         - moves
-     *         - quit
-     */
-    private boolean isComandoValido(final String comando) {
-
-	return (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.board().getNome())
-		|| comando.equalsIgnoreCase(Menu.captures().getNome())
-		|| comando.equalsIgnoreCase(Menu.moves().getNome()) || comando.equalsIgnoreCase(Menu.quit().getNome()));
-
-    }
-
-    /**
      * Dopo che sono stati effettuati i vari controlli (se la mossa inserita è valida, se è consentita ecc.), viene effettuato
      * in base alla tipologia della mossa, il necessario per proseguire con il corretto funzionamento del gioco.
-     * 
+     *
      * L'applicazione della mossa non è univoca per ogni comando inserito (vedi e.p.)
-     * 
+     *
      * @param cellaPartenza
      * @param cellaDestinazione
      * @param tipoMossa Tipologia della mossa:
@@ -304,9 +281,9 @@ public class Controller {
     }
 
     /**
-     * Restituisce un valore booleano che indica se le coordinate che rappresentano gli indici della matrice scacchiera 
+     * Restituisce un valore booleano che indica se le coordinate che rappresentano gli indici della matrice scacchiera
      * (necessariamente di tipo intero)sono valide per la scacchiera.
-     * 
+     *
      * @param startX 	intero compreso fra 0 e 7
      * @param startY 	intero compreso fra 0 e 7
      * @param endX 	intero compreso fra 0 e 7
@@ -315,28 +292,6 @@ public class Controller {
      */
     private static boolean isCoordinateValide(int startX, int startY, int endX, int endY) {
 	return Scacchiera.isRangeValido(startX, startY) && Scacchiera.isRangeValido(endX, endY);
-    }
-
-    /**
-     * Controlla, attraverso un'espressione regolare, se la stringa inserita
-     * dall'utente e' riconosciuta come notazione algebrica.
-     *
-     * @param mossa
-     * @return boolean
-     */
-    private boolean isNotazioneAlgebrica(final String mossa) {
-	
-	String regex = String.join("|", new String[] { 
-		"([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
-		"D([x|:])?[a-h][1-8]", // mossa della regina
-		"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
-		"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
-		"A(x|:)?[a-h][1-8]", // mossa alfiere
-		"R(x|:)?[a-h][1-8]", // mossa del re
-		"(0|o|O)-(0|o|O)(-(0|o|O))?" // arrocco corto o lungo
-	});
-
-	return mossa.matches(regex);
     }
 
     /**
@@ -366,7 +321,7 @@ public class Controller {
 
     /**
      * Data la mossa del re e quella della torre, vengono effettuati tutti i controlli che validano se la mossa è consentita o meno.
-     * 
+     *
      * @param mossaRe
      * @param mossaTorre
      * @param tipoArrocco
@@ -375,7 +330,7 @@ public class Controller {
      * 		- Il giocatore non ha ancora mosso ne' il re ne' la torre coinvolta nell'arrocco;
      *		- Non ci devono essere pezzi (amici o avversari) fra il re e la torre usata;
      * 		- Ne' la casa di partenza del re, ne' la casa che esso deve attraversare ne' quella di arrivo devono essere minacciate da un pezzo avversario.
-     */		
+     */
     public static boolean isArroccoValido(String mossaRe, String mossaTorre, int tipoArrocco) {
 
 	Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
@@ -403,7 +358,7 @@ public class Controller {
 		    getMosseConvertite(), tipoArrocco);
 	}
 
-	return false; 
+	return false;
 
     }
 
