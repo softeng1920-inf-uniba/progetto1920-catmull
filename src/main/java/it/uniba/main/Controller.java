@@ -22,7 +22,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
@@ -40,6 +40,7 @@ public class Controller {
 	final void playGame() {
 
 		boolean utenteVuoleRicominciare = false;
+		boolean utenteConfermaFinePartia = false;
 		Menu.newMenu();
 
 		do {
@@ -69,7 +70,9 @@ public class Controller {
 				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
 					Stampa.visualizzareCatture();
 				} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-					chiudiGioco();
+					if(utenteConfermaFinePartita()) {
+						chiudiGioco();
+					}
 				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 					if (utenteConfermaRiavvioPartita()) {
 						Stampa.stampaNuovaPartita();
@@ -90,7 +93,7 @@ public class Controller {
 						String mossaRe = Re.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
 
 						// Non ho bisogno di controllare se i comandi convertiti saranno validi, perchè
-						// sono stati già stabiliti dalle regole del gioco
+						// sono stati gi�  stabiliti dalle regole del gioco
 
 						// Controllo se l'arrocco è possibile
 						if (isArroccoValido(mossaRe, mossaTorre, tipoArrocco)) {
@@ -202,6 +205,30 @@ public class Controller {
 		}
 
 	}
+	
+	private boolean utenteConfermaFinePartita() {
+
+		String comando = "";
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Stampa.stampaConfermaFinePartita();
+		while (true) {
+			try {
+				comando = br.readLine();
+				switch (comando) {
+				case "y":
+					return true;
+				case "n":
+					return false;
+				default:
+					Stampa.stampaComandoErrato();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
 
 	/**
 	 * Trasforma il comando a seconda del pezzo da muovere
@@ -263,6 +290,7 @@ public class Controller {
 	private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
+		Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		switch (tipoMossa) {
 
@@ -273,7 +301,6 @@ public class Controller {
 			}
 			break;
 		case 1:
-			Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 			giocatoreAttivo.addPezziCatturati(cellaAdiacenteEp.getPezzoCorrente());
 			cellaAdiacenteEp.rimuoviPezzoCorrente();
 			break;
