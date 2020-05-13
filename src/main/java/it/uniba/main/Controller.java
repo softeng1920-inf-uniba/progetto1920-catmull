@@ -22,7 +22,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita'Â del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita'ï¿½ del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
@@ -70,7 +70,7 @@ public class Controller {
 				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
 					Stampa.visualizzareCatture();
 				} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-					if(utenteConfermaFinePartita()) {
+					if (utenteConfermaFinePartita()) {
 						chiudiGioco();
 					}
 				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
@@ -93,8 +93,7 @@ public class Controller {
 						String mossaRe = Re.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
 
 						// Non ho bisogno di controllare se i comandi convertiti saranno validi, perchÃ¨
-						// sono stati giÃ  stabiliti dalle regole del gioco
-
+						// sono stati gia stabiliti dalle regole del gioco
 						// Controllo se l'arrocco Ã¨ possibile
 						if (isArroccoValido(mossaRe, mossaTorre, tipoArrocco)) {
 							// Applico arrocco
@@ -167,7 +166,7 @@ public class Controller {
 			// illegale
 			return -1;
 
-		if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione))
+		if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione) && isReProtetto(cellaPartenza, cellaDestinazione, 0))
 			return 0;
 		else if (pezzoCorrente.getNome().equals("Pedone")) {
 			Pedone p = (Pedone) pezzoCorrente;
@@ -184,7 +183,6 @@ public class Controller {
 	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
 	 */
 	private boolean utenteConfermaRiavvioPartita() {
-
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Stampa.stampaConfermaNuovaPartita();
@@ -205,9 +203,8 @@ public class Controller {
 		}
 
 	}
-	
-	private boolean utenteConfermaFinePartita() {
 
+	private boolean utenteConfermaFinePartita() {
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Stampa.stampaConfermaFinePartita();
@@ -229,7 +226,6 @@ public class Controller {
 
 	}
 
-
 	/**
 	 * Trasforma il comando a seconda del pezzo da muovere
 	 *
@@ -250,12 +246,10 @@ public class Controller {
 			return Regina.convertiMossa(mossa);
 		case 'C': // Cavallo
 			return Cavallo.convertiMossa(mossa);
-		default:
-			// pedone
+		default: // pedone
 			return Pedone.convertiMossa(mossa);
 		}
 	}
-
 
 	/**
 	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
@@ -293,7 +287,6 @@ public class Controller {
 		Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		switch (tipoMossa) {
-
 		case 0:
 			if (cellaDestinazione.isOccupato()) {
 				giocatoreAttivo.addPezziCatturati(pezzoInCellaDestinazione);
@@ -306,8 +299,8 @@ public class Controller {
 			break;
 		default:
 		}
-
 		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
+		
 
 	}
 
@@ -396,6 +389,30 @@ public class Controller {
 
 		return false;
 
+	}
+	
+	public boolean isReProtetto(Cella partenza, Cella destinazione, int tipo) {
+		Cella cellaRe = Re.findRe();
+		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
+		Re reDaProteggere = (Re)cellaRe.getPezzoCorrente();
+		boolean isReProtetto = false;
+		
+		if(partenza.getPezzoCorrente().getNome().equals("Re"))
+			return isReProtetto=true;
+		
+		applicaMossa(partenza, destinazione, tipo);
+		if (!reDaProteggere.isReSottoScacco(cellaRe))
+			isReProtetto=true;
+		
+		applicaMossa(destinazione, partenza, tipo);
+		
+		
+		if(temp.isOccupato()) {
+			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+			Turno.getGiocatoreInTurno().removePezzoCatturato();
+		}
+		
+		return isReProtetto;
 	}
 
 }

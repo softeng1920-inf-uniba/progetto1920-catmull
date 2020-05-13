@@ -22,6 +22,9 @@ public final class Cella {
 	this.x = x;
 	this.y = y;
 	this.pezzoCorrente = pezzoCorrente;
+	if (pezzoCorrente != null){
+		this.occupato = true;
+	}
     }
 
     // ---------Metodi di setting---------

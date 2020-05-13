@@ -176,5 +176,24 @@ public final class Re extends Pezzo {
 	return false;
     }
 
-
+    
+	public static Cella findRe() {
+		int startX = -1;
+		int startY = -1;
+		// ricerca il re del giocatore in turno
+		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
+			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
+				if (Scacchiera.getNomePezzo(i, j) == "Re" && Scacchiera.getCella(i, j).getPezzoCorrente()
+						.getColore() == Turno.getGiocatoreInTurno().getColore()) {
+					startX = i;
+					startY = j;
+					break;
+				}
+			}
+			if (startX != -1)
+				break;
+		}
+		return Scacchiera.getCella(startX, startY);
+	}
+    
 }
