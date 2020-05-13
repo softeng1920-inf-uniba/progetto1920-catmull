@@ -143,5 +143,6 @@ public abstract class Pezzo {
      * @return boolean
      */
     public abstract boolean isMossaValida(Cella start, Cella end);
+    
 
 }

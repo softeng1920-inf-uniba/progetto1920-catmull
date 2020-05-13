@@ -166,4 +166,8 @@ public class Giocatore {
     public int getNumeroMosseGiocate() {
 	return mosseGiocate.size();
     }
+    
+    public void removePezzoCatturato() {
+    	pezziCatturati.remove(pezziCatturati.size()-1);
+    }
 }

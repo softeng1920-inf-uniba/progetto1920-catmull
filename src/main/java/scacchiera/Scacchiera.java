@@ -51,7 +51,7 @@ public class Scacchiera {
 	return scacchiera[x][y];
     }
 
-    public final void setCella(final Cella nuovaCella, final int x, final int y) {
+    public final static void setCella(final Cella nuovaCella, final int x, final int y) {
 	scacchiera[x][y] = nuovaCella;
     }
 
