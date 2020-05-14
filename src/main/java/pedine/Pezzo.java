@@ -17,23 +17,24 @@ import scacchiera.Cella;
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
-    
-    protected String nome; // TODO: aggiungere commenti
-    protected Colore colore;
-    protected boolean vivo;
-    public char simbolo;
-    protected Cella posizioneCorrente;
+
+    private String nome; // TODO: aggiungere commenti
+    private Colore colore;
+    private boolean vivo;
+    private char simbolo;
+    private Cella posizioneCorrente;
 
     /**
      * TODO: aggiungere commenti
-     * @param name
-     * @param colore
-     * @param posizioneCorrente
+     * 
+     * @param n
+     * @param c
+     * @param pC
      */
-    public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
-	this.nome = name;
-	this.colore = colore;
-	this.posizioneCorrente = posizioneCorrente;
+    public Pezzo(final String n, final Colore c, final Cella pC) {
+	this.nome = n;
+	this.colore = c;
+	this.posizioneCorrente = pC;
 	this.simbolo = ' ';
 	vivo = true;
     }
@@ -41,55 +42,56 @@ public abstract class Pezzo {
     // --------Metodi di setting --------
 
     /**
-     * setNome imposta il nome del pezzo
-     * TODO: Migliorare javadoc
+     * setNome imposta il nome del pezzo TODO: Migliorare javadoc
+     * 
      * @param nome
      */
-    void setNome(String n) {
+    void setNome(final String n) {
 	this.nome = n;
     }
 
     /**
-     * setColore imposta il colore del pezzo
-     *TODO: Migliorare javadoc
+     * setColore imposta il colore del pezzo TODO: Migliorare javadoc
+     * 
      * @param colore
      */
 
-    public void setColore(Colore c) {
+    public void setColore(final Colore c) {
 	this.colore = c;
     }
 
     /**
      * setVivo riporta lo stato del pezzo
      */
-    public void setVivo(boolean v) {
+    public void setVivo(final boolean v) {
 	this.vivo = v;
     }
 
     /**
-     * setSimbolo modifica lo stato del simbolo
-     *TODO: Migliorare javadoc
-     * @param simbolo
+     * setSimbolo modifica lo stato del simbolo TODO: Migliorare javadoc
+     * 
+     * @param s
      */
 
-    public void setSimbolo(final char simbolo) {
-	this.simbolo = simbolo;
+    public void setSimbolo(final char s) {
+	this.simbolo = s;
     }
 
     /**
-     * setPosizioneCorrente imposta la posizione corrente del pezzo
-     *TODO: Migliorare javadoc
+     * setPosizioneCorrente imposta la posizione corrente del pezzo TODO: Migliorare
+     * javadoc
+     * 
      * @param posizioneCorrente
      */
-    public void setPosizioneCorrente(Cella pC) {
+    public void setPosizioneCorrente(final Cella pC) {
 	this.posizioneCorrente = pC;
     }
 
     // --------Metodi di Get--------
 
     /**
-     * getNome restituisce il nome del pezzo
-     *TODO: Migliorare javadoc
+     * getNome restituisce il nome del pezzo TODO: Migliorare javadoc
+     * 
      * @return nome
      */
     public String getNome() {
@@ -97,18 +99,9 @@ public abstract class Pezzo {
     }
 
     /**
-     * getSimbolo restituisce il simbolo corrente del pezzo
-     *TODO: Migliorare javadoc
-     * @return simbolo
-     */
-    public char getSimbolo() {
-	return simbolo;
-    }
-
-    /**
      * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
-     * nero
-     *TODO: Migliorare javadoc
+     * nero TODO: Migliorare javadoc
+     * 
      * @return colore
      */
     public Colore getColore() {
@@ -116,8 +109,17 @@ public abstract class Pezzo {
     }
 
     /**
-     * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
-     *TODO: Migliorare javadoc
+     * getSimbolo restituisce il simbolo corrente del pezzo TODO: Migliorare javadoc
+     * 
+     * @return simbolo
+     */
+    public char getSimbolo() {
+	return simbolo;
+    }
+
+    /**
+     * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no TODO:
+     * Migliorare javadoc
      *
      * @return vivo
      */
@@ -126,22 +128,27 @@ public abstract class Pezzo {
     }
 
     /**
-     * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
-     *TODO: Migliorare javadoc
+     * getPosizioneCorrente restituisce la cella in cui si trova il pezzo TODO:
+     * Migliorare javadoc
+     * 
      * @return posizioneCorrente
      */
     public Cella getPosizioneCorrente() {
 	return posizioneCorrente;
     }
 
+    /**
+     * E' possibile avere il nome del pezzo, con relativo colore e simbolo attraverso l'autocasting
+     */
     @Override
     public String toString() {
 	return String.format(nome + " " + colore + " " + simbolo);
     }
 
     /**
-     * Metodo che permette di controllare se la mossa data sia valida
-     *TODO: Migliorare javadoc
+     * Metodo che permette di controllare se la mossa data sia valida TODO:
+     * Migliorare javadoc
+     * 
      * @param start
      * @param end
      * @return boolean
