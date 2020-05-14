@@ -22,7 +22,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
@@ -40,7 +40,6 @@ public class Controller {
 	final void playGame() {
 
 		boolean utenteVuoleRicominciare = false;
-		boolean utenteConfermaFinePartia = false;
 		Menu.newMenu();
 
 		do {
@@ -204,6 +203,11 @@ public class Controller {
 
 	}
 
+	/**
+	 * Viene richiesto all'utente una conferma se vuole uscire dal gioco
+	 *
+	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
+	 */
 	private boolean utenteConfermaFinePartita() {
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -284,7 +288,7 @@ public class Controller {
 	private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
-		Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
+		
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		switch (tipoMossa) {
 		case 0:
@@ -294,6 +298,7 @@ public class Controller {
 			}
 			break;
 		case 1:
+			Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 			giocatoreAttivo.addPezziCatturati(cellaAdiacenteEp.getPezzoCorrente());
 			cellaAdiacenteEp.rimuoviPezzoCorrente();
 			break;
