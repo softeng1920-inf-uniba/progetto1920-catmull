@@ -10,7 +10,6 @@ import scacchiera.Scacchiera;
  * il movimento dell'Alfiere è valido.
  * La classe Alfiere e' di tipo noECB.
  */
-
 public final class Alfiere extends Pezzo {
 
 	public Alfiere(final Colore colore, final Cella posizioneCorrente) {
@@ -72,7 +71,16 @@ public final class Alfiere extends Pezzo {
 		}
 		return true;
 	}
-
+	
+	/**
+	 * Converte la stringa in input in stringa leggibile dalla funzione
+	 * applicaMossa. Ad esempio: Cde4 ==> d2 e4
+	 * TODO: migliorare javadoc
+	 * @param mossa
+	 * @param s
+	 * @param g
+	 * @return
+	 */
 	public static String convertiMossa(String mossa) {
 		// "[A](x|:)?[a-h][1-8]"
 

@@ -29,7 +29,7 @@ public final class Torre extends Pezzo {
     /**
      * Data una stringa: mossa in notazione algebrica ridotta, la
      * converte in notazione estesa.
-     *
+     *TODO: Migliorare javadoc
      * @param mossa
      * @return String
      */
@@ -160,18 +160,6 @@ public final class Torre extends Pezzo {
 	return mossaNonValida;
     }
 
-    /**
-     * Metodo che cerca le possibili posizioni della torre di colore di valore
-     * colorepedineGiocatoreCorrente nella scacchiera in colonna esima y e riga x.
-     * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
-     * occupate dalla torre nella scacchiera.
-     *
-     *
-     *
-     * @param y
-     * @param colorepedineGiocatoreCorrente
-     * @return ArrayList<String>
-     */
     private static ArrayList<String> checkPosTorreRiga(int y, Colore colorepedineGiocatoreCorrente) {
 
 	// int y = Cella.coordYinInt(destY);
@@ -191,18 +179,6 @@ public final class Torre extends Pezzo {
 	return possibiliPosizioni;
     }
 
-    /**
-     * Metodo che cerca le possibili posizioni della torre di colore di valore
-     * colorepedineGiocatoreCorrente nella scacchiera in traversa esima x e riga y.
-     * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
-     * occupate dalla torre nella scacchiera.
-     *
-     *
-     *
-     * @param x
-     * @param colorepedineGiocatoreCorrente
-     * @return ArrayList<String>
-     */
     private static ArrayList<String> checkPosTorreColonna(int x, Colore colorepedineGiocatoreCorrente) {
 
 	ArrayList<String> possibiliPosizioni = new ArrayList<String>();
@@ -230,20 +206,6 @@ public final class Torre extends Pezzo {
 	return isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
     }
 
-    /**
-     * Metodo che verifica il seguente scenario: date le coordinate sX e
-     * sY,indicanti la traversa e la colonna di origine del pezzo da muovere, e le
-     * coordinate eX e eY,indicanti la traversa e la colonna di arrivo del pezzo da
-     * muovere, viene effettuato un controllo sul movimento del pezzo dalle
-     * coordinate di partenza a quelle di arrivo.
-     *
-     * @param sX
-     * @param sY
-     * @param eX
-     * @param eY
-     * @param colorePezzoCorrente
-     * @return boolean
-     */
     private static boolean isMossaValida(int sX, int sY, int eX, int eY, Colore colorePezzoGiocatoreCorrente) {
 	Cella cellaCorrente = Scacchiera.getCella(sX, sY);
 	Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
@@ -311,6 +273,14 @@ public final class Torre extends Pezzo {
 	return false;
     }
 
+    /**
+     * Restituisce una stringa nel formato [a|h][1|8] [f|d][1|8], che indica la mossa da
+     * effettuare per la torre in base al colore e alla tipologia di arrocco.
+     * 
+     * @param tipoArrocco 0 - corto | 1 - lungo
+     * @param c           colore del giocatore in turno
+     * @return mossa da effettuare
+     */
     public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
 	if (tipoArrocco == Comando.ARROCCO_CORTO)
 	    return (c == Colore.bianco) ? "h1 f1" : "h8 f8";
