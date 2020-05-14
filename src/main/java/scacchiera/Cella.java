@@ -1,5 +1,6 @@
 package scacchiera;
 
+import gioco.Comando;
 import pedine.Pezzo;
 
 /**
@@ -10,7 +11,7 @@ import pedine.Pezzo;
  * cella. La classe Cella e' di tipo ENTITY
  */
 public final class Cella {
-    private int x;	// TODO: Aggiungere javadoc o commenti
+    private int x; // TODO: Aggiungere javadoc o commenti
     private int y;
     private boolean occupato; // TODO: lo stato occupato si puo' ottenere dalla cella, se contiene un pezzo o
 			      // meno. Si potrebbe pensare di eliminare questa variabile
@@ -18,15 +19,16 @@ public final class Cella {
 
     /**
      * TODO: Migliorare javadoc
-     * @param x
-     * @param y
-     * @param pezzoCorrente
+     * 
+     * @param coordX
+     * @param coordY
+     * @param pC
      */
-    public Cella(final int x, final int y, final Pezzo pezzoCorrente) {
-	this.x = x;
-	this.y = y;
-	this.pezzoCorrente = pezzoCorrente;
-	if (pezzoCorrente != null) {
+    public Cella(final int coordX, final int coordY, final Pezzo pC) {
+	this.x = coordX;
+	this.y = coordY;
+	this.pezzoCorrente = pC;
+	if (pC != null) {
 	    this.occupato = true;
 	}
     }
@@ -34,29 +36,29 @@ public final class Cella {
     // ---------Metodi di setting---------
 
     /**
-     * Modifica la variabile occupato
-     * TODO: Migliorare javadoc
-     * @param occupato
+     * Modifica la variabile occupato TODO: Migliorare javadoc
+     * 
+     * @param occ
      */
-    public void setOccupato(final boolean occupato) {
-	this.occupato = occupato;
+    public void setOccupato(final boolean occ) {
+	this.occupato = occ;
     }
 
     /**
-     * Modifica il tipo di pezzo che la cella contiene
-     * TODO: Migliorare javadoc
-     * @param pezzoCorrente
+     * Modifica il tipo di pezzo che la cella contiene TODO: Migliorare javadoc
+     * 
+     * @param pC
      */
-    void setPezzoCorrente(final Pezzo pezzoCorrente) {
-	this.pezzoCorrente = pezzoCorrente;
-	if (pezzoCorrente != null) {
+    void setPezzoCorrente(final Pezzo pC) {
+	this.pezzoCorrente = pC;
+	if (pC != null) {
 	    this.occupato = true;
 	}
     }
 
     /**
-     * Modifica la coordinata X
-     * TODO: Migliorare javadoc
+     * Modifica la coordinata X TODO: Migliorare javadoc
+     * 
      * @param newx
      */
     void setX(final int newx) {
@@ -64,8 +66,8 @@ public final class Cella {
     }
 
     /**
-     * Modifica la coordinata Y
-     * TODO: Migliorare javadoc
+     * Modifica la coordinata Y TODO: Migliorare javadoc
+     * 
      * @param newy
      */
     void setY(final int newy) {
@@ -76,6 +78,7 @@ public final class Cella {
 
     /**
      * Restituisce la coordinata X
+     * 
      * @return valore della coordinata X per la cella corrente
      */
     public int getX() {
@@ -84,6 +87,7 @@ public final class Cella {
 
     /**
      * Restituisce la coordinata Y
+     * 
      * @return valore della coordinata Y per la cella corrente
      */
     public int getY() {
@@ -102,6 +106,7 @@ public final class Cella {
 
     /**
      * Restituisce il pezzo contenuto nella cella
+     * 
      * @return pezzo nella cella
      */
     public Pezzo getPezzoCorrente() {
@@ -112,6 +117,7 @@ public final class Cella {
 
     /**
      * Aggiunge un pezzo nella scacchiera
+     * 
      * @param nuovoPezzo
      */
     public void aggiungiPezzo(final Pezzo nuovoPezzo) {
@@ -177,8 +183,8 @@ public final class Cella {
      * @param m mossa in notazione estesa
      * @return Valore necessario per la scacchiera compreso fra a e h
      */
-    public static int startX(String m) {
-	return Cella.coordXinInt(m.charAt(0));
+    public static int startX(final String m) {
+	return Cella.coordXinInt(m.charAt(Comando.COLONNA_PARTENZA_MOSSA));
     }
 
     /**
@@ -187,8 +193,8 @@ public final class Cella {
      * @param m mossa in notazione estesa
      * @return Valore necessario per la scacchiera compreso fra 0 e 7
      */
-    public static int startY(String m) {
-	return Cella.coordYinInt(m.charAt(1));
+    public static int startY(final String m) {
+	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_PARTENZA_MOSSA));
     }
 
     /**
@@ -197,8 +203,8 @@ public final class Cella {
      * @param m mossa in notazione estesa
      * @return Valore necessario per la scacchiera compreso fra a e h
      */
-    public static int endX(String m) {
-	return Cella.coordXinInt(m.charAt(3));
+    public static int endX(final String m) {
+	return Cella.coordXinInt(m.charAt(Comando.COLONNA_DESTINAZIONE_MOSSA));
     }
 
     /**
@@ -207,8 +213,8 @@ public final class Cella {
      * @param m mossa in notazione estesa
      * @return Valore necessario per la scacchiera compreso fra 0 e 7
      */
-    public static int endY(String m) {
-	return Cella.coordYinInt(m.charAt(4));
+    public static int endY(final String m) {
+	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_DESTINAZIONE_MOSSA));
     }
 
 }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 /**
  * La classe turno serve per identificare il turno corrente e di attesa del
- * gioco, quindi definisce se sta giocando il giocatore bianco o nero;
- * Contiene le informazioni riguardo al turno del giocatore.
- * La classe Turno e' di tipo ENTITY
+ * gioco, quindi definisce se sta giocando il giocatore bianco o nero; Contiene
+ * le informazioni riguardo al turno del giocatore. La classe Turno e' di tipo
+ * ENTITY
  */
 
 public class Turno {
@@ -17,7 +17,7 @@ public class Turno {
 	giocatoreInTurno = new Giocatore(Colore.bianco);
 	giocatoreInAttesa = new Giocatore(Colore.nero);
     }
-	
+
     public static final void cambioTurno() {
 	Giocatore temp = giocatoreInTurno;
 	giocatoreInTurno = giocatoreInAttesa;

@@ -12,10 +12,9 @@ import pedine.Pezzo;
  * possono essere solo due giocatori e, al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi catturati e mosse
  * giocate. Il primo giocatore e' bianco e il secondo nero: al giocatore che fa
- * la prima mossa sara' assegnato il colore bianco. 
- * La classe Giocatore e' di tipo ENTITY.
+ * la prima mossa sara' assegnato il colore bianco. La classe Giocatore e' di
+ * tipo ENTITY.
  */
-
 public class Giocatore {
 
     private String nome;
@@ -33,22 +32,22 @@ public class Giocatore {
      * giocatore.
      *
      *
-     * @param colore
+     * @param c Colore del giocatore
      */
-    public Giocatore(Colore colore) {
+    public Giocatore(final Colore c) {
 
-	setColore(colore);
+	setColore(c);
 
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	Stampa.stampaInserireGiocatore(colore);
+	Stampa.stampaInserireGiocatore(c);
 
-	String nome = "";
+	String nomeGiocatore = "";
 
 	try {
-	    while (nome.equals("")) {
-		nome = br.readLine();
-		if (nome.equals("")) {
-		    Stampa.stampaInserireGiocatore(colore);
+	    while (nomeGiocatore.equals("")) {
+		nomeGiocatore = br.readLine();
+		if (nomeGiocatore.equals("")) {
+		    Stampa.stampaInserireGiocatore(c);
 		}
 	    }
 
@@ -56,7 +55,7 @@ public class Giocatore {
 	    e.printStackTrace();
 	}
 
-	setNome(nome);
+	setNome(nomeGiocatore);
 
 	pezziCatturati = new ArrayList<Pezzo>();
 	mosseGiocate = new ArrayList<String>();
@@ -66,19 +65,19 @@ public class Giocatore {
     /**
      * Assegna il nome al campo nome del Giocatore.
      *
-     * @param nome
+     * @param n Nome del giocatore
      */
-    public void setNome(String nome) {
-	this.nome = nome;
+    public void setNome(final String n) {
+	this.nome = n;
     }
 
     /**
      * Assegna il colore al campo colore del Giocatore.
      *
-     * @param colore
+     * @param c
      */
-    public void setColore(Colore colore) {
-	this.colore = colore;
+    public void setColore(final Colore c) {
+	this.colore = c;
     }
 
     /**
@@ -105,7 +104,7 @@ public class Giocatore {
      *
      * @param p
      */
-    public void addPezziCatturati(Pezzo p) {
+    public void addPezziCatturati(final Pezzo p) {
 	pezziCatturati.add(p);
     }
 
@@ -135,7 +134,7 @@ public class Giocatore {
      *
      * @param mossa
      */
-    public void setMosseGiocate(String mossa) {
+    public void setMosseGiocate(final String mossa) {
 	mosseGiocate.add(mossa);
     }
 
@@ -154,7 +153,7 @@ public class Giocatore {
      * @param i
      * @return Stringa che contiene la mossa giocata.
      */
-    public String getMossaGiocata(int i) {
+    public String getMossaGiocata(final int i) {
 	return mosseGiocate.get(i);
     }
 
@@ -166,8 +165,11 @@ public class Giocatore {
     public int getNumeroMosseGiocate() {
 	return mosseGiocate.size();
     }
-    
+
+    /**
+     * TODO: aggiungere javadoc!
+     */
     public void removePezzoCatturato() {
-    	pezziCatturati.remove(pezziCatturati.size()-1);
+	pezziCatturati.remove(pezziCatturati.size() - 1);
     }
 }

@@ -10,15 +10,16 @@ import pedine.Torre;
 
 /**
  * La classe scacchiera permette di rappresentare lo stato del gioco,
- * visualizzando i pezzi in essa. E'costituita da un numero costante
- * di colonne e di righe. La classe scacchiera è una matrice NxM
- * di Celle. 
- * La classe Scacchiera e' di tipo ENTITY
+ * visualizzando i pezzi in essa. E'costituita da un numero costante di colonne
+ * e di righe. La classe scacchiera e' una matrice NxM di Celle. La classe
+ * Scacchiera e' di tipo ENTITY
  */
 public class Scacchiera {
 
-    private static final int NUMEROCOLONNE = 8;
-    private static final int NUMERORIGHE = 8;
+    public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà valore 7
+
+    public static final int NUMEROCOLONNE = 8;
+    public static final int NUMERORIGHE = 8;
 
     private static Cella[][] scacchiera;
 
@@ -34,9 +35,10 @@ public class Scacchiera {
 	    }
 	}
     }
-    
+
     /**
      * TODO: Migliorare javadoc
+     * 
      * @return
      */
     public static final int getNumeroColonne() {
@@ -45,6 +47,7 @@ public class Scacchiera {
 
     /**
      * TODO: Migliorare javadoc
+     * 
      * @return
      */
     public static final int getNumeroRighe() {
@@ -53,7 +56,8 @@ public class Scacchiera {
 
     /**
      * Date le coordinate, ritorno il riferimento di una cella della scacchiera.
-     *  TODO: aggiungere javadoc
+     * TODO: aggiungere javadoc
+     * 
      * @param x
      * @param y
      * @return
@@ -64,22 +68,23 @@ public class Scacchiera {
 
     /**
      * TODO: aggiungere javadoc
+     * 
      * @param nuovaCella
      * @param x
      * @param y
      */
-    public final static void setCella(final Cella nuovaCella, final int x, final int y) {
+    public final void setCella(final Cella nuovaCella, final int x, final int y) {
 	scacchiera[x][y] = nuovaCella;
     }
 
     /**
-     * contolla che le coordinate in input siano valide
-     * TODO: aggiungere javadoc
+     * contolla che le coordinate in input siano valide TODO: aggiungere javadoc
+     * 
      * @param x
      * @param y
      * @return
      */
-    public static boolean isRangeValido(int x, int y) {
+    public static boolean isRangeValido(final int x, final int y) {
 	return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
     }
 
@@ -142,40 +147,41 @@ public class Scacchiera {
 		    .setPezzoCorrente(new Pedone(Colore.bianco, getCella(i, Cella.coordYinInt('2'))));
 	}
 
-}
+    }
 
     /**
-     * simula il movimento di un pezzo nella scacchiera
-     * TODO: migliorare javadoc
+     * simula il movimento di un pezzo nella scacchiera TODO: migliorare javadoc
+     * 
      * @param c1
      * @param c2
      */
-    public static void scambiaCella(Cella c1, Cella c2) {
+    public static void scambiaCella(final Cella c1, final Cella c2) {
 	c2.setPezzoCorrente(c1.getPezzoCorrente());
 	c2.setOccupato(c1.isOccupato());
 	c1.rimuoviPezzoCorrente();
     }
 
     /**
-     * permette di simulare la mossa in cui un pezzo mangia un altro
-     * TODO: migliorare javadoc
+     * permette di simulare la mossa in cui un pezzo mangia un altro TODO:
+     * migliorare javadoc
+     * 
      * @param x
      * @param y
      */
-    public final void mangiaPezzo(int x, int y) {
+    public final void mangiaPezzo(final int x, final int y) {
 	getCella(x, y).rimuoviPezzoCorrente();
 
     }
 
     /**
      * Permette di avere in output il nome del pezzo. Evita errori legati a indici
-     * errati e cella vuota.
-     *TODO: migliorare javadoc
+     * errati e cella vuota. TODO: migliorare javadoc
+     * 
      * @param x
      * @param y
      * @return
      */
-    public static final String getNomePezzo(int x, int y) {
+    public static final String getNomePezzo(final int x, final int y) {
 	if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {
 	    return getCella(x, y).getPezzoCorrente().getNome();
 	}
