@@ -70,7 +70,7 @@
       <h2>Project Information</h2>
       <p>Project: 
 		root project 'scacchi' (main)</p>
-      <p>SpotBugs version: 4.0.0-RC3</p>
+      <p>SpotBugs version: 4.0.3</p>
       <p>Code analyzed:</p>
       <ul>
          <li>C:\Users\Gregorio\eclipse-workspace\scacchi\build\classes\java\main\gioco\Colore.class</li>
@@ -136,15 +136,6 @@
       </p>
       <h2>Contents</h2>
       <ul>
-         <li>
-            <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-         </li>
-         <li>
-            <a href="#Warnings_I18N">Internationalization Warnings</a>
-         </li>
-         <li>
-            <a href="#Warnings_STYLE">Dodgy code Warnings</a>
-         </li>
          <li>
             <a href="#Details">Details</a>
          </li>
@@ -452,53 +443,5 @@
       <h1>
          <a name="Details">Details</a>
       </h1>
-      <h2>
-         <a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
-      </h2>
-
-<p>
-This instruction assigns a value to a local variable,
-but the value is not read or used in any subsequent instruction.
-Often, this indicates an error, because the value computed is never
-used.
-</p>
-<p>
-Note that Sun's javac compiler often generates dead stores for
-final local variables.  Because SpotBugs is a bytecode-based tool,
-there is no easy way to eliminate these false positives.
-</p>
-
-    <h2>
-         <a name="DM_EXIT">DM_EXIT: Method invokes System.exit(...)</a>
-      </h2>
-
-  <p> Invoking System.exit shuts down the entire Java virtual machine. This
-   should only been done when it is appropriate. Such calls make it
-   hard or impossible for your code to be invoked by other code.
-   Consider throwing a RuntimeException instead.</p>
-
-    <h2>
-         <a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
-      </h2>
-
-<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
-
-      <h2>
-         <a name="NP_DEREFERENCE_OF_READLINE_VALUE">NP_DEREFERENCE_OF_READLINE_VALUE: Dereference of the result of readLine() without nullcheck</a>
-      </h2>
-
-  <p> The result of invoking readLine() is dereferenced without checking to see if the result is null. If there are no more lines of text
-to read, readLine() will return null and dereferencing that will generate a null pointer exception.
-</p>
-
-    <h2>
-         <a name="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD: Write to static field from instance method</a>
-      </h2>
-
-  <p> This instance method writes to a static field. This is tricky to get
-correct if multiple instances are being manipulated,
-and generally bad practice.
-</p>
-
-    </body>
+   </body>
 </html>

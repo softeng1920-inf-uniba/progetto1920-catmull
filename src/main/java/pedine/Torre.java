@@ -24,28 +24,27 @@ public final class Torre extends Pezzo {
 	    setSimbolo('\u2656');
 
 	}
-    }
 
     /**
      * Data una stringa: mossa in notazione algebrica ridotta, la converte in
-     * notazione estesa. TODO: Migliorare javadoc
+     * notazione estesa.
      * 
      * @param mossa
      * @return String
      */
     public static String convertiMossa(final String mossa) {
 
-	String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
-	char destX = mossa.charAt(mossa.length() - 2);
-	char destY = mossa.charAt(mossa.length() - 1);
-	int eX = Cella.coordXinInt(destX);
-	int eY = Cella.coordYinInt(destY);
-	Colore colorepedineGiocatoreCorrente = Turno.getGiocatoreInTurno().getColore();
-	ArrayList<String> possibiliPosizioniColonna = new ArrayList<String>();
-	ArrayList<String> possibiliPosizioniRiga = new ArrayList<String>();
-	String posRiga = "";
-	String posColonna = "";
-	char ambiguita = mossa.charAt(1);
+		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
+		char destX = mossa.charAt(mossa.length() - 2);
+		char destY = mossa.charAt(mossa.length() - 1);
+		int eX = Cella.coordXinInt(destX);
+		int eY = Cella.coordYinInt(destY);
+		Colore colorepedineGiocatoreCorrente = Turno.getGiocatoreInTurno().getColore();
+		ArrayList<String> possibiliPosizioniColonna;
+		ArrayList<String> possibiliPosizioniRiga;
+		String posRiga = "";
+		String posColonna = "";
+		char ambiguita = mossa.charAt(1);
 
 	if (mossa.matches(regex)) {
 
@@ -55,11 +54,11 @@ public final class Torre extends Pezzo {
 	    isMossaCattura = (mossa.charAt(mossa.length() - posizioneCarattereCattura) == 'x'
 		    || mossa.charAt(mossa.length() - posizioneCarattereCattura) == ':');
 
-	    possibiliPosizioniColonna = checkPosTorreColonna(eX, colorepedineGiocatoreCorrente);
-	    possibiliPosizioniRiga = checkPosTorreRiga(eY, colorepedineGiocatoreCorrente);
+			possibiliPosizioniColonna = new ArrayList<String>(checkPosTorreColonna(eX, colorepedineGiocatoreCorrente));
+			possibiliPosizioniRiga = new ArrayList<String>(checkPosTorreRiga(eY, colorepedineGiocatoreCorrente));
 
-	    posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
-	    posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
+			posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
+			posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
 
 	    if (!posColonna.equals(MOSSA_NON_VALIDA) && !posRiga.equals(MOSSA_NON_VALIDA)
 		    && mossa.length() > posizioneCarattereCattura
@@ -110,7 +109,12 @@ public final class Torre extends Pezzo {
 	}
 	return MOSSA_NON_VALIDA;
 
-    }
+	private static String posizioneValidaColonna(ArrayList<String> possibiliPosizioniColonna, int eX, int eY,
+			Colore colorepedineGiocatoreCorrente) {
+		String posColonna = "";
+		String temp;
+		int sX = 0;
+		int sY = 0;
 
     private static String posizioneValidaColonna(final ArrayList<String> possibiliPosizioniColonna, final int eX,
 	    final int eY, final Colore colorepedineGiocatoreCorrente) {
@@ -119,18 +123,24 @@ public final class Torre extends Pezzo {
 	int sX = 0;
 	int sY = 0;
 
-	int count = 0;
-	int i = 0;
+		while (i < possibiliPosizioniColonna.size()) {
+			temp = possibiliPosizioniColonna.get(i);
+			sX = Cella.coordXinInt(temp.charAt(0));
+			sY = Cella.coordYinInt(temp.charAt(1));
+			if (isMossaValida(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {
+				count++;
+				posColonna = temp + " " + Cella.coordXinChar(eX) + "" + Cella.coordYinChar(eY);
+			}
+			i++;
+		}
+		if (count == 1)
+			return posColonna;
 
-	while (i < possibiliPosizioniColonna.size()) {
-	    temp = possibiliPosizioniColonna.get(i);
-	    sX = Cella.coordXinInt(temp.charAt(0));
-	    sY = Cella.coordYinInt(temp.charAt(1));
-	    if (isMossaValida(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {
-		count++;
-		posColonna = temp + " " + Cella.coordXinChar(eX) + "" + Cella.coordYinChar(eY);
-	    }
-	    i++;
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniColonna sono
+		// presenti due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
+
 	}
 	if (count == 1) {
 	    return posColonna;
@@ -140,27 +150,24 @@ public final class Torre extends Pezzo {
 	// di partenza della torre valide pertanto siamo nel caso di ambiguita
 	return MOSSA_NON_VALIDA;
 
-    }
+		String posRiga = "";
+		String temp;
+		int sX = 0;
+		int sY = 0;
+		int count = 0;
+		int i = 0;
+		while (i < possibiliPosizioniRiga.size()) {
+			temp = possibiliPosizioniRiga.get(i);
+			sX = Cella.coordXinInt(temp.charAt(0));
+			sY = Cella.coordYinInt(temp.charAt(1));
 
     private static String posizioneValidaRiga(final ArrayList<String> possibiliPosizioniRiga, final int eX,
 	    final int eY, final Colore colorepedineGiocatoreCorrente) {
 
-	String posRiga = "";
-	String temp;
-	int sX = 0;
-	int sY = 0;
-	int count = 0;
-	int i = 0;
-	while (i < possibiliPosizioniRiga.size()) {
-	    temp = possibiliPosizioniRiga.get(i);
-	    sX = Cella.coordXinInt(temp.charAt(0));
-	    sY = Cella.coordYinInt(temp.charAt(1));
-
-	    if (isMossaValida(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {
-		count++;
-		posRiga = temp + " " + Cella.coordXinChar(eX) + "" + Cella.coordYinChar(eY);
-	    }
-	    i++;
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presenti
+		// due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
 	}
 	if (count == 1) {
 	    return posRiga;
@@ -174,44 +181,74 @@ public final class Torre extends Pezzo {
 
     private static ArrayList<String> checkPosTorreRiga(final int y, final Colore colorepedineGiocatoreCorrente) {
 
-	// int y = Cella.coordYinInt(destY);
-	ArrayList<String> possibiliPosizioni = new ArrayList<String>();
-	int numTorre = 0;
+		for (int x = 0; x < Scacchiera.getNumeroRighe(); x++) {
+			Cella cellaCorrente = Scacchiera.getCella(x, y);
+			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
+			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
+					&& pezzoCorrente.getNome().equals("Torre")) {
+				possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
+				numTorre++;
+			}
+		}
 
-	for (int x = 0; x < Scacchiera.getNumeroRighe(); x++) {
-	    Cella cellaCorrente = Scacchiera.getCella(x, y);
-	    Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
-	    if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
-		    && pezzoCorrente.getNome().equals("Torre")) {
-		possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
-		numTorre++;
-	    }
+		return possibiliPosizioni;
 	}
 
-	return possibiliPosizioni;
-    }
+	/**
+	 * Metodo che cerca le possibili posizioni della torre di colore di valore
+	 * colorepedineGiocatoreCorrente nella scacchiera in traversa esima x e riga y.
+	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
+	 * occupate dalla torre nella scacchiera.
+	 *
+	 *
+	 *
+	 * @param x
+	 * @param colorepedineGiocatoreCorrente
+	 * @return ArrayList<String>
+	 */
+	private static ArrayList<String> checkPosTorreColonna(int x, Colore colorepedineGiocatoreCorrente) {
 
     private static ArrayList<String> checkPosTorreColonna(final int x, final Colore colorepedineGiocatoreCorrente) {
 
-	ArrayList<String> possibiliPosizioni = new ArrayList<String>();
-	int numTorre = 0;
+		// int x = Cella.coordXinInt(destX);
 
-	// int x = Cella.coordXinInt(destX);
+		for (int y = 0; y < Scacchiera.getNumeroColonne(); y++) {
 
-	for (int y = 0; y < Scacchiera.getNumeroColonne(); y++) {
+			Cella cellaCorrente = Scacchiera.getCella(x, y);
+			Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
+			if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
+					&& pezzoCorrente.getNome().equals("Torre")) {
+				possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
+				numTorre++;
+			}
+		}
 
-	    Cella cellaCorrente = Scacchiera.getCella(x, y);
-	    Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
-	    if (cellaCorrente.isOccupato() && pezzoCorrente.getColore() == colorepedineGiocatoreCorrente
-		    && pezzoCorrente.getNome().equals("Torre")) {
-		possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + "" + Cella.coordYinChar(y));
-		numTorre++;
-	    }
+		return possibiliPosizioni;
+
 	}
 
-	return possibiliPosizioni;
+	@Override
+	public boolean isMossaValida(Cella start, Cella end) {
+		return isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
+	}
 
-    }
+	/**
+	 * Metodo che verifica il seguente scenario: date le coordinate sX e
+	 * sY,indicanti la traversa e la colonna di origine del pezzo da muovere, e le
+	 * coordinate eX e eY,indicanti la traversa e la colonna di arrivo del pezzo da
+	 * muovere, viene effettuato un controllo sul movimento del pezzo dalle
+	 * coordinate di partenza a quelle di arrivo.
+	 *
+	 * @param sX
+	 * @param sY
+	 * @param eX
+	 * @param eY
+	 * @param colorePezzoCorrente
+	 * @return boolean
+	 */
+	private static boolean isMossaValida(int sX, int sY, int eX, int eY, Colore colorePezzoGiocatoreCorrente) {
+		Cella cellaCorrente = Scacchiera.getCella(sX, sY);
+		Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
     @Override
     public boolean isMossaValida(final Cella start, final Cella end) {
@@ -223,15 +260,19 @@ public final class Torre extends Pezzo {
 	Cella cellaCorrente = Scacchiera.getCella(sX, sY);
 	Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
-	if ((sX != eX || sY != eY) && cellaCorrente.isOccupato()
-		&& pezzoCorrente.getColore() == colorePezzoGiocatoreCorrente) {
-	    if (sY > eY) {
-		// Movimento verso l'alto
+					cellaCorrente = Scacchiera.getCella(sX, i);
+					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
-		for (int i = sY - 1; i >= eY; i--) {
+					if (cellaCorrente.isOccupato() && i == eY
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+						return true;
+					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
+						return false;
 
-		    cellaCorrente = Scacchiera.getCella(sX, i);
-		    pezzoCorrente = cellaCorrente.getPezzoCorrente();
+				}
+			} else {
+				// Movimento verso il basso
+				for (int i = sY + 1; i <= eY; i++) {
 
 		    if (cellaCorrente.isOccupato() && i == eY
 			    && pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
@@ -244,8 +285,8 @@ public final class Torre extends Pezzo {
 		// Movimento verso il basso
 		for (int i = sY + 1; i <= eY; i++) {
 
-		    cellaCorrente = Scacchiera.getCella(sX, i);
-		    pezzoCorrente = cellaCorrente.getPezzoCorrente();
+				}
+			}
 
 		    if (cellaCorrente.isOccupato() && i == eY
 			    && pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
@@ -269,11 +310,8 @@ public final class Torre extends Pezzo {
 			return false;
 		    }
 		}
-	    } else {
-		// Movimento verso dx
-		for (int i = sX + 1; i <= eX; i++) {
-		    cellaCorrente = Scacchiera.getCella(i, sY);
-		    pezzoCorrente = cellaCorrente.getPezzoCorrente();
+		return false;
+	}
 
 		    if (cellaCorrente.isOccupato() && i == eX
 			    && pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
@@ -282,11 +320,7 @@ public final class Torre extends Pezzo {
 			return false;
 		    }
 		}
-	    }
-	    return true;
 	}
-	return false;
-    }
 
     /**
      * Restituisce una stringa nel formato [a|h][1|8] [f|d][1|8], che indica la

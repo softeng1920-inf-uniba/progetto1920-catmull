@@ -3,6 +3,7 @@ package gioco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import pedine.Pezzo;
@@ -17,10 +18,10 @@ import pedine.Pezzo;
  */
 public class Giocatore {
 
-    private String nome;
-    private Colore colore;
-    private ArrayList<Pezzo> pezziCatturati;
-    private ArrayList<String> mosseGiocate;
+	private String nome;
+	private Colore colore;
+	private ArrayList<Pezzo> pezziCatturati;
+	private ArrayList<String> mosseGiocate;
 
     /**
      * Costruttore della classe Giocatore
@@ -38,29 +39,41 @@ public class Giocatore {
 
 	setColore(c);
 
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 	Stampa.stampaInserireGiocatore(c);
-
-	String nomeGiocatore = "";
-
-	try {
-	    while (nomeGiocatore.equals("")) {
-		nomeGiocatore = br.readLine();
-		if (nomeGiocatore.equals("")) {
-		    Stampa.stampaInserireGiocatore(c);
+		try {
+			while (this.nome == null || this.nome.equals("")) {
+				this.nome = br.readLine();
+				if (this.nome ==null || this.nome.equals("")) {
+					Stampa.stampaInserireGiocatore(colore);
+			    }
+            }
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-	    }
 
-	} catch (IOException e) {
-	    e.printStackTrace();
+		pezziCatturati = new ArrayList<Pezzo>();
+		mosseGiocate = new ArrayList<String>();
+
 	}
 
-	setNome(nomeGiocatore);
+	/**
+	 * Restituisce il nome del giocatore.
+	 *
+	 * @return nome
+	 */
+	public String getNome() {
+		return nome;
+	}
 
-	pezziCatturati = new ArrayList<Pezzo>();
-	mosseGiocate = new ArrayList<String>();
-
-    }
+	/**
+	 * Restituisce il colore dei pezzi del giocatore.
+	 *
+	 * @return colore
+	 */
+	public Colore getColore() {
+		return colore;
+	}
 
     /**
      * Assegna il nome al campo nome del Giocatore.
@@ -80,23 +93,19 @@ public class Giocatore {
 	this.colore = c;
     }
 
-    /**
-     * Restituisce il nome del giocatore.
-     *
-     * @return nome
-     */
-    public String getNome() {
-	return nome;
-    }
+	public ArrayList<Pezzo> getPezziCatturati() {
+		return pezziCatturati;
+	}
 
-    /**
-     * Restituisce il colore dei pezzi del giocatore.
-     *
-     * @return colore
-     */
-    public Colore getColore() {
-	return colore;
-    }
+	/**
+	 * Restituisce un valore booleano che individua se sono stati catturati dei
+	 * pezzi dal giocatore avversario.
+	 *
+	 * @return boolean
+	 */
+	public boolean isEmptyPezziCatturati() {
+		return pezziCatturati.isEmpty();
+	}
 
     /**
      * Aggiunta la pedina p mangiata dal giocatore avversario al vettore
@@ -104,20 +113,28 @@ public class Giocatore {
      *
      * @param p
      */
-    public void addPezziCatturati(final Pezzo p) {
+    public void addPezziCatturati(Pezzo p) {
 	pezziCatturati.add(p);
     }
 
-    /**
-     * Funzione che restituisce le pedine catturate dal giocatore avversario
-     *
-     * @return pezziCatturati
-     *
-     */
+	/**
+	 * Restituisce la storia delle mosse giocate dal giocatore.
+	 *
+	 * @return lista delle mosse giocate.
+	 */
+	public ArrayList<String> getMosseGiocate() {
+		return mosseGiocate;
+	}
 
-    public ArrayList<Pezzo> getPezziCatturati() {
-	return pezziCatturati;
-    }
+	/**
+	 * Restituisce l'i-esima mossa giocata dal giocatore.
+	 *
+	 * @param i
+	 * @return Stringa che contiene la mossa giocata.
+	 */
+	public String getMossaGiocata(int i) {
+		return mosseGiocate.get(i);
+	}
 
     /**
      * Restituisce un valore booleano che individua se sono stati catturati dei
