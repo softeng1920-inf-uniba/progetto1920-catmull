@@ -1,6 +1,6 @@
 # Report
 ![](/res/img/report/logo.png)
-<a name="indice"></a> **Indice**
+<a name="indice"></a>**Indice**
 1. [Introduzione](#intro)
 1. [Modello di dominio](#dom_mod)
 1. [Requisiti specifici](#spec_req)
