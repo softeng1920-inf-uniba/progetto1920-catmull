@@ -25,9 +25,6 @@ public final class Pedone extends Pezzo {
 		}
 	}
 
-	/**
-	 * Restituisce vero se e' la prima mossa, falso altrimenti
-	 */
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
 
@@ -66,7 +63,14 @@ public final class Pedone extends Pezzo {
 
 		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(this.nome);
 	}
-
+	
+	/**
+	 * TODO: migliorare javadoc
+	 * @param start
+	 * @param end
+	 * @param mosse
+	 * @return
+	 */
 	public boolean isEnPassantValido(Cella start, Cella end, ArrayList<String> mosse) {
 
 		Cella cellaPedone;
@@ -109,8 +113,8 @@ public final class Pedone extends Pezzo {
 	 * metodo di classe che converte il comando in input in una stringa nel formato
 	 * a2 a4
 	 *
-	 * @param mossa - puo' essere un'avanzata (es. a2) oppure una cattura (es. axb3
-	 * @return
+	 * @param mossa puo' essere un'avanzata (es. a2) oppure una cattura (es. axb3
+	 * @return mossa nel formato esteso
 	 */
 	public static String convertiMossa(String mossa) {
 

@@ -10,7 +10,6 @@ import scacchiera.Scacchiera;
  * movimento del Cavallo è valido. 
  * La classe Cavallo e' di tipo noECB.
  */
-
 public final class Cavallo extends Pezzo {
 
 	public Cavallo(final Colore colore, final Cella posizioneCorrente) {
@@ -40,7 +39,7 @@ public final class Cavallo extends Pezzo {
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
 	 * applicaMossa. Ad esempio: Cde4 ==> d2 e4
-	 * 
+	 * TODO: migliorare javadoc
 	 * @param mossa
 	 * @param s
 	 * @param g

@@ -4,25 +4,32 @@ import gioco.Colore;
 import scacchiera.Cella;
 
 /**
- * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per poi
- * realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i seguenti attributi 
- * che ne definiscono lo stato:
+ * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per
+ * poi realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i
+ * seguenti attributi che ne definiscono lo stato:
  * <ul>
- * 	<li><b>nome</b></li>
- *  <li><b>colore</b></li>
- *  <li><b>simbolo</b></li>
- *  <li><b>vivo</b></li>
- *  <li><b>posisizioneCorrente</b></li>
- * </ul> 
+ * <li><b>nome</b></li>
+ * <li><b>colore</b></li>
+ * <li><b>simbolo</b></li>
+ * <li><b>vivo</b></li>
+ * <li><b>posisizioneCorrente</b></li>
+ * </ul>
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
-    protected String nome;
+    
+    protected String nome; // TODO: aggiungere commenti
     protected Colore colore;
     protected boolean vivo;
     public char simbolo;
     protected Cella posizioneCorrente;
 
+    /**
+     * TODO: aggiungere commenti
+     * @param name
+     * @param colore
+     * @param posizioneCorrente
+     */
     public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
 	this.nome = name;
 	this.colore = colore;
@@ -35,7 +42,7 @@ public abstract class Pezzo {
 
     /**
      * setNome imposta il nome del pezzo
-     *
+     * TODO: Migliorare javadoc
      * @param nome
      */
     void setNome(String n) {
@@ -44,7 +51,7 @@ public abstract class Pezzo {
 
     /**
      * setColore imposta il colore del pezzo
-     *
+     *TODO: Migliorare javadoc
      * @param colore
      */
 
@@ -61,7 +68,7 @@ public abstract class Pezzo {
 
     /**
      * setSimbolo modifica lo stato del simbolo
-     *
+     *TODO: Migliorare javadoc
      * @param simbolo
      */
 
@@ -71,7 +78,7 @@ public abstract class Pezzo {
 
     /**
      * setPosizioneCorrente imposta la posizione corrente del pezzo
-     *
+     *TODO: Migliorare javadoc
      * @param posizioneCorrente
      */
     public void setPosizioneCorrente(Cella pC) {
@@ -82,7 +89,7 @@ public abstract class Pezzo {
 
     /**
      * getNome restituisce il nome del pezzo
-     *
+     *TODO: Migliorare javadoc
      * @return nome
      */
     public String getNome() {
@@ -91,7 +98,7 @@ public abstract class Pezzo {
 
     /**
      * getSimbolo restituisce il simbolo corrente del pezzo
-     *
+     *TODO: Migliorare javadoc
      * @return simbolo
      */
     public char getSimbolo() {
@@ -101,7 +108,7 @@ public abstract class Pezzo {
     /**
      * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
      * nero
-     *
+     *TODO: Migliorare javadoc
      * @return colore
      */
     public Colore getColore() {
@@ -110,7 +117,7 @@ public abstract class Pezzo {
 
     /**
      * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
-     *
+     *TODO: Migliorare javadoc
      *
      * @return vivo
      */
@@ -120,16 +127,13 @@ public abstract class Pezzo {
 
     /**
      * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
-     *
+     *TODO: Migliorare javadoc
      * @return posizioneCorrente
      */
     public Cella getPosizioneCorrente() {
 	return posizioneCorrente;
     }
 
-    /**
-     * toString consente di rappresentare un oggetto come una stringa
-     */
     @Override
     public String toString() {
 	return String.format(nome + " " + colore + " " + simbolo);
@@ -137,12 +141,11 @@ public abstract class Pezzo {
 
     /**
      * Metodo che permette di controllare se la mossa data sia valida
-     *
+     *TODO: Migliorare javadoc
      * @param start
      * @param end
      * @return boolean
      */
     public abstract boolean isMossaValida(Cella start, Cella end);
-    
 
 }

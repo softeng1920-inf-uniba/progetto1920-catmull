@@ -9,7 +9,6 @@ import scacchiera.Scacchiera;
  * il movimento della Regina è valido.
  * La classe Regina e' di tipo noECB
  */
-
 public final class Regina extends Pezzo {
 
 	/** Costruttore */
@@ -22,9 +21,6 @@ public final class Regina extends Pezzo {
 		}
 	}
 
-	/**
-	 * Controlla se la mossa della regina e' valida
-	 */
 	@Override
 	public boolean isMossaValida(Cella start, Cella end) {
 		int j;
@@ -114,7 +110,7 @@ public final class Regina extends Pezzo {
 	/**
 	 * Converte la mossa in input nell stringa con le coordinate della cella
 	 * iniziale e le coordinate della cella finale
-	 *
+	 *TODO: Migliorare javadoc
 	 * @param mossa
 	 * @param s
 	 * @param g

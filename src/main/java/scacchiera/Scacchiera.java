@@ -22,6 +22,9 @@ public class Scacchiera {
 
     private static Cella[][] scacchiera;
 
+    /**
+     * TODO: Migliorare javadoc
+     */
     public Scacchiera() {
 
 	scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
@@ -31,18 +34,26 @@ public class Scacchiera {
 	    }
 	}
     }
-
+    
+    /**
+     * TODO: Migliorare javadoc
+     * @return
+     */
     public static final int getNumeroColonne() {
 	return NUMEROCOLONNE;
     }
 
+    /**
+     * TODO: Migliorare javadoc
+     * @return
+     */
     public static final int getNumeroRighe() {
 	return NUMERORIGHE;
     }
 
     /**
      * Date le coordinate, ritorno il riferimento di una cella della scacchiera.
-     *
+     *  TODO: aggiungere javadoc
      * @param x
      * @param y
      * @return
@@ -51,13 +62,19 @@ public class Scacchiera {
 	return scacchiera[x][y];
     }
 
+    /**
+     * TODO: aggiungere javadoc
+     * @param nuovaCella
+     * @param x
+     * @param y
+     */
     public final static void setCella(final Cella nuovaCella, final int x, final int y) {
 	scacchiera[x][y] = nuovaCella;
     }
 
     /**
      * contolla che le coordinate in input siano valide
-     *
+     * TODO: aggiungere javadoc
      * @param x
      * @param y
      * @return
@@ -67,7 +84,7 @@ public class Scacchiera {
     }
 
     /**
-     * metodo che inizializza la scacchiera e la prepara per una nuova partita
+     * Metodo che inizializza la scacchiera e la prepara per una nuova partita
      */
     public static void inizializzaScacchiera() {
 
@@ -129,7 +146,7 @@ public class Scacchiera {
 
     /**
      * simula il movimento di un pezzo nella scacchiera
-     *
+     * TODO: migliorare javadoc
      * @param c1
      * @param c2
      */
@@ -141,7 +158,7 @@ public class Scacchiera {
 
     /**
      * permette di simulare la mossa in cui un pezzo mangia un altro
-     *
+     * TODO: migliorare javadoc
      * @param x
      * @param y
      */
@@ -153,7 +170,7 @@ public class Scacchiera {
     /**
      * Permette di avere in output il nome del pezzo. Evita errori legati a indici
      * errati e cella vuota.
-     *
+     *TODO: migliorare javadoc
      * @param x
      * @param y
      * @return

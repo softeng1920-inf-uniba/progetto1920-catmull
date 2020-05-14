@@ -253,7 +253,7 @@ public class Controller {
 
 	/**
 	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
-	 * (la traversa è minore di 1 ecc.)
+	 * (la traversa e' minore di 1 ecc.)
 	 *
 	 * @param comando Stringa nel formato : colonna e traversa di partenza seguite
 	 *                da uno spazio, ed infine colonna e traversa di destinazione
@@ -268,8 +268,8 @@ public class Controller {
 	}
 
 	/**
-	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita è
-	 * valida, se è consentita ecc.), viene effettuato in base alla tipologia della
+	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita e'
+	 * valida, se e' consentita ecc.), viene effettuato in base alla tipologia della
 	 * mossa, il necessario per proseguire con il corretto funzionamento del gioco.
 	 *
 	 * L'applicazione della mossa non è univoca per ogni comando inserito (vedi
@@ -346,7 +346,7 @@ public class Controller {
 
 	/**
 	 * Data la mossa del re e quella della torre, vengono effettuati tutti i
-	 * controlli che validano se la mossa è consentita o meno.
+	 * controlli che validano se la mossa e' consentita o meno.
 	 *
 	 * @param mossaRe
 	 * @param mossaTorre
@@ -391,10 +391,17 @@ public class Controller {
 
 	}
 	
+	/**
+	 * TODO: Aggiungere javadoc!
+	 * 
+	 * @param partenza
+	 * @param destinazione
+	 * @param tipo //TODO tipomossa??
+	 * @return
+	 */
 	public boolean isReProtetto(Cella partenza, Cella destinazione, int tipo) {
 		Cella cellaRe = Re.findRe();
-		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
-		Re reDaProteggere = (Re)cellaRe.getPezzoCorrente();
+		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;
 		
 		if(partenza.getPezzoCorrente().getNome().equals("Re"))
@@ -406,7 +413,7 @@ public class Controller {
 		
 		applicaMossa(destinazione, partenza, tipo);
 		
-		
+		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
 		if(temp.isOccupato()) {
 			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
 			Turno.getGiocatoreInTurno().removePezzoCatturato();
