@@ -3,6 +3,7 @@ package it.uniba.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import gioco.Colore;
@@ -27,10 +28,9 @@ import scacchiera.Scacchiera;
  * CONTROL
  */
 public class Controller {
-	private static ArrayList<String> mosseConvertite;
+	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
 
 	public Controller() {
-		mosseConvertite = new ArrayList<String>();
 		new Scacchiera();
 	}
 
@@ -48,7 +48,7 @@ public class Controller {
 
 			new Turno();
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 			String comando = "";
 
 			while (true) {
@@ -59,26 +59,28 @@ public class Controller {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-
-				if (comando.equalsIgnoreCase(Menu.help().getNome())) {
-					Stampa.mostrareElencoComandiGioco();
-				} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
-					Stampa.stampaScacchiera();
-				} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
-					Stampa.stampaMosseGiocate();
-				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
-					Stampa.visualizzareCatture();
-				} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-					chiudiGioco();
-				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
-					if (utenteConfermaRiavvioPartita()) {
-						Stampa.stampaNuovaPartita();
-						utenteVuoleRicominciare = true;
-						new Scacchiera(); // Svuoto la scacchiera
+				if (comando != null) {
+					if (comando.equalsIgnoreCase(Menu.help().getNome())) {
+						Stampa.mostrareElencoComandiGioco();
+					} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
+						Stampa.stampaScacchiera();
+					} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
+						Stampa.stampaMosseGiocate();
+					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
+						Stampa.visualizzareCatture();
+					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
 						break;
-					} else
-						continue; // Faccio ripartire il loop interno
-				}
+					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
+						if (utenteConfermaRiavvioPartita()) {
+							Stampa.stampaNuovaPartita();
+							utenteVuoleRicominciare = true;
+							new Scacchiera(); // Svuoto la scacchiera
+							break;
+						} else
+							continue; // Faccio ripartire il loop interno
+					}
+				} else
+					break;
 
 				if (Comando.isNotazioneAlgebrica(comando)) {
 
@@ -183,18 +185,20 @@ public class Controller {
 	private boolean utenteConfermaRiavvioPartita() {
 
 		String comando = "";
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 		Stampa.stampaConfermaNuovaPartita();
 		while (true) {
 			try {
 				comando = br.readLine();
-				switch (comando) {
-				case "y":
-					return true;
-				case "n":
-					return false;
-				default:
-					Stampa.stampaComandoErrato();
+				if (comando != null) {
+					switch (comando) {
+					case "y":
+						return true;
+					case "n":
+						return false;
+					default:
+						Stampa.stampaComandoErrato();
+					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -228,7 +232,6 @@ public class Controller {
 			return Pedone.convertiMossa(mossa);
 		}
 	}
-
 
 	/**
 	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
@@ -297,14 +300,6 @@ public class Controller {
 	 */
 	private static boolean isCoordinateValide(int startX, int startY, int endX, int endY) {
 		return Scacchiera.isRangeValido(startX, startY) && Scacchiera.isRangeValido(endX, endY);
-	}
-
-	/**
-	 * Lascia il controllo al sistema operativo
-	 *
-	 */
-	public void chiudiGioco() {
-		System.exit(0);
 	}
 
 	/**
