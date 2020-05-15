@@ -101,7 +101,7 @@ public final class Controller {
 
     /**
      * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
-     * e restituisce true se la mossa � valida ed � stata applicata altrimenti
+     * e restituisce true se la mossa e' valida ed e' stata applicata altrimenti
      * restituisce false
      *
      * @param mossaDaGiocare
