@@ -103,12 +103,8 @@ public final class Pedone extends Pezzo {
      * @param start Cella di partenza della mossa del pedone
      * @param end   Cella di destinazione della mossa del pedone
      * @param mosse Array di tutte le mosse effettuate, necessario per controllare
-     *              <<<<<<< HEAD:src/main/java/scacchiera/pedine/Pedone.java se
-     *              l'ultima mossa effettuata � un avanzata di due case
-     * @return true se la cattura � effettuabile in en passant, false altrimenti
-     *         ======= se l'ultima mossa effettuata � un avanzata di due case
-     * @return true se la cattura � effettuabile in en passant, false altrimenti
-     *         >>>>>>>
+     *              l'ultima mossa effettuata e' un avanzata di due case
+     * @return true se la cattura e' effettuabile in en passant, false altrimenti
      *         40a92aa4f2c91103082888ba35a4cd697f676f07:src/main/java/pedine/Pedone.java
      */
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
