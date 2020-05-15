@@ -11,24 +11,21 @@ import pedine.Torre;
 /**
  * La classe scacchiera permette di rappresentare lo stato del gioco,
  * visualizzando i pezzi in essa. E'costituita da un numero costante di colonne
- * e di righe. La classe scacchiera e' una matrice NxM di Celle. La classe
+ * e di righe. La classe scacchiera è una matrice NxM di Celle. La classe
  * Scacchiera e' di tipo ENTITY
  */
 public class Scacchiera {
 
+    private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
     public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà valore 7
-
     public static final int NUMEROCOLONNE = 8;
     public static final int NUMERORIGHE = 8;
-
-    private static Cella[][] scacchiera;
 
     /**
      * TODO: Migliorare javadoc
      */
     public Scacchiera() {
 
-	scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 	for (int i = 0; i < getNumeroColonne(); i++) {
 	    for (int j = 0; j < getNumeroRighe(); j++) {
 		scacchiera[i][j] = new Cella(i, j, null);
@@ -57,7 +54,7 @@ public class Scacchiera {
     /**
      * Date le coordinate, ritorno il riferimento di una cella della scacchiera.
      * TODO: aggiungere javadoc
-     * 
+     *
      * @param x
      * @param y
      * @return
@@ -79,7 +76,7 @@ public class Scacchiera {
 
     /**
      * contolla che le coordinate in input siano valide TODO: aggiungere javadoc
-     * 
+     *
      * @param x
      * @param y
      * @return
@@ -151,7 +148,7 @@ public class Scacchiera {
 
     /**
      * simula il movimento di un pezzo nella scacchiera TODO: migliorare javadoc
-     * 
+     *
      * @param c1
      * @param c2
      */
@@ -164,7 +161,7 @@ public class Scacchiera {
     /**
      * permette di simulare la mossa in cui un pezzo mangia un altro TODO:
      * migliorare javadoc
-     * 
+     *
      * @param x
      * @param y
      */
@@ -176,7 +173,7 @@ public class Scacchiera {
     /**
      * Permette di avere in output il nome del pezzo. Evita errori legati a indici
      * errati e cella vuota. TODO: migliorare javadoc
-     * 
+     *
      * @param x
      * @param y
      * @return

@@ -12,9 +12,10 @@ import pedine.Pezzo;
  * possono essere solo due giocatori e, al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi catturati e mosse
  * giocate. Il primo giocatore e' bianco e il secondo nero: al giocatore che fa
- * la prima mossa sara' assegnato il colore bianco. La classe Giocatore e' di
- * tipo ENTITY.
+ * la prima mossa sara' assegnato il colore bianco. 
+ * La classe Giocatore e' di tipo ENTITY.
  */
+
 public class Giocatore {
 
     private String nome;
@@ -40,14 +41,15 @@ public class Giocatore {
 
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	Stampa.stampaInserireGiocatore(c);
+	String nome;
 
-	String nomeGiocatore = "";
+
 
 	try {
-	    while (nomeGiocatore.equals("")) {
-		nomeGiocatore = br.readLine();
-		if (nomeGiocatore.equals("")) {
-		    Stampa.stampaInserireGiocatore(c);
+	    while (getNome() == null || getNome().equals("")) {
+		nome = br.readLine();
+		if (getNome() == null || getNome().equals("")) {
+		    Stampa.stampaInserireGiocatore(colore);
 		}
 	    }
 
@@ -55,7 +57,7 @@ public class Giocatore {
 	    e.printStackTrace();
 	}
 
-	setNome(nomeGiocatore);
+	setNome(nome);
 
 	pezziCatturati = new ArrayList<Pezzo>();
 	mosseGiocate = new ArrayList<String>();

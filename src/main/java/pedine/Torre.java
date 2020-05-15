@@ -29,11 +29,11 @@ public final class Torre extends Pezzo {
     /**
      * Data una stringa: mossa in notazione algebrica ridotta, la converte in
      * notazione estesa. TODO: Migliorare javadoc
-     * 
+     *
      * @param mossa
      * @return String
      */
-    public static String convertiMossa(final String mossa) {
+    public static String convertiMossa(String mossa) {
 
 	String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 	char destX = mossa.charAt(mossa.length() - 2);
@@ -41,22 +41,21 @@ public final class Torre extends Pezzo {
 	int eX = Cella.coordXinInt(destX);
 	int eY = Cella.coordYinInt(destY);
 	Colore colorepedineGiocatoreCorrente = Turno.getGiocatoreInTurno().getColore();
-	ArrayList<String> possibiliPosizioniColonna = new ArrayList<String>();
-	ArrayList<String> possibiliPosizioniRiga = new ArrayList<String>();
+	ArrayList<String> possibiliPosizioniColonna;
+	ArrayList<String> possibiliPosizioniRiga;
 	String posRiga = "";
 	String posColonna = "";
 	char ambiguita = mossa.charAt(1);
 
 	if (mossa.matches(regex)) {
-
 	    final int posizioneCarattereCattura = 3;
 
 	    // Controlla eventuale Cattura
 	    isMossaCattura = (mossa.charAt(mossa.length() - posizioneCarattereCattura) == 'x'
 		    || mossa.charAt(mossa.length() - posizioneCarattereCattura) == ':');
 
-	    possibiliPosizioniColonna = checkPosTorreColonna(eX, colorepedineGiocatoreCorrente);
-	    possibiliPosizioniRiga = checkPosTorreRiga(eY, colorepedineGiocatoreCorrente);
+	    possibiliPosizioniColonna = new ArrayList<String>(checkPosTorreColonna(eX, colorepedineGiocatoreCorrente));
+	    possibiliPosizioniRiga = new ArrayList<String>(checkPosTorreRiga(eY, colorepedineGiocatoreCorrente));
 
 	    posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
 	    posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
@@ -105,6 +104,7 @@ public final class Torre extends Pezzo {
 		    }
 		} else {
 		    return posRiga;
+
 		}
 	    }
 	}
