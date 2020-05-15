@@ -7,7 +7,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
 import gioco.Giocatore;
 import gioco.Menu;
 import gioco.Stampa;
@@ -81,10 +80,10 @@ public class Controller {
 				} else
 					break;
 
-				if (Comando.isNotazioneAlgebrica(comando)) {
+				if (Menu.isNotazioneAlgebrica(comando)) {
 
 					int tipoArrocco;
-					if ((tipoArrocco = Comando.isArrocco(comando)) != -1) { // Se è un arrocco
+					if ((tipoArrocco = Menu.isArrocco(comando)) != -1) { // Se è un arrocco
 						Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
 
 						String mossaTorre = Torre.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
@@ -139,7 +138,7 @@ public class Controller {
 						} else
 							Stampa.stampaMossaIllegale();
 					}
-				} else if (!Comando.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un
+				} else if (!Menu.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un
 																// comando
 																// di
 					// gioco...
