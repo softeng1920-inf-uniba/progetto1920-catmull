@@ -1,8 +1,8 @@
 package scacchiera.pedine;
 
 import java.util.ArrayList;
-
 import gioco.Colore;
+import gioco.Comando;
 import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;

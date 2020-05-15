@@ -1,14 +1,15 @@
 package scacchiera.pedine;
-
 import gioco.Colore;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Regina � valido. La classe Regina e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
+ * il movimento della Regina è valido.
+ * La classe Regina e' di tipo noECB
  */
+
 public final class Regina extends Pezzo {
 
     /** Costruttore */
@@ -19,7 +20,6 @@ public final class Regina extends Pezzo {
 	} else {
 	    setSimbolo('\u2655');
 	}
-    }
 
     @Override
     public boolean isMossaValida(final Cella start, final Cella end) {
@@ -73,8 +73,14 @@ public final class Regina extends Pezzo {
 		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {
 		    return false;
 		}
-		j++;
-
+		// diminuisce x e aumenta y
+		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
+				&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) {
+			j = start.getY() + 1;
+			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
+				if (Scacchiera.getCella(i, j).isOccupato())
+					return false;
+				j++;
 	    }
 	} else if (deltaX == deltaY && deltaX < 0) {
 	    // diminuisce x e diminuisce y
@@ -92,17 +98,24 @@ public final class Regina extends Pezzo {
 		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {
 		    return false;
 		}
-		j--;
-	    }
-	} else {
-	    return false;
+
+		// aumenta x e diminuisce y
+		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
+				&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) {
+			j = start.getY() - 1;
+			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
+				if (Scacchiera.getCella(i, j).isOccupato())
+					return false;
+				j--;
+			}
+		} else
+			return false;
+		// controllo se puo' mangiare pezzo
+		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
+			return false;
+		}
+		return true;
 	}
-	// controllo se puo' mangiare pezzo
-	if (end.isOccupato() && end.getPezzoCorrente().getColore() == getColore()) {
-	    return false;
-	}
-	return true;
-    }
 
     /**
      * Converte la mossa in input nell stringa con le coordinate della cella
@@ -147,17 +160,31 @@ public final class Regina extends Pezzo {
 		    startY = j;
 		    break;
 		}
-	    }
-	    if (startX != -1) {
-		break;
-	    }
+		// mossa di cattura
+		if (mossa.matches("D(x|:)[a-h][1-8]")) {
+			endX = Cella.coordXinInt(mossa.charAt(2));
+			endY = Cella.coordYinInt(mossa.charAt(3));
+			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")
+				return mossaConvertita;
+		}
+		// ricerca la regina del giocatore in turno
+		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
+			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
+				if (Scacchiera.getNomePezzo(i, j) == "Regina"
+						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {
+					startX = i;
+					startY = j;
+					break;
+				}
+			}
+			if (startX != -1)
+				break;
+		}
+		// solo se ha trovato la regina ha senso convertire la mossa
+		if (startX != -1 && startY != -1) {
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
+		}
+		return mossaConvertita;
 	}
-	// solo se ha trovato la regina ha senso convertire la mossa
-	if (startX != -1 && startY != -1) {
-	    mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
-		    + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
-	}
-	return mossaConvertita;
-    }
 
 }

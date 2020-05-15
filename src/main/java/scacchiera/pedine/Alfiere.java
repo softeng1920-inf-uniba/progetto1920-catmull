@@ -7,7 +7,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento dell'Alfiere � valido. La classe Alfiere e' di tipo noECB.
+ * movimento dell'Alfiere e' valido. La classe Alfiere e' di tipo noECB.
  */
 public final class Alfiere extends Pezzo {
 
@@ -63,17 +63,8 @@ public final class Alfiere extends Pezzo {
 		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {
 		    return false;
 		}
-		j--;
-	    }
-	} else {
-	    return false;
+		return true;
 	}
-	// controllo se puo' mangiare pezzo
-	if (end.isOccupato() && end.getPezzoCorrente().getColore() == getColore()) {
-	    return false;
-	}
-	return true;
-    }
 
     /**
      * Converte la stringa in input in stringa leggibile dalla funzione
@@ -156,12 +147,12 @@ public final class Alfiere extends Pezzo {
 	if (Scacchiera.getInstance().isRangeValido(startX, startY)
 		&& Scacchiera.getInstance().getCella(startX, startY).isOccupato()) {
 
-	    mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
-		    + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
+					+ Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
+		}
+
+		return mossaConvertita;
+
 	}
-
-	return mossaConvertita;
-
-    }
 
 }

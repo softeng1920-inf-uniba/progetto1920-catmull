@@ -42,6 +42,36 @@ public final class Pedone extends Pezzo {
 			&& !(Scacchiera.getInstance().getCella(end.getX(), (start.getY() - 1)).isOccupato())) {
 		    return true;
 		}
+	}
+
+	/**
+	 * Restituisce vero se e' la prima mossa, falso altrimenti
+	 */
+	@Override
+	public boolean isMossaValida(Cella start, Cella end) {
+
+		if (this.colore == Colore.bianco) {
+			// movimento semplice
+			if (start.getX() == end.getX() && !end.isOccupato()) {
+				if (((start.getY() - 1) == end.getY())) // avanti di una cella
+					return true;
+				else if (((start.getY() - 2) == end.getY()) && start.getY() == 6
+						&& !(Scacchiera.getCella(end.getX(), (start.getY() - 1)).isOccupato())) // 6 indica la riga di
+					// partenza del
+					// pedone
+					return true;
+				// movimento obliquo
+			} else if ((start.getY() - 1 == end.getY()) && (Math.abs(start.getX() - end.getX()) == 1)
+					&& end.isOccupato() && end.getPezzoCorrente().getColore() != this.colore)
+				return true;
+
+		} // mosse NERO semplice
+		else if (start.getX() == end.getX() && !end.isOccupato()) {
+			if (((start.getY() + 1) == end.getY()) && !end.isOccupato()) // avanti di una cella
+				return true;
+			else if (((start.getY() + 2) == end.getY()) && start.getY() == 1
+					&& !(Scacchiera.getCella(end.getX(), (start.getY() + 1)).isOccupato())) // avanti di due
+				return true;
 
 		// movimento obliquo
 	    } else if ((start.getY() - 1 == end.getY()) && (Math.abs(start.getX() - end.getX()) == 1)
@@ -62,12 +92,10 @@ public final class Pedone extends Pezzo {
 	    return true;
 	}
 
-	return false;
-    }
+	private boolean isPedone(Cella c) {
 
-    private boolean isPedone(final Cella c) {
-	return c.isOccupato() && c.getPezzoCorrente().getNome().equals(getNome());
-    }
+		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(this.nome);
+	}
 
     /**
      * Determina se la cattura en passant e' effettuabile o meno
@@ -113,7 +141,8 @@ public final class Pedone extends Pezzo {
 			&& mosse.get(mosse.size() - 1).equals(pedoneAvversarioBianco)) {
 		    return true;
 		}
-	    }
+
+		return false;
 	}
 	return false;
     }
@@ -186,6 +215,4 @@ public final class Pedone extends Pezzo {
 		Cella.coordYinInt(mossaConvertita.charAt(1))) != "Pedone") {
 	    return "a0 a0";
 	}
-	return mossaConvertita;
-    }
 }

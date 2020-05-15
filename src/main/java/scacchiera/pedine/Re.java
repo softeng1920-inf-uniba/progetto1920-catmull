@@ -3,14 +3,16 @@ package scacchiera.pedine;
 import java.util.ArrayList;
 
 import gioco.Colore;
+import gioco.Comando;
 import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Re e' valido. La classe Re e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
+ * il movimento del Re è valido.
+ * La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
@@ -88,7 +90,7 @@ public final class Re extends Pezzo {
 
 	    // Itera dalla cella corrente :start fino alla cella di destinazione:end e
 	    // controlla che non ci siano pezzi intermedi e che nello spostamento del re non
-	    // Ã¨ sotto scacco
+	    // è sotto scacco
 
 	    if (tipoArrocco == Menu.ARROCCO_CORTO) {
 		// Arrocco Corto
@@ -124,7 +126,6 @@ public final class Re extends Pezzo {
      * @return mossa da effettuare
      */
     public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
-
 	String comando;
 	if (tipoArrocco == Menu.ARROCCO_CORTO) {
 	    if (c == Colore.bianco) {

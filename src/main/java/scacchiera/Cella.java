@@ -37,12 +37,7 @@ public final class Cella {
 
 	/**
 	 * Modifica la variabile occupato
-	 *
-<<<<<<< HEAD
 	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se �
-=======
-	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se è
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
 	 *            occupata o meno
 	 */
 	public void setOccupato(final boolean occ) {
