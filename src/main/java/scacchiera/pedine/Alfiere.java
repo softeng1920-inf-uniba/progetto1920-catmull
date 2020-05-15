@@ -5,16 +5,15 @@ import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-/** 
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
- * il movimento dell'Alfiere Ã¨ valido.
- * La classe Alfiere e' di tipo noECB.
+/**
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento dell'Alfiere è valido. La classe Alfiere e' di tipo noECB.
  */
 
 public final class Alfiere extends Pezzo {
 
-	public Alfiere(final Colore colore, final Cella posizioneCorrente) {
-		super("Alfiere", colore, posizioneCorrente);
+	public Alfiere(final Colore colore) {
+		super("Alfiere", colore);
 		if (colore == Colore.nero) {
 			simbolo = '\u265d';
 		} else {

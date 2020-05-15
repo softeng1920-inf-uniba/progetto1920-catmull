@@ -1,23 +1,24 @@
 package scacchiera.pedine;
 
 import java.util.ArrayList;
+
 import gioco.Colore;
-import gioco.Comando;
+import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Torre Ã¨ valido. La classe Torre e' di tipo noECB
+ * movimento della Torre è valido. La classe Torre e' di tipo noECB
  */
 public final class Torre extends Pezzo {
 	static boolean isMossaCattura;
 	static final String mossaNonValida = "a0 a0";
 
 	/** Costruttore */
-	public Torre(final Colore colore, final Cella posizioneCorrente) {
-		super("Torre", colore, posizioneCorrente);
+	public Torre(final Colore colore) {
+		super("Torre", colore);
 		if (colore == Colore.nero) {
 			simbolo = '\u265c';
 		} else {
@@ -311,7 +312,7 @@ public final class Torre extends Pezzo {
 	}
 
 	public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
-		if (tipoArrocco == Comando.ARROCCO_CORTO)
+		if (tipoArrocco == Menu.ARROCCO_CORTO)
 			return (c == Colore.bianco) ? "h1 f1" : "h8 f8";
 		else {
 			// arrocco lungo

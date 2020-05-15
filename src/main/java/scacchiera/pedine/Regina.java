@@ -5,16 +5,15 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
- * il movimento della Regina Ã¨ valido.
- * La classe Regina e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento della Regina è valido. La classe Regina e' di tipo noECB
  */
 
 public final class Regina extends Pezzo {
 
 	/** Costruttore */
-	public Regina(final Colore colore, final Cella posizioneCorrente) {
-		super("Regina", colore, posizioneCorrente);
+	public Regina(final Colore colore) {
+		super("Regina", colore);
 		if (colore == Colore.nero) {
 			simbolo = '\u265b';
 		} else {

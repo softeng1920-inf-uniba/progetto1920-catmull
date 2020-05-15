@@ -9,15 +9,15 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Pedone Ã¨ valido. La classe Pedone e' di tipo noECB
+ * movimento del Pedone è valido. La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 
 	/**
 	 * Costruttore
 	 */
-	public Pedone(final Colore colore, final Cella posizioneCorrente) {
-		super("Pedone", colore, posizioneCorrente);
+	public Pedone(final Colore colore) {
+		super("Pedone", colore);
 		if (colore == Colore.nero) {
 			simbolo = '\u265f';
 		} else {
