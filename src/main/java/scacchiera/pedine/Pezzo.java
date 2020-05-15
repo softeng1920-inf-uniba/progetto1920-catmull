@@ -4,80 +4,131 @@ import gioco.Colore;
 import scacchiera.Cella;
 
 /**
- * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per
- * poi realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i
- * seguenti attributi che ne definiscono lo stato:
+ * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per poi
+ * realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i seguenti attributi 
+ * che ne definiscono lo stato:
  * <ul>
- * <li><b>nome</b></li>
- * <li><b>colore</b></li>
- * <li><b>simbolo</b></li>
- * <li><b>vivo</b></li>
- * <li><b>posisizioneCorrente</b></li>
- * </ul>
+ * 	<li><b>nome</b></li>
+ *  <li><b>colore</b></li>
+ *  <li><b>simbolo</b></li>
+ *  <li><b>vivo</b></li>
+ *  <li><b>posisizioneCorrente</b></li>
+ * </ul> 
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
+    protected String nome;
+    protected Colore colore;
+    protected boolean vivo;
+    public char simbolo;
+    protected Cella posizioneCorrente;
 
-
-    private String nome;
-    private Colore colore;
-    private char simbolo;
-
-    /**
-     * @param n  Nome del pezzo
-     * @param c  Colore del pezzo
-     * @param pC Cella iniziale del pezzo
-     */
-	public Pezzo(final String n, final Colore c) {
-	this.nome = n;
-	this.colore = c;
+    public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
+	this.nome = name;
+	this.colore = colore;
+	this.posizioneCorrente = posizioneCorrente;
 	this.simbolo = ' ';
+	vivo = true;
     }
 
     // --------Metodi di setting --------
 
     /**
-	 * setSimbolo modifica lo stato del simbolo
-	 *
-	 * @param s Carattere indicante il simbolo del pezzo da impostare
-	 */
+     * setNome imposta il nome del pezzo
+     *
+     * @param nome
+     */
+    void setNome(String n) {
+	this.nome = n;
+    }
 
-    public void setSimbolo(final char s) {
-	this.simbolo = s;
+    /**
+     * setColore imposta il colore del pezzo
+     *
+     * @param colore
+     */
+
+    public void setColore(Colore c) {
+	this.colore = c;
+    }
+
+    /**
+     * setVivo riporta lo stato del pezzo
+     */
+    public void setVivo(boolean v) {
+	this.vivo = v;
+    }
+
+    /**
+     * setSimbolo modifica lo stato del simbolo
+     *
+     * @param simbolo
+     */
+
+    public void setSimbolo(final char simbolo) {
+	this.simbolo = simbolo;
+    }
+
+    /**
+     * setPosizioneCorrente imposta la posizione corrente del pezzo
+     *
+     * @param posizioneCorrente
+     */
+    public void setPosizioneCorrente(Cella pC) {
+	this.posizioneCorrente = pC;
     }
 
     // --------Metodi di Get--------
 
     /**
-	 * getNome restituisce il nome del pezzo
-	 *
-	 * @return nome Stringa indicante il nome del pezzo
-	 */
+     * getNome restituisce il nome del pezzo
+     *
+     * @return nome
+     */
     public String getNome() {
 	return nome;
     }
 
     /**
-	 * getColore restituisce il colore del pezzo (bianco o nero)
-	 *
-	 * @return colore Colore del pezzo (bianco o nero)
-	 */
-    public Colore getColore() {
-	return colore;
-    }
-
-    /**
-	 * Restituisce il simbolo corrente del pezzo
-	 *
-	 * @return simbolo Carattere indicante il simbolo del pezzo
-	 */
+     * getSimbolo restituisce il simbolo corrente del pezzo
+     *
+     * @return simbolo
+     */
     public char getSimbolo() {
 	return simbolo;
     }
 
     /**
-     * E' possibile avere il nome del pezzo, con relativo colore e simbolo
-     * attraverso l'autocasting
+     * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
+     * nero
+     *
+     * @return colore
+     */
+    public Colore getColore() {
+	return colore;
+    }
+
+    /**
+     * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
+     *
+     *
+     * @return vivo
+     */
+    public boolean isVivo() {
+	return vivo;
+    }
+
+    /**
+     * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
+     *
+     * @return posizioneCorrente
+     */
+    public Cella getPosizioneCorrente() {
+	return posizioneCorrente;
+    }
+
+    /**
+     * toString consente di rappresentare un oggetto come una stringa
      */
     @Override
     public String toString() {
@@ -85,14 +136,12 @@ public abstract class Pezzo {
     }
 
     /**
-	 * Controlla se la mossa data in input attraverso cella di partenza e cella di
-	 * destinazione sia valida per il pezzo corrente
-	 *
-	 * @param start Cella di partenza del pezzo
-	 * @param end   Cella di destinazione del pezzo
-	 * @return boolean true se la mossa è valida per il pezzo su cui il metodo è
-	 *         stato chiamato, false altrimenti
-	 */
+     * Metodo che permette di controllare se la mossa data sia valida
+     *
+     * @param start
+     * @param end
+     * @return boolean
+     */
     public abstract boolean isMossaValida(Cella start, Cella end);
 
 }

@@ -356,6 +356,7 @@ public final class Controller {
 	scacchieraGioco.scambiaCella(destinazione, partenza);
 	if (temp.isOccupato()) {
 	    scacchieraGioco.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+
 	}
 	return isReProtetto;
     }

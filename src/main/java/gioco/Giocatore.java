@@ -1,7 +1,5 @@
 package gioco;
 
-import java.util.ArrayList;
-
 import scacchiera.pedine.Pezzo;
 
 /**

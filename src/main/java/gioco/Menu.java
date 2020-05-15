@@ -158,5 +158,4 @@ public final class Menu {
 
 	return mossa.matches(regex);
     }
-
 }
