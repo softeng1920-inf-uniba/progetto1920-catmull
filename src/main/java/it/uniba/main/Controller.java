@@ -165,7 +165,8 @@ public class Controller {
 			// illegale
 			return -1;
 
-		if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione) && isReProtetto(cellaPartenza, cellaDestinazione, 0))
+		if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione)
+				&& isReProtetto(cellaPartenza, cellaDestinazione, 0))
 			return 0;
 		else if (pezzoCorrente.getNome().equals("Pedone")) {
 			Pedone p = (Pedone) pezzoCorrente;
@@ -288,7 +289,7 @@ public class Controller {
 	private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
-		
+
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		switch (tipoMossa) {
 		case 0:
@@ -305,7 +306,6 @@ public class Controller {
 		default:
 		}
 		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
-		
 
 	}
 
@@ -395,35 +395,40 @@ public class Controller {
 		return false;
 
 	}
-	
+
 	/**
-	 * TODO: Aggiungere javadoc!
+	 * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo stesso
+	 * colore si muove in un'altra cella. Viene applicata la mossa temporaneamente
+	 * per effettuare i controlli attraverso la funzione isReSottoScacco: in caso positivo
+	 * viene restituito un booleano con valore false, altrimenti è restituito un booleano con valore true.
+	 * In entrambi i casi viene ripristinata la situazione immediatamente precedente alla
+	 * applicazione della mossa.
 	 * 
 	 * @param partenza
 	 * @param destinazione
-	 * @param tipo //TODO tipomossa??
-	 * @return
+	 * @param tipoMossa
+	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-	public boolean isReProtetto(Cella partenza, Cella destinazione, int tipo) {
+	public boolean isReProtetto(Cella partenza, Cella destinazione, int tipoMossa) {
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;
-		
-		if(partenza.getPezzoCorrente().getNome().equals("Re"))
-			return isReProtetto=true;
-		
-		applicaMossa(partenza, destinazione, tipo);
+
+		if (partenza.getPezzoCorrente().getNome().equals("Re"))
+			return isReProtetto = true;
+
+		applicaMossa(partenza, destinazione, tipoMossa);
 		if (!reDaProteggere.isReSottoScacco(cellaRe))
-			isReProtetto=true;
-		
-		applicaMossa(destinazione, partenza, tipo);
-		
+			isReProtetto = true;
+
+		applicaMossa(destinazione, partenza, tipoMossa);
+
 		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
-		if(temp.isOccupato()) {
+		if (temp.isOccupato()) {
 			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
 			Turno.getGiocatoreInTurno().removePezzoCatturato();
 		}
-		
+
 		return isReProtetto;
 	}
 
