@@ -26,11 +26,11 @@ public final class Torre extends Pezzo {
 	}
 
     /**
-     * Data una stringa: mossa in notazione algebrica ridotta, la converte in
-     * notazione estesa.
+     * Converte la stringa in input in stringa leggibile dalla funzione
+     * applicaMossa. Ad esempio: Ta4 ==> a1 a4
      * 
-     * @param mossa
-     * @return String
+     * @param mossa Stringa rappresentante la mossa in notazione algebrica
+     * @return mossa Stringa rappresentante la mossa in notazione estesa
      */
     public static String convertiMossa(final String mossa) {
 

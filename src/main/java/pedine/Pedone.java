@@ -69,12 +69,13 @@ public final class Pedone extends Pezzo {
     }
 
     /**
-     * TODO: migliorare javadoc
+     * Determina se la cattura en passant e' effettuabile o meno
      * 
-     * @param start
-     * @param end
-     * @param mosse
-     * @return
+     * @param start Cella di partenza della mossa del pedone
+     * @param end   Cella di destinazione della mossa del pedone
+     * @param mosse Array di tutte le mosse effettuate, necessario per controllare
+     *              se l'ultima mossa effettuata è un avanzata di due case
+     * @return true se la cattura è effettuabile in en passant, false altrimenti
      */
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
 
@@ -131,25 +132,33 @@ public final class Pedone extends Pezzo {
 	Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
 
 	if (mossa.matches(regexCattura)) { // Mossa di cattura in diagonale
-
+	    final int colonnaPartenzaCattura = 0;
+	    final int colonnaDestinazioneCattura = 2;
+	    final int traversaDestinazioneCattura = 3;
 	    variazione = -47;
 	    if (coloreGiocatoreAttuale == Colore.bianco) {
 		variazione = -49;
 	    }
-	    if (Math.abs(mossa.charAt(0) - mossa.charAt(2)) == 1) {
-		mossaConvertita = String.valueOf(mossa.charAt(0)) + String.valueOf(mossa.charAt(3) + variazione) + ' '
-			+ String.valueOf(mossa.charAt(2)) + String.valueOf(mossa.charAt(3));
+	    if (Math.abs(mossa.charAt(colonnaPartenzaCattura) - mossa.charAt(colonnaDestinazioneCattura)) == 1) {
+		mossaConvertita = String.valueOf(mossa.charAt(colonnaPartenzaCattura))
+			+ String.valueOf(mossa.charAt(traversaDestinazioneCattura) + variazione) + ' '
+			+ String.valueOf(mossa.charAt(colonnaDestinazioneCattura))
+			+ String.valueOf(mossa.charAt(traversaDestinazioneCattura));
 	    }
 	} else { // avanzata
-
+	    final int colonnaDestinazioneAvanzata = 0;
+	    final int traversaDestinazioneAvanzata = 1;
 	    // controlla se e' possibile avanti di due o di uno
 
 	    if (coloreGiocatoreAttuale == Colore.bianco) {
-		Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(0)), Cella.coordYinInt('3'));
+		int colonnaDestinazione = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
+		int terzaTraversa = Cella.coordYinInt('3');
+		Cella c = Scacchiera.getCella(colonnaDestinazione, terzaTraversa);
 
-		if (mossa.charAt(1) == '4' && // Se mi voglio spostare nella 4 traversa, devo determinare se voglio
-		// avanzare di 2
-			(!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone"))) {
+		if (mossa.charAt(traversaDestinazioneAvanzata) == '4'
+			// Se mi voglio spostare nella 4 traversa, devo determinare se voglio
+			// avanzare di 2
+			&& (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone"))) {
 		    variazione = -50; // Se la terza traversa non è occupata da un pedone allora vengo dalla seconda
 				      // traversa
 		} else {
@@ -157,7 +166,7 @@ public final class Pedone extends Pezzo {
 		}
 
 	    } else { // giocatore pedine nere
-		Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(0)), 2);
+		Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata)), 2);
 		variazione = -47;
 		if (mossa.charAt(1) == '5' && (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone"))) {
 		    variazione = -46;
@@ -165,10 +174,10 @@ public final class Pedone extends Pezzo {
 	    }
 
 	    // mossa finale pedone semplice
-	    mossaConvertita = String.valueOf(mossa.charAt(0)) + // prima traversa
-		    String.valueOf(mossa.charAt(1) + variazione) + // prima colonna
-		    ' ' + String.valueOf(mossa.charAt(0)) + // seconda traversa
-		    String.valueOf(mossa.charAt(1)); // seconda colonna
+	    mossaConvertita = String.valueOf(mossa.charAt(colonnaDestinazioneAvanzata)) + // prima traversa
+		    String.valueOf(mossa.charAt(traversaDestinazioneAvanzata) + variazione) + // prima colonna
+		    ' ' + String.valueOf(mossa.charAt(colonnaDestinazioneAvanzata)) + // seconda traversa
+		    String.valueOf(mossa.charAt(traversaDestinazioneAvanzata)); // seconda colonna
 
 	}
 	// controlla che nella cella di partenza ci sia un pedone

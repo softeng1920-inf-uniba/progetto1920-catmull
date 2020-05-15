@@ -22,9 +22,12 @@ public final class Alfiere extends Pezzo {
 
     @Override
     public boolean isMossaValida(final Cella start, final Cella end) {
+
+	int deltaX = end.getX() - start.getX();
+	int deltaY = end.getY() - start.getY();
 	// aumenta x e aumenta y = aumenta x diminuisce y
 	int j;
-	if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() > 0) {
+	if (deltaX == deltaY && deltaX > 0) {
 	    j = start.getY() + 1;
 	    for (int i = start.getX() + 1; end.getX() > i && end.getY() > j; i++) {
 		if (Scacchiera.getCella(i, j).isOccupato()) {
@@ -32,8 +35,9 @@ public final class Alfiere extends Pezzo {
 		}
 		j++;
 	    }
-	} else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
-		&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) { // diminuisce x e aumenta y
+	} else if (Math.abs(deltaX) == Math.abs(deltaY) && deltaX < 0 && end.getY() - start.getY() > 0) { // diminuisce
+													  // x e aumenta
+													  // y
 	    j = start.getY() + 1;
 	    for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
 		if (Scacchiera.getCella(i, j).isOccupato()) {
@@ -42,7 +46,10 @@ public final class Alfiere extends Pezzo {
 		j++;
 
 	    }
-	} else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() < 0) { // diminuisce x e diminuisce y
+	} else if (deltaX == deltaY && deltaX < 0) { // diminuisce
+						     // x e
+						     // diminuisce
+						     // y
 	    j = start.getY() - 1;
 	    for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
 		if (Scacchiera.getCella(i, j).isOccupato()) {
@@ -50,8 +57,7 @@ public final class Alfiere extends Pezzo {
 		}
 		j--;
 	    }
-	} else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
-		&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) { // aumenta x e diminuisce y
+	} else if (Math.abs(deltaX) == Math.abs(deltaY) && deltaX > 0 && deltaY < 0) { // aumenta x e diminuisce y
 	    j = start.getY() - 1;
 	    for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
 		if (Scacchiera.getCella(i, j).isOccupato()) {
@@ -63,7 +69,7 @@ public final class Alfiere extends Pezzo {
 	    return false;
 	}
 	// controllo se puo' mangiare pezzo
-	if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == getColore()) {
+	if (end.isOccupato() && end.getPezzoCorrente().getColore() == getColore()) {
 	    return false;
 	}
 	return true;
@@ -71,15 +77,10 @@ public final class Alfiere extends Pezzo {
 
     /**
      * Converte la stringa in input in stringa leggibile dalla funzione
-     * applicaMossa. Ad esempio: Ae4 ==> d2 e4 TODO: migliorare javadoc
+     * applicaMossa. Ad esempio: Ae4 ==> d2 e4
      * 
-     * Tipologie mosse alfiere:
-     * A(x|:)?[a-h][1-8]
-     * 
-     * @param mossa
-     * @param s
-     * @param g
-     * @return
+     * @param mossa Stringa rappresentante la mossa in notazione algebrica
+     * @return mossa Stringa rappresentante la mossa in notazione estesa
      */
     public static String convertiMossa(final String mossa) {
 	// "[A](x|:)?[a-h][1-8]"
@@ -92,7 +93,7 @@ public final class Alfiere extends Pezzo {
 	if (mossa.matches("A[a-h][1-8]")) { // si muove senza ambiguita'
 	    final int colonnaDestinazione = 1;
 	    final int traversaDestinazione = 2;
-	    
+
 	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazione));
 	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazione));
 	    if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {

@@ -28,7 +28,7 @@ public final class Re extends Pezzo {
     public boolean isMossaValida(final Cella start, final Cella end) {
 
 	// controllo se può mangiare pezzo
-	if (end.isOccupato() == true) {
+	if (end.isOccupato()) {
 	    if (end.getPezzoCorrente().getColore() == getColore()) {
 		return false;
 	    }

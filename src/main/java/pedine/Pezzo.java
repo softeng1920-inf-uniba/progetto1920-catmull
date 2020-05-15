@@ -18,42 +18,39 @@ import scacchiera.Cella;
  **/
 public abstract class Pezzo {
 
-    private String nome; // TODO: aggiungere commenti
+    private String nome;
     private Colore colore;
-    private boolean vivo;
     private char simbolo;
     private Cella posizioneCorrente;
 
     /**
-     * TODO: aggiungere commenti
-     * 
-     * @param n
-     * @param c
-     * @param pC
+     * @param n  Nome del pezzo
+     * @param c  Colore del pezzo
+     * @param pC Cella iniziale del pezzo
      */
     public Pezzo(final String n, final Colore c, final Cella pC) {
 	this.nome = n;
 	this.colore = c;
 	this.posizioneCorrente = pC;
 	this.simbolo = ' ';
-	vivo = true;
     }
 
     // --------Metodi di setting --------
 
     /**
-     * setNome imposta il nome del pezzo TODO: Migliorare javadoc
+     * setNome imposta il nome del pezzo
      * 
-     * @param nome
+     * @param n Stringa indicante il nome del pezzo da impostare (es. Torre, Cavallo
+     *          ecc.)
      */
     void setNome(final String n) {
 	this.nome = n;
     }
 
     /**
-     * setColore imposta il colore del pezzo TODO: Migliorare javadoc
+     * setColore imposta il colore del pezzo
      * 
-     * @param colore
+     * @param c Parametro di tipo Colore del pezzo da impostare
      */
 
     public void setColore(final Colore c) {
@@ -61,16 +58,9 @@ public abstract class Pezzo {
     }
 
     /**
-     * setVivo riporta lo stato del pezzo
-     */
-    public void setVivo(final boolean v) {
-	this.vivo = v;
-    }
-
-    /**
-     * setSimbolo modifica lo stato del simbolo TODO: Migliorare javadoc
+     * setSimbolo modifica lo stato del simbolo
      * 
-     * @param s
+     * @param s Carattere indicante il simbolo del pezzo da impostare
      */
 
     public void setSimbolo(final char s) {
@@ -78,10 +68,9 @@ public abstract class Pezzo {
     }
 
     /**
-     * setPosizioneCorrente imposta la posizione corrente del pezzo TODO: Migliorare
-     * javadoc
+     * setPosizioneCorrente imposta la posizione corrente del pezzo
      * 
-     * @param posizioneCorrente
+     * @param pC Cella indicante la posizione del pezzo
      */
     public void setPosizioneCorrente(final Cella pC) {
 	this.posizioneCorrente = pC;
@@ -90,55 +79,44 @@ public abstract class Pezzo {
     // --------Metodi di Get--------
 
     /**
-     * getNome restituisce il nome del pezzo TODO: Migliorare javadoc
+     * getNome restituisce il nome del pezzo
      * 
-     * @return nome
+     * @return nome Stringa indicante il nome del pezzo
      */
     public String getNome() {
 	return nome;
     }
 
     /**
-     * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
-     * nero TODO: Migliorare javadoc
+     * getColore restituisce il colore del pezzo (bianco o nero)
      * 
-     * @return colore
+     * @return colore Colore del pezzo (bianco o nero)
      */
     public Colore getColore() {
 	return colore;
     }
 
     /**
-     * getSimbolo restituisce il simbolo corrente del pezzo TODO: Migliorare javadoc
+     * Restituisce il simbolo corrente del pezzo
      * 
-     * @return simbolo
+     * @return simbolo Carattere indicante il simbolo del pezzo
      */
     public char getSimbolo() {
 	return simbolo;
     }
 
     /**
-     * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no TODO:
-     * Migliorare javadoc
-     *
-     * @return vivo
-     */
-    public boolean isVivo() {
-	return vivo;
-    }
-
-    /**
-     * getPosizioneCorrente restituisce la cella in cui si trova il pezzo TODO:
-     * Migliorare javadoc
+     * Restituisce la cella in cui si trova il pezzo
      * 
-     * @return posizioneCorrente
+     * @return posizioneCorrente Cella indicante la posizione del pezzo
      */
     public Cella getPosizioneCorrente() {
 	return posizioneCorrente;
     }
 
     /**
-     * E' possibile avere il nome del pezzo, con relativo colore e simbolo attraverso l'autocasting
+     * E' possibile avere il nome del pezzo, con relativo colore e simbolo
+     * attraverso l'autocasting
      */
     @Override
     public String toString() {
@@ -146,12 +124,13 @@ public abstract class Pezzo {
     }
 
     /**
-     * Metodo che permette di controllare se la mossa data sia valida TODO:
-     * Migliorare javadoc
+     * Controlla se la mossa data in input attraverso cella di partenza e cella di
+     * destinazione sia valida per il pezzo corrente
      * 
-     * @param start
-     * @param end
-     * @return boolean
+     * @param start Cella di partenza del pezzo
+     * @param end   Cella di destinazione del pezzo
+     * @return boolean true se la mossa è valida per il pezzo su cui il metodo è
+     *         stato chiamato, false altrimenti
      */
     public abstract boolean isMossaValida(Cella start, Cella end);
 

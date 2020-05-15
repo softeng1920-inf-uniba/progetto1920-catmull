@@ -9,16 +9,15 @@ import java.util.ArrayList;
  * ENTITY
  */
 
-public class Turno {
-	private static Giocatore giocatoreInTurno = new Giocatore(Colore.bianco);
-	private static Giocatore giocatoreInAttesa = new Giocatore(Colore.nero);;
+public final class Turno {
+    private static Giocatore giocatoreInTurno = new Giocatore(Colore.bianco);
+    private static Giocatore giocatoreInAttesa = new Giocatore(Colore.nero);;
 
     public Turno() {
-	giocatoreInTurno = new Giocatore(Colore.bianco);
-	giocatoreInAttesa = new Giocatore(Colore.nero);
+	
     }
 
-    public static final void cambioTurno() {
+    public static void cambioTurno() {
 	Giocatore temp = giocatoreInTurno;
 	giocatoreInTurno = giocatoreInAttesa;
 	giocatoreInAttesa = temp;

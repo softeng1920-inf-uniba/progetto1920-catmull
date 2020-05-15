@@ -45,7 +45,6 @@ public class Controller {
 	do {
 
 	    Scacchiera.inizializzaScacchiera();
-
 	    new Turno();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -53,34 +52,36 @@ public class Controller {
 
 	    while (true) {
 
-				Stampa.stampaTurno(Turno.getGiocatoreInTurno());
-				try {
-					comando = br.readLine();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				if (comando != null) {
-					if (comando.equalsIgnoreCase(Menu.help().getNome())) {
-						Stampa.mostrareElencoComandiGioco();
-					} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
-						Stampa.stampaScacchiera();
-					} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
-						Stampa.stampaMosseGiocate();
-					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
-						Stampa.visualizzareCatture();
-					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-						break;
-					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
-						if (utenteConfermaRiavvioPartita()) {
-							Stampa.stampaNuovaPartita();
-							utenteVuoleRicominciare = true;
-							new Scacchiera(); // Svuoto la scacchiera
-							break;
-						} else
-							continue; // Faccio ripartire il loop interno
-					}
-				} else
-					break;
+		Stampa.stampaTurno(Turno.getGiocatoreInTurno());
+		try {
+		    comando = br.readLine();
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		if (comando != null) {
+		    if (comando.equalsIgnoreCase(Menu.help().getNome())) {
+			Stampa.mostrareElencoComandiGioco();
+		    } else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
+			Stampa.stampaScacchiera();
+		    } else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
+			Stampa.stampaMosseGiocate();
+		    } else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
+			Stampa.visualizzareCatture();
+		    } else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
+			break;
+		    } else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
+			if (utenteConfermaRiavvioPartita()) {
+			    Stampa.stampaNuovaPartita();
+			    utenteVuoleRicominciare = true;
+			    new Scacchiera(); // Svuoto la scacchiera
+			    break;
+			} else {
+			    continue; // Faccio ripartire il loop interno
+			}
+		    }
+		} else {
+		    break;
+		}
 
 		if (Comando.isNotazioneAlgebrica(comando)) {
 
@@ -329,14 +330,6 @@ public class Controller {
      */
     private static boolean isCoordinateValide(final int startX, final int startY, final int endX, final int endY) {
 	return Scacchiera.isRangeValido(startX, startY) && Scacchiera.isRangeValido(endX, endY);
-    }
-
-    /**
-     * Lascia il controllo al sistema operativo
-     *
-     */
-    public void chiudiGioco() {
-	System.exit(0);
     }
 
     /**

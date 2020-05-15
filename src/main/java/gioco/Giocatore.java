@@ -75,6 +75,13 @@ public class Giocatore {
 		return colore;
 	}
 
+	setNome(nome);
+
+	pezziCatturati = new ArrayList<Pezzo>();
+	mosseGiocate = new ArrayList<String>();
+
+    }
+
     /**
      * Assegna il nome al campo nome del Giocatore.
      *

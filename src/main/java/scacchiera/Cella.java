@@ -11,18 +11,18 @@ import pedine.Pezzo;
  * cella. La classe Cella e' di tipo ENTITY
  */
 public final class Cella {
-    private int x; // TODO: Aggiungere javadoc o commenti
+    private int x;
     private int y;
-    private boolean occupato; // TODO: lo stato occupato si puo' ottenere dalla cella, se contiene un pezzo o
-			      // meno. Si potrebbe pensare di eliminare questa variabile
+    private boolean occupato;
     private Pezzo pezzoCorrente;
 
     /**
-     * TODO: Migliorare javadoc
+     * Crea una nuova cella, assegnandogli delle coordinate e settando un pezzo se
+     * presente nella cella.
      * 
-     * @param coordX
-     * @param coordY
-     * @param pC
+     * @param coordX - coordinata X per la cella
+     * @param coordY - coordinata Y per la cella
+     * @param pC     - Pezzo nella cella da settare
      */
     public Cella(final int coordX, final int coordY, final Pezzo pC) {
 	this.x = coordX;
@@ -36,18 +36,19 @@ public final class Cella {
     // ---------Metodi di setting---------
 
     /**
-     * Modifica la variabile occupato TODO: Migliorare javadoc
+     * Modifica la variabile occupato
      * 
-     * @param occ
+     * @param occ Valore booleano da impostare sulla cella attuale, che indica se è
+     *            occupata o meno
      */
     public void setOccupato(final boolean occ) {
 	this.occupato = occ;
     }
 
     /**
-     * Modifica il tipo di pezzo che la cella contiene TODO: Migliorare javadoc
+     * Modifica il tipo di pezzo che la cella contiene
      * 
-     * @param pC
+     * @param pC Pezzo corrente che la cella attuale deve contenere
      */
     void setPezzoCorrente(final Pezzo pC) {
 	this.pezzoCorrente = pC;
@@ -57,18 +58,20 @@ public final class Cella {
     }
 
     /**
-     * Modifica la coordinata X TODO: Migliorare javadoc
+     * Imposta una nuova coordinata X per la cella corrente
      * 
-     * @param newx
+     * @param newx valore intero indicante la nuova coordinata sull'asse X della
+     *             cella
      */
     void setX(final int newx) {
 	x = newx;
     }
 
     /**
-     * Modifica la coordinata Y TODO: Migliorare javadoc
+     * Imposta una nuova coordinata Y per la cella corrente
      * 
-     * @param newy
+     * @param newy valore intero indicante la nuova coordinata sull'asse Y della
+     *             cella
      */
     void setY(final int newy) {
 	y = newy;
@@ -77,18 +80,18 @@ public final class Cella {
     // --------Metodi di Get--------
 
     /**
-     * Restituisce la coordinata X
+     * Restituisce la coordinata X per la cella corrente
      * 
-     * @return valore della coordinata X per la cella corrente
+     * @return valore intero della coordinata X
      */
     public int getX() {
 	return x;
     }
 
     /**
-     * Restituisce la coordinata Y
+     * Restituisce la coordinata Y della cella corrente
      * 
-     * @return valore della coordinata Y per la cella corrente
+     * @return valore della coordinata Y
      */
     public int getY() {
 	return y;
@@ -105,9 +108,9 @@ public final class Cella {
     }
 
     /**
-     * Restituisce il pezzo contenuto nella cella
+     * Restituisce il pezzo contenuto nella cella attuale
      * 
-     * @return pezzo nella cella
+     * @return pezzo nella cella corrente
      */
     public Pezzo getPezzoCorrente() {
 	return pezzoCorrente;
@@ -118,7 +121,7 @@ public final class Cella {
     /**
      * Aggiunge un pezzo nella scacchiera
      * 
-     * @param nuovoPezzo
+     * @param nuovoPezzo Pezzo da impostare all'interno della cella corrente
      */
     public void aggiungiPezzo(final Pezzo nuovoPezzo) {
 
@@ -136,6 +139,10 @@ public final class Cella {
     }
 
     /**
+     * Preso un carattere della mossa, restituisce il corrispondente valore in
+     * intero, necessario per la matrice TODO: ricontrollare se effettivamente è
+     * così
+     * 
      * @param coordX Carattere in minuscolo da convertire in intero
      * @return Valore necessario per la scacchiera compreso fra 0 e 7
      */
@@ -144,8 +151,9 @@ public final class Cella {
     }
 
     /**
-     * Restituisce il corrispondente valore della scacchiera
-     *
+     * Preso un carattere della mossa, restituisce il corrispondente valore in
+     * intero, necessario per la matrice
+     * 
      * @param coordY Compreso fra 1 e 8
      * @return Coordinata convertita in intero, compreso tra 0 e 7
      */
@@ -184,7 +192,7 @@ public final class Cella {
      * @return Valore necessario per la scacchiera compreso fra a e h
      */
     public static int startX(final String m) {
-	return Cella.coordXinInt(m.charAt(Comando.COLONNA_PARTENZA_MOSSA));
+	return Cella.coordXinInt(m.charAt(Comando.COLONNA_PARTENZA_MOSSA_NE));
     }
 
     /**
@@ -194,7 +202,7 @@ public final class Cella {
      * @return Valore necessario per la scacchiera compreso fra 0 e 7
      */
     public static int startY(final String m) {
-	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_PARTENZA_MOSSA));
+	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_PARTENZA_MOSSA_NE));
     }
 
     /**
@@ -204,7 +212,7 @@ public final class Cella {
      * @return Valore necessario per la scacchiera compreso fra a e h
      */
     public static int endX(final String m) {
-	return Cella.coordXinInt(m.charAt(Comando.COLONNA_DESTINAZIONE_MOSSA));
+	return Cella.coordXinInt(m.charAt(Comando.COLONNA_DESTINAZIONE_MOSSA_NE));
     }
 
     /**
@@ -214,7 +222,7 @@ public final class Cella {
      * @return Valore necessario per la scacchiera compreso fra 0 e 7
      */
     public static int endY(final String m) {
-	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_DESTINAZIONE_MOSSA));
+	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_DESTINAZIONE_MOSSA_NE));
     }
 
 }
