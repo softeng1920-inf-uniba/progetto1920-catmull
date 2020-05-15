@@ -3,64 +3,59 @@ package scacchiera.pedine;
 import java.util.ArrayList;
 
 import gioco.Colore;
+import gioco.Comando;
 import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Re e' valido. La classe Re e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
+ * il movimento del Re è valido.
+ * La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
-	/** Costruttore */
-	public Re(final Colore colore) {
-		super("Re", colore);
-		if (colore == Colore.nero) {
-			setSimbolo('\u265a');
-		} else {
-			setSimbolo('\u2654');
-		}
+    /** Costruttore */
+    public Re(final Colore colore, final Cella posizioneCorrente) {
+	super("Re", colore, posizioneCorrente);
+	if (colore == Colore.nero) {
+	    simbolo = '\u265a';
+	} else {
+	    simbolo = '\u2654';
 	}
+    }
 
-	@Override
-	public boolean isMossaValida(final Cella start, final Cella end) {
+    @Override
+    public boolean isMossaValida(Cella start, Cella end) {
 
-		// controllo se puÃ² mangiare pezzo
-		if (end.isOccupato()) {
-			if (end.getPezzoCorrente().getColore() == getColore()) {
-				return false;
-			}
-		}
-		if (!isReSottoScacco(end)) {
-			// MOVIMENTI LINEARI
-			// sulla stessa colonna
-			if (start.getX() == end.getX()) {
-				if ((start.getY() == end.getY() + 1) || (start.getY() == end.getY() - 1)) {
-					return true;
-				}
-			} else if (start.getY() == end.getY()) { // sulla stessa riga: + 1 a sinistra, -1 a destra
-				if ((start.getX() == end.getX() + 1) || (start.getX() == end.getX() - 1)) {
-					return true;
-				}
-			}
-			// MOVIMENTI DIAGONALI
-			if (start.getX() == end.getX() + 1 && start.getY() == end.getY() + 1) {
-				return true;
-			}
-			if (start.getX() == end.getX() - 1 && start.getY() == end.getY() - 1) {
-				return true;
-			}
-			if (start.getX() == end.getX() + 1 && start.getY() == end.getY() - 1) {
-				return true;
-			}
-			if (start.getX() == end.getX() - 1 && start.getY() == end.getY() + 1) {
-				return true;
-			}
-		}
-		return false;
+	// controllo se può mangiare pezzo
+	if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
+	    return false;
 	}
+	if (!isReSottoScacco(end)) {
+	    // MOVIMENTI LINEARI
+	    // sulla stessa colonna
+	    if (start.getX() == end.getX()) {
+		if ((start.getY() == end.getY() + 1) || (start.getY() == end.getY() - 1))
+		    return true;
+	    } else if (start.getY() == end.getY()) { // sulla stessa riga: + 1 a sinistra, -1 a destra
+		if ((start.getX() == end.getX() + 1) || (start.getX() == end.getX() - 1))
+		    return true;
+	    }
+	    // MOVIMENTI DIAGONALI
+	    if (start.getX() == end.getX() + 1 && start.getY() == end.getY() + 1)
+		return true;
+	    if (start.getX() == end.getX() - 1 && start.getY() == end.getY() - 1)
+		return true;
+	    if (start.getX() == end.getX() + 1 && start.getY() == end.getY() - 1)
+		return true;
+	    if (start.getX() == end.getX() - 1 && start.getY() == end.getY() + 1)
+		return true;
+	}
+	return false;
+
+    }
 
 	/**
 	 * Restituisce un valore booleano che indica se Ã¨ possibile effettuare
@@ -86,9 +81,9 @@ public final class Re extends Pezzo {
 		int eX = endRe.getX();
 		if (!isPrimaMossaEffettuata(storicoMosse, tipoArrocco) && !isReSottoScacco(startRe)) {
 
-			// Itera dalla cella corrente :start fino alla cella di destinazione:end e
-			// controlla che non ci siano pezzi intermedi e che nello spostamento del re non
-			// Ã¨ sotto scacco
+	    // Itera dalla cella corrente :start fino alla cella di destinazione:end e
+	    // controlla che non ci siano pezzi intermedi e che nello spostamento del re non
+	    // è sotto scacco
 
 			if (tipoArrocco == Menu.ARROCCO_CORTO) {
 				// Arrocco Corto
@@ -112,36 +107,25 @@ public final class Re extends Pezzo {
 		} else {
 			return false;
 		}
-
-	}
-
-	/**
-	 * Restituisce una stringa nel formato e[1|8] [c|g][1|8], che indica la mossa da
-	 * effettuare per il re in base al colore e alla tipologia di arrocco.
-	 *
-	 * @param tipoArrocco 0 - corto | 1 - lungo
-	 * @param c           colore del giocatore in turno
-	 * @return mossa da effettuare
-	 */
-	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
-
-		String comando;
-		if (tipoArrocco == Menu.ARROCCO_CORTO) {
-			if (c == Colore.bianco) {
-				comando = "e1 g1";
-			} else {
-				comando = "e8 g8";
-			}
-		} else {
-			// arrocco lungo
-			if (c == Colore.bianco) {
-				comando = "e1 c1";
-			} else {
-				comando = "e8 c8";
-			}
+		return true;
+	    } else {
+		// Arrocco Lungo
+		for (int i = sX - 1; i > eX - 1; i--) {
+		    if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != "Vuota")
+			return false;
 		}
+		return true;
+	    }
+	} else {
+	    return false;
+	}
+    }
 
-		return comando;
+    public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
+	if (tipoArrocco == Menu.ARROCCO_CORTO)
+	    return (c == Colore.bianco) ? "e1 g1" : "e8 g8";
+	else {
+	    return (c == Colore.bianco) ? "e1 c1" : "e8 c8";
 
 	}
 
@@ -246,7 +230,9 @@ public final class Re extends Pezzo {
 				}
 			}
 		}
-		return false;
+	    }
+	    if (startX != -1)
+		break;
 	}
 
 	/**
@@ -274,5 +260,46 @@ public final class Re extends Pezzo {
 		}
 		return Scacchiera.getCella(startX, startY);
 	}
+	return mossaConvertita;
+    }
+
+    /**
+     *
+     *
+     * @param ReCella cella di destinazione del re
+     * @return boolean se il re è sotto scacco o meno
+     */
+    public boolean isReSottoScacco(Cella ReCella) {
+	Colore c = getColore();
+	Re reTemp = new Re(c, ReCella);
+	Cella temp = new Cella(ReCella.getX(), ReCella.getY(), reTemp);
+	temp.setOccupato(true);
+	for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {
+	    for (int j = 0; j < Scacchiera.getNumeroColonne(); j++) {
+		if (Scacchiera.getNomePezzo(i, j) != "Vuota"
+			&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c
+			&& Scacchiera.getNomePezzo(i, j) != "Re"
+			&& Scacchiera.getCella(i, j).getPezzoCorrente().isMossaValida(Scacchiera.getCella(i, j), temp))
+		    return true;
+	    }
+	}
+	return false;
+    }
+
+    /**
+     * Controlla se il re o la torre si sono mai spostati
+     *
+     * @param storicoMosse
+     * @return
+     */
+    public static boolean isPrimaMossaEffettuata(ArrayList<String> storicoMosse) {
+
+	for (int i = 0; i < storicoMosse.size(); i++) {
+	    if (storicoMosse.get(i).matches("(h|e|a)(1|8) [a-h][1-8]"))
+		return true;
+	}
+	return false;
+    }
+
 
 }

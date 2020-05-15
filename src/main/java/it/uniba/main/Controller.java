@@ -88,11 +88,7 @@ public final class Controller {
 
 	/**
 	 * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
-<<<<<<< HEAD
 	 * e restituisce true se la mossa � valida ed � stata applicata altrimenti
-=======
-	 * e restituisce true se la mossa � valida ed � stata applicata altrimenti
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
 	 * restituisce false
 	 *
 	 * @param mossaDaGiocare
@@ -255,8 +251,16 @@ public final class Controller {
 	}
 
 	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
-	 * applicaMossa.
+	 * <<<<<<< Updated upstream ======= Lascia il controllo al sistema operativo
+	 *
+	 */
+	public static void chiudiGioco() {
+		System.exit(0);
+	}
+
+	/**
+	 * >>>>>>> Stashed changes Restituisce la lista delle mosse convertite in
+	 * notazione comprensibile da applicaMossa.
 	 *
 	 * @return mosseConverite
 	 */

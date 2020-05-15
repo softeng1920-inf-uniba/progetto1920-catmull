@@ -6,6 +6,7 @@ package gioco;
  * informazioni riguardo ai comandi: help, moves, quit, board, captures e play.
  * La classe Menu e' di tipo Entity.
  */
+
 public final class Menu {
 
 	private static Comando help;

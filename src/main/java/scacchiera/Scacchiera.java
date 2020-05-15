@@ -25,12 +25,12 @@ public final class Scacchiera {
 	 * Avvalora e inizializza la matrice di celle, una per una
 	 */
 	private Scacchiera() {
-
 		for (int i = 0; i < getNumeroColonne(); i++) {
 			for (int j = 0; j < getNumeroRighe(); j++) {
 				scacchiera[i][j] = new Cella(i, j, null);
 			}
 		}
+		inizializzaScacchiera();
 	}
 
 	/**
