@@ -70,7 +70,7 @@
       <h2>Project Information</h2>
       <p>Project: 
 		root project 'scacchi' (main)</p>
-      <p>SpotBugs version: 4.0.0-RC3</p>
+      <p>SpotBugs version: 4.0.3</p>
       <p>Code analyzed:</p>
       <ul>
          <li>C:\Users\Gregorio\eclipse-workspace\scacchi\build\classes\java\main\gioco\Colore.class</li>
@@ -96,7 +96,7 @@
          <br/>
       </p>
       <h2>Metrics</h2>
-      <p>1406 lines of code analyzed,
+      <p>1412 lines of code analyzed,
 	in 17 classes, 
 	in 4 packages.</p>
       <table width="500" cellpadding="5" cellspacing="2">
@@ -107,23 +107,23 @@
          </tr>
          <tr class="tablerow0">
             <td>High Priority Warnings</td>
-            <td align="right">6</td>
-            <td align="right">4.27</td>
+            <td align="right">2</td>
+            <td align="right">1.42</td>
          </tr>
          <tr class="tablerow1">
             <td>Medium Priority Warnings</td>
-            <td align="right">11</td>
-            <td align="right">7.82</td>
+            <td align="right">1</td>
+            <td align="right">0.71</td>
          </tr>
          <tr class="$totalClass">
             <td>
                <b>Total Warnings</b>
             </td>
             <td align="right">
-               <b>17</b>
+               <b>3</b>
             </td>
             <td align="right">
-               <b>12.09</b>
+               <b>2.12</b>
             </td>
          </tr>
       </table>
@@ -136,9 +136,6 @@
       </p>
       <h2>Contents</h2>
       <ul>
-         <li>
-            <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-         </li>
          <li>
             <a href="#Warnings_I18N">Internationalization Warnings</a>
          </li>
@@ -157,56 +154,27 @@
          </tr>
          <tr class="tablerow0">
             <td>
-               <a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-            </td>
-            <td align="right">1</td>
-         </tr>
-         <tr class="tablerow1">
-            <td>
                <a href="#Warnings_I18N">Internationalization Warnings</a>
             </td>
-            <td align="right">5</td>
+            <td align="right">2</td>
          </tr>
-         <tr class="tablerow0">
+         <tr class="tablerow1">
             <td>
                <a href="#Warnings_STYLE">Dodgy code Warnings</a>
             </td>
-            <td align="right">11</td>
+            <td align="right">1</td>
          </tr>
-         <tr class="tablerow1">
+         <tr class="tablerow0">
             <td>
                <b>Total</b>
             </td>
             <td align="right">
-               <b>17</b>
+               <b>3</b>
             </td>
          </tr>
       </table>
       <h1>Warnings</h1>
       <p>Click on a warning row to see full context information.</p>
-      <h2>
-         <a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
-      </h2>
-      <table class="warningtable" width="100%" cellspacing="0">
-         <tr class="tableheader">
-            <th align="left">Code</th>
-            <th align="left">Warning</th>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e197');">
-            <td>
-               <span class="priority-2">Dm</span>
-            </td>
-            <td>it.uniba.main.Controller.chiudiGioco() invokes System.exit(...), which shuts down the entire virtual machine</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e197" style="display: none;">
-                  <a href="#DM_EXIT">Bug type DM_EXIT (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.chiudiGioco()<br/>At Controller.java:[line 336]</p>
-            </td>
-         </tr>
-      </table>
       <h2>
          <a name="Warnings_I18N">Internationalization Warnings</a>
       </h2>
@@ -226,63 +194,21 @@
             <td>
                <p id="d1e61" style="display: none;">
                   <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class gioco.Giocatore<br/>In method new gioco.Giocatore(Colore)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Giocatore.java:[line 41]</p>
+                  <br/>In class gioco.Giocatore<br/>In method new gioco.Giocatore(Colore)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Giocatore.java:[line 42]</p>
             </td>
          </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e122');">
-            <td>
-               <span class="priority-1">Dm</span>
-            </td>
-            <td>Found reliance on default encoding in it.uniba.main.AppMain.main(String[]): new java.io.InputStreamReader(InputStream)</td>
-         </tr>
-         <tr class="detailrow0">
-            <td/>
-            <td>
-               <p id="d1e122" style="display: none;">
-                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class it.uniba.main.AppMain<br/>In method it.uniba.main.AppMain.main(String[])<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At AppMain.java:[line 38]</p>
-            </td>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e152');">
-            <td>
-               <span class="priority-1">Dm</span>
-            </td>
-            <td>Found reliance on default encoding in it.uniba.main.Controller.playGame(): new java.io.InputStreamReader(InputStream)</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e152" style="display: none;">
-                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.playGame()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 51]</p>
-            </td>
-         </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e167');">
-            <td>
-               <span class="priority-1">Dm</span>
-            </td>
-            <td>Found reliance on default encoding in it.uniba.main.Controller.utenteConfermaFinePartita(): new java.io.InputStreamReader(InputStream)</td>
-         </tr>
-         <tr class="detailrow0">
-            <td/>
-            <td>
-               <p id="d1e167" style="display: none;">
-                  <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaFinePartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 220]</p>
-            </td>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e182');">
+         <tr class="tablerow0" onclick="toggleRow('d1e76');">
             <td>
                <span class="priority-1">Dm</span>
             </td>
             <td>Found reliance on default encoding in it.uniba.main.Controller.utenteConfermaRiavvioPartita(): new java.io.InputStreamReader(InputStream)</td>
          </tr>
-         <tr class="detailrow1">
+         <tr class="detailrow0">
             <td/>
             <td>
-               <p id="d1e182" style="display: none;">
+               <p id="d1e76" style="display: none;">
                   <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 193]</p>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At Controller.java:[line 196]</p>
             </td>
          </tr>
       </table>
@@ -294,91 +220,7 @@
             <th align="left">Code</th>
             <th align="left">Warning</th>
          </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e268');">
-            <td>
-               <span class="priority-2">DLS</span>
-            </td>
-            <td>Dead store to possibiliPosizioniColonna in pedine.Torre.convertiMossa(String)</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e268" style="display: none;">
-                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
-                  <br/>In class pedine.Torre<br/>In method pedine.Torre.convertiMossa(String)<br/>Local variable named possibiliPosizioniColonna<br/>At Torre.java:[line 44]</p>
-            </td>
-         </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e286');">
-            <td>
-               <span class="priority-2">DLS</span>
-            </td>
-            <td>Dead store to possibiliPosizioniRiga in pedine.Torre.convertiMossa(String)</td>
-         </tr>
-         <tr class="detailrow0">
-            <td/>
-            <td>
-               <p id="d1e286" style="display: none;">
-                  <a href="#DLS_DEAD_LOCAL_STORE">Bug type DLS_DEAD_LOCAL_STORE (click for details)</a>
-                  <br/>In class pedine.Torre<br/>In method pedine.Torre.convertiMossa(String)<br/>Local variable named possibiliPosizioniRiga<br/>At Torre.java:[line 45]</p>
-            </td>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e76');">
-            <td>
-               <span class="priority-2">NP</span>
-            </td>
-            <td>Dereference of the result of readLine() without nullcheck in new gioco.Giocatore(Colore)</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e76" style="display: none;">
-                  <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
-                  <br/>In class gioco.Giocatore<br/>In method new gioco.Giocatore(Colore)<br/>Value loaded from nomeGiocatore<br/>At Giocatore.java:[line 49]</p>
-            </td>
-         </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e137');">
-            <td>
-               <span class="priority-2">NP</span>
-            </td>
-            <td>Dereference of the result of readLine() without nullcheck in it.uniba.main.AppMain.main(String[])</td>
-         </tr>
-         <tr class="detailrow0">
-            <td/>
-            <td>
-               <p id="d1e137" style="display: none;">
-                  <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
-                  <br/>In class it.uniba.main.AppMain<br/>In method it.uniba.main.AppMain.main(String[])<br/>Value loaded from nomeMenu<br/>At AppMain.java:[line 46]</p>
-            </td>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e210');">
-            <td>
-               <span class="priority-2">NP</span>
-            </td>
-            <td>Dereference of the result of readLine() without nullcheck in it.uniba.main.Controller.playGame()</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e210" style="display: none;">
-                  <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.playGame()<br/>Value loaded from comando<br/>At Controller.java:[line 63]</p>
-            </td>
-         </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e224');">
-            <td>
-               <span class="priority-2">NP</span>
-            </td>
-            <td>Dereference of the result of readLine() without nullcheck in it.uniba.main.Controller.utenteConfermaFinePartita()</td>
-         </tr>
-         <tr class="detailrow0">
-            <td/>
-            <td>
-               <p id="d1e224" style="display: none;">
-                  <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaFinePartita()<br/>Value loaded from comando<br/>At Controller.java:[line 225]</p>
-            </td>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e238');">
+         <tr class="tablerow1" onclick="toggleRow('d1e91');">
             <td>
                <span class="priority-2">NP</span>
             </td>
@@ -387,65 +229,9 @@
          <tr class="detailrow1">
             <td/>
             <td>
-               <p id="d1e238" style="display: none;">
+               <p id="d1e91" style="display: none;">
                   <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 198]</p>
-            </td>
-         </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e90');">
-            <td>
-               <span class="priority-2">ST</span>
-            </td>
-            <td>Write to static field gioco.Turno.giocatoreInAttesa from instance method new gioco.Turno()</td>
-         </tr>
-         <tr class="detailrow0">
-            <td/>
-            <td>
-               <p id="d1e90" style="display: none;">
-                  <a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
-                  <br/>In class gioco.Turno<br/>In method new gioco.Turno()<br/>Field gioco.Turno.giocatoreInAttesa<br/>At Turno.java:[line 18]</p>
-            </td>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e106');">
-            <td>
-               <span class="priority-2">ST</span>
-            </td>
-            <td>Write to static field gioco.Turno.giocatoreInTurno from instance method new gioco.Turno()</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e106" style="display: none;">
-                  <a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
-                  <br/>In class gioco.Turno<br/>In method new gioco.Turno()<br/>Field gioco.Turno.giocatoreInTurno<br/>At Turno.java:[line 17]</p>
-            </td>
-         </tr>
-         <tr class="tablerow0" onclick="toggleRow('d1e252');">
-            <td>
-               <span class="priority-1">ST</span>
-            </td>
-            <td>Write to static field it.uniba.main.Controller.mosseConvertite from instance method new it.uniba.main.Controller()</td>
-         </tr>
-         <tr class="detailrow0">
-            <td/>
-            <td>
-               <p id="d1e252" style="display: none;">
-                  <a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
-                  <br/>In class it.uniba.main.Controller<br/>In method new it.uniba.main.Controller()<br/>Field it.uniba.main.Controller.mosseConvertite<br/>At Controller.java:[line 33]</p>
-            </td>
-         </tr>
-         <tr class="tablerow1" onclick="toggleRow('d1e304');">
-            <td>
-               <span class="priority-2">ST</span>
-            </td>
-            <td>Write to static field scacchiera.Scacchiera.scacchiera from instance method new scacchiera.Scacchiera()</td>
-         </tr>
-         <tr class="detailrow1">
-            <td/>
-            <td>
-               <p id="d1e304" style="display: none;">
-                  <a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
-                  <br/>In class scacchiera.Scacchiera<br/>In method new scacchiera.Scacchiera()<br/>Field scacchiera.Scacchiera.scacchiera<br/>At Scacchiera.java:[line 31]</p>
+                  <br/>In class it.uniba.main.Controller<br/>In method it.uniba.main.Controller.utenteConfermaRiavvioPartita()<br/>Value loaded from comando<br/>At Controller.java:[line 201]</p>
             </td>
          </tr>
       </table>
@@ -453,31 +239,6 @@
          <a name="Details">Details</a>
       </h1>
       <h2>
-         <a name="DLS_DEAD_LOCAL_STORE">DLS_DEAD_LOCAL_STORE: Dead store to local variable</a>
-      </h2>
-
-<p>
-This instruction assigns a value to a local variable,
-but the value is not read or used in any subsequent instruction.
-Often, this indicates an error, because the value computed is never
-used.
-</p>
-<p>
-Note that Sun's javac compiler often generates dead stores for
-final local variables.  Because SpotBugs is a bytecode-based tool,
-there is no easy way to eliminate these false positives.
-</p>
-
-    <h2>
-         <a name="DM_EXIT">DM_EXIT: Method invokes System.exit(...)</a>
-      </h2>
-
-  <p> Invoking System.exit shuts down the entire Java virtual machine. This
-   should only been done when it is appropriate. Such calls make it
-   hard or impossible for your code to be invoked by other code.
-   Consider throwing a RuntimeException instead.</p>
-
-    <h2>
          <a name="DM_DEFAULT_ENCODING">DM_DEFAULT_ENCODING: Reliance on default encoding</a>
       </h2>
 
@@ -489,15 +250,6 @@ there is no easy way to eliminate these false positives.
 
   <p> The result of invoking readLine() is dereferenced without checking to see if the result is null. If there are no more lines of text
 to read, readLine() will return null and dereferencing that will generate a null pointer exception.
-</p>
-
-    <h2>
-         <a name="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD: Write to static field from instance method</a>
-      </h2>
-
-  <p> This instance method writes to a static field. This is tricky to get
-correct if multiple instances are being manipulated,
-and generally bad practice.
 </p>
 
     </body>

@@ -11,11 +11,11 @@ public class Comando {
     public static final int ARROCCO_CORTO = 1;
     public static final int ARROCCO_LUNGO = 2;
 
-    public static final int COLONNA_PARTENZA_MOSSA = 0;
-    public static final int TRAVERSA_PARTENZA_MOSSA = 1;
+    public static final int COLONNA_PARTENZA_MOSSA_NE = 0;
+    public static final int TRAVERSA_PARTENZA_MOSSA_NE = 1;
 
-    public static final int COLONNA_DESTINAZIONE_MOSSA = 3;
-    public static final int TRAVERSA_DESTINAZIONE_MOSSA = 4;
+    public static final int COLONNA_DESTINAZIONE_MOSSA_NE = 3;
+    public static final int TRAVERSA_DESTINAZIONE_MOSSA_NE = 4;
 
     private String nome;
     private String descrizione;

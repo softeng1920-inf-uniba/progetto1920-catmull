@@ -1,7 +1,6 @@
 package pedine;
 
 import gioco.Colore;
-import gioco.Comando;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -61,54 +60,70 @@ public final class Cavallo extends Pezzo {
 	String mossaConvertita = "a0 a0";
 	Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
 
-	// esempio: Cdxe4
+	// esempio: Cdxe4 - cattura con ambiguita' su colonna
 	if (mossa.matches("C[a-h][x|:]([a-h][1-8])")) {
-	    startX = Cella.coordXinInt(mossa.charAt(Comando.TRAVERSA_PARTENZA_MOSSA));
-	    endX = Cella.coordXinInt(mossa.charAt(Comando.COLONNA_DESTINAZIONE_MOSSA));
-	    endY = Cella.coordYinInt(mossa.charAt(Comando.TRAVERSA_DESTINAZIONE_MOSSA));
+	    final int colonnaPartenzaCattura = 1;
+	    final int colonnaDestinazioneCattura = 3;
+	    final int traversaDestinazioneCattura = 4;
+	    startX = Cella.coordXinInt(mossa.charAt(colonnaPartenzaCattura));
+	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
+	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
 	    if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
 		return mossaConvertita;
 	    }
 	}
-	// esempio: Cxe4
+	// esempio: Cxe4 - cattura cavallo normale
 	if (mossa.matches("C[x|:]([a-h][1-8])")) {
-	    endX = Cella.coordXinInt(mossa.charAt(2));
-	    endY = Cella.coordYinInt(mossa.charAt(3));
+	    final int colonnaDestinazioneCattura = 2;
+	    final int traversaDestinazioneCattura = 3;
+	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
+	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
 	    if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
 		return mossaConvertita;
 	    }
 	}
-	// esempio: C6xe4
+	// esempio: C6xe4 - cattura con ambiguita' su traversa
 	if (mossa.matches("C[1-8][x|:]([a-h][1-8])")) {
-	    startY = Cella.coordYinInt(mossa.charAt(1));
-	    endX = Cella.coordXinInt(mossa.charAt(3));
-	    endY = Cella.coordYinInt(mossa.charAt(4));
+	    final int traversaPartenzaCattura = 1;
+	    final int colonnaDestinazioneCattura = 3;
+	    final int traversaDestinazioneCattura = 4;
+	    startY = Cella.coordYinInt(mossa.charAt(traversaPartenzaCattura));
+	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
+	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
 	    if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
 		return mossaConvertita;
 	    }
 	}
-	// esempio: Cde4
+	// esempio: Cde4 - Avanzata cavallo con ambiguità su colonna
 	if (mossa.matches("C[a-h]([a-h][1-8])")) {
-	    startX = Cella.coordXinInt(mossa.charAt(1));
-	    endX = Cella.coordXinInt(mossa.charAt(2));
-	    endY = Cella.coordYinInt(mossa.charAt(3));
+	    final int colonnaPartenzaAvanzata = 1;
+	    final int colonnaDestinazioneAvanzata = 2;
+	    final int traversaDestinazioneAvanzata = 3;
+	    startX = Cella.coordXinInt(mossa.charAt(colonnaPartenzaAvanzata));
+	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
+	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));
 	    if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
 		return mossaConvertita;
 	    }
 	}
-	// esempio: C3e4
+	// esempio: C3e4 - Avanzata cavallo con ambiguità su traversa
 	if (mossa.matches("C[1-8]([a-h][1-8])")) {
-	    startY = Cella.coordYinInt(mossa.charAt(1));
-	    endX = Cella.coordXinInt(mossa.charAt(2));
-	    endY = Cella.coordYinInt(mossa.charAt(3));
+	    final int traversaPartenzaAvanzata = 1;
+	    final int colonnaDestinazioneAvanzata = 2;
+	    final int traversaDestinazioneAvanzata = 3;
+	    startY = Cella.coordYinInt(mossa.charAt(traversaPartenzaAvanzata));
+	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
+	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));
 	    if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
 		return mossaConvertita;
 	    }
 	}
-	// esempio: Ce4
+	// esempio: Ce4 - Avanzata cavallo normale
 	if (mossa.matches("C([a-h][1-8])")) {
-	    endX = Cella.coordXinInt(mossa.charAt(1));
-	    endY = Cella.coordYinInt(mossa.charAt(2));
+	    final int colonnaDestinazioneAvanzata = 1;
+	    final int traversaDestinazioneAvanzata = 2;
+	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
+	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));
 	    if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
 		return mossaConvertita;
 	    }

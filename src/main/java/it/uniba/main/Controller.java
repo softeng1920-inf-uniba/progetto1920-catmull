@@ -45,7 +45,6 @@ public class Controller {
 	do {
 
 	    Scacchiera.inizializzaScacchiera();
-
 	    new Turno();
 
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -76,16 +75,18 @@ public class Controller {
 			    utenteVuoleRicominciare = true;
 			    new Scacchiera(); // Svuoto la scacchiera
 			    break;
-			} else
+			} else {
 			    continue; // Faccio ripartire il loop interno
+			}
 		    }
-		} else
+		} else {
 		    break;
+		}
 
 		if (Comando.isNotazioneAlgebrica(comando)) {
 
-		    int tipoArrocco;
-		    if ((tipoArrocco = Comando.isArrocco(comando)) != -1) { // Se è un arrocco
+		    int tipoArrocco = Comando.isArrocco(comando);
+		    if (tipoArrocco != -1) { // Se è un arrocco
 			Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
 
 			String mossaTorre = Torre.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
@@ -135,17 +136,18 @@ public class Controller {
 				Turno.getGiocatoreInTurno().setMosseGiocate(comando);
 				Turno.cambioTurno();
 
-			    } else
+			    } else {
 				Stampa.stampaMossaIllegale();
-
-			} else
+			    }
+			} else {
 			    Stampa.stampaMossaIllegale();
+			}
 		    }
-		} else if (!Comando.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un comando
-							      // di
-		    // gioco...
+		} else if (!Comando.isComandoValido(comando)) {
+		    // Se il comando inserito non è una mossa, nè un comando
+		    // di gioco...
 		    Stampa.stampaComandoErrato();
-
+		}
 	    } // Fine loop di gioco
 	} while (utenteVuoleRicominciare);
     }
@@ -159,23 +161,28 @@ public class Controller {
      * @param mosseEffettuate
      * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
      */
-    private int getTipoMossa(Cella cellaPartenza, Cella cellaDestinazione, ArrayList<String> mosseEffettuate) {
+    private int getTipoMossa(final Cella cellaPartenza, final Cella cellaDestinazione,
+	    final ArrayList<String> mosseEffettuate) {
 
+	int tipoMossa = -1;
 	Pezzo pezzoCorrente = cellaPartenza.getPezzoCorrente();
-	if (pezzoCorrente == null)
+	if (pezzoCorrente == null) {
 	    // Se ho inserito una mossa il cui pezzo di partenza non esiste, ritorno mossa
 	    // illegale
-	    return -1;
+	    return tipoMossa;
+	} else if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione)) {
+	    if (isReProtetto(cellaPartenza, cellaDestinazione, 0)) {
+		tipoMossa = 0;
 
-	if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione))
-	    return 0;
-	else if (pezzoCorrente.getNome().equals("Pedone")) {
+	    }
+	} else if (pezzoCorrente.getNome().equals("Pedone")) {
 	    Pedone p = (Pedone) pezzoCorrente;
 	    // Controllo se l'en Passant e'consentito
-	    return (p.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseEffettuate) ? 1 : -1);
+	    if (p.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseEffettuate)) {
+		tipoMossa = 1;
+	    }
 	}
-
-	return -1;
+	return tipoMossa;
     }
 
     /**
@@ -213,7 +220,7 @@ public class Controller {
      * @return String comando in colonna e traversa di partenza seguite da uno
      *         spazio, ed infine colonna e traversa di destinazione
      */
-    private final String convertiNotazioneRidottaInEstesa(String mossa) {
+    private String convertiNotazioneRidottaInEstesa(final String mossa) {
 
 	switch (mossa.charAt(0)) {
 	case 'T': // Torre
@@ -234,18 +241,16 @@ public class Controller {
 
     /**
      * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
-     * (la traversa è minore di 1 ecc.)
+     * (la traversa e' minore di 1 ecc.)
      *
      * @param comando Stringa nel formato : colonna e traversa di partenza seguite
      *                da uno spazio, ed infine colonna e traversa di destinazione
      * @return false se la mossa inserita non e' valida, va oltre i limiti della
      *         scacchiera, true altrimenti
      */
-    public static boolean isMossaInRangeValido(String comando) {
-	if (!isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando), Cella.endY(comando)))
-	    return false;
-
-	return true;
+    public static boolean isMossaInRangeValido(final String comando) {
+	return isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando),
+		Cella.endY(comando)); // TODO: ricontrollare se logica è corretta
     }
 
     /**
@@ -262,12 +267,12 @@ public class Controller {
      *                          cattura) di un pezzo 1: Mossa speciale (en passant)
      *                          del pedone
      */
-    private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
+    private void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
 
 	Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
+
 	Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 	switch (tipoMossa) {
-
 	case 0:
 	    if (cellaDestinazione.isOccupato()) {
 		giocatoreAttivo.addPezziCatturati(pezzoInCellaDestinazione);
@@ -281,7 +286,6 @@ public class Controller {
 	    break;
 	default:
 	}
-
 	Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
 
     }
@@ -297,16 +301,8 @@ public class Controller {
      * @param endY   intero compreso fra 0 e 7
      * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
      */
-    private static boolean isCoordinateValide(int startX, int startY, int endX, int endY) {
+    private static boolean isCoordinateValide(final int startX, final int startY, final int endX, final int endY) {
 	return Scacchiera.isRangeValido(startX, startY) && Scacchiera.isRangeValido(endX, endY);
-    }
-
-    /**
-     * Lascia il controllo al sistema operativo
-     *
-     */
-    public void chiudiGioco() {
-	System.exit(0);
     }
 
     /**
@@ -322,13 +318,13 @@ public class Controller {
     /**
      * Aggiunge la mossa effettuata fra quelle convertite
      */
-    public void addMosseConvertite(String mossa) {
+    public void addMosseConvertite(final String mossa) {
 	mosseConvertite.add(mossa);
     }
 
     /**
      * Data la mossa del re e quella della torre, vengono effettuati tutti i
-     * controlli che validano se la mossa è consentita o meno.
+     * controlli che validano se la mossa e' consentita o meno.
      *
      * @param mossaRe
      * @param mossaTorre
@@ -342,7 +338,7 @@ public class Controller {
      *         attraversare ne' quella di arrivo devono essere minacciate da un
      *         pezzo avversario.
      */
-    public static boolean isArroccoValido(String mossaRe, String mossaTorre, int tipoArrocco) {
+    public static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
 
 	Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
 	Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
@@ -358,10 +354,10 @@ public class Controller {
 	// Se nella cella di partenza del presunto re c'è il re del colore del giocatore
 	// in turno..
 	if (cellaPartenzaRe.isOccupato() && presuntoReGiocatoreAttuale.getNome() == "Re"
-		&& presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo &&
+		&& presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo
 		// e nella cella della presunta torre c'è la torre del colore del giocatore in
 		// turno..
-		cellaPartenzaTorre.isOccupato() && presuntaTorreGiocatoreAttuale.getNome() == "Torre"
+		&& cellaPartenzaTorre.isOccupato() && presuntaTorreGiocatoreAttuale.getNome() == "Torre"
 		&& presuntaTorreGiocatoreAttuale.getColore() == coloreGiocatoreAttivo) {
 	    Re re = (Re) presuntoReGiocatoreAttuale;
 
@@ -371,6 +367,39 @@ public class Controller {
 
 	return false;
 
+    }
+
+    /**
+     * TODO: Aggiungere javadoc!
+     * 
+     * @param partenza
+     * @param destinazione
+     * @param tipo         //TODO tipomossa??
+     * @return
+     */
+    public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipo) {
+	Cella cellaRe = Re.findRe();
+	Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
+	boolean isReProtetto = false;
+
+	if (partenza.getPezzoCorrente().getNome().equals("Re")) {
+	    return true; // Il re è protetto
+	}
+
+	applicaMossa(partenza, destinazione, tipo);
+	if (!reDaProteggere.isReSottoScacco(cellaRe)) {
+	    isReProtetto = true;
+	}
+
+	applicaMossa(destinazione, partenza, tipo);
+
+	Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
+	if (temp.isOccupato()) {
+	    Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+	    Turno.getGiocatoreInTurno().removePezzoCatturato();
+	}
+
+	return isReProtetto;
     }
 
 }

@@ -23,6 +23,9 @@ public final class Regina extends Pezzo {
 
     @Override
     public boolean isMossaValida(final Cella start, final Cella end) {
+
+	int deltaX = end.getX() - start.getX();
+	int deltaY = end.getY() - start.getY();
 	int j;
 	// MOVIMENTI LINEARI
 	// stessa x, aumenta y
@@ -32,25 +35,28 @@ public final class Regina extends Pezzo {
 		    return false;
 		}
 	    }
-	} else if (end.getX() == start.getX() && end.getY() < start.getY()) { // stessa x, diminuisce y
+	} else if (end.getX() == start.getX() && end.getY() < start.getY()) {
+	    // stessa x, diminuisce y
 	    for (int i = start.getY() - 1; end.getY() < i; i--) {
 		if (Scacchiera.getCella(end.getX(), i).isOccupato()) {
 		    return false;
 		}
 	    }
-	} else if (end.getY() == start.getY() && end.getX() > start.getX()) { // aumenta x, stessa y
+	} else if (end.getY() == start.getY() && end.getX() > start.getX()) {
+	    // aumenta x, stessa y
 	    for (int i = start.getX() + 1; end.getX() > i; i++) {
 		if (Scacchiera.getCella(i, end.getY()).isOccupato()) {
 		    return false;
 		}
 	    }
-	} else if (end.getY() == start.getY() && end.getX() < start.getX()) { // diminuisce x, stessa y
+	} else if (end.getY() == start.getY() && end.getX() < start.getX()) {
+	    // diminuisce x, stessa y
 	    for (int i = start.getX() - 1; end.getX() < i; i--) {
 		if (Scacchiera.getCella(i, end.getY()).isOccupato()) {
 		    return false;
 		}
 	    }
-	} else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() > 0) {
+	} else if (deltaX == deltaY && deltaX > 0) {
 	    // MOVIMENTI DIAGONALI (ALFIERE)
 	    // aumenta x e aumenta y
 	    j = start.getY() + 1;
@@ -60,8 +66,8 @@ public final class Regina extends Pezzo {
 		}
 		j++;
 	    }
-	} else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
-		&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) { // diminuisce x e aumenta y
+	} else if (Math.abs(deltaX) == Math.abs(deltaY) && deltaX < 0 && deltaY > 0) {
+	    // diminuisce x e aumenta y
 	    j = start.getY() + 1;
 	    for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
 		if (Scacchiera.getCella(i, j).isOccupato()) {
@@ -70,10 +76,8 @@ public final class Regina extends Pezzo {
 		j++;
 
 	    }
-	} else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() < 0) { // diminuisce
-													      // x e
-													      // diminuisce
-													      // y
+	} else if (deltaX == deltaY && deltaX < 0) {
+	    // diminuisce x e diminuisce y
 	    j = start.getY() - 1;
 	    for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
 		if (Scacchiera.getCella(i, j).isOccupato()) {
@@ -81,8 +85,8 @@ public final class Regina extends Pezzo {
 		}
 		j--;
 	    }
-	} else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
-		&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) { // aumenta x e diminuisce y
+	} else if (Math.abs(deltaX) == Math.abs(end.getY() - start.getY()) && deltaX > 0 && deltaY < 0) {
+	    // aumenta x e diminuisce y
 	    j = start.getY() - 1;
 	    for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
 		if (Scacchiera.getCella(i, j).isOccupato()) {
@@ -102,11 +106,9 @@ public final class Regina extends Pezzo {
 
     /**
      * Converte la mossa in input nell stringa con le coordinate della cella
-     * iniziale e le coordinate della cella finale TODO: Migliorare javadoc
+     * iniziale e le coordinate della cella finale
      * 
      * @param mossa
-     * @param s
-     * @param g
      * @return
      */
     public static String convertiMossa(final String mossa) {
