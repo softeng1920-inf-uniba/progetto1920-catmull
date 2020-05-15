@@ -5,7 +5,7 @@ import scacchiera.Cella;
 
 /**
  * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per poi
- * realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i seguenti attributi 
+ * realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i seguenti attributi
  * che ne definiscono lo stato:
  * <ul>
  * 	<li><b>nome</b></li>
@@ -13,7 +13,7 @@ import scacchiera.Cella;
  *  <li><b>simbolo</b></li>
  *  <li><b>vivo</b></li>
  *  <li><b>posisizioneCorrente</b></li>
- * </ul> 
+ * </ul>
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
@@ -21,12 +21,10 @@ public abstract class Pezzo {
     protected Colore colore;
     protected boolean vivo;
     public char simbolo;
-    protected Cella posizioneCorrente;
 
-    public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
+	public Pezzo(String name, Colore colore) {
 	this.nome = name;
 	this.colore = colore;
-	this.posizioneCorrente = posizioneCorrente;
 	this.simbolo = ' ';
 	vivo = true;
     }
@@ -69,14 +67,6 @@ public abstract class Pezzo {
 	this.simbolo = simbolo;
     }
 
-    /**
-     * setPosizioneCorrente imposta la posizione corrente del pezzo
-     *
-     * @param posizioneCorrente
-     */
-    public void setPosizioneCorrente(Cella pC) {
-	this.posizioneCorrente = pC;
-    }
 
     // --------Metodi di Get--------
 
@@ -118,14 +108,6 @@ public abstract class Pezzo {
 	return vivo;
     }
 
-    /**
-     * getPosizioneCorrente restituisce la cella in cui si trova il pezzo
-     *
-     * @return posizioneCorrente
-     */
-    public Cella getPosizioneCorrente() {
-	return posizioneCorrente;
-    }
 
     /**
      * toString consente di rappresentare un oggetto come una stringa

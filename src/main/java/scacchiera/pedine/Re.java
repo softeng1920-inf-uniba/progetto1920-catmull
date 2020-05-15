@@ -3,21 +3,20 @@ package scacchiera.pedine;
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
+import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
- * il movimento del Re Ã¨ valido.
- * La classe Re e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento del Re è valido. La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
     /** Costruttore */
-    public Re(final Colore colore, final Cella posizioneCorrente) {
-	super("Re", colore, posizioneCorrente);
+	public Re(final Colore colore) {
+		super("Re", colore);
 	if (colore == Colore.nero) {
 	    simbolo = '\u265a';
 	} else {
@@ -67,7 +66,7 @@ public final class Re extends Pezzo {
 	    // controlla che non ci siano pezzi intermedi e che nello spostamento del re non
 	    // Ã¨ sotto scacco
 
-	    if (tipoArrocco == Comando.ARROCCO_CORTO) {
+		if (tipoArrocco == Menu.ARROCCO_CORTO) {
 		// Arrocco Corto
 		for (int i = sX + 1; i < eX + 1; i++) {
 		    if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != "Vuota")
@@ -88,7 +87,7 @@ public final class Re extends Pezzo {
     }
 
     public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
-	if (tipoArrocco == Comando.ARROCCO_CORTO)
+		if (tipoArrocco == Menu.ARROCCO_CORTO)
 	    return (c == Colore.bianco) ? "e1 g1" : "e8 g8";
 	else {
 	    return (c == Colore.bianco) ? "e1 c1" : "e8 c8";
@@ -139,14 +138,14 @@ public final class Re extends Pezzo {
     }
 
     /**
-     *
-     *
-     * @param ReCella cella di destinazione del re
-     * @return boolean se il re Ã¨ sotto scacco o meno
-     */
+	 *
+	 *
+	 * @param ReCella cella di destinazione del re
+	 * @return boolean se il re è sotto scacco o meno
+	 */
     public boolean isReSottoScacco(Cella ReCella) {
 	Colore c = getColore();
-	Re reTemp = new Re(c, ReCella);
+	Re reTemp = new Re(c);
 	Cella temp = new Cella(ReCella.getX(), ReCella.getY(), reTemp);
 	temp.setOccupato(true);
 	for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {

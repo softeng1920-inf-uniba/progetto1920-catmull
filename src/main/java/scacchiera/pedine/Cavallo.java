@@ -7,14 +7,13 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Cavallo Ã¨ valido. 
- * La classe Cavallo e' di tipo noECB.
+ * movimento del Cavallo è valido. La classe Cavallo e' di tipo noECB.
  */
 
 public final class Cavallo extends Pezzo {
 
-	public Cavallo(final Colore colore, final Cella posizioneCorrente) {
-		super("Cavallo", colore, posizioneCorrente);
+	public Cavallo(final Colore colore) {
+		super("Cavallo", colore);
 		if (colore == Colore.nero) {
 			simbolo = '\u265e';
 		} else {
@@ -40,7 +39,7 @@ public final class Cavallo extends Pezzo {
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
 	 * applicaMossa. Ad esempio: Cde4 ==> d2 e4
-	 * 
+	 *
 	 * @param mossa
 	 * @param s
 	 * @param g
