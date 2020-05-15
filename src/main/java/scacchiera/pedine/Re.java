@@ -10,15 +10,14 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
- * il movimento del Re è valido.
- * La classe Re e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento del Re � valido. La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
     /** Costruttore */
-    public Re(final Colore colore, final Cella posizioneCorrente) {
-	super("Re", colore, posizioneCorrente);
+	public Re(final Colore colore) {
+		super("Re", colore);
 	if (colore == Colore.nero) {
 	    simbolo = '\u265a';
 	} else {
@@ -264,14 +263,14 @@ public final class Re extends Pezzo {
     }
 
     /**
-     *
-     *
-     * @param ReCella cella di destinazione del re
-     * @return boolean se il re è sotto scacco o meno
-     */
+	 *
+	 *
+	 * @param ReCella cella di destinazione del re
+	 * @return boolean se il re � sotto scacco o meno
+	 */
     public boolean isReSottoScacco(Cella ReCella) {
 	Colore c = getColore();
-	Re reTemp = new Re(c, ReCella);
+	Re reTemp = new Re(c);
 	Cella temp = new Cella(ReCella.getX(), ReCella.getY(), reTemp);
 	temp.setOccupato(true);
 	for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {

@@ -11,8 +11,8 @@ import scacchiera.Scacchiera;
  */
 public final class Alfiere extends Pezzo {
 
-	public Alfiere(final Colore colore, final Cella posizioneCorrente) {
-		super("Alfiere", colore, posizioneCorrente);
+	public Alfiere(final Colore colore) {
+		super("Alfiere", colore);
 		if (colore == Colore.nero) {
 			simbolo = '\u265d';
 		} else {
