@@ -239,10 +239,14 @@ public final class Re extends Pezzo {
 	return false;
     }
 
+<<<<<<< HEAD
     /**
      * TODO: Migliorare javadoc
+=======
+    /** Cerca il Re nella scacchiera dello stesso colore del giocatore in turno. 
+>>>>>>> Aggiunto JavaDoc funzioni findRe e isReProtetto
      * 
-     * @return
+     * @return Cella che contiene il Re
      */
     public static Cella findRe() {
 	int startX = -1;
