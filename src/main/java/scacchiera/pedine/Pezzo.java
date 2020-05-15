@@ -23,10 +23,9 @@ public abstract class Pezzo {
     public char simbolo;
     protected Cella posizioneCorrente;
 
-    public Pezzo(String name, Colore colore, Cella posizioneCorrente) {
+    public Pezzo(String name, Colore colore) {
 	this.nome = name;
 	this.colore = colore;
-	this.posizioneCorrente = posizioneCorrente;
 	this.simbolo = ' ';
 	vivo = true;
     }
