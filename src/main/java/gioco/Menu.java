@@ -25,6 +25,7 @@ public final class Menu {
 	public static final int COLONNA_DESTINAZIONE_MOSSA_NE = 3;
 	public static final int TRAVERSA_DESTINAZIONE_MOSSA_NE = 4;
 
+
 	private Menu() {
 	}
 
