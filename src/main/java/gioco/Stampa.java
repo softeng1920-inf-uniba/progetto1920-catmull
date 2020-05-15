@@ -28,6 +28,8 @@ public class Stampa {
 	// colore Intro
 	public static final String ANSI_CYAN = "\u001B[36m";
 
+	private Stampa() {
+	}
 	/**
 	 * Stampa a video il simbolo del pezzo in input
 	 *

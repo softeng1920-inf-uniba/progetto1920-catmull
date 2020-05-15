@@ -13,6 +13,8 @@ public class Turno {
 	private static Giocatore giocatoreInTurno;
 	private static Giocatore giocatoreInAttesa;
 
+	private Turno() {
+	}
 	/**
 	 * costruttore statico per Turno
 	 */

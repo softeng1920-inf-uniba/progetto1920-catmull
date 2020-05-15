@@ -21,6 +21,9 @@ public class Scacchiera {
 
 	private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 
+	private Scacchiera() {
+	}
+
 	/**
 	 * costruttore statico per la scacchiera
 	 */

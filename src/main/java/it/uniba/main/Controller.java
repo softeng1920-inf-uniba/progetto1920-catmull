@@ -30,6 +30,8 @@ import scacchiera.pedine.Torre;
 public class Controller {
 	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
 
+	private Controller() {
+	}
 	public static void newController() {
 		Scacchiera.nuovaScacchiera();
 		mosseConvertite = new ArrayList<String>();

@@ -15,6 +15,8 @@ public class Menu {
 	private static Comando captures;
 	private static Comando play;
 
+	private Menu() {
+	}
 	/**
 	 * costruttore statico per il Menu'
 	 */
