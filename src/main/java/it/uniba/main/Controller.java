@@ -18,7 +18,7 @@ import scacchiera.pedine.Regina;
 import scacchiera.pedine.Torre;
 
 /**
- * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
