@@ -1,4 +1,4 @@
-package pedine;
+package scacchiera.pedine;
 
 import java.util.ArrayList;
 

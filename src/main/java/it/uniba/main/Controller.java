@@ -12,15 +12,15 @@ import gioco.Giocatore;
 import gioco.Menu;
 import gioco.Stampa;
 import gioco.Turno;
-import pedine.Alfiere;
-import pedine.Cavallo;
-import pedine.Pedone;
-import pedine.Pezzo;
-import pedine.Re;
-import pedine.Regina;
-import pedine.Torre;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
+import scacchiera.pedine.Alfiere;
+import scacchiera.pedine.Cavallo;
+import scacchiera.pedine.Pedone;
+import scacchiera.pedine.Pezzo;
+import scacchiera.pedine.Re;
+import scacchiera.pedine.Regina;
+import scacchiera.pedine.Torre;
 
 /**
  * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
@@ -30,25 +30,22 @@ import scacchiera.Scacchiera;
 public class Controller {
 	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
 
-	public Controller() {
-		new Scacchiera();
+	public static void newController() {
+		Scacchiera.nuovaScacchiera();
+		mosseConvertite = new ArrayList<String>();
 	}
 
 	/**
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
-	final void playGame() {
+	public final static void playGame() {
 
 		boolean utenteVuoleRicominciare = false;
-		Menu.newMenu();
 
 		do {
-
-			Scacchiera.inizializzaScacchiera();
-
-			new Turno();
-
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+			Turno.newTurno();
+			Turno.nomiDaTastiera();
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			String comando = "";
 
 			while (true) {
@@ -69,12 +66,12 @@ public class Controller {
 					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
 						Stampa.visualizzareCatture();
 					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-						break;
+						chiudiGioco();
 					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 						if (utenteConfermaRiavvioPartita()) {
 							Stampa.stampaNuovaPartita();
 							utenteVuoleRicominciare = true;
-							new Scacchiera(); // Svuoto la scacchiera
+							Scacchiera.nuovaScacchiera(); // Svuoto la scacchiera
 							break;
 						} else
 							continue; // Faccio ripartire il loop interno
@@ -140,12 +137,14 @@ public class Controller {
 						} else
 							Stampa.stampaMossaIllegale();
 					}
-				} else if (!Comando.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un comando
+				} else if (!Comando.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un
+																// comando
 																// di
 					// gioco...
 					Stampa.stampaComandoErrato();
 
 			} // Fine loop di gioco
+
 		} while (utenteVuoleRicominciare);
 	}
 
@@ -158,7 +157,7 @@ public class Controller {
 	 * @param mosseEffettuate
 	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
 	 */
-	private int getTipoMossa(Cella cellaPartenza, Cella cellaDestinazione, ArrayList<String> mosseEffettuate) {
+	private static int getTipoMossa(Cella cellaPartenza, Cella cellaDestinazione, ArrayList<String> mosseEffettuate) {
 
 		Pezzo pezzoCorrente = cellaPartenza.getPezzoCorrente();
 		if (pezzoCorrente == null)
@@ -182,7 +181,7 @@ public class Controller {
 	 *
 	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
 	 */
-	private boolean utenteConfermaRiavvioPartita() {
+	private static boolean utenteConfermaRiavvioPartita() {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -214,7 +213,7 @@ public class Controller {
 	 * @return String comando in colonna e traversa di partenza seguite da uno
 	 *         spazio, ed infine colonna e traversa di destinazione
 	 */
-	private final String convertiNotazioneRidottaInEstesa(String mossa) {
+	private static final String convertiNotazioneRidottaInEstesa(String mossa) {
 
 		switch (mossa.charAt(0)) {
 		case 'T': // Torre
@@ -263,7 +262,7 @@ public class Controller {
 	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
 	 *                          del pedone
 	 */
-	private final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
+	private static final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
@@ -303,8 +302,16 @@ public class Controller {
 	}
 
 	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
-	 * applicaMossa.
+	 * <<<<<<< Updated upstream ======= Lascia il controllo al sistema operativo
+	 *
+	 */
+	public static void chiudiGioco() {
+		System.exit(0);
+	}
+
+	/**
+	 * >>>>>>> Stashed changes Restituisce la lista delle mosse convertite in
+	 * notazione comprensibile da applicaMossa.
 	 *
 	 * @return mosseConverite
 	 */
@@ -315,7 +322,7 @@ public class Controller {
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
 	 */
-	public void addMosseConvertite(String mossa) {
+	public static void addMosseConvertite(String mossa) {
 		mosseConvertite.add(mossa);
 	}
 
@@ -348,7 +355,8 @@ public class Controller {
 		Pezzo presuntaTorreGiocatoreAttuale = cellaPartenzaTorre.getPezzoCorrente();
 
 		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
-		// Se nella cella di partenza del presunto re c'è il re del colore del giocatore
+		// Se nella cella di partenza del presunto re c'è il re del colore del
+		// giocatore
 		// in turno..
 		if (cellaPartenzaRe.isOccupato() && presuntoReGiocatoreAttuale.getNome() == "Re"
 				&& presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo &&

@@ -10,11 +10,23 @@ import java.util.ArrayList;
  */
 
 public class Turno {
-	private static Giocatore giocatoreInTurno = new Giocatore(Colore.bianco);
-	private static Giocatore giocatoreInAttesa = new Giocatore(Colore.nero);;
+	private static Giocatore giocatoreInTurno;
+	private static Giocatore giocatoreInAttesa;
 
-	public Turno() {
-		
+	/**
+	 * costruttore statico per Turno
+	 */
+	public static void newTurno() {
+		giocatoreInTurno = new Giocatore(Colore.bianco);
+		giocatoreInAttesa = new Giocatore(Colore.nero);
+	}
+
+	/**
+	 * Cambia i nomi dei giocatori con stringhe inserite da tastiera
+	 */
+	public static final void nomiDaTastiera() {
+		getGiocatoreInAttesa().nomeDaTastiera();
+		getGiocatoreInTurno().nomeDaTastiera();
 	}
 
 	public static final void cambioTurno() {
@@ -46,7 +58,7 @@ public class Turno {
 	 *
 	 * @return ArrayList di stringhe.
 	 */
-	public static ArrayList<String> fusioneListe() {
+	public static ArrayList<String> getArrayStoriaMosse() {
 		int i, j, k;
 		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);

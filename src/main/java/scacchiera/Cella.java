@@ -1,6 +1,6 @@
 package scacchiera;
 
-import pedine.Pezzo;
+import scacchiera.pedine.Pezzo;
 
 /**
  * La classe Cella contiene le informazioni riguardanti ogni singola cella della

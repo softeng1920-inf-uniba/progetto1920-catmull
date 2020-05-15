@@ -3,10 +3,9 @@ package gioco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-import pedine.Pezzo;
+import scacchiera.pedine.Pezzo;
 
 /**
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
@@ -39,13 +38,26 @@ public class Giocatore {
 	public Giocatore(Colore colore) {
 
 		setColore(colore);
+		setNome(" ");
+		pezziCatturati = new ArrayList<Pezzo>();
+		mosseGiocate = new ArrayList<String>();
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+	}
+
+	/**
+	 * Cambia il nome del giocatore acquisendo un nome da tatiera. Lancia una
+	 * eccezione se non è stato inserito nulla
+	 */
+	public final void nomeDaTastiera() {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Stampa.stampaInserireGiocatore(colore);
+
+		String nome = "";
+
 		try {
 			while (this.nome == null || this.nome.equals("")) {
 				this.nome = br.readLine();
-				if (this.nome ==null || this.nome.equals("")) {
+				if (this.nome == null || this.nome.equals("")) {
 					Stampa.stampaInserireGiocatore(colore);
 				}
 			}
@@ -53,10 +65,16 @@ public class Giocatore {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		setNome(nome);
+	}
 
-		pezziCatturati = new ArrayList<Pezzo>();
-		mosseGiocate = new ArrayList<String>();
-
+	/**
+	 * Assegna il nome al campo nome del Giocatore.
+	 *
+	 * @param nome
+	 */
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	/**

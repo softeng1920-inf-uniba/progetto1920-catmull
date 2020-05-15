@@ -1,12 +1,12 @@
 package scacchiera;
 
 import gioco.Colore;
-import pedine.Alfiere;
-import pedine.Cavallo;
-import pedine.Pedone;
-import pedine.Re;
-import pedine.Regina;
-import pedine.Torre;
+import scacchiera.pedine.Alfiere;
+import scacchiera.pedine.Cavallo;
+import scacchiera.pedine.Pedone;
+import scacchiera.pedine.Re;
+import scacchiera.pedine.Regina;
+import scacchiera.pedine.Torre;
 
 /**
  * La classe scacchiera permette di rappresentare lo stato del gioco,
@@ -21,15 +21,18 @@ public class Scacchiera {
 
 	private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 
-	public Scacchiera() {
-
+	/**
+	 * costruttore statico per la scacchiera
+	 */
+	public static void nuovaScacchiera() {
+		scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 		for (int i = 0; i < getNumeroColonne(); i++) {
 			for (int j = 0; j < getNumeroRighe(); j++) {
 				scacchiera[i][j] = new Cella(i, j, null);
 			}
 		}
+		inizializzaScacchiera();
 	}
-
 	public static final int getNumeroColonne() {
 		return NUMEROCOLONNE;
 	}
@@ -49,7 +52,7 @@ public class Scacchiera {
 		return scacchiera[x][y];
 	}
 
-	public final void setCella(final Cella nuovaCella, final int x, final int y) {
+	public static void setCella(final Cella nuovaCella, final int x, final int y) {
 		scacchiera[x][y] = nuovaCella;
 	}
 
@@ -67,8 +70,7 @@ public class Scacchiera {
 	/**
 	 * metodo che inizializza la scacchiera e la prepara per una nuova partita
 	 */
-	public static void inizializzaScacchiera() {
-
+	private static void inizializzaScacchiera() {
 		// Inizializzazione della torre
 
 		getCella(Cella.coordXinInt('a'), Cella.coordYinInt('1'))
@@ -143,7 +145,7 @@ public class Scacchiera {
 	 * @param x
 	 * @param y
 	 */
-	public final void mangiaPezzo(int x, int y) {
+	public static void mangiaPezzo(int x, int y) {
 		getCella(x, y).rimuoviPezzoCorrente();
 
 	}

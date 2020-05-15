@@ -1,4 +1,4 @@
-package pedine;
+package scacchiera.pedine;
 import gioco.Colore;
 import gioco.Turno;
 import scacchiera.Cella;
