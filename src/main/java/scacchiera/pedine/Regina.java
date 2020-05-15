@@ -5,9 +5,8 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
- * il movimento della Regina è valido.
- * La classe Regina e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento della Regina � valido. La classe Regina e' di tipo noECB
  */
 
 public final class Regina extends Pezzo {

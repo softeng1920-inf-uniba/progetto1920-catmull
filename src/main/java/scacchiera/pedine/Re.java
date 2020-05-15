@@ -10,15 +10,15 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se
- * il movimento del Re è valido.
- * La classe Re e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento del Re � valido. La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
     /** Costruttore */
     public Re(final Colore colore) {
 	super("Re", colore);
+
 	if (colore == Colore.nero) {
 	    setSimbolo('\u265a');
 	} else {

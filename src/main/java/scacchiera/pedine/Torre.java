@@ -1,6 +1,7 @@
 package scacchiera.pedine;
 
 import java.util.ArrayList;
+
 import gioco.Colore;
 import gioco.Comando;
 import gioco.Menu;
@@ -10,7 +11,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Torre è valido. La classe Torre e' di tipo noECB
+ * movimento della Torre � valido. La classe Torre e' di tipo noECB
  */
 public final class Torre extends Pezzo {
 
