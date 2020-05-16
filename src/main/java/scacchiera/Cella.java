@@ -38,15 +38,15 @@ public final class Cella {
 		}
 	}
 
-	/** Modifica la coordinata x */
-	void setX(final int newx) {
-		x = newx;
-	}
-
-	/** Modifica la coordinata y */
-	void setY(final int newy) {
-		y = newy;
-	}
+//	/** Modifica la coordinata x */
+//	void setX(final int newx) {
+//		x = newx;
+//	}
+//
+//	/** Modifica la coordinata y */
+//	void setY(final int newy) {
+//		y = newy;
+//	}
 
 	// --------Metodi di Get--------
 

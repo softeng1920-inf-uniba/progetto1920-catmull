@@ -52,9 +52,9 @@ public class Scacchiera {
 		return scacchiera[x][y];
 	}
 
-	public static void setCella(final Cella nuovaCella, final int x, final int y) {
-		scacchiera[x][y] = nuovaCella;
-	}
+//	public static void setCella(final Cella nuovaCella, final int x, final int y) {
+//		scacchiera[x][y] = nuovaCella;
+//	}
 
 	/**
 	 * contolla che le coordinate in input siano valide
