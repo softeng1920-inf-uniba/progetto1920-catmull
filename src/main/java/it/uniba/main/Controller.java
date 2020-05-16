@@ -45,6 +45,7 @@ public final class Controller {
 	if (istance == null) {
 	    istance = new Controller();
 	}
+
 	return istance;
     }
 

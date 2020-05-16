@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Pedone è valido. La classe Pedone e' di tipo noECB
+ * movimento del Pedone ï¿½ valido. La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 
@@ -86,13 +86,12 @@ public final class Pedone extends Pezzo {
 				String pedoneAvversarioNero = x + "" + y1 + " " + x + "" + y2; // calcolo ultima mossa del pedone da
 				// catturare E.P.
 
-				if ((start.getY() - 1 == end.getY()) && // Se la traversa di partenza + 1 e' uguale a quella di
-				// destinazione
-						(Math.abs(start.getX() - end.getX()) == 1) && // E mi sto spostando in obliquo
-						!end.isOccupato() && // E la cella di dest. non e' occupata
-						mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero) // E l'ultima mossa e' quella prevista
-				// per l'e.p.
-				)
+				// Se la traversa di partenza + 1 e' uguale a quella di
+				// destinazione, e mi sto spostando in obliquo
+				// E la cella di dest. non e' occupata
+				// E l'ultima mossa e' quella prevista per l'e.p.
+				if (start.getY() - 1 == end.getY() && Math.abs(start.getX() - end.getX()) == 1 && !end.isOccupato()
+						&& mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero)) {
 					return true;
 			} else {
 				if (start.getY() + 1 == end.getY() && Math.abs(start.getX() - end.getX()) == 1 && !end.isOccupato()
