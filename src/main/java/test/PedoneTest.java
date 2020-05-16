@@ -264,4 +264,17 @@ class PedoneTest {
 		}
 	}
 	
+//	private boolean isPedone(Cella c) {
+//
+//		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(this.nome);
+//	}
+	
+	@Test
+	void testIsPedone() {
+		Pedone p = (Pedone) Scacchiera.getCella(0, 1).getPezzoCorrente();
+		assertTrue(p.isPedone(Scacchiera.getCella(0, 1)));
+		
+	}
+
+	
 }
