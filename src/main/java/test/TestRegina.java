@@ -114,7 +114,7 @@ class TestRegina {
 		//mangiata con cella di destinazione vuota in alto a destra
 		assertEquals("a0 a0", Regina.convertiMossa("Dxe6"));
 		
-		//
+		//va in una cella occupata dall'avversario senza mangiare
 		assertEquals("a0 a0", Regina.convertiMossa("Df7"));
 		
 
