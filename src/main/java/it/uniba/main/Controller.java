@@ -3,7 +3,6 @@ package it.uniba.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import gioco.Colore;
@@ -31,6 +30,7 @@ public class Controller {
 
 	private Controller() {
 	}
+
 	public static void newController() {
 		Scacchiera.nuovaScacchiera();
 		mosseConvertite = new ArrayList<String>();
@@ -67,7 +67,7 @@ public class Controller {
 					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
 						Stampa.visualizzareCatture();
 					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-						chiudiGioco();
+						break;
 					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 						if (utenteConfermaRiavvioPartita()) {
 							Stampa.stampaNuovaPartita();
@@ -139,8 +139,8 @@ public class Controller {
 							Stampa.stampaMossaIllegale();
 					}
 				} else if (!Menu.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un
-																// comando
-																// di
+															// comando
+															// di
 					// gioco...
 					Stampa.stampaComandoErrato();
 
@@ -151,30 +151,36 @@ public class Controller {
 
 	/**
 	 * Data la cella di partenza e di destinazione del pezzo, effettua i controlli
-	 * necessari se per il pezzo è consentita la mossa.
+	 * necessari se per il pezzo � consentita la mossa.
 	 *
 	 * @param cellaPartenza
 	 * @param cellaDestinazione
 	 * @param mosseEffettuate
 	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
 	 */
-	private static int getTipoMossa(Cella cellaPartenza, Cella cellaDestinazione, ArrayList<String> mosseEffettuate) {
+	private static int getTipoMossa(final Cella cellaPartenza,
+			final Cella cellaDestinazione,
+			final ArrayList<String> mosseEffettuate) {
 
+		int tipoMossa = -1;
 		Pezzo pezzoCorrente = cellaPartenza.getPezzoCorrente();
-		if (pezzoCorrente == null)
+		if (pezzoCorrente == null) {
 			// Se ho inserito una mossa il cui pezzo di partenza non esiste, ritorno mossa
 			// illegale
-			return -1;
+			return tipoMossa;
+		} else if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione)) {
+			if (isReProtetto(cellaPartenza, cellaDestinazione, 0)) {
+				tipoMossa = 0;
 
-		if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione))
-			return 0;
-		else if (pezzoCorrente.getNome().equals("Pedone")) {
+			}
+		} else if (pezzoCorrente.getNome().equals("Pedone")) {
 			Pedone p = (Pedone) pezzoCorrente;
 			// Controllo se l'en Passant e'consentito
-			return (p.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseEffettuate) ? 1 : -1);
+			if (p.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseEffettuate)) {
+				tipoMossa = 1;
+			}
 		}
-
-		return -1;
+		return tipoMossa;
 	}
 
 	/**
@@ -185,20 +191,18 @@ public class Controller {
 	private static boolean utenteConfermaRiavvioPartita() {
 
 		String comando = "";
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Stampa.stampaConfermaNuovaPartita();
 		while (true) {
 			try {
 				comando = br.readLine();
-				if (comando != null) {
-					switch (comando) {
-					case "y":
-						return true;
-					case "n":
-						return false;
-					default:
-						Stampa.stampaComandoErrato();
-					}
+				switch (comando) {
+				case "y":
+					return true;
+				case "n":
+					return false;
+				default:
+					Stampa.stampaComandoErrato();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -214,8 +218,7 @@ public class Controller {
 	 * @return String comando in colonna e traversa di partenza seguite da uno
 	 *         spazio, ed infine colonna e traversa di destinazione
 	 */
-	private static final String convertiNotazioneRidottaInEstesa(String mossa) {
-
+	private static String convertiNotazioneRidottaInEstesa(final String mossa) {
 		switch (mossa.charAt(0)) {
 		case 'T': // Torre
 			return Torre.convertiMossa(mossa);
@@ -231,30 +234,29 @@ public class Controller {
 			// pedone
 			return Pedone.convertiMossa(mossa);
 		}
+
 	}
 
 	/**
 	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
-	 * (la traversa è minore di 1 ecc.)
+	 * (la traversa e' minore di 1 ecc.)
 	 *
 	 * @param comando Stringa nel formato : colonna e traversa di partenza seguite
 	 *                da uno spazio, ed infine colonna e traversa di destinazione
 	 * @return false se la mossa inserita non e' valida, va oltre i limiti della
 	 *         scacchiera, true altrimenti
 	 */
-	public static boolean isMossaInRangeValido(String comando) {
-		if (!isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando), Cella.endY(comando)))
-			return false;
-
-		return true;
+	public static boolean isMossaInRangeValido(final String comando) {
+		return isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando),
+				Cella.endY(comando)); // TODO: ricontrollare se logica � corretta
 	}
 
 	/**
-	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita è
-	 * valida, se è consentita ecc.), viene effettuato in base alla tipologia della
+	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita �
+	 * valida, se � consentita ecc.), viene effettuato in base alla tipologia della
 	 * mossa, il necessario per proseguire con il corretto funzionamento del gioco.
 	 *
-	 * L'applicazione della mossa non è univoca per ogni comando inserito (vedi
+	 * L'applicazione della mossa non � univoca per ogni comando inserito (vedi
 	 * e.p.)
 	 *
 	 * @param cellaPartenza
@@ -263,12 +265,12 @@ public class Controller {
 	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
 	 *                          del pedone
 	 */
-	private static final void applicaMossa(Cella cellaPartenza, Cella cellaDestinazione, int tipoMossa) {
+	private static void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
+
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		switch (tipoMossa) {
-
 		case 0:
 			if (cellaDestinazione.isOccupato()) {
 				giocatoreAttivo.addPezziCatturati(pezzoInCellaDestinazione);
@@ -282,9 +284,7 @@ public class Controller {
 			break;
 		default:
 		}
-
 		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
-
 	}
 
 	/**
@@ -298,21 +298,13 @@ public class Controller {
 	 * @param endY   intero compreso fra 0 e 7
 	 * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
 	 */
-	private static boolean isCoordinateValide(int startX, int startY, int endX, int endY) {
+	private static boolean isCoordinateValide(final int startX, final int startY, final int endX, final int endY) {
 		return Scacchiera.isRangeValido(startX, startY) && Scacchiera.isRangeValido(endX, endY);
 	}
 
 	/**
-	 * <<<<<<< Updated upstream ======= Lascia il controllo al sistema operativo
-	 *
-	 */
-	public static void chiudiGioco() {
-		System.exit(0);
-	}
-
-	/**
-	 * >>>>>>> Stashed changes Restituisce la lista delle mosse convertite in
-	 * notazione comprensibile da applicaMossa.
+	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
+	 * applicaMossa.
 	 *
 	 * @return mosseConverite
 	 */
@@ -323,13 +315,13 @@ public class Controller {
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
 	 */
-	public static void addMosseConvertite(String mossa) {
+	public static void addMosseConvertite(final String mossa) {
 		mosseConvertite.add(mossa);
 	}
 
 	/**
 	 * Data la mossa del re e quella della torre, vengono effettuati tutti i
-	 * controlli che validano se la mossa è consentita o meno.
+	 * controlli che validano se la mossa e' consentita o meno.
 	 *
 	 * @param mossaRe
 	 * @param mossaTorre
@@ -343,7 +335,7 @@ public class Controller {
 	 *         attraversare ne' quella di arrivo devono essere minacciate da un
 	 *         pezzo avversario.
 	 */
-	public static boolean isArroccoValido(String mossaRe, String mossaTorre, int tipoArrocco) {
+	public static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
 
 		Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
 		Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
@@ -360,10 +352,10 @@ public class Controller {
 		// giocatore
 		// in turno..
 		if (cellaPartenzaRe.isOccupato() && presuntoReGiocatoreAttuale.getNome() == "Re"
-				&& presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo &&
+				&& presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo
 				// e nella cella della presunta torre c'è la torre del colore del giocatore in
 				// turno..
-				cellaPartenzaTorre.isOccupato() && presuntaTorreGiocatoreAttuale.getNome() == "Torre"
+				&& cellaPartenzaTorre.isOccupato() && presuntaTorreGiocatoreAttuale.getNome() == "Torre"
 				&& presuntaTorreGiocatoreAttuale.getColore() == coloreGiocatoreAttivo) {
 			Re re = (Re) presuntoReGiocatoreAttuale;
 
@@ -373,6 +365,39 @@ public class Controller {
 
 		return false;
 
+	}
+
+	/**
+	 * TODO: Aggiungere javadoc!
+	 *
+	 * @param partenza
+	 * @param destinazione
+	 * @param tipo         //TODO tipomossa??
+	 * @return
+	 */
+	public static boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipo) {
+		Cella cellaRe = Re.findRe();
+		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
+		boolean isReProtetto = false;
+
+		if (partenza.getPezzoCorrente().getNome().equals("Re")) {
+			return true; // Il re è protetto
+		}
+
+		applicaMossa(partenza, destinazione, tipo);
+		if (!reDaProteggere.isReSottoScacco(cellaRe)) {
+			isReProtetto = true;
+		}
+
+		applicaMossa(destinazione, partenza, tipo);
+
+		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
+		if (temp.isOccupato()) {
+			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+			Turno.getGiocatoreInTurno().removePezzoCatturato();
+		}
+
+		return isReProtetto;
 	}
 
 }

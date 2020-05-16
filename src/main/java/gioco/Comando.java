@@ -2,64 +2,71 @@ package gioco;
 
 /**
  * La classe Comando definisce la struttura dei comandi mostrati nel menu del
- * gioco attraverso gli attributi nome e descrizione.
- * La classe Comando e' di tipo ENTITY.
+ * gioco attraverso gli attributi nome e descrizione. La classe Comando e' di
+ * tipo ENTITY.
  */
 
 public class Comando {
 
-	private String nome;
-	private String descrizione;
+	// NE sta per notazione estesa
+    public static final int COLONNA_PARTENZA_MOSSA_NE = 0;
+    public static final int TRAVERSA_PARTENZA_MOSSA_NE = 1;
 
-	/**
-	 * Metodo Costruttore
-	 *
-	 * @param nome
-	 * @param descrizione
-	 */
-	Comando(String nome, String descrizione) {
-		setNome(nome);
-		setDescrizione(descrizione);
-	}
+    public static final int COLONNA_DESTINAZIONE_MOSSA_NE = 3;
+    public static final int TRAVERSA_DESTINAZIONE_MOSSA_NE = 4;
 
-	/**
-	 * Metodo che permette di modificare il nome del comando
-	 *
-	 * @param nome
-	 */
-	void setNome(String nome) {
-		this.nome = nome;
-	}
+    private String nome;
+    private String descrizione;
 
-	/**
-	 * Metodo che permette di modificare la descrizione del comando
-	 *
-	 * @param descrizione
-	 */
-	void setDescrizione(final String descrizione) {
-		this.descrizione = descrizione;
-	}
+    /**
+     * Metodo Costruttore
+     *
+     * @param n
+     * @param desc
+     */
+    Comando(final String n, final String desc) {
+	setNome(n);
+	setDescrizione(desc);
+    }
 
-	/**
-	 * @return nome del comando
-	 */
-	public String getNome() {
-		return nome;
-	}
+    /**
+     * Metodo che permette di modificare il nome del comando
+     *
+     * @param n
+     */
+    void setNome(final String n) {
+	this.nome = n;
+    }
 
-	/**
-	 * @return descrizione del comando
-	 */
-	public String getDescrizione() {
-		return descrizione;
-	}
+    /**
+     * Metodo che permette di modificare la descrizione del comando
+     *
+     * @param d
+     */
+    void setDescrizione(final String d) {
+	this.descrizione = d;
+    }
 
-	/**
-	 * Metodo che permette di visualizzare i comandi
-	 */
-	@Override
-	public String toString() {
-		return String.format("\u2022 " + "\033[1;37m" + nome + "\u001B[0m" + " -->    " + descrizione);
-	}
+    /**
+     * @return nome del comando
+     */
+    public String getNome() {
+	return nome;
+    }
+
+    /**
+     * @return descrizione del comando
+     */
+    public String getDescrizione() {
+	return descrizione;
+    }
+
+    /**
+     * Metodo che permette di visualizzare i comandi
+     */
+    @Override
+    public String toString() {
+	return String.format("\u2022 " + "\033[1;37m" + nome + "\u001B[0m" + " -->    " + descrizione);
+    }
 
 }

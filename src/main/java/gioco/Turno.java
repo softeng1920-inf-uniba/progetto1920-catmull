@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 
 public class Turno {
-	private static Giocatore giocatoreInTurno;
-	private static Giocatore giocatoreInAttesa;
+	private static Giocatore giocatoreInTurno = new Giocatore(Colore.bianco);
+	private static Giocatore giocatoreInAttesa = new Giocatore(Colore.nero);;
 
 	private Turno() {
 	}
@@ -19,8 +19,7 @@ public class Turno {
 	 * costruttore statico per Turno
 	 */
 	public static void newTurno() {
-		giocatoreInTurno = new Giocatore(Colore.bianco);
-		giocatoreInAttesa = new Giocatore(Colore.nero);
+		new Turno();
 	}
 
 	/**

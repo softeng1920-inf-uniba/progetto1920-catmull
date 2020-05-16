@@ -1,12 +1,12 @@
 package gioco;
 
-/*
+/**
  * La classe Menu implementa i menu: il menu principale che compare all'inizio
  * del gioco e il menu che compare durante la partita. La classe contiene le
  * informazioni riguardo ai comandi: help, moves, quit, board, captures e play.
  * La classe Menu e' di tipo Entity.
  */
-public class Menu {
+public final class Menu {
 
 	private static Comando help;
 	private static Comando moves;
@@ -20,6 +20,7 @@ public class Menu {
 
 	private Menu() {
 	}
+
 	/**
 	 * costruttore statico per il Menu'
 	 */
@@ -93,13 +94,13 @@ public class Menu {
 	 * @param mossa in notazione algebrica
 	 * @return int 1 => Arrocco corto | 2 => Arrocco lungo | -1 => Non è un arrocco
 	 */
-	public static int isArrocco(String mossa) {
+	public static int isArrocco(final String mossa) {
 
-		if (mossa.matches("(0|o|O)-(0|o|O)"))
+		if (mossa.matches("(0|o|O)-(0|o|O)")) {
 			return ARROCCO_CORTO;
-		else if (mossa.matches("(0|o|O)-(0|o|O)-(0|o|O)"))
+		} else if (mossa.matches("(0|o|O)-(0|o|O)-(0|o|O)")) {
 			return ARROCCO_LUNGO;
-
+		}
 		return -1;
 
 	}
@@ -143,5 +144,4 @@ public class Menu {
 
 		return mossa.matches(regex);
 	}
-
 }
