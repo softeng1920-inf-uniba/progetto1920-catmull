@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Pedone è valido. La classe Pedone e' di tipo noECB
+ * movimento del Pedone ï¿½ valido. La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 

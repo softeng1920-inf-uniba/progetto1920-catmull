@@ -7,7 +7,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento dell'Alfiere è valido. La classe Alfiere e' di tipo noECB.
+ * movimento dell'Alfiere e' valido. La classe Alfiere e' di tipo noECB.
  */
 public final class Alfiere extends Pezzo {
 
