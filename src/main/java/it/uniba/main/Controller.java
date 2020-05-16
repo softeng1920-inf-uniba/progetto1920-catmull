@@ -74,11 +74,13 @@ public class Controller {
 							utenteVuoleRicominciare = true;
 							Scacchiera.nuovaScacchiera(); // Svuoto la scacchiera
 							break;
-						} else
+						} else {
 							continue; // Faccio ripartire il loop interno
+						}
 					}
-				} else
+				} else {
 					break;
+				}
 
 				if (Menu.isNotazioneAlgebrica(comando)) {
 
@@ -112,8 +114,9 @@ public class Controller {
 							Turno.getGiocatoreInTurno().setMosseGiocate(comando);
 							Turno.cambioTurno();
 
-						} else
+						} else {
 							Stampa.stampaMossaIllegale();
+						}
 					} else { // La mossa inserita è un'avanzata, una cattura o un en passant
 						String mossaInCoordinate = convertiNotazioneRidottaInEstesa(comando);
 
@@ -132,17 +135,20 @@ public class Controller {
 								Turno.getGiocatoreInTurno().setMosseGiocate(comando);
 								Turno.cambioTurno();
 
-							} else
+							} else {
 								Stampa.stampaMossaIllegale();
+							}
 
-						} else
+						} else {
 							Stampa.stampaMossaIllegale();
+						}
 					}
-				} else if (!Menu.isComandoValido(comando)) // Se il comando inserito non è una mossa, nè un
+				} else if (!Menu.isComandoValido(comando)) {// Se il comando inserito non è una mossa, nè un
 															// comando
 															// di
 					// gioco...
 					Stampa.stampaComandoErrato();
+				}
 
 			} // Fine loop di gioco
 

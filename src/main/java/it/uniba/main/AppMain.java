@@ -45,21 +45,22 @@ public final class AppMain {
 		while (!play) {
 			String nomeMenu = br.readLine();
 			if (nomeMenu != null) {
-				if (nomeMenu.equalsIgnoreCase(Menu.help().getNome()))
+				if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {
 					Stampa.mostrareElencoComandiMenu();
-				else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome()))
+				} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {
 					Stampa.stampaScacchiera();
-				else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome()))
+				} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
 					break;
-				else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
+				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
 					Stampa.stampaNuovaPartita();
 					Controller.playGame();
 					play = true;
-				} else
+				} else {
 					Stampa.stampaComandoErrato();
-			} else
+				}
+			} else {
 				break;
-
+			}
 		}
 	}
 }

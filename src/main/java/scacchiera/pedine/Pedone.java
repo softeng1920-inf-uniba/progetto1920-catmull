@@ -18,10 +18,11 @@ public final class Pedone extends Pezzo {
 	 */
 	public Pedone(final Colore colore) {
 		super("Pedone", colore);
-		if (colore == Colore.nero)
+		if (colore == Colore.nero) {
 			simbolo = '\u265f';
-		else
+		} else {
 			simbolo = '\u2659';
+		}
 	}
 
 	/**
@@ -103,9 +104,7 @@ public final class Pedone extends Pezzo {
 				// E la cella di dest. non e' occupata
 				// E l'ultima mossa e' quella prevista per l'e.p.
 				if (start.getY() - 1 == end.getY() && Math.abs(start.getX() - end.getX()) == 1 && !end.isOccupato()
-						&& mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero)
-
-				) {
+						&& mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero)) {
 					return true;
 				}
 			} else { // Pedone di colore nero

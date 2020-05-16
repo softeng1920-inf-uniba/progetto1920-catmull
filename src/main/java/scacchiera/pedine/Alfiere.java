@@ -13,10 +13,11 @@ public final class Alfiere extends Pezzo {
 
 	public Alfiere(final Colore colore) {
 		super("Alfiere", colore);
-		if (colore == Colore.nero)
+		if (colore == Colore.nero) {
 			simbolo = '\u265d';
-		else
+		} else {
 			simbolo = '\u2657';
+		}
 	}
 
 	@Override
