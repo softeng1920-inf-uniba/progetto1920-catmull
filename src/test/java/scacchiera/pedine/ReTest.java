@@ -1,4 +1,4 @@
-package test;
+package scacchiera.pedine;
 
 import static org.junit.jupiter.api.Assertions.*;
 

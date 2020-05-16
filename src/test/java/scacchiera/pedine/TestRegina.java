@@ -1,4 +1,4 @@
-package test;
+package scacchiera.pedine;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,9 +8,7 @@ import org.junit.jupiter.api.Test;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
-import scacchiera.pedine.Regina;
-import scacchiera.pedine.Alfiere;
-import scacchiera.pedine.Pezzo;
+
 
 class TestRegina {
 
@@ -115,9 +113,8 @@ class TestRegina {
 		assertEquals("a0 a0", Regina.convertiMossa("Dxe6"));
 		
 		//va in una cella occupata dall'avversario senza mangiare
-		assertEquals("a0 a0", Regina.convertiMossa("Df7"));
-		
-
+		assertEquals("a0 a0", Regina.convertiMossa("Df7"));		
 		
 	}
+	
 }

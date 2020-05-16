@@ -1,11 +1,9 @@
-package test;
+package scacchiera.pedine;
 
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
-import scacchiera.pedine.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

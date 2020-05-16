@@ -1,13 +1,9 @@
-package test;
-import scacchiera.*;
-import scacchiera.pedine.*;
- 
+package scacchiera.pedine;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import gioco.*;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -179,7 +175,7 @@ class CavalloTest {
         assertNotEquals("d5 f6", Cavallo.convertiMossa("Cdxf6"));
     }
 
- 
+   
 
 }
  
