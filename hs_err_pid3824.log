@@ -193,6 +193,7 @@ Event: 0.855 Thread 0x00007f987400c800 Uncommon trap: reason=unstable_if action=
 Event: 0.994 Thread 0x00007f987400c800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000116c413a0 method=java.lang.CharacterData.of(I)Ljava/lang/CharacterData; @ 4
 
 Classes redefined (10 events):
+<<<<<<< HEAD
 Event: 907.060 Thread 0x00007f9874043000 redefined class name=scacchiera.pedine.PedoneTest, count=5
 Event: 1006.360 Thread 0x00007f9874043000 redefined class name=scacchiera.pedine.PedoneTest, count=6
 Event: 1092.693 Thread 0x00007f9874043000 redefined class name=scacchiera.pedine.PedoneTest, count=7
@@ -203,6 +204,18 @@ Event: 1295.743 Thread 0x00007f9874043000 redefined class name=scacchiera.pedine
 Event: 1520.177 Thread 0x00007f9874043000 redefined class name=scacchiera.pedine.PedoneTest, count=12
 Event: 1863.206 Thread 0x00007f9874043000 redefined class name=scacchiera.pedine.PedoneTest, count=13
 Event: 1985.954 Thread 0x00007f9874043000 redefined class name=scacchiera.pedine.PedoneTest, count=14
+=======
+Event: 907.060 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=5
+Event: 1006.360 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=6
+Event: 1092.693 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=7
+Event: 1133.700 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=8
+Event: 1196.894 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=9
+Event: 1230.972 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=10
+Event: 1295.743 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=11
+Event: 1520.177 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=12
+Event: 1863.206 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=13
+Event: 1985.954 Thread 0x00007f9874043000 redefined class name=test.PedoneTest, count=14
+>>>>>>> Creazione test automatici per Cavallo e Pedone
 
 Internal exceptions (10 events):
 Event: 0.834 Thread 0x00007f987400c800 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x000000076d244d80) thrown at [/jenkins/workspace/8-2-build-macosx-x86_64/jdk8u251/737/hotspot/src/share/vm/interpreter/linkResolver.cpp, lin

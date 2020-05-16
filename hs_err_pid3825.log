@@ -123,6 +123,7 @@ Event: 0.997 Thread 0x00007fac05808800 Uncommon trap: reason=unstable_if action=
 Event: 1.151 Thread 0x00007fac05808800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000011a520e20 method=java.lang.CharacterData.of(I)Ljava/lang/CharacterData; @ 4
 
 Classes redefined (8 events):
+<<<<<<< HEAD
 Event: 12.448 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=1
 Event: 601.126 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=2
 Event: 876.983 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=3
@@ -131,6 +132,16 @@ Event: 906.081 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.
 Event: 1005.377 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=6
 Event: 1091.712 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=7
 Event: 1132.718 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=8
+=======
+Event: 12.448 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=1
+Event: 601.126 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=2
+Event: 876.983 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=3
+Event: 889.258 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=4
+Event: 906.081 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=5
+Event: 1005.377 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=6
+Event: 1091.712 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=7
+Event: 1132.718 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=8
+>>>>>>> Creazione test automatici per Cavallo e Pedone
 
 Internal exceptions (10 events):
 Event: 0.953 Thread 0x00007fac05808800 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x000000076d2450f8) thrown at [/jenkins/workspace/8-2-build-macosx-x86_64/jdk8u251/737/hotspot/src/share/vm/interpreter/linkResolver.cpp, lin
