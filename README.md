@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # scacchi ![CI/CD](https://github.com/softeng1920-inf-uniba/progetto1920-catmull/workflows/CI/CD/badge.svg)  [![Coverage Status](https://coveralls.io/repos/github/softeng1920-inf-uniba/docker_1920/badge.svg?branch=master)](https://coveralls.io/github/softeng1920-inf-uniba/docker_1920?branch=master)
 =======
 # scacchi ![CI/CD](https://github.com/softeng1920-inf-uniba/progetto1920-catmull/workflows/CI/CD/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/softeng1920-inf-uniba/docker_1920/badge.svg?branch=master)](https://coveralls.io/github/softeng1920-inf-uniba/docker_1920?branch=master)
+>>>>>>> Update README.md
+=======
+# scacchi ![CI/CD](https://github.com/softeng1920-inf-uniba/progetto1920-catmull/workflows/CI/CD/badge.svg)  [![Coverage Status](https://coveralls.io/repos/github/softeng1920-inf-uniba/docker_1920/badge.svg?branch=master)](https://coveralls.io/github/softeng1920-inf-uniba/docker_1920?branch=master)
 >>>>>>> Update README.md
 
 La struttura della repository si presenta nel seguente modo:
