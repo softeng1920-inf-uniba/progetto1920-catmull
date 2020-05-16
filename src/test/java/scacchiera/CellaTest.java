@@ -3,7 +3,6 @@ package scacchiera;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-
 import gioco.Colore;
 import scacchiera.pedine.Re;
 class CellaTest {

@@ -42,6 +42,7 @@ public final class Scacchiera {
 	if (istance == null) {
 	    istance = new Scacchiera();
 	}
+	
 	return istance;
     }
 

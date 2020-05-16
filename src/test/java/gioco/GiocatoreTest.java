@@ -45,6 +45,7 @@ class GiocatoreTest {
 	@Test
 	void testGetPezziCatturati() {
 		Scacchiera.newScacchiera();
+
 		g1 = Turno.getGiocatoreInTurno();
 		g1.addPezziCatturati(Scacchiera.getCella(0, 6).getPezzoCorrente());
 		ArrayList<Pezzo> pezziCatturati = new ArrayList<Pezzo>();

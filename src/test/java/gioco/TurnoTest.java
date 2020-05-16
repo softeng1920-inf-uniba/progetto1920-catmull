@@ -27,6 +27,7 @@ class TurnoTest {
 		String nome = "Giocatore 2";
 		Turno.setNomeGiocatoreInAttesa(nome);
 		assertEquals("Giocatore 2", Turno.getGiocatoreInAttesa().getNome());
+
 	}
 
 	@Test
@@ -40,12 +41,9 @@ class TurnoTest {
 	}
 	
 	@Test
-	void testGetArrayStoriaMosseBianco() {
-		Turno.getGiocatoreInTurno().setMosseGiocate("a4");
-		Turno.getGiocatoreInAttesa().setMosseGiocate("b5");
-		mosseGiocate.add("a4");
-		mosseGiocate.add("b5");
-		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
+	void testGetArrayStoriaMosse() {
+		ArrayList<String> mosseGiocate = new ArrayList<String>();
+
 	}
 	
 	@Test
@@ -90,5 +88,4 @@ class TurnoTest {
 		Turno.cambioTurno();
 		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
 	}
-	
 }
