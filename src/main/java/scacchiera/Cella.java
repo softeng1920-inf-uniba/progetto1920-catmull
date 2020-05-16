@@ -35,7 +35,6 @@ public final class Cella {
 	}
 
 	// ---------Metodi di setting---------
-
 	/**
 	 * Modifica la variabile occupato
 	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se �
