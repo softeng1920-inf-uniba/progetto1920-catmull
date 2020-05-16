@@ -7,7 +7,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Cavallo � valido. La classe Cavallo e' di tipo noECB.
+ * movimento del Cavallo e' valido. La classe Cavallo e' di tipo noECB.
  */
 
 public final class Cavallo extends Pezzo {
