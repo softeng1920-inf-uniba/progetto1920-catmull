@@ -31,6 +31,7 @@ public final class Cella {
 		if (pC != null) {
 			this.occupato = true;
 		}
+
 	}
 
 	// ---------Metodi di setting---------
@@ -57,7 +58,6 @@ public final class Cella {
 	}
 
 	// --------Metodi di Get--------
-
 
 	/**
 	 * Restituisce la coordinata X per la cella corrente
@@ -207,6 +207,7 @@ public final class Cella {
     public static int endY(final String m) {
 		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_DESTINAZIONE_MOSSA_NE));
     }
+
 
 
 
