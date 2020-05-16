@@ -207,5 +207,6 @@ public final class Cella {
 		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_DESTINAZIONE_MOSSA_NE));
     }
 
+
 }
 
