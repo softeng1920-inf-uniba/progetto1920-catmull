@@ -47,7 +47,7 @@ public final class Cavallo extends Pezzo {
 	 * @return
 	 */
 	public static String convertiMossa(String mossa) {
-		int startX = -1;
+ 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
 		int endY = -1;
