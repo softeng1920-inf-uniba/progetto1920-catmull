@@ -62,8 +62,14 @@ public final class Pedone extends Pezzo {
 		return false;
 	}
 
+<<<<<<< HEAD
 	boolean isPedone(final Cella c) {
 		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(getNome());
+=======
+	public boolean isPedone(Cella c) {
+
+		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(this.nome);
+>>>>>>> Aggiunta implementazione testAlfiere #97
 	}
 
 	public boolean isEnPassantValido(Cella start, Cella end, ArrayList<String> mosse) {
