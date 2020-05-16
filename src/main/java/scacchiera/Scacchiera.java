@@ -65,22 +65,6 @@ public class Scacchiera {
 		return scacchiera[x][y];
 	}
 
-<<<<<<< HEAD
-	/**
-	 * Imposta il riferimento di una nuova cella in una posizione (x, y)
-	 *
-	 * @param nuovaCella Riferimento di tipo Cella della scacchiera da impostare
-	 * @param x          coordinata delle colonne (valore compreso fra 0 e 7)
-	 * @param y          coordinata delle righe (valore compreso fra 0 e 7)
-	 */
-	public final void setCella(final Cella nuovaCella, final int x, final int y) {
-		scacchiera[x][y] = nuovaCella;
-	}
-=======
-//	public static void setCella(final Cella nuovaCella, final int x, final int y) {
-//		scacchiera[x][y] = nuovaCella;
-//	}
->>>>>>> Aggiunta implementazione TestCella #92
 
 	/**
 	 * Controlla che le coordinate in input siano valide per la scacchiera, ovvero
