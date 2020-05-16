@@ -70,6 +70,7 @@ public final class Scacchiera {
 		return scacchiera[x][y];
 	}
 
+
 	/**
 	 * Controlla che le coordinate in input siano valide per la scacchiera, ovvero
 	 * non vadano oltre i limiti.
