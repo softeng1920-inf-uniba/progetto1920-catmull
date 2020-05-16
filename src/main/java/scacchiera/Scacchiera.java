@@ -142,8 +142,8 @@ public final class Scacchiera {
 	    getCella(i, Cella.coordYinInt('7')).setPezzoCorrente(new Pedone(Colore.nero));
 	    getCella(i, Cella.coordYinInt('2')).setPezzoCorrente(new Pedone(Colore.bianco));
 	}
-
     }
+
 
     private void svuotaScacchiera() {
 	for (int i = 0; i < getNumeroColonne(); i++) {
