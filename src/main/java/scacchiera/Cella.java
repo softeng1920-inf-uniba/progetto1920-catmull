@@ -225,4 +225,5 @@ public final class Cella {
 	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_DESTINAZIONE_MOSSA_NE));
     }
 
+
 }
