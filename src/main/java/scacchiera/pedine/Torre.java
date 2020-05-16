@@ -50,6 +50,7 @@ public final class Torre extends Pezzo {
 	    ambiguita = mossa.charAt(1);
 	} else {
 	    ambiguita = ' ';
+
 	}
 	if (mossa.matches(regex)) {
 	    // Controlla eventuale Cattura
@@ -188,7 +189,6 @@ public final class Torre extends Pezzo {
 	}
 
 	return possibiliPosizioni;
-
     }
 
     @Override

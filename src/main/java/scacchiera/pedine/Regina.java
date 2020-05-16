@@ -77,8 +77,9 @@ public final class Regina extends Pezzo {
 				&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) {
 			j = start.getY() + 1;
 			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
-				if (Scacchiera.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato()) {
 					return false;
+				}
 				j++;
 	    }
 	} else if (deltaX == deltaY && deltaX < 0) {
@@ -103,14 +104,16 @@ public final class Regina extends Pezzo {
 				&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) {
 			j = start.getY() - 1;
 			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
-				if (Scacchiera.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato()) {
 					return false;
+				}
 				j--;
 			}
-		} else
+		} else {
 			return false;
+		}
 		// controllo se puo' mangiare pezzo
-		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
+		if (end.isOccupato() && end.getPezzoCorrente().getColore() == getColore()) {
 			return false;
 		}
 		return true;
@@ -161,10 +164,13 @@ public final class Regina extends Pezzo {
 		}
 		// mossa di cattura
 		if (mossa.matches("D(x|:)[a-h][1-8]")) {
-			endX = Cella.coordXinInt(mossa.charAt(2));
-			endY = Cella.coordYinInt(mossa.charAt(3));
-			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")
+			final int colonnaDestinazioneCattura = 2;
+			final int traversaDestinazioneCattura = 3;
+			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
+			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
+			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
 				return mossaConvertita;
+			}
 		}
 		// ricerca la regina del giocatore in turno
 		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
@@ -176,12 +182,14 @@ public final class Regina extends Pezzo {
 					break;
 				}
 			}
-			if (startX != -1)
+			if (startX != -1) {
 				break;
+			}
 		}
 		// solo se ha trovato la regina ha senso convertire la mossa
 		if (startX != -1 && startY != -1) {
-			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
+					+ Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}
 		return mossaConvertita;
 	}

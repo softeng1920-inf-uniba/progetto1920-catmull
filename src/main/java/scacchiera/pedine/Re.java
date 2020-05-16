@@ -24,7 +24,6 @@ public final class Re extends Pezzo {
 	} else {
 	    setSimbolo('\u2654');
 	}
-    }
 
     @Override
     public boolean isMossaValida(final Cella start, final Cella end) {
@@ -108,6 +107,7 @@ public final class Re extends Pezzo {
 			    || Scacchiera.getInstance().getNomePezzo(i, sY) != "Vuota") {
 			return false;
 		    }
+
 		}
 		return true;
 	    }
@@ -169,6 +169,7 @@ public final class Re extends Pezzo {
 		return mossaConvertita;
 	    }
 	}
+	
 	// mossa di cattura
 	if (mossa.matches("R(x|:)[a-h][1-8]")) {
 	    final int colonnaDestinazioneCattura = 2;
@@ -198,8 +199,6 @@ public final class Re extends Pezzo {
 	    mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
 		    + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 	}
-	return mossaConvertita;
-    }
 
     /**
      * Controlla se il re è sotto scacco
@@ -244,8 +243,6 @@ public final class Re extends Pezzo {
 		}
 	    }
 	}
-	return false;
-    }
 
     /**
      * Cerca il Re nella scacchiera dello stesso colore del giocatore in turno.

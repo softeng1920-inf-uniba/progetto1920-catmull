@@ -13,7 +13,7 @@ import scacchiera.Scacchiera;
  */
 public final class Pedone extends Pezzo {
 	
-}
+
     /**
      * Costruttore
      */
@@ -106,7 +106,6 @@ public final class Pedone extends Pezzo {
      * @param mosse Array di tutte le mosse effettuate, necessario per controllare
      *              l'ultima mossa effettuata e' un avanzata di due case
      * @return true se la cattura e' effettuabile in en passant, false altrimenti
-     *         40a92aa4f2c91103082888ba35a4cd697f676f07:src/main/java/pedine/Pedone.java
      */
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
 	Cella cellaPedone;
