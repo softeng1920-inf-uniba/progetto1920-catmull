@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * le informazioni riguardo al turno del giocatore. La classe Turno e' di tipo
  * ENTITY
  */
-
 public final class Turno {
 	private static Giocatore giocatoreInTurno;
 	private static Giocatore giocatoreInAttesa;

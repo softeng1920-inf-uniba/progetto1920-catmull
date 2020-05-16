@@ -23,18 +23,19 @@ public final class Torre extends Pezzo {
 		if (colore == Colore.nero) {
 			simbolo = '\u265c';
 		} else {
-			simbolo = '\u2656';
+			setSimbolo('\u2656');
+
 		}
 	}
 
 	/**
-	 * Data una stringa: mossa in notazione algebrica ridotta, la converte in
-	 * notazione estesa.
+	 * Converte la stringa in input in stringa leggibile dalla funzione
+	 * applicaMossa. Ad esempio: Ta4 ==> a1 a4
 	 *
-	 * @param mossa
-	 * @return String
+	 * @param mossa Stringa rappresentante la mossa in notazione algebrica
+	 * @return mossa Stringa rappresentante la mossa in notazione estesa
 	 */
-	public static String convertiMossa(String mossa) {
+	public static String convertiMossa(final String mossa) {
 
 		String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 		char destX = mossa.charAt(mossa.length() - 2);
@@ -49,61 +50,72 @@ public final class Torre extends Pezzo {
 		char ambiguita = mossa.charAt(1);
 
 		if (mossa.matches(regex)) {
-			isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
+			final int posizioneCarattereCattura = 3;
 
 			// Controlla eventuale Cattura
-			isMossaCattura = (mossa.charAt(mossa.length() - 3) == 'x' || mossa.charAt(mossa.length() - 3) == ':');
+			isMossaCattura = (mossa.charAt(mossa.length() - posizioneCarattereCattura) == 'x'
+					|| mossa.charAt(mossa.length() - posizioneCarattereCattura) == ':');
 
 			possibiliPosizioniColonna = new ArrayList<String>(checkPosTorreColonna(eX, colorepedineGiocatoreCorrente));
 			possibiliPosizioniRiga = new ArrayList<String>(checkPosTorreRiga(eY, colorepedineGiocatoreCorrente));
 
 			posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
 			posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
-
-			if (!posColonna.equals(mossaNonValida) && !posRiga.equals(mossaNonValida) && mossa.length() > 3
+			
+			if (!posColonna.equals(MOSSA_NON_VALIDA) && !posRiga.equals(MOSSA_NON_VALIDA)
+					&& mossa.length() > posizioneCarattereCattura
 					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
 
 				if (Character.isDigit(ambiguita)) {
-					if (posRiga.charAt(1) == ambiguita)
+					if (posRiga.charAt(1) == ambiguita) {
 						return posRiga;
-					else if (posColonna.charAt(1) == ambiguita)
+					} else if (posColonna.charAt(1) == ambiguita) {
 						return posColonna;
-				} else if (posRiga.charAt(0) == ambiguita)
+					}
+				} else if (posRiga.charAt(0) == ambiguita) {
 					return posRiga;
-				else if (posColonna.charAt(0) == ambiguita)
+				} else if (posColonna.charAt(0) == ambiguita) {
 					return posColonna;
-
-			} else if (posColonna.equals(mossaNonValida) && posRiga.equals(mossaNonValida) && mossa.length() > 3
+				}
+			} else if (posColonna.equals(MOSSA_NON_VALIDA) && posRiga.equals(MOSSA_NON_VALIDA)
+					&& mossa.length() > posizioneCarattereCattura
 					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
 				if (Character.isDigit(ambiguita)) {
-					if (isMossaValida(eX, Cella.coordYinInt(ambiguita), eX, eY, colorepedineGiocatoreCorrente))
+					if (isMossaValida(eX, Cella.coordYinInt(ambiguita), eX, eY, colorepedineGiocatoreCorrente)) {
 						return destX + "" + ambiguita + " " + destX + "" + destY;
+					}
 
-				} else if (isMossaValida(Cella.coordXinInt(ambiguita), eY, eX, eY, colorepedineGiocatoreCorrente))
+				} else if (isMossaValida(Cella.coordXinInt(ambiguita), eY, eX, eY, colorepedineGiocatoreCorrente)) {
 					return ambiguita + "" + destY + " " + destX + "" + destY;
+				}
 
-			} else if (!posColonna.equals(mossaNonValida))
-				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+			} else if (!posColonna.equals(MOSSA_NON_VALIDA)) {
+				if (mossa.length() > posizioneCarattereCattura
+						&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
 					if (posColonna.charAt(1) == ambiguita || posColonna.charAt(0) == ambiguita) {
 						return posColonna;
 					}
-				} else
+				} else {
 					return posColonna;
-			else if (!posRiga.equals(mossaNonValida))
-				if (mossa.length() > 3 && ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+				}
+			} else if (!posRiga.equals(MOSSA_NON_VALIDA)) {
+				if (mossa.length() > posizioneCarattereCattura
+						&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
 					if (posRiga.charAt(1) == ambiguita || posRiga.charAt(0) == ambiguita) {
 						return posRiga;
 					}
-				} else
+				} else {
 					return posRiga;
 
+				}
+			}
 		}
-		return mossaNonValida;
+		return MOSSA_NON_VALIDA;
 
 	}
 
-	private static String posizioneValidaColonna(ArrayList<String> possibiliPosizioniColonna, int eX, int eY,
-			Colore colorepedineGiocatoreCorrente) {
+	private static String posizioneValidaColonna(final ArrayList<String> possibiliPosizioniColonna, final int eX,
+			final int eY, final Colore colorepedineGiocatoreCorrente) {
 		String posColonna = "";
 		String temp;
 		int sX = 0;
@@ -122,18 +134,19 @@ public final class Torre extends Pezzo {
 			}
 			i++;
 		}
-		if (count == 1)
-			return posColonna;
 
+		if (count == 1) {
+			return posColonna;
+		}
 		// Ritorna mossa non valida se nel vettore possibiliPosizioniColonna sono
 		// presenti due possibili posizioni
 		// di partenza della torre valide pertanto siamo nel caso di ambiguita
-		return mossaNonValida;
+		return MOSSA_NON_VALIDA;
 
 	}
 
-	private static String posizioneValidaRiga(ArrayList<String> possibiliPosizioniRiga, int eX, int eY,
-			Colore colorepedineGiocatoreCorrente) {
+	private static String posizioneValidaRiga(final ArrayList<String> possibiliPosizioniRiga, final int eX,
+			final int eY, final Colore colorepedineGiocatoreCorrente) {
 
 		String posRiga = "";
 		String temp;
@@ -152,28 +165,17 @@ public final class Torre extends Pezzo {
 			}
 			i++;
 		}
-		if (count == 1)
+		if (count == 1) {
 			return posRiga;
+		}
 
 		// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presenti
 		// due possibili posizioni
 		// di partenza della torre valide pertanto siamo nel caso di ambiguita
-		return mossaNonValida;
+		return MOSSA_NON_VALIDA;
 	}
 
-	/**
-	 * Metodo che cerca le possibili posizioni della torre di colore di valore
-	 * colorepedineGiocatoreCorrente nella scacchiera in colonna esima y e riga x.
-	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
-	 * occupate dalla torre nella scacchiera.
-	 *
-	 *
-	 *
-	 * @param y
-	 * @param colorepedineGiocatoreCorrente
-	 * @return ArrayList<String>
-	 */
-	private static ArrayList<String> checkPosTorreRiga(int y, Colore colorepedineGiocatoreCorrente) {
+	private static ArrayList<String> checkPosTorreRiga(final int y, final Colore colorepedineGiocatoreCorrente) {
 
 		// int y = Cella.coordYinInt(destY);
 		ArrayList<String> possibiliPosizioni = new ArrayList<String>();
@@ -192,19 +194,7 @@ public final class Torre extends Pezzo {
 		return possibiliPosizioni;
 	}
 
-	/**
-	 * Metodo che cerca le possibili posizioni della torre di colore di valore
-	 * colorepedineGiocatoreCorrente nella scacchiera in traversa esima x e riga y.
-	 * Restituisce un vettore di stringhe contenente tutte le possibili posizioni
-	 * occupate dalla torre nella scacchiera.
-	 *
-	 *
-	 *
-	 * @param x
-	 * @param colorepedineGiocatoreCorrente
-	 * @return ArrayList<String>
-	 */
-	private static ArrayList<String> checkPosTorreColonna(int x, Colore colorepedineGiocatoreCorrente) {
+	private static ArrayList<String> checkPosTorreColonna(final int x, final Colore colorepedineGiocatoreCorrente) {
 
 		ArrayList<String> possibiliPosizioni = new ArrayList<String>();
 		int numTorre = 0;
@@ -227,25 +217,12 @@ public final class Torre extends Pezzo {
 	}
 
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(final Cella start, final Cella end) {
 		return isMossaValida(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
 	}
 
-	/**
-	 * Metodo che verifica il seguente scenario: date le coordinate sX e
-	 * sY,indicanti la traversa e la colonna di origine del pezzo da muovere, e le
-	 * coordinate eX e eY,indicanti la traversa e la colonna di arrivo del pezzo da
-	 * muovere, viene effettuato un controllo sul movimento del pezzo dalle
-	 * coordinate di partenza a quelle di arrivo.
-	 *
-	 * @param sX
-	 * @param sY
-	 * @param eX
-	 * @param eY
-	 * @param colorePezzoCorrente
-	 * @return boolean
-	 */
-	private static boolean isMossaValida(int sX, int sY, int eX, int eY, Colore colorePezzoGiocatoreCorrente) {
+	private static boolean isMossaValida(final int sX, final int sY, final int eX, final int eY,
+			final Colore colorePezzoGiocatoreCorrente) {
 		Cella cellaCorrente = Scacchiera.getCella(sX, sY);
 		Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
@@ -260,11 +237,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eY
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
 						return true;
-					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
+					} else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato()) {
 						return false;
-
+					}
 				}
 			} else {
 				// Movimento verso il basso
@@ -274,11 +251,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eY
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
 						return true;
-					else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato())
+					} else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato()) {
 						return false;
-
+					}
 				}
 			}
 
@@ -289,10 +266,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eX
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
 						return true;
-					else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato())
+					} else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato()) {
 						return false;
+					}
 				}
 			} else {
 				// Movimento verso dx
@@ -301,10 +279,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eX
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura)
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
 						return true;
-					else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato())
+					} else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato()) {
 						return false;
+					}
 				}
 			}
 			return true;
@@ -312,13 +291,33 @@ public final class Torre extends Pezzo {
 		return false;
 	}
 
-	public static String getCoordinateArrocco(int tipoArrocco, Colore c) {
-		if (tipoArrocco == Menu.ARROCCO_CORTO)
-			return (c == Colore.bianco) ? "h1 f1" : "h8 f8";
-		else {
+	/**
+	 * Restituisce una stringa nel formato [a|h][1|8] [f|d][1|8], che indica la
+	 * mossa da effettuare per la torre in base al colore e alla tipologia di
+	 * arrocco.
+	 *
+	 * @param tipoArrocco 0 - corto | 1 - lungo
+	 * @param c           colore del giocatore in turno
+	 * @return mossa da effettuare
+	 */
+	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
+		String comando;
+		if (tipoArrocco == Menu.ARROCCO_CORTO) {
+			if (c == Colore.bianco) {
+				comando = "h1 f1";
+			} else {
+				comando = "h8 f8";
+			}
+		} else {
 			// arrocco lungo
-			return (c == Colore.bianco) ? "a1 d1" : "a8 d8";
+			if (c == Colore.bianco) {
+				comando = "a1 d1";
+			} else {
+				comando = "a8 d8";
+			}
 		}
+
+		return comando;
 	}
 
 }

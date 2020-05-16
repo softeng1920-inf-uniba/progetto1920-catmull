@@ -6,7 +6,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Regina è valido. La classe Regina e' di tipo noECB
+ * movimento della Regina ï¿½ valido. La classe Regina e' di tipo noECB
  */
 
 public final class Regina extends Pezzo {
@@ -21,11 +21,11 @@ public final class Regina extends Pezzo {
 		}
 	}
 
-	/**
-	 * Controlla se la mossa della regina e' valida
-	 */
 	@Override
-	public boolean isMossaValida(Cella start, Cella end) {
+	public boolean isMossaValida(final Cella start, final Cella end) {
+
+		int deltaX = end.getX() - start.getX();
+		int deltaY = end.getY() - start.getY();
 		int j;
 		// MOVIMENTI LINEARI
 		// stessa x, aumenta y
@@ -35,76 +35,70 @@ public final class Regina extends Pezzo {
 					return false;
 				}
 			}
-		}
-		// stessa x, diminuisce y
-		else if (end.getX() == start.getX() && end.getY() < start.getY()) {
+		} else if (end.getX() == start.getX() && end.getY() < start.getY()) {
+			// stessa x, diminuisce y
 			for (int i = start.getY() - 1; end.getY() < i; i--) {
 				if (Scacchiera.getCella(end.getX(), i).isOccupato()) {
 					return false;
 				}
 			}
-		}
-		// aumenta x, stessa y
-		else if (end.getY() == start.getY() && end.getX() > start.getX()) {
+		} else if (end.getY() == start.getY() && end.getX() > start.getX()) {
+			// aumenta x, stessa y
 			for (int i = start.getX() + 1; end.getX() > i; i++) {
 				if (Scacchiera.getCella(i, end.getY()).isOccupato()) {
 					return false;
 				}
 			}
-		}
-		// diminuisce x, stessa y
-		else if (end.getY() == start.getY() && end.getX() < start.getX()) {
+		} else if (end.getY() == start.getY() && end.getX() < start.getX()) {
+			// diminuisce x, stessa y
 			for (int i = start.getX() - 1; end.getX() < i; i--) {
 				if (Scacchiera.getCella(i, end.getY()).isOccupato()) {
 					return false;
 				}
 			}
-		}
-
-		// MOVIMENTI DIAGONALI (ALFIERE)
-		// aumenta x e aumenta y
-		else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() > 0) {
+		} else if (deltaX == deltaY && deltaX > 0) {
+			// MOVIMENTI DIAGONALI (ALFIERE)
+			// aumenta x e aumenta y
 			j = start.getY() + 1;
 			for (int i = start.getX() + 1; end.getX() > i && end.getY() > j; i++) {
-				if (Scacchiera.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato()) {
 					return false;
+				}
 				j++;
 			}
-		}
-		// diminuisce x e aumenta y
-		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
-				&& end.getX() - start.getX() < 0 && end.getY() - start.getY() > 0) {
+		} else if (Math.abs(deltaX) == Math.abs(deltaY) && deltaX < 0 && deltaY > 0) {
+			// diminuisce x e aumenta y
 			j = start.getY() + 1;
 			for (int i = start.getX() - 1; end.getX() < i && end.getY() > j; i--) {
-				if (Scacchiera.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato()) {
 					return false;
+				}
 				j++;
 
 			}
-		}
-		// diminuisce x e diminuisce y
-		else if (end.getX() - start.getX() == end.getY() - start.getY() && end.getX() - start.getX() < 0) {
+		} else if (deltaX == deltaY && deltaX < 0) {
+			// diminuisce x e diminuisce y
 			j = start.getY() - 1;
 			for (int i = start.getX() - 1; end.getX() < i && end.getY() < j; i--) {
-				if (Scacchiera.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato()) {
 					return false;
+				}
 				j--;
 			}
-		}
-
-		// aumenta x e diminuisce y
-		else if (Math.abs(end.getX() - start.getX()) == Math.abs(end.getY() - start.getY())
-				&& end.getX() - start.getX() > 0 && end.getY() - start.getY() < 0) {
+		} else if (Math.abs(deltaX) == Math.abs(end.getY() - start.getY()) && deltaX > 0 && deltaY < 0) {
+			// aumenta x e diminuisce y
 			j = start.getY() - 1;
 			for (int i = start.getX() + 1; end.getX() > i && end.getY() < j; i++) {
-				if (Scacchiera.getCella(i, j).isOccupato())
+				if (Scacchiera.getCella(i, j).isOccupato()) {
 					return false;
+				}
 				j--;
 			}
-		} else
+		} else {
 			return false;
+		}
 		// controllo se puo' mangiare pezzo
-		if (end.isOccupato() == true && end.getPezzoCorrente().getColore() == this.colore) {
+		if (end.isOccupato() && end.getPezzoCorrente().getColore() == getColore()) {
 			return false;
 		}
 		return true;
@@ -115,11 +109,9 @@ public final class Regina extends Pezzo {
 	 * iniziale e le coordinate della cella finale
 	 *
 	 * @param mossa
-	 * @param s
-	 * @param g
 	 * @return
 	 */
-	public static String convertiMossa(String mossa) {
+	public static String convertiMossa(final String mossa) {
 		int startX = -1;
 		int startY = -1;
 		int endX = -1;
@@ -128,17 +120,23 @@ public final class Regina extends Pezzo {
 		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
 		// mossa semplice
 		if (mossa.matches("D[a-h][1-8]")) {
-			endX = Cella.coordXinInt(mossa.charAt(1));
-			endY = Cella.coordYinInt(mossa.charAt(2));
-			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota")
+			final int colonnaDestinazioneAvanzata = 1;
+			final int traversaDestinazioneAvanzata = 2;
+			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
+			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));
+			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
 				return mossaConvertita;
+			}
 		}
 		// mossa di cattura
 		if (mossa.matches("D(x|:)[a-h][1-8]")) {
-			endX = Cella.coordXinInt(mossa.charAt(2));
-			endY = Cella.coordYinInt(mossa.charAt(3));
-			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota")
+			final int colonnaDestinazioneCattura = 2;
+			final int traversaDestinazioneCattura = 3;
+			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
+			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
+			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
 				return mossaConvertita;
+			}
 		}
 		// ricerca la regina del giocatore in turno
 		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
@@ -150,12 +148,14 @@ public final class Regina extends Pezzo {
 					break;
 				}
 			}
-			if (startX != -1)
+			if (startX != -1) {
 				break;
+			}
 		}
 		// solo se ha trovato la regina ha senso convertire la mossa
 		if (startX != -1 && startY != -1) {
-			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " " + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
+			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
+					+ Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}
 		return mossaConvertita;
 	}

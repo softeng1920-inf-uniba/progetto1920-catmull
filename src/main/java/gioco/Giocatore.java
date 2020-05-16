@@ -3,6 +3,7 @@ package gioco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import scacchiera.pedine.Pezzo;
@@ -35,7 +36,6 @@ public final class Giocatore {
 	 *
 	 * @param c Colore del giocatore
 	 */
-
 	public Giocatore(final Colore c) {
 
 		setColore(c);

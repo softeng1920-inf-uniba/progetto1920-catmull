@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Pedone è valido. La classe Pedone e' di tipo noECB
+ * movimento del Pedone ï¿½ valido. La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 
@@ -85,7 +85,6 @@ public final class Pedone extends Pezzo {
 
 				String pedoneAvversarioNero = x + "" + y1 + " " + x + "" + y2; // calcolo ultima mossa del pedone da
 				// catturare E.P.
-
 				if ((start.getY() - 1 == end.getY()) && // Se la traversa di partenza + 1 e' uguale a quella di
 				// destinazione
 						(Math.abs(start.getX() - end.getX()) == 1) && // E mi sto spostando in obliquo
