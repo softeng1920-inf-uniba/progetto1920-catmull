@@ -123,6 +123,7 @@ Event: 0.997 Thread 0x00007fac05808800 Uncommon trap: reason=unstable_if action=
 Event: 1.151 Thread 0x00007fac05808800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000011a520e20 method=java.lang.CharacterData.of(I)Ljava/lang/CharacterData; @ 4
 
 Classes redefined (8 events):
+<<<<<<< HEAD
 Event: 12.448 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=1
 Event: 601.126 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=2
 Event: 876.983 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=3
@@ -131,6 +132,16 @@ Event: 906.081 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.
 Event: 1005.377 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=6
 Event: 1091.712 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=7
 Event: 1132.718 Thread 0x00007fac05817000 redefined class name=scacchiera.pedine.PedoneTest, count=8
+=======
+Event: 12.448 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=1
+Event: 601.126 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=2
+Event: 876.983 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=3
+Event: 889.258 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=4
+Event: 906.081 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=5
+Event: 1005.377 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=6
+Event: 1091.712 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=7
+Event: 1132.718 Thread 0x00007fac05817000 redefined class name=test.PedoneTest, count=8
+>>>>>>> b8eec818b909e35f4082d4d17925904978985e4a
 
 Internal exceptions (10 events):
 Event: 0.953 Thread 0x00007fac05808800 Exception <a 'java/lang/IncompatibleClassChangeError': Found class java.lang.Object, but interface was expected> (0x000000076d2450f8) thrown at [/jenkins/workspace/8-2-build-macosx-x86_64/jdk8u251/737/hotspot/src/share/vm/interpreter/linkResolver.cpp, lin
@@ -408,7 +419,11 @@ Dynamic libraries:
 
 VM Arguments:
 jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:55376 -javaagent:/Users/antoniocurci/eclipse/java-eclipse 2019-12/Eclipse.app/Contents/Eclipse/configuration/org.eclipse.osgi/216/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 
+<<<<<<< HEAD
 java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 55375 -testLoaderClass org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader -loaderpluginname org.eclipse.jdt.junit5.runtime -classNames scacchiera.pedine.PedoneTest
+=======
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 55375 -testLoaderClass org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader -loaderpluginname org.eclipse.jdt.junit5.runtime -classNames test.PedoneTest
+>>>>>>> b8eec818b909e35f4082d4d17925904978985e4a
 java_class_path (initial): /Users/antoniocurci/progetto1920-catmull/bin/main:/Users/antoniocurci/progetto1920-catmull/bin/default:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.apis/google-api-services-drive/v3-rev154-1.25.0/b840aeb45c31b97e28f365667f93bbd86fd8790d/google-api-services-drive-v3-rev154-1.25.0.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.25.0/e7ff725e89ff5dcbed107be1a24e8102ae2441ee/google-api-client-1.25.0.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client-jetty/1.23.0/e0deaf34371e9ca09f9a04bcbaa854243283cae4/google-oauth-client-jetty-1.23.0.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/21.0/3a3d111be1be1b745edfa7d91678a12d7ed38709/guava-21.0.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client-java6/1.23.0/7acbddf56c4ad04efc9d3b48fe015e6250241bf0/google-oauth-client-java6-1.23.0.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.25.0/c9ee14e8b095b4b301b28d57755cc482b8d6f39f/google-oauth-client-1.25.0.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.25.0/7c5c89bd4d0d34d9f1cb3396e8da6233e5074b5c/google-http-client-jackson2-1.25.0.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/org.mortbay.jetty/jetty/6.1.26/2f546e289fddd5b1fab1d4199fbb6e9ef43ee4b0/jetty-6.1.26.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/org.mortbay.jetty/jetty-util/6.1.26/e5642fe0399814e1687d55a3862aa5a3417226a9/jetty-util-6.1.26.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/org.mortbay.jetty/servlet-api/2.5-20081211/22bff70037e1e6fa7e6413149489552ee2064702/servlet-api-2.5-20081211.jar:/Users/antoniocurci/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.25.0/5fb16523c393bfe0210c29db44742bd308
 Launcher Type: SUN_STANDARD
 

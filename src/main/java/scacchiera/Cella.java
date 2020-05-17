@@ -204,7 +204,4 @@ public final class Cella {
     public static int endY(final String m) {
 	return Cella.coordYinInt(m.charAt(Comando.TRAVERSA_DESTINAZIONE_MOSSA_NE));
     }
-
-
-
 }
