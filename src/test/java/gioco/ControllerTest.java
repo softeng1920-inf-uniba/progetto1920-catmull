@@ -17,19 +17,6 @@ class ControllerTest {
 
 	}
 
-	/*
-	 * Ho tolto il test su isRangeVlaido in quanto il metodo è in scacchiera.
-	 */
-//	@Test
-//	void testIsMossaInRangeValidoCorretta() {
-//		assertTrue(Controller.isMossaInRangeValido("a2 a4"));
-//	}
-//
-//	@Test
-//	void testIsMossaInRangeValidoNonCorretta() {
-//		assertFalse(Controller.isMossaInRangeValido("a0 a9"));
-//	}
-
 	@Test
 	void testIsArroccoValidoBianco() {
 		assertFalse(Controller.isArroccoValido("e1 g1", "h1 f1", Menu.ARROCCO_CORTO));
