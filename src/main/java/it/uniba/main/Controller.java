@@ -164,8 +164,7 @@ public class Controller {
 	 * @param mosseEffettuate
 	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
 	 */
-	private static int getTipoMossa(final Cella cellaPartenza,
-			final Cella cellaDestinazione,
+	private static int getTipoMossa(final Cella cellaPartenza, final Cella cellaDestinazione,
 			final ArrayList<String> mosseEffettuate) {
 
 		int tipoMossa = -1;
@@ -385,7 +384,7 @@ public class Controller {
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;
-
+		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
 		if (partenza.getPezzoCorrente().getNome().equals("Re")) {
 			return true; // Il re è protetto
 		}
@@ -397,7 +396,6 @@ public class Controller {
 
 		applicaMossa(destinazione, partenza, tipo);
 
-		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
 		if (temp.isOccupato()) {
 			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
 			Turno.getGiocatoreInTurno().removePezzoCatturato();
