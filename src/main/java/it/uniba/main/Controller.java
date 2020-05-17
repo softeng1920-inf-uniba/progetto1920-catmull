@@ -35,36 +35,10 @@ public class Controller {
 	}
 
 	/**
-     * inizializzaPartita implementa la fase iniziale della partita
-     */
-    final void playGame() {
-
-	/**
-	 * Data la cella di partenza e di destinazione del pezzo, effettua i controlli
-	 * necessari se per il pezzo è consentita la mossa.
-	 *
-	 * @param cellaPartenza
-	 * @param cellaDestinazione
-	 * @param mosseEffettuate
-	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
+	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
-	private int getTipoMossa(Cella cellaPartenza, Cella cellaDestinazione, ArrayList<String> mosseEffettuate) {
-
-		Pezzo pezzoCorrente = cellaPartenza.getPezzoCorrente();
-		if (pezzoCorrente == null)
-			// Se ho inserito una mossa il cui pezzo di partenza non esiste, ritorno mossa
-			// illegale
-			return -1;
-
-		if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione)
-				&& isReProtetto(cellaPartenza, cellaDestinazione, 0))
-			return 0;
-		else if (pezzoCorrente.getNome().equals("Pedone")) {
-			Pedone p = (Pedone) pezzoCorrente;
-			// Controllo se l'en Passant e'consentito
-			return (p.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseEffettuate) ? 1 : -1);
-		}
-
+	final void playGame() {
+		boolean utenteVuoleRicominciare = false;
 		do {
 
 			Scacchiera.inizializzaScacchiera();
@@ -185,6 +159,7 @@ public class Controller {
 	 * @param mosseEffettuate
 	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
 	 */
+
 	private int getTipoMossa(final Cella cellaPartenza, final Cella cellaDestinazione,
 			final ArrayList<String> mosseEffettuate) {
 
