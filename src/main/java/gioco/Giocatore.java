@@ -3,7 +3,6 @@ package gioco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import pedine.Pezzo;
@@ -34,18 +33,18 @@ public class Giocatore {
 	 * giocatore.
 	 *
 	 *
-	 * @param colore
+	 * @param c Colore del giocatore
 	 */
-	public Giocatore(Colore colore) {
+	public Giocatore(final Colore c) {
 
-		setColore(colore);
+		setColore(c);
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-		Stampa.stampaInserireGiocatore(colore);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Stampa.stampaInserireGiocatore(c);
 		try {
 			while (this.nome == null || this.nome.equals("")) {
 				this.nome = br.readLine();
-				if (this.nome ==null || this.nome.equals("")) {
+				if (this.nome == null || this.nome.equals("")) {
 					Stampa.stampaInserireGiocatore(colore);
 				}
 			}
@@ -53,19 +52,27 @@ public class Giocatore {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		pezziCatturati = new ArrayList<Pezzo>();
 		mosseGiocate = new ArrayList<String>();
 
 	}
 
 	/**
+	 * Assegna il nome al campo nome del Giocatore.
+	 *
+	 * @param n Nome del giocatore
+	 */
+	public void setNome(final String n) {
+		this.nome = n;
+	}
+
+	/**
 	 * Assegna il colore al campo colore del Giocatore.
 	 *
-	 * @param colore
+	 * @param c
 	 */
-	public void setColore(Colore colore) {
-		this.colore = colore;
+	public void setColore(final Colore c) {
+		this.colore = c;
 	}
 
 	/**
@@ -92,7 +99,7 @@ public class Giocatore {
 	 *
 	 * @param p
 	 */
-	public void addPezziCatturati(Pezzo p) {
+	public void addPezziCatturati(final Pezzo p) {
 		pezziCatturati.add(p);
 	}
 
@@ -122,7 +129,7 @@ public class Giocatore {
 	 *
 	 * @param mossa
 	 */
-	public void setMosseGiocate(String mossa) {
+	public void setMosseGiocate(final String mossa) {
 		mosseGiocate.add(mossa);
 	}
 
@@ -141,7 +148,7 @@ public class Giocatore {
 	 * @param i
 	 * @return Stringa che contiene la mossa giocata.
 	 */
-	public String getMossaGiocata(int i) {
+	public String getMossaGiocata(final int i) {
 		return mosseGiocate.get(i);
 	}
 
@@ -153,4 +160,12 @@ public class Giocatore {
 	public int getNumeroMosseGiocate() {
 		return mosseGiocate.size();
 	}
+
+	/**
+	 * TODO: aggiungere javadoc!
+	 */
+	public void removePezzoCatturato() {
+		pezziCatturati.remove(pezziCatturati.size() - 1);
+	}
+
 }

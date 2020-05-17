@@ -4,7 +4,9 @@ import java.io.PrintStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import java.io.UnsupportedEncodingException;
+
 import java.nio.charset.Charset;
 
 import gioco.Menu;
@@ -36,8 +38,8 @@ public final class AppMain {
 		System.setOut(new PrintStream(System.out, false, "UTF-8"));
 
 		Controller c = new Controller();
-		boolean play=false;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in,Charset.forName("UTF-8")));
+		boolean play = false;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 		Menu.newMenu();
 		Stampa.stampaIntro();
 		Stampa.stampaMenu();
@@ -54,11 +56,11 @@ public final class AppMain {
 				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
 					Stampa.stampaNuovaPartita();
 					c.playGame();
-					play=true;
+					play = true;
 				} else {
 					Stampa.stampaComandoErrato();
 				}
-			}else
+			} else
 				break;
 		}
 
