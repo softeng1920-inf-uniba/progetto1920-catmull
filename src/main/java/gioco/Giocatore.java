@@ -3,7 +3,6 @@ package gioco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import pedine.Pezzo;
@@ -19,169 +18,154 @@ import pedine.Pezzo;
 
 public class Giocatore {
 
-    private String nome;
-    private Colore colore;
-    private ArrayList<Pezzo> pezziCatturati;
-    private ArrayList<String> mosseGiocate;
+	private String nome;
+	private Colore colore;
+	private ArrayList<Pezzo> pezziCatturati;
+	private ArrayList<String> mosseGiocate;
 
-    /**
-     * Costruttore della classe Giocatore
-     *
-     * Nel vettore "pezziCatturati" verranno conservati tutti i pezzi del giocatore
-     * attuale catturati dal giocatore avversario.
-     *
-     * Nel vettore "mosseGiocate" ci sara' la storia delle mosse giocate dal
-     * giocatore.
-     *
-     *
-     * @param c Colore del giocatore
-     */
-    public Giocatore(final Colore c) {
+	/**
+	 * Costruttore della classe Giocatore
+	 *
+	 * Nel vettore "pezziCatturati" verranno conservati tutti i pezzi del giocatore
+	 * attuale catturati dal giocatore avversario.
+	 *
+	 * Nel vettore "mosseGiocate" ci sara' la storia delle mosse giocate dal
+	 * giocatore.
+	 *
+	 *
+	 * @param c Colore del giocatore
+	 */
+	public Giocatore(final Colore c) {
 
-	setColore(c);
+		setColore(c);
 
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	Stampa.stampaInserireGiocatore(c);
-	String n = null;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Stampa.stampaInserireGiocatore(c);
+		try {
+			while (this.nome == null || this.nome.equals("")) {
+				this.nome = br.readLine();
+				if (this.nome == null || this.nome.equals("")) {
+					Stampa.stampaInserireGiocatore(colore);
+				}
+			}
 
-	try {
-	    while (getNome() == null || getNome().equals("")) {
-		n = br.readLine();
-		setNome(n);
-		if (getNome() == null || getNome().equals("")) {
-		    Stampa.stampaInserireGiocatore(colore);
-
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-
 		pezziCatturati = new ArrayList<Pezzo>();
 		mosseGiocate = new ArrayList<String>();
 
 	}
 
 	/**
-	 * Assegna il colore al campo colore del Giocatore.
+	 * Assegna il nome al campo nome del Giocatore.
 	 *
-	 * @param colore
+	 * @param n Nome del giocatore
 	 */
-	public void setColore(Colore colore) {
-		this.colore = colore;
+	public void setNome(final String n) {
+		this.nome = n;
 	}
 
+	/**
+	 * Assegna il colore al campo colore del Giocatore.
+	 *
+	 * @param c
+	 */
+	public void setColore(final Colore c) {
+		this.colore = c;
+	}
 
-	pezziCatturati = new ArrayList<Pezzo>();
-	mosseGiocate = new ArrayList<String>();
+	/**
+	 * Restituisce il nome del giocatore.
+	 *
+	 * @return nome
+	 */
+	public String getNome() {
+		return nome;
+	}
 
-    }
+	/**
+	 * Restituisce il colore dei pezzi del giocatore.
+	 *
+	 * @return colore
+	 */
+	public Colore getColore() {
+		return colore;
+	}
 
-    /**
-     * Assegna il nome al campo nome del Giocatore.
-     *
-     * @param n Nome del giocatore
-     */
-    public void setNome(final String n) {
-	this.nome = n;
-    }
+	/**
+	 * Aggiunta la pedina p mangiata dal giocatore avversario al vettore
+	 * pezziCatturati
+	 *
+	 * @param p
+	 */
+	public void addPezziCatturati(final Pezzo p) {
+		pezziCatturati.add(p);
+	}
 
-    /**
-     * Assegna il colore al campo colore del Giocatore.
-     *
-     * @param c
-     */
-    public void setColore(final Colore c) {
-	this.colore = c;
-    }
+	/**
+	 * Funzione che restituisce le pedine catturate dal giocatore avversario
+	 *
+	 * @return pezziCatturati
+	 *
+	 */
 
-    /**
-     * Restituisce il nome del giocatore.
-     *
-     * @return nome
-     */
-    public String getNome() {
-	return nome;
-    }
+	public ArrayList<Pezzo> getPezziCatturati() {
+		return pezziCatturati;
+	}
 
-    /**
-     * Restituisce il colore dei pezzi del giocatore.
-     *
-     * @return colore
-     */
-    public Colore getColore() {
-	return colore;
-    }
+	/**
+	 * Restituisce un valore booleano che individua se sono stati catturati dei
+	 * pezzi dal giocatore avversario.
+	 *
+	 * @return boolean
+	 */
+	public boolean isEmptyPezziCatturati() {
+		return pezziCatturati.isEmpty();
+	}
 
-    /**
-     * Aggiunta la pedina p mangiata dal giocatore avversario al vettore
-     * pezziCatturati
-     *
-     * @param p
-     */
-    public void addPezziCatturati(final Pezzo p) {
-	pezziCatturati.add(p);
-    }
+	/**
+	 * Aggiunge la mossa corrente alla lista mosseGiocate.
+	 *
+	 * @param mossa
+	 */
+	public void setMosseGiocate(final String mossa) {
+		mosseGiocate.add(mossa);
+	}
 
-    /**
-     * Funzione che restituisce le pedine catturate dal giocatore avversario
-     *
-     * @return pezziCatturati
-     *
-     */
+	/**
+	 * Restituisce la storia delle mosse giocate dal giocatore.
+	 *
+	 * @return lista delle mosse giocate.
+	 */
+	public ArrayList<String> getMosseGiocate() {
+		return mosseGiocate;
+	}
 
-    public ArrayList<Pezzo> getPezziCatturati() {
-	return pezziCatturati;
-    }
+	/**
+	 * Restituisce l'i-esima mossa giocata dal giocatore.
+	 *
+	 * @param i
+	 * @return Stringa che contiene la mossa giocata.
+	 */
+	public String getMossaGiocata(final int i) {
+		return mosseGiocate.get(i);
+	}
 
-    /**
-     * Restituisce un valore booleano che individua se sono stati catturati dei
-     * pezzi dal giocatore avversario.
-     *
-     * @return boolean
-     */
-    public boolean isEmptyPezziCatturati() {
-	return pezziCatturati.isEmpty();
-    }
+	/**
+	 * Restituisce il numero delle mosse giocate dal giocatore
+	 *
+	 * @return dimensione della lista delle mosse giocate
+	 */
+	public int getNumeroMosseGiocate() {
+		return mosseGiocate.size();
+	}
 
-    /**
-     * Aggiunge la mossa corrente alla lista mosseGiocate.
-     *
-     * @param mossa
-     */
-    public void setMosseGiocate(final String mossa) {
-	mosseGiocate.add(mossa);
-    }
-
-    /**
-     * Restituisce la storia delle mosse giocate dal giocatore.
-     *
-     * @return lista delle mosse giocate.
-     */
-    public ArrayList<String> getMosseGiocate() {
-	return mosseGiocate;
-    }
-
-    /**
-     * Restituisce l'i-esima mossa giocata dal giocatore.
-     *
-     * @param i
-     * @return Stringa che contiene la mossa giocata.
-     */
-    public String getMossaGiocata(final int i) {
-	return mosseGiocate.get(i);
-    }
-
-    /**
-     * Restituisce il numero delle mosse giocate dal giocatore
-     *
-     * @return dimensione della lista delle mosse giocate
-     */
-    public int getNumeroMosseGiocate() {
-	return mosseGiocate.size();
-    }
-
-    /**
-     * TODO: aggiungere javadoc!
-     */
-    public void removePezzoCatturato() {
-	pezziCatturati.remove(pezziCatturati.size() - 1);
-    }
+	/**
+	 * TODO: aggiungere javadoc!
+	 */
+	public void removePezzoCatturato() {
+		pezziCatturati.remove(pezziCatturati.size() - 1);
+	}
 
 }

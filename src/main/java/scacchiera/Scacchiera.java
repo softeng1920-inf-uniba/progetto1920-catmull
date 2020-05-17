@@ -173,4 +173,6 @@ public class Scacchiera {
 	    return getCella(x, y).getPezzoCorrente().getNome();
 
 	}
+	return "Vuota";
+    }
 }

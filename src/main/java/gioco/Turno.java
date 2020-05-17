@@ -18,11 +18,7 @@ public final class Turno {
 	
     }
 
-    public static void cambioTurno() {
-	Giocatore temp = giocatoreInTurno;
-	giocatoreInTurno = giocatoreInAttesa;
-	giocatoreInAttesa = temp;
-    }
+ 
 
 
 	public static final void cambioTurno() {
