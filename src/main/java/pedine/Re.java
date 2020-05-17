@@ -255,13 +255,10 @@ public final class Re extends Pezzo {
 					startX = i;
 					startY = j;
 					break;
+
 				}
-			}
-			if (startX != -1) {
-				break;
 			}
 		}
 		return Scacchiera.getCella(startX, startY);
 	}
-
 }

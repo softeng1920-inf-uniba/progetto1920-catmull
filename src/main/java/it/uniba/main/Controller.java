@@ -173,8 +173,10 @@ public class Controller {
 			if (isReProtetto(cellaPartenza, cellaDestinazione, 0)) {
 				tipoMossa = 0;
 
+
 			}
 		} else if (pezzoCorrente.getNome().equals("Pedone")) {
+
 			Pedone p = (Pedone) pezzoCorrente;
 			// Controllo se l'en Passant e'consentito
 			if (p.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseEffettuate)) {
@@ -372,32 +374,34 @@ public class Controller {
 	/**
 	 * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo stesso
 	 * colore si muove in un'altra cella. Viene applicata la mossa temporaneamente
+
 	 * per effettuare i controlli attraverso la funzione isReSottoScacco: in caso
 	 * positivo viene restituito un booleano con valore false, altrimenti è
 	 * restituito un booleano con valore true. In entrambi i casi viene ripristinata
 	 * la situazione immediatamente precedente alla applicazione della mossa.
+
 	 * 
 	 * @param partenza
 	 * @param destinazione
 	 * @param tipoMossa
 	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-
-	public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipo) {
+	public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipoMossa) {
+	
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;
 
-		if (partenza.getPezzoCorrente().getNome().equals("Re")) {
-			return true; // Il re è protetto
-		}
 
-		applicaMossa(partenza, destinazione, tipo);
-		if (!reDaProteggere.isReSottoScacco(cellaRe)) {
+		if (partenza.getPezzoCorrente().getNome().equals("Re"))
+			return isReProtetto = true;
+
+		applicaMossa(partenza, destinazione, tipoMossa);
+		if (!reDaProteggere.isReSottoScacco(cellaRe))
 			isReProtetto = true;
-		}
 
-		applicaMossa(destinazione, partenza, tipo);
+		applicaMossa(destinazione, partenza, tipoMossa);
+
 
 		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
 		if (temp.isOccupato()) {
