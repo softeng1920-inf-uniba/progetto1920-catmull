@@ -350,10 +350,13 @@ public final class Controller {
 		if (!reDaProteggere.isReSottoScacco(cellaRe)) {
 			isReProtetto = true;
 		}
+
 		Scacchiera.scambiaCella(destinazione, partenza);
+
 		if (temp.isOccupato()) {
 			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
 		}
+		
 		return isReProtetto;
 	}
 }
