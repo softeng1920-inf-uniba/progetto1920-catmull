@@ -46,7 +46,7 @@ public class Giocatore {
 
 	/**
 	 * Cambia il nome del giocatore acquisendo un nome da tatiera. Lancia una
-	 * eccezione se non è stato inserito nulla
+	 * eccezione se non ï¿½ stato inserito nulla
 	 */
 	public final void nomeDaTastiera() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -137,15 +137,6 @@ public class Giocatore {
 	 */
 	public void setMosseGiocate(final String mossa) {
 		mosseGiocate.add(mossa);
-	}
-
-	/**
-	 * Restituisce la storia delle mosse giocate dal giocatore.
-	 *
-	 * @return lista delle mosse giocate.
-	 */
-	public ArrayList<String> getMosseGiocate() {
-		return mosseGiocate;
 	}
 
 	/**

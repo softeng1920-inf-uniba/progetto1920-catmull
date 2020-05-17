@@ -157,7 +157,7 @@ public class Controller {
 
 	/**
 	 * Data la cella di partenza e di destinazione del pezzo, effettua i controlli
-	 * necessari se per il pezzo è consentita la mossa.
+	 * necessari se per il pezzo ï¿½ consentita la mossa.
 	 *
 	 * @param cellaPartenza
 	 * @param cellaDestinazione
@@ -254,15 +254,15 @@ public class Controller {
 	 */
 	public static boolean isMossaInRangeValido(final String comando) {
 		return isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando),
-				Cella.endY(comando)); // TODO: ricontrollare se logica è corretta
+				Cella.endY(comando)); // TODO: ricontrollare se logica ï¿½ corretta
 	}
 
 	/**
-	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita è
-	 * valida, se è consentita ecc.), viene effettuato in base alla tipologia della
+	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita ï¿½
+	 * valida, se ï¿½ consentita ecc.), viene effettuato in base alla tipologia della
 	 * mossa, il necessario per proseguire con il corretto funzionamento del gioco.
 	 *
-	 * L'applicazione della mossa non è univoca per ogni comando inserito (vedi
+	 * L'applicazione della mossa non ï¿½ univoca per ogni comando inserito (vedi
 	 * e.p.)
 	 *
 	 * @param cellaPartenza

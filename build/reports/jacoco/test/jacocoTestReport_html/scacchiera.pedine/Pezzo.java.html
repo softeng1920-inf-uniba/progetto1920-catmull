@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pezzo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">scacchiera.pedine</a> &gt; <span class="el_source">Pezzo.java</span></div><h1>Pezzo.java</h1><pre class="source lang-java linenums">package scacchiera.pedine;
+
+import gioco.Colore;
+import scacchiera.Cella;
+
+/**
+ * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per
+ * poi realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i
+ * seguenti attributi che ne definiscono lo stato:
+ * &lt;ul&gt;
+ * &lt;li&gt;&lt;b&gt;nome&lt;/b&gt;&lt;/li&gt;
+ * &lt;li&gt;&lt;b&gt;colore&lt;/b&gt;&lt;/li&gt;
+ * &lt;li&gt;&lt;b&gt;simbolo&lt;/b&gt;&lt;/li&gt;
+ * &lt;li&gt;&lt;b&gt;vivo&lt;/b&gt;&lt;/li&gt;
+ * &lt;li&gt;&lt;b&gt;posisizioneCorrente&lt;/b&gt;&lt;/li&gt;
+ * &lt;/ul&gt;
+ * La classe Pezzo e' di tipo ENTITY.
+ **/
+public abstract class Pezzo {
+    protected String nome;
+    protected Colore colore;
+    public char simbolo;
+
+    /**
+     * @param n  Nome del pezzo
+     * @param c  Colore del pezzo
+     * @param pC Cella iniziale del pezzo
+     */
+<span class="fc" id="L29">	public Pezzo(String name, Colore colore) {</span>
+<span class="fc" id="L30">		this.nome = name;</span>
+<span class="fc" id="L31">		this.colore = colore;</span>
+<span class="fc" id="L32">	this.simbolo = ' ';</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * setSimbolo modifica lo stato del simbolo
+     *
+     * @param s Carattere indicante il simbolo del pezzo da impostare
+     */
+
+    public void setSimbolo(final char s) {
+<span class="fc" id="L42">	this.simbolo = s;</span>
+<span class="fc" id="L43">    }</span>
+
+
+    // --------Metodi di Get--------
+
+    /**
+     * getNome restituisce il nome del pezzo
+     *
+     * @return nome Stringa indicante il nome del pezzo
+     */
+    public String getNome() {
+<span class="fc" id="L54">	return nome;</span>
+    }
+
+    /**
+     * getColore restituisce il colore del pezzo (bianco o nero)
+     *
+     * @return colore Colore del pezzo (bianco o nero)
+     */
+    public Colore getColore() {
+<span class="fc" id="L63">	return colore;</span>
+    }
+
+    /**
+     * Restituisce il simbolo corrente del pezzo
+     *
+     * @return simbolo Carattere indicante il simbolo del pezzo
+     */
+    public char getSimbolo() {
+<span class="fc" id="L72">	return simbolo;</span>
+    }
+
+    /**
+     * E' possibile avere il nome del pezzo, con relativo colore e simbolo
+     * attraverso l'autocasting
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L81">	return String.format(nome + &quot; &quot; + colore + &quot; &quot; + simbolo);</span>
+    }
+
+    /**
+     * Controlla se la mossa data in input attraverso cella di partenza e cella di
+     * destinazione sia valida per il pezzo corrente
+     *
+     * @param start Cella di partenza del pezzo
+     * @param end   Cella di destinazione del pezzo
+     * @return boolean true se la mossa è valida per il pezzo su cui il metodo è
+     *         stato chiamato, false altrimenti
+     */
+    public abstract boolean isMossaValida(Cella start, Cella end);
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

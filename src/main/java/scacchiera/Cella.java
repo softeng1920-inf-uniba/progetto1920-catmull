@@ -57,26 +57,6 @@ public final class Cella {
 	}
     }
 
-    /**
-     * Imposta una nuova coordinata X per la cella corrente
-     * 
-     * @param newx valore intero indicante la nuova coordinata sull'asse X della
-     *             cella
-     */
-    void setX(final int newx) {
-	x = newx;
-    }
-
-    /**
-     * Imposta una nuova coordinata Y per la cella corrente
-     * 
-     * @param newy valore intero indicante la nuova coordinata sull'asse Y della
-     *             cella
-     */
-    void setY(final int newy) {
-	y = newy;
-    }
-
     // --------Metodi di Get--------
 
     /**

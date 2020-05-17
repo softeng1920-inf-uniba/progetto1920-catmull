@@ -32,28 +32,6 @@ public abstract class Pezzo {
 	this.simbolo = ' ';
     }
 
-    // --------Metodi di setting --------
-
-    /**
-     * setNome imposta il nome del pezzo
-     *
-     * @param n Stringa indicante il nome del pezzo da impostare (es. Torre, Cavallo
-     *          ecc.)
-     */
-    void setNome(final String n) {
-	this.nome = n;
-    }
-
-    /**
-     * setColore imposta il colore del pezzo
-     *
-     * @param c Parametro di tipo Colore del pezzo da impostare
-     */
-
-    public void setColore(final Colore c) {
-	this.colore = c;
-    }
-
     /**
      * setSimbolo modifica lo stato del simbolo
      *
