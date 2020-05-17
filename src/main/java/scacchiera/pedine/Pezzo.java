@@ -29,27 +29,6 @@ public abstract class Pezzo {
 	vivo = true;
     }
 
-    // --------Metodi di setting --------
-
-    /**
-     * setNome imposta il nome del pezzo
-     *
-     * @param nome
-     */
-    void setNome(String n) {
-	this.nome = n;
-    }
-
-    /**
-     * setColore imposta il colore del pezzo
-     *
-     * @param colore
-     */
-
-    public void setColore(Colore c) {
-	this.colore = c;
-    }
-
     /**
      * setVivo riporta lo stato del pezzo
      */
