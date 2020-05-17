@@ -86,7 +86,9 @@ checkstyle {
 
 spotbugs {
     ignoreFailures = true
+
     toolVersion = '4.0.3'
+
 }
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {

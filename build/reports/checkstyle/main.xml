@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.8">
+
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Colore.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Comando.java">
@@ -60,5 +61,6 @@
 <error line="185" column="49" severity="error" message="&apos;48&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\scacchiera\Scacchiera.java">
+
 </file>
 </checkstyle>

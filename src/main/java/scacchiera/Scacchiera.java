@@ -171,7 +171,6 @@ public class Scacchiera {
     public static final String getNomePezzo(final int x, final int y) {
 	if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {
 	    return getCella(x, y).getPezzoCorrente().getNome();
+
 	}
-	return "Vuota";
-    }
 }

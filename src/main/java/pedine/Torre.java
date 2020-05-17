@@ -12,6 +12,7 @@ import scacchiera.Scacchiera;
  * movimento della Torre è valido. La classe Torre e' di tipo noECB
  */
 public final class Torre extends Pezzo {
+
     private static boolean isMossaCattura;
     static final String MOSSA_NON_VALIDA = "a0 a0";
 
@@ -239,13 +240,15 @@ public final class Torre extends Pezzo {
 		    } else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato()) {
 			return false;
 		    }
-		}
-	    } else {
-		// Movimento verso il basso
-		for (int i = sY + 1; i <= eY; i++) {
 
-		    cellaCorrente = Scacchiera.getCella(sX, i);
-		    pezzoCorrente = cellaCorrente.getPezzoCorrente();
+		}
+		if (count == 1)
+			return posColonna;
+
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniColonna sono
+		// presenti due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
 
 		    if (cellaCorrente.isOccupato() && i == eY
 			    && pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
@@ -253,14 +256,16 @@ public final class Torre extends Pezzo {
 		    } else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato()) {
 			return false;
 		    }
-		}
-	    }
 
-	    if (sX > eX) {
-		// Movimento verso sx
-		for (int i = sX - 1; i >= eX; i--) {
-		    cellaCorrente = Scacchiera.getCella(i, sY);
-		    pezzoCorrente = cellaCorrente.getPezzoCorrente();
+		}
+		if (count == 1)
+			return posRiga;
+
+		// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presenti
+		// due possibili posizioni
+		// di partenza della torre valide pertanto siamo nel caso di ambiguita
+		return mossaNonValida;
+	}
 
 		    if (cellaCorrente.isOccupato() && i == eX
 			    && pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
@@ -281,10 +286,11 @@ public final class Torre extends Pezzo {
 		    } else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato()) {
 			return false;
 		    }
+
 		}
-	    }
-	    return true;
+		return false;
 	}
+
 	return false;
     }
 
@@ -316,5 +322,6 @@ public final class Torre extends Pezzo {
 
 	return comando;
     }
+
 
 }

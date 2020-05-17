@@ -72,6 +72,7 @@ public class Controller {
 							utenteVuoleRicominciare = true;
 							new Scacchiera(); // Svuoto la scacchiera
 							break;
+
 						} else {
 							continue; // Faccio ripartire il loop interno
 						}
@@ -79,6 +80,7 @@ public class Controller {
 				} else {
 					break;
 				}
+
 
 				if (Comando.isNotazioneAlgebrica(comando)) {
 
@@ -194,18 +196,20 @@ public class Controller {
 	private boolean utenteConfermaRiavvioPartita() {
 
 		String comando = "";
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 		Stampa.stampaConfermaNuovaPartita();
 		while (true) {
 			try {
 				comando = br.readLine();
-				switch (comando) {
-				case "y":
-					return true;
-				case "n":
-					return false;
-				default:
-					Stampa.stampaComandoErrato();
+				if (comando != null) {
+					switch (comando) {
+					case "y":
+						return true;
+					case "n":
+						return false;
+					default:
+						Stampa.stampaComandoErrato();
+					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();

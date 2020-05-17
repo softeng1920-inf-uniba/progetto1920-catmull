@@ -3,6 +3,7 @@ package gioco;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import pedine.Pezzo;
@@ -49,12 +50,23 @@ public class Giocatore {
 		setNome(n);
 		if (getNome() == null || getNome().equals("")) {
 		    Stampa.stampaInserireGiocatore(colore);
-		}
-	    }
 
-	} catch (IOException e) {
-	    e.printStackTrace();
+		}
+
+		pezziCatturati = new ArrayList<Pezzo>();
+		mosseGiocate = new ArrayList<String>();
+
 	}
+
+	/**
+	 * Assegna il colore al campo colore del Giocatore.
+	 *
+	 * @param colore
+	 */
+	public void setColore(Colore colore) {
+		this.colore = colore;
+	}
+
 
 	pezziCatturati = new ArrayList<Pezzo>();
 	mosseGiocate = new ArrayList<String>();
@@ -171,4 +183,5 @@ public class Giocatore {
     public void removePezzoCatturato() {
 	pezziCatturati.remove(pezziCatturati.size() - 1);
     }
+
 }
