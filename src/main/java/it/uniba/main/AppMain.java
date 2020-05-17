@@ -1,12 +1,10 @@
 package it.uniba.main;
 
-import java.io.PrintStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
-
 import java.nio.charset.Charset;
 
 import gioco.Menu;
@@ -37,7 +35,7 @@ public final class AppMain {
 
 		System.setOut(new PrintStream(System.out, false, "UTF-8"));
 
-		Controller c = new Controller();
+		Controller.newController();
 		boolean play = false;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 		Menu.newMenu();
@@ -55,7 +53,7 @@ public final class AppMain {
 					break;
 				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
 					Stampa.stampaNuovaPartita();
-					c.playGame();
+					Controller.playGame();
 					play = true;
 				} else {
 					Stampa.stampaComandoErrato();

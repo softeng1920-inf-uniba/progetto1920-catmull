@@ -1,4 +1,4 @@
-package pedine;
+package scacchiera.pedine;
 
 import java.util.ArrayList;
 
@@ -16,8 +16,8 @@ public final class Pedone extends Pezzo {
     /**
      * Costruttore
      */
-    public Pedone(final Colore colore, final Cella posizioneCorrente) {
-	super("Pedone", colore, posizioneCorrente);
+	public Pedone(final Colore colore) {
+		super("Pedone", colore);
 	if (colore == Colore.nero) {
 	    setSimbolo('\u265f');
 	} else {
@@ -69,14 +69,14 @@ public final class Pedone extends Pezzo {
     }
 
     /**
-     * Determina se la cattura en passant e' effettuabile o meno
-     * 
-     * @param start Cella di partenza della mossa del pedone
-     * @param end   Cella di destinazione della mossa del pedone
-     * @param mosse Array di tutte le mosse effettuate, necessario per controllare
-     *              se l'ultima mossa effettuata è un avanzata di due case
-     * @return true se la cattura è effettuabile in en passant, false altrimenti
-     */
+	 * Determina se la cattura en passant e' effettuabile o meno
+	 *
+	 * @param start Cella di partenza della mossa del pedone
+	 * @param end   Cella di destinazione della mossa del pedone
+	 * @param mosse Array di tutte le mosse effettuate, necessario per controllare
+	 *              se l'ultima mossa effettuata è un avanzata di due case
+	 * @return true se la cattura è effettuabile in en passant, false altrimenti
+	 */
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
 
 	Cella cellaPedone;

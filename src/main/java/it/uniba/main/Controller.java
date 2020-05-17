@@ -7,20 +7,19 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
 import gioco.Giocatore;
 import gioco.Menu;
 import gioco.Stampa;
 import gioco.Turno;
-import pedine.Alfiere;
-import pedine.Cavallo;
-import pedine.Pedone;
-import pedine.Pezzo;
-import pedine.Re;
-import pedine.Regina;
-import pedine.Torre;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
+import scacchiera.pedine.Alfiere;
+import scacchiera.pedine.Cavallo;
+import scacchiera.pedine.Pedone;
+import scacchiera.pedine.Pezzo;
+import scacchiera.pedine.Re;
+import scacchiera.pedine.Regina;
+import scacchiera.pedine.Torre;
 
 /**
  * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
@@ -30,20 +29,24 @@ import scacchiera.Scacchiera;
 public class Controller {
 	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
 
-	public Controller() {
-		new Scacchiera();
+	private Controller() {
+	}
+
+	/**
+	 * Costruttore privato per classe Singleton
+	 */
+	public static void newController() {
+		Scacchiera.newScacchiera();
 	}
 
 	/**
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
-	final void playGame() {
+	final static void playGame() {
 		boolean utenteVuoleRicominciare = false;
 		do {
-
-			Scacchiera.inizializzaScacchiera();
-			new Turno();
-
+			Turno.newTurno();
+			Turno.getNomiDaTastiera();
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 			String comando = "";
 
@@ -70,7 +73,7 @@ public class Controller {
 						if (utenteConfermaRiavvioPartita()) {
 							Stampa.stampaNuovaPartita();
 							utenteVuoleRicominciare = true;
-							new Scacchiera(); // Svuoto la scacchiera
+							Scacchiera.newScacchiera(); // Svuoto la scacchiera
 							break;
 
 						} else {
@@ -82,9 +85,9 @@ public class Controller {
 				}
 
 
-				if (Comando.isNotazioneAlgebrica(comando)) {
+				if (Menu.isNotazioneAlgebrica(comando)) {
 
-					int tipoArrocco = Comando.isArrocco(comando);
+					int tipoArrocco = Menu.isArrocco(comando);
 					if (tipoArrocco != -1) { // Se è un arrocco
 						Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
 
@@ -143,7 +146,7 @@ public class Controller {
 							Stampa.stampaMossaIllegale();
 						}
 					}
-				} else if (!Comando.isComandoValido(comando)) {
+				} else if (!Menu.isComandoValido(comando)) {
 					// Se il comando inserito non è una mossa, nè un comando
 					// di gioco...
 					Stampa.stampaComandoErrato();
@@ -162,7 +165,8 @@ public class Controller {
 	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
 	 */
 
-	private int getTipoMossa(final Cella cellaPartenza, final Cella cellaDestinazione,
+	private static int getTipoMossa(final Cella cellaPartenza,
+			final Cella cellaDestinazione,
 			final ArrayList<String> mosseEffettuate) {
 
 		int tipoMossa = -1;
@@ -193,7 +197,7 @@ public class Controller {
 	 *
 	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
 	 */
-	private boolean utenteConfermaRiavvioPartita() {
+	private static boolean utenteConfermaRiavvioPartita() {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -226,7 +230,7 @@ public class Controller {
 	 * @return String comando in colonna e traversa di partenza seguite da uno
 	 *         spazio, ed infine colonna e traversa di destinazione
 	 */
-	private String convertiNotazioneRidottaInEstesa(final String mossa) {
+	private static String convertiNotazioneRidottaInEstesa(final String mossa) {
 
 		switch (mossa.charAt(0)) {
 		case 'T': // Torre
@@ -273,7 +277,7 @@ public class Controller {
 	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
 	 *                          del pedone
 	 */
-	private void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
+	private static void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
 
@@ -324,7 +328,7 @@ public class Controller {
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
 	 */
-	public void addMosseConvertite(final String mossa) {
+	public static void addMosseConvertite(final String mossa) {
 		mosseConvertite.add(mossa);
 	}
 
@@ -378,20 +382,20 @@ public class Controller {
 	/**
 	 * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo stesso
 	 * colore si muove in un'altra cella. Viene applicata la mossa temporaneamente
-
+	 * 
 	 * per effettuare i controlli attraverso la funzione isReSottoScacco: in caso
 	 * positivo viene restituito un booleano con valore false, altrimenti è
 	 * restituito un booleano con valore true. In entrambi i casi viene ripristinata
 	 * la situazione immediatamente precedente alla applicazione della mossa.
-
+	 *
 	 * 
 	 * @param partenza
 	 * @param destinazione
 	 * @param tipoMossa
 	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-	public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipoMossa) {
-	
+	public static boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipoMossa) {
+
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;

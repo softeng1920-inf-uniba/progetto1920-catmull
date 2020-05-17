@@ -1,8 +1,8 @@
 package gioco;
 
-import pedine.Pezzo;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
+import scacchiera.pedine.Pezzo;
 
 /**
  * La classe Stampa contiene i messaggi stampati a video e i metodi di stampa
@@ -281,10 +281,10 @@ public final class Stampa {
 	    System.out.println("\nStoria delle mosse giocate: ");
 	    for (int i = 0; i < dimensione; i++) {
 		if (i == dimensione - 1) {
-		    mossa = counter + ". " + Turno.fusioneListe().get(i);
+			mossa = counter + ". " + Turno.getArrayStoriaMosse().get(i);
 		    System.out.println(mossa);
 		} else {
-		    mossa = counter + ". " + Turno.fusioneListe().get(i) + " " + Turno.fusioneListe().get(i + 1);
+			mossa = counter + ". " + Turno.getArrayStoriaMosse().get(i) + " " + Turno.getArrayStoriaMosse().get(i + 1);
 		    System.out.println(mossa);
 		}
 		i++;

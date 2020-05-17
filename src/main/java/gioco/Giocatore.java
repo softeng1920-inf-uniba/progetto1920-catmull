@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import pedine.Pezzo;
+import scacchiera.pedine.Pezzo;
 
 /**
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
@@ -16,7 +16,7 @@ import pedine.Pezzo;
  * tipo ENTITY.
  */
 
-public class Giocatore {
+public final class Giocatore {
 
 	private String nome;
 	private Colore colore;
@@ -38,9 +38,17 @@ public class Giocatore {
 	public Giocatore(final Colore c) {
 
 		setColore(c);
+		pezziCatturati = new ArrayList<Pezzo>();
+		mosseGiocate = new ArrayList<String>();
 
+	}
+
+	/**
+	 * Acquisisce il nome del giocatore da tastiera
+	 */
+	public final void getNomeDaTastiera() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Stampa.stampaInserireGiocatore(c);
+		Stampa.stampaInserireGiocatore(this.colore);
 		try {
 			while (this.nome == null || this.nome.equals("")) {
 				this.nome = br.readLine();
@@ -52,11 +60,7 @@ public class Giocatore {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		pezziCatturati = new ArrayList<Pezzo>();
-		mosseGiocate = new ArrayList<String>();
-
 	}
-
 	/**
 	 * Assegna il nome al campo nome del Giocatore.
 	 *
