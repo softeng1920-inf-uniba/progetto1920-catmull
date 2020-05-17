@@ -176,6 +176,7 @@ public final class Controller {
 	} else if (mossaInInput.matches("([a-h](x|:))([a-h][1-8])( e.p.)")) {
 	    tipoMossa = EN_PASSANT;
 	}
+
 	return tipoMossa;
     }
 
@@ -224,6 +225,7 @@ public final class Controller {
 	    if (isReProtetto(cellaPartenza, cellaDestinazione)) {
 		return true;
 	    }
+
 	}
 	return false;
     }

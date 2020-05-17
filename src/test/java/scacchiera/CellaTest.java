@@ -3,6 +3,10 @@ package scacchiera;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+<<<<<<< HEAD
+=======
+
+>>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 import gioco.Colore;
 import scacchiera.pedine.Re;
 class CellaTest {

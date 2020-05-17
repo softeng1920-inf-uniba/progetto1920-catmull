@@ -88,7 +88,10 @@ spotbugs {
     ignoreFailures = true
     
     toolVersion = '4.0.1'
+<<<<<<< HEAD
 
+=======
+>>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 }
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
