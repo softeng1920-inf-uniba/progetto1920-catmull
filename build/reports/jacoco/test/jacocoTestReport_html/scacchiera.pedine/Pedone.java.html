@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pedone.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">scacchiera.pedine</a> &gt; <span class="el_source">Pedone.java</span></div><h1>Pedone.java</h1><pre class="source lang-java linenums">package scacchiera.pedine;
+
+import java.util.ArrayList;
+
+import gioco.Colore;
+import gioco.Turno;
+import scacchiera.Cella;
+import scacchiera.Scacchiera;
+
+/**
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento del Pedone � valido. La classe Pedone e' di tipo noECB
+ */
+public final class Pedone extends Pezzo {
+
+	/**
+	 * Costruttore
+	 */
+	public Pedone(final Colore colore) {
+<span class="fc" id="L20">		super(&quot;Pedone&quot;, colore);</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">		if (colore == Colore.nero) {</span>
+<span class="fc" id="L22">			simbolo = '\u265f';</span>
+		} else {
+<span class="fc" id="L24">			simbolo = '\u2659';</span>
+		}
+<span class="fc" id="L26">	}</span>
+
+	/**
+	 * Restituisce vero se e' la prima mossa, falso altrimenti
+	 */
+
+	@Override
+	public boolean isMossaValida(final Cella start, final Cella end) {
+
+<span class="fc bfc" id="L35" title="All 2 branches covered.">		if (getColore() == Colore.bianco) {</span>
+			// movimento semplice
+<span class="pc bpc" id="L37" title="1 of 4 branches missed.">			if (start.getX() == end.getX() &amp;&amp; !end.isOccupato()) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">				if (((start.getY() - 1) == end.getY())) { // avanti di una cella</span>
+<span class="fc" id="L39">					return true;</span>
+<span class="pc bpc" id="L40" title="2 of 4 branches missed.">				} else if (((start.getY() - 2) == end.getY()) &amp;&amp; start.getY() == Scacchiera.SETTIMA_TRAVERSA // Se il</span>
+				// pedone
+				// parte
+				// dalla
+				// settima
+				// traversa
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">						&amp;&amp; !(Scacchiera.getCella(end.getX(), (start.getY() - 1)).isOccupato())) {</span>
+<span class="fc" id="L47">					return true;</span>
+				}
+
+				// movimento obliquo
+<span class="pc bpc" id="L51" title="2 of 4 branches missed.">			} else if ((start.getY() - 1 == end.getY()) &amp;&amp; (Math.abs(start.getX() - end.getX()) == 1)</span>
+<span class="pc bpc" id="L52" title="2 of 4 branches missed.">					&amp;&amp; end.isOccupato() &amp;&amp; end.getPezzoCorrente().getColore() != getColore()) {</span>
+<span class="fc" id="L53">				return true;</span>
+			}
+
+<span class="fc bfc" id="L56" title="All 4 branches covered.">		} else if (start.getX() == end.getX() &amp;&amp; !end.isOccupato()) { // mosse NERO semplice</span>
+<span class="pc bpc" id="L57" title="1 of 4 branches missed.">			if (((start.getY() + 1) == end.getY()) &amp;&amp; !end.isOccupato()) { // avanti di una cella</span>
+<span class="fc" id="L58">				return true;</span>
+<span class="pc bpc" id="L59" title="1 of 4 branches missed.">			} else if (((start.getY() + 2) == end.getY()) &amp;&amp; start.getY() == 1</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">					&amp;&amp; !(Scacchiera.getCella(end.getX(), (start.getY() + 1)).isOccupato())) { // avanti di due</span>
+<span class="fc" id="L61">				return true;</span>
+			}
+<span class="pc bpc" id="L63" title="1 of 6 branches missed.">		} else if (start.getY() + 1 == end.getY() &amp;&amp; (Math.abs(start.getX() - end.getX()) == 1) &amp;&amp; end.isOccupato()</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">				&amp;&amp; end.getPezzoCorrente().getColore() != getColore()) { // mossa obliqua NERO</span>
+<span class="fc" id="L65">			return true;</span>
+		}
+
+<span class="fc" id="L68">		return false;</span>
+	}
+
+	boolean isPedone(final Cella c) {
+<span class="pc bpc" id="L72" title="2 of 4 branches missed.">		return c.isOccupato() &amp;&amp; c.getPezzoCorrente().getNome().equals(getNome());</span>
+	}
+
+	/**
+	 * Determina se la cattura en passant e' effettuabile o meno
+	 *
+	 * @param start Cella di partenza della mossa del pedone
+	 * @param end   Cella di destinazione della mossa del pedone
+	 * @param mosse Array di tutte le mosse effettuate, necessario per controllare
+	 *              se l'ultima mossa effettuata è un avanzata di due case
+	 * @return true se la cattura è effettuabile in en passant, false altrimenti
+	 */
+	public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList&lt;String&gt; mosse) {
+
+		Cella cellaPedone;
+<span class="fc" id="L87">		char x = (char) (end.getX() + 97);</span>
+<span class="fc" id="L88">		char y1 = (char) (Math.abs(end.getY() - 9) + 48);</span>
+<span class="fc" id="L89">		char y2 = (char) (Math.abs(end.getY() - 7) + 48);</span>
+<span class="fc" id="L90">		String pedoneAvversarioBianco = x + &quot;&quot; + y2 + &quot; &quot; + x + &quot;&quot; + y1;</span>
+
+		// Prendo la colonna della destinazione, e la traversa di partenza
+<span class="fc" id="L93">		cellaPedone = Scacchiera.getCella(end.getX(), start.getY());</span>
+
+		// se la cella e' occupata da un pedone di un colore opposto
+<span class="pc bpc" id="L96" title="2 of 4 branches missed.">		if (isPedone(cellaPedone) &amp;&amp; cellaPedone.getPezzoCorrente().getColore() != getColore()) {</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">			if (getColore() == Colore.bianco) {</span>
+
+<span class="fc" id="L99">				String pedoneAvversarioNero = x + &quot;&quot; + y1 + &quot; &quot; + x + &quot;&quot; + y2; // calcolo ultima mossa del pedone da</span>
+				// catturare E.P.
+
+				// Se la traversa di partenza + 1 e' uguale a quella di
+				// destinazione, e mi sto spostando in obliquo
+				// E la cella di dest. non e' occupata
+				// E l'ultima mossa e' quella prevista per l'e.p.
+<span class="pc bpc" id="L106" title="3 of 6 branches missed.">				if (start.getY() - 1 == end.getY() &amp;&amp; Math.abs(start.getX() - end.getX()) == 1 &amp;&amp; !end.isOccupato()</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">						&amp;&amp; mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero)) {</span>
+<span class="fc" id="L108">					return true;</span>
+				}
+<span class="fc" id="L110">			} else { // Pedone di colore nero</span>
+<span class="pc bpc" id="L111" title="3 of 6 branches missed.">				if (start.getY() + 1 == end.getY() &amp;&amp; Math.abs(start.getX() - end.getX()) == 1 &amp;&amp; !end.isOccupato()</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">						&amp;&amp; mosse.get(mosse.size() - 1).equals(pedoneAvversarioBianco)) {</span>
+<span class="fc" id="L113">					return true;</span>
+				}
+			}
+		}
+<span class="fc" id="L117">		return false;</span>
+	}
+
+	/**
+	 * metodo di classe che converte il comando in input in una stringa nel formato
+	 * a2 a4
+	 *
+	 * @param mossa puo' essere un'avanzata (es. a2) oppure una cattura (es. axb3
+	 * @return mossa nel formato esteso
+	 */
+	public static String convertiMossa(final String mossa) {
+
+<span class="fc" id="L129">		int variazione = 0;</span>
+<span class="fc" id="L130">		String mossaConvertita = &quot;a0 a0&quot;;</span>
+
+		// Il formato della mossa sara'  del tipo [a-h](x|:)([a-h][1-8])
+<span class="fc" id="L133">		String regexCattura = &quot;[a-h](x|:)([a-h][1-8])( e.p.)?&quot;;</span>
+<span class="fc" id="L134">		Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();</span>
+
+<span class="fc bfc" id="L136" title="All 2 branches covered.">		if (mossa.matches(regexCattura)) { // Mossa di cattura in diagonale</span>
+<span class="fc" id="L137">			final int colonnaPartenzaCattura = 0;</span>
+<span class="fc" id="L138">			final int colonnaDestinazioneCattura = 2;</span>
+<span class="fc" id="L139">			final int traversaDestinazioneCattura = 3;</span>
+<span class="fc" id="L140">			variazione = -47;</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">			if (coloreGiocatoreAttuale == Colore.bianco) {</span>
+<span class="fc" id="L142">				variazione = -49;</span>
+			}
+<span class="pc bpc" id="L144" title="1 of 2 branches missed.">			if (Math.abs(mossa.charAt(colonnaPartenzaCattura) - mossa.charAt(colonnaDestinazioneCattura)) == 1) {</span>
+<span class="fc" id="L145">				mossaConvertita = String.valueOf(mossa.charAt(colonnaPartenzaCattura))</span>
+<span class="fc" id="L146">						+ String.valueOf(mossa.charAt(traversaDestinazioneCattura) + variazione) + ' '</span>
+<span class="fc" id="L147">						+ String.valueOf(mossa.charAt(colonnaDestinazioneCattura))</span>
+<span class="fc" id="L148">						+ String.valueOf(mossa.charAt(traversaDestinazioneCattura));</span>
+			}
+<span class="fc" id="L150">		} else { // avanzata</span>
+<span class="fc" id="L151">			final int colonnaDestinazioneAvanzata = 0;</span>
+<span class="fc" id="L152">			final int traversaDestinazioneAvanzata = 1;</span>
+			// controlla se e' possibile avanti di due o di uno
+
+<span class="fc bfc" id="L155" title="All 2 branches covered.">			if (coloreGiocatoreAttuale == Colore.bianco) {</span>
+<span class="fc" id="L156">				int colonnaDestinazione = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
+<span class="fc" id="L157">				int terzaTraversa = Cella.coordYinInt('3');</span>
+<span class="fc" id="L158">				Cella c = Scacchiera.getCella(colonnaDestinazione, terzaTraversa);</span>
+
+<span class="fc bfc" id="L160" title="All 2 branches covered.">				if (mossa.charAt(traversaDestinazioneAvanzata) == '4'</span>
+						// Se mi voglio spostare nella 4 traversa, devo determinare se voglio
+						// avanzare di 2
+<span class="pc bpc" id="L163" title="3 of 4 branches missed.">						&amp;&amp; (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals(&quot;Pedone&quot;))) {</span>
+<span class="fc" id="L164">					variazione = -50; // Se la terza traversa non è occupata da un pedone allora vengo dalla seconda</span>
+					// traversa
+				} else {
+<span class="fc" id="L167">					variazione = -49;</span>
+				}
+
+<span class="fc" id="L170">			} else { // giocatore pedine nere</span>
+<span class="fc" id="L171">				Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata)), 2);</span>
+<span class="fc" id="L172">				variazione = -47;</span>
+<span class="pc bpc" id="L173" title="3 of 6 branches missed.">				if (mossa.charAt(1) == '5' &amp;&amp; (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals(&quot;Pedone&quot;))) {</span>
+<span class="fc" id="L174">					variazione = -46;</span>
+				}
+			}
+
+			// mossa finale pedone semplice
+<span class="fc" id="L179">			mossaConvertita = String.valueOf(mossa.charAt(colonnaDestinazioneAvanzata)) + // prima traversa</span>
+<span class="fc" id="L180">					String.valueOf(mossa.charAt(traversaDestinazioneAvanzata) + variazione) + // prima colonna</span>
+<span class="fc" id="L181">					' ' + String.valueOf(mossa.charAt(colonnaDestinazioneAvanzata)) + // seconda traversa</span>
+<span class="fc" id="L182">					String.valueOf(mossa.charAt(traversaDestinazioneAvanzata)); // seconda colonna</span>
+
+		}
+		// controlla che nella cella di partenza ci sia un pedone
+
+<span class="fc bfc" id="L187" title="All 2 branches covered.">		if (Scacchiera.getNomePezzo(Cella.coordXinInt(mossaConvertita.charAt(0)),</span>
+<span class="fc" id="L188">				Cella.coordYinInt(mossaConvertita.charAt(1))) != &quot;Pedone&quot;) {</span>
+<span class="fc" id="L189">			return &quot;a0 a0&quot;;</span>
+		}
+<span class="fc" id="L191">		return mossaConvertita;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

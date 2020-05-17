@@ -2,7 +2,10 @@ package gioco;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -58,13 +61,13 @@ class GiocatoreTest {
 		assertTrue(g1.isEmptyPezziCatturati());
 	}
 
-//	@Test
-//	void testRemovePezzoCatturato() {
-//		Scacchiera.nuovaScacchiera();
-//		g1 = Turno.getGiocatoreInTurno();
-//		g1.addPezziCatturati(Scacchiera.getCella(0, 6).getPezzoCorrente());
-//		g1.removePezzoCatturato();
-//		assertTrue(g1.isEmptyPezziCatturati());
-//	}
+	@Test
+	void testRemovePezzoCatturato() {
+		Scacchiera.nuovaScacchiera();
+		g1 = Turno.getGiocatoreInTurno();
+		g1.addPezziCatturati(Scacchiera.getCella(0, 6).getPezzoCorrente());
+		g1.removePezzoCatturato();
+		assertTrue(g1.isEmptyPezziCatturati());
+	}
 
 }

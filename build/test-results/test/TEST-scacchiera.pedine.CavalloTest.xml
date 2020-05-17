@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="scacchiera.pedine.CavalloTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-17T14:44:42" hostname="MBP-di-Antonio" time="0.031">
+  <properties/>
+  <testcase name="testConvertiMossa()" classname="scacchiera.pedine.CavalloTest" time="0.028"/>
+  <testcase name="testIsMossaValida()" classname="scacchiera.pedine.CavalloTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppMain.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">it.uniba.main</a> &gt; <span class="el_source">AppMain.java</span></div><h1>AppMain.java</h1><pre class="source lang-java linenums">package it.uniba.main;
 
-import java.io.FileNotFoundException;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.security.GeneralSecurityException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 
-import it.uniba.sotorrent.GoogleDocsUtils;
+import gioco.Menu;
+import gioco.Stampa;
 
 /**
- * The main class for the project. It must be customized to meet the project
- * assignment specifications.
- * 
+ * La classe AppMain e' di tipo BOUNDARY The main class for the project. It must
+ * be customized to meet the project assignment specifications.
+ *
  * &lt;b&gt;DO NOT RENAME&lt;/b&gt;
  */
 public final class AppMain {
@@ -19,39 +22,46 @@ public final class AppMain {
 	 * Private constructor. Change if needed.
 	 */
 	private AppMain() {
-
 	}
 
 	/**
-	 * 	 * This is the main entry of the application.
+	 * * This is the main entry of the application.
 	 *
 	 * @param args The command-line arguments.
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
 	 */
-	public static void main(final String[] args) {
+	public static void main(final String[] args) throws IOException {
 
-<span class="nc" id="L32">		System.out.println(&quot;Current working dir: &quot; + System.getProperty(&quot;user.dir&quot;));</span>
+<span class="nc" id="L36">		System.setOut(new PrintStream(System.out, false, &quot;UTF-8&quot;));</span>
 
-<span class="nc bnc" id="L34" title="All 2 branches missed.">		if (args.length &gt; 0) {</span>
-<span class="nc bnc" id="L35" title="All 3 branches missed.">			switch (args[0]) {</span>
-			case &quot;it&quot;:
-<span class="nc" id="L37">				System.out.println(&quot;Applicazione avviata.&quot;);</span>
-<span class="nc" id="L38">				break;</span>
+<span class="nc" id="L38">		Controller.newController();</span>
+<span class="nc" id="L39">		boolean play = false;</span>
+<span class="nc" id="L40">		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName(&quot;UTF-8&quot;)));</span>
+<span class="nc" id="L41">		Menu.newMenu();</span>
+<span class="nc" id="L42">		Stampa.stampaIntro();</span>
+<span class="nc" id="L43">		Stampa.stampaMenu();</span>
 
-			case &quot;en&quot;:
-<span class="nc" id="L41">				System.out.println(&quot;Application started.&quot;);</span>
-<span class="nc" id="L42">				break;</span>
-
-			default:
-<span class="nc" id="L45">				System.out.println(&quot;Specify the language. &quot;</span>
-								   + &quot;Languages supported: 'it' or 'en'&quot;);
-<span class="nc" id="L47">				break;</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">		while (!play) {</span>
+<span class="nc" id="L46">			String nomeMenu = br.readLine();</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">			if (nomeMenu != null) {</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">				if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {</span>
+<span class="nc" id="L49">					Stampa.mostrareElencoComandiMenu();</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {</span>
+<span class="nc" id="L51">					Stampa.stampaScacchiera();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {</span>
+<span class="nc" id="L53">					break;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {</span>
+<span class="nc" id="L55">					Stampa.stampaNuovaPartita();</span>
+<span class="nc" id="L56">					Controller.playGame();</span>
+<span class="nc" id="L57">					play = true;</span>
+				} else {
+<span class="nc" id="L59">					Stampa.stampaComandoErrato();</span>
+				}
+			} else {
+				break;
 			}
-		} else {
-<span class="nc" id="L50">			System.out.println(&quot;Using default language 'en'&quot;);</span>
-<span class="nc" id="L51">			System.out.println(&quot;Application started.&quot;);</span>
-		}
-
-<span class="nc" id="L54">	}</span>
-
+<span class="nc" id="L64">		}</span>
+<span class="nc" id="L65">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

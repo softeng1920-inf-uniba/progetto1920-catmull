@@ -93,9 +93,8 @@ public final class Pedone extends Pezzo {
 	    return true;
 	}
 
-	private boolean isPedone(Cella c) {
-
-		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(this.nome);
+	boolean isPedone(final Cella c) {
+		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(getNome());
 	}
 
     /**

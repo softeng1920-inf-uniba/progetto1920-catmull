@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cavallo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">scacchiera.pedine</a> &gt; <span class="el_source">Cavallo.java</span></div><h1>Cavallo.java</h1><pre class="source lang-java linenums">package scacchiera.pedine;
+
+import gioco.Colore;
+import gioco.Turno;
+import scacchiera.Cella;
+import scacchiera.Scacchiera;
+
+/**
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento del Cavallo e' valido. La classe Cavallo e' di tipo noECB.
+ */
+public final class Cavallo extends Pezzo {
+
+	public Cavallo(final Colore colore) {
+<span class="fc" id="L15">		super(&quot;Cavallo&quot;, colore);</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">		if (colore == Colore.nero) {</span>
+<span class="fc" id="L17">			simbolo = '\u265e';</span>
+		} else {
+<span class="fc" id="L19">			simbolo = '\u2658';</span>
+		}
+<span class="fc" id="L21">	}</span>
+
+	@Override
+	public boolean isMossaValida(final Cella start, final Cella end) {
+<span class="fc bfc" id="L25" title="All 4 branches covered.">		if (end.isOccupato() &amp;&amp; getColore() == end.getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L26">			return false;</span>
+		}
+<span class="pc bpc" id="L28" title="1 of 6 branches missed.">		if (start.getX() == end.getX() + 2 &amp;&amp; (start.getY() == end.getY() - 1 || start.getY() == end.getY() + 1)) {</span>
+<span class="fc" id="L29">			return true;</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">		} else if (start.getX() == end.getX() - 2</span>
+<span class="pc bpc" id="L31" title="1 of 4 branches missed.">				&amp;&amp; (start.getY() == end.getY() - 1 || start.getY() == end.getY() + 1)) {</span>
+<span class="fc" id="L32">			return true;</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		} else if (start.getX() == end.getX() + 1</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">				&amp;&amp; (start.getY() == end.getY() - 2 || start.getY() == end.getY() + 2)) {</span>
+<span class="fc" id="L35">			return true;</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		} else if (start.getX() == end.getX() - 1</span>
+<span class="pc bpc" id="L37" title="1 of 4 branches missed.">				&amp;&amp; (start.getY() == end.getY() - 2 || start.getY() == end.getY() + 2)) {</span>
+<span class="fc" id="L38">			return true;</span>
+		}
+<span class="fc" id="L40">		return false;</span>
+	}
+
+	/**
+	 * Converte la stringa in input in stringa leggibile dalla funzione
+	 * applicaMossa. Ad esempio: Cde4 ==&gt; d2 e4 TODO: migliorare javadoc
+	 *
+	 * @param mossa
+	 * @param s
+	 * @param g
+	 * @return
+	 */
+	public static String convertiMossa(final String mossa) {
+<span class="fc" id="L53">		int startX = -1;</span>
+<span class="fc" id="L54">		int startY = -1;</span>
+<span class="fc" id="L55">		int endX = -1;</span>
+<span class="fc" id="L56">		int endY = -1;</span>
+<span class="fc" id="L57">		int ambiguita = 0;</span>
+		// stringa standard da restituire in caso di mossa non valida per i controlli
+		// nella classe controller
+<span class="fc" id="L60">		String mossaConvertita = &quot;a0 a0&quot;;</span>
+<span class="fc" id="L61">		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();</span>
+
+		// esempio: Cdxe4 - cattura con ambiguita' su colonna
+<span class="fc bfc" id="L64" title="All 2 branches covered.">		if (mossa.matches(&quot;C[a-h][x|:]([a-h][1-8])&quot;)) {</span>
+<span class="fc" id="L65">			final int colonnaPartenzaCattura = 1;</span>
+<span class="fc" id="L66">			final int colonnaDestinazioneCattura = 3;</span>
+<span class="fc" id="L67">			final int traversaDestinazioneCattura = 4;</span>
+<span class="fc" id="L68">			startX = Cella.coordXinInt(mossa.charAt(colonnaPartenzaCattura));</span>
+<span class="fc" id="L69">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));</span>
+<span class="fc" id="L70">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
+<span class="fc" id="L72">				return mossaConvertita;</span>
+			}
+		}
+		// esempio: Cxe4 - cattura cavallo normale
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if (mossa.matches(&quot;C[x|:]([a-h][1-8])&quot;)) {</span>
+<span class="fc" id="L77">			final int colonnaDestinazioneCattura = 2;</span>
+<span class="fc" id="L78">			final int traversaDestinazioneCattura = 3;</span>
+<span class="fc" id="L79">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));</span>
+<span class="fc" id="L80">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
+<span class="fc" id="L82">				return mossaConvertita;</span>
+			}
+		}
+		// esempio: C6xe4 - cattura con ambiguita' su traversa
+<span class="fc bfc" id="L86" title="All 2 branches covered.">		if (mossa.matches(&quot;C[1-8][x|:]([a-h][1-8])&quot;)) {</span>
+<span class="fc" id="L87">			final int traversaPartenzaCattura = 1;</span>
+<span class="fc" id="L88">			final int colonnaDestinazioneCattura = 3;</span>
+<span class="fc" id="L89">			final int traversaDestinazioneCattura = 4;</span>
+<span class="fc" id="L90">			startY = Cella.coordYinInt(mossa.charAt(traversaPartenzaCattura));</span>
+<span class="fc" id="L91">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));</span>
+<span class="fc" id="L92">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
+<span class="fc" id="L94">				return mossaConvertita;</span>
+			}
+		}
+		// esempio: Cde4 - Avanzata cavallo con ambiguità su colonna
+<span class="fc bfc" id="L98" title="All 2 branches covered.">		if (mossa.matches(&quot;C[a-h]([a-h][1-8])&quot;)) {</span>
+<span class="fc" id="L99">			final int colonnaPartenzaAvanzata = 1;</span>
+<span class="fc" id="L100">			final int colonnaDestinazioneAvanzata = 2;</span>
+<span class="fc" id="L101">			final int traversaDestinazioneAvanzata = 3;</span>
+<span class="fc" id="L102">			startX = Cella.coordXinInt(mossa.charAt(colonnaPartenzaAvanzata));</span>
+<span class="fc" id="L103">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
+<span class="fc" id="L104">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
+<span class="fc" id="L106">				return mossaConvertita;</span>
+			}
+		}
+		// esempio: C3e4 - Avanzata cavallo con ambiguità su traversa
+<span class="fc bfc" id="L110" title="All 2 branches covered.">		if (mossa.matches(&quot;C[1-8]([a-h][1-8])&quot;)) {</span>
+<span class="fc" id="L111">			final int traversaPartenzaAvanzata = 1;</span>
+<span class="fc" id="L112">			final int colonnaDestinazioneAvanzata = 2;</span>
+<span class="fc" id="L113">			final int traversaDestinazioneAvanzata = 3;</span>
+<span class="fc" id="L114">			startY = Cella.coordYinInt(mossa.charAt(traversaPartenzaAvanzata));</span>
+<span class="fc" id="L115">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
+<span class="fc" id="L116">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
+<span class="fc" id="L118">				return mossaConvertita;</span>
+			}
+		}
+		// esempio: Ce4 - Avanzata cavallo normale
+<span class="fc bfc" id="L122" title="All 2 branches covered.">		if (mossa.matches(&quot;C([a-h][1-8])&quot;)) {</span>
+<span class="fc" id="L123">			final int colonnaDestinazioneAvanzata = 1;</span>
+<span class="fc" id="L124">			final int traversaDestinazioneAvanzata = 2;</span>
+<span class="fc" id="L125">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
+<span class="fc" id="L126">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
+<span class="fc" id="L128">				return mossaConvertita;</span>
+			}
+		}
+		// ricaviamo X o Y a seconda di quella diversa da -1
+<span class="fc bfc" id="L132" title="All 2 branches covered.">		if (startX != -1) { // startX data in input</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">			if (Math.abs(startX - endX) == 2) {</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(startX, endY - 1) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">						.getCella(startX, endY - 1).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L136">					startY = endY - 1;</span>
+<span class="fc" id="L137">					ambiguita++;</span>
+				}
+<span class="fc bfc" id="L139" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(startX, endY + 1) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">						.getCella(startX, endY + 1).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L141">					startY = endY + 1;</span>
+<span class="fc" id="L142">					ambiguita++;</span>
+				}
+			}
+<span class="fc bfc" id="L145" title="All 2 branches covered.">			if (Math.abs(startX - endX) == 1) {</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(startX, endY - 2) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">						.getCella(startX, endY - 2).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L148">					startY = endY - 2;</span>
+<span class="fc" id="L149">					ambiguita++;</span>
+				}
+<span class="fc bfc" id="L151" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(startX, endY + 2) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">						.getCella(startX, endY + 2).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L153">					startY = endY + 2;</span>
+<span class="fc" id="L154">					ambiguita++;</span>
+				}
+			}
+<span class="fc bfc" id="L157" title="All 2 branches covered.">		} else if (startY != -1) { // startY data in input</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">			if (Math.abs(startY - endY) == 2) {</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(endX - 1, startY) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">						.getCella(endX - 1, startY).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L161">					startX = endX - 1;</span>
+<span class="fc" id="L162">					ambiguita++;</span>
+				}
+<span class="fc bfc" id="L164" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(endX + 1, startY) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">						.getCella(endX + 1, startY).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L166">					startX = endX + 1;</span>
+<span class="fc" id="L167">					ambiguita++;</span>
+				}
+			}
+<span class="fc bfc" id="L170" title="All 2 branches covered.">			if (Math.abs(startY - endY) == 1) {</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(endX - 2, startY) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">						.getCella(endX - 2, startY).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L173">					startX = endX - 2;</span>
+<span class="fc" id="L174">					ambiguita++;</span>
+				}
+<span class="fc bfc" id="L176" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(endX + 2, startY) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L177" title="1 of 2 branches missed.">						.getCella(endX + 2, startY).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L178">					startX = endX + 2;</span>
+<span class="fc" id="L179">					ambiguita++;</span>
+				}
+			}
+		} else { // startX e startY uguali entrambe a -1, quindi entrambe non date in input
+<span class="fc bfc" id="L183" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX - 2, endY - 1) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">					.getCella(endX - 2, endY - 1).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L185">				startX = endX - 2;</span>
+<span class="fc" id="L186">				startY = endY - 1;</span>
+<span class="fc" id="L187">				ambiguita++;</span>
+			}
+<span class="fc bfc" id="L189" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX - 2, endY + 1) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">					.getCella(endX - 2, endY + 1).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L191">				startX = endX - 2;</span>
+<span class="fc" id="L192">				startY = endY + 1;</span>
+<span class="fc" id="L193">				ambiguita++;</span>
+			}
+<span class="fc bfc" id="L195" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX + 2, endY + 1) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">					.getCella(endX + 2, endY + 1).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L197">				startX = endX + 2;</span>
+<span class="fc" id="L198">				startY = endY + 1;</span>
+<span class="fc" id="L199">				ambiguita++;</span>
+			}
+<span class="fc bfc" id="L201" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX + 2, endY - 1) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">					.getCella(endX + 2, endY - 1).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L203">				startX = endX + 2;</span>
+<span class="fc" id="L204">				startY = endY - 1;</span>
+<span class="fc" id="L205">				ambiguita++;</span>
+			}
+<span class="fc bfc" id="L207" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX + 1, endY - 2) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="fc bfc" id="L208" title="All 2 branches covered.">					.getCella(endX + 1, endY - 2).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L209">				startX = endX + 1;</span>
+<span class="fc" id="L210">				startY = endY - 2;</span>
+<span class="fc" id="L211">				ambiguita++;</span>
+			}
+<span class="fc bfc" id="L213" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX + 1, endY + 2) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">					.getCella(endX + 1, endY + 2).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L215">				startX = endX + 1;</span>
+<span class="fc" id="L216">				startY = endY + 2;</span>
+<span class="fc" id="L217">				ambiguita++;</span>
+			}
+<span class="fc bfc" id="L219" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX - 1, endY + 2) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L220" title="1 of 2 branches missed.">					.getCella(endX - 1, endY + 2).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L221">				startX = endX - 1;</span>
+<span class="fc" id="L222">				startY = endY + 2;</span>
+<span class="fc" id="L223">				ambiguita++;</span>
+			}
+<span class="fc bfc" id="L225" title="All 2 branches covered.">			if (Scacchiera.getNomePezzo(endX - 1, endY - 2) == &quot;Cavallo&quot; &amp;&amp; coloreGiocatoreAttivo == Scacchiera</span>
+<span class="pc bpc" id="L226" title="1 of 2 branches missed.">					.getCella(endX - 1, endY - 2).getPezzoCorrente().getColore()) {</span>
+<span class="fc" id="L227">				startX = endX - 1;</span>
+<span class="fc" id="L228">				startY = endY - 2;</span>
+<span class="fc" id="L229">				ambiguita++;</span>
+			}
+		}
+
+<span class="pc bpc" id="L233" title="3 of 6 branches missed.">		if (Scacchiera.isRangeValido(startX, startY) &amp;&amp; Scacchiera.getCella(startX, startY).isOccupato()</span>
+				&amp;&amp; ambiguita &lt;= 1) {
+<span class="fc" id="L235">			mossaConvertita = Cella.coordXinChar(startX) + &quot;&quot; + Cella.coordYinChar(startY) + &quot; &quot;</span>
+<span class="fc" id="L236">					+ Cella.coordXinChar(endX) + &quot;&quot; + Cella.coordYinChar(endY);</span>
+		}
+
+<span class="fc" id="L239">		return mossaConvertita;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
