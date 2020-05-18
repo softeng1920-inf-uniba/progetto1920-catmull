@@ -191,7 +191,7 @@ public class Giocatore {
     }
 
     /**
-     * TODO: aggiungere javadoc!
+     * Rimuove un pezzo dalla lista dei pezzi catturati del giocatore
      */
     public void removePezzoCatturato() {
 	pezziCatturati.remove(pezziCatturati.size() - 1);

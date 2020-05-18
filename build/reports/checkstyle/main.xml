@@ -5,59 +5,32 @@
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Comando.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Giocatore.java">
-<error line="169" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Menu.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Stampa.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Turno.java">
-<error line="12" column="1" severity="error" message="Utility classes should not have a public or default constructor." source="com.puppycrawl.tools.checkstyle.checks.design.HideUtilityClassConstructorCheck"/>
-<error line="17" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\it\uniba\main\AppMain.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\it\uniba\main\Controller.java">
-<error line="253" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
-<error line="373" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\pedine\Alfiere.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\pedine\Cavallo.java">
-<error line="45" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
-<error line="52" column="5" severity="error" message="Method length is 189 lines (max allowed is 150)." source="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\pedine\Pedone.java">
-<error line="83" column="39" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="84" column="49" severity="error" message="&apos;9&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="84" column="54" severity="error" message="&apos;48&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="85" column="49" severity="error" message="&apos;7&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="85" column="54" severity="error" message="&apos;48&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="138" column="26" severity="error" message="&apos;-47&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="140" column="30" severity="error" message="&apos;-49&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="158" column="71" severity="error" message="&apos;&amp;&amp;&apos; should be on a new line." source="com.puppycrawl.tools.checkstyle.checks.whitespace.OperatorWrapCheck"/>
-<error line="162" column="34" severity="error" message="&apos;-50&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="165" column="34" severity="error" message="&apos;-49&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="170" column="30" severity="error" message="&apos;-47&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="172" column="34" severity="error" message="&apos;-46&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\pedine\Pezzo.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\pedine\Re.java">
-<error line="243" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\pedine\Regina.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\pedine\Torre.java">
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\scacchiera\Cella.java">
-<error line="143" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
-<error line="150" column="25" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="162" column="35" severity="error" message="&apos;49&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="162" column="41" severity="error" message="&apos;7&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="174" column="33" severity="error" message="&apos;97&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="185" column="43" severity="error" message="&apos;8&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="185" column="49" severity="error" message="&apos;48&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\scacchiera\Scacchiera.java">
 </file>

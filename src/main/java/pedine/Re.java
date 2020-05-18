@@ -240,9 +240,9 @@ public final class Re extends Pezzo {
     }
 
     /**
-     * TODO: Migliorare javadoc
+     * Cerca il Re nella scacchiera dello stesso colore del giocatore in turno.
      * 
-     * @return
+     * @return Cella che contiene il Re
      */
     public static Cella findRe() {
 	int startX = -1;

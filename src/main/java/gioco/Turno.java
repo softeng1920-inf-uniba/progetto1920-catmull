@@ -10,11 +10,18 @@ import java.util.ArrayList;
  */
 
 public final class Turno {
-    private static Giocatore giocatoreInTurno = new Giocatore(Colore.bianco);
-    private static Giocatore giocatoreInAttesa = new Giocatore(Colore.nero);;
+    private static Giocatore giocatoreInTurno;
+    private static Giocatore giocatoreInAttesa;
 
-    public Turno() {
-	
+    private Turno() {
+    }
+
+    /**
+     * Costruttore statico per classe Singleton
+     */
+    public static void newTurno() {
+	giocatoreInTurno = new Giocatore(Colore.bianco);
+	giocatoreInAttesa = new Giocatore(Colore.nero);
     }
 
     public static void cambioTurno() {

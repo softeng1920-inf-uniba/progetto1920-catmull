@@ -45,7 +45,7 @@ public class Controller {
 	do {
 
 	    Scacchiera.inizializzaScacchiera();
-	    new Turno();
+	    Turno.newTurno();
 
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 			String comando = "";
@@ -397,12 +397,19 @@ public class Controller {
     }
 
     /**
-     * TODO: Aggiungere javadoc!
+     * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo stesso
+     * colore si muove in un'altra cella. Viene applicata la mossa temporaneamente
+     * per effettuare i controlli attraverso la funzione isReSottoScacco: in caso
+     * positivo viene restituito un booleano con valore false, altrimenti è
+     * restituito un booleano con valore true. In entrambi i casi viene ripristinata
+     * la situazione immediatamente precedente alla applicazione della mossa.
      * 
-     * @param partenza
-     * @param destinazione
-     * @param tipo         //TODO tipomossa??
-     * @return
+     * @param partenza     Cella di partenza del re
+     * @param destinazione Cella di destinazione del re
+     * @param tipo         Tipologia della mossa: 0: Mossa normale (avanzata,
+     *                     cattura) di un pezzo 1: Mossa speciale (en passant) del
+     *                     pedone
+     * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
      */
     public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipo) {
 	Cella cellaRe = Re.findRe();

@@ -182,7 +182,8 @@ public class Scacchiera {
      *
      * @param x coordinata delle colonne (valore compreso fra 0 e 7)
      * @param y coordinata delle righe (valore compreso fra 0 e 7)
-     * @return Stringa indicante il nome del pezzo, se è presente nella cella, "Vuota" altrimenti
+     * @return Stringa indicante il nome del pezzo, se è presente nella cella,
+     *         "Vuota" altrimenti
      */
     public static final String getNomePezzo(final int x, final int y) {
 	if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {
