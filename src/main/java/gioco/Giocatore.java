@@ -54,7 +54,6 @@ public class Giocatore {
 
 	pezziCatturati = new ArrayList<Pezzo>();
 	mosseGiocate = new ArrayList<String>();
-
     }
 
     /**
@@ -76,21 +75,22 @@ public class Giocatore {
     }
 
     /**
-     * Assegna il nome al campo nome del Giocatore.
-     *
-     * @param n Nome del giocatore
-     */
-    public void setNome(final String n) {
-	this.nome = n;
-    }
-
-    /**
      * Assegna il colore al campo colore del Giocatore.
      *
      * @param c
      */
     public void setColore(final Colore c) {
 	this.colore = c;
+    }
+
+    /**
+     * Aggiunta la pedina p mangiata dal giocatore avversario al vettore
+     * pezziCatturati
+     *
+     * @param p
+     */
+    public void addPezziCatturati(final Pezzo p) {
+	pezziCatturati.add(p);
     }
 
     /**
@@ -113,31 +113,12 @@ public class Giocatore {
     }
 
     /**
-     * Aggiunge la pedina p mangiata dal giocatore avversario al vettore
-     * pezziCatturati
-     *
-     * @param p pezzo catturato dal giocatore
-     */
-    public void addPezziCatturati(final Pezzo p) {
-	pezziCatturati.add(p);
-    }
-
-    /**
      * Aggiunge la mossa corrente alla lista mosseGiocate.
      *
      * @param mossa
      */
     public void setMosseGiocate(final String mossa) {
 	mosseGiocate.add(mossa);
-    }
-
-    /**
-     * Restituisce la storia delle mosse giocate dal giocatore.
-     *
-     * @return lista delle mosse giocate.
-     */
-    public ArrayList<String> getMosseGiocate() {
-	return mosseGiocate;
     }
 
     /**

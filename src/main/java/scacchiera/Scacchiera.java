@@ -16,12 +16,10 @@ import pedine.Torre;
  */
 public class Scacchiera {
 
+    private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
     public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà valore 7
-
     public static final int NUMEROCOLONNE = 8;
     public static final int NUMERORIGHE = 8;
-
-    private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 
     /**
      * Avvalora e inizializza la matrice di celle, una per una
@@ -196,6 +194,7 @@ public class Scacchiera {
     public static final String getNomePezzo(final int x, final int y) {
 	if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {
 	    return getCella(x, y).getPezzoCorrente().getNome();
+
 	}
 	return "Vuota";
     }

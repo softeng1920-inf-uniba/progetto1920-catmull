@@ -60,7 +60,6 @@ public final class Re extends Pezzo {
 	    }
 	}
 	return false;
-
     }
 
     /**
