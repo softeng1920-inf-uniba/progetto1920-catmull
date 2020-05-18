@@ -226,7 +226,7 @@ public class Controller {
 	 *
 	 * @return true se l'utente vuole uscire dal gioco, false altrimenti.
 	 */
-	public boolean utenteConfermaFinePartita() {
+	private boolean utenteConfermaFinePartita() {
 
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
