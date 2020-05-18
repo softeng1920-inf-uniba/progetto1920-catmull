@@ -28,11 +28,11 @@ import scacchiera.Scacchiera;
  * CONTROL
  */
 public class Controller {
-	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
+    private static ArrayList<String> mosseConvertite = new ArrayList<String>();
 
-	public Controller() {
-		new Scacchiera();
-	}
+    public Controller() {
+	new Scacchiera();
+    }
 
     /**
      * inizializzaPartita implementa la fase iniziale della partita
@@ -47,8 +47,8 @@ public class Controller {
 	    Scacchiera.inizializzaScacchiera();
 	    Turno.newTurno();
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-			String comando = "";
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+	    String comando = "";
 
 	    while (true) {
 
@@ -68,7 +68,12 @@ public class Controller {
 		    } else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
 			Stampa.visualizzareCatture();
 		    } else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-			break;
+			if (utenteConfermaFinePartita()) {
+			    utenteVuoleRicominciare = false;
+			    break;
+			} else {
+			    continue; // Faccio ripartire il loop interno
+			}
 		    } else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 			if (utenteConfermaRiavvioPartita()) {
 			    Stampa.stampaNuovaPartita();
@@ -190,50 +195,21 @@ public class Controller {
      */
     private boolean utenteConfermaRiavvioPartita() {
 
-		String comando = "";
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-		Stampa.stampaConfermaNuovaPartita();
-		while (true) {
-			try {
-				comando = br.readLine();
-				if (comando != null) {
-					switch (comando) {
-					case "y":
-						return true;
-					case "n":
-						return false;
-					default:
-						Stampa.stampaComandoErrato();
-					}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-	}
-
-
-
-    /**
-     * Viene richiesto all'utente una conferma se vuole uscire dal gioco
-     *
-     * @return true se l'utente vuole ricominciare la partita, false altrimenti.
-     */
-    private boolean utenteConfermaFinePartita() {
 	String comando = "";
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	Stampa.stampaConfermaFinePartita();
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+	Stampa.stampaConfermaNuovaPartita();
 	while (true) {
 	    try {
 		comando = br.readLine();
-		switch (comando) {
-		case "y":
-		    return true;
-		case "n":
-		    return false;
-		default:
-		    Stampa.stampaComandoErrato();
+		if (comando != null) {
+		    switch (comando) {
+		    case "y":
+			return true;
+		    case "n":
+			return false;
+		    default:
+			Stampa.stampaComandoErrato();
+		    }
 		}
 	    } catch (IOException e) {
 		e.printStackTrace();
@@ -241,7 +217,36 @@ public class Controller {
 	}
 
     }
-    
+
+    /**
+     * Viene richiesto all'utente una conferma se vuole uscire dal gioco
+     *
+     * @return true se l'utente vuole ricominciare la partita, false altrimenti.
+     */
+    public boolean utenteConfermaFinePartita() {
+	String comando = "";
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+	Stampa.stampaConfermaFinePartita();
+	while (true) {
+	    try {
+		comando = br.readLine();
+		if (comando != null) {
+		    switch (comando) {
+		    case "y":
+			return true;
+		    case "n":
+			return false;
+		    default:
+			Stampa.stampaComandoErrato();
+		    }
+		}
+	    } catch (IOException e) {
+		e.printStackTrace();
+	    }
+	}
+
+    }
+
     /**
      * Trasforma il comando a seconda del pezzo da muovere
      *
@@ -265,7 +270,6 @@ public class Controller {
 	    return Pedone.convertiMossa(mossa);
 	}
     }
-
 
     /**
      * Dopo che sono stati effettuati i vari controlli (se la mossa inserita e'
@@ -301,21 +305,21 @@ public class Controller {
 	default:
 	}
 	Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
-
-
-	/**
-	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
-	 * (la traversa è minore di 1 ecc.)
-	 *
-	 * @param comando Stringa nel formato : colonna e traversa di partenza seguite
-	 *                da uno spazio, ed infine colonna e traversa di destinazione
-	 * @return false se la mossa inserita non e' valida, va oltre i limiti della
-	 *         scacchiera, true altrimenti
-	 */
-	public static boolean isMossaInRangeValido(String comando) {
-			return  (!isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando), Cella.endY(comando)));
     }
-    
+
+    /**
+     * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
+     * (la traversa è minore di 1 ecc.)
+     *
+     * @param comando Stringa nel formato : colonna e traversa di partenza seguite
+     *                da uno spazio, ed infine colonna e traversa di destinazione
+     * @return false se la mossa inserita non e' valida, va oltre i limiti della
+     *         scacchiera, true altrimenti
+     */
+    public static boolean isMossaInRangeValido(final String comando) {
+	return (isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando),
+		Cella.endY(comando)));
+    }
 
     /**
      * Restituisce un valore booleano che indica se le coordinate che rappresentano
