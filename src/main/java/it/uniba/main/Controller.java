@@ -23,7 +23,7 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
@@ -65,7 +65,11 @@ public class Controller {
 					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
 						Stampa.visualizzareCatture();
 					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-						break;
+						if (utenteConfermaFinePartita()) {
+							utenteVuoleRicominciare = false;
+							break;
+						}
+
 					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 						if (utenteConfermaRiavvioPartita()) {
 							Stampa.stampaNuovaPartita();
@@ -80,7 +84,6 @@ public class Controller {
 				} else {
 					break;
 				}
-
 
 				if (Comando.isNotazioneAlgebrica(comando)) {
 
@@ -175,7 +178,6 @@ public class Controller {
 			if (isReProtetto(cellaPartenza, cellaDestinazione, 0)) {
 				tipoMossa = 0;
 
-
 			}
 		} else if (pezzoCorrente.getNome().equals("Pedone")) {
 
@@ -198,6 +200,37 @@ public class Controller {
 		String comando = "";
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 		Stampa.stampaConfermaNuovaPartita();
+		while (true) {
+			try {
+				comando = br.readLine();
+				if (comando != null) {
+					switch (comando) {
+					case "y":
+						return true;
+					case "n":
+						return false;
+					default:
+						Stampa.stampaComandoErrato();
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+	/**
+	 * Viene richiesto all'utente una conferma se vuole uscire dal gioco
+	 *
+	 * @return true se l'utente vuole uscire dal gioco, false altrimenti.
+	 */
+	public boolean utenteConfermaFinePartita() {
+
+		String comando = "";
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+		Stampa.stampaConfermaFinePartita();
 		while (true) {
 			try {
 				comando = br.readLine();
@@ -357,7 +390,8 @@ public class Controller {
 		Pezzo presuntaTorreGiocatoreAttuale = cellaPartenzaTorre.getPezzoCorrente();
 
 		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
-		// Se nella cella di partenza del presunto re c'è il re del colore del giocatore
+		// Se nella cella di partenza del presunto re c'è il re del colore del
+		// giocatore
 		// in turno..
 		if (cellaPartenzaRe.isOccupato() && presuntoReGiocatoreAttuale.getNome() == "Re"
 				&& presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo
@@ -376,14 +410,15 @@ public class Controller {
 	}
 
 	/**
-	 * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo stesso
-	 * colore si muove in un'altra cella. Viene applicata la mossa temporaneamente
-
+	 * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo
+	 * stesso colore si muove in un'altra cella. Viene applicata la mossa
+	 * temporaneamente
+	 * 
 	 * per effettuare i controlli attraverso la funzione isReSottoScacco: in caso
 	 * positivo viene restituito un booleano con valore false, altrimenti è
 	 * restituito un booleano con valore true. In entrambi i casi viene ripristinata
 	 * la situazione immediatamente precedente alla applicazione della mossa.
-
+	 * 
 	 * 
 	 * @param partenza
 	 * @param destinazione
@@ -391,11 +426,10 @@ public class Controller {
 	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
 	public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipoMossa) {
-	
+
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;
-
 
 		if (partenza.getPezzoCorrente().getNome().equals("Re"))
 			return isReProtetto = true;
@@ -405,7 +439,6 @@ public class Controller {
 			isReProtetto = true;
 
 		applicaMossa(destinazione, partenza, tipoMossa);
-
 
 		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
 		if (temp.isOccupato()) {

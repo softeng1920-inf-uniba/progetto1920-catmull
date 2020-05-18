@@ -11,6 +11,7 @@ import java.nio.charset.Charset;
 
 import gioco.Menu;
 import gioco.Stampa;
+import gioco.Turno;
 
 /**
  * La classe AppMain e' di tipo BOUNDARY The main class for the project. It must
@@ -52,7 +53,11 @@ public final class AppMain {
 				} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {
 					Stampa.stampaScacchiera();
 				} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
-					break;
+					if (c.utenteConfermaFinePartita()) {
+						break;
+					} else {
+						Stampa.stampaMenu();
+					}
 				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
 					Stampa.stampaNuovaPartita();
 					c.playGame();
