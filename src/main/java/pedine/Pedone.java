@@ -80,9 +80,15 @@ public final class Pedone extends Pezzo {
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
 
 	Cella cellaPedone;
-	char x = (char) (end.getX() + 97);
-	char y1 = (char) (Math.abs(end.getY() - 9) + 48);
-	char y2 = (char) (Math.abs(end.getY() - 7) + 48);
+
+	final int aMinuscolaAscii = 97;
+	final int carattere0Ascii = 48;
+	final int offset1Ascii = 7;
+	final int offset2Ascii = 9;
+
+	char x = (char) (end.getX() + aMinuscolaAscii);
+	char y1 = (char) (Math.abs(end.getY() - offset2Ascii) + carattere0Ascii);
+	char y2 = (char) (Math.abs(end.getY() - offset1Ascii) + carattere0Ascii);
 	String pedoneAvversarioBianco = x + "" + y2 + " " + x + "" + y1;
 
 	// Prendo la colonna della destinazione, e la traversa di partenza
@@ -125,6 +131,11 @@ public final class Pedone extends Pezzo {
     public static String convertiMossa(final String mossa) {
 
 	int variazione = 0;
+	final int offsetMenoDueAscii = 46;
+	final int offsetMenoUnoAscii = 47;
+	final int offsetUnoAscii = 49;
+	final int offsetDueAscii = 50;
+
 	String mossaConvertita = "a0 a0";
 
 	// Il formato della mossa sara'  del tipo [a-h](x|:)([a-h][1-8])
@@ -135,9 +146,9 @@ public final class Pedone extends Pezzo {
 	    final int colonnaPartenzaCattura = 0;
 	    final int colonnaDestinazioneCattura = 2;
 	    final int traversaDestinazioneCattura = 3;
-	    variazione = -47;
+	    variazione = -offsetMenoUnoAscii;
 	    if (coloreGiocatoreAttuale == Colore.bianco) {
-		variazione = -49;
+		variazione = -offsetUnoAscii;
 	    }
 	    if (Math.abs(mossa.charAt(colonnaPartenzaCattura) - mossa.charAt(colonnaDestinazioneCattura)) == 1) {
 		mossaConvertita = String.valueOf(mossa.charAt(colonnaPartenzaCattura))
@@ -159,17 +170,18 @@ public final class Pedone extends Pezzo {
 			// Se mi voglio spostare nella 4 traversa, devo determinare se voglio
 			// avanzare di 2
 			&& (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone"))) {
-		    variazione = -50; // Se la terza traversa non è occupata da un pedone allora vengo dalla seconda
-				      // traversa
+		    variazione = -offsetDueAscii; // Se la terza traversa non è occupata da un pedone allora vengo
+						    // dalla seconda
+		    // traversa
 		} else {
-		    variazione = -49;
+		    variazione = -offsetUnoAscii;
 		}
 
 	    } else { // giocatore pedine nere
 		Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata)), 2);
-		variazione = -47;
+		variazione = -offsetMenoUnoAscii;
 		if (mossa.charAt(1) == '5' && (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone"))) {
-		    variazione = -46;
+		    variazione = -offsetMenoDueAscii;
 		}
 	    }
 

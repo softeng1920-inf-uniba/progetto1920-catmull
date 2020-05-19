@@ -140,14 +140,14 @@ public final class Cella {
 
     /**
      * Preso un carattere della mossa, restituisce il corrispondente valore in
-     * intero, necessario per la matrice TODO: ricontrollare se effettivamente è
-     * così
+     * intero, necessario per la matrice
      * 
      * @param coordX Carattere in minuscolo da convertire in intero
      * @return Valore necessario per la scacchiera compreso fra 0 e 7
      */
     public static int coordXinInt(final char coordX) {
-	return coordX - 97;
+	final int aMinuscolaAscii = 97;
+	return coordX - aMinuscolaAscii;
     }
 
     /**
@@ -158,8 +158,9 @@ public final class Cella {
      * @return Coordinata convertita in intero, compreso tra 0 e 7
      */
     public static int coordYinInt(final char coordY) {
-
-	return Math.abs((coordY - 49) - 7);
+	final int offsetUnoAscii = 49;
+	final int offsetMenoUnoAscii = 7;
+	return Math.abs((coordY - offsetUnoAscii) - offsetMenoUnoAscii);
     }
 
     /**
@@ -171,18 +172,20 @@ public final class Cella {
      */
 
     public static char coordXinChar(final int coordX) {
-	return (char) (coordX + 97);
+	final int aMinuscolaAscii = 97;
+	return (char) (coordX + aMinuscolaAscii);
     }
 
     /**
      * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
      * righe della scacchiera (carattere tra 1 e 8)
      * 
-     * @param coordX intero da convertire in carattere
+     * @param coordY intero da convertire in carattere
      * @return Valore necessario per la scacchiera compreso fra 1 e 8
      */
     public static char coordYinChar(final int coordY) {
-	return (char) (Math.abs((coordY - 8)) + 48);
+	final int carattere0Ascii = 48;
+	return (char) (Math.abs((coordY - Scacchiera.getNumeroColonne())) + carattere0Ascii);
     }
 
     /**
