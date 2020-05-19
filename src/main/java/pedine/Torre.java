@@ -208,7 +208,7 @@ public final class Torre extends Pezzo {
 		Cella cellaCorrente = Scacchiera.getCella(sX, sY);
 		Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
-		if ((sX != eX && sY == eY) || (sX == eX && sY != eY) && cellaCorrente.isOccupato()
+		if (((sX != eX && sY == eY) || (sX == eX && sY != eY)) && cellaCorrente.isOccupato()
 				&& pezzoCorrente.getColore() == colorePezzoGiocatoreCorrente) {
 			if (sY > eY) {
 				// Movimento verso l'alto
