@@ -1,15 +1,11 @@
 package it.uniba.main;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import gioco.Colore;
 import gioco.Giocatore;
+import gioco.InterfacciaUtente;
 import gioco.Menu;
-import gioco.Stampa;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -26,7 +22,7 @@ import scacchiera.pedine.Torre;
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
-public class Controller {
+public final class Controller {
 	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
 
 	private Controller() {
@@ -42,36 +38,31 @@ public class Controller {
 	/**
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
-	final static void playGame() {
+	static void playGame() {
 		boolean utenteVuoleRicominciare = false;
 		do {
 			Turno.newTurno();
-			Turno.getNomiDaTastiera();
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-			String comando = "";
-
+			Turno.setNomeGiocatoreInAttesa(
+					InterfacciaUtente.getNomeDaTastiera(Turno.getGiocatoreInTurno().getColore()));
+			Turno.setNomeGiocatoreInTurno(
+					InterfacciaUtente.getNomeDaTastiera(Turno.getGiocatoreInAttesa().getColore()));
 			while (true) {
-
-				Stampa.stampaTurno(Turno.getGiocatoreInTurno());
-				try {
-					comando = br.readLine();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				InterfacciaUtente.stampaTurno(Turno.getGiocatoreInTurno());
+				String comando = InterfacciaUtente.acquisireComando();
 				if (comando != null) {
 					if (comando.equalsIgnoreCase(Menu.help().getNome())) {
-						Stampa.mostrareElencoComandiGioco();
+						InterfacciaUtente.mostrareElencoComandiGioco();
 					} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
-						Stampa.stampaScacchiera();
+						InterfacciaUtente.stampaScacchiera();
 					} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
-						Stampa.stampaMosseGiocate();
+						InterfacciaUtente.stampaMosseGiocate();
 					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
-						Stampa.visualizzareCatture();
+						InterfacciaUtente.visualizzareCatture();
 					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
 						break;
 					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
-						if (utenteConfermaRiavvioPartita()) {
-							Stampa.stampaNuovaPartita();
+						if (InterfacciaUtente.utenteConfermaRiavvioPartita()) {
+							InterfacciaUtente.stampaNuovaPartita();
 							utenteVuoleRicominciare = true;
 							Scacchiera.newScacchiera(); // Svuoto la scacchiera
 							break;
@@ -83,7 +74,6 @@ public class Controller {
 				} else {
 					break;
 				}
-
 
 				if (Menu.isNotazioneAlgebrica(comando)) {
 
@@ -118,7 +108,7 @@ public class Controller {
 							Turno.cambioTurno();
 
 						} else {
-							Stampa.stampaMossaIllegale();
+							InterfacciaUtente.stampaMossaIllegale();
 
 						}
 					} else { // La mossa inserita è un'avanzata, una cattura o un en passant
@@ -140,16 +130,16 @@ public class Controller {
 								Turno.cambioTurno();
 
 							} else {
-								Stampa.stampaMossaIllegale();
+								InterfacciaUtente.stampaMossaIllegale();
 							}
 						} else {
-							Stampa.stampaMossaIllegale();
+							InterfacciaUtente.stampaMossaIllegale();
 						}
 					}
 				} else if (!Menu.isComandoValido(comando)) {
 					// Se il comando inserito non è una mossa, nè un comando
 					// di gioco...
-					Stampa.stampaComandoErrato();
+					InterfacciaUtente.stampaComandoErrato();
 				}
 			} // Fine loop di gioco
 		} while (utenteVuoleRicominciare);
@@ -179,7 +169,6 @@ public class Controller {
 			if (isReProtetto(cellaPartenza, cellaDestinazione, 0)) {
 				tipoMossa = 0;
 
-
 			}
 		} else if (pezzoCorrente.getNome().equals("Pedone")) {
 
@@ -190,37 +179,6 @@ public class Controller {
 			}
 		}
 		return tipoMossa;
-	}
-
-	/**
-	 * Viene richiesto all'utente una conferma se vuole riavviare la partita
-	 *
-	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
-	 */
-	private static boolean utenteConfermaRiavvioPartita() {
-
-		String comando = "";
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-		Stampa.stampaConfermaNuovaPartita();
-		while (true) {
-			try {
-				comando = br.readLine();
-				if (comando != null) {
-					switch (comando) {
-					case "y":
-						return true;
-					case "n":
-						return false;
-					default:
-						Stampa.stampaComandoErrato();
-					}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
-
 	}
 
 	/**
@@ -250,17 +208,19 @@ public class Controller {
 	}
 
 	/**
-	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
-	 * (la traversa e' minore di 1 ecc.)
+	 * Restituisce un valore booleano che indica se le coordinate che rappresentano
+	 * gli indici della matrice scacchiera (necessariamente di tipo intero)sono
+	 * valide per la scacchiera.
 	 *
-	 * @param comando Stringa nel formato : colonna e traversa di partenza seguite
-	 *                da uno spazio, ed infine colonna e traversa di destinazione
-	 * @return false se la mossa inserita non e' valida, va oltre i limiti della
-	 *         scacchiera, true altrimenti
+	 * @param startX intero compreso fra 0 e 7
+	 * @param startY intero compreso fra 0 e 7
+	 * @param endX   intero compreso fra 0 e 7
+	 * @param endY   intero compreso fra 0 e 7
+	 * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
 	 */
 	public static boolean isMossaInRangeValido(final String comando) {
-		return isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando),
-				Cella.endY(comando)); // TODO: ricontrollare se logica è corretta
+		return Scacchiera.isRangeValido(Cella.startX(comando), Cella.startY(comando))
+				&& Scacchiera.isRangeValido(Cella.endX(comando), Cella.endY(comando));
 	}
 
 	/**
@@ -298,21 +258,6 @@ public class Controller {
 		}
 		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
 
-	}
-
-	/**
-	 * Restituisce un valore booleano che indica se le coordinate che rappresentano
-	 * gli indici della matrice scacchiera (necessariamente di tipo intero)sono
-	 * valide per la scacchiera.
-	 *
-	 * @param startX intero compreso fra 0 e 7
-	 * @param startY intero compreso fra 0 e 7
-	 * @param endX   intero compreso fra 0 e 7
-	 * @param endY   intero compreso fra 0 e 7
-	 * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
-	 */
-	private static boolean isCoordinateValide(final int startX, final int startY, final int endX, final int endY) {
-		return Scacchiera.isRangeValido(startX, startY) && Scacchiera.isRangeValido(endX, endY);
 	}
 
 	/**
@@ -382,13 +327,13 @@ public class Controller {
 	/**
 	 * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo stesso
 	 * colore si muove in un'altra cella. Viene applicata la mossa temporaneamente
-	 * 
+	 *
 	 * per effettuare i controlli attraverso la funzione isReSottoScacco: in caso
 	 * positivo viene restituito un booleano con valore false, altrimenti è
 	 * restituito un booleano con valore true. In entrambi i casi viene ripristinata
 	 * la situazione immediatamente precedente alla applicazione della mossa.
 	 *
-	 * 
+	 *
 	 * @param partenza
 	 * @param destinazione
 	 * @param tipoMossa
@@ -400,16 +345,15 @@ public class Controller {
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;
 
-
-		if (partenza.getPezzoCorrente().getNome().equals("Re"))
-			return isReProtetto = true;
-
-		applicaMossa(partenza, destinazione, tipoMossa);
-		if (!reDaProteggere.isReSottoScacco(cellaRe))
+		if (partenza.getPezzoCorrente().getNome().equals("Re")) {
 			isReProtetto = true;
-
+			return isReProtetto;
+		}
+		applicaMossa(partenza, destinazione, tipoMossa);
+		if (!reDaProteggere.isReSottoScacco(cellaRe)) {
+			isReProtetto = true;
+		}
 		applicaMossa(destinazione, partenza, tipoMossa);
-
 
 		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
 		if (temp.isOccupato()) {

@@ -1,8 +1,5 @@
 package gioco;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import scacchiera.pedine.Pezzo;
@@ -43,24 +40,6 @@ public final class Giocatore {
 
 	}
 
-	/**
-	 * Acquisisce il nome del giocatore da tastiera
-	 */
-	public final void getNomeDaTastiera() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Stampa.stampaInserireGiocatore(this.colore);
-		try {
-			while (this.nome == null || this.nome.equals("")) {
-				this.nome = br.readLine();
-				if (this.nome == null || this.nome.equals("")) {
-					Stampa.stampaInserireGiocatore(colore);
-				}
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 	/**
 	 * Assegna il nome al campo nome del Giocatore.
 	 *
@@ -166,7 +145,7 @@ public final class Giocatore {
 	}
 
 	/**
-	 * TODO: aggiungere javadoc!
+	 * Rimuove un pezzo dalla lista dei pezzi catturati del giocatore
 	 */
 	public void removePezzoCatturato() {
 		pezziCatturati.remove(pezziCatturati.size() - 1);

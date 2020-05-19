@@ -124,7 +124,8 @@ public final class Menu {
 	 */
 	public static boolean isComandoValido(final String comando) {
 
-		return (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.board().getNome())
+		return (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.board()
+				.getNome())
 				|| comando.equalsIgnoreCase(Menu.captures().getNome())
 				|| comando.equalsIgnoreCase(Menu.moves().getNome()) || comando.equalsIgnoreCase(Menu.quit().getNome()));
 
@@ -139,7 +140,8 @@ public final class Menu {
 	 */
 	public static boolean isNotazioneAlgebrica(final String mossa) {
 
-		String regex = String.join("|", new String[] { "([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
+		String regex = String.join("|", new String[] {
+				"([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
 				"D([x|:])?[a-h][1-8]", // mossa della regina
 				"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
 				"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo

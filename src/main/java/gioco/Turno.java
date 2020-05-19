@@ -25,17 +25,9 @@ public final class Turno {
 	}
 
 	/**
-	 * Permette di acquisire i nomi da tastiera
-	 */
-	public static void getNomiDaTastiera() {
-		giocatoreInTurno.getNomeDaTastiera();
-		giocatoreInAttesa.getNomeDaTastiera();
-	}
-
-	/**
 	 * Scambia il ruolo dei due giocatori
 	 */
-	public static final void cambioTurno() {
+	public static void cambioTurno() {
 		Giocatore temp = giocatoreInTurno;
 		giocatoreInTurno = giocatoreInAttesa;
 		giocatoreInAttesa = temp;
@@ -49,6 +41,14 @@ public final class Turno {
 
 	public static Giocatore getGiocatoreInAttesa() {
 		return giocatoreInAttesa;
+	}
+
+	public static void setNomeGiocatoreInTurno(final String m) {
+		giocatoreInTurno.setNome(m);
+	}
+
+	public static void setNomeGiocatoreInAttesa(final String m) {
+		giocatoreInAttesa.setNome(m);
 	}
 
 	/**
