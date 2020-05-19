@@ -26,8 +26,12 @@ class PezzoTest {
 	}
 	
 	@Test
-	void testGetSimbolo() {
+	void testGetSimboloBianco() {
 		assertEquals('\u265d', Scacchiera.getCella(2, 0).getPezzoCorrente().getSimbolo());
+	}
+	
+	@Test
+	void testGetSimboloNero() {
 		assertEquals('\u2657', Scacchiera.getCella(2, 7).getPezzoCorrente().getSimbolo());
 	}
 	
