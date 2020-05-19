@@ -1,4 +1,4 @@
-package pedine;
+package scacchiera.pedine;
 
 import gioco.Colore;
 import gioco.Turno;
@@ -11,8 +11,8 @@ import scacchiera.Scacchiera;
  */
 public final class Alfiere extends Pezzo {
 
-    public Alfiere(final Colore colore, final Cella posizioneCorrente) {
-	super("Alfiere", colore, posizioneCorrente);
+	public Alfiere(final Colore colore) {
+		super("Alfiere", colore);
 	if (colore == Colore.nero) {
 	    setSimbolo('\u265d');
 	} else {
@@ -76,12 +76,12 @@ public final class Alfiere extends Pezzo {
     }
 
     /**
-     * Converte la stringa in input in stringa leggibile dalla funzione
-     * applicaMossa. Ad esempio: Ae4 ==> d2 e4
-     * 
-     * @param mossa Stringa rappresentante la mossa in notazione algebrica
-     * @return mossa Stringa rappresentante la mossa in notazione estesa
-     */
+	 * Converte la stringa in input in stringa leggibile dalla funzione
+	 * applicaMossa. Ad esempio: Ae4 ==> d2 e4
+	 *
+	 * @param mossa Stringa rappresentante la mossa in notazione algebrica
+	 * @return mossa Stringa rappresentante la mossa in notazione estesa
+	 */
     public static String convertiMossa(final String mossa) {
 	// "[A](x|:)?[a-h][1-8]"
 

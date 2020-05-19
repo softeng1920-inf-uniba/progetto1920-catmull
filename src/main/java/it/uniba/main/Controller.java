@@ -1,80 +1,74 @@
 package it.uniba.main;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
 import gioco.Giocatore;
+import gioco.InterfacciaUtente;
 import gioco.Menu;
-import gioco.Stampa;
 import gioco.Turno;
-import pedine.Alfiere;
-import pedine.Cavallo;
-import pedine.Pedone;
-import pedine.Pezzo;
-import pedine.Re;
-import pedine.Regina;
-import pedine.Torre;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
+import scacchiera.pedine.Alfiere;
+import scacchiera.pedine.Cavallo;
+import scacchiera.pedine.Pedone;
+import scacchiera.pedine.Pezzo;
+import scacchiera.pedine.Re;
+import scacchiera.pedine.Regina;
+import scacchiera.pedine.Torre;
 
 /**
  * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
-public class Controller {
+public final class Controller {
 	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
 
-	public Controller() {
-		new Scacchiera();
+	private Controller() {
+	}
+
+	/**
+	 * Costruttore privato per classe Singleton
+	 */
+	public static void newController() {
+		Scacchiera.newScacchiera();
 	}
 
 	/**
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
-	final void playGame() {
+	static void playGame() {
 		boolean utenteVuoleRicominciare = false;
 		do {
-
-			Scacchiera.inizializzaScacchiera();
-			new Turno();
-
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-			String comando = "";
-
+			Turno.newTurno();
+			Turno.setNomeGiocatoreInAttesa(
+					InterfacciaUtente.getNomeDaTastiera(Turno.getGiocatoreInTurno().getColore()));
+			Turno.setNomeGiocatoreInTurno(
+					InterfacciaUtente.getNomeDaTastiera(Turno.getGiocatoreInAttesa().getColore()));
 			while (true) {
-
-				Stampa.stampaTurno(Turno.getGiocatoreInTurno());
-				try {
-					comando = br.readLine();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				InterfacciaUtente.stampaTurno(Turno.getGiocatoreInTurno());
+				String comando = InterfacciaUtente.acquisireComando();
 				if (comando != null) {
 					if (comando.equalsIgnoreCase(Menu.help().getNome())) {
-						Stampa.mostrareElencoComandiGioco();
+						InterfacciaUtente.mostrareElencoComandiGioco();
 					} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
-						Stampa.stampaScacchiera();
+						InterfacciaUtente.stampaScacchiera();
 					} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
-						Stampa.stampaMosseGiocate();
+						InterfacciaUtente.stampaMosseGiocate();
 					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
-						Stampa.visualizzareCatture();
+						InterfacciaUtente.visualizzareCatture();
 					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-						if (utenteConfermaFinePartita()) {
+						if (InterfacciaUtente.utenteConfermaFinePartita()) {
 							utenteVuoleRicominciare = false;
 							break;
 						}
 
 					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
-						if (utenteConfermaRiavvioPartita()) {
-							Stampa.stampaNuovaPartita();
+						if (InterfacciaUtente.utenteConfermaRiavvioPartita()) {
+							InterfacciaUtente.stampaNuovaPartita();
 							utenteVuoleRicominciare = true;
-							new Scacchiera(); // Svuoto la scacchiera
+							Scacchiera.newScacchiera(); // Svuoto la scacchiera
 							break;
 
 						} else {
@@ -85,9 +79,8 @@ public class Controller {
 					break;
 				}
 
-				if (Comando.isNotazioneAlgebrica(comando)) {
-
-					int tipoArrocco = Comando.isArrocco(comando);
+				if (Menu.isNotazioneAlgebrica(comando)) {
+					int tipoArrocco = Menu.isArrocco(comando);
 					if (tipoArrocco != -1) { // Se è un arrocco
 						Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
 
@@ -118,7 +111,7 @@ public class Controller {
 							Turno.cambioTurno();
 
 						} else {
-							Stampa.stampaMossaIllegale();
+							InterfacciaUtente.stampaMossaIllegale();
 
 						}
 					} else { // La mossa inserita è un'avanzata, una cattura o un en passant
@@ -140,16 +133,16 @@ public class Controller {
 								Turno.cambioTurno();
 
 							} else {
-								Stampa.stampaMossaIllegale();
+								InterfacciaUtente.stampaMossaIllegale();
 							}
 						} else {
-							Stampa.stampaMossaIllegale();
+							InterfacciaUtente.stampaMossaIllegale();
 						}
 					}
-				} else if (!Comando.isComandoValido(comando)) {
+				} else if (!Menu.isComandoValido(comando)) {
 					// Se il comando inserito non è una mossa, nè un comando
 					// di gioco...
-					Stampa.stampaComandoErrato();
+					InterfacciaUtente.stampaComandoErrato();
 				}
 			} // Fine loop di gioco
 		} while (utenteVuoleRicominciare);
@@ -165,7 +158,8 @@ public class Controller {
 	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
 	 */
 
-	private int getTipoMossa(final Cella cellaPartenza, final Cella cellaDestinazione,
+	private static int getTipoMossa(final Cella cellaPartenza,
+			final Cella cellaDestinazione,
 			final ArrayList<String> mosseEffettuate) {
 
 		int tipoMossa = -1;
@@ -191,75 +185,13 @@ public class Controller {
 	}
 
 	/**
-	 * Viene richiesto all'utente una conferma se vuole riavviare la partita
-	 *
-	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
-	 */
-	private boolean utenteConfermaRiavvioPartita() {
-
-		String comando = "";
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-		Stampa.stampaConfermaNuovaPartita();
-		while (true) {
-			try {
-				comando = br.readLine();
-				if (comando != null) {
-					switch (comando) {
-					case "y":
-						return true;
-					case "n":
-						return false;
-					default:
-						Stampa.stampaComandoErrato();
-					}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
-
-	}
-
-	/**
-	 * Viene richiesto all'utente una conferma se vuole uscire dal gioco
-	 *
-	 * @return true se l'utente vuole uscire dal gioco, false altrimenti.
-	 */
-	public boolean utenteConfermaFinePartita() {
-
-		String comando = "";
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-		Stampa.stampaConfermaFinePartita();
-		while (true) {
-			try {
-				comando = br.readLine();
-				if (comando != null) {
-					switch (comando) {
-					case "y":
-						return true;
-					case "n":
-						return false;
-					default:
-						Stampa.stampaComandoErrato();
-					}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
-
-	}
-
-	/**
 	 * Trasforma il comando a seconda del pezzo da muovere
 	 *
 	 * @param mossa in notazione algebrica
 	 * @return String comando in colonna e traversa di partenza seguite da uno
 	 *         spazio, ed infine colonna e traversa di destinazione
 	 */
-	private String convertiNotazioneRidottaInEstesa(final String mossa) {
+	private static String convertiNotazioneRidottaInEstesa(final String mossa) {
 
 		switch (mossa.charAt(0)) {
 		case 'T': // Torre
@@ -279,17 +211,19 @@ public class Controller {
 	}
 
 	/**
-	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
-	 * (la traversa e' minore di 1 ecc.)
+	 * Restituisce un valore booleano che indica se le coordinate che rappresentano
+	 * gli indici della matrice scacchiera (necessariamente di tipo intero)sono
+	 * valide per la scacchiera.
 	 *
-	 * @param comando Stringa nel formato : colonna e traversa di partenza seguite
-	 *                da uno spazio, ed infine colonna e traversa di destinazione
-	 * @return false se la mossa inserita non e' valida, va oltre i limiti della
-	 *         scacchiera, true altrimenti
+	 * @param startX intero compreso fra 0 e 7
+	 * @param startY intero compreso fra 0 e 7
+	 * @param endX   intero compreso fra 0 e 7
+	 * @param endY   intero compreso fra 0 e 7
+	 * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
 	 */
 	public static boolean isMossaInRangeValido(final String comando) {
-		return isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando),
-				Cella.endY(comando)); // TODO: ricontrollare se logica è corretta
+		return Scacchiera.isRangeValido(Cella.startX(comando), Cella.startY(comando))
+				&& Scacchiera.isRangeValido(Cella.endX(comando), Cella.endY(comando));
 	}
 
 	/**
@@ -306,7 +240,7 @@ public class Controller {
 	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
 	 *                          del pedone
 	 */
-	private void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
+	private static void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
 
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
 
@@ -330,21 +264,6 @@ public class Controller {
 	}
 
 	/**
-	 * Restituisce un valore booleano che indica se le coordinate che rappresentano
-	 * gli indici della matrice scacchiera (necessariamente di tipo intero)sono
-	 * valide per la scacchiera.
-	 *
-	 * @param startX intero compreso fra 0 e 7
-	 * @param startY intero compreso fra 0 e 7
-	 * @param endX   intero compreso fra 0 e 7
-	 * @param endY   intero compreso fra 0 e 7
-	 * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
-	 */
-	private static boolean isCoordinateValide(final int startX, final int startY, final int endX, final int endY) {
-		return Scacchiera.isRangeValido(startX, startY) && Scacchiera.isRangeValido(endX, endY);
-	}
-
-	/**
 	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
 	 * applicaMossa.
 	 *
@@ -357,7 +276,7 @@ public class Controller {
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
 	 */
-	public void addMosseConvertite(final String mossa) {
+	public static void addMosseConvertite(final String mossa) {
 		mosseConvertite.add(mossa);
 	}
 
@@ -410,34 +329,32 @@ public class Controller {
 	}
 
 	/**
-	 * Controlla se il Re non è sotto scacco nel caso in cui un pezzo del suo
+	 * Controlla se il Re non e' sotto scacco nel caso in cui un pezzo del suo
 	 * stesso colore si muove in un'altra cella. Viene applicata la mossa
-	 * temporaneamente
-	 * 
-	 * per effettuare i controlli attraverso la funzione isReSottoScacco: in caso
-	 * positivo viene restituito un booleano con valore false, altrimenti è
-	 * restituito un booleano con valore true. In entrambi i casi viene ripristinata
-	 * la situazione immediatamente precedente alla applicazione della mossa.
-	 * 
-	 * 
+	 * temporaneamente per effettuare i controlli attraverso la funzione
+	 * isReSottoScacco: in caso positivo viene restituito un booleano con valore
+	 * false, altrimenti e' restituito un booleano con valore true. In entrambi i
+	 * casi viene ripristinata la situazione immediatamente precedente alla
+	 * applicazione della mossa.
+	 *
 	 * @param partenza
 	 * @param destinazione
 	 * @param tipoMossa
 	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-	public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipoMossa) {
+	public static boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipoMossa) {
 
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
 		boolean isReProtetto = false;
-
-		if (partenza.getPezzoCorrente().getNome().equals("Re"))
-			return isReProtetto = true;
-
-		applicaMossa(partenza, destinazione, tipoMossa);
-		if (!reDaProteggere.isReSottoScacco(cellaRe))
+		if (partenza.getPezzoCorrente().getNome().equals("Re")) {
 			isReProtetto = true;
-
+			return isReProtetto;
+		}
+		applicaMossa(partenza, destinazione, tipoMossa);
+		if (!reDaProteggere.isReSottoScacco(cellaRe)) {
+			isReProtetto = true;
+		}
 		applicaMossa(destinazione, partenza, tipoMossa);
 
 		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());

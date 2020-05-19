@@ -1,8 +1,9 @@
-package pedine;
+package scacchiera.pedine;
 
 import java.util.ArrayList;
+
 import gioco.Colore;
-import gioco.Comando;
+import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -17,8 +18,8 @@ public final class Torre extends Pezzo {
 	static final String MOSSA_NON_VALIDA = "a0 a0";
 
 	/** Costruttore */
-	public Torre(final Colore colore, final Cella posizioneCorrente) {
-		super("Torre", colore, posizioneCorrente);
+	public Torre(final Colore colore) {
+		super("Torre", colore);
 		if (colore == Colore.nero) {
 			setSimbolo('\u265c');
 		} else {
@@ -30,7 +31,7 @@ public final class Torre extends Pezzo {
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
 	 * applicaMossa. Ad esempio: Ta4 ==> a1 a4
-	 * 
+	 *
 	 * @param mossa Stringa rappresentante la mossa in notazione algebrica
 	 * @return mossa Stringa rappresentante la mossa in notazione estesa
 	 */
@@ -293,14 +294,14 @@ public final class Torre extends Pezzo {
 	 * Restituisce una stringa nel formato [a|h][1|8] [f|d][1|8], che indica la
 	 * mossa da effettuare per la torre in base al colore e alla tipologia di
 	 * arrocco.
-	 * 
+	 *
 	 * @param tipoArrocco 0 - corto | 1 - lungo
 	 * @param c           colore del giocatore in turno
 	 * @return mossa da effettuare
 	 */
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 		String comando;
-		if (tipoArrocco == Comando.ARROCCO_CORTO) {
+		if (tipoArrocco == Menu.ARROCCO_CORTO) {
 			if (c == Colore.bianco) {
 				comando = "h1 f1";
 			} else {

@@ -1,9 +1,9 @@
-package pedine;
+package scacchiera.pedine;
 
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
+import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -15,8 +15,8 @@ import scacchiera.Scacchiera;
 public final class Re extends Pezzo {
 
 	/** Costruttore */
-	public Re(final Colore colore, final Cella posizioneCorrente) {
-		super("Re", colore, posizioneCorrente);
+	public Re(final Colore colore) {
+		super("Re", colore);
 		if (colore == Colore.nero) {
 			setSimbolo('\u265a');
 		} else {
@@ -66,7 +66,7 @@ public final class Re extends Pezzo {
 	/**
 	 * Restituisce un valore booleano che indica se è possibile effettuare l'arrocco
 	 * con i pezzi nelle celle passate in input.
-	 * 
+	 *
 	 * @param startRe      Cella di partenza del re di cui si vuole controllare se è
 	 *                     possibile effettuare l'arrocco
 	 * @param endRe        Cella di destinazione del re di cui si vuole controllare
@@ -91,7 +91,7 @@ public final class Re extends Pezzo {
 			// controlla che non ci siano pezzi intermedi e che nello spostamento del re non
 			// è sotto scacco
 
-			if (tipoArrocco == Comando.ARROCCO_CORTO) {
+			if (tipoArrocco == Menu.ARROCCO_CORTO) {
 				// Arrocco Corto
 				for (int i = sX + 1; i < eX + 1; i++) {
 					if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != "Vuota") {
@@ -117,7 +117,7 @@ public final class Re extends Pezzo {
 	/**
 	 * Restituisce una stringa nel formato e[1|8] [c|g][1|8], che indica la mossa da
 	 * effettuare per il re in base al colore e alla tipologia di arrocco.
-	 * 
+	 *
 	 * @param tipoArrocco 0 - corto | 1 - lungo
 	 * @param c           colore del giocatore in turno
 	 * @return mossa da effettuare
@@ -125,7 +125,7 @@ public final class Re extends Pezzo {
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 
 		String comando;
-		if (tipoArrocco == Comando.ARROCCO_CORTO) {
+		if (tipoArrocco == Menu.ARROCCO_CORTO) {
 			if (c == Colore.bianco) {
 				comando = "e1 g1";
 			} else {
@@ -147,7 +147,7 @@ public final class Re extends Pezzo {
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
 	 * applicaMossa. Ad esempio: Re4 ==> e3 e4
-	 * 
+	 *
 	 * @param mossa in notazione algebrica
 	 * @return mossa in output in notazione estesa
 	 */
@@ -201,13 +201,13 @@ public final class Re extends Pezzo {
 
 	/**
 	 * Controlla se il re è sotto scacco
-	 * 
+	 *
 	 * @param reCella cella di destinazione del re
 	 * @return boolean true se il re è sotto scacco, false altrimenti
 	 */
 	public boolean isReSottoScacco(final Cella reCella) {
 		Colore c = getColore();
-		Re reTemp = new Re(c, reCella);
+		Re reTemp = new Re(c);
 		Cella temp = new Cella(reCella.getX(), reCella.getY(), reTemp);
 		temp.setOccupato(true);
 		for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {
@@ -241,7 +241,7 @@ public final class Re extends Pezzo {
 
 	/**
 	 * Cerca il Re nella scacchiera dello stesso colore del giocatore in turno.
-	 * 
+	 *
 	 * @return Cella che contiene il Re
 	 */
 	public static Cella findRe() {

@@ -1,17 +1,11 @@
 package it.uniba.main;
 
-import java.io.PrintStream;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-
+import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
-import java.nio.charset.Charset;
-
+import gioco.InterfacciaUtente;
 import gioco.Menu;
-import gioco.Stampa;
-import gioco.Turno;
 
 /**
  * La classe AppMain e' di tipo BOUNDARY The main class for the project. It must
@@ -37,36 +31,34 @@ public final class AppMain {
 	public static void main(final String[] args) throws IOException {
 
 		System.setOut(new PrintStream(System.out, false, "UTF-8"));
-
-		Controller c = new Controller();
+		Controller.newController();
 		boolean play = false;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 		Menu.newMenu();
-		Stampa.stampaIntro();
-		Stampa.stampaMenu();
-
+		InterfacciaUtente.stampaIntro();
+		InterfacciaUtente.stampaMenu();
 		while (!play) {
-			String nomeMenu = br.readLine();
+			String nomeMenu = InterfacciaUtente.acquisireComando();
 			if (nomeMenu != null) {
 				if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {
-					Stampa.mostrareElencoComandiMenu();
+					InterfacciaUtente.mostrareElencoComandiMenu();
 				} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {
-					Stampa.stampaScacchiera();
+					InterfacciaUtente.stampaScacchiera();
 				} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
-					if (c.utenteConfermaFinePartita()) {
+					if (InterfacciaUtente.utenteConfermaFinePartita()) {
 						break;
 					} else {
-						Stampa.stampaMenu();
+						InterfacciaUtente.stampaMenu();
 					}
 				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
-					Stampa.stampaNuovaPartita();
-					c.playGame();
+					InterfacciaUtente.stampaNuovaPartita();
+					Controller.playGame();
 					play = true;
 				} else {
-					Stampa.stampaComandoErrato();
+					InterfacciaUtente.stampaComandoErrato();
 				}
-			} else
+			} else {
 				break;
+			}
 		}
 
 	}

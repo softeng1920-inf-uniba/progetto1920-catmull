@@ -1,11 +1,8 @@
 package gioco;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import pedine.Pezzo;
+import scacchiera.pedine.Pezzo;
 
 /**
  * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
@@ -16,7 +13,7 @@ import pedine.Pezzo;
  * tipo ENTITY.
  */
 
-public class Giocatore {
+public final class Giocatore {
 
 	private String nome;
 	private Colore colore;
@@ -38,20 +35,6 @@ public class Giocatore {
 	public Giocatore(final Colore c) {
 
 		setColore(c);
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Stampa.stampaInserireGiocatore(c);
-		try {
-			while (this.nome == null || this.nome.equals("")) {
-				this.nome = br.readLine();
-				if (this.nome == null || this.nome.equals("")) {
-					Stampa.stampaInserireGiocatore(colore);
-				}
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		pezziCatturati = new ArrayList<Pezzo>();
 		mosseGiocate = new ArrayList<String>();
 
@@ -162,7 +145,7 @@ public class Giocatore {
 	}
 
 	/**
-	 * TODO: aggiungere javadoc!
+	 * Rimuove un pezzo dalla lista dei pezzi catturati del giocatore
 	 */
 	public void removePezzoCatturato() {
 		pezziCatturati.remove(pezziCatturati.size() - 1);

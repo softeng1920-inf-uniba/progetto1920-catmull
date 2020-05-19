@@ -9,38 +9,46 @@ import java.util.ArrayList;
  * ENTITY
  */
 
-
 public final class Turno {
-    private static Giocatore giocatoreInTurno = new Giocatore(Colore.bianco);
-    private static Giocatore giocatoreInAttesa = new Giocatore(Colore.nero);;
+	private static Giocatore giocatoreInTurno;
+	private static Giocatore giocatoreInAttesa;
 
-    public Turno() {
-	
-    }
+	private Turno() {
+	}
 
- 
+	/**
+	 * Costruttore statico per classe Singleton
+	 */
+	public static void newTurno() {
+		giocatoreInTurno = new Giocatore(Colore.bianco);
+		giocatoreInAttesa = new Giocatore(Colore.nero);
+	}
 
-
-	public static final void cambioTurno() {
+	/**
+	 * Scambia il ruolo dei due giocatori
+	 */
+	public static void cambioTurno() {
 		Giocatore temp = giocatoreInTurno;
 		giocatoreInTurno = giocatoreInAttesa;
 		giocatoreInAttesa = temp;
 	}
 
+	// Funzioni di Get
+
 	public static Giocatore getGiocatoreInTurno() {
 		return giocatoreInTurno;
-	}
-
-	public static void setGiocatoreInTurno(final Giocatore g) {
-		giocatoreInTurno = g;
 	}
 
 	public static Giocatore getGiocatoreInAttesa() {
 		return giocatoreInAttesa;
 	}
 
-	public static void setGiocatoreInAttesa(final Giocatore g) {
-		giocatoreInAttesa = g;
+	public static void setNomeGiocatoreInTurno(final String m) {
+		giocatoreInTurno.setNome(m);
+	}
+
+	public static void setNomeGiocatoreInAttesa(final String m) {
+		giocatoreInAttesa.setNome(m);
 	}
 
 	/**
@@ -50,7 +58,7 @@ public final class Turno {
 	 *
 	 * @return ArrayList di stringhe.
 	 */
-	public static ArrayList<String> fusioneListe() {
+	public static ArrayList<String> getArrayStoriaMosse() {
 		int i, j, k;
 		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);

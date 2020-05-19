@@ -1,4 +1,4 @@
-package pedine;
+package scacchiera.pedine;
 
 import gioco.Colore;
 import gioco.Turno;
@@ -11,8 +11,8 @@ import scacchiera.Scacchiera;
  */
 public final class Cavallo extends Pezzo {
 
-    public Cavallo(final Colore colore, final Cella posizioneCorrente) {
-	super("Cavallo", colore, posizioneCorrente);
+	public Cavallo(final Colore colore) {
+		super("Cavallo", colore);
 	if (colore == Colore.nero) {
 	    setSimbolo('\u265e');
 	} else {
@@ -41,14 +41,14 @@ public final class Cavallo extends Pezzo {
     }
 
     /**
-     * Converte la stringa in input in stringa leggibile dalla funzione
-     * applicaMossa. Ad esempio: Cde4 ==> d2 e4 TODO: migliorare javadoc
-     * 
-     * @param mossa
-     * @param s
-     * @param g
-     * @return
-     */
+	 * Converte la stringa in input in stringa leggibile dalla funzione
+	 * applicaMossa. Ad esempio: Cde4 ==> d2 e4 TODO: migliorare javadoc
+	 *
+	 * @param mossa
+	 * @param s
+	 * @param g
+	 * @return
+	 */
     public static String convertiMossa(final String mossa) {
 	int startX = -1;
 	int startY = -1;
