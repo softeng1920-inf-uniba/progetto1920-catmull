@@ -11,11 +11,7 @@ class PezzoTest {
 	
 	@BeforeEach
 	void setTests() {
-<<<<<<< HEAD
 		Scacchiera.newScacchiera();
-=======
-		Scacchiera.nuovaScacchiera();
->>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 		Turno.newTurno();
 	}
 	
@@ -30,17 +26,12 @@ class PezzoTest {
 	}
 	
 	@Test
-<<<<<<< HEAD
 	void testGetSimboloBianco() {
 		assertEquals('\u265d', Scacchiera.getCella(2, 0).getPezzoCorrente().getSimbolo());
 	}
 	
 	@Test
 	void testGetSimboloNero() {
-=======
-	void testGetSimbolo() {
-		assertEquals('\u265d', Scacchiera.getCella(2, 0).getPezzoCorrente().getSimbolo());
->>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 		assertEquals('\u2657', Scacchiera.getCella(2, 7).getPezzoCorrente().getSimbolo());
 	}
 	

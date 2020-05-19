@@ -193,27 +193,92 @@ class MenuTest {
 		assertFalse(Menu.isComandoValido("Menu"));
 		
 	}
-
+	
 	@Test
-	void testIsNotazioneAlgebrica() {
-		assertTrue(Menu.isNotazioneAlgebrica("a4"));
-		assertTrue(Menu.isNotazioneAlgebrica("axa4"));
-		assertTrue(Menu.isNotazioneAlgebrica("bxa4 e.p."));
-		assertTrue(Menu.isNotazioneAlgebrica("Ca4"));
-		assertTrue(Menu.isNotazioneAlgebrica("Caxa4"));
-		assertTrue(Menu.isNotazioneAlgebrica("Da4"));
-		assertTrue(Menu.isNotazioneAlgebrica("Dxa4"));
+	void testIsNotazioneAlgebricaAlfiereMossa() {
 		assertTrue(Menu.isNotazioneAlgebrica("Aa4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaAlfiereCattura() {
 		assertTrue(Menu.isNotazioneAlgebrica("Axa4"));
-		assertTrue(Menu.isNotazioneAlgebrica("Ra4"));
-		assertTrue(Menu.isNotazioneAlgebrica("Rxa4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaTorreMossa() {
 		assertTrue(Menu.isNotazioneAlgebrica("Ta4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaTorreCattura() {
 		assertTrue(Menu.isNotazioneAlgebrica("Txa4"));
-		assertTrue(Menu.isNotazioneAlgebrica("0-0-0"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaCavalloMossa() {
+		assertTrue(Menu.isNotazioneAlgebrica("Ca4"));	
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaCavalloCattura() {
+		assertTrue(Menu.isNotazioneAlgebrica("Caxa4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaReMossa() {
+		assertTrue(Menu.isNotazioneAlgebrica("Ra4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaReCattura() {
+		assertTrue(Menu.isNotazioneAlgebrica("Rxa4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaReginaMossa() {
+		assertTrue(Menu.isNotazioneAlgebrica("Da4"));
+		
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaReginaCattura() {
+		assertTrue(Menu.isNotazioneAlgebrica("Dxa4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaPedoneMossa() {
+		assertTrue(Menu.isNotazioneAlgebrica("a4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaPedoneCattura() {
+		assertTrue(Menu.isNotazioneAlgebrica("axa4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaPedoneEP() {
+		assertTrue(Menu.isNotazioneAlgebrica("bxa4 e.p."));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaArroccoCorto() {
 		assertTrue(Menu.isNotazioneAlgebrica("0-0"));
-		assertFalse(Menu.isNotazioneAlgebrica("a2 a4"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaArroccoLungo() {
+		assertTrue(Menu.isNotazioneAlgebrica("0-0-0"));
+	}
+	
+	@Test
+	void testIsNotazioneAlgebricaComandoVuoto() {
 		assertFalse(Menu.isNotazioneAlgebrica(""));
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+	}
+
+	@Test
+	void testIsNotazioneAlgebricaErrata() {
+		assertFalse(Menu.isNotazioneAlgebrica("a2 a4"));
 	}
 
 }
