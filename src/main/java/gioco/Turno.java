@@ -60,7 +60,8 @@ public final class Turno {
 	 */
 	public static ArrayList<String> getArrayStoriaMosse() {
 		int i, j, k;
-		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();
+		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate()
+				+ getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
 		if (getGiocatoreInTurno().getColore() == Colore.bianco) {
 			i = 0;

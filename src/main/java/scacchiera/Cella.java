@@ -119,90 +119,94 @@ public final class Cella {
 	}
 
 	/**
-	 * Preso un carattere della mossa, restituisce il corrispondente valore in
-	 * intero, necessario per la matrice TODO: ricontrollare se effettivamente è
-	 * così
-	 *
-	 * @param coordX Carattere in minuscolo da convertire in intero
-	 * @return Valore necessario per la scacchiera compreso fra 0 e 7
-	 */
-	public static int coordXinInt(final char coordX) {
-		return coordX - 97;
-	}
+     * Preso un carattere della mossa, restituisce il corrispondente valore in
+     * intero, necessario per la matrice
+     *
+     * @param coordX Carattere in minuscolo da convertire in intero
+     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     */
+    public static int coordXinInt(final char coordX) {
+	final int aMinuscolaAscii = 97;
+	return coordX - aMinuscolaAscii;
+    }
 
-	/**
-	 * Preso un carattere della mossa, restituisce il corrispondente valore in
-	 * intero, necessario per la matrice
-	 *
-	 * @param coordY Compreso fra 1 e 8
-	 * @return Coordinata convertita in intero, compreso tra 0 e 7
-	 */
-	public static int coordYinInt(final char coordY) {
+    /**
+     * Preso un carattere della mossa, restituisce il corrispondente valore in
+     * intero, necessario per la matrice
+     *
+     * @param coordY Compreso fra 1 e 8
+     * @return Coordinata convertita in intero, compreso tra 0 e 7
+     */
+    public static int coordYinInt(final char coordY) {
+	final int offsetUnoAscii = 49;
+	final int offsetMenoUnoAscii = 7;
+	return Math.abs((coordY - offsetUnoAscii) - offsetMenoUnoAscii);
+    }
 
-		return Math.abs((coordY - 49) - 7);
-	}
+    /**
+     * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
+     * traversa della scacchiera (carattere tra a e h)
+     *
+     * @param coordX intero da convertire in carattere
+     * @return Valore necessario per la scacchiera compreso fra a e h
+     */
 
-	/**
-	 * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
-	 * traversa della scacchiera (carattere tra a e h)
-	 *
-	 * @param coordX intero da convertire in carattere
-	 * @return Valore necessario per la scacchiera compreso fra a e h
-	 */
+    public static char coordXinChar(final int coordX) {
+	final int aMinuscolaAscii = 97;
+	return (char) (coordX + aMinuscolaAscii);
+    }
 
-	public static char coordXinChar(final int coordX) {
-		return (char) (coordX + 97);
-	}
+    /**
+     * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
+     * righe della scacchiera (carattere tra 1 e 8)
+     *
+     * @param coordY intero da convertire in carattere
+     * @return Valore necessario per la scacchiera compreso fra 1 e 8
+     */
+    public static char coordYinChar(final int coordY) {
+	final int carattere0Ascii = 48;
+	return (char) (Math.abs((coordY - Scacchiera.getNumeroColonne())) + carattere0Ascii);
+    }
 
-	/**
-	 * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
-	 * righe della scacchiera (carattere tra 1 e 8)
-	 *
-	 * @param coordX intero da convertire in carattere
-	 * @return Valore necessario per la scacchiera compreso fra 1 e 8
-	 */
-	public static char coordYinChar(final int coordY) {
-		return (char) (Math.abs((coordY - 8)) + 48);
-	}
-
-	/**
-	 * Converte la coordinata X di partenza data in input in intero.
-	 *
-	 * @param m mossa in notazione estesa
-	 * @return Valore necessario per la scacchiera compreso fra a e h
-	 */
-	public static int startX(final String m) {
+    /**
+     * Converte la coordinata X di partenza data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra a e h
+     */
+    public static int startX(final String m) {
 		return Cella.coordXinInt(m.charAt(Menu.COLONNA_PARTENZA_MOSSA_NE));
-	}
+    }
 
-	/**
-	 * Converte la coordinata Y di partenza data in input in intero.
-	 *
-	 * @param m mossa in notazione estesa
-	 * @return Valore necessario per la scacchiera compreso fra 0 e 7
-	 */
-	public static int startY(final String m) {
+    /**
+     * Converte la coordinata Y di partenza data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     */
+    public static int startY(final String m) {
 		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_PARTENZA_MOSSA_NE));
-	}
+    }
 
-	/**
-	 * Converte la coordinata X di destinazione data in input in intero.
-	 *
-	 * @param m mossa in notazione estesa
-	 * @return Valore necessario per la scacchiera compreso fra a e h
-	 */
-	public static int endX(final String m) {
+    /**
+     * Converte la coordinata X di destinazione data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra a e h
+     */
+    public static int endX(final String m) {
 		return Cella.coordXinInt(m.charAt(Menu.COLONNA_DESTINAZIONE_MOSSA_NE));
-	}
+    }
 
-	/**
-	 * Converte la coordinata Y di destinazione data in input in intero.
-	 *
-	 * @param m mossa in notazione estesa
-	 * @return Valore necessario per la scacchiera compreso fra 0 e 7
-	 */
-	public static int endY(final String m) {
+    /**
+     * Converte la coordinata Y di destinazione data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     */
+    public static int endY(final String m) {
 		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_DESTINAZIONE_MOSSA_NE));
-	}
+    }
 
 }
+

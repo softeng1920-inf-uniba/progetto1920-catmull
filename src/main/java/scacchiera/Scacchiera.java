@@ -14,7 +14,7 @@ import scacchiera.pedine.Torre;
  * e di righe. La classe scacchiera è una matrice NxM di Celle. La classe
  * Scacchiera e' di tipo ENTITY
  */
-public class Scacchiera {
+public final class Scacchiera {
 
 	private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 	public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà valore 7
@@ -46,7 +46,7 @@ public class Scacchiera {
 	 *
 	 * @return Valore intero indicante il numero di colonne
 	 */
-	public static final int getNumeroColonne() {
+	public static int getNumeroColonne() {
 		return NUMEROCOLONNE;
 	}
 
@@ -55,7 +55,7 @@ public class Scacchiera {
 	 *
 	 * @return Valore intero indicante il numero di righe
 	 */
-	public static final int getNumeroRighe() {
+	public static int getNumeroRighe() {
 		return NUMERORIGHE;
 	}
 
@@ -148,7 +148,7 @@ public class Scacchiera {
 	 * @return Stringa indicante il nome del pezzo, se è presente nella cella,
 	 *         "Vuota" altrimenti
 	 */
-	public static final String getNomePezzo(final int x, final int y) {
+	public static String getNomePezzo(final int x, final int y) {
 		if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {
 			return getCella(x, y).getPezzoCorrente().getNome();
 

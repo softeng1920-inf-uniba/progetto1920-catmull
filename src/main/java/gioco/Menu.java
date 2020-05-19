@@ -124,10 +124,11 @@ public final class Menu {
 	 */
 	public static boolean isComandoValido(final String comando) {
 
-		return (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.board()
-				.getNome())
+		return (comando.equalsIgnoreCase(Menu.help().getNome())
+				|| comando.equalsIgnoreCase(Menu.board().getNome())
 				|| comando.equalsIgnoreCase(Menu.captures().getNome())
-				|| comando.equalsIgnoreCase(Menu.moves().getNome()) || comando.equalsIgnoreCase(Menu.quit().getNome()));
+				|| comando.equalsIgnoreCase(Menu.moves().getNome())
+				|| comando.equalsIgnoreCase(Menu.quit().getNome()));
 
 	}
 

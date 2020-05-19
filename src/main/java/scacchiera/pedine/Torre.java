@@ -56,12 +56,13 @@ public final class Torre extends Pezzo {
 			isMossaCattura = (mossa.charAt(mossa.length() - posizioneCarattereCattura) == 'x'
 					|| mossa.charAt(mossa.length() - posizioneCarattereCattura) == ':');
 
-			possibiliPosizioniColonna = new ArrayList<String>(checkPosTorreColonna(eX, colorepedineGiocatoreCorrente));
-			possibiliPosizioniRiga = new ArrayList<String>(checkPosTorreRiga(eY, colorepedineGiocatoreCorrente));
-
+			possibiliPosizioniColonna =
+					new ArrayList<String>(checkPosTorreColonna(eX, colorepedineGiocatoreCorrente));
+			possibiliPosizioniRiga =
+					new ArrayList<String>(checkPosTorreRiga(eY, colorepedineGiocatoreCorrente));
 			posRiga = posizioneValidaRiga(possibiliPosizioniRiga, eX, eY, colorepedineGiocatoreCorrente);
-			posColonna = posizioneValidaColonna(possibiliPosizioniColonna, eX, eY, colorepedineGiocatoreCorrente);
-
+			posColonna = posizioneValidaColonna(possibiliPosizioniColonna,
+					eX, eY, colorepedineGiocatoreCorrente);
 			if (!posColonna.equals(MOSSA_NON_VALIDA) && !posRiga.equals(MOSSA_NON_VALIDA)
 					&& mossa.length() > posizioneCarattereCattura
 					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
@@ -81,17 +82,18 @@ public final class Torre extends Pezzo {
 					&& mossa.length() > posizioneCarattereCattura
 					&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
 				if (Character.isDigit(ambiguita)) {
-					if (isMossaValida(eX, Cella.coordYinInt(ambiguita), eX, eY, colorepedineGiocatoreCorrente)) {
+					if (isMossaValida(eX, Cella.coordYinInt(ambiguita), eX,
+						eY, colorepedineGiocatoreCorrente)) {
 						return destX + "" + ambiguita + " " + destX + "" + destY;
 					}
-
-				} else if (isMossaValida(Cella.coordXinInt(ambiguita), eY, eX, eY, colorepedineGiocatoreCorrente)) {
+				} else if (isMossaValida(Cella.coordXinInt(ambiguita), eY, eX,
+						eY, colorepedineGiocatoreCorrente)) {
 					return ambiguita + "" + destY + " " + destX + "" + destY;
 				}
-
 			} else if (!posColonna.equals(MOSSA_NON_VALIDA)) {
 				if (mossa.length() > posizioneCarattereCattura
-						&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+						&& ((ambiguita >= 'a' && ambiguita <= 'h')
+								|| Character.isDigit(ambiguita))) {
 					if (posColonna.charAt(1) == ambiguita || posColonna.charAt(0) == ambiguita) {
 						return posColonna;
 					}
@@ -100,7 +102,8 @@ public final class Torre extends Pezzo {
 				}
 			} else if (!posRiga.equals(MOSSA_NON_VALIDA)) {
 				if (mossa.length() > posizioneCarattereCattura
-						&& ((ambiguita >= 'a' && ambiguita <= 'h') || Character.isDigit(ambiguita))) {
+						&& ((ambiguita >= 'a' && ambiguita <= 'h')
+								|| Character.isDigit(ambiguita))) {
 					if (posRiga.charAt(1) == ambiguita || posRiga.charAt(0) == ambiguita) {
 						return posRiga;
 					}
@@ -236,9 +239,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eY
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
+							&& isMossaCattura) {
 						return true;
-					} else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato()) {
+					} else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura
+							|| cellaCorrente.isOccupato()) {
 						return false;
 					}
 				}
@@ -250,9 +255,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eY
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
+							&& isMossaCattura) {
 						return true;
-					} else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura || cellaCorrente.isOccupato()) {
+					} else if (!cellaCorrente.isOccupato() && i == eY && isMossaCattura
+							|| cellaCorrente.isOccupato()) {
 						return false;
 					}
 				}
@@ -265,9 +272,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eX
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
+							&& isMossaCattura) {
 						return true;
-					} else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato()) {
+					} else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura
+							|| cellaCorrente.isOccupato()) {
 						return false;
 					}
 				}
@@ -278,9 +287,11 @@ public final class Torre extends Pezzo {
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
 
 					if (cellaCorrente.isOccupato() && i == eX
-							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente && isMossaCattura) {
+							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
+							&& isMossaCattura) {
 						return true;
-					} else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura || cellaCorrente.isOccupato()) {
+					} else if (!cellaCorrente.isOccupato() && i == eX && isMossaCattura
+							|| cellaCorrente.isOccupato()) {
 						return false;
 					}
 				}

@@ -138,33 +138,33 @@ public final class InterfacciaUtente {
 		}
 		System.out.println("      a   b    c    d    e    f    g    h");
 	}
-
 	/**
-	 * stampa introduttiva del gioco
-	 */
-	public static void stampaIntro() {
-		System.out.println(CYAN + "\n _/|" + ANSI_RESET + "    #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
-				+ ANSI_RESET + "#" + CYAN + "   #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
-				+ ANSI_RESET + "     #" + CYAN + "     #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN
-				+ "#" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN
-				+ " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "    |\\_");
-		System.out.println(CYAN + "// o\\" + CYAN + "   #" + ANSI_RESET + "      #" + CYAN + "        #" + CYAN + "   #"
-				+ ANSI_RESET + "  #" + CYAN + "       #" + ANSI_RESET + "      #" + ANSI_RESET + "     #" + CYAN + "  #"
-				+ CYAN + "    /o \\\\");
-		System.out.println(CYAN + "|| ._)" + ANSI_RESET + "  #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
-				+ ANSI_RESET + "#" + CYAN + "  #" + ANSI_RESET + "       #" + ANSI_RESET + "     #" + CYAN + " #"
-				+ ANSI_RESET + "       #" + CYAN + "      #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN
-				+ "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "  #" + CYAN + "   (_. ||");
-		System.out.println(CYAN + "//__\\" + CYAN + "       #" + ANSI_RESET + "  #" + CYAN + "       #" + ANSI_RESET
-				+ " #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + " #" + ANSI_RESET + " #" + CYAN + "       #"
-				+ ANSI_RESET + "      #" + ANSI_RESET + "     #" + CYAN + "  #" + CYAN + "    /__\\\\");
-		System.out.println(CYAN + ")___(" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
-				+ ANSI_RESET + "#" + CYAN + "   #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
-				+ ANSI_RESET + "  #" + ANSI_RESET + "     #" + CYAN + "  #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET
-				+ "#" + CYAN + "#" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#"
-				+ CYAN + " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "   )___(");
-		System.out.print(ANSI_RESET);
-	}
+     * stampa introduttiva del gioco
+     */
+    public static void stampaIntro() {
+	System.out.println(CYAN + "\n _/|" + ANSI_RESET + "    #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
+		+ ANSI_RESET + "#" + CYAN + "   #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
+		+ ANSI_RESET + "     #" + CYAN + "     #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN
+		+ "#" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN
+		+ " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "    |\\_");
+	System.out.println(CYAN + "// o\\" + CYAN + "   #" + ANSI_RESET + "      #" + CYAN + "        #" + CYAN + "   #"
+		+ ANSI_RESET + "  #" + CYAN + "       #" + ANSI_RESET + "      #" + ANSI_RESET + "     #" + CYAN + "  #"
+		+ CYAN + "    /o \\\\");
+	System.out.println(CYAN + "|| ._)" + ANSI_RESET + "  #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
+		+ ANSI_RESET + "#" + CYAN + "  #" + ANSI_RESET + "       #" + ANSI_RESET + "     #" + CYAN + " #"
+		+ ANSI_RESET + "       #" + CYAN + "      #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN
+		+ "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "  #" + CYAN + "   (_. ||");
+	System.out.println(CYAN + "//__\\" + CYAN + "       #" + ANSI_RESET + "  #" + CYAN + "       #" + ANSI_RESET
+		+ " #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + " #" + ANSI_RESET + " #" + CYAN + "       #"
+		+ ANSI_RESET + "      #" + ANSI_RESET + "     #" + CYAN + "  #" + CYAN + "    /__\\\\");
+	System.out.println(CYAN + ")___(" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
+		+ ANSI_RESET + "#" + CYAN + "   #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
+		+ ANSI_RESET + "  #" + ANSI_RESET + "     #" + CYAN + "  #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET
+		+ "#" + CYAN + "#" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#"
+		+ CYAN + " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "   )___(");
+	System.out.print(ANSI_RESET);
+
+    }
 
 	/**
 	 * Stampa a video il giocatore in turno
@@ -174,7 +174,8 @@ public final class InterfacciaUtente {
 	public static void stampaTurno(final Giocatore giocatoreAttivo) {
 		if (giocatoreAttivo.getColore() == Colore.bianco) {
 			System.out.println("\nE' il turno di " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT
-					+ giocatoreAttivo.getNome() + ANSI_RESET + " con le pedine di colore " + WHITE_BOLD_BRIGHT
+					+ giocatoreAttivo.getNome() + ANSI_RESET + " con le pedine di colore "
+					+ WHITE_BOLD_BRIGHT
 					+ WHITE_UNDERLINED_BRIGHT + giocatoreAttivo.getColore() + ANSI_RESET + ".");
 		} else {
 			System.out.println("\nE' il turno di " + CYAN_BOLD + CYAN_UNDERLINED + giocatoreAttivo.getNome()
@@ -191,7 +192,8 @@ public final class InterfacciaUtente {
 	 */
 	public static void stampaMenu() {
 		System.out.println();
-		System.out.println("\u265A" + "\u265B" + WHITE_BOLD_BRIGHT + "  MENU PRINCIPALE " + ANSI_RESET + "\u2655"
+		System.out.println("\u265A" + "\u265B" + WHITE_BOLD_BRIGHT + "  MENU PRINCIPALE "
+		+ ANSI_RESET + "\u2655"
 				+ "\u2656" + " \n");
 		mostrareElencoComandiMenu();
 	}
@@ -216,7 +218,8 @@ public final class InterfacciaUtente {
 	public static void stampaConfermaNuovaPartita() {
 		System.out.println();
 		System.out.println(
-				"Sei sicuro di voler iniziare una nuova partita? \n(Digita 'y' per confermare, 'n' altrimenti)");
+				"Sei sicuro di voler iniziare una nuova partita? \n"
+				+ "(Digita 'y' per confermare, 'n' altrimenti)");
 
 	}
 
@@ -225,7 +228,8 @@ public final class InterfacciaUtente {
 	 */
 	public static void stampaConfermaFinePartita() {
 		System.out.println();
-		System.out.println("Sei sicuro di voler uscire dal gioco? \n(Digita 'y' per confermare, 'n' altrimenti)");
+		System.out.println("Sei sicuro di voler uscire dal gioco? \n"
+				+ "(Digita 'y' per confermare, 'n' altrimenti)");
 
 	}
 
@@ -259,11 +263,13 @@ public final class InterfacciaUtente {
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		Giocatore giocatoreAttesa = Turno.getGiocatoreInAttesa();
 		if (!giocatoreAttivo.isEmptyPezziCatturati() || !giocatoreAttesa.isEmptyPezziCatturati()) {
-			if (!giocatoreAttivo.isEmptyPezziCatturati()) { // Se il giocatore attivo ha catturato dei pezzi, li stampo
+			if (!giocatoreAttivo.isEmptyPezziCatturati()) {
+				// Se il giocatore attivo ha catturato dei pezzi, li stampo
 				stampaPezziCatturati(giocatoreAttivo);
 			}
 
-			if (!giocatoreAttesa.isEmptyPezziCatturati()) { // Se il giocatore in attesa ha catturato dei pezzi, li
+			if (!giocatoreAttesa.isEmptyPezziCatturati()) {
+				// Se il giocatore in attesa ha catturato dei pezzi, li
 				// stampo
 				stampaPezziCatturati(giocatoreAttesa);
 			}
@@ -290,7 +296,8 @@ public final class InterfacciaUtente {
 					System.out.println(mossa);
 				} else {
 					mossa = counter + ". " + Turno.getArrayStoriaMosse().get(i) + " "
-							+ Turno.getArrayStoriaMosse().get(i + 1);
+					+ CYAN_BOLD + Turno.getArrayStoriaMosse().get(i + 1)
+					+ ANSI_RESET;
 					System.out.println(mossa);
 				}
 				i++;
@@ -331,10 +338,12 @@ public final class InterfacciaUtente {
 	 */
 	public static void stampaInserireGiocatore(final Colore c) {
 		if (c == Colore.bianco) {
-			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + WHITE_BOLD_BRIGHT
+			System.out.println("\nInserisci il nome del giocatore con le pedine di colore "
+					+ WHITE_BOLD_BRIGHT
 					+ WHITE_UNDERLINED_BRIGHT + c + ANSI_RESET + " \u2193");
 		} else {
-			System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + CYAN_UNDERLINED
+			System.out.println("\nInserisci il nome del giocatore con le pedine di colore "
+					+ CYAN_UNDERLINED
 					+ CYAN_BOLD + c + ANSI_RESET + " \u2193");
 		}
 

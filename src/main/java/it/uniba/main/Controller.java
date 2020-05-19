@@ -83,33 +83,29 @@ public final class Controller {
 					int tipoArrocco = Menu.isArrocco(comando);
 					if (tipoArrocco != -1) { // Se è un arrocco
 						Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
-
-						String mossaTorre = Torre.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
-						String mossaRe = Re.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
-
-						// Non ho bisogno di controllare se i comandi convertiti saranno validi, perchè
-						// sono stati gia' stabiliti dalle regole del gioco
-
-						// Controllo se l'arrocco è possibile
+						String mossaTorre = Torre
+						.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
+						String mossaRe = Re
+						.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
+						// Non ho bisogno di controllare se i comandi convertiti saranno
+						//  validi, perche' sono stati gia' stabiliti dalle regole del gioco
+						// Controllo se l'arrocco e' possibile
 						if (isArroccoValido(mossaRe, mossaTorre, tipoArrocco)) {
 							// Applico arrocco
-
-							Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
-							Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
-
+							Cella cellaPartenzaRe = Scacchiera
+							.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
+							Cella cellaDestinazioneRe = Scacchiera
+							.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
 							Scacchiera.scambiaCella(cellaPartenzaRe, cellaDestinazioneRe);
-
-							Cella cellaPartenzaTorre = Scacchiera.getCella(Cella.startX(mossaTorre),
-									Cella.startY(mossaTorre));
-							Cella cellaDestinazioneTorre = Scacchiera.getCella(Cella.endX(mossaTorre),
-									Cella.endY(mossaTorre));
-
-							Scacchiera.scambiaCella(cellaPartenzaTorre, cellaDestinazioneTorre);
-
+							Cella cellaPartenzaTorre = Scacchiera
+							.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));
+							Cella cellaDestinazioneTorre = Scacchiera
+							.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));
+							Scacchiera
+							.scambiaCella(cellaPartenzaTorre, cellaDestinazioneTorre);
 							addMosseConvertite(comando);
 							Turno.getGiocatoreInTurno().setMosseGiocate(comando);
 							Turno.cambioTurno();
-
 						} else {
 							InterfacciaUtente.stampaMossaIllegale();
 
@@ -119,19 +115,20 @@ public final class Controller {
 
 						if (isMossaInRangeValido(mossaInCoordinate)) {
 							int tipoMossa = 0;
-							Cella cellaPartenza = Scacchiera.getCella(Cella.startX(mossaInCoordinate),
+							Cella cellaPartenza = Scacchiera
+							.getCella(Cella.startX(mossaInCoordinate),
 									Cella.startY(mossaInCoordinate));
-							Cella cellaDestinazione = Scacchiera.getCella(Cella.endX(mossaInCoordinate),
+							Cella cellaDestinazione = Scacchiera
+							.getCella(Cella.endX(mossaInCoordinate),
 									Cella.endY(mossaInCoordinate));
-							tipoMossa = getTipoMossa(cellaPartenza, cellaDestinazione, mosseConvertite);
-
+							tipoMossa = getTipoMossa(cellaPartenza,
+									cellaDestinazione, mosseConvertite);
 							if (tipoMossa != -1) {
-
-								applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);
+								applicaMossa(cellaPartenza,
+								cellaDestinazione, tipoMossa);
 								addMosseConvertite(mossaInCoordinate);
 								Turno.getGiocatoreInTurno().setMosseGiocate(comando);
 								Turno.cambioTurno();
-
 							} else {
 								InterfacciaUtente.stampaMossaIllegale();
 							}
@@ -140,8 +137,8 @@ public final class Controller {
 						}
 					}
 				} else if (!Menu.isComandoValido(comando)) {
-					// Se il comando inserito non è una mossa, nè un comando
-					// di gioco...
+					// Se il comando inserito non e' una mossa, ne'
+					// un comando di gioco...
 					InterfacciaUtente.stampaComandoErrato();
 				}
 			} // Fine loop di gioco
@@ -240,10 +237,9 @@ public final class Controller {
 	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
 	 *                          del pedone
 	 */
-	private static void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
-
+	private static void applicaMossa(final Cella cellaPartenza,
+	final Cella cellaDestinazione, final int tipoMossa) {
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
-
 		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
 		switch (tipoMossa) {
 		case 0:
@@ -319,9 +315,8 @@ public final class Controller {
 				&& cellaPartenzaTorre.isOccupato() && presuntaTorreGiocatoreAttuale.getNome() == "Torre"
 				&& presuntaTorreGiocatoreAttuale.getColore() == coloreGiocatoreAttivo) {
 			Re re = (Re) presuntoReGiocatoreAttuale;
-
-			return re.isArroccoValido(cellaPartenzaRe, cellaDestinazioneRe, cellaPartenzaTorre, cellaDestinazioneTorre,
-					getMosseConvertite(), tipoArrocco);
+			return re.isArroccoValido(cellaPartenzaRe, cellaDestinazioneRe, cellaPartenzaTorre,
+			cellaDestinazioneTorre, getMosseConvertite(), tipoArrocco);
 		}
 
 		return false;
