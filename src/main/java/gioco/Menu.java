@@ -108,7 +108,6 @@ public final class Menu {
 			return ARROCCO_LUNGO;
 		}
 		return -1;
-
 	}
 
 	/**

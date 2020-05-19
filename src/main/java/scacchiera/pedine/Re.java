@@ -81,7 +81,7 @@ public final class Re extends Pezzo {
 	 * @return true se l'arrocco è effettuabile, false altrimenti.
 	 */
 	public boolean isArroccoValido(final Cella startRe, final Cella endRe, final Cella startTorre,
-			final Cella endTorre, final ArrayList<String> storicoMosse, final int tipoArrocco) {
+		final Cella endTorre, final ArrayList<String> storicoMosse, final int tipoArrocco) {
 		int sX = startRe.getX();
 		int sY = startRe.getY();
 		int eX = endRe.getX();
@@ -233,7 +233,7 @@ public final class Re extends Pezzo {
 	 * @param storicoMosse
 	 * @return true se la prima mossa del re è stata effettuata, false altrimenti.
 	 */
-	public static boolean isPrimaMossaEffettuata(final ArrayList<String> storicoMosse) {
+	private static boolean isPrimaMossaEffettuata(final ArrayList<String> storicoMosse) {
 
 		for (int i = 0; i < storicoMosse.size(); i++) {
 			if (storicoMosse.get(i).matches("(h|e|a)(1|8) [a-h][1-8]")) {
