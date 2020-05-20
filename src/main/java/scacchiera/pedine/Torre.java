@@ -37,7 +37,6 @@ public final class Torre extends Pezzo {
 	 * @return mossa Stringa rappresentante la mossa in notazione estesa
 	 */
 	public static String convertiMossa(final String mossa) {
-
 	String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 	char destX = mossa.charAt(mossa.length() - 2);
 	char destY = mossa.charAt(mossa.length() - 1);
@@ -217,7 +216,6 @@ public final class Torre extends Pezzo {
 
 					cellaCorrente = Scacchiera.getCella(sX, i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 							&& i == eY
 							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
@@ -235,7 +233,6 @@ public final class Torre extends Pezzo {
 
 					cellaCorrente = Scacchiera.getCella(sX, i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 						&& i == eY
 						&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
@@ -252,7 +249,6 @@ public final class Torre extends Pezzo {
 				for (int i = sX - 1; i >= eX; i--) {
 					cellaCorrente = Scacchiera.getCella(i, sY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 						&& i == eX
 						&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
@@ -269,7 +265,6 @@ public final class Torre extends Pezzo {
 				for (int i = sX + 1; i <= eX; i++) {
 					cellaCorrente = Scacchiera.getCella(i, sY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 							&& i == eX
 							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente

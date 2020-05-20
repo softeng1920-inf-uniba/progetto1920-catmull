@@ -205,8 +205,13 @@ public final class Cavallo extends Pezzo {
 		return mossaConvertita;
 	}
 
-	// Converte la mossa in caso di espressione regolare senza ambiguit�
-
+	/**
+	 *  Converte la mossa in caso di espressione regolare senza ambiguita'
+	 * @param endX
+	 * @param endY
+	 * @param mossa
+	 * @return
+	 */
 	private static String convertiMossaNonAmbigua(final int endX, final int endY, final String mossa) {
 
 		String mossaConvertita = "a0 a0";

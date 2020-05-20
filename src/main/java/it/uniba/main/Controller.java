@@ -88,7 +88,11 @@ public final class Controller {
 
 	/**
 	 * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
+<<<<<<< HEAD
 	 * e restituisce true se la mossa � valida ed � stata applicata altrimenti
+=======
+	 * e restituisce true se la mossa � valida ed � stata applicata altrimenti
+>>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
 	 * restituisce false
 	 *
 	 * @param mossaDaGiocare
@@ -341,17 +345,12 @@ public final class Controller {
 			isReProtetto = true;
 			return isReProtetto;
 		}
-		applicaMossa(partenza, destinazione, tipoMossa);
+		Scacchiera.scambiaCella(partenza, destinazione);
 		if (!reDaProteggere.isReSottoScacco(cellaRe)) {
 			isReProtetto = true;
 		}
-		applicaMossa(destinazione, partenza, tipoMossa);
-
-		if (temp.isOccupato()) {
-			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
-			Turno.getGiocatoreInTurno().removePezzoCatturato();
-		}
-
+		Scacchiera.scambiaCella(destinazione, partenza);
+		Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
 		return isReProtetto;
 	}
 }

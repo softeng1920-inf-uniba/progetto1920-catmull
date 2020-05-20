@@ -38,7 +38,11 @@ public final class Cella {
 	/**
 	 * Modifica la variabile occupato
 	 *
-	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se è
+<<<<<<< HEAD
+	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se ï¿½
+=======
+	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se Ã¨
+>>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
 	 *            occupata o meno
 	 */
 	public void setOccupato(final boolean occ) {
@@ -78,10 +82,10 @@ public final class Cella {
 	}
 
 	/**
-	 * Restituisce un valore booleano che indica se la cella è occupata da qualche
+	 * Restituisce un valore booleano che indica se la cella Ã¨ occupata da qualche
 	 * pezzo o meno.
 	 *
-	 * @return true se la cella è occupata, false se vuota.
+	 * @return true se la cella Ã¨ occupata, false se vuota.
 	 */
 	public boolean isOccupato() {
 		return occupato;

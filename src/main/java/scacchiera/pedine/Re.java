@@ -203,7 +203,7 @@ public final class Re extends Pezzo {
 	}
 
 	/**
-	 * Controlla se il re Ã¨ sotto scacco
+	 * Controlla se il re è sotto scacco
 	 *
 	 * @param reCella cella di destinazione del re
 	 * @return boolean true se il re Ã¨ sotto scacco, false altrimenti
@@ -219,7 +219,7 @@ public final class Re extends Pezzo {
 						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c
 						&& Scacchiera.getNomePezzo(i, j) != "Re"
 						&& Scacchiera.getCella(i, j).getPezzoCorrente()
-								.isMossaValida(Scacchiera.getCella(i, j), temp)) {
+						.isMossaValida(Scacchiera.getCella(i, j), temp)) {
 					return true;
 				}
 			}
