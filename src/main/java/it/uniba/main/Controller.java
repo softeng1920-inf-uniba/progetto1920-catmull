@@ -393,7 +393,7 @@ public class Controller {
 	    Re re = (Re) presuntoReGiocatoreAttuale;
 
 	    return re.isArroccoValido(cellaPartenzaRe, cellaDestinazioneRe, cellaPartenzaTorre, cellaDestinazioneTorre,
-		    getMosseConvertite(), tipoArrocco);
+		    getMosseConvertite(), tipoArrocco, coloreGiocatoreAttivo);
 	}
 
 	return false;
@@ -416,28 +416,25 @@ public class Controller {
      * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
      */
     public boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipo) {
-	Cella cellaRe = Re.findRe();
-	Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
-	boolean isReProtetto = false;
+    Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
+    Cella cellaRe = Re.findRe();
+    Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
+    boolean isReProtetto = false;
+    if (partenza.getPezzoCorrente().getNome().equals("Re")) {
+         return true; // Il re è protetto
+    }
+    applicaMossa(partenza, destinazione, tipo);
+    if (!reDaProteggere.isReSottoScacco(cellaRe)) {
+         isReProtetto = true;
+    }
+     applicaMossa(destinazione, partenza, tipo);
 
-	if (partenza.getPezzoCorrente().getNome().equals("Re")) {
-	    return true; // Il re è protetto
-	}
+    if (temp.isOccupato()) {
+        Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+        Turno.getGiocatoreInTurno().removePezzoCatturato();
+    }
 
-	applicaMossa(partenza, destinazione, tipo);
-	if (!reDaProteggere.isReSottoScacco(cellaRe)) {
-	    isReProtetto = true;
-	}
-
-	applicaMossa(destinazione, partenza, tipo);
-
-	Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());
-	if (temp.isOccupato()) {
-	    Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
-	    Turno.getGiocatoreInTurno().removePezzoCatturato();
-	}
-
-	return isReProtetto;
+     	return isReProtetto;
     }
 
 }
