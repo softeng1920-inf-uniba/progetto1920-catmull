@@ -63,11 +63,11 @@ public final class Re extends Pezzo {
 	}
 
 	/**
-	 * Restituisce un valore booleano che indica se Ã¨ possibile effettuare l'arrocco
-	 * con i pezzi nelle celle passate in input.
+	 * Restituisce un valore booleano che indica se Ã¨ possibile effettuare
+	 * l'arrocco con i pezzi nelle celle passate in input.
 	 *
-	 * @param startRe      Cella di partenza del re di cui si vuole controllare se e'
-	 *                     possibile effettuare l'arrocco
+	 * @param startRe      Cella di partenza del re di cui si vuole controllare se
+	 *                     e' possibile effettuare l'arrocco
 	 * @param endRe        Cella di destinazione del re di cui si vuole controllare
 	 *                     se Ã¨ possibile effettuare l'arrocco
 	 * @param startTorre   Cella di partenza della torre di cui si vuole controllare
@@ -79,13 +79,12 @@ public final class Re extends Pezzo {
 	 * @param tipoArrocco  0 - corto | 1 - lungo
 	 * @return true se l'arrocco Ã¨ effettuabile, false altrimenti.
 	 */
-	public boolean isArroccoValido(final Cella startRe, final Cella endRe,
-			final Cella startTorre, final Cella endTorre,
-			final ArrayList<String> storicoMosse, final int tipoArrocco) {
+	public boolean isArroccoValido(final Cella startRe, final Cella endRe, final Cella startTorre,
+	final Cella endTorre, final ArrayList<String> storicoMosse, final int tipoArrocco) {
 		int sX = startRe.getX();
 		int sY = startRe.getY();
 		int eX = endRe.getX();
-		if (!isPrimaMossaEffettuata(storicoMosse) && !isReSottoScacco(startRe)) {
+		if (!isPrimaMossaEffettuata(storicoMosse, tipoArrocco) && !isReSottoScacco(startRe)) {
 
 			// Itera dalla cella corrente :start fino alla cella di destinazione:end e
 			// controlla che non ci siano pezzi intermedi e che nello spostamento del re non
@@ -95,7 +94,7 @@ public final class Re extends Pezzo {
 				// Arrocco Corto
 				for (int i = sX + 1; i < eX + 1; i++) {
 					if (isReSottoScacco(Scacchiera.getCella(i, sY))
-							|| Scacchiera.getNomePezzo(i, sY) != "Vuota") {
+					|| Scacchiera.getNomePezzo(i, sY) != "Vuota") {
 						return false;
 					}
 				}
@@ -104,7 +103,7 @@ public final class Re extends Pezzo {
 				// Arrocco Lungo
 				for (int i = sX - 1; i > eX - 1; i--) {
 					if (isReSottoScacco(Scacchiera.getCella(i, sY))
-							|| Scacchiera.getNomePezzo(i, sY) != "Vuota") {
+					|| Scacchiera.getNomePezzo(i, sY) != "Vuota") {
 						return false;
 					}
 				}
@@ -183,8 +182,8 @@ public final class Re extends Pezzo {
 		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
 			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
 				if (Scacchiera.getNomePezzo(i, j) == "Re"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente()
-						.getColore() == Turno.getGiocatoreInTurno().getColore()) {
+					&& Scacchiera.getCella(i, j).getPezzoCorrente()
+					.getColore() == Turno.getGiocatoreInTurno().getColore()) {
 					startX = i;
 					startY = j;
 					break;
@@ -216,10 +215,10 @@ public final class Re extends Pezzo {
 		for (int i = 0; i < Scacchiera.getNumeroRighe(); i++) {
 			for (int j = 0; j < Scacchiera.getNumeroColonne(); j++) {
 				if (Scacchiera.getNomePezzo(i, j) != "Vuota"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c
-						&& Scacchiera.getNomePezzo(i, j) != "Re"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente()
-						.isMossaValida(Scacchiera.getCella(i, j), temp)) {
+				&& Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c
+				&& Scacchiera.getNomePezzo(i, j) != "Re"
+				&& Scacchiera.getCella(i, j).getPezzoCorrente()
+				.isMossaValida(Scacchiera.getCella(i, j), temp)) {
 					return true;
 				}
 			}
@@ -233,10 +232,12 @@ public final class Re extends Pezzo {
 	 * @param storicoMosse
 	 * @return true se la prima mossa del re Ã¨ stata effettuata, false altrimenti.
 	 */
-	public static boolean isPrimaMossaEffettuata(final ArrayList<String> storicoMosse) {
+	public static boolean isPrimaMossaEffettuata(final ArrayList<String> storicoMosse, final int tipoArrocco) {
 		final short numGiocatori = 2;
 		for (int i = 0; i < storicoMosse.size(); i++) {
-			if (storicoMosse.get(i).matches("(h|e|a)(1|8) [a-h][1-8]")) {
+			if ((tipoArrocco == Menu.ARROCCO_CORTO && storicoMosse.get(i).matches("(h|e)(1|8) [a-h][1-8]"))
+			|| (tipoArrocco == Menu.ARROCCO_LUNGO
+			&& storicoMosse.get(i).matches("(e|a)(1|8) [a-h][1-8]"))) {
 				if (((i % numGiocatori) == 0
 						&& Turno.getGiocatoreInTurno().getColore() == Colore.bianco)
 						|| ((i % numGiocatori) != 0
@@ -260,8 +261,8 @@ public final class Re extends Pezzo {
 		for (int i = 0; i < Scacchiera.getNumeroColonne(); i++) {
 			for (int j = 0; j < Scacchiera.getNumeroRighe(); j++) {
 				if (Scacchiera.getNomePezzo(i, j) == "Re"
-						&& Scacchiera.getCella(i, j).getPezzoCorrente()
-						.getColore() == Turno.getGiocatoreInTurno().getColore()) {
+					&& Scacchiera.getCella(i, j).getPezzoCorrente()
+					.getColore() == Turno.getGiocatoreInTurno().getColore()) {
 					startX = i;
 					startY = j;
 					break;

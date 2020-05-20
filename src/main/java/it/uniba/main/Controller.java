@@ -155,15 +155,12 @@ public final class Controller {
 	 * Data la notazione algebrica inserita dall'utente, l'algoritmo restituisce 0
 	 * se � una mossa semplice, 1 se � una mossa di cattura, 2 se � un arrocco e 3
 	 * se � di sicuro un en passant
-	 *
-	 * @param cellaPartenza
-	 * @param cellaDestinazione
-	 * @param mosseEffettuate
-	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
+	 * @param mossaInInput
+	 * @return
 	 */
 	private static int getTipoMossa(final String mossaInInput) {
 		int tipoMossa = 0;
-		if (mossaInInput.matches("(D|R|T|A|C)?([a-h](x|:))([a-h][1-8])")) {
+		if (mossaInInput.matches("(D|R|T|A|C)?([a-h]|[1-8])?(x|:)[a-h][1-8]")) {
 			tipoMossa = 1;
 		} else if (mossaInInput.matches("(0|o|O)-(0|o|O)(-(0|o|O))?")) {
 			tipoMossa = 2;
@@ -215,7 +212,7 @@ public final class Controller {
 		Cella cellaDestinazione = Scacchiera.getCella(Cella.endX(comando), Cella.endY(comando));
 		if (cellaPartenza.isOccupato()
 				&& cellaPartenza.getPezzoCorrente().isMossaValida(cellaPartenza, cellaDestinazione)) {
-			if (isReProtetto(cellaPartenza, cellaDestinazione, tipoMossa)) {
+			if (isReProtetto(cellaPartenza, cellaDestinazione)) {
 				return true;
 			}
 		}
@@ -335,7 +332,7 @@ public final class Controller {
 	 * @param tipoMossa
 	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-	public static boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipoMossa) {
+	public static boolean isReProtetto(final Cella partenza, final Cella destinazione) {
 
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
@@ -350,7 +347,9 @@ public final class Controller {
 			isReProtetto = true;
 		}
 		Scacchiera.scambiaCella(destinazione, partenza);
-		Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+		if (temp.isOccupato()) {
+			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+		}
 		return isReProtetto;
 	}
 }
