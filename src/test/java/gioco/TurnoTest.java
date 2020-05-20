@@ -5,12 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TurnoTest {
-
-	@BeforeAll
-	static void testTurno() {
+	ArrayList<String> mosseGiocate = new ArrayList<String>();
+	
+	@BeforeEach
+	void testTurno() {
 		
 		Turno.newTurno();
 	}
@@ -40,30 +42,58 @@ class TurnoTest {
 	}
 	
 	@Test
-	void testGetArrayStoriaMosse() {
-		ArrayList<String> mosseGiocate = new ArrayList<String>();
+	void testGetArrayStoriaMosseBianco() {
 		Turno.getGiocatoreInTurno().setMosseGiocate("a4");
 		Turno.getGiocatoreInAttesa().setMosseGiocate("b5");
 		mosseGiocate.add("a4");
 		mosseGiocate.add("b5");
 		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
-		Turno.cambioTurno();
-		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
-		
+	}
+	
+	@Test
+	void testGetArrayStoriaMosseNero() {
 		mosseGiocate.clear();
-		Turno.newTurno();
 		Turno.getGiocatoreInTurno().setMosseGiocate("a4");
+		Turno.getGiocatoreInAttesa().setMosseGiocate("b5");
 		mosseGiocate.add("a4");
-		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
-		Turno.cambioTurno();
-		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
-		
-		mosseGiocate.clear();
-		Turno.newTurno();
-		Turno.getGiocatoreInAttesa().setMosseGiocate("a4");
-		mosseGiocate.add("a4");
-		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
+		mosseGiocate.add("b5");
 		Turno.cambioTurno();
 		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
 	}
+	
+//		
+//		mosseGiocate.clear();
+	
+	@Test
+	void testGetArrayStoriaMosseBiancoDim1() {
+		Turno.getGiocatoreInTurno().setMosseGiocate("a4");
+		mosseGiocate.add("a4");
+		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
+	}
+	
+	@Test
+	void testGetArrayStoriaMosseNeroDim1() {
+		Turno.getGiocatoreInTurno().setMosseGiocate("a4");
+		mosseGiocate.add("a4");
+		Turno.cambioTurno();
+		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
+	}
+	
+	@Test
+	void testGetArrayStoriaMosseAttesaDim1Bianco() {
+		mosseGiocate.clear();
+		Turno.getGiocatoreInAttesa().setMosseGiocate("a4");
+		mosseGiocate.add("a4");
+		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
+	}
+	
+	@Test
+	void testGetArrayStoriaMosseAttesaDim1Nero() {
+		mosseGiocate.clear();
+		Turno.getGiocatoreInAttesa().setMosseGiocate("a4");
+		mosseGiocate.add("a4");
+		Turno.cambioTurno();
+		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
+	}
+	
 }
