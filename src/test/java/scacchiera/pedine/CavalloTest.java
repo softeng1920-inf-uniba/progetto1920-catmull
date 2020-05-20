@@ -14,7 +14,7 @@ import scacchiera.Scacchiera;
  * Questo pezzo può muoversi potenzialmente in otto posizioni in quanto, ogni volta
  * che viene effettuata la mossa si compiono un movimento orizzontale e verticale.
  * Partendo dalla cella con coordinate x e y, le possibili celle finali possono avere le seguanti coordinate.
- * x+1 y+2 
+ * x+1 y+2
  * x+1 y-2 
  * x-1 y+2 
  * x-1 y-2 
@@ -201,7 +201,9 @@ class CavalloTest {
 	
 	/*
 	 * Ho spostato il cavallo bianco in d5
-	 * partendo da d5 posso catturare il pedone nero in e7 
+	 * partendo da d5 posso catturare il pedone nero in e7.
+	 * La mossa non rispetta l'espressione regolare della cattura, quindi
+	 * la mossa non è valida. 
 	 */
 	@Test
 	void testConvertiMossaFull() {
@@ -212,7 +214,7 @@ class CavalloTest {
 	}
 	
 	/*
-	 * Mossa di cattura in e4, ma la cella e4 è vuota e quindi non può essere effettuata
+	 * Mossa di cattura da d5 in e4, ma la cella e4 è vuota e quindi non può essere effettuata.
 	 */
 	@Test
 	void testConvertiMossaCatturaFinaleVuota() {
@@ -224,7 +226,8 @@ class CavalloTest {
 	
 	/*
 	 * Avendo ambiguità nelle celle d5 e f5 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la colonna di partenza
+	 * da muovere indicando la colonna di partenza.
+	 * Caso x-1 y+2
 	 */
 	@Test
 	void testConvertiMossaCatturaAmbiguitaTrav() { 
@@ -249,7 +252,8 @@ class CavalloTest {
 	
 	/*
 	 * Avendo ambiguità nelle celle d5 e d3 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la traversa di partenza
+	 * da muovere indicando la traversa di partenza.
+	 * x+2 y-1
 	 */
 	@Test
 	void testConvertiMossaCatturaAmbiguitaColonne() {
@@ -274,7 +278,8 @@ class CavalloTest {
 	
 	/*
 	 * Avendo ambiguità nelle celle b4 e b6 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la colonna di partenza
+	 * da muovere indicando la colonna di partenza.
+	 * Caso x+2 y+1
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaTrav() {
@@ -286,7 +291,8 @@ class CavalloTest {
 	
 	/*
 	 * Avendo ambiguità nelle celle b6 e b2 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la colonna di partenza
+	 * da muovere indicando la colonna di partenza.
+	 * Caso x-1 y+2
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaTrav2() {
@@ -298,10 +304,11 @@ class CavalloTest {
 	
 	/*
 	 * Avendo ambiguità nelle celle b6 e b2 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la colonna di partenza
+	 * da muovere indicando la colonna di partenza.
+	 * Caso x-1 y-2
 	 */
 	@Test
-	void testConvertiMossaAmbiguitaTrav3() {
+	void testConvertiMossaAmbiguitaTravSx1() {
 		Scacchiera.nuovaScacchiera();
 		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
 		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(1, 6));
@@ -325,9 +332,10 @@ class CavalloTest {
 	/*
 	 * Avendo ambiguità nelle celle c4 e c6 c'è bisogno di specificare il cavallo
 	 * da muovere indicando la colonna di partenza.
+	 * Caso x-2 y+1
 	 */
 	@Test
-	void testConvertiMossaAmbiguitaTrav4() {
+	void testConvertiMossaAmbiguitaTravSx2() {
 		Scacchiera.nuovaScacchiera();
 		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(2, 2));
 		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(2, 4));
@@ -336,7 +344,8 @@ class CavalloTest {
 	
 	/*
 	 * Avendo ambiguità nelle celle d6 e b6 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la colonna di partenza
+	 * da muovere indicando la colonna di partenza.
+	 * Caso x+1 y+2
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaColonna() {
@@ -348,10 +357,11 @@ class CavalloTest {
 
 	/*
 	 * Avendo ambiguità nelle celle b4 e b6 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la colonna di partenza
+	 * da muovere indicando la colonna di partenza.
+	 * Caso x+2 y+1
 	 */
 	@Test
-	void testConvertiMossaAmbiguitaColonnaL() {
+	void testConvertiMossaAmbiguitaColonnaDx() {
 		Scacchiera.nuovaScacchiera();
 		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
 		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(3, 2));
@@ -360,10 +370,10 @@ class CavalloTest {
 	
 	/*
 	 * Avendo ambiguità nelle celle b4 e f4 c'è bisogno di specificare il cavallo
-	 * da muovere indicando la colonna di partenza
+	 * da muovere indicando la colonna di partenza.
 	 */
 	@Test
-	void testConvertiMossaAmbiguitaColonna_I() {
+	void testConvertiMossaAmbiguitaColonnaDx2() {
 		Scacchiera.nuovaScacchiera();
 		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 4));
 		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(5, 4));
@@ -375,7 +385,7 @@ class CavalloTest {
 	 * da muovere indicando la colonna di partenza. La cella in cui catturare è però piena.
 	 */
 	@Test
-	void testConvertiMossaAmbiguitaColonnaFull() {
+	void testConvertiMossaAmbiguitaColonnaPiena() {
 		Scacchiera.nuovaScacchiera();
 		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
 		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(3, 2));
