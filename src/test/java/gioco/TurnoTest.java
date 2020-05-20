@@ -88,4 +88,5 @@ class TurnoTest {
 		Turno.cambioTurno();
 		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
 	}
+	
 }
