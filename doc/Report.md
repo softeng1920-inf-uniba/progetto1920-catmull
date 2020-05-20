@@ -28,9 +28,9 @@
 
 [Torna all'indice](#indice)
 
-<font face="Times New Roman" size="6">Introduzione</font>  
 
-<font face="Times New Roman" size="3">
+
+
 
 Il **gioco degli scacchi** è un gioco di strategia in cui due giocatori fronteggiano
 i rispettivi eserciti, composti da pedine aventi specifiche diverse,
@@ -49,16 +49,16 @@ scrittore Francois-Andrè-Philidor dal nome "L'analyze des Echecs" che affronta 
 prima volta le strategie di gioco e fu davvero una svolta per quel periodo in quanto
 l'opera risultò col tempo essere rimarchevole per lo sviluppo dello studio degli scacchi. Di qui a breve vennero inventate
  le prime forme di notazione, tra queste, la notazione descrittiva poi sostituita da quella che utilizziamo ancora oggi conosciuta come notazione algebrica, introdotta da Philipp Stamma nel 1737.
- </font>
+
 
 
 
 <p align="center"><img src="/res/img/report/DescriptiveNotation.png" alt="Notazione Descrittiva">  
 <img src="/res/img/report/AlgNot.gif" alt="Notazione algebrica">
-<p align="center"> <font face="Comic Sans MS" size="2">Notazione descrittiva (sinistra); notazione algebrica (destra)</font>
+</p>
 
 
-<font face="Times New Roman" size="3">
+
 
 Intorno alla metà del 1800 la matematica e il gioco degli scacchi si fondono dando spazio a teorie e teoremi che spiegano e condizionano i movimenti dei pezzi sulla scacchiera. Noto è, dunque, che si possano effettuare studi approfonditi sulla scacchiera facendo ricorso alla teoria dei grafi così come alla geometria, aritmetica e analisi combinatoria. Diversi anni dopo, intorno al 1950, spuntarono i primi programmi aventi la capacità di giocare a scacchi. Inizialmente non erano in grado di affrontare ad armi pari un uomo. Tuttavia,1 in seguito alla nascita del microprocessore, i suddetti sfiorarono il livello dei campioni fino ad un evento storico del 1997 in cui l'allora campione Garry Kasparov venne battuto dal supercomputer dell'IBM chiamato Deep Blue.                                          
 Per quanto riguarda la scacchiera, trattasi di una griglia quadrata costituita da 64 celle o case di cui 32 bianche e 32 nere.
@@ -78,14 +78,13 @@ I pezzi sono i seguenti:
     <li>una Donna bianca e una Donna nera;</li>
     <li>un Re bianco e un Re nero.</li>
 </ul>
-</font>
-<p align="center">
-<img src="/res/img/report/chessboard.png">
-<p align="center"><font face="Comic Sans MS" size="2">Scacchiera con pezzi allo stato iniziale</font>
 
+<p align="center">
+<img src="/res/img/report/Chessboard.png">
+<p align="center">Scacchiera con pezzi allo stato iniziale
+</p>
 
 <h4><i>Movimento dei pezzi</i></h4>
-<font face="Times New Roman" size="3"<
 
 La prima mossa è sempre dello schieramento bianco. Non è consentito muovere un pezzo verso una casa occupata da un pezzo del medesimo
 colore.
@@ -95,10 +94,10 @@ Si dice che un pezzo attacca un pezzo avversario se il pezzo può effettuare una
 cattura su quella casa. Si considera che un pezzo attacchi una casa anche qualora
 quel pezzo sia impossibilitato a muoversi verso quella casa perché così facendo
 lascerebbe o porrebbe sotto attacco il Re del proprio colore.
-</font>
 
-<font face="WildWest" size="3" color="peru"><b>PEDONE:</b></font>
-<font face="Times New Roman" size="3">
+
+<b>PEDONE</b>
+
 il pedone si può muovere sulla colonna avanzando,e solo avanzando,di una sola casa.
 Nel caso in cui questo si trovi alla sua prima mossa, si può muovere in alternativa
 di due case lungo la stessa colonna, a condizione,evidentemente,che dette case non siano
@@ -109,60 +108,60 @@ Nel caso in cui il pedone sia stato mosso fino alla casa situata nella traversa 
 lontana si verifica una "promozione", ovvero il giocatore può scegliere di trasformare
 il pedone in qualunque altro pezzo della schacchiera (non per forza presente su essa)
 e fargli assumere tutte le qualità relative con effetto immediato.
-</font>
+
 
 <p align="center"><img src="/res/img/report/pawn_mov.png">
-<p align="center"><font face="Comic Sans MS" size="2">(a)Potenziali movimenti pedone</font>
+<p align="center">(a)Potenziali movimenti pedone</p>
 
 
-<font face="WildWest" size="3" color="peru"><b>ALFIERE:</b></font>
-<font face="Times New Roman" size="3">
+<b>ALFIERE</b>
+
 l'alfiere si può muovere lungo una casa posta a qualunque distanza da esso in diagonale.
 Cattura in diagonale nello stesso modo in cui si muove senza possedere la facoltà di saltare pezzi.
 Ogni giocatore, all'inizio della partita, possiede un alfiere sul bianco e uno sul nero. Importante è sottolineare come questo pezzo possa muoversi esclusivamente in case del suo stesso colore di partenza. Ad esempio, l'alfiere che ha cominciato la partita su una casella bianca potrà posizionarsi, con le future mosse, solo in un'altra casella del medesimo colore.
-</font>
+
 
 <p align="center"><img src="/res/img/report/bishop_mov.png">
-<p align="center"><font face="Comic Sans MS" size="2">(b)Potenziali movimenti alfiere</font>
+<p align="center"><font face="Comic Sans MS" size="2">(b)Potenziali movimenti alfiere</p>
 
-<font face="WildWest" size="3" color="peru"><b>TORRE:</b></font>
-<font face="Times New Roman" size="3">
+<b>TORRE</b>
+
 la torre è considerato il pezzo più importante della scacchiera dopo la donna in quanto può muoversi in qualunque casa purchè si trovi
 sulla sua colonna o sulla sua traversa con una gittata illimitata. In caso di cattura il pezzo si fermerà nella stessa casa del pezzo catturato. Questo pezzo, così come quello della donna, viene chiamato <i>'pezzo pesante'</i>.
-</font>
+
 
 <p align="center"><img src="/res/img/report/tower_mov.png">
-<p align="center"><font face="Comic Sans MS" size="2">(c)Potenziali movimenti torre</font>
+<p align="center">(c)Potenziali movimenti torre</p>
 
-<font face="WildWest" size="3" color="peru"><b>CAVALLO:</b></font>
-<font face="Times New Roman" size="3">
+<b>CAVALLO</b>
+
 il cavallo può effettuare il movimento cosiddetto "a L", ovvero può raggiungere la
 casa ad esso più vicina purchè non si trovi sulla stessa colonna,traversa o diagonale.  Essendo questo un movimento unico e non somma di due movimenti, il cavallo ha la possiblità di saltare altri pezzi e quindi di passare oltre uno 'sbarramento'. Questa peculiarità fa del cavallo il pezzo più imprevedibile della scacchiera in contrapposizione col fatto che rimane uno dei cosiddetti <i>'pezzi leggeri'</i> (insieme all'alfiere) poichè si può muovere solo di tre case per volta.
-</font>
+
 
 <p align="center"><img src="/res/img/report/horse_mov.png">
-<p align="center"><font face="Comic Sans MS" size="2">(d)Potenziali movimenti cavallo</font>
+<p align="center">(d)Potenziali movimenti cavallo</p>
 
-<font face="WildWest" size="3" color="peru"><b>DONNA:</b></font>
-<font face="Times New Roman" size="3">
+<b>DONNA</b>
+
 la Donna si può muovere su una qualunque casa lungo la colonna, la traversa o la
 diagonale sulle quali si trova. Basti pensare che da una posizione centrale questo pezzo è in grado di raggiungere ben 27 case differenti e ciò rende bene l'idea di come questo sia sicuramente il pezzo più forte. Di qui l'attribuzione del nominativo di <i>'pezzo pesante'.</i>
-</font>
+
 
 <p align="center"><img src="/res/img/report/queen_mov.png">
-<p align="center"><font face="Comic Sans MS" size="2">(e)Potenziali movimenti donna</font>
+<p align="center">(e)Potenziali movimenti donna</p>
 
-<font face="WildWest" size="3" color="peru"><b>RE:</b></font>
-<font face="Times New Roman" size="3">
+<b>RE</b>
+
 il Re si può muovere di una posizione nelle case ad esso adiacenti e catturare così come si muove, fermandosi quindi nella cella del pezzo avversario catturato.
  Il Re non può spostarsi in caselle che sono sotto minaccia da parte di un qualunque pezzo avversario.
 
 <p align="center"><img src="/res/img/report/king_mov.png">
-<p align="center"><font face="Comic Sans MS" size="2">(f)Potenziali movimenti Re</font>
+<p align="center">(f)Potenziali movimenti Re</p>
 
 
-<font face="WildWest" size="3" color="peru"><b>MOVIMENTI SPECIALI</b></font>
-<font face="Times New Roman" size="3">
+<b>MOVIMENTI SPECIALI</b>
+
 
 Una mossa straordinaria è quella dell' "Arrocco" che riguarda precisamente Re e Torre
 dello stesso colore: dalla sua casa di partenza, il Re viene trasferito di 2 case o 3 case,a seconda del tipo di arrocco, verso la
@@ -173,16 +172,16 @@ andrà ad occupare e quelle che attraverserà non siano esposte a cattura.
 Come accennato sono due i tipi di arrocco possibili:
 <ol>
   <font color="red">
-  <li><b>Arrocco lungo</b></font>: il re viene spostato di due case verso la torre mentre quest'ultima di tre case verso il Re;</li>
+  <li><b>Arrocco lungo</b>: il re viene spostato di due case verso la torre mentre quest'ultima di tre case verso il Re;</li>
   <font color="red">
-  <li><b>Arrocco corto</b></font>: il re viene spostato di due case verso la torre e analogamente succede alla torre nei confronti del re;</li>
+  <li><b>Arrocco corto</b>: il re viene spostato di due case verso la torre e analogamente succede alla torre nei confronti del re;</li>
 </ol>  
-</font>
+
 
 <p align="center"><img src="/res/img/report/Chess_Castling_Mov.gif">
-<p align="center"><font face="Comic Sans MS" size="2">(g)Arrocco</font>
+<p align="center">(g)Arrocco</p>
 
-<font face="Times New Roman" size="3">
+
 
 Un'altra mossa fuori dagli schemi riguarda questa volta il pedone.
 Un pedone che occupi la casa nella stessa traversa e sulla colonna adiacente di un pedone
@@ -190,13 +189,13 @@ avversario il quale sia appena stato avanzato di due case dalla sua casa d’ori
 catturare il pedone avversario come se quest’ultimo fosse stato avanzato di una sola casa.
 Questa cattura è legale solo nella mossa immediatamente successiva al suddetto
 avanzamento ed è detta cattura ‘en passant ’ (‘al varco’).
-</font>
+
 
 <p align="center"><img src="/res/img/report/En_passant.png" width="400" height="350">
-<p align="center"><font face="Comic Sans MS" size="2">(h)En Passant</font>
+<p align="center">(h)En Passant</p>
 
 <h4><i>Notazione algebrica delle mosse</i></h4>
-<font face="Times New Roman" size="3">
+
 
 Per tenere memoria delle mosse che si effettuano viene adottata una notazione
 particolare in grado di descriverle in maniera riassuntiva.
@@ -225,7 +224,7 @@ Esempio:
 2.Df6 c3
 3.Axg6 Th3
 e così via.
-</font>
+
 
 
 # <a name="dom_mod"></a>Modello di dominio
