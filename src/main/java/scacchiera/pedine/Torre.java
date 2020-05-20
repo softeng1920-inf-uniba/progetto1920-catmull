@@ -1,9 +1,9 @@
-package pedine;
+package scacchiera.pedine;
 
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
+import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -19,8 +19,8 @@ public final class Torre extends Pezzo {
 	static final int DIM_MOSSA_NON_AMBIGUA = 3;
 
 	/** Costruttore */
-	public Torre(final Colore colore, final Cella posizioneCorrente) {
-		super("Torre", colore, posizioneCorrente);
+	public Torre(final Colore colore) {
+		super("Torre", colore);
 		if (colore == Colore.nero) {
 			setSimbolo('\u265c');
 		} else {
@@ -298,7 +298,7 @@ public final class Torre extends Pezzo {
 	 */
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 		String comando;
-		if (tipoArrocco == Comando.ARROCCO_CORTO) {
+		if (tipoArrocco == Menu.ARROCCO_CORTO) {
 			if (c == Colore.bianco) {
 				comando = "h1 f1";
 			} else {
