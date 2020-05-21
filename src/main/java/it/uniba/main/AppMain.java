@@ -36,21 +36,21 @@ public final class AppMain {
 		InterfacciaUtente.stampaMenu();
 		InterfacciaUtente.stampaInserireComando();
 		while (!play) {
-			String nomeMenu = InterfacciaUtente.acquisireComando();
-			if (nomeMenu != null) {
-				if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {
+			String comando = InterfacciaUtente.acquisireComando();
+			if (comando != null) {
+				if (comando.equalsIgnoreCase(Menu.help().getNome())) {
 					InterfacciaUtente.mostrareElencoComandiMenu();
 					InterfacciaUtente.stampaInserireComando();
-				} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {
+				} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
 					InterfacciaUtente.stampaScacchiera();
 					InterfacciaUtente.stampaInserireComando();
-				} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
+				} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
 					if (InterfacciaUtente.utenteConfermaFinePartita()) {
 						break;
 					} else {
 						InterfacciaUtente.stampaMenu();
 					}
-				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
+				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
 					InterfacciaUtente.stampaNuovaPartita();
 					Controller.playGame();
 					play = true;
