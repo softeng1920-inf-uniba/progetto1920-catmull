@@ -14,9 +14,9 @@ public final class Alfiere extends Pezzo {
 	public Alfiere(final Colore colore) {
 		super("Alfiere", colore);
 		if (colore == Colore.nero) {
-			simbolo = '\u265d';
+			setSimbolo('\u265d');
 		} else {
-			simbolo = '\u2657';
+			setSimbolo('\u2657');
 		}
 	}
 

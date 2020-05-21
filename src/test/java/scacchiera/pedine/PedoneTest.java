@@ -20,7 +20,7 @@ class PedoneTest {
 
 	@BeforeEach
 	void setTests() {
-		Scacchiera.nuovaScacchiera();
+		Scacchiera.newScacchiera();
 		Turno.newTurno();
 
 	}
@@ -257,10 +257,4 @@ class PedoneTest {
 		}
 	}
 
-	@Test
-	void testIsPedone() {
-		Pedone p = (Pedone) Scacchiera.getCella(0, 1).getPezzoCorrente();
-		assertTrue(p.isPedone(Scacchiera.getCella(0, 1)));
-
-	}
 }

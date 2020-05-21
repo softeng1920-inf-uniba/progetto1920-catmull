@@ -17,15 +17,18 @@ class ControllerTest {
 
 	}
 
-	@Test
-	void testIsMossaInRangeValidoCorretta() {
-		assertTrue(Controller.isMossaInRangeValido("a2 a4"));
-	}
-
-	@Test
-	void testIsMossaInRangeValidoNonCorretta() {
-		assertFalse(Controller.isMossaInRangeValido("a0 a9"));
-	}
+	/*
+	 * Ho tolto il test su isRangeVlaido in quanto il metodo è in scacchiera.
+	 */
+//	@Test
+//	void testIsMossaInRangeValidoCorretta() {
+//		assertTrue(Controller.isMossaInRangeValido("a2 a4"));
+//	}
+//
+//	@Test
+//	void testIsMossaInRangeValidoNonCorretta() {
+//		assertFalse(Controller.isMossaInRangeValido("a0 a9"));
+//	}
 
 	@Test
 	void testIsArroccoValidoBianco() {
@@ -41,16 +44,16 @@ class ControllerTest {
 
 	@Test
 	void testIsReProtettoCasoMossaRe() {
-		Scacchiera.nuovaScacchiera();
-		assertTrue(Controller.isReProtetto(Scacchiera.getCella(4, 7), Scacchiera.getCella(4, 6), 0));
+		Scacchiera.newScacchiera();
+		assertTrue(Controller.isReProtetto(Scacchiera.getCella(4, 7), Scacchiera.getCella(4, 6)));
 	}
 	
 	@Test
 	void testIsReProtettoCellaFinaleOccupata() {
-		Scacchiera.nuovaScacchiera();
+		Scacchiera.newScacchiera();
 		Scacchiera.scambiaCella(Scacchiera.getCella(4, 6), Scacchiera.getCella(4, 4));
 		Scacchiera.scambiaCella(Scacchiera.getCella(5, 1), Scacchiera.getCella(5, 3));
-		assertTrue(Controller.isReProtetto(Scacchiera.getCella(4, 4), Scacchiera.getCella(5, 3), 0));
+		assertTrue(Controller.isReProtetto(Scacchiera.getCella(4, 4), Scacchiera.getCella(5, 3)));
 
 	}
 

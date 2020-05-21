@@ -17,7 +17,7 @@ class AlfiereTest {
 
 	@BeforeEach
 	void setTests() {
-		Scacchiera.nuovaScacchiera();
+		Scacchiera.newScacchiera();
 		Turno.newTurno();
 
 	}

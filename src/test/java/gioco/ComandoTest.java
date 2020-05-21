@@ -20,13 +20,8 @@ class ComandoTest {
 	}
 
 	@Test
-	void testGetDescrizione() {
-		assertEquals("Effettua il test del costruttore", c.getDescrizione());
-	}
-
-	@Test
 	void testToString() {
-		assertEquals("\u2022 " + "\033[1;37m" + c.getNome() + "\u001B[0m" + " -->    " + c.getDescrizione(), c.toString());
+		assertEquals("\u2022 " + "\033[1;37m" + "test" + "\u001B[0m" + " -->    " + "Effettua il test del costruttore", c.toString());
 	}
 
 }
