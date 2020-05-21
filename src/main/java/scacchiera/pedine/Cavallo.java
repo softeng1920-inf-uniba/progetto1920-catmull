@@ -6,10 +6,9 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Cavallo � valido. La classe Cavallo e' di tipo noECB.
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento del Cavallo e' valido. La classe Cavallo e' di tipo noECB.
  */
-
 public final class Cavallo extends Pezzo {
 
     public Cavallo(final Colore colore) {
@@ -192,6 +191,7 @@ public final class Cavallo extends Pezzo {
 		    startX = endX + 2;
 		    ambiguita++;
 		}
+
 	    }
 	} else { // startX e startY uguali entrambe a -1, quindi entrambe non date in input
 	    mossaConvertita = convertiMossaNonAmbigua(endX, endY, mossa);

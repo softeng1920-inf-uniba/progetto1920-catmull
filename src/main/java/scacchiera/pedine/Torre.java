@@ -3,7 +3,6 @@ package scacchiera.pedine;
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
 import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
@@ -11,10 +10,9 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Torre � valido. La classe Torre e' di tipo noECB
+ * movimento della Torre è valido. La classe Torre e' di tipo noECB
  */
 public final class Torre extends Pezzo {
-
     private static boolean isMossaCattura;
     static final String MOSSA_NON_VALIDA = "a0 a0";
     static final int DIM_MOSSA_NON_AMBIGUA = 3;

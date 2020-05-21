@@ -18,7 +18,7 @@ class TestRegina {
 
 	@BeforeEach
 	void setTests() {
-		Scacchiera.nuovaScacchiera();
+		Scacchiera.newScacchiera();
 		Turno.newTurno();
 
 	}

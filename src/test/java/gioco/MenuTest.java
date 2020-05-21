@@ -17,29 +17,71 @@ class MenuTest {
 	void testPlay() {
 		Comando c = new Comando("Play", "Inizia una nuova partita");
 		assertEquals(Menu.play().getNome(), c.getNome());
-		assertEquals(Menu.play().getDescrizione(), c.getDescrizione());
 	}
 
 	@Test
-	void testIsArrocco() {
+	void testIsArrocco_00() {
 		assertEquals(Menu.ARROCCO_CORTO, Menu.isArrocco("0-0"));
+	}
+	
+	@Test
+	void testIsArrocco_oo() {
 		assertEquals(Menu.ARROCCO_CORTO, Menu.isArrocco("o-o"));
+	}
+	
+	@Test
+	void testIsArrocco_OO() {
 		assertEquals(Menu.ARROCCO_CORTO, Menu.isArrocco("O-O"));
+	}
+	
+	@Test
+	void testIsArrocco_000() {
 		assertEquals(Menu.ARROCCO_LUNGO, Menu.isArrocco("0-0-0"));
+	}
+	
+	@Test
+	void testIsArrocco_ooo() {
 		assertEquals(Menu.ARROCCO_LUNGO, Menu.isArrocco("o-o-o"));
+	}
+	
+	@Test
+	void testIsArrocco_OOO() {
 		assertEquals(Menu.ARROCCO_LUNGO, Menu.isArrocco("O-O-O"));
+	}
+	
+	@Test
+	void testIsArroccoNonValido() {
 		assertEquals(-1, Menu.isArrocco("0-0-0-0"));
 	}
 
 	@Test
-	void testIsComandoValido() {
+	void testIsComandoValidoMoves() {
 		assertTrue(Menu.isComandoValido("Moves"));
+	}
+	
+	@Test
+	void testIsComandoValidoQuit() {
 		assertTrue(Menu.isComandoValido("QUIT"));
+	}
+	
+	@Test
+	void testIsComandoValidoCaptures() {
 		assertTrue(Menu.isComandoValido("captures"));
+	}
+	
+	@Test
+	void testIsComandoValidoHelp() {
 		assertTrue(Menu.isComandoValido("HELP"));
+	}
+	
+	@Test
+	void testIsComandoValidoBoard() {
 		assertTrue(Menu.isComandoValido("board"));
+	}
+	
+	@Test
+	void testIsComandoValidoMenu() {
 		assertFalse(Menu.isComandoValido("Menu"));
-		
 	}
 	
 	@Test

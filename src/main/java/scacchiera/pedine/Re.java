@@ -3,7 +3,6 @@ package scacchiera.pedine;
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
 import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
@@ -11,7 +10,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Re � valido. La classe Re e' di tipo noECB
+ * movimento del Re e' valido. La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
@@ -109,12 +108,8 @@ public final class Re extends Pezzo {
 		    }
 
 		}
-		return true;
-	    }
-	} else {
-	    return false;
+		return false;
 	}
-
     }
 
     /**
@@ -180,6 +175,7 @@ public final class Re extends Pezzo {
 		return mossaConvertita;
 	    }
 	}
+
 	// ricerca il re del giocatore in turno
 	for (int i = 0; i < Scacchiera.getInstance().getNumeroColonne(); i++) {
 	    for (int j = 0; j < Scacchiera.getInstance().getNumeroRighe(); j++) {
@@ -270,3 +266,4 @@ public final class Re extends Pezzo {
     }
 
 }
+

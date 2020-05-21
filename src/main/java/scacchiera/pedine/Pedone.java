@@ -9,10 +9,9 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Pedone � valido. La classe Pedone e' di tipo noECB
+ * movimento del Pedone è valido. La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
-	
 
     /**
      * Costruttore
@@ -92,9 +91,42 @@ public final class Pedone extends Pezzo {
 		&& end.getPezzoCorrente().getColore() != getColore()) { // mossa obliqua NERO
 	    return true;
 	}
+    }
 
-	boolean isPedone(final Cella c) {
-		return c.isOccupato() && c.getPezzoCorrente().getNome().equals(getNome());
+    @Override
+    public boolean isMossaValida(final Cella start, final Cella end) {
+
+	if (getColore() == Colore.bianco) {
+	    // movimento semplice
+	    if (start.getX() == end.getX() && !end.isOccupato()) {
+		if (((start.getY() - 1) == end.getY())) { // avanti di una cella
+		    return true;
+		} else if (((start.getY() - 2) == end.getY()) && start.getY() == Scacchiera.SETTIMA_TRAVERSA // Se il
+													     // pedone
+													     // parte
+													     // dalla
+													     // settima
+													     // traversa
+			&& !(Scacchiera.getCella(end.getX(), (start.getY() - 1)).isOccupato())) {
+		    return true;
+		}
+
+		// movimento obliquo
+	    } else if ((start.getY() - 1 == end.getY()) && (Math.abs(start.getX() - end.getX()) == 1)
+		    && end.isOccupato() && end.getPezzoCorrente().getColore() != getColore()) {
+		return true;
+	    }
+
+	} else if (start.getX() == end.getX() && !end.isOccupato()) { // mosse NERO semplice
+	    if (((start.getY() + 1) == end.getY()) && !end.isOccupato()) { // avanti di una cella
+		return true;
+	    } else if (((start.getY() + 2) == end.getY()) && start.getY() == 1
+		    && !(Scacchiera.getCella(end.getX(), (start.getY() + 1)).isOccupato())) { // avanti di due
+		return true;
+	    }
+	} else if (start.getY() + 1 == end.getY() && (Math.abs(start.getX() - end.getX()) == 1) && end.isOccupato()
+		&& end.getPezzoCorrente().getColore() != getColore()) { // mossa obliqua NERO
+	    return true;
 	}
 
     /**
@@ -118,6 +150,7 @@ public final class Pedone extends Pezzo {
 	String pedoneAvversarioBianco = x + "" + y2 + " " + x + "" + y1;
 	// Prendo la colonna della destinazione, e la traversa di partenza
 	cellaPedone = Scacchiera.getInstance().getCella(end.getX(), start.getY());
+
 	// se la cella e' occupata da un pedone di un colore opposto
 	if (isPedone(cellaPedone) && cellaPedone.getPezzoCorrente().getColore() != getColore()) {
 	    if (getColore() == Colore.bianco) {
@@ -207,7 +240,10 @@ public final class Pedone extends Pezzo {
 	}
 	// controlla che nella cella di partenza ci sia un pedone
 	if (Scacchiera.getInstance().getNomePezzo(Cella.coordXinInt(mossaConvertita.charAt(0)),
+
 		Cella.coordYinInt(mossaConvertita.charAt(1))) != "Pedone") {
 	    return "a0 a0";
 	}
+	return mossaConvertita;
+    }
 }

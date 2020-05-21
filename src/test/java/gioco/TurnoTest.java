@@ -3,8 +3,6 @@ package gioco;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,17 +16,17 @@ class TurnoTest {
 	}
 	
 	@Test
-	void testSetGiocatoreInTurno() {
-		Giocatore g = new Giocatore(Colore.bianco);
-		Turno.setGiocatoreInTurno(g);
-		assertEquals(Turno.getGiocatoreInTurno().getColore(), Colore.bianco);
+	void testSetNomeGiocatoreInTurno() {
+		String nome = "Giocatore 1";
+		Turno.setNomeGiocatoreInTurno(nome);
+		assertEquals("Giocatore 1", Turno.getGiocatoreInTurno().getNome());
 	}
 	
 	@Test
-	void testSetGiocatoreInAttesa() {
-		Giocatore g = new Giocatore(Colore.nero);
-		Turno.setGiocatoreInAttesa(g);
-		assertEquals(Turno.getGiocatoreInAttesa().getColore(), Colore.nero);
+	void testSetNomeGiocatoreInAttesa() {
+		String nome = "Giocatore 2";
+		Turno.setNomeGiocatoreInAttesa(nome);
+		assertEquals("Giocatore 2", Turno.getGiocatoreInAttesa().getNome());
 	}
 
 	@Test
@@ -60,9 +58,6 @@ class TurnoTest {
 		Turno.cambioTurno();
 		assertEquals(Turno.getArrayStoriaMosse(), mosseGiocate);
 	}
-	
-//		
-//		mosseGiocate.clear();
 	
 	@Test
 	void testGetArrayStoriaMosseBiancoDim1() {

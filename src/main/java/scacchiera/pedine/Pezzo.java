@@ -4,92 +4,80 @@ import gioco.Colore;
 import scacchiera.Cella;
 
 /**
- * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per poi
- * realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i seguenti attributi
- * che ne definiscono lo stato:
+ * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per
+ * poi realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i
+ * seguenti attributi che ne definiscono lo stato:
  * <ul>
- * 	<li><b>nome</b></li>
- *  <li><b>colore</b></li>
- *  <li><b>simbolo</b></li>
- *  <li><b>vivo</b></li>
- *  <li><b>posisizioneCorrente</b></li>
+ * <li><b>nome</b></li>
+ * <li><b>colore</b></li>
+ * <li><b>simbolo</b></li>
+ * <li><b>vivo</b></li>
+ * <li><b>posisizioneCorrente</b></li>
  * </ul>
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
-    protected String nome;
-    protected Colore colore;
-    protected boolean vivo;
-    public char simbolo;
 
-    public Pezzo(String name, Colore colore) {
-	this.nome = name;
-	this.colore = colore;
+
+    private String nome;
+    private Colore colore;
+    private char simbolo;
+
+    /**
+     * @param n  Nome del pezzo
+     * @param c  Colore del pezzo
+     * @param pC Cella iniziale del pezzo
+     */
+	public Pezzo(final String n, final Colore c) {
+	this.nome = n;
+	this.colore = c;
 	this.simbolo = ' ';
-	vivo = true;
     }
+
+    // --------Metodi di setting --------
 
     /**
-     * setVivo riporta lo stato del pezzo
-     */
-    public void setVivo(boolean v) {
-	this.vivo = v;
+	 * setSimbolo modifica lo stato del simbolo
+	 *
+	 * @param s Carattere indicante il simbolo del pezzo da impostare
+	 */
+
+    public void setSimbolo(final char s) {
+	this.simbolo = s;
     }
-
-    /**
-     * setSimbolo modifica lo stato del simbolo
-     *
-     * @param simbolo
-     */
-
-    public void setSimbolo(final char simbolo) {
-	this.simbolo = simbolo;
-    }
-
 
     // --------Metodi di Get--------
 
     /**
-     * getNome restituisce il nome del pezzo
-     *
-     * @return nome
-     */
+	 * getNome restituisce il nome del pezzo
+	 *
+	 * @return nome Stringa indicante il nome del pezzo
+	 */
     public String getNome() {
 	return nome;
     }
 
     /**
-     * getSimbolo restituisce il simbolo corrente del pezzo
-     *
-     * @return simbolo
-     */
-    public char getSimbolo() {
-	return simbolo;
-    }
-
-    /**
-     * getColore restituisce il colore del pezzo, quindi se il pezzo e' bianco o
-     * nero
-     *
-     * @return colore
-     */
+	 * getColore restituisce il colore del pezzo (bianco o nero)
+	 *
+	 * @return colore Colore del pezzo (bianco o nero)
+	 */
     public Colore getColore() {
 	return colore;
     }
 
     /**
-     * getVivo restituisce lo stato del pezzo, quindi se vivo oppure no
-     *
-     *
-     * @return vivo
-     */
-    public boolean isVivo() {
-	return vivo;
+	 * Restituisce il simbolo corrente del pezzo
+	 *
+	 * @return simbolo Carattere indicante il simbolo del pezzo
+	 */
+    public char getSimbolo() {
+	return simbolo;
     }
 
-
     /**
-     * toString consente di rappresentare un oggetto come una stringa
+     * E' possibile avere il nome del pezzo, con relativo colore e simbolo
+     * attraverso l'autocasting
      */
     @Override
     public String toString() {
@@ -97,12 +85,14 @@ public abstract class Pezzo {
     }
 
     /**
-     * Metodo che permette di controllare se la mossa data sia valida
-     *
-     * @param start
-     * @param end
-     * @return boolean
-     */
+	 * Controlla se la mossa data in input attraverso cella di partenza e cella di
+	 * destinazione sia valida per il pezzo corrente
+	 *
+	 * @param start Cella di partenza del pezzo
+	 * @param end   Cella di destinazione del pezzo
+	 * @return boolean true se la mossa è valida per il pezzo su cui il metodo è
+	 *         stato chiamato, false altrimenti
+	 */
     public abstract boolean isMossaValida(Cella start, Cella end);
 
 }
