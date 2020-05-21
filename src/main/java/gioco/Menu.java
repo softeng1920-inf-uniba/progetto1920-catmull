@@ -34,7 +34,7 @@ public final class Menu {
 		help = new Comando("Help", "Visualizza nome e descrizione dell'elenco comandi");
 		moves = new Comando("Moves", "Visualizza la cronologia delle mosse giocate");
 		quit = new Comando("Quit", "Esci dal gioco");
-		board = new Comando("Board", "Visualizza la posizione sulla scacchiera");
+		board = new Comando("Board", "Visualizza la scacchiera");
 		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
 		play = new Comando("Play", "Inizia una nuova partita");
 	}
