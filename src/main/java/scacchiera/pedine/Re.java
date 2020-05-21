@@ -27,7 +27,7 @@ public final class Re extends Pezzo {
 	@Override
 	public boolean isMossaValida(final Cella start, final Cella end) {
 
-		// controllo se puÃ² mangiare pezzo
+		// controllo se può mangiare pezzo
 		if (end.isOccupato()) {
 			if (end.getPezzoCorrente().getColore() == getColore()) {
 				return false;
@@ -95,6 +95,7 @@ public final class Re extends Pezzo {
 				for (int i = sX + 1; i < eX + 1; i++) {
 					if (isReSottoScacco(Scacchiera.getCella(i, sY))
 					|| Scacchiera.getNomePezzo(i, sY) != "Vuota") {
+
 						return false;
 					}
 				}
@@ -124,7 +125,6 @@ public final class Re extends Pezzo {
 	 * @return mossa da effettuare
 	 */
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
-
 		String comando;
 		if (tipoArrocco == Menu.ARROCCO_CORTO) {
 			if (c == Colore.bianco) {
@@ -205,7 +205,7 @@ public final class Re extends Pezzo {
 	 * Controlla se il re è sotto scacco
 	 *
 	 * @param reCella cella di destinazione del re
-	 * @return boolean true se il re Ã¨ sotto scacco, false altrimenti
+	 * @return boolean true se il re è sotto scacco, false altrimenti
 	 */
 	public boolean isReSottoScacco(final Cella reCella) {
 		Colore c = getColore();

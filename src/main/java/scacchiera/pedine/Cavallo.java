@@ -54,7 +54,6 @@ public final class Cavallo extends Pezzo {
 	 * @return mossa in output in notazione estesa
 	 *
 	 */
-
 	public static String convertiMossa(final String mossa) {
 		int startX = -1;
 		int startY = -1;
@@ -65,6 +64,7 @@ public final class Cavallo extends Pezzo {
 		// nella classe controller
 		String mossaConvertita = "a0 a0";
 		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
+
 		// esempio: Cdxe4 - cattura con ambiguita' su colonna
 		if (mossa.matches("C[a-h][x|:]([a-h][1-8])")) {
 			final int colonnaPartenzaCattura = 1;
@@ -99,7 +99,8 @@ public final class Cavallo extends Pezzo {
 				return mossaConvertita;
 			}
 		}
-		// esempio: Cde4 - Avanzata cavallo con ambiguit� su colonna
+
+		// esempio: Cde4 - Avanzata cavallo con ambiguità su colonna
 		if (mossa.matches("C[a-h]([a-h][1-8])")) {
 			final int colonnaPartenzaAvanzata = 1;
 			final int colonnaDestinazioneAvanzata = 2;
@@ -111,7 +112,8 @@ public final class Cavallo extends Pezzo {
 				return mossaConvertita;
 			}
 		}
-		// esempio: C3e4 - Avanzata cavallo con ambiguit� su traversa
+
+		// esempio: C3e4 - Avanzata cavallo con ambiguità su traversa
 		if (mossa.matches("C[1-8]([a-h][1-8])")) {
 			final int traversaPartenzaAvanzata = 1;
 			final int colonnaDestinazioneAvanzata = 2;
@@ -142,6 +144,7 @@ public final class Cavallo extends Pezzo {
 					startY = endY - 1;
 					ambiguita++;
 				}
+
 				if (Scacchiera.getNomePezzo(startX, endY + 1) == "Cavallo"
 						&& coloreGiocatoreAttivo == Scacchiera
 						.getCella(startX, endY + 1).getPezzoCorrente().getColore()) {
@@ -175,6 +178,7 @@ public final class Cavallo extends Pezzo {
 				}
 				if (Scacchiera.getNomePezzo(endX + 1, startY) == "Cavallo"
 						&& coloreGiocatoreAttivo == Scacchiera
+
 						.getCella(endX + 1, startY).getPezzoCorrente().getColore()) {
 					startX = endX + 1;
 					ambiguita++;
@@ -187,6 +191,7 @@ public final class Cavallo extends Pezzo {
 					startX = endX - 2;
 					ambiguita++;
 				}
+				
 				if (Scacchiera.getNomePezzo(endX + 2, startY) == "Cavallo"
 						&& coloreGiocatoreAttivo == Scacchiera
 						.getCella(endX + 2, startY).getPezzoCorrente().getColore()) {
@@ -281,6 +286,7 @@ public final class Cavallo extends Pezzo {
 			startX = endX - 1;
 			startY = endY - 2;
 			ambiguita++;
+
 		}
 
 		if (Scacchiera.isRangeValido(startX, startY) && Scacchiera.getCella(startX, startY).isOccupato()

@@ -140,5 +140,4 @@ public final class Giocatore {
 	public void removePezzoCatturato() {
 		pezziCatturati.remove(pezziCatturati.size() - 1);
 	}
-
 }

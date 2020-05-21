@@ -251,14 +251,6 @@ public final class Controller {
 	}
 
 	/**
-	 * <<<<<<< Updated upstream ======= Lascia il controllo al sistema operativo
-	 *
-	 */
-	public static void chiudiGioco() {
-		System.exit(0);
-	}
-
-	/**
 	 * >>>>>>> Stashed changes Restituisce la lista delle mosse convertite in
 	 * notazione comprensibile da applicaMossa.
 	 *

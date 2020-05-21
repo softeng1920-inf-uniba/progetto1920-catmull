@@ -56,7 +56,7 @@ public final class Cella {
 			this.occupato = true;
 		}
 	}
-
+	
 	// --------Metodi di Get--------
 
 
@@ -208,9 +208,6 @@ public final class Cella {
     public static int endY(final String m) {
 		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_DESTINAZIONE_MOSSA_NE));
     }
-
-
-
 
 }
 

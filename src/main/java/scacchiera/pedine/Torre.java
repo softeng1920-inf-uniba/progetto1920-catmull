@@ -17,7 +17,6 @@ public final class Torre extends Pezzo {
 	private static boolean isMossaCattura;
 	static final String MOSSA_NON_VALIDA = "a0 a0";
 	static final int DIM_MOSSA_NON_AMBIGUA = 3;
-
 	/** Costruttore */
 	public Torre(final Colore colore) {
 		super("Torre", colore);

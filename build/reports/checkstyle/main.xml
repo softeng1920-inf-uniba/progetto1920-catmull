@@ -2,6 +2,7 @@
 <checkstyle version="8.8">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <file name="C:\Users\lomon\progetto1920-catmull\src\main\java\gioco\Colore.java">
 </file>
 <file name="C:\Users\lomon\progetto1920-catmull\src\main\java\gioco\Comando.java">
@@ -62,6 +63,30 @@
 <error line="12" severity="error" message="Class Turno should be declared as final." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
 <error line="65" severity="error" message="Line is longer than 120 characters (found 128)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 </file>
+=======
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Colore.java">
+</file>
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Comando.java">
+</file>
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Giocatore.java">
+<error line="39" column="39" severity="error" message="&apos;colore&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
+<error line="162" severity="error" message="Comment matches to-do format &apos;TODO:&apos;." source="com.puppycrawl.tools.checkstyle.checks.TodoCommentCheck"/>
+</file>
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Menu.java">
+<error line="18" column="22" severity="error" message="&apos;static&apos; modifier out of order with the JLS suggestions." source="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck"/>
+<error line="19" column="22" severity="error" message="&apos;static&apos; modifier out of order with the JLS suggestions." source="com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck"/>
+<error line="121" severity="error" message="Line is longer than 120 characters (found 123)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="123" severity="error" message="Line is longer than 120 characters (found 136)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="136" column="63" severity="error" message="&apos;{&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
+</file>
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Stampa.java">
+<error line="287" severity="error" message="Line is longer than 120 characters (found 131)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Turno.java">
+<error line="12" severity="error" message="Class Turno should be declared as final." source="com.puppycrawl.tools.checkstyle.checks.design.FinalClassCheck"/>
+<error line="65" severity="error" message="Line is longer than 120 characters (found 128)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+>>>>>>> b2400fac2685166f21fda0943451d58b856aed2b
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/AppMain.java">
 <error line="0" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="7" column="8" severity="error" message="Unused import - java.io.UnsupportedEncodingException." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
@@ -182,6 +207,7 @@
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Torre.java">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <error line="15" column="24" severity="error" message="Variable &apos;isMossaCattura&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 <error line="16" column="29" severity="error" message="Name &apos;mossaNonValida&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
 <error line="35" column="44" severity="error" message="Parameter mossa should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
@@ -280,6 +306,8 @@
 </file>
 <file name="C:\Users\lomon\progetto1920-catmull\src\main\java\scacchiera\pedine\Torre.java">
 =======
+=======
+>>>>>>> b2400fac2685166f21fda0943451d58b856aed2b
 <error line="58" severity="error" message="Line is longer than 120 characters (found 131)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="59" severity="error" message="Line is longer than 120 characters (found 125)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="62" severity="error" message="Line is longer than 120 characters (found 126)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
@@ -295,6 +323,9 @@
 <error line="269" severity="error" message="Line is longer than 120 characters (found 140)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="280" severity="error" message="Line is longer than 120 characters (found 137)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
 <error line="282" severity="error" message="Line is longer than 120 characters (found 140)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<<<<<<< HEAD
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+>>>>>>> b2400fac2685166f21fda0943451d58b856aed2b
 </file>
 </checkstyle>
