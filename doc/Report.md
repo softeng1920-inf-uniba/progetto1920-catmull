@@ -24,22 +24,68 @@
 	* [Cosa vi ha fatto sentire insoddisfatti e vi ha deluso](#sad)
 	* [Cosa vi ha fatto «impazzire» e vi ha reso disperati](#crazy)
 
+<ol>
+<li>
+
 # <a name="intro"></a>Introduzione
 
 [Torna all'indice](#indice)
+
+</li>
+<li>
 
 # <a name="dom_mod"></a>Modello di dominio
 
 [Torna all'indice](#indice)
 
+</li>
+<li>
+
 # <a name="spec_req"></a>Requisiti specifici
+I requisiti specifici rappresentano le caratteristiche del software. Difatti, la formulazione di essi è utile ai progettisti per soddisfare le richieste del committente e dell'utente.  
+I requisiti si suddividiono in funzionali e non funzionali: i requisiti funzionali descrivono i servizi, o funzioni, offerti dal sistema, mentre i requisiti non funzionali definiscono i vincoli sui servizi offerti dal sistema, e sullo stesso processo di sviluppo. 
+<ol>
+<li>
 
 #### <a name="func_req"></a>Requisiti funzionali
+<ul>
+<li> Come giocatore voglio che eseguendo il comando <u><i>help</i></u> il risultato sia la lista dei comandi disponibili;    
+<li> Come giocatore voglio che al comando <u><i>play</i></u> l'applicazione si predisponga a ricevere la prima mossa di gioco e sia in grado di ricevere altri comandi;  
+<li> Come giocatore voglio che al comando <u><i>quit</i></u> l'applicazione si chiuda e compaia il prompt del sistema operativo;  
+<li> Come giocatore voglio che al comando <u><i>board</i></u> l’applicazione mostri la scacchiera;  
+<li> Come giocatore voglio che al comando <u><i>moves</i></u> l'applicazione mostri la storia delle mosse giocate;  
+<li> Come giocatore voglio che al comando <u><i>captures</i></u> l’applicazione mostri i pezzi catturati;  
+<li> Come giocatore voglio muovere un <u><i>Pedone</i></u> in modo tale da effettuare un'avanzata, catturare pezzi e catturare pezzi con en-passant;  
+<li> Come giocatore voglio muovere un <u><i>Cavallo</i></u> in modo tale da effettuare uno spostamento o una cattura;  
+<li> Come giocatore voglio muovere la <u><i>Donna</i></u> in modo tale da effettuare uno spostamento o una cattura;  
+<li> Come giocatore voglio muovere un <u><i>Alfiere</i></u> in modo tale da effettuare uno spostamento o una cattura;  
+<li> Come giocatore voglio muovere il <u><i>Re</i></u> in modo tale da effettuare uno spostamento o una cattura;  
+<li> Come giocatore voglio muovere una <u><i>Torre</i></u> in modo tale da effettuare uno spostamento o una cattura;  
+<li> Come giocatore voglio effettuare l'<u><i>arrocco corto</i></u>;  
+<li> Come giocatore voglio effettuare l'<u><i>arrocco lungo</i></u>.  
 
+</ul>
+</li>
+
+<li>
 
 #### <a name="not_func_req"></a>Requisiti non funzionali
+<ul>
+<li> <b>RNF1</b> : il software deve essere eseguito su Linux con <i>Terminal</i>; 
+<li> <b>RNF2</b> : il software deve essere eseguito su Mac OS con <i>Terminal</i>; 
+<li> <b>RNF3</b> : il software deve essere eseguito su Windows con <i>Terminal del sottosistema Windows per Linux</i> e <i>Git Bash</i> (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....);
+<li> <b>RNF4</b>: il software presente nel container deve essere eseguito tramite l’istruzione <i>docker run -it --rm docker. pkg.github.com/softeng1920-inf-uniba/docker_1920/catmull:latest</i>, ma solo dopo aver inserito il comando <i>docker pull</i> copiandolo da GitHub Packages,.
+<li> <b>RNF5</b>: il software deve mostrare la scacchiera contenente i pezzi in formato UTF-8 (Unicode Transformation Format, 8 bit).
+<li> <b>RNF6</b>: il software è stato sviluppato con il linguaggio Java;   
+
+</ul>
+</ol>
 
 [Torna all'indice](#indice)
+
+</li>
+<li>
+
 # <a name="sys_des"></a>System Design
 
 #### <a name="arch_style"></a>Stile architetturale adottato (opzionale)
@@ -47,6 +93,9 @@
 #### <a name="comments1"></a>Commentare le decisioni prese (opzionale)
 
 [Torna all'indice](#indice)
+
+</li>
+<li>
 
 # <a name="oo_design"></a>OO Design
 #### <a name="class_seq_diag"></a>Diagrammi delle classi e diagrammi di sequenza
@@ -57,18 +106,30 @@
 
 [Torna all'indice](#indice)
 
+</li>
+<li>
+
 # <a name="test_recap"></a>Riepilogo del test
 #### <a name="coverall_stats"></a>Tabella riassuntiva di coveralls (o jacoco), con dati sul numero dei casi di test e copertura del codice
 
 [Torna all'indice](#indice)
 
+</li>
+<li>
+
 # <a name="user_man"></a>Manuale utente
 
 [Torna all'indice](#indice)
 
+</li>
+<li>
+
 # <a name="dev_proc"></a>Processo di sviluppo e organizzazione del lavoro
 
 [Torna all'indice](#indice)
+
+</li>
+<li>
 
 # <a name="retro_analysis"></a>Analisi retrospettiva
 #### <a name="happy"></a>Cosa vi ha fatto sentire soddisfatti e vi ha reso contenti
@@ -76,3 +137,4 @@
 #### <a name="crazy"></a>Cosa vi ha fatto «impazzire» e vi ha reso disperati
 
 [Torna all'indice](#indice)
+
