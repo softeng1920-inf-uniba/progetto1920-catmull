@@ -1,13 +1,10 @@
 package it.uniba.main;
 
-import java.io.PrintStream;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
+import java.io.PrintStream;
 
+import gioco.InterfacciaUtente;
 import gioco.Menu;
-import gioco.Stampa;
 
 /**
  * La classe AppMain e' di tipo BOUNDARY The main class for the project. It must
@@ -17,53 +14,51 @@ import gioco.Stampa;
  */
 public final class AppMain {
 
-    /**
-     * Private constructor. Change if needed.
-     */
-    private AppMain() {
-    }
-
-    /**
-     * * This is the main entry of the application.
-     *
-     * @param args The command-line arguments.
-     * @throws IOException
-     * @throws UnsupportedEncodingException
-     */
-    public static void main(final String[] args) throws IOException {
-
-	System.setOut(new PrintStream(System.out, false, "UTF-8"));
-
-	Controller c = new Controller();
-	boolean play = false;
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
-	Menu.newMenu();
-	Stampa.stampaIntro();
-	Stampa.stampaMenu();
-
-	while (!play) {
-	    String nomeMenu = br.readLine();
-	    if (nomeMenu != null) {
-		if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {
-		    Stampa.mostrareElencoComandiMenu();
-		} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {
-		    Stampa.stampaScacchiera();
-		} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
-		    if (c.utenteConfermaFinePartita()) {
-			break;
-		    } else {
-			Stampa.stampaMenu();
-		    }
-		} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
-		    Stampa.stampaNuovaPartita();
-		    c.playGame();
-		    play = true;
-		} else {
-		    Stampa.stampaComandoErrato();
-		}
-	    } else {
-		break;
-	    }
+	/**
+	 * Private constructor. Change if needed.
+	 */
+	private AppMain() {
 	}
-    }
+
+	/**
+	 * * This is the main entry of the application.
+	 *
+	 * @param args The command-line arguments.
+	 * @throws IOException
+	 * @throws UnsupportedEncodingException
+	 */
+	public static void main(final String[] args) throws IOException {
+
+		System.setOut(new PrintStream(System.out, false, "UTF-8"));
+		Controller.newController();
+		boolean play = false;
+		Menu.newMenu();
+		InterfacciaUtente.stampaIntro();
+		InterfacciaUtente.stampaMenu();
+		while (!play) {
+			String nomeMenu = InterfacciaUtente.acquisireComando();
+			if (nomeMenu != null) {
+				if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {
+					InterfacciaUtente.mostrareElencoComandiMenu();
+				} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {
+					InterfacciaUtente.stampaScacchiera();
+				} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {
+					if (InterfacciaUtente.utenteConfermaFinePartita()) {
+						break;
+					} else {
+						InterfacciaUtente.stampaMenu();
+					}
+				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {
+					InterfacciaUtente.stampaNuovaPartita();
+					Controller.playGame();
+					play = true;
+				} else {
+					InterfacciaUtente.stampaComandoErrato();
+				}
+			} else {
+				break;
+			}
+		}
+
+	}
 }
