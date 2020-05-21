@@ -11,13 +11,13 @@ import scacchiera.pedine.Torre;
 /**
  * La classe scacchiera permette di rappresentare lo stato del gioco,
  * visualizzando i pezzi in essa. E'costituita da un numero costante di colonne
- * e di righe. La classe scacchiera � una matrice NxM di Celle. La classe
+ * e di righe. La classe scacchiera ï¿½ una matrice NxM di Celle. La classe
  * Scacchiera e' di tipo ENTITY
  */
 public final class Scacchiera {
 
 <span class="fc" id="L19">	private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];</span>
-	public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà valore 7
+	public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrÃ  valore 0, l'ottava avrÃ  valore 7
 	public static final int NUMEROCOLONNE = 8;
 	public static final int NUMERORIGHE = 8;
 
@@ -175,7 +175,7 @@ public final class Scacchiera {
 	 *
 	 * @param x coordinata delle colonne (valore compreso fra 0 e 7)
 	 * @param y coordinata delle righe (valore compreso fra 0 e 7)
-	 * @return Stringa indicante il nome del pezzo, se è presente nella cella,
+	 * @return Stringa indicante il nome del pezzo, se Ã¨ presente nella cella,
 	 *         &quot;Vuota&quot; altrimenti
 	 */
 	public static String getNomePezzo(final int x, final int y) {

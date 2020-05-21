@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="gioco.GiocatoreTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-05-21T10:56:44" hostname="MBP-di-Antonio" time="0.011">
+<testsuite name="gioco.GiocatoreTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-05-21T13:24:35" hostname="LAPTOP-871GRCT0" time="0.016">
   <properties/>
-  <testcase name="testAddPezziCatturati()" classname="gioco.GiocatoreTest" time="0.002"/>
-  <testcase name="testIsEmptyPezziCatturati()" classname="gioco.GiocatoreTest" time="0.0"/>
+  <testcase name="testAddPezziCatturati()" classname="gioco.GiocatoreTest" time="0.004"/>
+  <testcase name="testIsEmptyPezziCatturati()" classname="gioco.GiocatoreTest" time="0.002"/>
   <testcase name="testGetNome()" classname="gioco.GiocatoreTest" time="0.001"/>
-  <testcase name="testGetPezziCatturati()" classname="gioco.GiocatoreTest" time="0.001"/>
+  <testcase name="testGetPezziCatturati()" classname="gioco.GiocatoreTest" time="0.002"/>
   <testcase name="testRemovePezzoCatturato()" classname="gioco.GiocatoreTest" time="0.001"/>
   <testcase name="testGetColore()" classname="gioco.GiocatoreTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

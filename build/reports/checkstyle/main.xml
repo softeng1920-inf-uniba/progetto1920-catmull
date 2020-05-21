@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <file name="C:\Users\Gregorio\eclipse-workspace\scacchi\src\main\java\gioco\Colore.java">
 =======
 =======
@@ -55,9 +56,13 @@
 =======
 >>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Colore.java">
+=======
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Colore.java">
+>>>>>>> Aggiunta messaggio per l' inserimento del comando
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Comando.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Comando.java">
 </file>
+<<<<<<< HEAD
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Giocatore.java">
 <<<<<<< HEAD
 <error line="39" column="39" severity="error" message="&apos;colore&apos; hides a field." source="com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck"/>
@@ -207,34 +212,39 @@
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Comando.java">
 =======
 >>>>>>> Risoluzione errori checkstyle e miglioramento codice
+=======
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Giocatore.java">
+>>>>>>> Aggiunta messaggio per l' inserimento del comando
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/InterfacciaUtente.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\InterfacciaUtente.java">
+<error line="352" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Menu.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Menu.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Turno.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\gioco\Turno.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/AppMain.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\it\uniba\main\AppMain.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/Controller.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\it\uniba\main\Controller.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/Cella.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\Cella.java">
 <error line="59" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/Scacchiera.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\Scacchiera.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Alfiere.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\pedine\Alfiere.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Cavallo.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\pedine\Cavallo.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Pedone.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\pedine\Pedone.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Pezzo.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\pedine\Pezzo.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Re.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\pedine\Re.java">
 </file>
-<file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Regina.java">
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\pedine\Regina.java">
 </file>
+<<<<<<< HEAD
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Torre.java">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -366,5 +376,8 @@
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 =======
 >>>>>>> Risoluzione errori checkstyle e miglioramento codice
+=======
+<file name="C:\Users\Miriana Calvano\progetto1920-catmull\src\main\java\scacchiera\pedine\Torre.java">
+>>>>>>> Aggiunta messaggio per l' inserimento del comando
 </file>
 </checkstyle>
