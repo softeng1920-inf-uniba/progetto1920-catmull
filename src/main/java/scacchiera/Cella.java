@@ -57,9 +57,6 @@ public final class Cella {
 		}
 	}
 	
-	// --------Metodi di Get--------
-
-
 	/**
 	 * Restituisce la coordinata X per la cella corrente
 	 *

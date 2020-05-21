@@ -17,57 +17,59 @@ import scacchiera.Cella;
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
-    protected String nome;
-    protected Colore colore;
-    public char simbolo;
+
+    private String nome;
+    private Colore colore;
+    private char simbolo;
 
     /**
      * @param n  Nome del pezzo
      * @param c  Colore del pezzo
      * @param pC Cella iniziale del pezzo
      */
-	public Pezzo(String name, Colore colore) {
-		this.nome = name;
-		this.colore = colore;
+	public Pezzo(final String n, final Colore c) {
+	this.nome = n;
+	this.colore = c;
 	this.simbolo = ' ';
     }
 
+    // --------Metodi di setting --------
+
     /**
-     * setSimbolo modifica lo stato del simbolo
-     *
-     * @param s Carattere indicante il simbolo del pezzo da impostare
-     */
+	 * setSimbolo modifica lo stato del simbolo
+	 *
+	 * @param s Carattere indicante il simbolo del pezzo da impostare
+	 */
 
     public void setSimbolo(final char s) {
 	this.simbolo = s;
     }
 
-
     // --------Metodi di Get--------
 
     /**
-     * getNome restituisce il nome del pezzo
-     *
-     * @return nome Stringa indicante il nome del pezzo
-     */
+	 * getNome restituisce il nome del pezzo
+	 *
+	 * @return nome Stringa indicante il nome del pezzo
+	 */
     public String getNome() {
 	return nome;
     }
 
     /**
-     * getColore restituisce il colore del pezzo (bianco o nero)
-     *
-     * @return colore Colore del pezzo (bianco o nero)
-     */
+	 * getColore restituisce il colore del pezzo (bianco o nero)
+	 *
+	 * @return colore Colore del pezzo (bianco o nero)
+	 */
     public Colore getColore() {
 	return colore;
     }
 
     /**
-     * Restituisce il simbolo corrente del pezzo
-     *
-     * @return simbolo Carattere indicante il simbolo del pezzo
-     */
+	 * Restituisce il simbolo corrente del pezzo
+	 *
+	 * @return simbolo Carattere indicante il simbolo del pezzo
+	 */
     public char getSimbolo() {
 	return simbolo;
     }
@@ -82,14 +84,14 @@ public abstract class Pezzo {
     }
 
     /**
-     * Controlla se la mossa data in input attraverso cella di partenza e cella di
-     * destinazione sia valida per il pezzo corrente
-     *
-     * @param start Cella di partenza del pezzo
-     * @param end   Cella di destinazione del pezzo
-     * @return boolean true se la mossa è valida per il pezzo su cui il metodo è
-     *         stato chiamato, false altrimenti
-     */
+	 * Controlla se la mossa data in input attraverso cella di partenza e cella di
+	 * destinazione sia valida per il pezzo corrente
+	 *
+	 * @param start Cella di partenza del pezzo
+	 * @param end   Cella di destinazione del pezzo
+	 * @return boolean true se la mossa e' valida per il pezzo su cui il metodo e'
+	 *         stato chiamato, false altrimenti
+	 */
     public abstract boolean isMossaValida(Cella start, Cella end);
 
 }

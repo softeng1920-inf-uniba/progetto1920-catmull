@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="gioco.MenuTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-05-17T14:44:42" hostname="MBP-di-Antonio" time="0.037">
+<testsuite name="gioco.MenuTest" tests="31" skipped="0" failures="0" errors="0" timestamp="2020-05-21T10:56:44" hostname="MBP-di-Antonio" time="0.067">
   <properties/>
+  <testcase name="testIsNotazioneAlgebricaAlfiereMossa()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsArrocco_000()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsArrocco_OOO()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsArrocco_ooo()" classname="gioco.MenuTest" time="0.0"/>
+  <testcase name="testIsComandoValidoHelp()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsComandoValidoMenu()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsComandoValidoQuit()" classname="gioco.MenuTest" time="0.0"/>
+  <testcase name="testIsNotazioneAlgebricaReginaMossa()" classname="gioco.MenuTest" time="0.0"/>
+  <testcase name="testIsNotazioneAlgebricaPedoneEP()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsComandoValidoCaptures()" classname="gioco.MenuTest" time="0.001"/>
   <testcase name="testPlay()" classname="gioco.MenuTest" time="0.001"/>
-  <testcase name="testIsNotazioneAlgebrica()" classname="gioco.MenuTest" time="0.02"/>
-  <testcase name="testIsComandoValido()" classname="gioco.MenuTest" time="0.001"/>
-  <testcase name="testIsArrocco()" classname="gioco.MenuTest" time="0.003"/>
+  <testcase name="testIsNotazioneAlgebricaCavalloCattura()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsNotazioneAlgebricaTorreCattura()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsArroccoNonValido()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsNotazioneAlgebricaReCattura()" classname="gioco.MenuTest" time="0.0"/>
+  <testcase name="testIsNotazioneAlgebricaPedoneCattura()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsNotazioneAlgebricaArroccoCorto()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsNotazioneAlgebricaArroccoLungo()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsNotazioneAlgebricaReMossa()" classname="gioco.MenuTest" time="0.0"/>
+  <testcase name="testIsNotazioneAlgebricaPedoneMossa()" classname="gioco.MenuTest" time="0.003"/>
+  <testcase name="testIsNotazioneAlgebricaAlfiereCattura()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsNotazioneAlgebricaComandoVuoto()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsArrocco_00()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsArrocco_OO()" classname="gioco.MenuTest" time="0.0"/>
+  <testcase name="testIsArrocco_oo()" classname="gioco.MenuTest" time="0.002"/>
+  <testcase name="testIsNotazioneAlgebricaReginaCattura()" classname="gioco.MenuTest" time="0.003"/>
+  <testcase name="testIsComandoValidoBoard()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsComandoValidoMoves()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsNotazioneAlgebricaTorreMossa()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsNotazioneAlgebricaErrata()" classname="gioco.MenuTest" time="0.001"/>
+  <testcase name="testIsNotazioneAlgebricaCavalloMossa()" classname="gioco.MenuTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

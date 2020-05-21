@@ -6,6 +6,7 @@
  * informazioni riguardo ai comandi: help, moves, quit, board, captures e play.
  * La classe Menu e' di tipo Entity.
  */
+
 public final class Menu {
 
 	private static Comando help;
@@ -15,23 +16,28 @@ public final class Menu {
 	private static Comando captures;
 	private static Comando play;
 
-	public final static int ARROCCO_CORTO = 1;
-	public final static int ARROCCO_LUNGO = 2;
+	public static final int ARROCCO_CORTO = 1;
+	public static final int ARROCCO_LUNGO = 2;
 
+	public static final int COLONNA_PARTENZA_MOSSA_NE = 0;
+	public static final int TRAVERSA_PARTENZA_MOSSA_NE = 1;
+
+	public static final int COLONNA_DESTINAZIONE_MOSSA_NE = 3;
+	public static final int TRAVERSA_DESTINAZIONE_MOSSA_NE = 4;
 	private Menu() {
 	}
 
 	/**
-	 * costruttore statico per il Menu'
+	 * Costruttore statico per classe Singleton
 	 */
 	public static void newMenu() {
-<span class="fc" id="L28">		help = new Comando(&quot;Help&quot;, &quot;Visualizza nome e descrizione dell'elenco comandi&quot;);</span>
-<span class="fc" id="L29">		moves = new Comando(&quot;Moves&quot;, &quot;Visualizza la cronologia delle mosse giocate&quot;);</span>
-<span class="fc" id="L30">		quit = new Comando(&quot;Quit&quot;, &quot;Esci dal gioco&quot;);</span>
-<span class="fc" id="L31">		board = new Comando(&quot;Board&quot;, &quot;Visualizza la posizione sulla scacchiera&quot;);</span>
-<span class="fc" id="L32">		captures = new Comando(&quot;Captures&quot;, &quot;Visualizza le catture del Bianco e del Nero&quot;);</span>
-<span class="fc" id="L33">		play = new Comando(&quot;Play&quot;, &quot;Inizia una nuova partita&quot;);</span>
-<span class="fc" id="L34">	}</span>
+<span class="fc" id="L34">		help = new Comando(&quot;Help&quot;, &quot;Visualizza nome e descrizione dell'elenco comandi&quot;);</span>
+<span class="fc" id="L35">		moves = new Comando(&quot;Moves&quot;, &quot;Visualizza la cronologia delle mosse giocate&quot;);</span>
+<span class="fc" id="L36">		quit = new Comando(&quot;Quit&quot;, &quot;Esci dal gioco&quot;);</span>
+<span class="fc" id="L37">		board = new Comando(&quot;Board&quot;, &quot;Visualizza la posizione sulla scacchiera&quot;);</span>
+<span class="fc" id="L38">		captures = new Comando(&quot;Captures&quot;, &quot;Visualizza le catture del Bianco e del Nero&quot;);</span>
+<span class="fc" id="L39">		play = new Comando(&quot;Play&quot;, &quot;Inizia una nuova partita&quot;);</span>
+<span class="fc" id="L40">	}</span>
 
 	/**
 	 * help consente di chiamare il comando &quot;help&quot; in controller
@@ -39,7 +45,7 @@ public final class Menu {
 	 * @return help
 	 */
 	public static Comando help() {
-<span class="fc" id="L42">		return help;</span>
+<span class="fc" id="L48">		return help;</span>
 	}
 
 	/**
@@ -48,7 +54,7 @@ public final class Menu {
 	 * @return history
 	 */
 	public static Comando moves() {
-<span class="fc" id="L51">		return moves;</span>
+<span class="fc" id="L57">		return moves;</span>
 	}
 
 	/**
@@ -57,7 +63,7 @@ public final class Menu {
 	 * @return quit
 	 */
 	public static Comando quit() {
-<span class="fc" id="L60">		return quit;</span>
+<span class="fc" id="L66">		return quit;</span>
 	}
 
 	/**
@@ -66,7 +72,7 @@ public final class Menu {
 	 * @return board
 	 */
 	public static Comando board() {
-<span class="fc" id="L69">		return board;</span>
+<span class="fc" id="L75">		return board;</span>
 	}
 
 	/**
@@ -75,7 +81,7 @@ public final class Menu {
 	 * @return captures
 	 */
 	public static Comando captures() {
-<span class="fc" id="L78">		return captures;</span>
+<span class="fc" id="L84">		return captures;</span>
 	}
 
 	/**
@@ -84,25 +90,24 @@ public final class Menu {
 	 * @return play
 	 */
 	public static Comando play() {
-<span class="fc" id="L87">		return play;</span>
+<span class="fc" id="L93">		return play;</span>
 	}
 
 	/**
-	 * Data la mossa, se è un arrocco ne restituisce il tipo, altrimenti viene
+	 * Data la mossa, se e' un arrocco ne restituisce il tipo, altrimenti viene
 	 * restituito -1
 	 *
 	 * @param mossa in notazione algebrica
-	 * @return int 1 =&gt; Arrocco corto | 2 =&gt; Arrocco lungo | -1 =&gt; Non è un arrocco
+	 * @return int 1 =&gt; Arrocco corto | 2 =&gt; Arrocco lungo | -1 =&gt; Non e' un arrocco
 	 */
 	public static int isArrocco(final String mossa) {
 
-<span class="fc bfc" id="L99" title="All 2 branches covered.">		if (mossa.matches(&quot;(0|o|O)-(0|o|O)&quot;)) {</span>
-<span class="fc" id="L100">			return ARROCCO_CORTO;</span>
-<span class="fc bfc" id="L101" title="All 2 branches covered.">		} else if (mossa.matches(&quot;(0|o|O)-(0|o|O)-(0|o|O)&quot;)) {</span>
-<span class="fc" id="L102">			return ARROCCO_LUNGO;</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">		if (mossa.matches(&quot;(0|o|O)-(0|o|O)&quot;)) {</span>
+<span class="fc" id="L106">			return ARROCCO_CORTO;</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">		} else if (mossa.matches(&quot;(0|o|O)-(0|o|O)-(0|o|O)&quot;)) {</span>
+<span class="fc" id="L108">			return ARROCCO_LUNGO;</span>
 		}
-<span class="fc" id="L104">		return -1;</span>
-
+<span class="fc" id="L110">		return -1;</span>
 	}
 
 	/**
@@ -118,9 +123,11 @@ public final class Menu {
 	 */
 	public static boolean isComandoValido(final String comando) {
 
-<span class="fc bfc" id="L121" title="All 4 branches covered.">		return (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.board().getNome())</span>
-<span class="fc bfc" id="L122" title="All 2 branches covered.">				|| comando.equalsIgnoreCase(Menu.captures().getNome())</span>
-<span class="fc bfc" id="L123" title="All 4 branches covered.">				|| comando.equalsIgnoreCase(Menu.moves().getNome()) || comando.equalsIgnoreCase(Menu.quit().getNome()));</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">		return (comando.equalsIgnoreCase(Menu.help().getNome())</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">				|| comando.equalsIgnoreCase(Menu.board().getNome())</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">				|| comando.equalsIgnoreCase(Menu.captures().getNome())</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">				|| comando.equalsIgnoreCase(Menu.moves().getNome())</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">				|| comando.equalsIgnoreCase(Menu.quit().getNome()));</span>
 
 	}
 
@@ -132,8 +139,8 @@ public final class Menu {
 	 * @return boolean
 	 */
 	public static boolean isNotazioneAlgebrica(final String mossa) {
-
-<span class="fc" id="L136">		String regex = String.join(&quot;|&quot;, new String[] { &quot;([a-h](x|:))?([a-h][1-8])( e.p.)?&quot;, // mossa del pedone</span>
+<span class="fc" id="L142">		String regex = String.join(&quot;|&quot;, new String[] {</span>
+				&quot;([a-h](x|:))?([a-h][1-8])( e.p.)?&quot;, // mossa del pedone
 				&quot;D([x|:])?[a-h][1-8]&quot;, // mossa della regina
 				&quot;T([a-h]|[1-8])?([x|:])?([a-h][1-8])&quot;, // mossa della torre
 				&quot;C([a-h]|[1-8])?([x|:])?([a-h][1-8])&quot;, // mossa cavallo
@@ -142,7 +149,8 @@ public final class Menu {
 				&quot;(0|o|O)-(0|o|O)(-(0|o|O))?&quot; // arrocco corto o lungo
 		});
 
-<span class="fc" id="L145">		return mossa.matches(regex);</span>
+<span class="fc" id="L152">		return mossa.matches(regex);</span>
 	}
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

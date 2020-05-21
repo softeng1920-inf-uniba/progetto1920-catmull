@@ -251,19 +251,19 @@ public final class Controller {
 	}
 
 	/**
-	 * >>>>>>> Stashed changes Restituisce la lista delle mosse convertite in
+	 * Restituisce la lista delle mosse convertite in
 	 * notazione comprensibile da applicaMossa.
 	 *
 	 * @return mosseConverite
 	 */
-	public static ArrayList<String> getMosseConvertite() {
+	private static ArrayList<String> getMosseConvertite() {
 		return mosseConvertite;
 	}
 
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
 	 */
-	public static void addMosseConvertite(final String mossa) {
+	private static void addMosseConvertite(final String mossa) {
 		mosseConvertite.add(mossa);
 	}
 
@@ -283,7 +283,7 @@ public final class Controller {
 	 *         attraversare ne' quella di arrivo devono essere minacciate da un
 	 *         pezzo avversario.
 	 */
-	public static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
+	private static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
 
 		Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
 		Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
@@ -328,7 +328,7 @@ public final class Controller {
 	 * @param tipoMossa
 	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-	public static boolean isReProtetto(final Cella partenza, final Cella destinazione) {
+	 private static boolean isReProtetto(final Cella partenza, final Cella destinazione) {
 
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
@@ -348,7 +348,6 @@ public final class Controller {
 		if (temp.isOccupato()) {
 			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
 		}
-		
 		return isReProtetto;
 	}
 }

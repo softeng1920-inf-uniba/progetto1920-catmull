@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="gioco.TurnoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-17T14:44:42" hostname="MBP-di-Antonio" time="0.083">
+<testsuite name="gioco.TurnoTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-05-21T10:56:44" hostname="MBP-di-Antonio" time="0.068">
   <properties/>
-  <testcase name="testSetGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0.058"/>
-  <testcase name="testGetGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0.004"/>
-  <testcase name="testSetGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.001"/>
-  <testcase name="testGetGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.003"/>
-  <testcase name="testGetArrayStoriaMosse()" classname="gioco.TurnoTest" time="0.002"/>
+  <testcase name="testGetArrayStoriaMosseBianco()" classname="gioco.TurnoTest" time="0.052"/>
+  <testcase name="testGetGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0.001"/>
+  <testcase name="testGetArrayStoriaMosseNero()" classname="gioco.TurnoTest" time="0.001"/>
+  <testcase name="testGetArrayStoriaMosseAttesaDim1Nero()" classname="gioco.TurnoTest" time="0.0"/>
+  <testcase name="testSetNomeGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.0"/>
+  <testcase name="testGetGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.001"/>
+  <testcase name="testGetArrayStoriaMosseAttesaDim1Bianco()" classname="gioco.TurnoTest" time="0.002"/>
+  <testcase name="testGetArrayStoriaMosseNeroDim1()" classname="gioco.TurnoTest" time="0.001"/>
+  <testcase name="testGetArrayStoriaMosseBiancoDim1()" classname="gioco.TurnoTest" time="0.001"/>
+  <testcase name="testSetNomeGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
