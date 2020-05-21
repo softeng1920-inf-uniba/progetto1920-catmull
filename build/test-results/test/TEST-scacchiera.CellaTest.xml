@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="scacchiera.CellaTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-21T10:56:44" hostname="MBP-di-Antonio" time="0.004">
+<testsuite name="scacchiera.CellaTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-21T13:24:35" hostname="LAPTOP-871GRCT0" time="0.005">
   <properties/>
-  <testcase name="testEndX()" classname="scacchiera.CellaTest" time="0.001"/>
+  <testcase name="testEndX()" classname="scacchiera.CellaTest" time="0.0"/>
   <testcase name="testEndY()" classname="scacchiera.CellaTest" time="0.001"/>
   <testcase name="testCostruttore()" classname="scacchiera.CellaTest" time="0.001"/>
   <testcase name="testStartX()" classname="scacchiera.CellaTest" time="0.0"/>

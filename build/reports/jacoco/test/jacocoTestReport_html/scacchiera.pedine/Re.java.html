@@ -27,7 +27,7 @@ public final class Re extends Pezzo {
 	@Override
 	public boolean isMossaValida(final Cella start, final Cella end) {
 
-		// controllo se può mangiare pezzo
+		// controllo se puÃ² mangiare pezzo
 <span class="pc bpc" id="L31" title="1 of 2 branches missed.">		if (end.isOccupato()) {</span>
 <span class="nc bnc" id="L32" title="All 2 branches missed.">			if (end.getPezzoCorrente().getColore() == getColore()) {</span>
 <span class="nc" id="L33">				return false;</span>
@@ -63,21 +63,21 @@ public final class Re extends Pezzo {
 	}
 
 	/**
-	 * Restituisce un valore booleano che indica se Ã¨ possibile effettuare
+	 * Restituisce un valore booleano che indica se ÃƒÂ¨ possibile effettuare
 	 * l'arrocco con i pezzi nelle celle passate in input.
 	 *
 	 * @param startRe      Cella di partenza del re di cui si vuole controllare se
 	 *                     e' possibile effettuare l'arrocco
 	 * @param endRe        Cella di destinazione del re di cui si vuole controllare
-	 *                     se Ã¨ possibile effettuare l'arrocco
+	 *                     se ÃƒÂ¨ possibile effettuare l'arrocco
 	 * @param startTorre   Cella di partenza della torre di cui si vuole controllare
-	 *                     se Ã¨ possibile effettuare l'arrocco
+	 *                     se ÃƒÂ¨ possibile effettuare l'arrocco
 	 * @param endTorre     Cella di destinazione della torre di cui si vuole
-	 *                     controllare se Ã¨ possibile effettuare l'arrocco
+	 *                     controllare se ÃƒÂ¨ possibile effettuare l'arrocco
 	 * @param storicoMosse Lista di stringhe che rappresenta l'insieme di tutte le
 	 *                     mosse
 	 * @param tipoArrocco  0 - corto | 1 - lungo
-	 * @return true se l'arrocco Ã¨ effettuabile, false altrimenti.
+	 * @return true se l'arrocco ÃƒÂ¨ effettuabile, false altrimenti.
 	 */
 	public boolean isArroccoValido(final Cella startRe, final Cella endRe, final Cella startTorre,
 	final Cella endTorre, final ArrayList&lt;String&gt; storicoMosse, final int tipoArrocco) {
@@ -88,7 +88,7 @@ public final class Re extends Pezzo {
 
 			// Itera dalla cella corrente :start fino alla cella di destinazione:end e
 			// controlla che non ci siano pezzi intermedi e che nello spostamento del re non
-			// Ã¨ sotto scacco
+			// ÃƒÂ¨ sotto scacco
 
 <span class="fc bfc" id="L93" title="All 2 branches covered.">			if (tipoArrocco == Menu.ARROCCO_CORTO) {</span>
 				// Arrocco Corto
@@ -202,10 +202,10 @@ public final class Re extends Pezzo {
 	}
 
 	/**
-	 * Controlla se il re è sotto scacco
+	 * Controlla se il re Ã¨ sotto scacco
 	 *
 	 * @param reCella cella di destinazione del re
-	 * @return boolean true se il re è sotto scacco, false altrimenti
+	 * @return boolean true se il re Ã¨ sotto scacco, false altrimenti
 	 */
 	public boolean isReSottoScacco(final Cella reCella) {
 <span class="fc" id="L211">		Colore c = getColore();</span>
@@ -230,7 +230,7 @@ public final class Re extends Pezzo {
 	 * Controlla se il re o la torre si sono mai spostati
 	 *
 	 * @param storicoMosse
-	 * @return true se la prima mossa del re Ã¨ stata effettuata, false altrimenti.
+	 * @return true se la prima mossa del re ÃƒÂ¨ stata effettuata, false altrimenti.
 	 */
 	public static boolean isPrimaMossaEffettuata(final ArrayList&lt;String&gt; storicoMosse, final int tipoArrocco) {
 <span class="fc" id="L236">		final short numGiocatori = 2;</span>

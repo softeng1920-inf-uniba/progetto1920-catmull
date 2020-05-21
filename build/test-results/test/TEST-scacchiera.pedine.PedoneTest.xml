@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="scacchiera.pedine.PedoneTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2020-05-21T10:56:44" hostname="MBP-di-Antonio" time="0.053">
+<testsuite name="scacchiera.pedine.PedoneTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2020-05-21T13:24:36" hostname="LAPTOP-871GRCT0" time="0.047">
   <properties/>
   <testcase name="testConvertiMossaCatturaPedone()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testIsMossaValidaObliquoNonValida()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
-  <testcase name="testIsMossaValidaDueCelle()" classname="scacchiera.pedine.PedoneTest" time="0.008"/>
-  <testcase name="testIsEnPassantValidoCatturaNonValida()" classname="scacchiera.pedine.PedoneTest" time="0.002"/>
+  <testcase name="testIsMossaValidaDueCelle()" classname="scacchiera.pedine.PedoneTest" time="0.009"/>
+  <testcase name="testIsEnPassantValidoCatturaNonValida()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testIsEnPassantValido()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testisMossaValidaFinalePienaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testIsMossaValidaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.0"/>
   <testcase name="testIsEnPassantValidoSenzaMossaDiDue()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
-  <testcase name="testConvertiMossaDueAvanti()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
-  <testcase name="testIsMossaValidaDueFinaleOccupata()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
+  <testcase name="testConvertiMossaDueAvanti()" classname="scacchiera.pedine.PedoneTest" time="0.002"/>
+  <testcase name="testIsMossaValidaDueFinaleOccupata()" classname="scacchiera.pedine.PedoneTest" time="0.002"/>
   <testcase name="testConvertiMossaSuCellaCorrente()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testConvertiMossaDueCelleBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testConvertiMossaUnoAvanti()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
-  <testcase name="testIsMossaValidaInDietro()" classname="scacchiera.pedine.PedoneTest" time="0.0"/>
+  <testcase name="testIsMossaValidaInDietro()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testIsMossaValidaMossaNonvalida()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testIsEnPassantValidoBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
-  <testcase name="testIsMossaValidaDueCelleBianco()" classname="scacchiera.pedine.PedoneTest" time="0.007"/>
+  <testcase name="testIsMossaValidaDueCelleBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
   <testcase name="testisMossaValidaUnaCellaNero()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
-  <testcase name="testIsMossaValidaObliquoValida()" classname="scacchiera.pedine.PedoneTest" time="0.005"/>
-  <testcase name="testConvertiMossaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.002"/>
-  <testcase name="testConvertiMossaEnPassant()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
+  <testcase name="testIsMossaValidaObliquoValida()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
+  <testcase name="testConvertiMossaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001"/>
+  <testcase name="testConvertiMossaEnPassant()" classname="scacchiera.pedine.PedoneTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

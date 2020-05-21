@@ -310,6 +310,7 @@ public final class InterfacciaUtente {
 	 * Permette la visualizzazione dell' elenco dei comandi del menu principale
 	 */
 	public static void mostrareElencoComandiMenu() {
+		System.out.println("\n");
 		System.out.println(Menu.play().toString());
 		System.out.println(Menu.quit().toString());
 		System.out.println(Menu.board().toString());
@@ -347,6 +348,10 @@ public final class InterfacciaUtente {
 					+ CYAN_BOLD + c + ANSI_RESET + " \u2193");
 		}
 
+	}
+	
+	public static void stampaInserireComando() {
+		System.out.println(WHITE_BOLD_BRIGHT + "\nInserisci un comando\n" + ANSI_RESET);
 	}
 
 	public static String acquisireComando() {
