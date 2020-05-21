@@ -72,7 +72,13 @@
 
 # <a name="retro_analysis"></a>Analisi retrospettiva
 #### <a name="happy"></a>Cosa vi ha fatto sentire soddisfatti e vi ha reso contenti
+-	Imparare e approfondire un nuovo linguaggio di programmazione
+-	Conoscere e applicare le dinamiche dello sviluppo agile
+-	Applicare  dei principi di programmazione ad oggetti che precedentemente erano stati acquisiti in maniera meramente teorica.
 #### <a name="sad"></a>Cosa vi ha fatto sentire insoddisfatti e vi ha deluso
-#### <a name="crazy"></a>Cosa vi ha fatto «impazzire» e vi ha reso disperati
+-	Non aver potuto sviluppare e implementare la fine del gioco poiché lo sviluppo è stato arrestato alla fase di mediogioco.  
+#### <a name="crazy"></a>Cosa vi ha fatto «impazzire» e vi ha reso disperati 
+-	Lavorare in un gruppo di cui non si conoscono parte dei componenti; è risultato difficile e impegnativo combinare idee e approcci differenti ai compiti da svolgere
+-	Bilanciare il tempo da dedicare al progetto con tutti gli altri corsi del semestre da seguire, soprattutto verso la fine del progetto, a causa di un carico di lavoro non indifferente.
 
 [Torna all'indice](#indice)
