@@ -8,66 +8,52 @@
 
 public class Comando {
 
-	// NE sta per notazione estesa
-    public static final int COLONNA_PARTENZA_MOSSA_NE = 0;
-    public static final int TRAVERSA_PARTENZA_MOSSA_NE = 1;
+	private String nome;
+	private String descrizione;
 
-    public static final int COLONNA_DESTINAZIONE_MOSSA_NE = 3;
-    public static final int TRAVERSA_DESTINAZIONE_MOSSA_NE = 4;
+	/**
+	 * Metodo Costruttore
+	 *
+	 * @param n
+	 * @param desc
+	 */
+<span class="fc" id="L20">	Comando(final String n, final String desc) {</span>
+<span class="fc" id="L21">		setNome(n);</span>
+<span class="fc" id="L22">		setDescrizione(desc);</span>
+<span class="fc" id="L23">	}</span>
 
-    private String nome;
-    private String descrizione;
+	/**
+	 * Metodo che permette di modificare il nome del comando
+	 *
+	 * @param n
+	 */
+	void setNome(final String n) {
+<span class="fc" id="L31">		this.nome = n;</span>
+<span class="fc" id="L32">	}</span>
 
-    /**
-     * Metodo Costruttore
-     *
-     * @param n
-     * @param desc
-     */
-<span class="fc" id="L27">    Comando(final String n, final String desc) {</span>
-<span class="fc" id="L28">	setNome(n);</span>
-<span class="fc" id="L29">	setDescrizione(desc);</span>
-<span class="fc" id="L30">    }</span>
+	/**
+	 * Metodo che permette di modificare la descrizione del comando
+	 *
+	 * @param d
+	 */
+	void setDescrizione(final String d) {
+<span class="fc" id="L40">		this.descrizione = d;</span>
+<span class="fc" id="L41">	}</span>
 
-    /**
-     * Metodo che permette di modificare il nome del comando
-     *
-     * @param n
-     */
-    void setNome(final String n) {
-<span class="fc" id="L38">	this.nome = n;</span>
-<span class="fc" id="L39">    }</span>
+	/**
+	 * @return nome del comando
+	 */
+	public String getNome() {
+<span class="fc" id="L47">		return nome;</span>
+	}
 
-    /**
-     * Metodo che permette di modificare la descrizione del comando
-     *
-     * @param d
-     */
-    void setDescrizione(final String d) {
-<span class="fc" id="L47">	this.descrizione = d;</span>
-<span class="fc" id="L48">    }</span>
-
-    /**
-     * @return nome del comando
-     */
-    public String getNome() {
-<span class="fc" id="L54">	return nome;</span>
-    }
-
-    /**
-     * @return descrizione del comando
-     */
-    public String getDescrizione() {
-<span class="fc" id="L61">	return descrizione;</span>
-    }
-
-    /**
-     * Metodo che permette di visualizzare i comandi
-     */
-    @Override
-    public String toString() {
-<span class="fc" id="L69">	return String.format(&quot;\u2022 &quot; + &quot;\033[1;37m&quot; + nome + &quot;\u001B[0m&quot; + &quot; --&gt;    &quot; + descrizione);</span>
-    }
+	/**
+	 * Metodo che permette di visualizzare i comandi
+	 */
+	@Override
+	public String toString() {
+<span class="fc" id="L55">		return String.format(&quot;\u2022 &quot; + &quot;\033[1;37m&quot; + nome + &quot;\u001B[0m&quot; + &quot; --&gt;    &quot; + descrizione);</span>
+	}
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

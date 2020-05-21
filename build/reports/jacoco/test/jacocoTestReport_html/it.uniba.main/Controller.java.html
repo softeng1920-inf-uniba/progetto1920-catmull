@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Controller.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">it.uniba.main</a> &gt; <span class="el_source">Controller.java</span></div><h1>Controller.java</h1><pre class="source lang-java linenums">package it.uniba.main;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import gioco.Colore;
 import gioco.Giocatore;
+import gioco.InterfacciaUtente;
 import gioco.Menu;
-import gioco.Stampa;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -21,200 +18,152 @@ import scacchiera.pedine.Regina;
 import scacchiera.pedine.Torre;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
-public class Controller {
-<span class="nc" id="L29">	private static ArrayList&lt;String&gt; mosseConvertite = new ArrayList&lt;String&gt;();</span>
+public final class Controller {
+	private static final int EN_PASSANT = 3;
+<span class="fc" id="L27">	private static ArrayList&lt;String&gt; mosseConvertite = new ArrayList&lt;String&gt;();</span>
 
 	private Controller() {
 	}
 
+	/**
+	 * Costruttore privato per classe Singleton
+	 */
 	public static void newController() {
-<span class="nc" id="L35">		Scacchiera.nuovaScacchiera();</span>
-<span class="nc" id="L36">		mosseConvertite = new ArrayList&lt;String&gt;();</span>
-<span class="nc" id="L37">	}</span>
+<span class="fc" id="L36">		Scacchiera.newScacchiera();</span>
+<span class="fc" id="L37">	}</span>
 
 	/**
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
-	public final static void playGame() {
-
-<span class="nc" id="L44">		boolean utenteVuoleRicominciare = false;</span>
-
+	static void playGame() {
+<span class="nc" id="L43">		boolean utenteVuoleRicominciare = false;</span>
 		do {
-<span class="nc" id="L47">			Turno.newTurno();</span>
-<span class="nc" id="L48">			Turno.nomiDaTastiera();</span>
-<span class="nc" id="L49">			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));</span>
-<span class="nc" id="L50">			String comando = &quot;&quot;;</span>
-
+<span class="nc" id="L45">			Turno.newTurno();</span>
+<span class="nc" id="L46">			Turno.setNomeGiocatoreInTurno(InterfacciaUtente</span>
+<span class="nc" id="L47">					.getNomeDaTastiera(Turno.getGiocatoreInTurno().getColore()));</span>
+<span class="nc" id="L48">			Turno.setNomeGiocatoreInAttesa(</span>
+<span class="nc" id="L49">					InterfacciaUtente.getNomeDaTastiera(Turno.getGiocatoreInAttesa().getColore()));</span>
 			while (true) {
-
-<span class="nc" id="L54">				Stampa.stampaTurno(Turno.getGiocatoreInTurno());</span>
-				try {
-<span class="nc" id="L56">					comando = br.readLine();</span>
-<span class="nc" id="L57">				} catch (IOException e) {</span>
-<span class="nc" id="L58">					e.printStackTrace();</span>
-<span class="nc" id="L59">				}</span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">				if (comando != null) {</span>
-<span class="nc bnc" id="L61" title="All 2 branches missed.">					if (comando.equalsIgnoreCase(Menu.help().getNome())) {</span>
-<span class="nc" id="L62">						Stampa.mostrareElencoComandiGioco();</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">					} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {</span>
-<span class="nc" id="L64">						Stampa.stampaScacchiera();</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">					} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {</span>
-<span class="nc" id="L66">						Stampa.stampaMosseGiocate();</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">					} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {</span>
-<span class="nc" id="L68">						Stampa.visualizzareCatture();</span>
-<span class="nc bnc" id="L69" title="All 2 branches missed.">					} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {</span>
-<span class="nc" id="L70">						break;</span>
-<span class="nc bnc" id="L71" title="All 2 branches missed.">					} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">						if (utenteConfermaRiavvioPartita()) {</span>
-<span class="nc" id="L73">							Stampa.stampaNuovaPartita();</span>
-<span class="nc" id="L74">							utenteVuoleRicominciare = true;</span>
-<span class="nc" id="L75">							Scacchiera.nuovaScacchiera(); // Svuoto la scacchiera</span>
-<span class="nc" id="L76">							break;</span>
-						} else {
-							continue; // Faccio ripartire il loop interno
-						}
+<span class="nc" id="L51">				InterfacciaUtente.stampaTurno(Turno.getGiocatoreInTurno());</span>
+<span class="nc" id="L52">				String comando = InterfacciaUtente.acquisireComando();</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">				if (comando.equalsIgnoreCase(Menu.help().getNome())) {</span>
+<span class="nc" id="L54">					InterfacciaUtente.mostrareElencoComandiGioco();</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">				} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {</span>
+<span class="nc" id="L56">					InterfacciaUtente.stampaScacchiera();</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">				} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {</span>
+<span class="nc" id="L58">					InterfacciaUtente.stampaMosseGiocate();</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {</span>
+<span class="nc" id="L60">					InterfacciaUtente.visualizzareCatture();</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">				} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">					if (InterfacciaUtente.utenteConfermaFinePartita()) {</span>
+<span class="nc" id="L63">						utenteVuoleRicominciare = false;</span>
+<span class="nc" id="L64">						break;</span>
+					}
+<span class="nc bnc" id="L66" title="All 2 branches missed.">				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">					if (InterfacciaUtente.utenteConfermaRiavvioPartita()) {</span>
+<span class="nc" id="L68">						InterfacciaUtente.stampaNuovaPartita();</span>
+<span class="nc" id="L69">						utenteVuoleRicominciare = true;</span>
+<span class="nc" id="L70">						Scacchiera.newScacchiera(); // Svuoto la scacchiera</span>
+<span class="nc" id="L71">						break;</span>
+					} else {
+						continue; // Faccio ripartire il loop interno
+					}
+<span class="nc bnc" id="L75" title="All 2 branches missed.">				} else if (Menu.isNotazioneAlgebrica(comando)) {</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">					if (mossaScacchi(comando)) {</span>
+<span class="nc" id="L77">						Turno.getGiocatoreInTurno().setMosseGiocate(comando);</span>
+<span class="nc" id="L78">						Turno.cambioTurno();</span>
+					} else {
+<span class="nc" id="L80">						InterfacciaUtente.stampaMossaIllegale();</span>
 					}
 				} else {
-					break;
+<span class="nc" id="L83">					InterfacciaUtente.stampaComandoErrato();</span>
 				}
-
-<span class="nc bnc" id="L85" title="All 2 branches missed.">				if (Menu.isNotazioneAlgebrica(comando)) {</span>
-
-					int tipoArrocco;
-<span class="nc bnc" id="L88" title="All 2 branches missed.">					if ((tipoArrocco = Menu.isArrocco(comando)) != -1) { // Se è un arrocco</span>
-<span class="nc" id="L89">						Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();</span>
-
-<span class="nc" id="L91">						String mossaTorre = Torre.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);</span>
-<span class="nc" id="L92">						String mossaRe = Re.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);</span>
-
-						// Non ho bisogno di controllare se i comandi convertiti saranno validi, perchè
-						// sono stati già stabiliti dalle regole del gioco
-
-						// Controllo se l'arrocco è possibile
-<span class="nc bnc" id="L98" title="All 2 branches missed.">						if (isArroccoValido(mossaRe, mossaTorre, tipoArrocco)) {</span>
-							// Applico arrocco
-
-<span class="nc" id="L101">							Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));</span>
-<span class="nc" id="L102">							Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));</span>
-
-<span class="nc" id="L104">							Scacchiera.scambiaCella(cellaPartenzaRe, cellaDestinazioneRe);</span>
-
-<span class="nc" id="L106">							Cella cellaPartenzaTorre = Scacchiera.getCella(Cella.startX(mossaTorre),</span>
-<span class="nc" id="L107">									Cella.startY(mossaTorre));</span>
-<span class="nc" id="L108">							Cella cellaDestinazioneTorre = Scacchiera.getCella(Cella.endX(mossaTorre),</span>
-<span class="nc" id="L109">									Cella.endY(mossaTorre));</span>
-
-<span class="nc" id="L111">							Scacchiera.scambiaCella(cellaPartenzaTorre, cellaDestinazioneTorre);</span>
-
-<span class="nc" id="L113">							addMosseConvertite(comando);</span>
-<span class="nc" id="L114">							Turno.getGiocatoreInTurno().setMosseGiocate(comando);</span>
-<span class="nc" id="L115">							Turno.cambioTurno();</span>
-
-<span class="nc" id="L117">						} else {</span>
-<span class="nc" id="L118">							Stampa.stampaMossaIllegale();</span>
-						}
-<span class="nc" id="L120">					} else { // La mossa inserita è un'avanzata, una cattura o un en passant</span>
-<span class="nc" id="L121">						String mossaInCoordinate = convertiNotazioneRidottaInEstesa(comando);</span>
-
-<span class="nc bnc" id="L123" title="All 2 branches missed.">						if (isMossaInRangeValido(mossaInCoordinate)) {</span>
-<span class="nc" id="L124">							int tipoMossa = 0;</span>
-<span class="nc" id="L125">							Cella cellaPartenza = Scacchiera.getCella(Cella.startX(mossaInCoordinate),</span>
-<span class="nc" id="L126">									Cella.startY(mossaInCoordinate));</span>
-<span class="nc" id="L127">							Cella cellaDestinazione = Scacchiera.getCella(Cella.endX(mossaInCoordinate),</span>
-<span class="nc" id="L128">									Cella.endY(mossaInCoordinate));</span>
-<span class="nc" id="L129">							tipoMossa = getTipoMossa(cellaPartenza, cellaDestinazione, mosseConvertite);</span>
-
-<span class="nc bnc" id="L131" title="All 2 branches missed.">							if (tipoMossa != -1) {</span>
-
-<span class="nc" id="L133">								applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);</span>
-<span class="nc" id="L134">								addMosseConvertite(mossaInCoordinate);</span>
-<span class="nc" id="L135">								Turno.getGiocatoreInTurno().setMosseGiocate(comando);</span>
-<span class="nc" id="L136">								Turno.cambioTurno();</span>
-
-							} else {
-<span class="nc" id="L139">								Stampa.stampaMossaIllegale();</span>
-							}
-
-<span class="nc" id="L142">						} else {</span>
-<span class="nc" id="L143">							Stampa.stampaMossaIllegale();</span>
-						}
-					}
-<span class="nc bnc" id="L146" title="All 2 branches missed.">				} else if (!Menu.isComandoValido(comando)) {// Se il comando inserito non è una mossa, nè un</span>
-															// comando
-															// di
-					// gioco...
-<span class="nc" id="L150">					Stampa.stampaComandoErrato();</span>
-				}
-
-			} // Fine loop di gioco
-
-<span class="nc bnc" id="L155" title="All 2 branches missed.">		} while (utenteVuoleRicominciare);</span>
-<span class="nc" id="L156">	}</span>
+<span class="nc" id="L85">			}</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">		} while (utenteVuoleRicominciare);</span>
+<span class="nc" id="L87">	}</span>
 
 	/**
-	 * Data la cella di partenza e di destinazione del pezzo, effettua i controlli
-	 * necessari se per il pezzo � consentita la mossa.
+	 * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
+	 * e restituisce true se la mossa � valida ed � stata applicata altrimenti
+	 * restituisce false
 	 *
-	 * @param cellaPartenza
-	 * @param cellaDestinazione
-	 * @param mosseEffettuate
-	 * @return -1 se mossa illegale, 0 se mossa valida, 1 se en passant valido
+	 * @param mossaDaGiocare
+	 * @return
 	 */
-	private static int getTipoMossa(final Cella cellaPartenza,
-			final Cella cellaDestinazione,
-			final ArrayList&lt;String&gt; mosseEffettuate) {
-
-<span class="nc" id="L171">		int tipoMossa = -1;</span>
-<span class="nc" id="L172">		Pezzo pezzoCorrente = cellaPartenza.getPezzoCorrente();</span>
-<span class="nc bnc" id="L173" title="All 2 branches missed.">		if (pezzoCorrente == null) {</span>
-			// Se ho inserito una mossa il cui pezzo di partenza non esiste, ritorno mossa
-			// illegale
-<span class="nc" id="L176">			return tipoMossa;</span>
-<span class="nc bnc" id="L177" title="All 2 branches missed.">		} else if (pezzoCorrente.isMossaValida(cellaPartenza, cellaDestinazione)) {</span>
-<span class="nc bnc" id="L178" title="All 2 branches missed.">			if (isReProtetto(cellaPartenza, cellaDestinazione, 0)) {</span>
-<span class="nc" id="L179">				tipoMossa = 0;</span>
-
+	public static boolean mossaScacchi(final String mossaDaGiocare) {
+<span class="fc" id="L98">		int tipoMossa = getTipoMossa(mossaDaGiocare);</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">		if (tipoMossa == 2) {</span>
+<span class="fc" id="L100">			int tipoArrocco = Menu.isArrocco(mossaDaGiocare);</span>
+<span class="fc" id="L101">			Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();</span>
+<span class="fc" id="L102">			String mossaTorre = Torre.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);</span>
+<span class="fc" id="L103">			String mossaRe = Re.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);</span>
+			// Non ho bisogno di controllare se i comandi convertiti saranno
+			// validi, perche' sono stati gia' stabiliti dalle regole del gioco
+			// Controllo se l'arrocco e' possibile
+<span class="fc bfc" id="L107" title="All 2 branches covered.">			if (isArroccoValido(mossaRe, mossaTorre, tipoArrocco)) {</span>
+				// Applico arrocco Re
+<span class="fc" id="L109">				Cella cellaPartenza = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));</span>
+<span class="fc" id="L110">				Cella cellaDestinazione = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));</span>
+<span class="fc" id="L111">				applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);</span>
+				// Applico arrocco Torre
+<span class="fc" id="L113">				cellaPartenza = Scacchiera.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));</span>
+<span class="fc" id="L114">				cellaDestinazione = Scacchiera.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));</span>
+<span class="fc" id="L115">				applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);</span>
+<span class="fc" id="L116">				addMosseConvertite(mossaDaGiocare);</span>
+<span class="fc" id="L117">			} else {</span>
+<span class="fc" id="L118">				return false;</span>
 			}
-<span class="nc bnc" id="L182" title="All 2 branches missed.">		} else if (pezzoCorrente.getNome().equals(&quot;Pedone&quot;)) {</span>
-<span class="nc" id="L183">			Pedone p = (Pedone) pezzoCorrente;</span>
-			// Controllo se l'en Passant e'consentito
-<span class="nc bnc" id="L185" title="All 2 branches missed.">			if (p.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseEffettuate)) {</span>
-<span class="nc" id="L186">				tipoMossa = 1;</span>
+<span class="fc" id="L120">		} else { // operazioni valide sia per una mossa normale che per un en passant</span>
+<span class="fc" id="L121">			String mossaEstesa = convertiMossaInEstesa(mossaDaGiocare);</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">			if (Scacchiera.isRangeValido(Cella.startX(mossaEstesa), Cella.startY(mossaEstesa))</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">					&amp;&amp; Scacchiera.isRangeValido(Cella.endX(mossaEstesa), Cella.endY(mossaEstesa))) {</span>
+<span class="fc" id="L124">				Cella cellaPartenza = Scacchiera</span>
+<span class="fc" id="L125">						.getCella(Cella.startX(mossaEstesa), Cella.startY(mossaEstesa));</span>
+<span class="fc" id="L126">				Cella cellaDestinazione = Scacchiera</span>
+<span class="fc" id="L127">						.getCella(Cella.endX(mossaEstesa), Cella.endY(mossaEstesa));</span>
+<span class="fc" id="L128">				if (new Pedone(Turno.getGiocatoreInTurno().getColore())</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">						.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseConvertite)) {</span>
+<span class="fc" id="L130">						tipoMossa = EN_PASSANT;</span>
+<span class="fc" id="L131">						applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);</span>
+<span class="fc" id="L132">						addMosseConvertite(mossaEstesa);</span>
+				} else {
+					// se puo' essere un en passant
+<span class="pc bpc" id="L135" title="1 of 4 branches missed.">					if (isMossaValidaGlobale(mossaEstesa, tipoMossa) &amp;&amp; tipoMossa != EN_PASSANT) {</span>
+<span class="fc" id="L136">						applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);</span>
+<span class="fc" id="L137">						addMosseConvertite(mossaEstesa);</span>
+					} else {
+<span class="fc" id="L139">						return false;</span>
+					}
+				}
+<span class="fc" id="L142">			} else {</span>
+<span class="fc" id="L143">				return false;</span>
 			}
 		}
-<span class="nc" id="L189">		return tipoMossa;</span>
+<span class="fc" id="L146">		return true;</span>
+
 	}
 
 	/**
-	 * Viene richiesto all'utente una conferma se vuole riavviare la partita
-	 *
-	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
+	 * Data la notazione algebrica inserita dall'utente, l'algoritmo restituisce 0
+	 * se � una mossa semplice, 1 se � una mossa di cattura, 2 se � un arrocco e 3
+	 * se � di sicuro un en passant
+	 * @param mossaInInput
+	 * @return
 	 */
-	private static boolean utenteConfermaRiavvioPartita() {
-
-<span class="nc" id="L199">		String comando = &quot;&quot;;</span>
-<span class="nc" id="L200">		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));</span>
-<span class="nc" id="L201">		Stampa.stampaConfermaNuovaPartita();</span>
-		while (true) {
-			try {
-<span class="nc" id="L204">				comando = br.readLine();</span>
-<span class="nc bnc" id="L205" title="All 3 branches missed.">				switch (comando) {</span>
-				case &quot;y&quot;:
-<span class="nc" id="L207">					return true;</span>
-				case &quot;n&quot;:
-<span class="nc" id="L209">					return false;</span>
-				default:
-<span class="nc" id="L211">					Stampa.stampaComandoErrato();</span>
-				}
-<span class="nc" id="L213">			} catch (IOException e) {</span>
-<span class="nc" id="L214">				e.printStackTrace();</span>
-<span class="nc" id="L215">			}</span>
+	private static int getTipoMossa(final String mossaInInput) {
+<span class="fc" id="L158">		int tipoMossa = 0;</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">		if (mossaInInput.matches(&quot;(D|R|T|A|C)?([a-h]|[1-8])?(x|:)[a-h][1-8]&quot;)) {</span>
+<span class="fc" id="L160">			tipoMossa = 1;</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">		} else if (mossaInInput.matches(&quot;(0|o|O)-(0|o|O)(-(0|o|O))?&quot;)) {</span>
+<span class="fc" id="L162">			tipoMossa = 2;</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">		} else if (mossaInInput.matches(&quot;([a-h](x|:))([a-h][1-8])( e.p.)&quot;)) {</span>
+<span class="fc" id="L164">			tipoMossa = EN_PASSANT;</span>
 		}
-
+<span class="fc" id="L166">		return tipoMossa;</span>
 	}
 
 	/**
@@ -224,74 +173,24 @@ public class Controller {
 	 * @return String comando in colonna e traversa di partenza seguite da uno
 	 *         spazio, ed infine colonna e traversa di destinazione
 	 */
-	private static String convertiNotazioneRidottaInEstesa(final String mossa) {
-<span class="nc bnc" id="L228" title="All 6 branches missed.">		switch (mossa.charAt(0)) {</span>
+	private static String convertiMossaInEstesa(final String mossa) {
+
+<span class="fc bfc" id="L178" title="All 6 branches covered.">		switch (mossa.charAt(0)) {</span>
 		case 'T': // Torre
-<span class="nc" id="L230">			return Torre.convertiMossa(mossa);</span>
+<span class="fc" id="L180">			return Torre.convertiMossa(mossa);</span>
 		case 'A': // Alfiere
-<span class="nc" id="L232">			return Alfiere.convertiMossa(mossa);</span>
+<span class="fc" id="L182">			return Alfiere.convertiMossa(mossa);</span>
 		case 'R': // Re
-<span class="nc" id="L234">			return Re.convertiMossa(mossa);</span>
+<span class="fc" id="L184">			return Re.convertiMossa(mossa);</span>
 		case 'D': // Donna
-<span class="nc" id="L236">			return Regina.convertiMossa(mossa);</span>
+<span class="fc" id="L186">			return Regina.convertiMossa(mossa);</span>
 		case 'C': // Cavallo
-<span class="nc" id="L238">			return Cavallo.convertiMossa(mossa);</span>
+<span class="fc" id="L188">			return Cavallo.convertiMossa(mossa);</span>
 		default:
 			// pedone
-<span class="nc" id="L241">			return Pedone.convertiMossa(mossa);</span>
+<span class="fc" id="L191">			return Pedone.convertiMossa(mossa);</span>
 		}
-
 	}
-
-	/**
-	 * Controlla se la mossa inserita in input va oltre i limiti della scacchiera
-	 * (la traversa e' minore di 1 ecc.)
-	 *
-	 * @param comando Stringa nel formato : colonna e traversa di partenza seguite
-	 *                da uno spazio, ed infine colonna e traversa di destinazione
-	 * @return false se la mossa inserita non e' valida, va oltre i limiti della
-	 *         scacchiera, true altrimenti
-	 */
-	public static boolean isMossaInRangeValido(final String comando) {
-<span class="nc" id="L256">		return isCoordinateValide(Cella.startX(comando), Cella.startY(comando), Cella.endX(comando),</span>
-<span class="nc" id="L257">				Cella.endY(comando)); // TODO: ricontrollare se logica � corretta</span>
-	}
-
-	/**
-	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita �
-	 * valida, se � consentita ecc.), viene effettuato in base alla tipologia della
-	 * mossa, il necessario per proseguire con il corretto funzionamento del gioco.
-	 *
-	 * L'applicazione della mossa non � univoca per ogni comando inserito (vedi
-	 * e.p.)
-	 *
-	 * @param cellaPartenza
-	 * @param cellaDestinazione
-	 * @param tipoMossa         Tipologia della mossa: 0: Mossa normale (avanzata,
-	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
-	 *                          del pedone
-	 */
-	private static void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
-
-<span class="nc" id="L276">		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();</span>
-
-<span class="nc" id="L278">		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();</span>
-<span class="nc bnc" id="L279" title="All 3 branches missed.">		switch (tipoMossa) {</span>
-		case 0:
-<span class="nc bnc" id="L281" title="All 2 branches missed.">			if (cellaDestinazione.isOccupato()) {</span>
-<span class="nc" id="L282">				giocatoreAttivo.addPezziCatturati(pezzoInCellaDestinazione);</span>
-<span class="nc" id="L283">				cellaDestinazione.rimuoviPezzoCorrente();</span>
-			}
-			break;
-		case 1:
-<span class="nc" id="L287">			Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());</span>
-<span class="nc" id="L288">			giocatoreAttivo.addPezziCatturati(cellaAdiacenteEp.getPezzoCorrente());</span>
-<span class="nc" id="L289">			cellaAdiacenteEp.rimuoviPezzoCorrente();</span>
-<span class="nc" id="L290">			break;</span>
-		default:
-		}
-<span class="nc" id="L293">		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);</span>
-<span class="nc" id="L294">	}</span>
 
 	/**
 	 * Restituisce un valore booleano che indica se le coordinate che rappresentano
@@ -304,26 +203,69 @@ public class Controller {
 	 * @param endY   intero compreso fra 0 e 7
 	 * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
 	 */
-	private static boolean isCoordinateValide(final int startX, final int startY, final int endX, final int endY) {
-<span class="nc bnc" id="L308" title="All 4 branches missed.">		return Scacchiera.isRangeValido(startX, startY) &amp;&amp; Scacchiera.isRangeValido(endX, endY);</span>
+	private static boolean isMossaValidaGlobale(final String comando, final int tipoMossa) {
+<span class="fc" id="L207">		Cella cellaPartenza = Scacchiera.getCella(Cella.startX(comando), Cella.startY(comando));</span>
+<span class="fc" id="L208">		Cella cellaDestinazione = Scacchiera.getCella(Cella.endX(comando), Cella.endY(comando));</span>
+<span class="pc bpc" id="L209" title="1 of 2 branches missed.">		if (cellaPartenza.isOccupato()</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">				&amp;&amp; cellaPartenza.getPezzoCorrente().isMossaValida(cellaPartenza, cellaDestinazione)) {</span>
+<span class="pc bpc" id="L211" title="1 of 2 branches missed.">			if (isReProtetto(cellaPartenza, cellaDestinazione)) {</span>
+<span class="fc" id="L212">				return true;</span>
+			}
+		}
+<span class="fc" id="L215">		return false;</span>
 	}
 
 	/**
-	 * Restituisce la lista delle mosse convertite in notazione comprensibile da
-	 * applicaMossa.
+	 * Dopo che sono stati effettuati i vari controlli (se la mossa inserita è
+	 * valida, se è consentita ecc.), viene effettuato in base alla tipologia della
+	 * mossa, il necessario per proseguire con il corretto funzionamento del gioco.
+	 *
+	 * L'applicazione della mossa non è univoca per ogni comando inserito (vedi
+	 * e.p.)
+	 *
+	 * @param cellaPartenza
+	 * @param cellaDestinazione
+	 * @param tipoMossa         Tipologia della mossa: 0: Mossa normale (avanzata,
+	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
+	 *                          del pedone
+	 */
+	private static void applicaMossa(final Cella cellaPartenza,
+	final Cella cellaDestinazione, final int tipoMossa) {
+<span class="fc" id="L234">		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();</span>
+<span class="fc" id="L235">		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();</span>
+<span class="fc bfc" id="L236" title="All 3 branches covered.">		switch (tipoMossa) {</span>
+		case 1:
+<span class="pc bpc" id="L238" title="1 of 2 branches missed.">			if (cellaDestinazione.isOccupato()) {</span>
+<span class="fc" id="L239">				giocatoreAttivo.addPezziCatturati(pezzoInCellaDestinazione);</span>
+<span class="fc" id="L240">				cellaDestinazione.rimuoviPezzoCorrente();</span>
+			}
+			break;
+		case EN_PASSANT:
+<span class="fc" id="L244">			Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());</span>
+<span class="fc" id="L245">			giocatoreAttivo.addPezziCatturati(cellaAdiacenteEp.getPezzoCorrente());</span>
+<span class="fc" id="L246">			cellaAdiacenteEp.rimuoviPezzoCorrente();</span>
+<span class="fc" id="L247">			break;</span>
+		default:
+		}
+<span class="fc" id="L250">		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);</span>
+<span class="fc" id="L251">	}</span>
+
+	/**
+	 * Restituisce la lista delle mosse convertite in
+	 * notazione comprensibile da applicaMossa.
 	 *
 	 * @return mosseConverite
 	 */
-	public static ArrayList&lt;String&gt; getMosseConvertite() {
-<span class="nc" id="L318">		return mosseConvertite;</span>
+	private static ArrayList&lt;String&gt; getMosseConvertite() {
+<span class="fc" id="L260">		return mosseConvertite;</span>
 	}
 
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
 	 */
-	public static void addMosseConvertite(final String mossa) {
-<span class="nc" id="L325">		mosseConvertite.add(mossa);</span>
-<span class="nc" id="L326">	}</span>
+	private static void addMosseConvertite(final String mossa) {
+<span class="fc" id="L267">		mosseConvertite.add(mossa);</span>
+<span class="fc" id="L268">	}</span>
 
 	/**
 	 * Data la mossa del re e quella della torre, vengono effettuati tutti i
@@ -341,70 +283,72 @@ public class Controller {
 	 *         attraversare ne' quella di arrivo devono essere minacciate da un
 	 *         pezzo avversario.
 	 */
-	public static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
+	private static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
 
-<span class="nc" id="L346">		Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));</span>
-<span class="nc" id="L347">		Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));</span>
+<span class="fc" id="L288">		Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));</span>
+<span class="fc" id="L289">		Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));</span>
 
-<span class="nc" id="L349">		Pezzo presuntoReGiocatoreAttuale = cellaPartenzaRe.getPezzoCorrente();</span>
+<span class="fc" id="L291">		Pezzo presuntoReGiocatoreAttuale = cellaPartenzaRe.getPezzoCorrente();</span>
 
-<span class="nc" id="L351">		Cella cellaPartenzaTorre = Scacchiera.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));</span>
-<span class="nc" id="L352">		Cella cellaDestinazioneTorre = Scacchiera.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));</span>
+<span class="fc" id="L293">		Cella cellaPartenzaTorre = Scacchiera.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));</span>
+<span class="fc" id="L294">		Cella cellaDestinazioneTorre = Scacchiera.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));</span>
 
-<span class="nc" id="L354">		Pezzo presuntaTorreGiocatoreAttuale = cellaPartenzaTorre.getPezzoCorrente();</span>
+<span class="fc" id="L296">		Pezzo presuntaTorreGiocatoreAttuale = cellaPartenzaTorre.getPezzoCorrente();</span>
 
-<span class="nc" id="L356">		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();</span>
-		// Se nella cella di partenza del presunto re c'è il re del colore del
+<span class="fc" id="L298">		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();</span>
+		// Se nella cella di partenza del presunto re c'e' il re del colore del
 		// giocatore
 		// in turno..
-<span class="nc bnc" id="L360" title="All 4 branches missed.">		if (cellaPartenzaRe.isOccupato() &amp;&amp; presuntoReGiocatoreAttuale.getNome() == &quot;Re&quot;</span>
-<span class="nc bnc" id="L361" title="All 2 branches missed.">				&amp;&amp; presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo</span>
-				// e nella cella della presunta torre c'è la torre del colore del giocatore in
+<span class="pc bpc" id="L302" title="2 of 4 branches missed.">		if (cellaPartenzaRe.isOccupato() &amp;&amp; presuntoReGiocatoreAttuale.getNome() == &quot;Re&quot;</span>
+<span class="pc bpc" id="L303" title="1 of 2 branches missed.">				&amp;&amp; presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo</span>
+				// e nella cella della presunta torre c'e' la torre del colore del giocatore in
 				// turno..
-<span class="nc bnc" id="L364" title="All 4 branches missed.">				&amp;&amp; cellaPartenzaTorre.isOccupato() &amp;&amp; presuntaTorreGiocatoreAttuale.getNome() == &quot;Torre&quot;</span>
-<span class="nc bnc" id="L365" title="All 2 branches missed.">				&amp;&amp; presuntaTorreGiocatoreAttuale.getColore() == coloreGiocatoreAttivo) {</span>
-<span class="nc" id="L366">			Re re = (Re) presuntoReGiocatoreAttuale;</span>
-
-<span class="nc" id="L368">			return re.isArroccoValido(cellaPartenzaRe, cellaDestinazioneRe, cellaPartenzaTorre, cellaDestinazioneTorre,</span>
-<span class="nc" id="L369">					getMosseConvertite(), tipoArrocco);</span>
+<span class="pc bpc" id="L306" title="2 of 4 branches missed.">				&amp;&amp; cellaPartenzaTorre.isOccupato() &amp;&amp; presuntaTorreGiocatoreAttuale.getNome() == &quot;Torre&quot;</span>
+<span class="pc bpc" id="L307" title="1 of 2 branches missed.">				&amp;&amp; presuntaTorreGiocatoreAttuale.getColore() == coloreGiocatoreAttivo) {</span>
+<span class="fc" id="L308">			Re re = (Re) presuntoReGiocatoreAttuale;</span>
+<span class="fc" id="L309">			return re.isArroccoValido(cellaPartenzaRe, cellaDestinazioneRe, cellaPartenzaTorre,</span>
+<span class="fc" id="L310">					cellaDestinazioneTorre, getMosseConvertite(), tipoArrocco);</span>
 		}
 
-<span class="nc" id="L372">		return false;</span>
+<span class="nc" id="L313">		return false;</span>
 
 	}
 
 	/**
-	 * TODO: Aggiungere javadoc!
+	 * Controlla se il Re non e' sotto scacco nel caso in cui un pezzo del suo
+	 * stesso colore si muove in un'altra cella. Viene applicata la mossa
+	 * temporaneamente per effettuare i controlli attraverso la funzione
+	 * isReSottoScacco: in caso positivo viene restituito un booleano con valore
+	 * false, altrimenti e' restituito un booleano con valore true. In entrambi i
+	 * casi viene ripristinata la situazione immediatamente precedente alla
+	 * applicazione della mossa.
 	 *
 	 * @param partenza
 	 * @param destinazione
-	 * @param tipo         //TODO tipomossa??
-	 * @return
+	 * @param tipoMossa
+	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-	public static boolean isReProtetto(final Cella partenza, final Cella destinazione, final int tipo) {
-<span class="nc" id="L385">		Cella cellaRe = Re.findRe();</span>
-<span class="nc" id="L386">		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();</span>
-<span class="nc" id="L387">		boolean isReProtetto = false;</span>
+	 private static boolean isReProtetto(final Cella partenza, final Cella destinazione) {
 
-<span class="nc bnc" id="L389" title="All 2 branches missed.">		if (partenza.getPezzoCorrente().getNome().equals(&quot;Re&quot;)) {</span>
-<span class="nc" id="L390">			return true; // Il re è protetto</span>
+<span class="fc" id="L333">		Cella cellaRe = Re.findRe();</span>
+<span class="fc" id="L334">		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();</span>
+<span class="fc" id="L335">		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());</span>
+<span class="fc" id="L336">		boolean isReProtetto = false;</span>
+<span class="fc bfc" id="L337" title="All 2 branches covered.">		if (partenza.getPezzoCorrente().getNome().equals(&quot;Re&quot;)) {</span>
+<span class="fc" id="L338">			isReProtetto = true;</span>
+<span class="fc" id="L339">			return isReProtetto;</span>
+		}
+<span class="fc" id="L341">		Scacchiera.scambiaCella(partenza, destinazione);</span>
+<span class="pc bpc" id="L342" title="1 of 2 branches missed.">		if (!reDaProteggere.isReSottoScacco(cellaRe)) {</span>
+<span class="fc" id="L343">			isReProtetto = true;</span>
 		}
 
-<span class="nc" id="L393">		applicaMossa(partenza, destinazione, tipo);</span>
-<span class="nc bnc" id="L394" title="All 2 branches missed.">		if (!reDaProteggere.isReSottoScacco(cellaRe)) {</span>
-<span class="nc" id="L395">			isReProtetto = true;</span>
+<span class="fc" id="L346">		Scacchiera.scambiaCella(destinazione, partenza);</span>
+
+<span class="fc bfc" id="L348" title="All 2 branches covered.">		if (temp.isOccupato()) {</span>
+<span class="fc" id="L349">			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());</span>
 		}
-
-<span class="nc" id="L398">		applicaMossa(destinazione, partenza, tipo);</span>
-
-<span class="nc" id="L400">		Cella temp = new Cella(destinazione.getX(), destinazione.getY(), destinazione.getPezzoCorrente());</span>
-<span class="nc bnc" id="L401" title="All 2 branches missed.">		if (temp.isOccupato()) {</span>
-<span class="nc" id="L402">			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());</span>
-<span class="nc" id="L403">			Turno.getGiocatoreInTurno().removePezzoCatturato();</span>
-		}
-
-<span class="nc" id="L406">		return isReProtetto;</span>
+<span class="fc" id="L351">		return isReProtetto;</span>
 	}
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

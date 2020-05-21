@@ -10,7 +10,7 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Re � valido. La classe Re e' di tipo noECB
+ * movimento del Re e' valido. La classe Re e' di tipo noECB
  */
 public final class Re extends Pezzo {
 
@@ -28,17 +28,17 @@ public final class Re extends Pezzo {
 	public boolean isMossaValida(final Cella start, final Cella end) {
 
 		// controllo se può mangiare pezzo
-<span class="nc bnc" id="L31" title="All 2 branches missed.">		if (end.isOccupato()) {</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">		if (end.isOccupato()) {</span>
 <span class="nc bnc" id="L32" title="All 2 branches missed.">			if (end.getPezzoCorrente().getColore() == getColore()) {</span>
 <span class="nc" id="L33">				return false;</span>
 			}
 		}
-<span class="nc bnc" id="L36" title="All 2 branches missed.">		if (!isReSottoScacco(end)) {</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">		if (!isReSottoScacco(end)) {</span>
 			// MOVIMENTI LINEARI
 			// sulla stessa colonna
-<span class="nc bnc" id="L39" title="All 2 branches missed.">			if (start.getX() == end.getX()) {</span>
-<span class="nc bnc" id="L40" title="All 4 branches missed.">				if ((start.getY() == end.getY() + 1) || (start.getY() == end.getY() - 1)) {</span>
-<span class="nc" id="L41">					return true;</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">			if (start.getX() == end.getX()) {</span>
+<span class="pc bpc" id="L40" title="3 of 4 branches missed.">				if ((start.getY() == end.getY() + 1) || (start.getY() == end.getY() - 1)) {</span>
+<span class="fc" id="L41">					return true;</span>
 				}
 <span class="nc bnc" id="L43" title="All 2 branches missed.">			} else if (start.getY() == end.getY()) { // sulla stessa riga: + 1 a sinistra, -1 a destra</span>
 <span class="nc bnc" id="L44" title="All 4 branches missed.">				if ((start.getX() == end.getX() + 1) || (start.getX() == end.getX() - 1)) {</span>
@@ -60,56 +60,58 @@ public final class Re extends Pezzo {
 			}
 		}
 <span class="nc" id="L62">		return false;</span>
-
 	}
 
 	/**
-	 * Restituisce un valore booleano che indica se è possibile effettuare
+	 * Restituisce un valore booleano che indica se Ã¨ possibile effettuare
 	 * l'arrocco con i pezzi nelle celle passate in input.
 	 *
 	 * @param startRe      Cella di partenza del re di cui si vuole controllare se
-	 *                     è possibile effettuare l'arrocco
+	 *                     e' possibile effettuare l'arrocco
 	 * @param endRe        Cella di destinazione del re di cui si vuole controllare
-	 *                     se è possibile effettuare l'arrocco
+	 *                     se Ã¨ possibile effettuare l'arrocco
 	 * @param startTorre   Cella di partenza della torre di cui si vuole controllare
-	 *                     se è possibile effettuare l'arrocco
+	 *                     se Ã¨ possibile effettuare l'arrocco
 	 * @param endTorre     Cella di destinazione della torre di cui si vuole
-	 *                     controllare se è possibile effettuare l'arrocco
+	 *                     controllare se Ã¨ possibile effettuare l'arrocco
 	 * @param storicoMosse Lista di stringhe che rappresenta l'insieme di tutte le
 	 *                     mosse
 	 * @param tipoArrocco  0 - corto | 1 - lungo
-	 * @return true se l'arrocco è effettuabile, false altrimenti.
+	 * @return true se l'arrocco Ã¨ effettuabile, false altrimenti.
 	 */
-	public boolean isArroccoValido(final Cella startRe, final Cella endRe, final Cella startTorre, final Cella endTorre,
-			final ArrayList&lt;String&gt; storicoMosse, final int tipoArrocco) {
-<span class="nc" id="L85">		int sX = startRe.getX();</span>
-<span class="nc" id="L86">		int sY = startRe.getY();</span>
-<span class="nc" id="L87">		int eX = endRe.getX();</span>
-<span class="nc bnc" id="L88" title="All 4 branches missed.">		if (!isPrimaMossaEffettuata(storicoMosse) &amp;&amp; !isReSottoScacco(startRe)) {</span>
+	public boolean isArroccoValido(final Cella startRe, final Cella endRe, final Cella startTorre,
+	final Cella endTorre, final ArrayList&lt;String&gt; storicoMosse, final int tipoArrocco) {
+<span class="fc" id="L84">		int sX = startRe.getX();</span>
+<span class="fc" id="L85">		int sY = startRe.getY();</span>
+<span class="fc" id="L86">		int eX = endRe.getX();</span>
+<span class="pc bpc" id="L87" title="1 of 4 branches missed.">		if (!isPrimaMossaEffettuata(storicoMosse, tipoArrocco) &amp;&amp; !isReSottoScacco(startRe)) {</span>
 
 			// Itera dalla cella corrente :start fino alla cella di destinazione:end e
 			// controlla che non ci siano pezzi intermedi e che nello spostamento del re non
-			// è sotto scacco
+			// Ã¨ sotto scacco
 
-<span class="nc bnc" id="L94" title="All 2 branches missed.">			if (tipoArrocco == Menu.ARROCCO_CORTO) {</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">			if (tipoArrocco == Menu.ARROCCO_CORTO) {</span>
 				// Arrocco Corto
-<span class="nc bnc" id="L96" title="All 2 branches missed.">				for (int i = sX + 1; i &lt; eX + 1; i++) {</span>
-<span class="nc bnc" id="L97" title="All 4 branches missed.">					if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != &quot;Vuota&quot;) {</span>
-<span class="nc" id="L98">						return false;</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">				for (int i = sX + 1; i &lt; eX + 1; i++) {</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">					if (isReSottoScacco(Scacchiera.getCella(i, sY))</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">					|| Scacchiera.getNomePezzo(i, sY) != &quot;Vuota&quot;) {</span>
+
+<span class="nc" id="L99">						return false;</span>
 					}
 				}
-<span class="nc" id="L101">				return true;</span>
+<span class="fc" id="L102">				return true;</span>
 			} else {
 				// Arrocco Lungo
-<span class="nc bnc" id="L104" title="All 2 branches missed.">				for (int i = sX - 1; i &gt; eX - 1; i--) {</span>
-<span class="nc bnc" id="L105" title="All 4 branches missed.">					if (isReSottoScacco(Scacchiera.getCella(i, sY)) || Scacchiera.getNomePezzo(i, sY) != &quot;Vuota&quot;) {</span>
-<span class="nc" id="L106">						return false;</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">				for (int i = sX - 1; i &gt; eX - 1; i--) {</span>
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">					if (isReSottoScacco(Scacchiera.getCella(i, sY))</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">					|| Scacchiera.getNomePezzo(i, sY) != &quot;Vuota&quot;) {</span>
+<span class="fc" id="L108">						return false;</span>
 					}
 				}
-<span class="nc" id="L109">				return true;</span>
+<span class="fc" id="L111">				return true;</span>
 			}
 		} else {
-<span class="nc" id="L112">			return false;</span>
+<span class="fc" id="L114">			return false;</span>
 		}
 
 	}
@@ -124,22 +126,22 @@ public final class Re extends Pezzo {
 	 */
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 		String comando;
-<span class="nc bnc" id="L127" title="All 2 branches missed.">		if (tipoArrocco == Menu.ARROCCO_CORTO) {</span>
-<span class="nc bnc" id="L128" title="All 2 branches missed.">			if (c == Colore.bianco) {</span>
-<span class="nc" id="L129">				comando = &quot;e1 g1&quot;;</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">		if (tipoArrocco == Menu.ARROCCO_CORTO) {</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">			if (c == Colore.bianco) {</span>
+<span class="fc" id="L131">				comando = &quot;e1 g1&quot;;</span>
 			} else {
-<span class="nc" id="L131">				comando = &quot;e8 g8&quot;;</span>
+<span class="fc" id="L133">				comando = &quot;e8 g8&quot;;</span>
 			}
 		} else {
 			// arrocco lungo
-<span class="nc bnc" id="L135" title="All 2 branches missed.">			if (c == Colore.bianco) {</span>
-<span class="nc" id="L136">				comando = &quot;e1 c1&quot;;</span>
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">			if (c == Colore.bianco) {</span>
+<span class="fc" id="L138">				comando = &quot;e1 c1&quot;;</span>
 			} else {
-<span class="nc" id="L138">				comando = &quot;e8 c8&quot;;</span>
+<span class="nc" id="L140">				comando = &quot;e8 c8&quot;;</span>
 			}
 		}
 
-<span class="nc" id="L142">		return comando;</span>
+<span class="fc" id="L144">		return comando;</span>
 
 	}
 
@@ -151,51 +153,52 @@ public final class Re extends Pezzo {
 	 * @return mossa in output in notazione estesa
 	 */
 	public static String convertiMossa(final String mossa) {
-<span class="nc" id="L154">		int startX = -1;</span>
-<span class="nc" id="L155">		int startY = -1;</span>
-<span class="nc" id="L156">		int endX = -1;</span>
-<span class="nc" id="L157">		int endY = -1;</span>
-<span class="nc" id="L158">		String mossaConvertita = &quot;a0 a0&quot;;</span>
+<span class="fc" id="L156">		int startX = -1;</span>
+<span class="fc" id="L157">		int startY = -1;</span>
+<span class="fc" id="L158">		int endX = -1;</span>
+<span class="fc" id="L159">		int endY = -1;</span>
+<span class="fc" id="L160">		String mossaConvertita = &quot;a0 a0&quot;;</span>
 		// mossa semplice
-<span class="nc bnc" id="L160" title="All 2 branches missed.">		if (mossa.matches(&quot;R[a-h][1-8]&quot;)) {</span>
-<span class="nc" id="L161">			final int colonnaDestinazioneAvanzata = 1;</span>
-<span class="nc" id="L162">			final int traversaDestinazioneAvanzata = 2;</span>
-<span class="nc" id="L163">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
-<span class="nc" id="L164">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));</span>
-<span class="nc bnc" id="L165" title="All 2 branches missed.">			if (Scacchiera.getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
-<span class="nc" id="L166">				return mossaConvertita;</span>
+<span class="pc bpc" id="L162" title="1 of 2 branches missed.">		if (mossa.matches(&quot;R[a-h][1-8]&quot;)) {</span>
+<span class="fc" id="L163">			final int colonnaDestinazioneAvanzata = 1;</span>
+<span class="fc" id="L164">			final int traversaDestinazioneAvanzata = 2;</span>
+<span class="fc" id="L165">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
+<span class="fc" id="L166">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));</span>
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">			if (Scacchiera.getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
+<span class="nc" id="L168">				return mossaConvertita;</span>
 			}
 		}
 		// mossa di cattura
-<span class="nc bnc" id="L170" title="All 2 branches missed.">		if (mossa.matches(&quot;R(x|:)[a-h][1-8]&quot;)) {</span>
-<span class="nc" id="L171">			final int colonnaDestinazioneCattura = 2;</span>
-<span class="nc" id="L172">			final int traversaDestinazioneCattura = 3;</span>
-<span class="nc" id="L173">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));</span>
-<span class="nc" id="L174">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));</span>
-<span class="nc bnc" id="L175" title="All 2 branches missed.">			if (Scacchiera.getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
-<span class="nc" id="L176">				return mossaConvertita;</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">		if (mossa.matches(&quot;R(x|:)[a-h][1-8]&quot;)) {</span>
+<span class="nc" id="L173">			final int colonnaDestinazioneCattura = 2;</span>
+<span class="nc" id="L174">			final int traversaDestinazioneCattura = 3;</span>
+<span class="nc" id="L175">			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));</span>
+<span class="nc" id="L176">			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">			if (Scacchiera.getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
+<span class="nc" id="L178">				return mossaConvertita;</span>
 			}
 		}
 		// ricerca il re del giocatore in turno
-<span class="nc bnc" id="L180" title="All 2 branches missed.">		for (int i = 0; i &lt; Scacchiera.getNumeroColonne(); i++) {</span>
-<span class="nc bnc" id="L181" title="All 2 branches missed.">			for (int j = 0; j &lt; Scacchiera.getNumeroRighe(); j++) {</span>
-<span class="nc bnc" id="L182" title="All 2 branches missed.">				if (Scacchiera.getNomePezzo(i, j) == &quot;Re&quot; &amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente()</span>
-<span class="nc bnc" id="L183" title="All 2 branches missed.">						.getColore() == Turno.getGiocatoreInTurno().getColore()) {</span>
-<span class="nc" id="L184">					startX = i;</span>
-<span class="nc" id="L185">					startY = j;</span>
-<span class="nc" id="L186">					break;</span>
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">		for (int i = 0; i &lt; Scacchiera.getNumeroColonne(); i++) {</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">			for (int j = 0; j &lt; Scacchiera.getNumeroRighe(); j++) {</span>
+<span class="fc bfc" id="L184" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(i, j) == &quot;Re&quot;</span>
+<span class="fc" id="L185">					&amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente()</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">					.getColore() == Turno.getGiocatoreInTurno().getColore()) {</span>
+<span class="fc" id="L187">					startX = i;</span>
+<span class="fc" id="L188">					startY = j;</span>
+<span class="fc" id="L189">					break;</span>
 				}
 			}
-<span class="nc bnc" id="L189" title="All 2 branches missed.">			if (startX != -1) {</span>
-<span class="nc" id="L190">				break;</span>
+<span class="fc bfc" id="L192" title="All 2 branches covered.">			if (startX != -1) {</span>
+<span class="fc" id="L193">				break;</span>
 			}
 		}
 		// solo se ha trovato il re ha senso convertire la mossa
-<span class="nc bnc" id="L194" title="All 4 branches missed.">		if (startX != -1 &amp;&amp; startY != -1) {</span>
-<span class="nc" id="L195">			mossaConvertita = Cella.coordXinChar(startX) + &quot;&quot; + Cella.coordYinChar(startY) + &quot; &quot;</span>
-<span class="nc" id="L196">					+ Cella.coordXinChar(endX) + &quot;&quot; + Cella.coordYinChar(endY);</span>
+<span class="pc bpc" id="L197" title="2 of 4 branches missed.">		if (startX != -1 &amp;&amp; startY != -1) {</span>
+<span class="fc" id="L198">			mossaConvertita = Cella.coordXinChar(startX) + &quot;&quot; + Cella.coordYinChar(startY) + &quot; &quot;</span>
+<span class="fc" id="L199">					+ Cella.coordXinChar(endX) + &quot;&quot; + Cella.coordYinChar(endY);</span>
 		}
-<span class="nc" id="L198">		return mossaConvertita;</span>
+<span class="fc" id="L201">		return mossaConvertita;</span>
 	}
 
 	/**
@@ -205,62 +208,71 @@ public final class Re extends Pezzo {
 	 * @return boolean true se il re è sotto scacco, false altrimenti
 	 */
 	public boolean isReSottoScacco(final Cella reCella) {
-<span class="nc" id="L208">		Colore c = getColore();</span>
-<span class="nc" id="L209">		Re reTemp = new Re(c);</span>
-<span class="nc" id="L210">		Cella temp = new Cella(reCella.getX(), reCella.getY(), reTemp);</span>
-<span class="nc" id="L211">		temp.setOccupato(true);</span>
-<span class="nc bnc" id="L212" title="All 2 branches missed.">		for (int i = 0; i &lt; Scacchiera.getNumeroRighe(); i++) {</span>
-<span class="nc bnc" id="L213" title="All 2 branches missed.">			for (int j = 0; j &lt; Scacchiera.getNumeroColonne(); j++) {</span>
-<span class="nc bnc" id="L214" title="All 2 branches missed.">				if (Scacchiera.getNomePezzo(i, j) != &quot;Vuota&quot;</span>
-<span class="nc bnc" id="L215" title="All 2 branches missed.">						&amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c</span>
-<span class="nc bnc" id="L216" title="All 2 branches missed.">						&amp;&amp; Scacchiera.getNomePezzo(i, j) != &quot;Re&quot; &amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente()</span>
-<span class="nc bnc" id="L217" title="All 2 branches missed.">								.isMossaValida(Scacchiera.getCella(i, j), temp)) {</span>
-<span class="nc" id="L218">					return true;</span>
+<span class="fc" id="L211">		Colore c = getColore();</span>
+<span class="fc" id="L212">		Re reTemp = new Re(c);</span>
+<span class="fc" id="L213">		Cella temp = new Cella(reCella.getX(), reCella.getY(), reTemp);</span>
+<span class="fc" id="L214">		temp.setOccupato(true);</span>
+<span class="fc bfc" id="L215" title="All 2 branches covered.">		for (int i = 0; i &lt; Scacchiera.getNumeroRighe(); i++) {</span>
+<span class="fc bfc" id="L216" title="All 2 branches covered.">			for (int j = 0; j &lt; Scacchiera.getNumeroColonne(); j++) {</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(i, j) != &quot;Vuota&quot;</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">				&amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente().getColore() != c</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">				&amp;&amp; Scacchiera.getNomePezzo(i, j) != &quot;Re&quot;</span>
+<span class="fc" id="L220">				&amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente()</span>
+<span class="pc bpc" id="L221" title="1 of 2 branches missed.">				.isMossaValida(Scacchiera.getCella(i, j), temp)) {</span>
+<span class="nc" id="L222">					return true;</span>
 				}
 			}
 		}
-<span class="nc" id="L222">		return false;</span>
+<span class="fc" id="L226">		return false;</span>
 	}
 
 	/**
 	 * Controlla se il re o la torre si sono mai spostati
 	 *
 	 * @param storicoMosse
-	 * @return true se la prima mossa del re è stata effettuata, false altrimenti.
+	 * @return true se la prima mossa del re Ã¨ stata effettuata, false altrimenti.
 	 */
-	public static boolean isPrimaMossaEffettuata(final ArrayList&lt;String&gt; storicoMosse) {
-
-<span class="nc bnc" id="L233" title="All 2 branches missed.">		for (int i = 0; i &lt; storicoMosse.size(); i++) {</span>
-<span class="nc bnc" id="L234" title="All 2 branches missed.">			if (storicoMosse.get(i).matches(&quot;(h|e|a)(1|8) [a-h][1-8]&quot;)) {</span>
-<span class="nc" id="L235">				return true;</span>
+	public static boolean isPrimaMossaEffettuata(final ArrayList&lt;String&gt; storicoMosse, final int tipoArrocco) {
+<span class="fc" id="L236">		final short numGiocatori = 2;</span>
+<span class="fc bfc" id="L237" title="All 2 branches covered.">		for (int i = 0; i &lt; storicoMosse.size(); i++) {</span>
+<span class="fc bfc" id="L238" title="All 6 branches covered.">			if ((tipoArrocco == Menu.ARROCCO_CORTO &amp;&amp; storicoMosse.get(i).matches(&quot;(h|e)(1|8) [a-h][1-8]&quot;))</span>
+			|| (tipoArrocco == Menu.ARROCCO_LUNGO
+<span class="pc bpc" id="L240" title="1 of 2 branches missed.">			&amp;&amp; storicoMosse.get(i).matches(&quot;(e|a)(1|8) [a-h][1-8]&quot;))) {</span>
+<span class="pc bpc" id="L241" title="1 of 2 branches missed.">				if (((i % numGiocatori) == 0</span>
+<span class="pc bpc" id="L242" title="1 of 4 branches missed.">						&amp;&amp; Turno.getGiocatoreInTurno().getColore() == Colore.bianco)</span>
+						|| ((i % numGiocatori) != 0
+<span class="nc bnc" id="L244" title="All 2 branches missed.">						&amp;&amp; Turno.getGiocatoreInTurno().getColore() == Colore.nero)) {</span>
+<span class="fc" id="L245">					return true;</span>
+				}
 			}
 		}
-<span class="nc" id="L238">		return false;</span>
+<span class="fc" id="L249">		return false;</span>
 	}
 
 	/**
-	 * TODO: Migliorare javadoc
+	 * Cerca il Re nella scacchiera dello stesso colore del giocatore in turno.
 	 *
-	 * @return
+	 * @return Cella che contiene il Re
 	 */
 	public static Cella findRe() {
-<span class="nc" id="L247">		int startX = -1;</span>
-<span class="nc" id="L248">		int startY = -1;</span>
+<span class="fc" id="L258">		int startX = -1;</span>
+<span class="fc" id="L259">		int startY = -1;</span>
 		// ricerca il re del giocatore in turno
-<span class="nc bnc" id="L250" title="All 2 branches missed.">		for (int i = 0; i &lt; Scacchiera.getNumeroColonne(); i++) {</span>
-<span class="nc bnc" id="L251" title="All 2 branches missed.">			for (int j = 0; j &lt; Scacchiera.getNumeroRighe(); j++) {</span>
-<span class="nc bnc" id="L252" title="All 2 branches missed.">				if (Scacchiera.getNomePezzo(i, j) == &quot;Re&quot; &amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente()</span>
-<span class="nc bnc" id="L253" title="All 2 branches missed.">						.getColore() == Turno.getGiocatoreInTurno().getColore()) {</span>
-<span class="nc" id="L254">					startX = i;</span>
-<span class="nc" id="L255">					startY = j;</span>
-<span class="nc" id="L256">					break;</span>
+<span class="pc bpc" id="L261" title="1 of 2 branches missed.">		for (int i = 0; i &lt; Scacchiera.getNumeroColonne(); i++) {</span>
+<span class="fc bfc" id="L262" title="All 2 branches covered.">			for (int j = 0; j &lt; Scacchiera.getNumeroRighe(); j++) {</span>
+<span class="fc bfc" id="L263" title="All 2 branches covered.">				if (Scacchiera.getNomePezzo(i, j) == &quot;Re&quot;</span>
+<span class="fc" id="L264">					&amp;&amp; Scacchiera.getCella(i, j).getPezzoCorrente()</span>
+<span class="fc bfc" id="L265" title="All 2 branches covered.">					.getColore() == Turno.getGiocatoreInTurno().getColore()) {</span>
+<span class="fc" id="L266">					startX = i;</span>
+<span class="fc" id="L267">					startY = j;</span>
+<span class="fc" id="L268">					break;</span>
 				}
 			}
-<span class="nc bnc" id="L259" title="All 2 branches missed.">			if (startX != -1) {</span>
-<span class="nc" id="L260">				break;</span>
+<span class="fc bfc" id="L271" title="All 2 branches covered.">			if (startX != -1) {</span>
+<span class="fc" id="L272">				break;</span>
 			}
 		}
-<span class="nc" id="L263">		return Scacchiera.getCella(startX, startY);</span>
+<span class="fc" id="L275">		return Scacchiera.getCella(startX, startY);</span>
 	}
 
 }

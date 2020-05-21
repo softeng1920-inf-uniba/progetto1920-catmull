@@ -18,7 +18,7 @@ import scacchiera.pedine.Regina;
 import scacchiera.pedine.Torre;
 
 /**
- * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
@@ -45,7 +45,6 @@ public final class Controller {
 	if (istance == null) {
 	    istance = new Controller();
 	}
-
 	return istance;
     }
 
@@ -102,7 +101,7 @@ public final class Controller {
 
     /**
      * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
-     * e restituisce true se la mossa e' valida ed e' stata applicata altrimenti
+     * e restituisce true se la mossa � valida ed � stata applicata altrimenti
      * restituisce false
      *
      * @param mossaDaGiocare
@@ -176,7 +175,6 @@ public final class Controller {
 	} else if (mossaInInput.matches("([a-h](x|:))([a-h][1-8])( e.p.)")) {
 	    tipoMossa = EN_PASSANT;
 	}
-
 	return tipoMossa;
     }
 
@@ -225,7 +223,6 @@ public final class Controller {
 	    if (isReProtetto(cellaPartenza, cellaDestinazione)) {
 		return true;
 	    }
-
 	}
 	return false;
     }
@@ -359,7 +356,6 @@ public final class Controller {
 	scacchieraGioco.scambiaCella(destinazione, partenza);
 	if (temp.isOccupato()) {
 	    scacchieraGioco.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
-
 	}
 	return isReProtetto;
     }

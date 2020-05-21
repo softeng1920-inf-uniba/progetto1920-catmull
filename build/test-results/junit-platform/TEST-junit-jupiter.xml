@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
 <testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0.007" hostname="DESKTOP-4L7G6SD" timestamp="2020-05-25T18:33:12">
@@ -40,10 +41,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="JUnit Jupiter" tests="36" skipped="0" failures="0" errors="0" time="0.145" hostname="MBP-di-Antonio" timestamp="2020-05-17T16:44:34">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="146" skipped="0" failures="0" errors="0" time="0.238" hostname="MBP-di-Antonio" timestamp="2020-05-21T12:55:25">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <properties>
 <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
 <property name="file.encoding" value="UTF-8"/>
 <property name="file.encoding.pkg" value="sun.io"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -102,6 +108,8 @@
 =======
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <property name="file.separator" value="/"/>
 <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
 <property name="gopherProxySet" value="false"/>
@@ -117,6 +125,7 @@
 <property name="java.library.path" value="/Users/antoniocurci/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
 <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
 <property name="java.runtime.version" value="1.8.0_251-b08"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> Riparazione conflitti
 >>>>>>> Riparazione conflitti
@@ -135,12 +144,15 @@
 =======
 <property name="java.runtime.version" value="1.8.0_251-b08"/>
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <property name="java.specification.name" value="Java Platform API Specification"/>
 <property name="java.specification.vendor" value="Oracle Corporation"/>
 <property name="java.specification.version" value="1.8"/>
 <property name="java.vendor" value="Oracle Corporation"/>
 <property name="java.vendor.url" value="http://java.oracle.com/"/>
 <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -177,12 +189,16 @@
 =======
 <property name="java.version" value="1.8.0_251"/>
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<property name="java.version" value="1.8.0_251"/>
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <property name="java.vm.info" value="mixed mode"/>
 <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
 <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
 <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
 <property name="java.vm.specification.version" value="1.8"/>
 <property name="java.vm.vendor" value="Oracle Corporation"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -219,6 +235,9 @@
 =======
 <property name="java.vm.version" value="25.251-b08"/>
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<property name="java.vm.version" value="25.251-b08"/>
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <property name="line.separator" value="
 "/>
 <property name="os.arch" value="x86_64"/>
@@ -227,6 +246,7 @@
 <property name="path.separator" value=":"/>
 <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
 <property name="sun.arch.data.model" value="64"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -275,6 +295,8 @@
 >>>>>>> Riparazione conflitti
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/classes"/>
 <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home/jre/lib"/>
 <property name="sun.cpu.endian" value="little"/>
@@ -284,6 +306,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Riparazione conflitti
 >>>>>>> Riparazione conflitti
 <<<<<<< HEAD
@@ -297,11 +320,14 @@
 >>>>>>> Riparazione conflitti
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <property name="sun.java.launcher" value="SUN_STANDARD"/>
 <property name="sun.jnu.encoding" value="UTF-8"/>
 <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
 <property name="sun.os.patch.level" value="unknown"/>
 <property name="user.country" value="IT"/>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -340,6 +366,8 @@
 >>>>>>> Riparazione conflitti
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <property name="user.dir" value="/Users/antoniocurci/progetto1920-catmull"/>
 <property name="user.home" value="/Users/antoniocurci"/>
 <property name="user.language" value="it"/>
@@ -383,37 +411,48 @@ display-name: testGetColore()
 =======
 <property name="user.variant" value=""/>
 </properties>
-<testcase name="testGetSimbolo()" classname="scacchiera.pedine.PezzoTest" time="0.026">
-<system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetSimbolo()]
-display-name: testGetSimbolo()
-]]></system-out>
-</testcase>
-<testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.001">
+<testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.029">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testToString()]
 display-name: testToString()
 ]]></system-out>
 </testcase>
-<testcase name="testGetNome()" classname="scacchiera.pedine.PezzoTest" time="0">
+<testcase name="testGetNome()" classname="scacchiera.pedine.PezzoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetNome()]
 display-name: testGetNome()
 ]]></system-out>
 </testcase>
-<testcase name="testGetColore()" classname="scacchiera.pedine.PezzoTest" time="0">
+<testcase name="testGetSimboloNero()" classname="scacchiera.pedine.PezzoTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetSimboloNero()]
+display-name: testGetSimboloNero()
+]]></system-out>
+</testcase>
+<testcase name="testGetSimboloBianco()" classname="scacchiera.pedine.PezzoTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetSimboloBianco()]
+display-name: testGetSimboloBianco()
+]]></system-out>
+</testcase>
+<testcase name="testGetColore()" classname="scacchiera.pedine.PezzoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetColore()]
 display-name: testGetColore()
 ]]></system-out>
 </testcase>
+<<<<<<< HEAD
 <testcase name="testEndX()" classname="scacchiera.CellaTest" time="0.001">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="testEndX()" classname="scacchiera.CellaTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testEndX()]
 display-name: testEndX()
 ]]></system-out>
 </testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testEndY()" classname="scacchiera.CellaTest" time="0">
@@ -423,6 +462,9 @@ display-name: testEndX()
 =======
 <testcase name="testEndY()" classname="scacchiera.CellaTest" time="0">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="testEndY()" classname="scacchiera.CellaTest" time="0.001">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testEndY()]
 display-name: testEndY()
@@ -430,31 +472,40 @@ display-name: testEndY()
 </testcase>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 <testcase name="testCostruttore()" classname="scacchiera.CellaTest" time="0.002">
+=======
+<testcase name="testCostruttore()" classname="scacchiera.CellaTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testCostruttore()]
 display-name: testCostruttore()
 ]]></system-out>
 </testcase>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Riparazione conflitti
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 <testcase name="testStartX()" classname="scacchiera.CellaTest" time="0.001">
+=======
+<testcase name="testStartX()" classname="scacchiera.CellaTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testStartX()]
 display-name: testStartX()
 ]]></system-out>
 </testcase>
-<testcase name="testStartY()" classname="scacchiera.CellaTest" time="0.001">
+<testcase name="testStartY()" classname="scacchiera.CellaTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testStartY()]
 display-name: testStartY()
 ]]></system-out>
 </testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testSetGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0">
@@ -464,23 +515,39 @@ display-name: testStartY()
 =======
 <testcase name="testSetGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="testGetArrayStoriaMosseBianco()" classname="gioco.TurnoTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testSetGiocatoreInAttesa()]
-display-name: testSetGiocatoreInAttesa()
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseBianco()]
+display-name: testGetArrayStoriaMosseBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testGetGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0">
+<testcase name="testGetGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetGiocatoreInAttesa()]
 display-name: testGetGiocatoreInAttesa()
 ]]></system-out>
 </testcase>
-<testcase name="testSetGiocatoreInTurno()" classname="gioco.TurnoTest" time="0">
+<testcase name="testGetArrayStoriaMosseNero()" classname="gioco.TurnoTest" time="0">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testSetGiocatoreInTurno()]
-display-name: testSetGiocatoreInTurno()
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseNero()]
+display-name: testGetArrayStoriaMosseNero()
 ]]></system-out>
 </testcase>
+<testcase name="testGetArrayStoriaMosseAttesaDim1Nero()" classname="gioco.TurnoTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseAttesaDim1Nero()]
+display-name: testGetArrayStoriaMosseAttesaDim1Nero()
+]]></system-out>
+</testcase>
+<testcase name="testSetNomeGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testSetNomeGiocatoreInTurno()]
+display-name: testSetNomeGiocatoreInTurno()
+]]></system-out>
+</testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testGetGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.002">
@@ -490,17 +557,105 @@ display-name: testSetGiocatoreInTurno()
 =======
 <testcase name="testGetGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.002">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="testGetGiocatoreInTurno()" classname="gioco.TurnoTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetGiocatoreInTurno()]
 display-name: testGetGiocatoreInTurno()
 ]]></system-out>
 </testcase>
-<testcase name="testGetArrayStoriaMosse()" classname="gioco.TurnoTest" time="0.001">
+<testcase name="testGetArrayStoriaMosseAttesaDim1Bianco()" classname="gioco.TurnoTest" time="0.001">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosse()]
-display-name: testGetArrayStoriaMosse()
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseAttesaDim1Bianco()]
+display-name: testGetArrayStoriaMosseAttesaDim1Bianco()
 ]]></system-out>
 </testcase>
+<testcase name="testGetArrayStoriaMosseNeroDim1()" classname="gioco.TurnoTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseNeroDim1()]
+display-name: testGetArrayStoriaMosseNeroDim1()
+]]></system-out>
+</testcase>
+<testcase name="testGetArrayStoriaMosseBiancoDim1()" classname="gioco.TurnoTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseBiancoDim1()]
+display-name: testGetArrayStoriaMosseBiancoDim1()
+]]></system-out>
+</testcase>
+<testcase name="testSetNomeGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testSetNomeGiocatoreInAttesa()]
+display-name: testSetNomeGiocatoreInAttesa()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchi_Mangiata()" classname="gioco.ControllerTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchi_Mangiata()]
+display-name: testMossaScacchi_Mangiata()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchi()" classname="gioco.ControllerTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchi()]
+display-name: testMossaScacchi()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchiArrocco_Lungo_NonValido()" classname="gioco.ControllerTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchiArrocco_Lungo_NonValido()]
+display-name: testMossaScacchiArrocco_Lungo_NonValido()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchiArrocco_Lungo_Valido()" classname="gioco.ControllerTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchiArrocco_Lungo_Valido()]
+display-name: testMossaScacchiArrocco_Lungo_Valido()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchiRe()" classname="gioco.ControllerTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchiRe()]
+display-name: testMossaScacchiRe()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchiTorre()" classname="gioco.ControllerTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchiTorre()]
+display-name: testMossaScacchiTorre()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchi_EnPassantNonValido()" classname="gioco.ControllerTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchi_EnPassantNonValido()]
+display-name: testMossaScacchi_EnPassantNonValido()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchi_EnPassant()" classname="gioco.ControllerTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchi_EnPassant()]
+display-name: testMossaScacchi_EnPassant()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchiArrocco_Corto_Valido()" classname="gioco.ControllerTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchiArrocco_Corto_Valido()]
+display-name: testMossaScacchiArrocco_Corto_Valido()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchiArrocco_Corto_NonValido()" classname="gioco.ControllerTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchiArrocco_Corto_NonValido()]
+display-name: testMossaScacchiArrocco_Corto_NonValido()
+]]></system-out>
+</testcase>
+<testcase name="testMossaScacchi_MossaNonValida()" classname="gioco.ControllerTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.ControllerTest]/[method:testMossaScacchi_MossaNonValida()]
+display-name: testMossaScacchi_MossaNonValida()
+]]></system-out>
+</testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testIsEnPassantValido()" classname="scacchiera.pedine.PedoneTest" time="0.003">
@@ -510,11 +665,39 @@ display-name: testGetArrayStoriaMosse()
 =======
 <testcase name="testIsEnPassantValido()" classname="scacchiera.pedine.PedoneTest" time="0.003">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="testConvertiMossaCatturaPedone()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaCatturaPedone()]
+display-name: testConvertiMossaCatturaPedone()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaObliquoNonValida()" classname="scacchiera.pedine.PedoneTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaObliquoNonValida()]
+display-name: testIsMossaValidaObliquoNonValida()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaDueCelle()" classname="scacchiera.pedine.PedoneTest" time="0.003">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaDueCelle()]
+display-name: testIsMossaValidaDueCelle()
+]]></system-out>
+</testcase>
+<testcase name="testIsEnPassantValidoCatturaNonValida()" classname="scacchiera.pedine.PedoneTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsEnPassantValidoCatturaNonValida()]
+display-name: testIsEnPassantValidoCatturaNonValida()
+]]></system-out>
+</testcase>
+<testcase name="testIsEnPassantValido()" classname="scacchiera.pedine.PedoneTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsEnPassantValido()]
 display-name: testIsEnPassantValido()
 ]]></system-out>
 </testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testConvertiMossa()" classname="scacchiera.pedine.PedoneTest" time="0.002">
@@ -524,23 +707,189 @@ display-name: testIsEnPassantValido()
 =======
 <testcase name="testConvertiMossa()" classname="scacchiera.pedine.PedoneTest" time="0.002">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="testisMossaValidaFinalePienaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossa()]
-display-name: testConvertiMossa()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testisMossaValidaFinalePienaBianco()]
+display-name: testisMossaValidaFinalePienaBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testIsPedone()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<testcase name="testIsMossaValidaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsPedone()]
-display-name: testIsPedone()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaUnaCellaBianco()]
+display-name: testIsMossaValidaUnaCellaBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<testcase name="testIsEnPassantValidoSenzaMossaDiDue()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValida()]
-display-name: testIsMossaValida()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsEnPassantValidoSenzaMossaDiDue()]
+display-name: testIsEnPassantValidoSenzaMossaDiDue()
 ]]></system-out>
 </testcase>
+<testcase name="testConvertiMossaDueAvanti()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaDueAvanti()]
+display-name: testConvertiMossaDueAvanti()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaDueFinaleOccupata()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaDueFinaleOccupata()]
+display-name: testIsMossaValidaDueFinaleOccupata()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaSuCellaCorrente()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaSuCellaCorrente()]
+display-name: testConvertiMossaSuCellaCorrente()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaDueCelleBianco()" classname="scacchiera.pedine.PedoneTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaDueCelleBianco()]
+display-name: testConvertiMossaDueCelleBianco()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaUnoAvanti()" classname="scacchiera.pedine.PedoneTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaUnoAvanti()]
+display-name: testConvertiMossaUnoAvanti()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaInDietro()" classname="scacchiera.pedine.PedoneTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaInDietro()]
+display-name: testIsMossaValidaInDietro()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaMossaNonvalida()" classname="scacchiera.pedine.PedoneTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaMossaNonvalida()]
+display-name: testIsMossaValidaMossaNonvalida()
+]]></system-out>
+</testcase>
+<testcase name="testIsEnPassantValidoBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsEnPassantValidoBianco()]
+display-name: testIsEnPassantValidoBianco()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaDueCelleBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaDueCelleBianco()]
+display-name: testIsMossaValidaDueCelleBianco()
+]]></system-out>
+</testcase>
+<testcase name="testisMossaValidaUnaCellaNero()" classname="scacchiera.pedine.PedoneTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testisMossaValidaUnaCellaNero()]
+display-name: testisMossaValidaUnaCellaNero()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaObliquoValida()" classname="scacchiera.pedine.PedoneTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaObliquoValida()]
+display-name: testIsMossaValidaObliquoValida()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaUnaCellaBianco()]
+display-name: testConvertiMossaUnaCellaBianco()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaEnPassant()" classname="scacchiera.pedine.PedoneTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaEnPassant()]
+display-name: testConvertiMossaEnPassant()
+]]></system-out>
+</testcase>
+<testcase name="TestConvertiMossa_Mangiata_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_Mangiata_BassoDx()]
+display-name: TestConvertiMossa_Mangiata_BassoDx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_BassoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoDx2()]
+display-name: testIsMossaValida_BassoDx2()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_BassoSx2()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoSx2()]
+display-name: testIsMossaValida_BassoSx2()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testConvertiMossaAltoDx()]
+display-name: testConvertiMossaAltoDx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx_PercorsoOccupato()]
+display-name: testIsMossaValida_AltoDx_PercorsoOccupato()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoSx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoSx_PercorsoOccupato()]
+display-name: testIsMossaValida_AltoSx_PercorsoOccupato()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx()]
+display-name: testIsMossaValida_AltoDx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoSx()]
+display-name: testIsMossaValida_AltoSx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx2()]
+display-name: testIsMossaValida_AltoDx2()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoDx3()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx3()]
+display-name: testIsMossaValida_AltoDx3()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoSx2()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoSx2()]
+display-name: testIsMossaValida_AltoSx2()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_AltoDx_Mangiata()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx_Mangiata()]
+display-name: testIsMossaValida_AltoDx_Mangiata()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoDx()]
+display-name: testIsMossaValida_BassoDx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoSx()]
+display-name: testIsMossaValida_BassoSx()
+]]></system-out>
+</testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testConvertiMossa()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
@@ -550,11 +899,15 @@ display-name: testIsMossaValida()
 =======
 <testcase name="testConvertiMossa()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="TestConvertiMossa_BassoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testConvertiMossa()]
-display-name: testConvertiMossa()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_BassoDx2()]
+display-name: TestConvertiMossa_BassoDx2()
 ]]></system-out>
 </testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testIsMossaValida()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
@@ -564,9 +917,102 @@ display-name: testConvertiMossa()
 =======
 <testcase name="testIsMossaValida()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="TestConvertiMossa_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida()]
-display-name: testIsMossaValida()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_BassoDx()]
+display-name: TestConvertiMossa_BassoDx()
+]]></system-out>
+</testcase>
+<testcase name="TestConvertiMossa_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_BassoSx()]
+display-name: TestConvertiMossa_BassoSx()
+]]></system-out>
+</testcase>
+<testcase name="TestConvertiMossa_Mangiata_AltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.002">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_Mangiata_AltoDx()]
+display-name: TestConvertiMossa_Mangiata_AltoDx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_BassoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoDx_PercorsoOccupato()]
+display-name: testIsMossaValida_BassoDx_PercorsoOccupato()
+]]></system-out>
+</testcase>
+<testcase name="TestConvertiMossa_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_AltoSx()]
+display-name: TestConvertiMossa_AltoSx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValida_BassoSx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoSx_PercorsoOccupato()]
+display-name: testIsMossaValida_BassoSx_PercorsoOccupato()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaAlfiereMossa()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaAlfiereMossa()]
+display-name: testIsNotazioneAlgebricaAlfiereMossa()
+]]></system-out>
+</testcase>
+<testcase name="testIsArrocco_000()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_000()]
+display-name: testIsArrocco_000()
+]]></system-out>
+</testcase>
+<testcase name="testIsArrocco_OOO()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_OOO()]
+display-name: testIsArrocco_OOO()
+]]></system-out>
+</testcase>
+<testcase name="testIsArrocco_ooo()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_ooo()]
+display-name: testIsArrocco_ooo()
+]]></system-out>
+</testcase>
+<testcase name="testIsComandoValidoHelp()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoHelp()]
+display-name: testIsComandoValidoHelp()
+]]></system-out>
+</testcase>
+<testcase name="testIsComandoValidoMenu()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoMenu()]
+display-name: testIsComandoValidoMenu()
+]]></system-out>
+</testcase>
+<testcase name="testIsComandoValidoQuit()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoQuit()]
+display-name: testIsComandoValidoQuit()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaReginaMossa()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaReginaMossa()]
+display-name: testIsNotazioneAlgebricaReginaMossa()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaPedoneEP()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaPedoneEP()]
+display-name: testIsNotazioneAlgebricaPedoneEP()
+]]></system-out>
+</testcase>
+<testcase name="testIsComandoValidoCaptures()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoCaptures()]
+display-name: testIsComandoValidoCaptures()
 ]]></system-out>
 </testcase>
 <<<<<<< HEAD
@@ -580,22 +1026,124 @@ display-name: testPlay()
 <<<<<<< HEAD
 ]]></system-out>
 </testcase>
-<testcase name="testIsNotazioneAlgebrica()" classname="gioco.MenuTest" time="0.004">
+<testcase name="testIsNotazioneAlgebricaCavalloCattura()" classname="gioco.MenuTest" time="0.001">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebrica()]
-display-name: testIsNotazioneAlgebrica()
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaCavalloCattura()]
+display-name: testIsNotazioneAlgebricaCavalloCattura()
 ]]></system-out>
 </testcase>
-<testcase name="testIsComandoValido()" classname="gioco.MenuTest" time="0">
+<testcase name="testIsNotazioneAlgebricaTorreCattura()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValido()]
-display-name: testIsComandoValido()
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaTorreCattura()]
+display-name: testIsNotazioneAlgebricaTorreCattura()
 ]]></system-out>
 </testcase>
-<testcase name="testIsArrocco()" classname="gioco.MenuTest" time="0">
+<testcase name="testIsArroccoNonValido()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco()]
-display-name: testIsArrocco()
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArroccoNonValido()]
+display-name: testIsArroccoNonValido()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaReCattura()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaReCattura()]
+display-name: testIsNotazioneAlgebricaReCattura()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaPedoneCattura()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaPedoneCattura()]
+display-name: testIsNotazioneAlgebricaPedoneCattura()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaArroccoCorto()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaArroccoCorto()]
+display-name: testIsNotazioneAlgebricaArroccoCorto()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaArroccoLungo()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaArroccoLungo()]
+display-name: testIsNotazioneAlgebricaArroccoLungo()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaReMossa()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaReMossa()]
+display-name: testIsNotazioneAlgebricaReMossa()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaPedoneMossa()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaPedoneMossa()]
+display-name: testIsNotazioneAlgebricaPedoneMossa()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaAlfiereCattura()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaAlfiereCattura()]
+display-name: testIsNotazioneAlgebricaAlfiereCattura()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaComandoVuoto()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaComandoVuoto()]
+display-name: testIsNotazioneAlgebricaComandoVuoto()
+]]></system-out>
+</testcase>
+<testcase name="testIsArrocco_00()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_00()]
+display-name: testIsArrocco_00()
+]]></system-out>
+</testcase>
+<testcase name="testIsArrocco_OO()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_OO()]
+display-name: testIsArrocco_OO()
+]]></system-out>
+</testcase>
+<testcase name="testIsArrocco_oo()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_oo()]
+display-name: testIsArrocco_oo()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaReginaCattura()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaReginaCattura()]
+display-name: testIsNotazioneAlgebricaReginaCattura()
+]]></system-out>
+</testcase>
+<testcase name="testIsComandoValidoBoard()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoBoard()]
+display-name: testIsComandoValidoBoard()
+]]></system-out>
+</testcase>
+<testcase name="testIsComandoValidoMoves()" classname="gioco.MenuTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoMoves()]
+display-name: testIsComandoValidoMoves()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaTorreMossa()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaTorreMossa()]
+display-name: testIsNotazioneAlgebricaTorreMossa()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaErrata()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaErrata()]
+display-name: testIsNotazioneAlgebricaErrata()
+]]></system-out>
+</testcase>
+<testcase name="testIsNotazioneAlgebricaCavalloMossa()" classname="gioco.MenuTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaCavalloMossa()]
+display-name: testIsNotazioneAlgebricaCavalloMossa()
 ]]></system-out>
 </testcase>
 <testcase name="test()" classname="scacchiera.pedine.ReTest" time="0">
@@ -1104,7 +1652,7 @@ unique-id: [engine:junit-jupiter]/[class:gioco.GiocatoreTest]/[method:testGetNom
 display-name: testGetNome()
 ]]></system-out>
 </testcase>
-<testcase name="testGetPezziCatturati()" classname="gioco.GiocatoreTest" time="0.001">
+<testcase name="testGetPezziCatturati()" classname="gioco.GiocatoreTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.GiocatoreTest]/[method:testGetPezziCatturati()]
 display-name: testGetPezziCatturati()
@@ -1112,9 +1660,13 @@ display-name: testGetPezziCatturati()
 </testcase>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 <testcase name="testRemovePezzoCatturato()" classname="gioco.GiocatoreTest" time="0">
+=======
+<testcase name="testRemovePezzoCatturato()" classname="gioco.GiocatoreTest" time="0.001">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.GiocatoreTest]/[method:testRemovePezzoCatturato()]
 display-name: testRemovePezzoCatturato()
@@ -1151,18 +1703,199 @@ unique-id: [engine:junit-jupiter]/[class:gioco.ComandoTest]/[method:testGetNome(
 display-name: testGetNome()
 ]]></system-out>
 </testcase>
-<testcase name="testGetDescrizione()" classname="gioco.ComandoTest" time="0">
+<testcase name="testConvertiMossaFull()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:gioco.ComandoTest]/[method:testGetDescrizione()]
-display-name: testGetDescrizione()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaFull()]
+display-name: testConvertiMossaFull()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossa()" classname="scacchiera.pedine.CavalloTest" time="0.005">
+<testcase name="testConvertiMossaAmbiguitaTravSx1()" classname="scacchiera.pedine.CavalloTest" time="0.002">
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossa()]
-display-name: testConvertiMossa()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTravSx1()]
+display-name: testConvertiMossaAmbiguitaTravSx1()
 ]]></system-out>
 </testcase>
+<testcase name="testConvertiMossaAmbiguitaTravSx2()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTravSx2()]
+display-name: testConvertiMossaAmbiguitaTravSx2()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossab4()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossab4()]
+display-name: testConvertiMossab4()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossab6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossab6()]
+display-name: testConvertiMossab6()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossac3()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossac3()]
+display-name: testConvertiMossac3()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossac7()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossac7()]
+display-name: testConvertiMossac7()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossae3()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossae3()]
+display-name: testConvertiMossae3()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossae7()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossae7()]
+display-name: testConvertiMossae7()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaf4()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaf4()]
+display-name: testConvertiMossaf4()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaf6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaf6()]
+display-name: testConvertiMossaf6()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaCatturaFinaleVuota()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCatturaFinaleVuota()]
+display-name: testConvertiMossaCatturaFinaleVuota()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidab4()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidab4()]
+display-name: testIsMossaValidab4()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidab6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidab6()]
+display-name: testIsMossaValidab6()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidac3()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidac3()]
+display-name: testIsMossaValidac3()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidae3()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidae3()]
+display-name: testIsMossaValidae3()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidae7()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidae7()]
+display-name: testIsMossaValidae7()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaf4()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidaf4()]
+display-name: testIsMossaValidaf4()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaf6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidaf6()]
+display-name: testIsMossaValidaf6()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAmbiguitaColonnaDx()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaColonnaDx()]
+display-name: testConvertiMossaAmbiguitaColonnaDx()
+]]></system-out>
+</testcase>
+<testcase name="testIsMossaValidaEndOccupato()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidaEndOccupato()]
+display-name: testIsMossaValidaEndOccupato()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAmbiguitaTrav2()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTrav2()]
+display-name: testConvertiMossaAmbiguitaTrav2()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAmbiguitaTrav()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTrav()]
+display-name: testConvertiMossaAmbiguitaTrav()
+]]></system-out>
+</testcase>
+<testcase name="testisMossaValidac7()" classname="scacchiera.pedine.CavalloTest" time="0.003">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testisMossaValidac7()]
+display-name: testisMossaValidac7()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAmbiguitaColonna()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaColonna()]
+display-name: testConvertiMossaAmbiguitaColonna()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaCatturaAmbiguitaTrav()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCatturaAmbiguitaTrav()]
+display-name: testConvertiMossaCatturaAmbiguitaTrav()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAmbiguitaColonnaPiena()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaColonnaPiena()]
+display-name: testConvertiMossaAmbiguitaColonnaPiena()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaCattura()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCattura()]
+display-name: testConvertiMossaCattura()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAmbiguitaTravFull()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTravFull()]
+display-name: testConvertiMossaAmbiguitaTravFull()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaAmbiguitaColonnaDx2()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaColonnaDx2()]
+display-name: testConvertiMossaAmbiguitaColonnaDx2()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaCatturaAmbiguitaTravEmpty()" classname="scacchiera.pedine.CavalloTest" time="0.003">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCatturaAmbiguitaTravEmpty()]
+display-name: testConvertiMossaCatturaAmbiguitaTravEmpty()
+]]></system-out>
+</testcase>
+<testcase name="testConvertiMossaCatturaAmbiguitaColonne()" classname="scacchiera.pedine.CavalloTest" time="0">
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCatturaAmbiguitaColonne()]
+display-name: testConvertiMossaCatturaAmbiguitaColonne()
+]]></system-out>
+</testcase>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <testcase name="testIsMossaValida()" classname="scacchiera.pedine.CavalloTest" time="0.001">
@@ -1172,9 +1905,12 @@ display-name: testConvertiMossa()
 =======
 <testcase name="testIsMossaValida()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
+=======
+<testcase name="testConvertiMossaCatturaAmbiguitaColonneEmpty()" classname="scacchiera.pedine.CavalloTest" time="0">
+>>>>>>> Risoluzione errori checkstyle e miglioramento codice
 <system-out><![CDATA[
-unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValida()]
-display-name: testIsMossaValida()
+unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCatturaAmbiguitaColonneEmpty()]
+display-name: testConvertiMossaCatturaAmbiguitaColonneEmpty()
 ]]></system-out>
 </testcase>
 <system-out><![CDATA[
