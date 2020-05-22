@@ -2,7 +2,6 @@ package scacchiera.pedine;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import gioco.Colore;
@@ -28,10 +27,6 @@ class TestTorre {
 	void testIsMossaValidaMovimentoNonValido() {
 		assertFalse(t.isMossaValida(Scacchiera.getCella(7, 7),Scacchiera.getCella(5, 7)));
 	}
-
-
-
-	
 	@Test
 	void testConvertiMossaAmbiguitaAdL() {
 		/* Inizio TEST AMBIGUITA' AD L CASO IN OSSERVAZIONE :
@@ -335,10 +330,5 @@ class TestTorre {
 		assertEquals("a8 d8", Torre.getCoordinateArrocco(2, Colore.nero));
 	}
 	
-
-
-	@AfterEach
-	void tearDown() throws Exception {
-	}
 
 }
