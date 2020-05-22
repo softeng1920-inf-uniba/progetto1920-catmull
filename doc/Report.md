@@ -69,16 +69,17 @@
 # <a name="dev_proc"></a>Processo di sviluppo e organizzazione del lavoro
 Lo sviluppo del software è stato eseguito da un team di sei componenti.   
 Lo stile di processo utilizzato è stato quello iterativo, basato sulla suddivisione del progetto in sottoinsiemi di funzionaità dette **iterazioni**; ogni iterazione si articola a sua volta in analisi, progetto, codifica e sperimentazione.  
+![iterazioni](./res/img/report/iterazioni.png)
 Al termine di ogni iterazione viene, quindi, prodotta una build funzionante del codice che sarà poi testata ed integrata nel progetto. Inoltre, al termine di ogni sprint è prevista una verifica di quanto sviluppato con i futuri utenti ed i responsabili del progetto.  
 Il tutto è stato strutturato facendo riferimento ai principi dello *sviluppo agile*, in particolare il framework agile seguito per la gestione della realizzazione del software è stato **Scrum**.
-(mettere immagine manifesto sviluppo agile)
+![manifesto](./res/img/report/manifesto.png)
 
 I progressi del progetto sono stati effettuati in quattro iterazioni detti **sprint**: un singolo sprint ha avuto una durata costante, detta *timeboxing*, di circa 2 settimane. 
 Ogni sprint era caratterizzato da una lista di requisiti da sviluppare e le stime di tempo per la realizzazione delle singole funzionalità sono state stabilite dai membri del gruppo.  
 Ogni funzionalità è stata trattata come una user story ed assegnata ad uno o al più due membri del team di sviluppo. Qualsiasi membro del team ha potuto revisionare il lavoro degli altri membri del team proponendo delle modifiche o semplicemente approvandolo. 
 
 Ad ogni sprint è stata utilizzata una  scrum board  digitale che riassume lo stato di ogni user story dalla sua nascita *"To do"*, attraversando vari step come *"In Progress"*, *"Review"* e *"Ready"*, fino alla sua conlusione *"Done"* in cui viene posta dal product owner solo dopo aver visionato il lavoro svolto dal team.
-
+![scrumboard](./res/img/report/scrumboard.png)
 Ogni sprint è stato intodotto da uno  sprint planning  guidato dal product owner, il quale definiva la *product backlog* (lista delle user story da realizzare) e lo sprint goal (obiettivo dell'iterazione).
 
 Il team successivamente ha creato lo  sprint backlog  in cui si è dato un design preliminare e individuato i task e la loro stima in ore. Ogni giorno è stato effettuato il  Daily scrum meeting  della durata di 10-15 minuti in cui ogni membro del team ha esposto i suoi problemi, il lavoro fatto precedentemente al meeting e il lavoro che avrebbe svolto dopo il meeting. Ad ogni fine iterazione è seguita la **sprint review**  in cuoi sono stati presentati i risultati raggiunti durante lo sprint. Inoltre, al termine dello sprint review di ogni iterazione, è seguito lo **sprint retrospective** durante cui il team ha svolto una riunione per discutere l'andamento dello sprint appena concluso, evidenziandone gli aspetti positivi, negativi e le eventuali modifiche da apportate al lavoro svolto nello sprint precedente. 
@@ -86,10 +87,10 @@ Il team successivamente ha creato lo  sprint backlog  in cui si è dato un desig
 Come mezzo di comunicazione tra il product owner,i vari gruppi e gli stessi membri del gruppo è stato utilizzato Slack, una startup fondata nel 2013 da Stewart Butterfield. 
 Per comunicare con il product owner e gli altri team è stato usato il workspace *softeng1920* suddiviso in cinque canali pubblici: assistenza, reclami, general, consegne, cercooffrogruppo.
 Il canale assistenza è utilizzato per presentare le difficoltà riscontrate durante lo sprint e chiedere aiuto al committente o ai membri degli altri team; il canale consegna viene utilizzato per comunicare al committente di aver terminato il lavoro entro i tempi stabiliti; il canale cercooffrogruppo è stato utilizzato solo nella fase precedente all'inizio del progetto con lo scopo di agevolare la formazione di team; il canale general viene utilizzato dal product owner per comunicare informazioni utili allo svolgimento del progetto a tutti i team; il canale reclami è utilizzato dopo la fine di ogni sprint per presentare un'eventuale lamentela riguardo agli errori attribuiti dal product owner al team.
-(mettere immagine su pubblico)
+![slack_pubbico](./res/img/report/slack1.png)
 
 Oltre ai canali pubblici del workspace, il team per comunicare ha utilizzato un canale privato *"proj-catmull* (come mostrato nello screen allegato).
-(mettere screen privato)
+![slack_pubbico](./res/img/report/slack2.png)
 
 
 **Lavoro sul codice dell' applicazione**
@@ -124,7 +125,8 @@ Il workflow utilizzato da ogni membro del team è stato il *Github Flow* in cui 
 
 14. Se la build GitHub Actions e il merge su GitHub sono entrambi andati a buon fine, per completare il lavoro, è stato cancellato il branch sul repository remoto e sul repository locale con la sequenza di comandi:  git checkout master, git pull e git branch -d <nome branch> .
 
-
+Quanto appena detto, può essere riassunto con la seguente immagine: 
+![githubflow](./res/img/report/githubflow.png)
 
 [Torna all'indice](#indice)
 
