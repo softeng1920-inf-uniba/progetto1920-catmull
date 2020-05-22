@@ -90,7 +90,7 @@ Il canale assistenza è utilizzato per presentare le difficoltà riscontrate dur
 ![slack_pubbico](./res/img/report/slack1.png)
 
 Oltre ai canali pubblici del workspace, il team per comunicare ha utilizzato un canale privato *"proj-catmull* (come mostrato nello screen allegato).
-![slack_pubbico](./res/img/report/slack2.png)
+![slack_privato](./res/img/report/slack2.png)
 
 
 **Lavoro sul codice dell' applicazione**
