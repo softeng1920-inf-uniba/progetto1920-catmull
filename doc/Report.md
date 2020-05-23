@@ -96,7 +96,7 @@ Il canale `assistenza` è utilizzato per presentare le difficoltà riscontrate d
   
 ![](/res/img/report/slack1.png)  
 
-Oltre ai canali pubblici del workspace, il team per comunicare ha utilizzato un canale privato `"proj-catmull`.  
+Oltre ai canali pubblici del workspace, il team per comunicare ha utilizzato un canale privato `proj-catmull`.  
 
 ![](/res/img/report/slack2.png)  
 
