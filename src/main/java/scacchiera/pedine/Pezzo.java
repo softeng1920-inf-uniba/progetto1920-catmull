@@ -22,10 +22,17 @@ public abstract class Pezzo {
     private Colore colore;
     private char simbolo;
 
-    /**
-     * @param n  Nome del pezzo
-     * @param c  Colore del pezzo
-     * @param pC Cella iniziale del pezzo
+	/**
+	 * Invoca il metodo della superclasse definendo il:
+	 * <ul>
+	 *   <li>nome</li>
+	 *   <li>colore</li>
+	 *   <li>posizioneCorrente</li>
+	 *   <li>simbolo</li>
+	 * </ul>
+	 * 
+     * @param  n  Stringa indicante il nome del pezzo
+     * @param  c  Colore del pezzo
      */
 	public Pezzo(final String n, final Colore c) {
 	this.nome = n;
@@ -48,18 +55,18 @@ public abstract class Pezzo {
     // --------Metodi di Get--------
 
     /**
-	 * getNome restituisce il nome del pezzo
+	 * Restituisce il nome del pezzo
 	 *
-	 * @return nome Stringa indicante il nome del pezzo
+	 * @return  nome del pezzo
 	 */
     public String getNome() {
 	return nome;
     }
 
     /**
-	 * getColore restituisce il colore del pezzo (bianco o nero)
+	 * Restituisce il colore del pezzo (bianco o nero)
 	 *
-	 * @return colore Colore del pezzo (bianco o nero)
+	 * @return  colore del pezzo (bianco o nero)
 	 */
     public Colore getColore() {
 	return colore;
@@ -68,7 +75,7 @@ public abstract class Pezzo {
     /**
 	 * Restituisce il simbolo corrente del pezzo
 	 *
-	 * @return simbolo Carattere indicante il simbolo del pezzo
+	 * @return  simbolo del pezzo
 	 */
     public char getSimbolo() {
 	return simbolo;
@@ -87,14 +94,11 @@ public abstract class Pezzo {
 	 * Controlla se la mossa data in input attraverso cella di partenza e cella di
 	 * destinazione sia valida per il pezzo corrente
 	 *
-	 * @param start Cella di partenza del pezzo
-	 * @param end   Cella di destinazione del pezzo
-<<<<<<< HEAD
-	 * @return boolean true se la mossa è valida per il pezzo su cui il metodo è
-=======
-	 * @return boolean true se la mossa Ã¨ valida per il pezzo su cui il metodo Ã¨
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
-	 *         stato chiamato, false altrimenti
+	 * @param  start Cella di partenza del pezzo
+	 * @param  end   Cella di destinazione del pezzo
+	 * 
+	 * @return  true se la mossa e' valida per il pezzo su cui il metodo e'
+	 * stato chiamato, false altrimenti
 	 */
     public abstract boolean isMossaValida(Cella start, Cella end);
 

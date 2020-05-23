@@ -44,7 +44,7 @@ public final class Scacchiera {
 	/**
 	 * Restituisce il numero di colonne della scacchiera
 	 *
-	 * @return Valore intero indicante il numero di colonne
+	 * @return  intero indicante il numero di colonne
 	 */
 	public static int getNumeroColonne() {
 		return NUMEROCOLONNE;
@@ -53,7 +53,7 @@ public final class Scacchiera {
 	/**
 	 * Restituisce il numero di righe della scacchiera
 	 *
-	 * @return Valore intero indicante il numero di righe
+	 * @return  intero indicante il numero di righe
 	 */
 	public static int getNumeroRighe() {
 		return NUMERORIGHE;
@@ -62,9 +62,9 @@ public final class Scacchiera {
 	/**
 	 * Date le coordinate, ritorna il riferimento di una cella della scacchiera.
 	 *
-	 * @param x coordinata delle colonne (valore compreso fra 0 e 7)
-	 * @param y coordinata delle righe (valore compreso fra 0 e 7)
-	 * @return Riferimento di tipo Cella della scacchiera in posizione (x, y)
+	 * @param  x intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
+	 * @param  y intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
+	 * @return  riferimento di tipo Cella della scacchiera in posizione (x, y)
 	 */
 	public static Cella getCella(final int x, final int y) {
 		return scacchiera[x][y];
@@ -74,10 +74,11 @@ public final class Scacchiera {
 	 * Controlla che le coordinate in input siano valide per la scacchiera, ovvero
 	 * non vadano oltre i limiti.
 	 *
-	 * @param x coordinata delle colonne (valore compreso fra 0 e 7)
-	 * @param y coordinata delle righe (valore compreso fra 0 e 7)
-	 * @return true se le coordinate inserite si riferiscono ad una cella della
-	 *         scacchiera, false altrimenti
+	 * @param  x intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
+	 * @param  y intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
+	 * 
+	 * @return  true se le coordinate inserite si riferiscono ad una cella della
+	 *          scacchiera, false altrimenti
 	 */
 	public static boolean isRangeValido(final int x, final int y) {
 		return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
@@ -157,10 +158,10 @@ public final class Scacchiera {
     }
 
     /**
-	 * simula il movimento di un pezzo nella scacchiera
+	 * Simula il movimento di un pezzo nella scacchiera
 	 *
-	 * @param c1 Cella di partenza di cui si vuole effettuare lo scambio
-	 * @param c2 Cella di destinazione con cui si vuole effettuare lo scambio
+	 * @param  c1 Cella di partenza di cui si vuole effettuare lo scambio
+	 * @param  c2 Cella di destinazione con cui si vuole effettuare lo scambio
 	 */
 	public static void scambiaCella(final Cella c1, final Cella c2) {
 		c2.setPezzoCorrente(c1.getPezzoCorrente());
@@ -172,10 +173,11 @@ public final class Scacchiera {
 	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici
 	 * errati e cella vuota.
 	 *
-	 * @param x coordinata delle colonne (valore compreso fra 0 e 7)
-	 * @param y coordinata delle righe (valore compreso fra 0 e 7)
-	 * @return Stringa indicante il nome del pezzo, se è presente nella cella,
-	 *         "Vuota" altrimenti
+	 * @param  x intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
+	 * @param  y intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
+	 * 
+	 * @return  nome del pezzo, se e' presente nella cella,
+	 *          "Vuota" altrimenti
 	 */
 	public static String getNomePezzo(final int x, final int y) {
 		if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {

@@ -33,20 +33,35 @@ public final class Turno {
 		giocatoreInAttesa = temp;
 	}
 
-	// Funzioni di Get
+	/**
+	 * @return  giocatore corrente
+	 */
 
 	public static Giocatore getGiocatoreInTurno() {
 		return giocatoreInTurno;
 	}
 
+	/**
+	 * @return  giocatore in attesa
+	 */
 	public static Giocatore getGiocatoreInAttesa() {
 		return giocatoreInAttesa;
 	}
 
+	/**
+	 * Modifica l'attributo di classe giocatoreInTurno
+	 * 
+	 * @param  m Stringa indicante il giocatore che deve risultare in turno 
+	 */
 	public static void setNomeGiocatoreInTurno(final String m) {
 		giocatoreInTurno.setNome(m);
 	}
 
+	/**
+	 *  Modifica l'attributo di classe giocatoreInTurno
+	 * 
+	 * @param  m Stringa indicante il giocatore che risultera' essere in attesa
+	 */
 	public static void setNomeGiocatoreInAttesa(final String m) {
 		giocatoreInAttesa.setNome(m);
 	}
@@ -54,9 +69,9 @@ public final class Turno {
 	/**
 	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
 	 * La fusione avviene in modo alternato. Permette di avere una visione completa
-	 * delle mosse giocate totali.
+	 * delle mosse giocate totali
 	 *
-	 * @return ArrayList di stringhe.
+	 * @return  lista di stringhe che permette di visualizzare le mosse effettuate e nel corretto ordine 
 	 */
 	public static ArrayList<String> getArrayStoriaMosse() {
 		int i, j, k;

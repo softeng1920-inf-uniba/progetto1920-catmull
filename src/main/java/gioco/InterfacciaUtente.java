@@ -40,7 +40,7 @@ public final class InterfacciaUtente {
 	/**
 	 * Stampa a video il simbolo del pezzo in input
 	 *
-	 * @param p
+	 * @param  p Pezzo di cui si deve visualizzare il simbolo
 	 */
 	private static void disegnaPezzo(final Pezzo p) {
 		System.out.print("\033[1;30m" + p.getSimbolo());
@@ -49,7 +49,7 @@ public final class InterfacciaUtente {
 	/**
 	 * Stampa a video il pezzo nella cella corrente
 	 *
-	 * @param cellaPezzo
+	 * @param  cellaPezzo Cella corrente in cui si trova il pezzo
 	 */
 	private static void stampaPezzo(final Cella cellaPezzo) {
 		if (cellaPezzo.getPezzoCorrente() != null) {
@@ -167,9 +167,10 @@ public final class InterfacciaUtente {
     }
 
 	/**
-	 * Stampa a video il giocatore in turno
+	 * Stampa a video il nome del giocatore in turno chiamando 
+	 * il metodo di classe della classe Giocatore
 	 *
-	 * @param giocatoreAttivo
+	 * @param  giocatoreAttivo Giocatore corrente di cui visualizzare il nome
 	 */
 	public static void stampaTurno(final Giocatore giocatoreAttivo) {
 		if (giocatoreAttivo.getColore() == Colore.bianco) {
@@ -243,7 +244,7 @@ public final class InterfacciaUtente {
 	/**
 	 * Stampa a video i pezzi catturati per ogni giocatore
 	 *
-	 * @param giocatoreInteressato
+	 * @param  giocatoreInteressato Giocatore che ha effettuato le catture
 	 */
 	public static void stampaPezziCatturati(final Giocatore giocatoreInteressato) {
 
@@ -334,7 +335,7 @@ public final class InterfacciaUtente {
 	/**
 	 * Stampa a video il messaggio per l'inserimento del nome del giocatore
 	 *
-	 * @param c
+	 * @param  c Colore rappresentante il giocatore
 	 */
 	public static void stampaInserireGiocatore(final Colore c) {
 		if (c == Colore.bianco) {
@@ -349,6 +350,11 @@ public final class InterfacciaUtente {
 
 	}
 
+	/**
+	 * Acquisizione di un comando da tastiera
+	 * 
+	 * @return  comando inserito
+	 */
 	public static String acquisireComando() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 		String comando = "";
@@ -362,7 +368,11 @@ public final class InterfacciaUtente {
 
 	/**
 	 * Acquisisce il nome del giocatore da tastiera
+	 * 
+	 * @param  c Colore del giocatore corrispondente
+	 * @return  nome del giocatore
 	 */
+
 	public static String getNomeDaTastiera(final Colore c) {
 		InterfacciaUtente.stampaInserireGiocatore(c);
 		String s = null;
@@ -376,7 +386,7 @@ public final class InterfacciaUtente {
 	}
 
 	/**
-	 * Viene richiesto all'utente una conferma se vuole riavviare la partita
+	 * Viene richiesta all'utente una conferma se vuole riavviare la partita
 	 *
 	 * @return true se l'utente vuole ricominciare la partita, false altrimenti.
 	 */
@@ -401,7 +411,7 @@ public final class InterfacciaUtente {
 	}
 
 	/**
-	 * Viene richiesto all'utente una conferma se vuole uscire dal gioco
+	 * Viene richiesta all'utente una conferma se vuole uscire dal gioco
 	 *
 	 * @return true se l'utente vuole uscire dal gioco, false altrimenti.
 	 */

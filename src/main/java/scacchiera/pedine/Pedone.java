@@ -9,13 +9,21 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Pedone è valido. La classe Pedone e' di tipo noECB
+ * movimento del Pedone e' valido. La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 
-    /**
-     * Costruttore
-     */
+	/**
+	 * Invoca il metodo della superclasse definendo il:
+	 * <ul>
+	 *   <li>nome</li>
+	 *   <li>colore</li>
+	 *   <li>posizioneCorrente</li>
+	 *   <li>simbolo</li>
+	 * </ul>
+	 * 
+	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
+	 */
 	public Pedone(final Colore colore) {
 		super("Pedone", colore);
 	if (colore == Colore.nero) {
@@ -71,16 +79,12 @@ public final class Pedone extends Pezzo {
     /**
 	 * Determina se la cattura en passant e' effettuabile o meno
 	 *
-	 * @param start Cella di partenza della mossa del pedone
-	 * @param end   Cella di destinazione della mossa del pedone
-	 * @param mosse Array di tutte le mosse effettuate, necessario per controllare
-<<<<<<< HEAD:src/main/java/scacchiera/pedine/Pedone.java
-	 *              se l'ultima mossa effettuata � un avanzata di due case
-	 * @return true se la cattura � effettuabile in en passant, false altrimenti
-=======
-	 *              se l'ultima mossa effettuata � un avanzata di due case
-	 * @return true se la cattura � effettuabile in en passant, false altrimenti
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07:src/main/java/pedine/Pedone.java
+	 * @param  start Cella di partenza della mossa del pedone
+	 * @param  end   Cella di destinazione della mossa del pedone
+	 * @param  mosse Array di tutte le mosse effettuate, necessario per controllare
+	 *               il verificarsi dei criteri dell'en passant 
+	 *               
+ 	 * @return  true se l'en passant e' valido,false altrimenti
 	 */
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
 	Cella cellaPedone;
@@ -119,11 +123,12 @@ public final class Pedone extends Pezzo {
     }
 
     /**
-     * metodo di classe che converte il comando in input in una stringa nel formato
+     * Converte il comando in input in una stringa nel formato
      * a2 a4
      *
-     * @param mossa puo' essere un'avanzata (es. a2) oppure una cattura (es. axb3
-     * @return mossa nel formato esteso
+     * @param  mossa Stringa che puo' consistere in un'avanzata (es. a2) oppure in una cattura (es. axb3)
+     * 
+     * @return  mossa nel formato esteso
      */
     public static String convertiMossa(final String mossa) {
 	int variazione = 0;

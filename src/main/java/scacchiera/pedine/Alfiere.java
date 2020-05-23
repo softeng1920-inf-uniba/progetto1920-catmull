@@ -11,6 +11,17 @@ import scacchiera.Scacchiera;
  */
 public final class Alfiere extends Pezzo {
 
+	/**
+	 * Invoca il metodo della superclasse definendo il:
+	 * <ul>
+	 *   <li>nome</li>
+	 *   <li>colore</li>
+	 *   <li>posizioneCorrente</li>
+	 *   <li>simbolo</li>
+	 * </ul>
+	 * 
+	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
+	 */
 	public Alfiere(final Colore colore) {
 		super("Alfiere", colore);
 	if (colore == Colore.nero) {
@@ -77,10 +88,10 @@ public final class Alfiere extends Pezzo {
 
     /**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
-	 * applicaMossa. Ad esempio: Ae4 ==> d2 e4
+	 * applicaMossa. Ad esempio: Ae4 diventa d2 e4
 	 *
-	 * @param mossa Stringa rappresentante la mossa in notazione algebrica
-	 * @return mossa Stringa rappresentante la mossa in notazione estesa
+	 * @param  mossa Stringa rappresentante la mossa in notazione algebrica
+	 * @return  mossa in notazione estesa
 	 */
     public static String convertiMossa(final String mossa) {
 	// "[A](x|:)?[a-h][1-8]"

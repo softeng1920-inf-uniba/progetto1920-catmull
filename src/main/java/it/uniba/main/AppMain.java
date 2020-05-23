@@ -7,8 +7,7 @@ import gioco.InterfacciaUtente;
 import gioco.Menu;
 
 /**
- * La classe AppMain e' di tipo BOUNDARY The main class for the project. It must
- * be customized to meet the project assignment specifications.
+ * La classe AppMain e' di tipo BOUNDARY 
  *
  * <b>DO NOT RENAME</b>
  */
@@ -21,11 +20,11 @@ public final class AppMain {
 	}
 
 	/**
-	 * * This is the main entry of the application.
+	 * Questa e' la classe di lancio del software
 	 *
-	 * @param args The command-line arguments.
-	 * @throws IOException
-	 * @throws UnsupportedEncodingException
+	 * @param  args String indicating The command-line arguments.
+	 * 
+	 * @throws  IOException se la stringa letta da Buffer e' vuota
 	 */
 	public static void main(final String[] args) throws IOException {
 

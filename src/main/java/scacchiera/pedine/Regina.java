@@ -11,7 +11,17 @@ import scacchiera.Scacchiera;
  */
 public final class Regina extends Pezzo {
 
-    /** Costruttore */
+	/**
+	 * Invoca il metodo della superclasse definendo il:
+	 * <ul>
+	 *   <li>nome</li>
+	 *   <li>colore</li>
+	 *   <li>posizioneCorrente</li>
+	 *   <li>simbolo</li>
+	 * </ul>
+	 * 
+	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
+	 */
 	public Regina(final Colore colore) {
 		super("Regina", colore);
 	if (colore == Colore.nero) {
@@ -108,8 +118,8 @@ public final class Regina extends Pezzo {
 	 * Converte la mossa in input nell stringa con le coordinate della cella
 	 * iniziale e le coordinate della cella finale
 	 *
-	 * @param mossa
-	 * @return
+	 * @param  mossa Stringa indicante la mossa da convertire in notazione algebrica estesa
+	 * @return  mossa convertita in notazione algebrica estesa
 	 */
     public static String convertiMossa(final String mossa) {
 	int startX = -1;

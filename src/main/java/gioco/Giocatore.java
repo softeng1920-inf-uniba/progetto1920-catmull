@@ -23,14 +23,11 @@ public final class Giocatore {
 	/**
 	 * Costruttore della classe Giocatore
 	 *
-	 * Nel vettore "pezziCatturati" verranno conservati tutti i pezzi del giocatore
-	 * attuale catturati dal giocatore avversario.
+	 * Nell'attributo pezziCatturati vengono conservati tutti i pezzi del giocatore
+	 * corrente catturati del giocatore avversario. Nell'attributo mosseGiocate viene
+	 * memorizzato lo storico delle mosse effettuate dal giocatore*
 	 *
-	 * Nel vettore "mosseGiocate" ci sara' la storia delle mosse giocate dal
-	 * giocatore.
-	 *
-	 *
-	 * @param c Colore del giocatore
+	 * @param  c Colore indicante il colore assegnato al giocatore (bianco o nero)
 	 */
 	public Giocatore(final Colore c) {
 
@@ -41,9 +38,9 @@ public final class Giocatore {
 	}
 
 	/**
-	 * Assegna il nome al campo nome del Giocatore.
+	 * Assegna il nome al campo nome del Giocatore
 	 *
-	 * @param n Nome del giocatore
+	 * @param  n Stringa indicante il nome del giocatore
 	 */
 	public void setNome(final String n) {
 		this.nome = n;
@@ -52,7 +49,7 @@ public final class Giocatore {
 	/**
 	 * Assegna il colore al campo colore del Giocatore.
 	 *
-	 * @param c
+	 * @param  c Colore indicante il colore assegnato al giocatore(bianco o nero)
 	 */
 	public void setColore(final Colore c) {
 		this.colore = c;
@@ -61,7 +58,7 @@ public final class Giocatore {
 	/**
 	 * Restituisce il nome del giocatore.
 	 *
-	 * @return nome
+	 * @return  nome del giocatore
 	 */
 	public String getNome() {
 		return nome;
@@ -70,17 +67,17 @@ public final class Giocatore {
 	/**
 	 * Restituisce il colore dei pezzi del giocatore.
 	 *
-	 * @return colore
+	 * @return  colore assegnato al giocatore
 	 */
 	public Colore getColore() {
 		return colore;
 	}
 
 	/**
-	 * Aggiunta la pedina p mangiata dal giocatore avversario al vettore
+	 * Aggiunge la pedina catturata dal giocatore avversario all'attributo di classe
 	 * pezziCatturati
 	 *
-	 * @param p
+	 * @param  p Pezzo catturato dal giocatore avversario
 	 */
 	public void addPezziCatturati(final Pezzo p) {
 		pezziCatturati.add(p);
@@ -89,10 +86,9 @@ public final class Giocatore {
 	/**
 	 * Funzione che restituisce le pedine catturate dal giocatore avversario
 	 *
-	 * @return pezziCatturati
+	 * @return  restituisce i pezzi catturati dal giocatore avversario
 	 *
 	 */
-
 	public ArrayList<Pezzo> getPezziCatturati() {
 		return pezziCatturati;
 	}
@@ -101,7 +97,7 @@ public final class Giocatore {
 	 * Restituisce un valore booleano che individua se sono stati catturati dei
 	 * pezzi dal giocatore avversario.
 	 *
-	 * @return boolean
+	 * @return  true se pezziCatturati.lenght e' 0,false altrimenti
 	 */
 	public boolean isEmptyPezziCatturati() {
 		return pezziCatturati.isEmpty();
@@ -110,16 +106,16 @@ public final class Giocatore {
 	/**
 	 * Aggiunge la mossa corrente alla lista mosseGiocate.
 	 *
-	 * @param mossa
+	 * @param  mossa Stringa da inserire nell'attributo primitivo di classe mosseGiocate
 	 */
 	public void setMosseGiocate(final String mossa) {
 		mosseGiocate.add(mossa);
 	}
 
 	/**
-	 * Restituisce la storia delle mosse giocate dal giocatore.
+	 * Restituisce lo storico delle mosse giocate dal giocatore.
 	 *
-	 * @return lista delle mosse giocate.
+	 * @return  lista delle mosse giocate
 	 */
 	public ArrayList<String> getMosseGiocate() {
 		return mosseGiocate;
@@ -128,8 +124,8 @@ public final class Giocatore {
 	/**
 	 * Restituisce l'i-esima mossa giocata dal giocatore.
 	 *
-	 * @param i
-	 * @return Stringa che contiene la mossa giocata.
+	 * @param  i intero indicante la mossa
+	 * @return  i-esima mossa giocata dal giocatore
 	 */
 	public String getMossaGiocata(final int i) {
 		return mosseGiocate.get(i);
@@ -138,7 +134,7 @@ public final class Giocatore {
 	/**
 	 * Restituisce il numero delle mosse giocate dal giocatore
 	 *
-	 * @return dimensione della lista delle mosse giocate
+	 * @return  dimensione della lista delle mosse giocate
 	 */
 	public int getNumeroMosseGiocate() {
 		return mosseGiocate.size();

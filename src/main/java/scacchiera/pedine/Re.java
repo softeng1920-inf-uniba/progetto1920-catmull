@@ -14,7 +14,17 @@ import scacchiera.Scacchiera;
  */
 public final class Re extends Pezzo {
 
-	/** Costruttore */
+	/**
+	 * Invoca il metodo della superclasse definendo il:
+	 * <ul>
+	 *   <li>nome</li>
+	 *   <li>colore</li>
+	 *   <li>posizioneCorrente</li>
+	 *   <li>simbolo</li>
+	 * </ul>
+	 * 
+	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
+	 */
 	public Re(final Colore colore) {
 		super("Re", colore);
 		if (colore == Colore.nero) {
@@ -27,7 +37,7 @@ public final class Re extends Pezzo {
 	@Override
 	public boolean isMossaValida(final Cella start, final Cella end) {
 
-		// controllo se puÃ² mangiare pezzo
+		// controllo se puo' mangiare pezzo
 		if (end.isOccupato()) {
 			if (end.getPezzoCorrente().getColore() == getColore()) {
 				return false;
@@ -62,23 +72,26 @@ public final class Re extends Pezzo {
 		return false;
 	}
 
-	/**
-	 * Restituisce un valore booleano che indica se Ã¨ possibile effettuare
-	 * l'arrocco con i pezzi nelle celle passate in input.
-	 *
-	 * @param startRe      Cella di partenza del re di cui si vuole controllare se
-	 *                     e' possibile effettuare l'arrocco
-	 * @param endRe        Cella di destinazione del re di cui si vuole controllare
-	 *                     se Ã¨ possibile effettuare l'arrocco
-	 * @param startTorre   Cella di partenza della torre di cui si vuole controllare
-	 *                     se Ã¨ possibile effettuare l'arrocco
-	 * @param endTorre     Cella di destinazione della torre di cui si vuole
-	 *                     controllare se Ã¨ possibile effettuare l'arrocco
-	 * @param storicoMosse Lista di stringhe che rappresenta l'insieme di tutte le
-	 *                     mosse
-	 * @param tipoArrocco  0 - corto | 1 - lungo
-	 * @return true se l'arrocco Ã¨ effettuabile, false altrimenti.
-	 */
+    /**
+     * L'arrocco e' valido se sono verificate tutte le seguenti condizioni: 
+     * <ul>
+	 *        <li>il giocatore non ha ancora mosso ne' il Re ne' la torre coinvolta nell'arrocco</li>
+	 *        <li>non ci devono essere pezzi (amici o avversari) fra il Re e la torre usata</li>
+	 *        <li>ne' la casa di partenza del Re, ne' la casa che esso deve
+	 *           attraversare, ne' quella di arrivo devono essere attaccabili da un
+	 *           pezzo avversario</li>
+	 * </ul>          
+     * 
+     * @param  startRe Cella indicante la posizione iniziale del Re sulla scacchiera
+     * @param  endRe Cella indicante la posizione finale del Re sulla scacchiera 
+     * @param  startTorre Cella indicante la posizione iniziale della torre sulla scacchiera
+     * @param  endTorre Cella indicante la posizione finale della torre sulla scacchiera 
+     * @param  storicoMosse Lista di stringhe che rappresenta l'insieme di tutte le mosse
+     * @param  tipoArrocco intero indicante la tipologia di arrocco
+     * 
+     * @return  true se tutte le condizioni sono verificate,false altrimenti 
+     */
+
 	public boolean isArroccoValido(final Cella startRe, final Cella endRe, final Cella startTorre,
 	final Cella endTorre, final ArrayList<String> storicoMosse, final int tipoArrocco) {
 		int sX = startRe.getX();
@@ -119,9 +132,10 @@ public final class Re extends Pezzo {
 	 * Restituisce una stringa nel formato e[1|8] [c|g][1|8], che indica la mossa da
 	 * effettuare per il re in base al colore e alla tipologia di arrocco.
 	 *
-	 * @param tipoArrocco 0 - corto | 1 - lungo
-	 * @param c           colore del giocatore in turno
-	 * @return mossa da effettuare
+	 * @param  tipoArrocco intero indicante la tipologia di arrocco
+	 * @param  c colore del giocatore in turno
+	 * 
+	 * @return  mossa da effettuare
 	 */
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 
@@ -147,10 +161,10 @@ public final class Re extends Pezzo {
 
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
-	 * applicaMossa. Ad esempio: Re4 ==> e3 e4
+	 * applicaMossa. Ad esempio: Re4 diventa e3 e4
 	 *
-	 * @param mossa in notazione algebrica
-	 * @return mossa in output in notazione estesa
+	 * @param  mossa Stringa indicante la mossa in notazione algebrica
+	 * @return  mossa in notazione estesa
 	 */
 	public static String convertiMossa(final String mossa) {
 		int startX = -1;
@@ -202,10 +216,10 @@ public final class Re extends Pezzo {
 	}
 
 	/**
-	 * Controlla se il re è sotto scacco
+	 * Controlla se il re e' sotto scacco
 	 *
-	 * @param reCella cella di destinazione del re
-	 * @return boolean true se il re Ã¨ sotto scacco, false altrimenti
+	 * @param  reCella Cella di destinazione del Re
+	 * @return  true se il re e' sotto scacco, false altrimenti
 	 */
 	public boolean isReSottoScacco(final Cella reCella) {
 		Colore c = getColore();
@@ -229,8 +243,10 @@ public final class Re extends Pezzo {
 	/**
 	 * Controlla se il re o la torre si sono mai spostati
 	 *
-	 * @param storicoMosse
-	 * @return true se la prima mossa del re Ã¨ stata effettuata, false altrimenti.
+	 * @param  storicoMosse lista di Stringhe indicanti gli spostamenti dei pezzi
+	 * @param  tipoArrocco intero indicante la tipologia di arrocco (corto e lungo)
+	 * 
+	 * @return  true se la prima mossa del re e' stata effettuata, false altrimenti
 	 */
 	public static boolean isPrimaMossaEffettuata(final ArrayList<String> storicoMosse, final int tipoArrocco) {
 		final short numGiocatori = 2;
@@ -250,7 +266,7 @@ public final class Re extends Pezzo {
 	}
 
 	/**
-	 * Cerca il Re nella scacchiera dello stesso colore del giocatore in turno.
+	 * Cerca il Re nella scacchiera dello stesso colore del giocatore in turno
 	 *
 	 * @return Cella che contiene il Re
 	 */

@@ -20,9 +20,9 @@ public final class Cella {
 	 * Crea una nuova cella, assegnandogli delle coordinate e settando un pezzo se
 	 * presente nella cella.
 	 *
-	 * @param coordX - coordinata X per la cella
-	 * @param coordY - coordinata Y per la cella
-	 * @param pC     - Pezzo nella cella da settare
+	 * @param  coordX intero che identifica la coordinata X per la cella
+	 * @param  coordY intero che identifica la coordinata Y per la cella
+	 * @param  pC Pezzo all'interno della cella
 	 */
 	public Cella(final int coordX, final int coordY, final Pezzo pC) {
 		this.x = coordX;
@@ -36,14 +36,9 @@ public final class Cella {
 	// ---------Metodi di setting---------
 
 	/**
-	 * Modifica la variabile occupato
-	 *
-<<<<<<< HEAD
-	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se �
-=======
-	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se è
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
-	 *            occupata o meno
+	 * Modifica la variabile <b>occupato</b>
+	 * 
+	 * @param  occ boolean che monitora lo stato della cella
 	 */
 	public void setOccupato(final boolean occ) {
 		this.occupato = occ;
@@ -52,7 +47,7 @@ public final class Cella {
 	/**
 	 * Modifica il tipo di pezzo che la cella contiene
 	 *
-	 * @param pC Pezzo corrente che la cella attuale deve contenere
+	 * @param  pC Pezzo corrente che la cella attuale deve contenere
 	 */
 	void setPezzoCorrente(final Pezzo pC) {
 		this.pezzoCorrente = pC;
@@ -66,7 +61,7 @@ public final class Cella {
 	/**
 	 * Restituisce la coordinata X per la cella corrente
 	 *
-	 * @return valore intero della coordinata X
+	 * @return  valore intero della coordinata X
 	 */
 	public int getX() {
 		return x;
@@ -75,17 +70,17 @@ public final class Cella {
 	/**
 	 * Restituisce la coordinata Y della cella corrente
 	 *
-	 * @return valore della coordinata Y
+	 * @return  valore della coordinata Y
 	 */
 	public int getY() {
 		return y;
 	}
 
 	/**
-	 * Restituisce un valore booleano che indica se la cella è occupata da qualche
-	 * pezzo o meno.
+	 * Restituisce un valore booleano che indica se la cella e' occupata da qualche
+	 * pezzo o meno
 	 *
-	 * @return true se la cella è occupata, false se vuota.
+	 * @return  true se la cella e' occupata, false altrimenti
 	 */
 	public boolean isOccupato() {
 		return occupato;
@@ -94,7 +89,7 @@ public final class Cella {
 	/**
 	 * Restituisce il pezzo contenuto nella cella attuale
 	 *
-	 * @return pezzo nella cella corrente
+	 * @return  pezzo nella cella corrente
 	 */
 	public Pezzo getPezzoCorrente() {
 		return pezzoCorrente;
@@ -105,7 +100,7 @@ public final class Cella {
 	/**
 	 * Aggiunge un pezzo nella scacchiera
 	 *
-	 * @param nuovoPezzo Pezzo da impostare all'interno della cella corrente
+	 * @param  nuovoPezzo Pezzo da aggiungere/sovrascrivere alla cella
 	 */
 	public void aggiungiPezzo(final Pezzo nuovoPezzo) {
 
@@ -122,12 +117,13 @@ public final class Cella {
 		setPezzoCorrente(null);
 	}
 
-	/**
-     * Preso un carattere della mossa, restituisce il corrispondente valore in
-     * intero, necessario per la matrice
+	 /**
+     * Converte l'attributo coordX in intero restituendo
+     * il corrispondente valore
      *
-     * @param coordX Carattere in minuscolo da convertire in intero
-     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     * @param  coordX char in minuscolo da convertire in intero
+     * 
+     * @return  coordinata convertita in intero compresa fra 0 e 7
      */
     public static int coordXinInt(final char coordX) {
 	final int aMinuscolaAscii = 97;
@@ -135,11 +131,12 @@ public final class Cella {
     }
 
     /**
-     * Preso un carattere della mossa, restituisce il corrispondente valore in
-     * intero, necessario per la matrice
+     * Converte l'attributo coordY in intero restituendo
+     * il corrispondente valore
      *
-     * @param coordY Compreso fra 1 e 8
-     * @return Coordinata convertita in intero, compreso tra 0 e 7
+     * @param  coordY char in minuscolo da convertire in intero
+     * 
+     * @return  coordinata convertita in intero compresa tra 0 e 7
      */
     public static int coordYinInt(final char coordY) {
 	final int offsetUnoAscii = 49;
@@ -151,8 +148,9 @@ public final class Cella {
      * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
      * traversa della scacchiera (carattere tra a e h)
      *
-     * @param coordX intero da convertire in carattere
-     * @return Valore necessario per la scacchiera compreso fra a e h
+     * @param  coordX intero da convertire in carattere
+     * 
+     * @return  valore necessario per la scacchiera compreso fra a e h
      */
 
     public static char coordXinChar(final int coordX) {
@@ -164,8 +162,8 @@ public final class Cella {
      * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
      * righe della scacchiera (carattere tra 1 e 8)
      *
-     * @param coordY intero da convertire in carattere
-     * @return Valore necessario per la scacchiera compreso fra 1 e 8
+     * @param  coordY intero da convertire in carattere
+     * @return  valore necessario per la scacchiera compreso fra 1 e 8
      */
     public static char coordYinChar(final int coordY) {
 	final int carattere0Ascii = 48;
@@ -175,8 +173,8 @@ public final class Cella {
     /**
      * Converte la coordinata X di partenza data in input in intero.
      *
-     * @param m mossa in notazione estesa
-     * @return Valore necessario per la scacchiera compreso fra a e h
+     * @param  m Stringa indicante la mossa in notazione estesa
+     * @return  valore necessario per la scacchiera compreso fra a e h
      */
     public static int startX(final String m) {
 		return Cella.coordXinInt(m.charAt(Menu.COLONNA_PARTENZA_MOSSA_NE));
@@ -185,8 +183,8 @@ public final class Cella {
     /**
      * Converte la coordinata Y di partenza data in input in intero.
      *
-     * @param m mossa in notazione estesa
-     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     * @param  m Stringa indicante la mossa in notazione estesa
+     * @return  valore necessario per la scacchiera compreso fra 0 e 7
      */
     public static int startY(final String m) {
 		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_PARTENZA_MOSSA_NE));
@@ -195,8 +193,8 @@ public final class Cella {
     /**
      * Converte la coordinata X di destinazione data in input in intero.
      *
-     * @param m mossa in notazione estesa
-     * @return Valore necessario per la scacchiera compreso fra a e h
+     * @param  m Stringa indicante la mossa in notazione estesa
+     * @return  valore necessario per la scacchiera compreso fra a e h
      */
     public static int endX(final String m) {
 		return Cella.coordXinInt(m.charAt(Menu.COLONNA_DESTINAZIONE_MOSSA_NE));
@@ -205,8 +203,8 @@ public final class Cella {
     /**
      * Converte la coordinata Y di destinazione data in input in intero.
      *
-     * @param m mossa in notazione estesa
-     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     * @param  m Stringa indicante la mossa in notazione estesa
+     * @return  valore necessario per la scacchiera compreso fra 0 e 7
      */
     public static int endY(final String m) {
 		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_DESTINAZIONE_MOSSA_NE));

@@ -40,54 +40,54 @@ public final class Menu {
 	}
 
 	/**
-	 * help consente di chiamare il comando "help" in controller
+	 * Consente di chiamare il comando "help" in controller
 	 *
-	 * @return help
+	 * @return  comando che permette di aiutare un utente nel cercare una voce del menu
 	 */
 	public static Comando help() {
 		return help;
 	}
 
 	/**
-	 * history consente di chiamare il comando "history" in controller
+	 * Consente di chiamare il comando "moves" in controller
 	 *
-	 * @return history
+	 * @return  comando che consente di visualizzare la cronologia delle mosse giocate 
 	 */
 	public static Comando moves() {
 		return moves;
 	}
 
 	/**
-	 * quit consente di chiamare il comando "quit" in controller
+	 * Consente di chiamare il comando "quit" in controller
 	 *
-	 * @return quit
+	 * @return  comando che consente di uscire dal gioco
 	 */
 	public static Comando quit() {
 		return quit;
 	}
 
 	/**
-	 * board consente di chiamare il comando "board" in controller
+	 * Consente di chiamare il comando "board" in controller
 	 *
-	 * @return board
+	 * @return  comando che consente di visualizzare la scacchiera del gioco
 	 */
 	public static Comando board() {
 		return board;
 	}
 
 	/**
-	 * captures consente di chiamare il comando "captures" in controller
+	 * Consente di chiamare il comando "captures" in controller
 	 *
-	 * @return captures
+	 * @return  comando che consente di visualizzare le catture
 	 */
 	public static Comando captures() {
 		return captures;
 	}
 
 	/**
-	 * play consente di chiamare il comando "play" in controller
+	 * Consente di chiamare il comando "play" in controller
 	 *
-	 * @return play
+	 * @return  comando che consente di iniziare una nuova partita
 	 */
 	public static Comando play() {
 		return play;
@@ -97,8 +97,12 @@ public final class Menu {
 	 * Data la mossa, se e' un arrocco ne restituisce il tipo, altrimenti viene
 	 * restituito -1
 	 *
-	 * @param mossa in notazione algebrica
-	 * @return int 1 => Arrocco corto | 2 => Arrocco lungo | -1 => Non e' un arrocco
+	 * @param  mossa  Stringa in notazione algebrica
+	 * @return  <ul>
+	 *            <li>1 se Arrocco corto;</li>
+	 *            <li>2 se Arrocco lungo;</li>
+	 *            <li>-1 se non e' un Arrocco.</li>
+	 *          </ul>  
 	 */
 	public static int isArrocco(final String mossa) {
 
@@ -111,16 +115,16 @@ public final class Menu {
 	}
 
 	/**
-	 * Riconosce se il comando dato in input rientra tra quelli del menu di gioco
+	 * Riconosce se il comando dato in input rientra tra quelli del menu di gioco.
+	 * I comandi validi nel menu di gioco sono: - help - board - captures -
+	 * moves - quit
+
 	 *
-	 * @param comando
+	 * @param  comando Comando dato in input
 	 *
-	 * @return true se il comando rientra tra quelli del menu di gioco, false
-	 *         altrimenti
-	 *
-	 *         I comandi validi nel menu di gioco sono: - help - board - captures -
-	 *         moves - quit
-	 */
+	 * @return  true se il comando rientra tra quelli del menu di gioco, false
+	 *          altrimenti
+	 */         
 	public static boolean isComandoValido(final String comando) {
 
 		return (comando.equalsIgnoreCase(Menu.help().getNome())
@@ -135,8 +139,9 @@ public final class Menu {
 	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
 	 * dall'utente e' riconosciuta come notazione algebrica.
 	 *
-	 * @param mossa
-	 * @return boolean
+	 * @param  mossa Stringa rappresentante la mossa inserita
+	 * 
+	 * @return  true se la mossa e' riconosciuta come notazione algebrica; false altrimenti
 	 */
 	public static boolean isNotazioneAlgebrica(final String mossa) {
 
