@@ -1,4 +1,4 @@
-package pedine;
+package scacchiera.pedine;
 
 import gioco.Colore;
 import gioco.Turno;
@@ -7,13 +7,13 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Regina Ã¨ valido. La classe Regina e' di tipo noECB
+ * movimento della Regina è valido. La classe Regina e' di tipo noECB
  */
 public final class Regina extends Pezzo {
 
     /** Costruttore */
-    public Regina(final Colore colore, final Cella posizioneCorrente) {
-	super("Regina", colore, posizioneCorrente);
+	public Regina(final Colore colore) {
+		super("Regina", colore);
 	if (colore == Colore.nero) {
 	    setSimbolo('\u265b');
 	} else {
@@ -105,12 +105,12 @@ public final class Regina extends Pezzo {
     }
 
     /**
-     * Converte la mossa in input nell stringa con le coordinate della cella
-     * iniziale e le coordinate della cella finale
-     * 
-     * @param mossa
-     * @return
-     */
+	 * Converte la mossa in input nell stringa con le coordinate della cella
+	 * iniziale e le coordinate della cella finale
+	 *
+	 * @param mossa
+	 * @return
+	 */
     public static String convertiMossa(final String mossa) {
 	int startX = -1;
 	int startY = -1;

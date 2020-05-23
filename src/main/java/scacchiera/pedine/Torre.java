@@ -1,9 +1,9 @@
-package pedine;
+package scacchiera.pedine;
 
 import java.util.ArrayList;
 
 import gioco.Colore;
-import gioco.Comando;
+import gioco.Menu;
 import gioco.Turno;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
@@ -19,8 +19,8 @@ public final class Torre extends Pezzo {
 	static final int DIM_MOSSA_NON_AMBIGUA = 3;
 
 	/** Costruttore */
-	public Torre(final Colore colore, final Cella posizioneCorrente) {
-		super("Torre", colore, posizioneCorrente);
+	public Torre(final Colore colore) {
+		super("Torre", colore);
 		if (colore == Colore.nero) {
 			setSimbolo('\u265c');
 		} else {
@@ -37,7 +37,6 @@ public final class Torre extends Pezzo {
 	 * @return mossa Stringa rappresentante la mossa in notazione estesa
 	 */
 	public static String convertiMossa(final String mossa) {
-
 	String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 	char destX = mossa.charAt(mossa.length() - 2);
 	char destY = mossa.charAt(mossa.length() - 1);
@@ -217,7 +216,6 @@ public final class Torre extends Pezzo {
 
 					cellaCorrente = Scacchiera.getCella(sX, i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 							&& i == eY
 							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
@@ -235,7 +233,6 @@ public final class Torre extends Pezzo {
 
 					cellaCorrente = Scacchiera.getCella(sX, i);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 						&& i == eY
 						&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
@@ -252,7 +249,6 @@ public final class Torre extends Pezzo {
 				for (int i = sX - 1; i >= eX; i--) {
 					cellaCorrente = Scacchiera.getCella(i, sY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 						&& i == eX
 						&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
@@ -269,7 +265,6 @@ public final class Torre extends Pezzo {
 				for (int i = sX + 1; i <= eX; i++) {
 					cellaCorrente = Scacchiera.getCella(i, sY);
 					pezzoCorrente = cellaCorrente.getPezzoCorrente();
-
 					if (cellaCorrente.isOccupato()
 							&& i == eX
 							&& pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente
@@ -298,7 +293,7 @@ public final class Torre extends Pezzo {
 	 */
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 		String comando;
-		if (tipoArrocco == Comando.ARROCCO_CORTO) {
+		if (tipoArrocco == Menu.ARROCCO_CORTO) {
 			if (c == Colore.bianco) {
 				comando = "h1 f1";
 			} else {
