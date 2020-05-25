@@ -8,24 +8,25 @@ import gioco.Colore;
 import gioco.Turno;
 import scacchiera.Scacchiera;
 
+
 class TestTorre {
 
 	Torre t;
 
 	@BeforeEach
 	void setUp() {
-		Scacchiera.newScacchiera();
-		Turno.newTurno();
-		t =(Torre) Scacchiera.getCella(7, 7).getPezzoCorrente();
+		Scacchiera.getInstance();
+		Turno.getInstance();
+		t =(Torre) Scacchiera.getInstance().getCella(7, 7).getPezzoCorrente();
 	}
 
 	@Test
 	void testIsMossaValidaMangiataSeStesso() {
-		assertFalse(t.isMossaValida(Scacchiera.getCella(7, 7),Scacchiera.getCella(7, 7)));
+		assertFalse(t.isMossaValida(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(7, 7)));
 	}
 	@Test
 	void testIsMossaValidaMovimentoNonValido() {
-		assertFalse(t.isMossaValida(Scacchiera.getCella(7, 7),Scacchiera.getCella(5, 7)));
+		assertFalse(t.isMossaValida(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(5, 7)));
 	}
 	@Test
 	void testConvertiMossaAmbiguitaAdL() {
@@ -41,8 +42,8 @@ class TestTorre {
 		     a b c d e f g h		     a b c d e f g h
 		*/
 		
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 7),Scacchiera.getCella(0, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 5),Scacchiera.getCella(7, 6));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 7),Scacchiera.getInstance().getCella(0, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 5),Scacchiera.getInstance().getCella(7, 6));
 		assertEquals("a0 a0",Torre.convertiMossa("Th3"));
 		assertEquals("h1 h3",Torre.convertiMossa("T1h3"));
 		assertEquals("h1 h3",Torre.convertiMossa("Thh3"));
@@ -61,8 +62,8 @@ class TestTorre {
   		1 | |C|A|R|D|A|C| |   		1 | |C|A|R|D|A|C| |
        	   a b c d e f g h       	   a b c d e f g h 
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 7),Scacchiera.getCella(0, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(7, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 7),Scacchiera.getInstance().getCella(0, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(7, 5));
 		assertEquals("a0 a0",Torre.convertiMossa("Td3"));
 		assertEquals("a3 d3",Torre.convertiMossa("Tad3"));
 		assertEquals("h3 d3",Torre.convertiMossa("Thd3"));
@@ -79,9 +80,9 @@ class TestTorre {
   		1 | |C|A|R|D|A|C| |   		1 | |C|A|R|D|A|C| |
        	   a b c d e f g h       	   a b c d e f g h 
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 7),Scacchiera.getCella(0, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(7, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(4, 1),Scacchiera.getCella(4, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 7),Scacchiera.getInstance().getCella(0, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(7, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(4, 1),Scacchiera.getInstance().getCella(4, 5));
 		assertEquals("a0 a0",Torre.convertiMossa("Txd3"));
 		assertEquals("a0 a0",Torre.convertiMossa("Te3"));
 		assertEquals("a0 a0",Torre.convertiMossa("Tae3"));
@@ -100,9 +101,9 @@ class TestTorre {
   		1 | |C|A|R|D|A|C| |   		1 | |C|A|R|D|A|C| |
        	   a b c d e f g h       	   a b c d e f g h 
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 7),Scacchiera.getCella(0, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(3, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 1),Scacchiera.getCella(7, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 7),Scacchiera.getInstance().getCella(0, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(3, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 1),Scacchiera.getInstance().getCella(7, 5));
 		assertEquals("a0 a0",Torre.convertiMossa("Taxh3"));
 		assertEquals("a0 a0",Torre.convertiMossa("Th3"));
 		assertEquals("d3 h3",Torre.convertiMossa("Txh3"));
@@ -121,8 +122,8 @@ class TestTorre {
   		1 | |C|A|R|D|A|C| |   		1 | |C|A|R|D|A|C| |
        	   a b c d e f g h       	   a b c d e f g h 
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 7),Scacchiera.getCella(0, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(0, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 7),Scacchiera.getInstance().getCella(0, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(0, 2));
 		assertEquals("a0 a0", Torre.convertiMossa("Ta4"));
 		assertEquals("a6 a4", Torre.convertiMossa("T6a4"));
 		
@@ -142,9 +143,9 @@ class TestTorre {
   		1 | |C|A|R|D|A|C| |   		1 | |C|A|R|D|A|C| |
        	   a b c d e f g h       	   a b c d e f g h 
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 7),Scacchiera.getCella(0, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(0, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 1),Scacchiera.getCella(0, 4));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 7),Scacchiera.getInstance().getCella(0, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(0, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 1),Scacchiera.getInstance().getCella(0, 4));
 		assertEquals("a0 a0", Torre.convertiMossa("Ta4"));
 		assertEquals("a0 a0", Torre.convertiMossa("T6a4"));
 		assertEquals("a6 a4", Torre.convertiMossa("T6xa4"));
@@ -164,8 +165,8 @@ class TestTorre {
   		1 | |C|A|R|D|A|C| |   		1 | |C|A|R|D|A|C| |
        	   a b c d e f g h       	   a b c d e f g h 
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 7),Scacchiera.getCella(0, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(0, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 7),Scacchiera.getInstance().getCella(0, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(0, 3));
 		assertEquals("a0 a0", Torre.convertiMossa("Ta4"));
 		assertEquals("a0 a0", Torre.convertiMossa("T3xa7"));
 		assertEquals("a0 a0", Torre.convertiMossa("T5xa7"));
@@ -188,8 +189,8 @@ class TestTorre {
        	   a b c d e f g h       	   
 	*/
 		
-		Turno.cambioTurno();
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 5),Scacchiera.getCella(0, 6));
+		Turno.getInstance().cambioTurno();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 5),Scacchiera.getInstance().getCella(0, 6));
 		assertEquals("a0 a0",Torre.convertiMossa("Ta2"));
 	}
 	@Test
@@ -203,9 +204,9 @@ class TestTorre {
   		1 |T|C|A|R|D|A|C|T|
        	   a b c d e f g h
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 5),Scacchiera.getCella(0, 6));
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 5),Scacchiera.getCella(1, 6));
-		Scacchiera.scambiaCella(Scacchiera.getCella(2, 1),Scacchiera.getCella(2, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 5),Scacchiera.getInstance().getCella(0, 6));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 5),Scacchiera.getInstance().getCella(1, 6));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(2, 1),Scacchiera.getInstance().getCella(2, 5));
 		assertEquals("a0 a0",Torre.convertiMossa("Txc3"));
 	}
 
@@ -235,7 +236,7 @@ class TestTorre {
        	   a b c d e f g h       	   a b c d e f g h       	   a b c d e f g h
 	*/
 	
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(7, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(7, 5));
 		assertEquals("h3 d3",Torre.convertiMossa("Td3"));
 	}
 	@Test
@@ -249,7 +250,7 @@ class TestTorre {
   		1 |T|C|A|R|D|A|C|T|  		1 | |C|A|R|D|A|C|T|  		1 | |C|A|R|D|A|C|T|
        	   a b c d e f g h       	   a b c d e f g h       	   a b c d e f g h
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(7, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(7, 5));
 		assertEquals("h3 d3",Torre.convertiMossa("Td3"));
 	}
 	@Test
@@ -277,7 +278,7 @@ class TestTorre {
   		1 |T|C|A|R|D|A|C|T|  		1 |T|C|A|R|D|A|C|T|  		1 | |C|A|R|D|A|C|T|
        	   a b c d e f g h       	   a b c d e f g h       	   a b c d e f g h
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(0, 5),Scacchiera.getCella(0, 6));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(0, 5),Scacchiera.getInstance().getCella(0, 6));
 		assertEquals("a1 a3",Torre.convertiMossa("Ta3"));
 	}
 	@Test
@@ -304,8 +305,8 @@ class TestTorre {
   		1 |T|C|A|R|D|A|C| | 		1 |T|C|A|R|D|A|C|T|
        	   a b c d e f g h       	   a b c d e f g h
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(7, 4));
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 5),Scacchiera.getCella(7, 6));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(7, 4));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 5),Scacchiera.getInstance().getCella(7, 6));
 		assertEquals("h4 h1",Torre.convertiMossa("Th1"));
 	}
 	@Test
@@ -319,7 +320,7 @@ class TestTorre {
   		1 |T|C|A|R|D|A|C| | 
        	   a b c d e f g h 
 	*/
-		Scacchiera.scambiaCella(Scacchiera.getCella(7, 7),Scacchiera.getCella(7, 4));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(7, 7),Scacchiera.getInstance().getCella(7, 4));
 		assertEquals("a0 a0",Torre.convertiMossa("Th1"));
 	}
 	@Test

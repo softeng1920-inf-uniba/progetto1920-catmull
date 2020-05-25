@@ -169,7 +169,7 @@ public final class Cella {
      */
     public static char coordYinChar(final int coordY) {
 	final int carattere0Ascii = 48;
-	return (char) (Math.abs((coordY - Scacchiera.getNumeroColonne())) + carattere0Ascii);
+	return (char) (Math.abs((coordY - Scacchiera.getInstance().getNumeroColonne())) + carattere0Ascii);
     }
 
     /**
