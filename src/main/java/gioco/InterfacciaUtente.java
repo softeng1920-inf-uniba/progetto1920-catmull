@@ -1,20 +1,20 @@
 package gioco;
 
-import pedine.Pezzo;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
+import scacchiera.pedine.Pezzo;
 
 /**
  * La classe Stampa contiene i messaggi stampati a video e i metodi di stampa
  * dell'intero gioco. Contiene anche informazioni riguardo ai colori utilizzati
  * nelle stampe. La classe Stampa e' di tipo BOUNDARY.
  */
-public final class Stampa {
-
-    private Stampa() {
-	// Costruttore privato
-    }
-
+public final class InterfacciaUtente {
     // colore carattere e font
     private static final String CYAN_BOLD = "\033[1;96m";
     private static final String WHITE_BOLD_BRIGHT = "\033[1;97m";
@@ -32,12 +32,25 @@ public final class Stampa {
     // colore Intro
     public static final String ANSI_CYAN = "\u001B[36m";
 
+    private static InterfacciaUtente istance = null;
+
+    private InterfacciaUtente() {
+	// Costruttore privato
+    }
+
+    public static InterfacciaUtente getInstance() {
+	if (istance == null) {
+	    istance = new InterfacciaUtente();
+	}
+	return istance;
+    }
+
     /**
      * Stampa a video il simbolo del pezzo in input
      *
      * @param p
      */
-    private static void disegnaPezzo(final Pezzo p) {
+    private void disegnaPezzo(final Pezzo p) {
 	System.out.print("\033[1;30m" + p.getSimbolo());
     }
 
@@ -46,7 +59,7 @@ public final class Stampa {
      *
      * @param cellaPezzo
      */
-    private static void stampaPezzo(final Cella cellaPezzo) {
+    private void stampaPezzo(final Cella cellaPezzo) {
 	if (cellaPezzo.getPezzoCorrente() != null) {
 	    System.out.print(" ");
 	    disegnaPezzo(cellaPezzo.getPezzoCorrente());
@@ -59,7 +72,7 @@ public final class Stampa {
     /**
      * Stampa a video la scacchiera con i pezzi all'interno
      */
-    public static void stampaScacchiera() {
+    public void stampaScacchiera() {
 	boolean cost;
 	System.out.println("      a   b    c    d    e    f    g    h");
 	for (int j = Scacchiera.NUMEROCOLONNE; j > 0; j--) {
@@ -103,7 +116,7 @@ public final class Stampa {
 			System.out.print(ANSI_CYAN_BACKGROUND + " ");
 		    }
 		}
-		stampaPezzo(Scacchiera.getCella(i, Math.abs(j - Scacchiera.NUMERORIGHE)));
+		stampaPezzo(Scacchiera.getInstance().getCella(i, Math.abs(j - Scacchiera.NUMERORIGHE)));
 		System.out.print("  ");
 		System.out.print(ANSI_RESET);
 	    }
@@ -137,7 +150,7 @@ public final class Stampa {
     /**
      * stampa introduttiva del gioco
      */
-    public static void stampaIntro() {
+    public void stampaIntro() {
 	System.out.println(CYAN + "\n _/|" + ANSI_RESET + "    #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
 		+ ANSI_RESET + "#" + CYAN + "   #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
 		+ ANSI_RESET + "     #" + CYAN + "     #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN
@@ -159,6 +172,7 @@ public final class Stampa {
 		+ "#" + CYAN + "#" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#"
 		+ CYAN + " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "   )___(");
 	System.out.print(ANSI_RESET);
+
     }
 
     /**
@@ -166,7 +180,7 @@ public final class Stampa {
      *
      * @param giocatoreAttivo
      */
-    public static void stampaTurno(final Giocatore giocatoreAttivo) {
+    public void stampaTurno(final Giocatore giocatoreAttivo) {
 	if (giocatoreAttivo.getColore() == Colore.bianco) {
 	    System.out.println("\nE' il turno di " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT
 		    + giocatoreAttivo.getNome() + ANSI_RESET + " con le pedine di colore " + WHITE_BOLD_BRIGHT
@@ -184,7 +198,7 @@ public final class Stampa {
     /**
      * Stampa a video i comandi principali del menu
      */
-    public static void stampaMenu() {
+    public void stampaMenu() {
 	System.out.println();
 	System.out.println("\u265A" + "\u265B" + WHITE_BOLD_BRIGHT + "  MENU PRINCIPALE " + ANSI_RESET + "\u2655"
 		+ "\u2656" + " \n");
@@ -194,40 +208,40 @@ public final class Stampa {
     /**
      * Stampa a video il messaggio di mossa illegale
      */
-    public static void stampaMossaIllegale() {
+    public void stampaMossaIllegale() {
 	System.out.println(WHITE_BOLD_BRIGHT + "Mossa Illegale!" + ANSI_RESET);
     }
 
     /**
      * Stampa a video il messaggio che indica che il comando inserito e' errato
      */
-    public static void stampaComandoErrato() {
+    public void stampaComandoErrato() {
 	System.out.println(WHITE_BOLD_BRIGHT + "Comando errato. Riprova!" + ANSI_RESET);
     }
 
     /**
      * Stampa a video il messaggio di conferma per iniziare una nuova partita
      */
-    public static void stampaConfermaNuovaPartita() {
+    public void stampaConfermaNuovaPartita() {
 	System.out.println();
 	System.out.println(
-		"Sei sicuro di voler iniziare una nuova partita? \n(Digita 'y' per confermare, 'n' altrimenti)");
+		"Sei sicuro di voler iniziare una nuova partita? \n" + "(Digita 'y' per confermare, 'n' altrimenti)");
 
     }
 
     /**
      * Stampa a video il messaggio di conferma uscire dal gioco
      */
-    public static void stampaConfermaFinePartita() {
+    public void stampaConfermaFinePartita() {
 	System.out.println();
-	System.out.println("Sei sicuro di voler uscire dal gioco? \n(Digita 'y' per confermare, 'n' altrimenti)");
+	System.out.println("Sei sicuro di voler uscire dal gioco? \n" + "(Digita 'y' per confermare, 'n' altrimenti)");
 
     }
 
     /**
      * Stampa a video il messaggio di nuova partita
      */
-    public static void stampaNuovaPartita() {
+    public void stampaNuovaPartita() {
 	System.out.println("\n" + WHITE_BOLD_BRIGHT + "~ Nuova partita ~" + ANSI_RESET);
     }
 
@@ -236,7 +250,7 @@ public final class Stampa {
      *
      * @param giocatoreInteressato
      */
-    public static void stampaPezziCatturati(final Giocatore giocatoreInteressato) {
+    public void stampaPezziCatturati(final Giocatore giocatoreInteressato) {
 
 	System.out.println("\nPezzi catturati dal giocatore " + WHITE_BOLD_BRIGHT
 		+ giocatoreInteressato.getNome().toUpperCase() + ANSI_RESET + ":");
@@ -249,17 +263,19 @@ public final class Stampa {
     /**
      * Mostra le catture effettuate da entrambe i giocatori
      */
-    public static void visualizzareCatture() {
+    public void visualizzareCatture() {
 
-	Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
-	Giocatore giocatoreAttesa = Turno.getGiocatoreInAttesa();
+	Giocatore giocatoreAttivo = Turno.getInstance().getGiocatoreInTurno();
+	Giocatore giocatoreAttesa = Turno.getInstance().getGiocatoreInAttesa();
 	if (!giocatoreAttivo.isEmptyPezziCatturati() || !giocatoreAttesa.isEmptyPezziCatturati()) {
-	    if (!giocatoreAttivo.isEmptyPezziCatturati()) { // Se il giocatore attivo ha catturato dei pezzi, li stampo
+	    if (!giocatoreAttivo.isEmptyPezziCatturati()) {
+		// Se il giocatore attivo ha catturato dei pezzi, li stampo
 		stampaPezziCatturati(giocatoreAttivo);
 	    }
 
-	    if (!giocatoreAttesa.isEmptyPezziCatturati()) { // Se il giocatore in attesa ha catturato dei pezzi, li
-							    // stampo
+	    if (!giocatoreAttesa.isEmptyPezziCatturati()) {
+		// Se il giocatore in attesa ha catturato dei pezzi, li
+		// stampo
 		stampaPezziCatturati(giocatoreAttesa);
 	    }
 	} else {
@@ -270,21 +286,22 @@ public final class Stampa {
     /**
      * Stampa a video l'elenco delle mosse giocate da ogni giocatore
      */
-    public static void stampaMosseGiocate() {
+    public void stampaMosseGiocate() {
 	String mossa = null;
 	int counter = 1;
-	int dimensione = Turno.getGiocatoreInAttesa().getNumeroMosseGiocate()
-		+ Turno.getGiocatoreInTurno().getNumeroMosseGiocate();
+	int dimensione = Turno.getInstance().getGiocatoreInAttesa().getNumeroMosseGiocate()
+		+ Turno.getInstance().getGiocatoreInTurno().getNumeroMosseGiocate();
 	if (dimensione == 0) {
 	    System.out.println("\nNon e' stata giocata alcuna mossa.");
 	} else {
 	    System.out.println("\nStoria delle mosse giocate: ");
 	    for (int i = 0; i < dimensione; i++) {
 		if (i == dimensione - 1) {
-		    mossa = counter + ". " + Turno.fusioneListe().get(i);
+		    mossa = counter + ". " + Turno.getInstance().getArrayStoriaMosse().get(i);
 		    System.out.println(mossa);
 		} else {
-		    mossa = counter + ". " + Turno.fusioneListe().get(i) + " " + Turno.fusioneListe().get(i + 1);
+		    mossa = counter + ". " + Turno.getInstance().getArrayStoriaMosse().get(i) + " " + CYAN_BOLD
+			    + Turno.getInstance().getArrayStoriaMosse().get(i + 1) + ANSI_RESET;
 		    System.out.println(mossa);
 		}
 		i++;
@@ -296,25 +313,25 @@ public final class Stampa {
     /**
      * Permette la visualizzazione dell' elenco dei comandi del menu principale
      */
-    public static void mostrareElencoComandiMenu() {
-	System.out.println(Menu.play().toString());
-	System.out.println(Menu.quit().toString());
-	System.out.println(Menu.board().toString());
-	System.out.println(Menu.help().toString());
+    public void mostrareElencoComandiMenu() {
+	System.out.println(Menu.getInstance().play().toString());
+	System.out.println(Menu.getInstance().board().toString());
+	System.out.println(Menu.getInstance().help().toString());
+	System.out.println(Menu.getInstance().quit().toString());
 	System.out.println();
     }
 
     /**
      * Permette la visualizzazione dell' elenco dei comandi del menu di gioco
      */
-    public static void mostrareElencoComandiGioco() {
+    public void mostrareElencoComandiGioco() {
 	System.out.println();
-	System.out.println(Menu.play().toString());
-	System.out.println(Menu.quit().toString());
-	System.out.println(Menu.board().toString());
-	System.out.println(Menu.captures().toString());
-	System.out.println(Menu.moves().toString());
-	System.out.println(Menu.help().toString());
+	System.out.println(Menu.getInstance().play().toString());
+	System.out.println(Menu.getInstance().board().toString());
+	System.out.println(Menu.getInstance().captures().toString());
+	System.out.println(Menu.getInstance().moves().toString());
+	System.out.println(Menu.getInstance().help().toString());
+	System.out.println(Menu.getInstance().quit().toString());
 	System.out.println();
     }
 
@@ -323,13 +340,89 @@ public final class Stampa {
      *
      * @param c
      */
-    public static void stampaInserireGiocatore(final Colore c) {
+    public void stampaInserireGiocatore(final Colore c) {
 	if (c == Colore.bianco) {
 	    System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + WHITE_BOLD_BRIGHT
 		    + WHITE_UNDERLINED_BRIGHT + c + ANSI_RESET + " \u2193");
 	} else {
 	    System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + CYAN_UNDERLINED
 		    + CYAN_BOLD + c + ANSI_RESET + " \u2193");
+	}
+
+    }
+
+    public String acquisireComando() {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
+	String comando = "";
+	try {
+	    comando = br.readLine();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+	return comando;
+    }
+
+    /**
+     * Acquisisce il nome del giocatore da tastiera
+     */
+    public String getNomeDaTastiera(final Colore c) {
+	stampaInserireGiocatore(c);
+	String s = null;
+	while (s == null || s.equals("")) {
+	    s = acquisireComando();
+	    if (s == null || s.equals("")) {
+		stampaInserireGiocatore(c);
+	    }
+	}
+	return s;
+    }
+
+    /**
+     * Viene richiesto all'utente una conferma se vuole riavviare la partita
+     *
+     * @return true se l'utente vuole ricominciare la partita, false altrimenti.
+     */
+    public boolean utenteConfermaRiavvioPartita() {
+
+	String comando = "";
+	stampaConfermaNuovaPartita();
+	while (true) {
+	    comando = acquisireComando();
+	    if (comando != null) {
+		switch (comando) {
+		case "y":
+		    return true;
+		case "n":
+		    return false;
+		default:
+		    stampaComandoErrato();
+		}
+	    }
+	}
+
+    }
+
+    /**
+     * Viene richiesto all'utente una conferma se vuole uscire dal gioco
+     *
+     * @return true se l'utente vuole uscire dal gioco, false altrimenti.
+     */
+    public boolean utenteConfermaFinePartita() {
+
+	String comando = "";
+	stampaConfermaFinePartita();
+	while (true) {
+	    comando = acquisireComando();
+	    if (comando != null) {
+		switch (comando) {
+		case "y":
+		    return true;
+		case "n":
+		    return false;
+		default:
+		    stampaComandoErrato();
+		}
+	    }
 	}
 
     }

@@ -1,4 +1,4 @@
-package pedine;
+package scacchiera.pedine;
 
 import java.util.ArrayList;
 
@@ -16,8 +16,8 @@ public final class Pedone extends Pezzo {
     /**
      * Costruttore
      */
-    public Pedone(final Colore colore, final Cella posizioneCorrente) {
-	super("Pedone", colore, posizioneCorrente);
+    public Pedone(final Colore colore) {
+	super("Pedone", colore);
 	if (colore == Colore.nero) {
 	    setSimbolo('\u265f');
 	} else {
@@ -34,12 +34,12 @@ public final class Pedone extends Pezzo {
 		if (((start.getY() - 1) == end.getY())) { // avanti di una cella
 		    return true;
 		} else if (((start.getY() - 2) == end.getY()) && start.getY() == Scacchiera.SETTIMA_TRAVERSA // Se il
-													     // pedone
-													     // parte
-													     // dalla
-													     // settima
-													     // traversa
-			&& !(Scacchiera.getCella(end.getX(), (start.getY() - 1)).isOccupato())) {
+		// pedone
+		// parte
+		// dalla
+		// settima
+		// traversa
+			&& !(Scacchiera.getInstance().getCella(end.getX(), (start.getY() - 1)).isOccupato())) {
 		    return true;
 		}
 
@@ -53,7 +53,8 @@ public final class Pedone extends Pezzo {
 	    if (((start.getY() + 1) == end.getY()) && !end.isOccupato()) { // avanti di una cella
 		return true;
 	    } else if (((start.getY() + 2) == end.getY()) && start.getY() == 1
-		    && !(Scacchiera.getCella(end.getX(), (start.getY() + 1)).isOccupato())) { // avanti di due
+		    && !(Scacchiera.getInstance().getCella(end.getX(), (start.getY() + 1)).isOccupato())) { // avanti di
+													    // due
 		return true;
 	    }
 	} else if (start.getY() + 1 == end.getY() && (Math.abs(start.getX() - end.getX()) == 1) && end.isOccupato()
@@ -70,45 +71,41 @@ public final class Pedone extends Pezzo {
 
     /**
      * Determina se la cattura en passant e' effettuabile o meno
-     * 
+     *
      * @param start Cella di partenza della mossa del pedone
      * @param end   Cella di destinazione della mossa del pedone
      * @param mosse Array di tutte le mosse effettuate, necessario per controllare
-     *              se l'ultima mossa effettuata è un avanzata di due case
-     * @return true se la cattura è effettuabile in en passant, false altrimenti
+     *              <<<<<<< HEAD:src/main/java/scacchiera/pedine/Pedone.java se
+     *              l'ultima mossa effettuata � un avanzata di due case
+     * @return true se la cattura � effettuabile in en passant, false altrimenti
+     *         ======= se l'ultima mossa effettuata � un avanzata di due case
+     * @return true se la cattura � effettuabile in en passant, false altrimenti
+     *         >>>>>>>
+     *         40a92aa4f2c91103082888ba35a4cd697f676f07:src/main/java/pedine/Pedone.java
      */
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
-
 	Cella cellaPedone;
-
 	final int aMinuscolaAscii = 97;
 	final int carattere0Ascii = 48;
 	final int offset1Ascii = 7;
 	final int offset2Ascii = 9;
-
 	char x = (char) (end.getX() + aMinuscolaAscii);
 	char y1 = (char) (Math.abs(end.getY() - offset2Ascii) + carattere0Ascii);
 	char y2 = (char) (Math.abs(end.getY() - offset1Ascii) + carattere0Ascii);
 	String pedoneAvversarioBianco = x + "" + y2 + " " + x + "" + y1;
-
 	// Prendo la colonna della destinazione, e la traversa di partenza
-	cellaPedone = Scacchiera.getCella(end.getX(), start.getY());
-
+	cellaPedone = Scacchiera.getInstance().getCella(end.getX(), start.getY());
 	// se la cella e' occupata da un pedone di un colore opposto
 	if (isPedone(cellaPedone) && cellaPedone.getPezzoCorrente().getColore() != getColore()) {
 	    if (getColore() == Colore.bianco) {
-
 		String pedoneAvversarioNero = x + "" + y1 + " " + x + "" + y2; // calcolo ultima mossa del pedone da
 		// catturare E.P.
-
 		// Se la traversa di partenza + 1 e' uguale a quella di
 		// destinazione, e mi sto spostando in obliquo
 		// E la cella di dest. non e' occupata
 		// E l'ultima mossa e' quella prevista per l'e.p.
 		if (start.getY() - 1 == end.getY() && Math.abs(start.getX() - end.getX()) == 1 && !end.isOccupato()
-			&& mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero)
-
-		) {
+			&& mosse.get(mosse.size() - 1).equals(pedoneAvversarioNero)) {
 		    return true;
 		}
 	    } else { // Pedone di colore nero
@@ -129,19 +126,15 @@ public final class Pedone extends Pezzo {
      * @return mossa nel formato esteso
      */
     public static String convertiMossa(final String mossa) {
-
 	int variazione = 0;
 	final int offsetMenoDueAscii = 46;
 	final int offsetMenoUnoAscii = 47;
 	final int offsetUnoAscii = 49;
 	final int offsetDueAscii = 50;
-
 	String mossaConvertita = "a0 a0";
-
-	// Il formato della mossa sara'  del tipo [a-h](x|:)([a-h][1-8])
+	// Il formato della mossa sara' del tipo [a-h](x|:)([a-h][1-8])
 	String regexCattura = "[a-h](x|:)([a-h][1-8])( e.p.)?";
-	Colore coloreGiocatoreAttuale = Turno.getGiocatoreInTurno().getColore();
-
+	Colore coloreGiocatoreAttuale = Turno.getInstance().getGiocatoreInTurno().getColore();
 	if (mossa.matches(regexCattura)) { // Mossa di cattura in diagonale
 	    final int colonnaPartenzaCattura = 0;
 	    final int colonnaDestinazioneCattura = 2;
@@ -160,41 +153,36 @@ public final class Pedone extends Pezzo {
 	    final int colonnaDestinazioneAvanzata = 0;
 	    final int traversaDestinazioneAvanzata = 1;
 	    // controlla se e' possibile avanti di due o di uno
-
 	    if (coloreGiocatoreAttuale == Colore.bianco) {
 		int colonnaDestinazione = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
 		int terzaTraversa = Cella.coordYinInt('3');
-		Cella c = Scacchiera.getCella(colonnaDestinazione, terzaTraversa);
-
+		Cella c = Scacchiera.getInstance().getCella(colonnaDestinazione, terzaTraversa);
 		if (mossa.charAt(traversaDestinazioneAvanzata) == '4'
 			// Se mi voglio spostare nella 4 traversa, devo determinare se voglio
 			// avanzare di 2
 			&& (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone"))) {
-		    variazione = -offsetDueAscii; // Se la terza traversa non è occupata da un pedone allora vengo
-						    // dalla seconda
+		    variazione = -offsetDueAscii; // Se la terza traversa non e' occupata da un pedone allora vengo
+		    // dalla seconda
 		    // traversa
 		} else {
 		    variazione = -offsetUnoAscii;
 		}
-
 	    } else { // giocatore pedine nere
-		Cella c = Scacchiera.getCella(Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata)), 2);
+		Cella c = Scacchiera.getInstance()
+			.getCella(Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata)), 2);
 		variazione = -offsetMenoUnoAscii;
 		if (mossa.charAt(1) == '5' && (!c.isOccupato() || !c.getPezzoCorrente().getNome().equals("Pedone"))) {
 		    variazione = -offsetMenoDueAscii;
 		}
 	    }
-
 	    // mossa finale pedone semplice
 	    mossaConvertita = String.valueOf(mossa.charAt(colonnaDestinazioneAvanzata)) + // prima traversa
 		    String.valueOf(mossa.charAt(traversaDestinazioneAvanzata) + variazione) + // prima colonna
 		    ' ' + String.valueOf(mossa.charAt(colonnaDestinazioneAvanzata)) + // seconda traversa
 		    String.valueOf(mossa.charAt(traversaDestinazioneAvanzata)); // seconda colonna
-
 	}
 	// controlla che nella cella di partenza ci sia un pedone
-
-	if (Scacchiera.getNomePezzo(Cella.coordXinInt(mossaConvertita.charAt(0)),
+	if (Scacchiera.getInstance().getNomePezzo(Cella.coordXinInt(mossaConvertita.charAt(0)),
 		Cella.coordYinInt(mossaConvertita.charAt(1))) != "Pedone") {
 	    return "a0 a0";
 	}
