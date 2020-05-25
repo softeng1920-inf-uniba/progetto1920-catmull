@@ -321,6 +321,7 @@ public final class InterfacciaUtente {
 	System.out.println();
     }
 
+
     /**
      * Permette la visualizzazione dell' elenco dei comandi del menu di gioco
      */
@@ -361,7 +362,6 @@ public final class InterfacciaUtente {
 	}
 	return comando;
     }
-
     /**
      * Acquisisce il nome del giocatore da tastiera
      */
