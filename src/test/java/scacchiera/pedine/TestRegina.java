@@ -1,6 +1,8 @@
 package scacchiera.pedine;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,10 +13,8 @@ import scacchiera.Scacchiera;
 
 class TestRegina {
 
-	Pezzo pezzoCorrente;
 	Regina d;
 	Cella start;
-	Cella end;
 
 	@BeforeEach
 	void setTests() {
@@ -28,7 +28,7 @@ class TestRegina {
 		start = Scacchiera.getInstance().getCella(3, 3);
 		d = (Regina) start.getPezzoCorrente();
 	}
-	
+
 
 	void Inizio1() {
 		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(3, 7), Scacchiera.getInstance().getCella(3, 3));
@@ -184,14 +184,14 @@ class TestRegina {
 			// in alto a sinistra
 			assertEquals("d5 c6", Regina.convertiMossa("Dc6"));
 		}
-		
+
 		@Test
 		void testConvertiMossa_BassoSx() {
 			Inizio1();
 			// in basso a sinistra
 			assertEquals("d5 b3", Regina.convertiMossa("Db3"));
 		}
-		
+
 		@Test
 		void testConvertiMossa_BassoDx() {
 			Inizio1();
@@ -205,14 +205,14 @@ class TestRegina {
 			// mangiata con bianco in alto a destra
 			assertEquals("d5 f7", Regina.convertiMossa("Dxf7"));
 		}
-		
+
 		@Test
 		void testConvertiMossa_MangiataVuota() {
 			Inizio1();
 			// mangiata con cella di destinazione vuota in alto a destra
 			assertEquals("a0 a0", Regina.convertiMossa("Dxe6"));
 		}
-		
+
 		@Test
 		void testConvertiMossa() {
 			Inizio1();

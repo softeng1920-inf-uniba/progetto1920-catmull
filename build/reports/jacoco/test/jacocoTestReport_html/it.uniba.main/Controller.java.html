@@ -18,7 +18,7 @@ import scacchiera.pedine.Regina;
 import scacchiera.pedine.Torre;
 
 /**
- * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
+ * Classe che gestisce le varie funzionalita'ï¿½ del gioco, permette di iniziare
  * una nuova partita o di effettuarne una. La classe Controller e' di tipo
  * CONTROL
  */
@@ -101,7 +101,7 @@ public final class Controller {
 
     /**
      * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
-     * e restituisce true se la mossa � valida ed � stata applicata altrimenti
+     * e restituisce true se la mossa ï¿½ valida ed ï¿½ stata applicata altrimenti
      * restituisce false
      *
      * @param mossaDaGiocare
@@ -160,8 +160,8 @@ public final class Controller {
 
     /**
      * Data la notazione algebrica inserita dall'utente, l'algoritmo restituisce 0
-     * se � una mossa semplice, 1 se � una mossa di cattura, 2 se � un arrocco e 3
-     * se � di sicuro un en passant
+     * se ï¿½ una mossa semplice, 1 se ï¿½ una mossa di cattura, 2 se ï¿½ un arrocco e 3
+     * se ï¿½ di sicuro un en passant
      *
      * @param mossaInInput
      * @return
@@ -228,11 +228,11 @@ public final class Controller {
     }
 
     /**
-     * Dopo che sono stati effettuati i vari controlli (se la mossa inserita è
-     * valida, se è consentita ecc.), viene effettuato in base alla tipologia della
+     * Dopo che sono stati effettuati i vari controlli (se la mossa inserita Ã¨
+     * valida, se Ã¨ consentita ecc.), viene effettuato in base alla tipologia della
      * mossa, il necessario per proseguire con il corretto funzionamento del gioco.
      *
-     * L'applicazione della mossa non è univoca per ogni comando inserito (vedi
+     * L'applicazione della mossa non Ã¨ univoca per ogni comando inserito (vedi
      * e.p.)
      *
      * @param cellaPartenza
@@ -285,7 +285,7 @@ public final class Controller {
      * @param mossaRe
      * @param mossaTorre
      * @param tipoArrocco
-     * @return true se l'arrocco può essere effettuato, false se l'arrocco e' stato
+     * @return true se l'arrocco puÃ² essere effettuato, false se l'arrocco e' stato
      *         chiamato con pezzi non compatibili / celle vuote L'arrocco e' valido
      *         se sono verificate tutte le seguenti condizioni: - Il giocatore non
      *         ha ancora mosso ne' il re ne' la torre coinvolta nell'arrocco; - Non
@@ -310,7 +310,7 @@ public final class Controller {
 	// Se nella cella di partenza del presunto re c'e' il re del colore del
 	// giocatore
 	// in turno..
-<span class="pc bpc" id="L313" title="2 of 4 branches missed.">	if (cellaPartenzaRe.isOccupato() &amp;&amp; presuntoReGiocatoreAttuale.getNome() == &quot;Re&quot;</span>
+<span class="pc bpc" id="L313" title="1 of 4 branches missed.">	if (cellaPartenzaRe.isOccupato() &amp;&amp; presuntoReGiocatoreAttuale.getNome() == &quot;Re&quot;</span>
 <span class="pc bpc" id="L314" title="1 of 2 branches missed.">		&amp;&amp; presuntoReGiocatoreAttuale.getColore() == coloreGiocatoreAttivo</span>
 		// e nella cella della presunta torre c'e' la torre del colore del giocatore in
 		// turno..
@@ -321,7 +321,7 @@ public final class Controller {
 <span class="fc" id="L321">		    getMosseConvertite(), tipoArrocco);</span>
 	}
 
-<span class="nc" id="L324">	return false;</span>
+<span class="fc" id="L324">	return false;</span>
 
     }
 
@@ -337,7 +337,7 @@ public final class Controller {
      * @param partenza
      * @param destinazione
      * @param tipoMossa
-     * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
+     * @return isReProtetto: falso se il Re Ã¨ sotto scacco, vero altrimenti.
      */
     public boolean isReProtetto(final Cella partenza, final Cella destinazione) {
 

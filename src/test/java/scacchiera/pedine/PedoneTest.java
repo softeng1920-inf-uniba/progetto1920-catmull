@@ -1,20 +1,20 @@
 package scacchiera.pedine;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import gioco.*;
-import scacchiera.*;
+import gioco.Turno;
+import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 class PedoneTest {
 	Pezzo pezzoCorrente;
-	Giocatore g1;
-	Giocatore g2;
 	Cella start;
 	Cella end;
 
@@ -30,7 +30,7 @@ class PedoneTest {
 		start = Scacchiera.getInstance().getCella(0, 6);
 		end = Scacchiera.getInstance().getCella(0, 5);
 		if (Scacchiera.getInstance().getNomePezzo(0, 6) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertTrue(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -40,7 +40,7 @@ class PedoneTest {
 		start = Scacchiera.getInstance().getCella(0, 6);
 		end = Scacchiera.getInstance().getCella(0, 4);
 		if (Scacchiera.getInstance().getNomePezzo(0, 6) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertTrue(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -51,7 +51,7 @@ class PedoneTest {
 		end = Scacchiera.getInstance().getCella(1, 5);
 		if (Scacchiera.getInstance().getNomePezzo(0, 6) != "Vuota") {
 			Scacchiera.getInstance().getCella(1, 5).aggiungiPezzo(Scacchiera.getInstance().getCella(0, 1).getPezzoCorrente());
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertTrue(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -63,7 +63,7 @@ class PedoneTest {
 		start = Scacchiera.getInstance().getCella(0, 1);
 		end = Scacchiera.getInstance().getCella(0, 2);
 		if (Scacchiera.getInstance().getNomePezzo(0, 1) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertTrue(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -73,7 +73,7 @@ class PedoneTest {
 		start = Scacchiera.getInstance().getCella(0, 1);
 		end = Scacchiera.getInstance().getCella(0, 4);
 		if (Scacchiera.getInstance().getNomePezzo(0, 1) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertFalse(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -83,7 +83,7 @@ class PedoneTest {
 		start = Scacchiera.getInstance().getCella(0, 1);
 		end = Scacchiera.getInstance().getCella(0, 0);
 		if (Scacchiera.getInstance().getNomePezzo(0, 1) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertFalse(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -94,7 +94,7 @@ class PedoneTest {
 		start = Scacchiera.getInstance().getCella(3, 1);
 		end = Scacchiera.getInstance().getCella(3, 3);
 		if (Scacchiera.getInstance().getNomePezzo(3, 1) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertTrue(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -104,7 +104,7 @@ class PedoneTest {
 		start = Scacchiera.getInstance().getCella(3, 1);
 		end = Scacchiera.getInstance().getCella(4, 2);
 		if (Scacchiera.getInstance().getNomePezzo(3, 1) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertFalse(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
@@ -115,11 +115,11 @@ class PedoneTest {
 		end = Scacchiera.getInstance().getCella(4, 2);
 		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1,  6), Scacchiera.getInstance().getCella(4,  2));
 		if (Scacchiera.getInstance().getNomePezzo(3, 1) != "Vuota") {
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 			assertTrue(pezzoCorrente.isMossaValida(start, end));
 		}
 	}
-	
+
 	@Test
 	void testIsMossaValidaDueFinaleOccupata() {
 		// mossa avanti di due celle con cella finale occupata
@@ -127,7 +127,7 @@ class PedoneTest {
 		end = Scacchiera.getInstance().getCella(3, 3);
 		if (Scacchiera.getInstance().getNomePezzo(3, 1) != "Vuota") {
 			Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(2, 1).getPezzoCorrente());
-			pezzoCorrente = (Pedone) start.getPezzoCorrente();
+			pezzoCorrente = start.getPezzoCorrente();
 		}
 	}
 

@@ -1,19 +1,20 @@
 package scacchiera.pedine;
 
-import scacchiera.Cella;
-import scacchiera.Scacchiera;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import gioco.Turno;
+import scacchiera.Cella;
+import scacchiera.Scacchiera;
 
 class AlfiereTest {
-	Pezzo pezzoCorrente;
 	Alfiere a;
 	Cella start;
-	Cella end;
 
 	@BeforeEach
 	void setTests() {
@@ -34,7 +35,7 @@ class AlfiereTest {
 		start = Scacchiera.getInstance().getCella(2, 4);
 		a = (Alfiere) start.getPezzoCorrente();
 	}
-	
+
 	void Inizio3() {
 		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(2, 7), Scacchiera.getInstance().getCella(5, 4));
 		start = Scacchiera.getInstance().getCella(5, 4);
@@ -45,11 +46,11 @@ class AlfiereTest {
 		Turno.getInstance().cambioTurno();
 		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(5, 0), Scacchiera.getInstance().getCella(2, 3));
 	}
-	
+
 	void Inizio5() {
 		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(5, 7), Scacchiera.getInstance().getCella(2, 4));
 	}
-	
+
 	@Test
 	void testIsMossaValida_AltoDx() {
 		Inizio();
