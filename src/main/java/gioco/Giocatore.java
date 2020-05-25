@@ -1,5 +1,7 @@
 package gioco;
 
+import java.util.ArrayList;
+
 import scacchiera.pedine.Pezzo;
 
 /**
@@ -35,6 +37,7 @@ public final class Giocatore {
 		setColore(c);
 		pezziCatturati = new ArrayList<Pezzo>();
 		mosseGiocate = new ArrayList<String>();
+
 	}
 
 	/**
@@ -111,6 +114,15 @@ public final class Giocatore {
 	 */
 	public void setMosseGiocate(final String mossa) {
 		mosseGiocate.add(mossa);
+	}
+
+	/**
+	 * Restituisce la storia delle mosse giocate dal giocatore.
+	 *
+	 * @return lista delle mosse giocate.
+	 */
+	public ArrayList<String> getMosseGiocate() {
+		return mosseGiocate;
 	}
 
 	/**

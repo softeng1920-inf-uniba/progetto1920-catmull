@@ -310,7 +310,6 @@ public final class InterfacciaUtente {
 	}
     }
 
-<<<<<<< HEAD
     /**
      * Permette la visualizzazione dell' elenco dei comandi del menu principale
      */
@@ -321,19 +320,6 @@ public final class InterfacciaUtente {
 	System.out.println(Menu.getInstance().quit().toString());
 	System.out.println();
     }
-=======
-	/**
-	 * Permette la visualizzazione dell' elenco dei comandi del menu principale
-	 */
-	public static void mostrareElencoComandiMenu() {
-		System.out.println("\n");
-		System.out.println(Menu.play().toString());
-		System.out.println(Menu.quit().toString());
-		System.out.println(Menu.board().toString());
-		System.out.println(Menu.help().toString());
-		System.out.println();
-	}
->>>>>>> Aggiunta messaggio per l' inserimento del comando
 
     /**
      * Permette la visualizzazione dell' elenco dei comandi del menu di gioco
@@ -373,15 +359,8 @@ public final class InterfacciaUtente {
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
-<<<<<<< HEAD
 	return comando;
     }
-=======
-	
-	public static void stampaInserireComando() {
-		System.out.println(WHITE_BOLD_BRIGHT + "\nInserisci un comando\n" + ANSI_RESET);
-	}
->>>>>>> Aggiunta messaggio per l' inserimento del comando
 
     /**
      * Acquisisce il nome del giocatore da tastiera
