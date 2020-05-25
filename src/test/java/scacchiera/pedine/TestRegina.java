@@ -18,156 +18,156 @@ class TestRegina {
 
 	@BeforeEach
 	void setTests() {
-		Scacchiera.newScacchiera();
-		Turno.newTurno();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Turno.getInstance();
 
 	}
 
 	void Inizio() {
-		Scacchiera.scambiaCella(Scacchiera.getCella(3, 7), Scacchiera.getCella(3, 3));
-		start = Scacchiera.getCella(3, 3);
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(3, 7), Scacchiera.getInstance().getCella(3, 3));
+		start = Scacchiera.getInstance().getCella(3, 3);
 		d = (Regina) start.getPezzoCorrente();
 	}
 	
 
 	void Inizio1() {
-		Scacchiera.scambiaCella(Scacchiera.getCella(3, 7), Scacchiera.getCella(3, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(3, 7), Scacchiera.getInstance().getCella(3, 3));
 	}
 
 	@Test
 	void testIsMossaValida_AltoDx() {
 		Inizio();
 		// in alto a destra
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(4, 2)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(4, 2)));
 	}
 
 	@Test
 	void testIsMossaValida_AltoSx() {
 		Inizio();
 		// in alto a sinistra
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(2, 2)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(2, 2)));
 	}
 
 	@Test
 	void testIsMossaValida_BassoDx() {
 		Inizio();
 		// in basso a destra
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(5, 5)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(5, 5)));
 	}
 
 	@Test
 	void testIsMossaValida_BassoSx() {
 		Inizio();
 		// in basso a sinistra
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(1, 5)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(1, 5)));
 	}
 
 	@Test
 	void testIsMossaValida_Dx() {
 		Inizio();
 		// destra
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(7, 3)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(7, 3)));
 	}
 
 	@Test
 	void testIsMossaValida_Sx() {
 		Inizio();
 		// sinistra
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(1, 3)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(1, 3)));
 	}
 
 	@Test
 	void testIsMossaValida_Alto() {
 		Inizio();
 		// in alto
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(3, 2)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(3, 2)));
 	}
 
 	@Test
 	void testIsMossaValida_Basso() {
 		Inizio();
 		// in basso
-		assertTrue(d.isMossaValida(start, Scacchiera.getCella(3, 5)));
+		assertTrue(d.isMossaValida(start, Scacchiera.getInstance().getCella(3, 5)));
 	}
 
 	@Test
 	void testIsMossaValida_Alto_Occupato() {
 		Inizio();
 		// in alto occupato
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(3, 0)));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(3, 0)));
 	}
 
 	@Test
 	void testIsMossaValida_BassoOccupato() {
 		Inizio();
 		// in basso occupato
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(3, 7)));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(3, 7)));
 	}
 
 	@Test
 	void testIsMossaValida_Dx_Occupato() {
 		Inizio();
 		// a destra occupato
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 1), Scacchiera.getCella(6, 3));
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(7, 3)));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 1), Scacchiera.getInstance().getCella(6, 3));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(7, 3)));
 	}
 
 	@Test
 	void testIsMossaValida_Sx_Occupato() {
 		Inizio();
 		// a sinistra occupato
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 1), Scacchiera.getCella(1, 3));
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(0, 3)));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 1), Scacchiera.getInstance().getCella(1, 3));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(0, 3)));
 	}
 
 	@Test
 	void testIsMossaValida_AltoSx_Occupato() {
 		Inizio();
 		// in alto a sinistra percorso occupato
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 1), Scacchiera.getCella(6, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 1), Scacchiera.getCella(1, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 3), Scacchiera.getCella(1, 1));
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(0, 0)));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 1), Scacchiera.getInstance().getCella(6, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 1), Scacchiera.getInstance().getCella(1, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 3), Scacchiera.getInstance().getCella(1, 1));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(0, 0)));
 	}
 
 	@Test
 	void testIsMossaValida_AltoDx_Occupato() {
 		Inizio();
 		// in alto a destra percorso occupato
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(6, 0)));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(6, 0)));
 	}
 
 	@Test
 	void testIsMossaValida_BassoSx_Occupato() {
 		Inizio();
 		// in basso a sinistra percorso occupato
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 6), Scacchiera.getCella(1, 5));
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(0, 6)));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 6), Scacchiera.getInstance().getCella(1, 5));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(0, 6)));
 	}
 
 	@Test
 	void testIsMossaValida_BassoDx_Occupato() {
 		Inizio();
 		// in basso a destra percorso occupato
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(7, 7)));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(7, 7)));
 	}
 
 	@Test
 	void testIsMossaValida_Mangiata() {
 		Inizio();
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 1), Scacchiera.getCella(6, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 1), Scacchiera.getCella(1, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 3), Scacchiera.getCella(1, 1));
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 6), Scacchiera.getCella(1, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 1), Scacchiera.getInstance().getCella(6, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 1), Scacchiera.getInstance().getCella(1, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 3), Scacchiera.getInstance().getCella(1, 1));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 6), Scacchiera.getInstance().getCella(1, 5));
 		// mangio con bianco il bianco
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(1, 5)));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(1, 5)));
 	}
 
 	@Test
 	void testIsMossaValida() {
 		Inizio();
 		// movimento non valido
-		assertFalse(d.isMossaValida(start, Scacchiera.getCella(5, 4)));
+		assertFalse(d.isMossaValida(start, Scacchiera.getInstance().getCella(5, 4)));
 	}
 
 

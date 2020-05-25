@@ -34,156 +34,156 @@ class CavalloTest {
 
 	@BeforeEach
 	void setTests() {
-		Scacchiera.nuovaScacchiera();
-		Turno.newTurno();
-		Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-    	Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-    	start = Scacchiera.getCella(3, 3);
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Turno.getInstance().inizializzaTurno();
+		Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+		Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+    	start = Scacchiera.getInstance().getCella(3, 3);
     	c = (Cavallo)start.getPezzoCorrente();
 		
 	}
 	
 	@Test
 	void testisMossaValidac7() {
-		assertTrue(c.isMossaValida(start, Scacchiera.getCella(2, 1)));
+		assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(2, 1)));
 		
 	}
 	
 	@Test
 	void testIsMossaValidae7() {
-		assertTrue(c.isMossaValida(start, Scacchiera.getCella(4, 1)));
+		assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(4, 1)));
 	}
 	
 	@Test
 	void testIsMossaValidab6() {
-		Scacchiera.getCella(1, 2).aggiungiPezzo(Scacchiera.getCella(0, 1).getPezzoCorrente());
-        assertTrue(c.isMossaValida(start, Scacchiera.getCella(1, 2)));
+		Scacchiera.getInstance().getCella(1, 2).aggiungiPezzo(Scacchiera.getInstance().getCella(0, 1).getPezzoCorrente());
+        assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(1, 2)));
 	}
 	
 	@Test
 	void testIsMossaValidab4() {
-		Scacchiera.getCella(1, 4).aggiungiPezzo(Scacchiera.getCella(0, 1).getPezzoCorrente());
-        assertTrue(c.isMossaValida(start, Scacchiera.getCella(1, 4)));
+		Scacchiera.getInstance().getCella(1, 4).aggiungiPezzo(Scacchiera.getInstance().getCella(0, 1).getPezzoCorrente());
+        assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(1, 4)));
 	}
 	
 	@Test
 	void testIsMossaValidac3() {
-		Scacchiera.getCella(2, 5).aggiungiPezzo(Scacchiera.getCella(0, 1).getPezzoCorrente());
-        assertTrue(c.isMossaValida(start, Scacchiera.getCella(2, 5)));
+		Scacchiera.getInstance().getCella(2, 5).aggiungiPezzo(Scacchiera.getInstance().getCella(0, 1).getPezzoCorrente());
+        assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(2, 5)));
 	}
 	
 	@Test
 	void testIsMossaValidae3() {
-		Scacchiera.getCella(4, 5).aggiungiPezzo(Scacchiera.getCella(0, 1).getPezzoCorrente());
-        assertTrue(c.isMossaValida(start, Scacchiera.getCella(4, 5)));
+		Scacchiera.getInstance().getCella(4, 5).aggiungiPezzo(Scacchiera.getInstance().getCella(0, 1).getPezzoCorrente());
+        assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(4, 5)));
 	}
 	
 	@Test
 	void testIsMossaValidaf4() {
-		Scacchiera.getCella(5, 4).aggiungiPezzo(Scacchiera.getCella(0, 1).getPezzoCorrente());
-        assertTrue(c.isMossaValida(start, Scacchiera.getCella(5, 4)));
+		Scacchiera.getInstance().getCella(5, 4).aggiungiPezzo(Scacchiera.getInstance().getCella(0, 1).getPezzoCorrente());
+        assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(5, 4)));
 	}
 	
 	@Test
 	void testIsMossaValidaf6() {
-		Scacchiera.getCella(5, 2).aggiungiPezzo(Scacchiera.getCella(0, 1).getPezzoCorrente());
-        assertTrue(c.isMossaValida(start, Scacchiera.getCella(5, 2)));
+		Scacchiera.getInstance().getCella(5, 2).aggiungiPezzo(Scacchiera.getInstance().getCella(0, 1).getPezzoCorrente());
+        assertTrue(c.isMossaValida(start, Scacchiera.getInstance().getCella(5, 2)));
 	}
 	
 	@Test
 	void testIsMossaValidaEndOccupato() {
-		Scacchiera.nuovaScacchiera();
-		assertFalse(c.isMossaValida(Scacchiera.getCella(5, 5), Scacchiera.getCella(4, 1)));
-		Scacchiera.getCella(5, 5).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(6, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        assertFalse(c.isMossaValida(Scacchiera.getCella(5, 5), Scacchiera.getCella(6, 3)));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		assertFalse(c.isMossaValida(Scacchiera.getInstance().getCella(5, 5), Scacchiera.getInstance().getCella(4, 1)));
+		Scacchiera.getInstance().getCella(5, 5).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+		Scacchiera.getInstance().getCella(6, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+        assertFalse(c.isMossaValida(Scacchiera.getInstance().getCella(5, 5), Scacchiera.getInstance().getCella(6, 3)));
 	}
 	
 	@Test
 	void testConvertiMossae7() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+        Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+        Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 e7", Cavallo.convertiMossa("Ce7"));
 	}
 	
 	@Test
 	void testConvertiMossac7() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+        Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+        Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 c7", Cavallo.convertiMossa("Cc7"));
 	}
 	
 	@Test
 	void testConvertiMossab6() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+        Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+        Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+        Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 b6", Cavallo.convertiMossa("Cb6"));
 	}
 	
 	@Test
 	void testConvertiMossab4() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+		Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 b4", Cavallo.convertiMossa("Cb4"));
 	}
 	
 	@Test
 	void testConvertiMossac3() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+		Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 c3", Cavallo.convertiMossa("Cc3"));
 	}
 	
 	@Test
 	void testConvertiMossae3() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+		Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 e3", Cavallo.convertiMossa("Ce3"));
 	}
 	
 	@Test
 	void testConvertiMossaf4() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+		Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 f4", Cavallo.convertiMossa("Cf4"));
 	}
 	
 	@Test
 	void testConvertiMossaf6() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.getCella(4, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(2, 1).rimuoviPezzoCorrente();
-        Scacchiera.getCella(3, 3).aggiungiPezzo(Scacchiera.getCella(1, 7).getPezzoCorrente());
-        Scacchiera.getCella(1, 7).rimuoviPezzoCorrente();
-        Scacchiera.getCella(6, 7).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().getCella(4, 1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().getCella(2, 1).rimuoviPezzoCorrente();
+        Scacchiera.getInstance().getCella(3, 3).aggiungiPezzo(Scacchiera.getInstance().getCella(1, 7).getPezzoCorrente());
+        Scacchiera.getInstance().getCella(1, 7).rimuoviPezzoCorrente();
+        Scacchiera.getInstance().getCella(6, 7).rimuoviPezzoCorrente();
         assertEquals("d5 f6", Cavallo.convertiMossa("Cf6"));
 	}
 	
@@ -193,8 +193,8 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaCattura() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(3, 3));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(3, 3));
 		assertEquals("d5 e7", Cavallo.convertiMossa("Cxe7"));
 		
 	}
@@ -207,8 +207,8 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaFull() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(3, 3));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(3, 3));
 		assertEquals("a0 a0", Cavallo.convertiMossa("Ce7"));
 		
 	}
@@ -218,8 +218,8 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaCatturaFinaleVuota() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(3, 3));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(3, 3));
 		assertEquals("a0 a0", Cavallo.convertiMossa("Cxe4"));
 		
 	}
@@ -231,9 +231,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaCatturaAmbiguitaTrav() { 
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(3, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(5, 3));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(3, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(5, 3));
 		assertEquals("f5 e7", Cavallo.convertiMossa("Cfxe7"));
 	}
 	
@@ -243,10 +243,10 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaCatturaAmbiguitaTravEmpty() { 
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(3, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(5, 3));
-		Scacchiera.getCella(4,  1).rimuoviPezzoCorrente();
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(3, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(5, 3));
+		Scacchiera.getInstance().getCella(4,  1).rimuoviPezzoCorrente();
 		assertEquals("a0 a0", Cavallo.convertiMossa("Cfxe7"));
 	}
 	
@@ -257,10 +257,10 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaCatturaAmbiguitaColonne() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(3, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(3, 5));
-		Scacchiera.scambiaCella(Scacchiera.getCella(5, 1), Scacchiera.getCella(5, 4));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(3, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(3, 5));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(5, 1), Scacchiera.getInstance().getCella(5, 4));
 		assertEquals("d5 f4", Cavallo.convertiMossa("C5xf4"));
 	}
 	
@@ -270,9 +270,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaCatturaAmbiguitaColonneEmpty() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(3, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(3, 5));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(3, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(3, 5));
 		assertEquals("a0 a0", Cavallo.convertiMossa("C5xf4"));
 	}
 	
@@ -283,9 +283,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaTrav() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(1, 4));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(1, 4));
 		assertEquals("b4 d5", Cavallo.convertiMossa("C4d5"));
 	}
 	
@@ -296,9 +296,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaTrav2() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(1, 6));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(1, 6));
 		assertEquals("b2 c4", Cavallo.convertiMossa("C2c4"));
 	}
 	
@@ -309,9 +309,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaTravSx1() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(1, 6));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(1, 6));
 		assertEquals("b6 a4", Cavallo.convertiMossa("C6a4"));
 	}
 	
@@ -322,10 +322,10 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaTravFull() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(1, 4));
-		Scacchiera.scambiaCella(Scacchiera.getCella(5, 1), Scacchiera.getCella(3, 3));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(1, 4));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(5, 1), Scacchiera.getInstance().getCella(3, 3));
 		assertEquals("a0 a0", Cavallo.convertiMossa("C4d5"));
 	}
 	
@@ -336,9 +336,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaTravSx2() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(2, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(2, 4));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(2, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(2, 4));
 		assertEquals("c4 a5", Cavallo.convertiMossa("C4a5"));
 	}
 	
@@ -349,9 +349,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaColonna() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(3, 2));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(3, 2));
 		assertEquals("b6 c4", Cavallo.convertiMossa("Cbc4"));
 	}
 
@@ -362,9 +362,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaColonnaDx() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(3, 2));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(3, 2));
 		assertEquals("b6 d5", Cavallo.convertiMossa("Cbd5"));
 	}
 	
@@ -374,9 +374,9 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaColonnaDx2() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 4));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(5, 4));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 4));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(5, 4));
 		assertEquals("b4 d5", Cavallo.convertiMossa("Cbd5"));
 	}
 	
@@ -386,10 +386,10 @@ class CavalloTest {
 	 */
 	@Test
 	void testConvertiMossaAmbiguitaColonnaPiena() {
-		Scacchiera.nuovaScacchiera();
-		Scacchiera.scambiaCella(Scacchiera.getCella(1, 7), Scacchiera.getCella(1, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 7), Scacchiera.getCella(3, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(5, 1), Scacchiera.getCella(2, 4));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(1, 7), Scacchiera.getInstance().getCella(1, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 7), Scacchiera.getInstance().getCella(3, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(5, 1), Scacchiera.getInstance().getCella(2, 4));
 		assertEquals("a0 a0", Cavallo.convertiMossa("Cbc4"));
 	}
 }
