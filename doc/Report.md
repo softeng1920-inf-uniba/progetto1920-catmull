@@ -49,7 +49,7 @@ I requisiti si suddividiono in funzionali e non funzionali: i requisiti funziona
 
 #### <a name="func_req"></a>Requisiti funzionali
 <ul>
-<li> Come giocatore voglio che eseguendo il comando <u><i>help</i></u> il risultato sia la lista dei comandi disponibili;</li>      
+<li> **RF1**: Come giocatore voglio che eseguendo il comando <u><i>help</i></u> il risultato sia la lista dei comandi disponibili;</li>      
 <li> Come giocatore voglio che al comando <u><i>play</i></u> l'applicazione si predisponga a ricevere la prima mossa di gioco e sia in grado di ricevere altri comandi;</li>    
 <li> Come giocatore voglio che al comando <u><i>quit</i></u> l'applicazione si chiuda e compaia il prompt del sistema operativo;</li>   
 <li> Come giocatore voglio che al comando <u><i>board</i></u> l’applicazione mostri la scacchiera;</li>   
@@ -136,4 +136,3 @@ I requisiti si suddividiono in funzionali e non funzionali: i requisiti funziona
 #### <a name="crazy"></a>Cosa vi ha fatto «impazzire» e vi ha reso disperati
 
 [Torna all'indice](#indice)
-
