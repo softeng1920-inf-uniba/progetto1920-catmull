@@ -332,9 +332,7 @@ Esempio di una cattura: `Rxf2`, `R:g6`.
 
 ### ![](/res/img/report/Report-Report-65045755.png) Pedone ![](/res/img/report/Report-Report-65045755.png)
 
-<div align="center">
 ![](/res/img/report/Report-51610b83.png)
-
 *(a) Potenziali movimenti pedone* </div>
 
 Il pedone può avanzare di due case solo se è la sua prima mossa, altrimenti può avanzare di una sola casa purché la cella di destinazione sia libera.  
