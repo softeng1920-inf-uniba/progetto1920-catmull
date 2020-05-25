@@ -47,7 +47,7 @@
 #### <a name="comments1"></a>Commentare le decisioni prese (opzionale)
 
 [Torna all'indice](#indice)
-
+<p align="center"><img src="drawings/DiagrammaDeiPackage.png" width=100% height=100%></p>
 # <a name="oo_design"></a>OO Design
 #### <a name="class_seq_diag"></a>Diagrammi delle classi e diagrammi di sequenza
 ##### User story "<titolo>"
