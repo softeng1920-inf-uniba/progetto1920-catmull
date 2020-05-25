@@ -42,9 +42,9 @@
 [Torna all'indice](#indice)
 # <a name="sys_des"></a>System Design
 
-#### <a name="arch_style"></a>Stile architetturale adottato (opzionale)
-#### <a name="pkg_cmpnts_diag"></a>Diagramma dei package, diagramma dei componenti (opzionali)
-#### <a name="comments1"></a>Commentare le decisioni prese (opzionale)
+
+#### <a name="pkg_cmpnts_diag"></a>Diagramma dei package
+
 
 [Torna all'indice](#indice)
 <p align="center"><img src="drawings/DiagrammaDeiPackage.png" width=100% height=100%></p>
