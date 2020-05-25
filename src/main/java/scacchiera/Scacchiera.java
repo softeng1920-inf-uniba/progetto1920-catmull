@@ -16,8 +16,10 @@ import scacchiera.pedine.Torre;
  */
 public final class Scacchiera {
 
-	private static Cella[][] scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
-	public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà valore 7
+	private static Scacchiera istance = null;
+	private Cella[][] scacchiera;
+	public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà
+																	// valore 7
 	public static final int NUMEROCOLONNE = 8;
 	public static final int NUMERORIGHE = 8;
 
@@ -25,7 +27,7 @@ public final class Scacchiera {
 	 * Avvalora e inizializza la matrice di celle, una per una
 	 */
 	private Scacchiera() {
-
+		scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];
 		for (int i = 0; i < getNumeroColonne(); i++) {
 			for (int j = 0; j < getNumeroRighe(); j++) {
 				scacchiera[i][j] = new Cella(i, j, null);
@@ -36,9 +38,11 @@ public final class Scacchiera {
 	/**
 	 * Costruttore statico per classe Singleton
 	 */
-	public static void newScacchiera() {
-		new Scacchiera();
-		inizializzaScacchiera();
+	public static Scacchiera getInstance() {
+		if (istance == null) {
+			istance = new Scacchiera();
+		}
+		return istance;
 	}
 
 	/**
@@ -46,7 +50,7 @@ public final class Scacchiera {
 	 *
 	 * @return Valore intero indicante il numero di colonne
 	 */
-	public static int getNumeroColonne() {
+	public int getNumeroColonne() {
 		return NUMEROCOLONNE;
 	}
 
@@ -55,7 +59,7 @@ public final class Scacchiera {
 	 *
 	 * @return Valore intero indicante il numero di righe
 	 */
-	public static int getNumeroRighe() {
+	public int getNumeroRighe() {
 		return NUMERORIGHE;
 	}
 
@@ -66,7 +70,7 @@ public final class Scacchiera {
 	 * @param y coordinata delle righe (valore compreso fra 0 e 7)
 	 * @return Riferimento di tipo Cella della scacchiera in posizione (x, y)
 	 */
-	public static Cella getCella(final int x, final int y) {
+	public Cella getCella(final int x, final int y) {
 		return scacchiera[x][y];
 	}
 
@@ -79,90 +83,84 @@ public final class Scacchiera {
 	 * @return true se le coordinate inserite si riferiscono ad una cella della
 	 *         scacchiera, false altrimenti
 	 */
-	public static boolean isRangeValido(final int x, final int y) {
+	public boolean isRangeValido(final int x, final int y) {
 		return x < getNumeroRighe() && y < getNumeroColonne() && x >= 0 && y >= 0;
 	}
 
-    /**
-     * Imposta la scacchiera allo stato iniziale, con i pezzi nelle posizioni
-     * standard
-     */
-    public static void inizializzaScacchiera() {
+	/**
+	 * Imposta la scacchiera allo stato iniziale, con i pezzi nelle posizioni
+	 * standard
+	 */
+	public void inizializzaScacchiera() {
 
-	int primaRiga = Cella.coordYinInt('1');
-	int ottavaRiga = Cella.coordYinInt('8');
+		int primaRiga = Cella.coordYinInt('1');
+		int ottavaRiga = Cella.coordYinInt('8');
 
-	int primaTraversa = Cella.coordXinInt('a');
-	int secondaTraversa = Cella.coordXinInt('b');
-	int terzaTraversa = Cella.coordXinInt('c');
-	int quartaTraversa = Cella.coordXinInt('d');
-	int quintaTraversa = Cella.coordXinInt('e');
-	int sestaTraversa = Cella.coordXinInt('f');
-	int settimaTraversa = Cella.coordXinInt('g');
-	int ottavaTraversa = Cella.coordXinInt('h');
+		int primaTraversa = Cella.coordXinInt('a');
+		int secondaTraversa = Cella.coordXinInt('b');
+		int terzaTraversa = Cella.coordXinInt('c');
+		int quartaTraversa = Cella.coordXinInt('d');
+		int quintaTraversa = Cella.coordXinInt('e');
+		int sestaTraversa = Cella.coordXinInt('f');
+		int settimaTraversa = Cella.coordXinInt('g');
+		int ottavaTraversa = Cella.coordXinInt('h');
 
-	// Inizializzazione della torre
-	getCella(primaTraversa, primaRiga)
-		.setPezzoCorrente(new Torre(Colore.bianco));
-	getCella(ottavaTraversa, primaRiga)
-		.setPezzoCorrente(new Torre(Colore.bianco));
+		// permette di svuotare tutte le celle
+		svuotaScacchiera();
 
-	getCella(primaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Torre(Colore.nero));
-	getCella(ottavaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Torre(Colore.nero));
+		// Inizializzazione della torre
+		getCella(primaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));
+		getCella(ottavaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));
 
-	// Inizializzazione del cavallo
-	getCella(secondaTraversa, primaRiga)
-		.setPezzoCorrente(new Cavallo(Colore.bianco));
-	getCella(settimaTraversa, primaRiga)
-		.setPezzoCorrente(new Cavallo(Colore.bianco));
+		getCella(primaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));
+		getCella(ottavaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));
 
-	getCella(secondaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Cavallo(Colore.nero));
-	getCella(settimaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Cavallo(Colore.nero));
+		// Inizializzazione del cavallo
+		getCella(secondaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));
+		getCella(settimaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));
 
-	// Inizializzazione dell'alfiere
-	getCella(terzaTraversa, primaRiga)
-		.setPezzoCorrente(new Alfiere(Colore.bianco));
-	getCella(sestaTraversa, primaRiga)
-		.setPezzoCorrente(new Alfiere(Colore.bianco));
+		getCella(secondaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));
+		getCella(settimaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));
 
-	getCella(terzaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Alfiere(Colore.nero));
-	getCella(sestaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Alfiere(Colore.nero));
+		// Inizializzazione dell'alfiere
+		getCella(terzaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));
+		getCella(sestaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));
 
-	// Inizializzazione della regina
-	getCella(quartaTraversa, primaRiga)
-		.setPezzoCorrente(new Regina(Colore.bianco));
-	getCella(quartaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Regina(Colore.nero));
+		getCella(terzaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));
+		getCella(sestaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));
 
-	// Inizializzazione del re
-	getCella(quintaTraversa, primaRiga)
-		.setPezzoCorrente(new Re(Colore.bianco));
-	getCella(quintaTraversa, ottavaRiga)
-		.setPezzoCorrente(new Re(Colore.nero));
+		// Inizializzazione della regina
+		getCella(quartaTraversa, primaRiga).setPezzoCorrente(new Regina(Colore.bianco));
+		getCella(quartaTraversa, ottavaRiga).setPezzoCorrente(new Regina(Colore.nero));
 
-	// Inizializzazione dei pedoni
-	for (int i = 0; i < getNumeroColonne(); i++) {
-	    getCella(i, Cella.coordYinInt('7'))
-		    .setPezzoCorrente(new Pedone(Colore.nero));
-	    getCella(i, Cella.coordYinInt('2'))
-		    .setPezzoCorrente(new Pedone(Colore.bianco));
+		// Inizializzazione del re
+		getCella(quintaTraversa, primaRiga).setPezzoCorrente(new Re(Colore.bianco));
+		getCella(quintaTraversa, ottavaRiga).setPezzoCorrente(new Re(Colore.nero));
+
+		// Inizializzazione dei pedoni
+		for (int i = 0; i < getNumeroColonne(); i++) {
+			getCella(i, Cella.coordYinInt('7')).setPezzoCorrente(new Pedone(Colore.nero));
+			getCella(i, Cella.coordYinInt('2')).setPezzoCorrente(new Pedone(Colore.bianco));
+		}
+
 	}
 
-    }
+	private void svuotaScacchiera() {
+		for (int i = 0; i < getNumeroColonne(); i++) {
+			for (int j = 0; j < getNumeroRighe(); j++) {
+				if (scacchiera[i][j].isOccupato())
+					scacchiera[i][j].rimuoviPezzoCorrente();
+			}
+		}
+	}
 
-    /**
+	/**
 	 * simula il movimento di un pezzo nella scacchiera
 	 *
 	 * @param c1 Cella di partenza di cui si vuole effettuare lo scambio
 	 * @param c2 Cella di destinazione con cui si vuole effettuare lo scambio
 	 */
-	public static void scambiaCella(final Cella c1, final Cella c2) {
+	public void scambiaCella(final Cella c1, final Cella c2) {
 		c2.setPezzoCorrente(c1.getPezzoCorrente());
 		c2.setOccupato(c1.isOccupato());
 		c1.rimuoviPezzoCorrente();
@@ -177,7 +175,7 @@ public final class Scacchiera {
 	 * @return Stringa indicante il nome del pezzo, se è presente nella cella,
 	 *         "Vuota" altrimenti
 	 */
-	public static String getNomePezzo(final int x, final int y) {
+	public String getNomePezzo(final int x, final int y) {
 		if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {
 			return getCella(x, y).getPezzoCorrente().getNome();
 

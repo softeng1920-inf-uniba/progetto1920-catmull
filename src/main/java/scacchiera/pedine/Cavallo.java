@@ -25,8 +25,7 @@ public final class Cavallo extends Pezzo {
 		if (end.isOccupato() && getColore() == end.getPezzoCorrente().getColore()) {
 			return false;
 		}
-		if (start.getX() == end.getX() + 2 && (start.getY() == end.getY() - 1
-				|| start.getY() == end.getY() + 1)) {
+		if (start.getX() == end.getX() + 2 && (start.getY() == end.getY() - 1 || start.getY() == end.getY() + 1)) {
 			return true;
 		} else if (start.getX() == end.getX() - 2
 				&& (start.getY() == end.getY() - 1 || start.getY() == end.getY() + 1)) {
@@ -64,7 +63,7 @@ public final class Cavallo extends Pezzo {
 		// stringa standard da restituire in caso di mossa non valida per i controlli
 		// nella classe controller
 		String mossaConvertita = "a0 a0";
-		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
+		Colore coloreGiocatoreAttivo = Turno.getInstance().getGiocatoreInTurno().getColore();
 		// esempio: Cdxe4 - cattura con ambiguita' su colonna
 		if (mossa.matches("C[a-h][x|:]([a-h][1-8])")) {
 			final int colonnaPartenzaCattura = 1;
@@ -73,7 +72,7 @@ public final class Cavallo extends Pezzo {
 			startX = Cella.coordXinInt(mossa.charAt(colonnaPartenzaCattura));
 			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
 			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
-			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
+			if (Scacchiera.getInstance().getNomePezzo(endX, endY) == "Vuota") {
 				return mossaConvertita;
 			}
 		}
@@ -83,7 +82,7 @@ public final class Cavallo extends Pezzo {
 			final int traversaDestinazioneCattura = 3;
 			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
 			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
-			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
+			if (Scacchiera.getInstance().getNomePezzo(endX, endY) == "Vuota") {
 				return mossaConvertita;
 			}
 		}
@@ -95,7 +94,7 @@ public final class Cavallo extends Pezzo {
 			startY = Cella.coordYinInt(mossa.charAt(traversaPartenzaCattura));
 			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));
 			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));
-			if (Scacchiera.getNomePezzo(endX, endY) == "Vuota") {
+			if (Scacchiera.getInstance().getNomePezzo(endX, endY) == "Vuota") {
 				return mossaConvertita;
 			}
 		}
@@ -107,7 +106,7 @@ public final class Cavallo extends Pezzo {
 			startX = Cella.coordXinInt(mossa.charAt(colonnaPartenzaAvanzata));
 			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
 			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));
-			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
+			if (Scacchiera.getInstance().getNomePezzo(endX, endY) != "Vuota") {
 				return mossaConvertita;
 			}
 		}
@@ -119,7 +118,7 @@ public final class Cavallo extends Pezzo {
 			startY = Cella.coordYinInt(mossa.charAt(traversaPartenzaAvanzata));
 			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
 			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));
-			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
+			if (Scacchiera.getInstance().getNomePezzo(endX, endY) != "Vuota") {
 				return mossaConvertita;
 			}
 		}
@@ -129,67 +128,67 @@ public final class Cavallo extends Pezzo {
 			final int traversaDestinazioneAvanzata = 2;
 			endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));
 			endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));
-			if (Scacchiera.getNomePezzo(endX, endY) != "Vuota") {
+			if (Scacchiera.getInstance().getNomePezzo(endX, endY) != "Vuota") {
 				return mossaConvertita;
 			}
 		}
 		// ricaviamo X o Y a seconda di quella diversa da -1
 		if (startX != -1) { // startX data in input
 			if (Math.abs(startX - endX) == 2) {
-				if (Scacchiera.getNomePezzo(startX, endY - 1) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(startX, endY - 1).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(startX, endY - 1) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(startX, endY - 1)
+								.getPezzoCorrente().getColore()) {
 					startY = endY - 1;
 					ambiguita++;
 				}
-				if (Scacchiera.getNomePezzo(startX, endY + 1) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(startX, endY + 1).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(startX, endY + 1) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(startX, endY + 1)
+								.getPezzoCorrente().getColore()) {
 					startY = endY + 1;
 					ambiguita++;
 				}
 			}
 			if (Math.abs(startX - endX) == 1) {
-				if (Scacchiera.getNomePezzo(startX, endY - 2) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(startX, endY - 2).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(startX, endY - 2) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(startX, endY - 2)
+								.getPezzoCorrente().getColore()) {
 					startY = endY - 2;
 					ambiguita++;
 
 				}
-				if (Scacchiera.getNomePezzo(startX, endY + 2) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(startX, endY + 2).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(startX, endY + 2) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(startX, endY + 2)
+								.getPezzoCorrente().getColore()) {
 					startY = endY + 2;
 					ambiguita++;
 				}
 			}
 		} else if (startY != -1) { // startY data in input
 			if (Math.abs(startY - endY) == 2) {
-				if (Scacchiera.getNomePezzo(endX - 1, startY) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(endX - 1, startY).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(endX - 1, startY) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX - 1, startY)
+								.getPezzoCorrente().getColore()) {
 					startX = endX - 1;
 					ambiguita++;
 
 				}
-				if (Scacchiera.getNomePezzo(endX + 1, startY) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(endX + 1, startY).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(endX + 1, startY) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX + 1, startY)
+								.getPezzoCorrente().getColore()) {
 					startX = endX + 1;
 					ambiguita++;
 				}
 			}
 			if (Math.abs(startY - endY) == 1) {
-				if (Scacchiera.getNomePezzo(endX - 2, startY) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(endX - 2, startY).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(endX - 2, startY) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX - 2, startY)
+								.getPezzoCorrente().getColore()) {
 					startX = endX - 2;
 					ambiguita++;
 				}
-				if (Scacchiera.getNomePezzo(endX + 2, startY) == "Cavallo"
-						&& coloreGiocatoreAttivo == Scacchiera
-						.getCella(endX + 2, startY).getPezzoCorrente().getColore()) {
+				if (Scacchiera.getInstance().getNomePezzo(endX + 2, startY) == "Cavallo"
+						&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX + 2, startY)
+								.getPezzoCorrente().getColore()) {
 					startX = endX + 2;
 					ambiguita++;
 				}
@@ -197,8 +196,8 @@ public final class Cavallo extends Pezzo {
 		} else { // startX e startY uguali entrambe a -1, quindi entrambe non date in input
 			mossaConvertita = convertiMossaNonAmbigua(endX, endY, mossa);
 		}
-		if (Scacchiera.isRangeValido(startX, startY)
-				&& Scacchiera.getCella(startX, startY).isOccupato() && ambiguita <= 1) {
+		if (Scacchiera.getInstance().isRangeValido(startX, startY)
+				&& Scacchiera.getInstance().getCella(startX, startY).isOccupato() && ambiguita <= 1) {
 			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
 					+ Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}
@@ -206,7 +205,8 @@ public final class Cavallo extends Pezzo {
 	}
 
 	/**
-	 *  Converte la mossa in caso di espressione regolare senza ambiguita'
+	 * Converte la mossa in caso di espressione regolare senza ambiguita'
+	 *
 	 * @param endX
 	 * @param endY
 	 * @param mossa
@@ -215,76 +215,76 @@ public final class Cavallo extends Pezzo {
 	private static String convertiMossaNonAmbigua(final int endX, final int endY, final String mossa) {
 
 		String mossaConvertita = "a0 a0";
-		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
+		Colore coloreGiocatoreAttivo = Turno.getInstance().getGiocatoreInTurno().getColore();
 		int startX = -1;
 		int startY = -1;
 		int ambiguita = 0;
-		if (Scacchiera.getNomePezzo(endX - 2, endY - 1) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX - 2, endY - 1)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX - 2, endY - 1) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX - 2, endY - 1).getPezzoCorrente()
+						.getColore()) {
 			startX = endX - 2;
 			startY = endY - 1;
 			ambiguita++;
 		}
 
-		if (Scacchiera.getNomePezzo(endX - 2, endY + 1) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX - 2, endY + 1)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX - 2, endY + 1) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX - 2, endY + 1).getPezzoCorrente()
+						.getColore()) {
 			startX = endX - 2;
 			startY = endY + 1;
 			ambiguita++;
 		}
 
-		if (Scacchiera.getNomePezzo(endX + 2, endY + 1) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX + 2, endY + 1)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX + 2, endY + 1) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX + 2, endY + 1).getPezzoCorrente()
+						.getColore()) {
 			startX = endX + 2;
 			startY = endY + 1;
 			ambiguita++;
 		}
 
-		if (Scacchiera.getNomePezzo(endX + 2, endY - 1) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX + 2, endY - 1)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX + 2, endY - 1) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX + 2, endY - 1).getPezzoCorrente()
+						.getColore()) {
 			startX = endX + 2;
 			startY = endY - 1;
 			ambiguita++;
 		}
 
-		if (Scacchiera.getNomePezzo(endX + 1, endY - 2) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX + 1, endY - 2)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX + 1, endY - 2) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX + 1, endY - 2).getPezzoCorrente()
+						.getColore()) {
 			startX = endX + 1;
 			startY = endY - 2;
 			ambiguita++;
 		}
 
-		if (Scacchiera.getNomePezzo(endX + 1, endY + 2) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX + 1, endY + 2)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX + 1, endY + 2) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX + 1, endY + 2).getPezzoCorrente()
+						.getColore()) {
 			startX = endX + 1;
 			startY = endY + 2;
 			ambiguita++;
 		}
 
-		if (Scacchiera.getNomePezzo(endX - 1, endY + 2) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX - 1, endY + 2)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX - 1, endY + 2) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX - 1, endY + 2).getPezzoCorrente()
+						.getColore()) {
 			startX = endX - 1;
 			startY = endY + 2;
 			ambiguita++;
 		}
 
-		if (Scacchiera.getNomePezzo(endX - 1, endY - 2) == "Cavallo"
-				&& coloreGiocatoreAttivo == Scacchiera.getCella(endX - 1, endY - 2)
-				.getPezzoCorrente().getColore()) {
+		if (Scacchiera.getInstance().getNomePezzo(endX - 1, endY - 2) == "Cavallo"
+				&& coloreGiocatoreAttivo == Scacchiera.getInstance().getCella(endX - 1, endY - 2).getPezzoCorrente()
+						.getColore()) {
 			startX = endX - 1;
 			startY = endY - 2;
 			ambiguita++;
 		}
 
-		if (Scacchiera.isRangeValido(startX, startY) && Scacchiera.getCella(startX, startY).isOccupato()
-				&& ambiguita <= 1) {
+		if (Scacchiera.getInstance().isRangeValido(startX, startY)
+				&& Scacchiera.getInstance().getCella(startX, startY).isOccupato() && ambiguita <= 1) {
 			mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
 					+ Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 		}

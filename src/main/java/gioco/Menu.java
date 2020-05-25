@@ -8,12 +8,14 @@ package gioco;
  */
 public final class Menu {
 
-	private static Comando help;
-	private static Comando moves;
-	private static Comando quit;
-	private static Comando board;
-	private static Comando captures;
-	private static Comando play;
+	private static Menu istance = null;
+
+	private Comando help;
+	private Comando moves;
+	private Comando quit;
+	private Comando board;
+	private Comando captures;
+	private Comando play;
 
 	public static final int ARROCCO_CORTO = 1;
 	public static final int ARROCCO_LUNGO = 2;
@@ -25,18 +27,24 @@ public final class Menu {
 	public static final int TRAVERSA_DESTINAZIONE_MOSSA_NE = 4;
 
 	private Menu() {
+		help = new Comando("Help", "    Visualizza nome e descrizione dell'elenco comandi");
+		moves = new Comando("Moves", "   Visualizza la cronologia delle mosse giocate");
+		quit = new Comando("Quit", "    Esci dal gioco");
+		board = new Comando("Board", "   Visualizza la posizione sulla scacchiera");
+		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
+		play = new Comando("Play", "    Inizia una nuova partita");
 	}
 
 	/**
 	 * Costruttore statico per classe Singleton
+	 *
+	 * @return
 	 */
-	public static void newMenu() {
-		help = new Comando("Help", "Visualizza nome e descrizione dell'elenco comandi");
-		moves = new Comando("Moves", "Visualizza la cronologia delle mosse giocate");
-		quit = new Comando("Quit", "Esci dal gioco");
-		board = new Comando("Board", "Visualizza la posizione sulla scacchiera");
-		captures = new Comando("Captures", "Visualizza le catture del Bianco e del Nero");
-		play = new Comando("Play", "Inizia una nuova partita");
+	public static Menu getInstance() {
+		if (istance == null) {
+			istance = new Menu();
+		}
+		return istance;
 	}
 
 	/**
@@ -44,7 +52,7 @@ public final class Menu {
 	 *
 	 * @return help
 	 */
-	public static Comando help() {
+	public Comando help() {
 		return help;
 	}
 
@@ -53,7 +61,7 @@ public final class Menu {
 	 *
 	 * @return history
 	 */
-	public static Comando moves() {
+	public Comando moves() {
 		return moves;
 	}
 
@@ -62,7 +70,7 @@ public final class Menu {
 	 *
 	 * @return quit
 	 */
-	public static Comando quit() {
+	public Comando quit() {
 		return quit;
 	}
 
@@ -71,7 +79,7 @@ public final class Menu {
 	 *
 	 * @return board
 	 */
-	public static Comando board() {
+	public Comando board() {
 		return board;
 	}
 
@@ -80,7 +88,7 @@ public final class Menu {
 	 *
 	 * @return captures
 	 */
-	public static Comando captures() {
+	public Comando captures() {
 		return captures;
 	}
 
@@ -89,7 +97,7 @@ public final class Menu {
 	 *
 	 * @return play
 	 */
-	public static Comando play() {
+	public Comando play() {
 		return play;
 	}
 
@@ -100,7 +108,7 @@ public final class Menu {
 	 * @param mossa in notazione algebrica
 	 * @return int 1 => Arrocco corto | 2 => Arrocco lungo | -1 => Non e' un arrocco
 	 */
-	public static int isArrocco(final String mossa) {
+	public int isArrocco(final String mossa) {
 
 		if (mossa.matches("(0|o|O)-(0|o|O)")) {
 			return ARROCCO_CORTO;
@@ -121,13 +129,11 @@ public final class Menu {
 	 *         I comandi validi nel menu di gioco sono: - help - board - captures -
 	 *         moves - quit
 	 */
-	public static boolean isComandoValido(final String comando) {
+	public boolean isComandoValido(final String comando) {
 
-		return (comando.equalsIgnoreCase(Menu.help().getNome())
-				|| comando.equalsIgnoreCase(Menu.board().getNome())
-				|| comando.equalsIgnoreCase(Menu.captures().getNome())
-				|| comando.equalsIgnoreCase(Menu.moves().getNome())
-				|| comando.equalsIgnoreCase(Menu.quit().getNome()));
+		return (comando.equalsIgnoreCase(help().getNome()) || comando.equalsIgnoreCase(board().getNome())
+				|| comando.equalsIgnoreCase(captures().getNome()) || comando.equalsIgnoreCase(moves().getNome())
+				|| comando.equalsIgnoreCase(quit().getNome()));
 
 	}
 
@@ -138,7 +144,7 @@ public final class Menu {
 	 * @param mossa
 	 * @return boolean
 	 */
-	public static boolean isNotazioneAlgebrica(final String mossa) {
+	public boolean isNotazioneAlgebrica(final String mossa) {
 
 		String regex = String.join("|", new String[] {
 				"([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone

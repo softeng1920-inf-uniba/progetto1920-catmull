@@ -23,64 +23,77 @@ import scacchiera.pedine.Torre;
  * CONTROL
  */
 public final class Controller {
+	private static Controller istance = null;
 	private static final int EN_PASSANT = 3;
-	private static ArrayList<String> mosseConvertite = new ArrayList<String>();
+	private ArrayList<String> mosseConvertite = new ArrayList<String>();
+	private Scacchiera scacchieraGioco;
+	private InterfacciaUtente interfaccia;
+	private Menu menuGioco = null;
+	private Turno turnoGioco = null;
 
 	private Controller() {
+		scacchieraGioco = Scacchiera.getInstance();
+		interfaccia = InterfacciaUtente.getInstance();
+		menuGioco = Menu.getInstance();
+		turnoGioco = Turno.getInstance();
 	}
 
 	/**
 	 * Costruttore privato per classe Singleton
 	 */
-	public static void newController() {
-		Scacchiera.newScacchiera();
+	public static Controller getInstance() {
+		if (istance == null) {
+			istance = new Controller();
+		}
+		return istance;
 	}
 
 	/**
 	 * inizializzaPartita implementa la fase iniziale della partita
 	 */
-	static void playGame() {
+	public void playGame() {
 		boolean utenteVuoleRicominciare = false;
 		do {
-			Turno.newTurno();
-			Turno.setNomeGiocatoreInTurno(InterfacciaUtente
-					.getNomeDaTastiera(Turno.getGiocatoreInTurno().getColore()));
-			Turno.setNomeGiocatoreInAttesa(
-					InterfacciaUtente.getNomeDaTastiera(Turno.getGiocatoreInAttesa().getColore()));
+			scacchieraGioco.inizializzaScacchiera();
+			turnoGioco.inizializzaTurno();
+			turnoGioco.setNomeGiocatoreInTurno(
+					interfaccia.getNomeDaTastiera(turnoGioco.getGiocatoreInTurno().getColore()));
+			turnoGioco.setNomeGiocatoreInAttesa(
+					interfaccia.getNomeDaTastiera(turnoGioco.getGiocatoreInAttesa().getColore()));
 			while (true) {
-				InterfacciaUtente.stampaTurno(Turno.getGiocatoreInTurno());
-				String comando = InterfacciaUtente.acquisireComando();
-				if (comando.equalsIgnoreCase(Menu.help().getNome())) {
-					InterfacciaUtente.mostrareElencoComandiGioco();
-				} else if (comando.equalsIgnoreCase(Menu.board().getNome())) {
-					InterfacciaUtente.stampaScacchiera();
-				} else if (comando.equalsIgnoreCase(Menu.moves().getNome())) {
-					InterfacciaUtente.stampaMosseGiocate();
-				} else if (comando.equalsIgnoreCase(Menu.captures().getNome())) {
-					InterfacciaUtente.visualizzareCatture();
-				} else if (comando.equalsIgnoreCase(Menu.quit().getNome())) {
-					if (InterfacciaUtente.utenteConfermaFinePartita()) {
+				interfaccia.stampaTurno(turnoGioco.getGiocatoreInTurno());
+				String comando = interfaccia.acquisireComando();
+				if (comando.equalsIgnoreCase(menuGioco.help().getNome())) {
+					interfaccia.mostrareElencoComandiGioco();
+				} else if (comando.equalsIgnoreCase(menuGioco.board().getNome())) {
+					interfaccia.stampaScacchiera();
+				} else if (comando.equalsIgnoreCase(menuGioco.moves().getNome())) {
+					interfaccia.stampaMosseGiocate();
+				} else if (comando.equalsIgnoreCase(menuGioco.captures().getNome())) {
+					interfaccia.visualizzareCatture();
+				} else if (comando.equalsIgnoreCase(menuGioco.quit().getNome())) {
+					if (interfaccia.utenteConfermaFinePartita()) {
 						utenteVuoleRicominciare = false;
 						break;
 					}
-				} else if (comando.equalsIgnoreCase(Menu.play().getNome())) {
-					if (InterfacciaUtente.utenteConfermaRiavvioPartita()) {
-						InterfacciaUtente.stampaNuovaPartita();
+				} else if (comando.equalsIgnoreCase(menuGioco.play().getNome())) {
+					if (interfaccia.utenteConfermaRiavvioPartita()) {
+						interfaccia.stampaNuovaPartita();
 						utenteVuoleRicominciare = true;
-						Scacchiera.newScacchiera(); // Svuoto la scacchiera
+						scacchieraGioco.inizializzaScacchiera(); // Svuoto la scacchiera
 						break;
 					} else {
 						continue; // Faccio ripartire il loop interno
 					}
-				} else if (Menu.isNotazioneAlgebrica(comando)) {
+				} else if (menuGioco.isNotazioneAlgebrica(comando)) {
 					if (mossaScacchi(comando)) {
-						Turno.getGiocatoreInTurno().setMosseGiocate(comando);
-						Turno.cambioTurno();
+						turnoGioco.getGiocatoreInTurno().setMosseGiocate(comando);
+						turnoGioco.cambioTurno();
 					} else {
-						InterfacciaUtente.stampaMossaIllegale();
+						interfaccia.stampaMossaIllegale();
 					}
 				} else {
-					InterfacciaUtente.stampaComandoErrato();
+					interfaccia.stampaComandoErrato();
 				}
 			}
 		} while (utenteVuoleRicominciare);
@@ -88,21 +101,17 @@ public final class Controller {
 
 	/**
 	 * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
-<<<<<<< HEAD
 	 * e restituisce true se la mossa � valida ed � stata applicata altrimenti
-=======
-	 * e restituisce true se la mossa � valida ed � stata applicata altrimenti
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
 	 * restituisce false
 	 *
 	 * @param mossaDaGiocare
 	 * @return
 	 */
-	public static boolean mossaScacchi(final String mossaDaGiocare) {
+	public boolean mossaScacchi(final String mossaDaGiocare) {
 		int tipoMossa = getTipoMossa(mossaDaGiocare);
 		if (tipoMossa == 2) {
-			int tipoArrocco = Menu.isArrocco(mossaDaGiocare);
-			Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
+			int tipoArrocco = menuGioco.isArrocco(mossaDaGiocare);
+			Colore coloreGiocatoreAttivo = turnoGioco.getGiocatoreInTurno().getColore();
 			String mossaTorre = Torre.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
 			String mossaRe = Re.getCoordinateArrocco(tipoArrocco, coloreGiocatoreAttivo);
 			// Non ho bisogno di controllare se i comandi convertiti saranno
@@ -110,12 +119,12 @@ public final class Controller {
 			// Controllo se l'arrocco e' possibile
 			if (isArroccoValido(mossaRe, mossaTorre, tipoArrocco)) {
 				// Applico arrocco Re
-				Cella cellaPartenza = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
-				Cella cellaDestinazione = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
+				Cella cellaPartenza = scacchieraGioco.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
+				Cella cellaDestinazione = scacchieraGioco.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
 				applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);
 				// Applico arrocco Torre
-				cellaPartenza = Scacchiera.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));
-				cellaDestinazione = Scacchiera.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));
+				cellaPartenza = scacchieraGioco.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));
+				cellaDestinazione = scacchieraGioco.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));
 				applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);
 				addMosseConvertite(mossaDaGiocare);
 			} else {
@@ -123,17 +132,15 @@ public final class Controller {
 			}
 		} else { // operazioni valide sia per una mossa normale che per un en passant
 			String mossaEstesa = convertiMossaInEstesa(mossaDaGiocare);
-			if (Scacchiera.isRangeValido(Cella.startX(mossaEstesa), Cella.startY(mossaEstesa))
-					&& Scacchiera.isRangeValido(Cella.endX(mossaEstesa), Cella.endY(mossaEstesa))) {
-				Cella cellaPartenza = Scacchiera
-						.getCella(Cella.startX(mossaEstesa), Cella.startY(mossaEstesa));
-				Cella cellaDestinazione = Scacchiera
-						.getCella(Cella.endX(mossaEstesa), Cella.endY(mossaEstesa));
-				if (new Pedone(Turno.getGiocatoreInTurno().getColore())
-						.isEnPassantValido(cellaPartenza, cellaDestinazione, mosseConvertite)) {
-						tipoMossa = EN_PASSANT;
-						applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);
-						addMosseConvertite(mossaEstesa);
+			if (scacchieraGioco.isRangeValido(Cella.startX(mossaEstesa), Cella.startY(mossaEstesa))
+					&& scacchieraGioco.isRangeValido(Cella.endX(mossaEstesa), Cella.endY(mossaEstesa))) {
+				Cella cellaPartenza = scacchieraGioco.getCella(Cella.startX(mossaEstesa), Cella.startY(mossaEstesa));
+				Cella cellaDestinazione = scacchieraGioco.getCella(Cella.endX(mossaEstesa), Cella.endY(mossaEstesa));
+				if (new Pedone(turnoGioco.getGiocatoreInTurno().getColore()).isEnPassantValido(cellaPartenza,
+						cellaDestinazione, mosseConvertite)) {
+					tipoMossa = EN_PASSANT;
+					applicaMossa(cellaPartenza, cellaDestinazione, tipoMossa);
+					addMosseConvertite(mossaEstesa);
 				} else {
 					// se puo' essere un en passant
 					if (isMossaValidaGlobale(mossaEstesa, tipoMossa) && tipoMossa != EN_PASSANT) {
@@ -155,10 +162,11 @@ public final class Controller {
 	 * Data la notazione algebrica inserita dall'utente, l'algoritmo restituisce 0
 	 * se � una mossa semplice, 1 se � una mossa di cattura, 2 se � un arrocco e 3
 	 * se � di sicuro un en passant
+	 *
 	 * @param mossaInInput
 	 * @return
 	 */
-	private static int getTipoMossa(final String mossaInInput) {
+	private int getTipoMossa(final String mossaInInput) {
 		int tipoMossa = 0;
 		if (mossaInInput.matches("(D|R|T|A|C)?([a-h]|[1-8])?(x|:)[a-h][1-8]")) {
 			tipoMossa = 1;
@@ -177,7 +185,7 @@ public final class Controller {
 	 * @return String comando in colonna e traversa di partenza seguite da uno
 	 *         spazio, ed infine colonna e traversa di destinazione
 	 */
-	private static String convertiMossaInEstesa(final String mossa) {
+	private String convertiMossaInEstesa(final String mossa) {
 
 		switch (mossa.charAt(0)) {
 		case 'T': // Torre
@@ -207,9 +215,9 @@ public final class Controller {
 	 * @param endY   intero compreso fra 0 e 7
 	 * @return vero se i quattro parametri sono compresi fra 0 e 7, falso altrimenti
 	 */
-	private static boolean isMossaValidaGlobale(final String comando, final int tipoMossa) {
-		Cella cellaPartenza = Scacchiera.getCella(Cella.startX(comando), Cella.startY(comando));
-		Cella cellaDestinazione = Scacchiera.getCella(Cella.endX(comando), Cella.endY(comando));
+	private boolean isMossaValidaGlobale(final String comando, final int tipoMossa) {
+		Cella cellaPartenza = scacchieraGioco.getCella(Cella.startX(comando), Cella.startY(comando));
+		Cella cellaDestinazione = scacchieraGioco.getCella(Cella.endX(comando), Cella.endY(comando));
 		if (cellaPartenza.isOccupato()
 				&& cellaPartenza.getPezzoCorrente().isMossaValida(cellaPartenza, cellaDestinazione)) {
 			if (isReProtetto(cellaPartenza, cellaDestinazione)) {
@@ -233,10 +241,9 @@ public final class Controller {
 	 *                          cattura) di un pezzo 1: Mossa speciale (en passant)
 	 *                          del pedone
 	 */
-	private static void applicaMossa(final Cella cellaPartenza,
-	final Cella cellaDestinazione, final int tipoMossa) {
+	private void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
-		Giocatore giocatoreAttivo = Turno.getGiocatoreInTurno();
+		Giocatore giocatoreAttivo = turnoGioco.getGiocatoreInTurno();
 		switch (tipoMossa) {
 		case 1:
 			if (cellaDestinazione.isOccupato()) {
@@ -245,13 +252,13 @@ public final class Controller {
 			}
 			break;
 		case EN_PASSANT:
-			Cella cellaAdiacenteEp = Scacchiera.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
+			Cella cellaAdiacenteEp = scacchieraGioco.getCella(cellaDestinazione.getX(), cellaPartenza.getY());
 			giocatoreAttivo.addPezziCatturati(cellaAdiacenteEp.getPezzoCorrente());
 			cellaAdiacenteEp.rimuoviPezzoCorrente();
 			break;
 		default:
 		}
-		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
+		scacchieraGioco.scambiaCella(cellaPartenza, cellaDestinazione);
 	}
 
 	/**
@@ -260,14 +267,14 @@ public final class Controller {
 	 *
 	 * @return mosseConverite
 	 */
-	public static ArrayList<String> getMosseConvertite() {
+	public ArrayList<String> getMosseConvertite() {
 		return mosseConvertite;
 	}
 
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
 	 */
-	public static void addMosseConvertite(final String mossa) {
+	public void addMosseConvertite(final String mossa) {
 		mosseConvertite.add(mossa);
 	}
 
@@ -287,19 +294,19 @@ public final class Controller {
 	 *         attraversare ne' quella di arrivo devono essere minacciate da un
 	 *         pezzo avversario.
 	 */
-	public static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
+	public boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
 
-		Cella cellaPartenzaRe = Scacchiera.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
-		Cella cellaDestinazioneRe = Scacchiera.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
+		Cella cellaPartenzaRe = scacchieraGioco.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
+		Cella cellaDestinazioneRe = scacchieraGioco.getCella(Cella.endX(mossaRe), Cella.endY(mossaRe));
 
 		Pezzo presuntoReGiocatoreAttuale = cellaPartenzaRe.getPezzoCorrente();
 
-		Cella cellaPartenzaTorre = Scacchiera.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));
-		Cella cellaDestinazioneTorre = Scacchiera.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));
+		Cella cellaPartenzaTorre = scacchieraGioco.getCella(Cella.startX(mossaTorre), Cella.startY(mossaTorre));
+		Cella cellaDestinazioneTorre = scacchieraGioco.getCella(Cella.endX(mossaTorre), Cella.endY(mossaTorre));
 
 		Pezzo presuntaTorreGiocatoreAttuale = cellaPartenzaTorre.getPezzoCorrente();
 
-		Colore coloreGiocatoreAttivo = Turno.getGiocatoreInTurno().getColore();
+		Colore coloreGiocatoreAttivo = turnoGioco.getGiocatoreInTurno().getColore();
 		// Se nella cella di partenza del presunto re c'e' il re del colore del
 		// giocatore
 		// in turno..
@@ -310,8 +317,8 @@ public final class Controller {
 				&& cellaPartenzaTorre.isOccupato() && presuntaTorreGiocatoreAttuale.getNome() == "Torre"
 				&& presuntaTorreGiocatoreAttuale.getColore() == coloreGiocatoreAttivo) {
 			Re re = (Re) presuntoReGiocatoreAttuale;
-			return re.isArroccoValido(cellaPartenzaRe, cellaDestinazioneRe, cellaPartenzaTorre,
-					cellaDestinazioneTorre, getMosseConvertite(), tipoArrocco);
+			return re.isArroccoValido(cellaPartenzaRe, cellaDestinazioneRe, cellaPartenzaTorre, cellaDestinazioneTorre,
+					getMosseConvertite(), tipoArrocco);
 		}
 
 		return false;
@@ -332,7 +339,7 @@ public final class Controller {
 	 * @param tipoMossa
 	 * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
 	 */
-	public static boolean isReProtetto(final Cella partenza, final Cella destinazione) {
+	public boolean isReProtetto(final Cella partenza, final Cella destinazione) {
 
 		Cella cellaRe = Re.findRe();
 		Re reDaProteggere = (Re) cellaRe.getPezzoCorrente();
@@ -342,13 +349,13 @@ public final class Controller {
 			isReProtetto = true;
 			return isReProtetto;
 		}
-		Scacchiera.scambiaCella(partenza, destinazione);
+		scacchieraGioco.scambiaCella(partenza, destinazione);
 		if (!reDaProteggere.isReSottoScacco(cellaRe)) {
 			isReProtetto = true;
 		}
-		Scacchiera.scambiaCella(destinazione, partenza);
+		scacchieraGioco.scambiaCella(destinazione, partenza);
 		if (temp.isOccupato()) {
-			Scacchiera.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
+			scacchieraGioco.getCella(temp.getX(), temp.getY()).aggiungiPezzo(temp.getPezzoCorrente());
 		}
 		return isReProtetto;
 	}

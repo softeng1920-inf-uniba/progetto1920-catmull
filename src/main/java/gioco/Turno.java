@@ -10,16 +10,26 @@ import java.util.ArrayList;
  */
 
 public final class Turno {
-	private static Giocatore giocatoreInTurno;
-	private static Giocatore giocatoreInAttesa;
+	private static Turno instance = null;
+	private Giocatore giocatoreInTurno;
+	private Giocatore giocatoreInAttesa;
 
 	private Turno() {
+		giocatoreInTurno = new Giocatore(Colore.bianco);
+		giocatoreInAttesa = new Giocatore(Colore.nero);
+	}
+
+	public static Turno getInstance() {
+		if (instance == null) {
+			instance = new Turno();
+		}
+		return instance;
 	}
 
 	/**
 	 * Costruttore statico per classe Singleton
 	 */
-	public static void newTurno() {
+	public void inizializzaTurno() {
 		giocatoreInTurno = new Giocatore(Colore.bianco);
 		giocatoreInAttesa = new Giocatore(Colore.nero);
 	}
@@ -27,7 +37,7 @@ public final class Turno {
 	/**
 	 * Scambia il ruolo dei due giocatori
 	 */
-	public static void cambioTurno() {
+	public void cambioTurno() {
 		Giocatore temp = giocatoreInTurno;
 		giocatoreInTurno = giocatoreInAttesa;
 		giocatoreInAttesa = temp;
@@ -35,19 +45,19 @@ public final class Turno {
 
 	// Funzioni di Get
 
-	public static Giocatore getGiocatoreInTurno() {
+	public Giocatore getGiocatoreInTurno() {
 		return giocatoreInTurno;
 	}
 
-	public static Giocatore getGiocatoreInAttesa() {
+	public Giocatore getGiocatoreInAttesa() {
 		return giocatoreInAttesa;
 	}
 
-	public static void setNomeGiocatoreInTurno(final String m) {
+	public void setNomeGiocatoreInTurno(final String m) {
 		giocatoreInTurno.setNome(m);
 	}
 
-	public static void setNomeGiocatoreInAttesa(final String m) {
+	public void setNomeGiocatoreInAttesa(final String m) {
 		giocatoreInAttesa.setNome(m);
 	}
 
@@ -58,10 +68,9 @@ public final class Turno {
 	 *
 	 * @return ArrayList di stringhe.
 	 */
-	public static ArrayList<String> getArrayStoriaMosse() {
+	public ArrayList<String> getArrayStoriaMosse() {
 		int i, j, k;
-		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate()
-				+ getGiocatoreInTurno().getNumeroMosseGiocate();
+		int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();
 		ArrayList<String> mosseGiocateTotali = new ArrayList<String>(dimensione);
 		if (getGiocatoreInTurno().getColore() == Colore.bianco) {
 			i = 0;
