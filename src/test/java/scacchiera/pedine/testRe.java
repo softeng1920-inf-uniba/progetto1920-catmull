@@ -16,7 +16,7 @@ import it.uniba.main.Controller;
 import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
-class ReTest {
+class TestRe {
 
     private static final int primaColonna = 0;
     private static final int terzaColonna = 2;
@@ -32,59 +32,48 @@ class ReTest {
     private static final int ottavaTraversa = 0;
 
     Re reBianco = new Re(Colore.bianco);
-    Re reNero = new Re(Colore.nero);
-
-    // Cella cellaGenerica;
-    Scacchiera s;
 
     // Re bianco
 
     static final int coordXinizialeReBianco = 4; // 5° colonna
     static final int coordYinizialeReBianco = 7; // 1° traversa
-    static Cella posizioneInizialeReBianco;
+    static Cella posizioneInizialeReBianco = Scacchiera.getInstance().getCella(coordXinizialeReBianco, coordYinizialeReBianco);
 
     // Re nero
 
     static final int coordXinizialeReNero = 4; // 5° colonna
     static final int coordYinizialeReNero = 0; // 8° traversa
 
-    static Cella posizioneInizialeReNero;
+    static Cella posizioneInizialeReNero = Scacchiera.getInstance().getCella(coordXinizialeReNero, coordYinizialeReNero);
 
     // Torri bianche
 
     final static int coordXinizialeTorreSxBianco = 0; // 1° colonna
     final static int coordYinizialeTorreSxBianco = 7; // 1° traversa
-    static Cella posizioneInizialeTorreSxBianco;
+    static Cella posizioneInizialeTorreSxBianco = Scacchiera.getInstance().getCella(coordXinizialeTorreSxBianco, coordYinizialeTorreSxBianco);
 
 
     final static int coordXinizialeTorreDxBianco = 7; // 8° colonna
     final static int coordYinizialeTorreDxBianco = 7; // 1° traversa
-    static Cella posizioneInizialeTorreDxBianco;
+    static Cella posizioneInizialeTorreDxBianco = Scacchiera.getInstance().getCella(coordXinizialeTorreDxBianco, coordYinizialeTorreDxBianco);
+
 
     // Torri nere
 
     final static int coordXinizialeTorreDxNero = 7; // 8° colonna
     final static int coordYinizialeTorreDxNero = 0; // 8° traversa
-    static Cella posizioneInizialeTorreDxNera;
+    static Cella posizioneInizialeTorreDxNera = Scacchiera.getInstance().getCella(coordXinizialeTorreDxNero, coordYinizialeTorreDxNero);
 
     final static int coordXinizialeTorreSxNero = 0; // 1° colonna
     final static int coordYinizialeTorreSxNero = 0; // 8° traversa
-    static Cella posizioneInizialeTorreSxNera;
-
+    static Cella posizioneInizialeTorreSxNera  = Scacchiera.getInstance().getCella(coordXinizialeTorreSxNero, coordYinizialeTorreSxNero);
 
     ArrayList<String> storicoMosse;
 
     @BeforeEach
     void setUp() throws Exception {
 	Scacchiera.getInstance().inizializzaScacchiera();
-	posizioneInizialeTorreDxBianco = Scacchiera.getInstance().getCella(coordXinizialeTorreDxBianco, coordYinizialeTorreDxBianco);
-	posizioneInizialeTorreSxBianco = Scacchiera.getInstance().getCella(coordXinizialeTorreSxBianco, coordYinizialeTorreSxBianco);
 
-	posizioneInizialeTorreDxNera = Scacchiera.getInstance().getCella(coordXinizialeTorreDxNero, coordYinizialeTorreDxNero);
-	posizioneInizialeTorreSxNera  = Scacchiera.getInstance().getCella(coordXinizialeTorreSxNero, coordYinizialeTorreSxNero);
-
-	posizioneInizialeReBianco 	= Scacchiera.getInstance().getCella(coordXinizialeReBianco, coordYinizialeReBianco);
-	posizioneInizialeReNero 	= Scacchiera.getInstance().getCella(coordXinizialeReNero, coordYinizialeReNero);
 	Turno.getInstance().inizializzaTurno();
 	storicoMosse = new ArrayList<String>();
 
