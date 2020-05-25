@@ -28,6 +28,7 @@ public final class AppMain {
 	 * @throws UnsupportedEncodingException
 	 */
 	public static void main(final String[] args) throws IOException {
+<<<<<<< HEAD
 
 <span class="nc" id="L32">		System.setOut(new PrintStream(System.out, false, &quot;UTF-8&quot;));</span>
 <span class="nc" id="L33">		Controller controller = Controller.getInstance();</span>
@@ -56,12 +57,46 @@ public final class AppMain {
 <span class="nc" id="L56">					play = true;</span>
 				} else {
 <span class="nc" id="L58">					interfaccia.stampaComandoErrato();</span>
+=======
+
+<span class="nc" id="L32">		System.setOut(new PrintStream(System.out, false, &quot;UTF-8&quot;));</span>
+<span class="nc" id="L33">		Controller.newController();</span>
+<span class="nc" id="L34">		boolean play = false;</span>
+<span class="nc" id="L35">		Menu.newMenu();</span>
+<span class="nc" id="L36">		InterfacciaUtente.stampaIntro();</span>
+<span class="nc" id="L37">		InterfacciaUtente.stampaMenu();</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">		while (!play) {</span>
+<span class="nc" id="L39">			String nomeMenu = InterfacciaUtente.acquisireComando();</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">			if (nomeMenu != null) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">				if (nomeMenu.equalsIgnoreCase(Menu.help().getNome())) {</span>
+<span class="nc" id="L42">					InterfacciaUtente.mostrareElencoComandiMenu();</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(Menu.board().getNome())) {</span>
+<span class="nc" id="L44">					InterfacciaUtente.stampaScacchiera();</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(Menu.quit().getNome())) {</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">					if (InterfacciaUtente.utenteConfermaFinePartita()) {</span>
+<span class="nc" id="L47">						break;</span>
+					} else {
+<span class="nc" id="L49">						InterfacciaUtente.stampaMenu();</span>
+					}
+<span class="nc bnc" id="L51" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(Menu.play().getNome())) {</span>
+<span class="nc" id="L52">					InterfacciaUtente.stampaNuovaPartita();</span>
+<span class="nc" id="L53">					Controller.playGame();</span>
+<span class="nc" id="L54">					play = true;</span>
+				} else {
+<span class="nc" id="L56">					InterfacciaUtente.stampaComandoErrato();</span>
+>>>>>>> b4b0375... Implementati test per classe Re
 				}
 			} else {
 				break;
 			}
+<<<<<<< HEAD
 <span class="nc" id="L63">		}</span>
 
 <span class="nc" id="L65">	}</span>
+=======
+<span class="nc" id="L61">		}</span>
+
+<span class="nc" id="L63">	}</span>
+>>>>>>> b4b0375... Implementati test per classe Re
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
