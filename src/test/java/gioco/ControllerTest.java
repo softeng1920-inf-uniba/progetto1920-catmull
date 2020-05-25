@@ -1,8 +1,6 @@
 package gioco;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,36 +11,36 @@ class ControllerTest {
 
 	@BeforeEach
 	void setTests() {
-		Controller.newController();
-		Turno.newTurno();
+		Controller.getInstance();
+		Turno.getInstance().inizializzaTurno();
 	}
 
 	@Test
 	void testMossaScacchi() {
-		assertEquals(true, Controller.mossaScacchi("a4"));
+		assertEquals(true, Controller.getInstance().mossaScacchi("a4"));
 	}
 
 	@Test
 	void testMossaScacchiArrocco_Corto_NonValido() {
-		assertEquals(false, Controller.mossaScacchi("0-0"));
+		assertEquals(false, Controller.getInstance().mossaScacchi("0-0"));
 	}
 
 	@Test
 	void testMossaScacchiArrocco_Lungo_NonValido() {
-		assertEquals(false, Controller.mossaScacchi("0-0-0"));
+		assertEquals(false, Controller.getInstance().mossaScacchi("0-0-0"));
 	}
 
 	@Test
 	void testMossaScacchiArrocco_Lungo_Valido() {
 		// bianco
-		Scacchiera.newScacchiera();
-		if (Controller.mossaScacchi("b4")) {
-			if (Controller.mossaScacchi("c4")) {
-				if (Controller.mossaScacchi("d4")) {
-					if (Controller.mossaScacchi("Cc3")) {
-						if (Controller.mossaScacchi("Ab2")) {
-							if (Controller.mossaScacchi("Dd3")) {
-								assertEquals(true, Controller.mossaScacchi("0-0-0"));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		if (Controller.getInstance().mossaScacchi("b4")) {
+			if (Controller.getInstance().mossaScacchi("c4")) {
+				if (Controller.getInstance().mossaScacchi("d4")) {
+					if (Controller.getInstance().mossaScacchi("Cc3")) {
+						if (Controller.getInstance().mossaScacchi("Ab2")) {
+							if (Controller.getInstance().mossaScacchi("Dd3")) {
+								assertEquals(true, Controller.getInstance().mossaScacchi("0-0-0"));
 							}
 						}
 					}
@@ -53,19 +51,19 @@ class ControllerTest {
 	
 	@Test
 	void testMossaScacchiTorre() {
-		Scacchiera.newScacchiera();
-		if(Controller.mossaScacchi("h4"))
+		Scacchiera.getInstance().inizializzaScacchiera();
+		if(Controller.getInstance().mossaScacchi("h4"))
 		{
-			assertEquals(true, Controller.mossaScacchi("Th3"));
+			assertEquals(true, Controller.getInstance().mossaScacchi("Th3"));
 		}
 	}
 	
 	@Test
 	void testMossaScacchiRe() {
-		Scacchiera.newScacchiera();
-		if(Controller.mossaScacchi("e4"))
+		Scacchiera.getInstance().inizializzaScacchiera();
+		if(Controller.getInstance().mossaScacchi("e4"))
 		{
-			assertEquals(true, Controller.mossaScacchi("Re2"));
+			assertEquals(true, Controller.getInstance().mossaScacchi("Re2"));
 		}
 	}
 	
@@ -75,28 +73,28 @@ class ControllerTest {
 	@Test
 	void testMossaScacchiArrocco_Corto_Valido() {
 		// nero
-		Scacchiera.newScacchiera();
-		Turno.cambioTurno();
-		Scacchiera.scambiaCella(Scacchiera.getCella(5, 1), Scacchiera.getCella(5, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 1), Scacchiera.getCella(6, 3));
-		Scacchiera.scambiaCella(Scacchiera.getCella(6, 0), Scacchiera.getCella(7, 2));
-		Scacchiera.scambiaCella(Scacchiera.getCella(5, 0), Scacchiera.getCella(6, 1));
-		assertEquals(true, Controller.mossaScacchi("0-0"));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		Turno.getInstance().cambioTurno();
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(5, 1), Scacchiera.getInstance().getCella(5, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 1), Scacchiera.getInstance().getCella(6, 3));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(6, 0), Scacchiera.getInstance().getCella(7, 2));
+		Scacchiera.getInstance().scambiaCella(Scacchiera.getInstance().getCella(5, 0), Scacchiera.getInstance().getCella(6, 1));
+		assertEquals(true, Controller.getInstance().mossaScacchi("0-0"));
 	}
 
 	@Test
 	void testMossaScacchi_EnPassant() {
 		// bianco
-		Scacchiera.newScacchiera();
-		if (Controller.mossaScacchi("a4")) {
-			Turno.cambioTurno();
-			if (Controller.mossaScacchi("h5")) {
-				Turno.cambioTurno();
-				if (Controller.mossaScacchi("a5")) {
-					Turno.cambioTurno();
-					if (Controller.mossaScacchi("b5")) {
-						Turno.cambioTurno();
-						assertEquals(true, Controller.mossaScacchi("axb6 e.p."));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		if (Controller.getInstance().mossaScacchi("a4")) {
+			Turno.getInstance().inizializzaTurno();
+			if (Controller.getInstance().mossaScacchi("h5")) {
+				Turno.getInstance().inizializzaTurno();
+				if (Controller.getInstance().mossaScacchi("a5")) {
+					Turno.getInstance().inizializzaTurno();
+					if (Controller.getInstance().mossaScacchi("b5")) {
+						Turno.getInstance().inizializzaTurno();
+						assertEquals(true, Controller.getInstance().mossaScacchi("axb6 e.p."));
 					}
 				}
 			}
@@ -106,16 +104,16 @@ class ControllerTest {
 	@Test
 	void testMossaScacchi_EnPassantNonValido() {
 		// bianco
-		Scacchiera.newScacchiera();
-		if (Controller.mossaScacchi("b4")) {
-			Turno.cambioTurno();
-			if (Controller.mossaScacchi("a5")) {
-				Turno.cambioTurno();
-				if (Controller.mossaScacchi("b5")) {
-					Turno.cambioTurno();
-					if (Controller.mossaScacchi("h5")) {
-						Turno.cambioTurno();
-						assertEquals(false, Controller.mossaScacchi("axb6"));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		if (Controller.getInstance().mossaScacchi("b4")) {
+			Turno.getInstance().inizializzaTurno();
+			if (Controller.getInstance().mossaScacchi("a5")) {
+				Turno.getInstance().inizializzaTurno();
+				if (Controller.getInstance().mossaScacchi("b5")) {
+					Turno.getInstance().inizializzaTurno();
+					if (Controller.getInstance().mossaScacchi("h5")) {
+						Turno.getInstance().inizializzaTurno();
+						assertEquals(false, Controller.getInstance().mossaScacchi("axb6"));
 					}
 				}
 			}
@@ -125,19 +123,19 @@ class ControllerTest {
 	@Test
 	void testMossaScacchi_MossaNonValida() {
 		// bianco
-		Scacchiera.newScacchiera();
-		assertEquals(false, Controller.mossaScacchi("b5"));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		assertEquals(false, Controller.getInstance().mossaScacchi("b5"));
 	}
 
 	@Test
 	void testMossaScacchi_Mangiata() {
 		// pedone nero mangia pedone bianco
-		Scacchiera.newScacchiera();
-		if (Controller.mossaScacchi("b4")) {
-			Turno.cambioTurno();
-			if (Controller.mossaScacchi("a5")) {
-				Turno.cambioTurno();
-				assertEquals(true, Controller.mossaScacchi("bxa5"));
+		Scacchiera.getInstance().inizializzaScacchiera();
+		if (Controller.getInstance().mossaScacchi("b4")) {
+			Turno.getInstance().inizializzaTurno();
+			if (Controller.getInstance().mossaScacchi("a5")) {
+				Turno.getInstance().inizializzaTurno();
+				assertEquals(true, Controller.getInstance().mossaScacchi("bxa5"));
 			}
 		}
 	}
