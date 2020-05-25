@@ -90,11 +90,14 @@ spotbugs {
     toolVersion = '4.0.1'
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> Implementazione test classi comando, giocatore, turno, pezzo e scacchiera
 =======
 >>>>>>> Completata implementazione ControllerTest
+=======
+>>>>>>> 874f41bd76c759a00059225fbd416ebfa588501f
 }
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {

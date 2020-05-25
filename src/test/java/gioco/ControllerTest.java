@@ -16,7 +16,7 @@ class ControllerTest {
 		Controller.newController();
 		Turno.newTurno();
 	}
-	
+
 	@Test
 	void testMossaScacchi() {
 		assertEquals(true, Controller.mossaScacchi("a4"));

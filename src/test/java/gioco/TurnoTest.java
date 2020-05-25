@@ -3,6 +3,10 @@ package gioco;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 874f41bd76c759a00059225fbd416ebfa588501f
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +31,6 @@ class TurnoTest {
 		String nome = "Giocatore 2";
 		Turno.setNomeGiocatoreInAttesa(nome);
 		assertEquals("Giocatore 2", Turno.getGiocatoreInAttesa().getNome());
-
 	}
 
 	@Test
@@ -43,7 +46,6 @@ class TurnoTest {
 	@Test
 	void testGetArrayStoriaMosse() {
 		ArrayList<String> mosseGiocate = new ArrayList<String>();
-
 	}
 	
 	@Test

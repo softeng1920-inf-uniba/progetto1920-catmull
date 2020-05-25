@@ -22,6 +22,7 @@ public final class Scacchiera {
 						  // valore 7
     public static final int NUMEROCOLONNE = 8;
     public static final int NUMERORIGHE = 8;
+	
 
     /**
      * Avvalora e inizializza la matrice di celle, una per una
@@ -54,6 +55,7 @@ public final class Scacchiera {
     public int getNumeroColonne() {
 	return NUMEROCOLONNE;
     }
+	/**
 
     /**
      * Restituisce il numero di righe della scacchiera
