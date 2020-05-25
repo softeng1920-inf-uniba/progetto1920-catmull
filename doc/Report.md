@@ -45,8 +45,9 @@
 
 #### <a name="pkg_cmpnts_diag"></a>i.Diagramma dei package
 
-[Torna all'indice](#indice)
 <p align="center"><img src="drawings/DiagrammaDeiPackage.png" width=100% height=100%></p>
+
+[Torna all'indice](#indice)
 
 # <a name="oo_design"></a>OO Design
 #### <a name="class_seq_diag"></a>Diagrammi delle classi e diagrammi di sequenza
