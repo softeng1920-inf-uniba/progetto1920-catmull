@@ -16,7 +16,7 @@ class GiocatoreTest {
 	
 	@BeforeEach
 	void setTurno() {
-		Turno.newTurno();
+		Turno.getInstance().inizializzaTurno();
 	}
 	
 	
@@ -36,34 +36,34 @@ class GiocatoreTest {
 
 	@Test
 	void testAddPezziCatturati() {
-		Scacchiera.newScacchiera();
-		g1 = Turno.getGiocatoreInTurno();
-		g1.addPezziCatturati(Scacchiera.getCella(0, 6).getPezzoCorrente());
+		Scacchiera.getInstance().inizializzaScacchiera();
+		g1 = Turno.getInstance().getGiocatoreInTurno();
+		g1.addPezziCatturati(Scacchiera.getInstance().getCella(0, 6).getPezzoCorrente());
 		assertNotNull(g1.getPezziCatturati());
 	}
 
 	@Test
 	void testGetPezziCatturati() {
-		Scacchiera.newScacchiera();
+		Scacchiera.getInstance().inizializzaScacchiera();
 
-		g1 = Turno.getGiocatoreInTurno();
-		g1.addPezziCatturati(Scacchiera.getCella(0, 6).getPezzoCorrente());
+		g1 = Turno.getInstance().getGiocatoreInTurno();
+		g1.addPezziCatturati(Scacchiera.getInstance().getCella(0, 6).getPezzoCorrente());
 		ArrayList<Pezzo> pezziCatturati = new ArrayList<Pezzo>();
-		pezziCatturati.add(Scacchiera.getCella(0, 6).getPezzoCorrente());
+		pezziCatturati.add(Scacchiera.getInstance().getCella(0, 6).getPezzoCorrente());
 		assertEquals(pezziCatturati, g1.getPezziCatturati());
 	}
 
 	@Test
 	void testIsEmptyPezziCatturati() {
-		g1 = Turno.getGiocatoreInTurno();
+		g1 = Turno.getInstance().getGiocatoreInTurno();
 		assertTrue(g1.isEmptyPezziCatturati());
 	}
 
 	@Test
 	void testRemovePezzoCatturato() {
-		Scacchiera.newScacchiera();
-		g1 = Turno.getGiocatoreInTurno();
-		g1.addPezziCatturati(Scacchiera.getCella(0, 6).getPezzoCorrente());
+		Scacchiera.getInstance().inizializzaScacchiera();
+		g1 = Turno.getInstance().getGiocatoreInTurno();
+		g1.addPezziCatturati(Scacchiera.getInstance().getCella(0, 6).getPezzoCorrente());
 		g1.removePezzoCatturato();
 		assertTrue(g1.isEmptyPezziCatturati());
 	}
