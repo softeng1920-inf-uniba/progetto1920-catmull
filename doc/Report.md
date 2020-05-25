@@ -72,9 +72,7 @@ Lo stile di processo utilizzato è stato quello iterativo, basato sulla suddivis
 ![](/res/img/report/iterazioni.png)  
 Al termine di ogni iterazione viene, quindi, prodotta una build funzionante del codice che sarà poi testata ed integrata nel progetto. Inoltre, alla fine di ogni sprint, è prevista una verifica di quanto sviluppato con il product owner.    
 
-Il tutto è stato strutturato facendo riferimento ai principi dello *sviluppo agile* citati nell'immagine che segue.  
-
-![](/res/img/report/manifesto.png)   
+Il tutto è stato strutturato facendo riferimento ai principi dello *sviluppo agile*.    
 
 In particolare, il framework agile seguito per la gestione della realizzazione del software è stato **Scrum**.  
 I progressi del progetto sono stati effettuati in quattro iterazioni detti **sprint**: ogni singolo sprint ha avuto una durata costante, detta *timeboxing*, di circa 2 settimane. 
