@@ -42,9 +42,9 @@
 [Torna all'indice](#indice)
 # <a name="sys_des"></a>System Design
 
-
+<ol type="i">
 #### <a name="pkg_cmpnts_diag"></a>Diagramma dei package
-
+</ol>
 
 [Torna all'indice](#indice)
 <p align="center"><img src="drawings/DiagrammaDeiPackage.png" width=100% height=100%></p>
