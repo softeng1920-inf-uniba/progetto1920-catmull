@@ -73,7 +73,7 @@ I requisiti si suddividiono in funzionali e non funzionali: i requisiti funziona
 <ul>
 <li> <b>RNF1</b> : il software deve essere eseguito su Linux con <i>Terminal</i>; 
 <li> <b>RNF2</b> : il software deve essere eseguito su Mac OS con <i>Terminal</i>; 
-<li> <b>RNF3</b> : il software deve essere eseguito su Windows con <i>Terminal del sottosistema Windows per Linux</i> e <i>Git Bash</i> (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....);
+<li> <b>RNF3</b> : il software deve essere eseguito su Windows con <i>Terminal del sottosistema Windows per Linux</i>, <i>Windows Terminal(preview)</i> e <i>Git Bash</i> (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....);
 <li> <b>RNF4</b>: il software presente nel container deve essere eseguito tramite l’istruzione <i>docker run -it --rm docker. pkg.github.com/softeng1920-inf-uniba/docker_1920/catmull:latest</i>, ma solo dopo aver inserito il comando <i>docker pull</i> copiandolo da GitHub Packages,.
 <li> <b>RNF5</b>: il software deve mostrare la scacchiera contenente i pezzi in formato UTF-8 (Unicode Transformation Format, 8 bit).
 <li> <b>RNF6</b>: il software è stato sviluppato con il linguaggio Java;   
