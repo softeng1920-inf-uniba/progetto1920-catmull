@@ -120,7 +120,7 @@ ed eventuali aspetti considerati poco motivanti. </li>
 # <a name="dom_mod"></a>Modello di dominio
 
 [Torna all'indice](#indice)
-<p align="center"><img src="drawings/ModelloDiDominio.png" width=100% height=100%></p>
+<p align="center"><img src="drawings/ModelloDiDominio.jpg" width=100% height=100%></p>
 
 # <a name="spec_req"></a>Requisiti specifici
 
