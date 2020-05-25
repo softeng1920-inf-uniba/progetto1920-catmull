@@ -193,7 +193,7 @@ public final class Re extends Pezzo {
 	    }
 	}
 	// solo se ha trovato il re ha senso convertire la mossa
-	if (startX != -1 && startY != -1) {
+	if ((startX != -1 && startY != -1)) {
 	    mossaConvertita = Cella.coordXinChar(startX) + "" + Cella.coordYinChar(startY) + " "
 		    + Cella.coordXinChar(endX) + "" + Cella.coordYinChar(endY);
 	}
