@@ -1,10 +1,10 @@
-package gioco;
+package it.uniba.main;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import it.uniba.main.Controller;
+import gioco.Turno;
 import scacchiera.Scacchiera;
 
 class ControllerTest {
