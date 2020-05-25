@@ -16,7 +16,9 @@ class TestTorre {
 	@BeforeEach
 	void setUp() {
 		Scacchiera.getInstance();
+		Scacchiera.getInstance().inizializzaScacchiera();
 		Turno.getInstance();
+		Turno.getInstance().inizializzaTurno();
 		t =(Torre) Scacchiera.getInstance().getCella(7, 7).getPezzoCorrente();
 	}
 
