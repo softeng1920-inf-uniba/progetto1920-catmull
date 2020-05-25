@@ -10,9 +10,13 @@ import scacchiera.Scacchiera;
 import scacchiera.pedine.Pezzo;
 
 /**
- * La classe Stampa contiene i messaggi stampati a video e i metodi di stampa
- * dell'intero gioco. Contiene anche informazioni riguardo ai colori utilizzati
- * nelle stampe. La classe Stampa e' di tipo BOUNDARY.
+ * La classe InterfacciaUtente contiene i messaggi stampati a video e i metodi di stampa
+ * dell'intero gioco.
+ * <br>
+ * Contiene anche informazioni riguardo ai colori utilizzati
+ * nelle stampe.
+ * <br>
+ * La classe Stampa e' di tipo BOUNDARY.
  */
 public final class InterfacciaUtente {
 
@@ -138,9 +142,10 @@ public final class InterfacciaUtente {
 		}
 		System.out.println("      a   b    c    d    e    f    g    h");
 	}
+
 	/**
-     * stampa introduttiva del gioco
-     */
+	 * Stampa introduttiva del gioco
+	 */
     public static void stampaIntro() {
 	System.out.println(CYAN + "\n _/|" + ANSI_RESET + "    #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
 		+ ANSI_RESET + "#" + CYAN + "   #" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
@@ -167,7 +172,7 @@ public final class InterfacciaUtente {
     }
 
 	/**
-	 * Stampa a video il nome del giocatore in turno chiamando 
+	 * Stampa a video il nome del giocatore in turno chiamando
 	 * il metodo di classe della classe Giocatore
 	 *
 	 * @param  giocatoreAttivo Giocatore corrente di cui visualizzare il nome
@@ -225,7 +230,7 @@ public final class InterfacciaUtente {
 	}
 
 	/**
-	 * Stampa a video il messaggio di conferma uscire dal gioco
+	 * Stampa a video il messaggio di conferma per uscire dal gioco
 	 */
 	public static void stampaConfermaFinePartita() {
 		System.out.println();
@@ -242,7 +247,7 @@ public final class InterfacciaUtente {
 	}
 
 	/**
-	 * Stampa a video i pezzi catturati per ogni giocatore
+	 * Stampa a video i pezzi catturati dal giocatore immesso in input
 	 *
 	 * @param  giocatoreInteressato Giocatore che ha effettuato le catture
 	 */
@@ -351,9 +356,9 @@ public final class InterfacciaUtente {
 	}
 
 	/**
-	 * Acquisizione di un comando da tastiera
+	 * Permette l'acquisizione di un comando da tastiera
 	 * 
-	 * @return  comando inserito
+	 * @return Comando inserito dall'utente
 	 */
 	public static String acquisireComando() {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
@@ -370,7 +375,7 @@ public final class InterfacciaUtente {
 	 * Acquisisce il nome del giocatore da tastiera
 	 * 
 	 * @param  c Colore del giocatore corrispondente
-	 * @return  nome del giocatore
+	 * @return  Nome del giocatore
 	 */
 
 	public static String getNomeDaTastiera(final Colore c) {

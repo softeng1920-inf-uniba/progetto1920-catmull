@@ -7,9 +7,9 @@ import gioco.InterfacciaUtente;
 import gioco.Menu;
 
 /**
- * La classe AppMain e' di tipo BOUNDARY 
- *
- * <b>DO NOT RENAME</b>
+ * Classe principale del gioco Scacchi, contenente il metodo di inizio del programma.
+ * <br>
+ * La classe AppMain e' di tipo BOUNDARY
  */
 public final class AppMain {
 
@@ -23,7 +23,7 @@ public final class AppMain {
 	 * Questa e' la classe di lancio del software
 	 *
 	 * @param  args String indicating The command-line arguments.
-	 * 
+	 *
 	 * @throws  IOException se la stringa letta da Buffer e' vuota
 	 */
 	public static void main(final String[] args) throws IOException {

@@ -9,8 +9,10 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Torre e' valido. La classe Torre e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento della Torre e' valido.
+ * <p>
+ * La classe Torre e' di tipo noECB
  */
 public final class Torre extends Pezzo {
 
@@ -18,8 +20,9 @@ public final class Torre extends Pezzo {
 	static final String MOSSA_NON_VALIDA = "a0 a0";
 	static final int DIM_MOSSA_NON_AMBIGUA = 3;
 
-	/**
-	 * Invoca il metodo della superclasse definendo il:
+	/** Invoca il metodo della superclasse
+	 * <p>
+	 * Vengono settati i valori dei vari parametri della classe, di cui:
 	 * <ul>
 	 *   <li>nome</li>
 	 *   <li>colore</li>
@@ -41,10 +44,10 @@ public final class Torre extends Pezzo {
 
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
-	 * applicaMossa. Ad esempio: Ta4 diventa a1 a4
+	 * applicaMossa. Ad esempio: Ta4 =&gt; a1 a4
 	 *
 	 * @param  mossa Stringa rappresentante la mossa in notazione algebrica
-	 * @return  mossa in notazione estesa
+	 * @return  Mossa in notazione estesa
 	 */
 	public static String convertiMossa(final String mossa) {
 	String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";

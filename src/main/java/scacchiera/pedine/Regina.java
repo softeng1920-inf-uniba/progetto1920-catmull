@@ -6,20 +6,23 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Regina è valido. La classe Regina e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento della Regina e' valido.
+ * <br>
+ * La classe Regina e' di tipo noECB
  */
 public final class Regina extends Pezzo {
 
-	/**
-	 * Invoca il metodo della superclasse definendo il:
+	/** Invoca il metodo della superclasse
+	 * <p>
+	 * Vengono settati i valori dei vari parametri della classe, di cui:
 	 * <ul>
 	 *   <li>nome</li>
 	 *   <li>colore</li>
 	 *   <li>posizioneCorrente</li>
 	 *   <li>simbolo</li>
 	 * </ul>
-	 * 
+	 *
 	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
 	 */
 	public Regina(final Colore colore) {
@@ -115,7 +118,7 @@ public final class Regina extends Pezzo {
     }
 
     /**
-	 * Converte la mossa in input nell stringa con le coordinate della cella
+	 * Converte la mossa in input in una stringa con le coordinate della cella
 	 * iniziale e le coordinate della cella finale
 	 *
 	 * @param  mossa Stringa indicante la mossa da convertire in notazione algebrica estesa

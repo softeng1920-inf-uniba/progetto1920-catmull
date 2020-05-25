@@ -3,10 +3,12 @@ package gioco;
 import java.util.ArrayList;
 
 /**
- * La classe turno serve per identificare il turno corrente e di attesa del
- * gioco, quindi definisce se sta giocando il giocatore bianco o nero; Contiene
- * le informazioni riguardo al turno del giocatore. La classe Turno e' di tipo
- * ENTITY
+ * La classe Turno serve per identificare il turno corrente e di attesa del
+ * gioco, quindi definisce se sta giocando il giocatore bianco o nero.
+ * <br>
+ * Contiene le informazioni riguardo al turno del giocatore.
+ * <br>
+ * La classe Turno e' di tipo ENTITY
  */
 
 public final class Turno {
@@ -34,7 +36,8 @@ public final class Turno {
 	}
 
 	/**
-	 * @return  giocatore corrente
+	 * Metodo che permette di ottenere il giocatore in turno
+	 * @return  Giocatore corrente
 	 */
 
 	public static Giocatore getGiocatoreInTurno() {
@@ -42,7 +45,8 @@ public final class Turno {
 	}
 
 	/**
-	 * @return  giocatore in attesa
+	 * Metodo che permette di ottenere il giocatore in attesa
+	 * @return  Giocatore in attesa
 	 */
 	public static Giocatore getGiocatoreInAttesa() {
 		return giocatoreInAttesa;
@@ -50,8 +54,8 @@ public final class Turno {
 
 	/**
 	 * Modifica l'attributo di classe giocatoreInTurno
-	 * 
-	 * @param  m Stringa indicante il giocatore che deve risultare in turno 
+	 *
+	 * @param  m Stringa indicante il giocatore che deve risultare in turno
 	 */
 	public static void setNomeGiocatoreInTurno(final String m) {
 		giocatoreInTurno.setNome(m);
@@ -59,7 +63,7 @@ public final class Turno {
 
 	/**
 	 *  Modifica l'attributo di classe giocatoreInTurno
-	 * 
+	 *
 	 * @param  m Stringa indicante il giocatore che risultera' essere in attesa
 	 */
 	public static void setNomeGiocatoreInAttesa(final String m) {
@@ -68,10 +72,12 @@ public final class Turno {
 
 	/**
 	 * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
-	 * La fusione avviene in modo alternato. Permette di avere una visione completa
+	 * La fusione avviene in modo alternato.
+	 * <br>
+	 * Permette di avere una visione completa
 	 * delle mosse giocate totali
 	 *
-	 * @return  lista di stringhe che permette di visualizzare le mosse effettuate e nel corretto ordine 
+	 * @return  lista di stringhe che permette di visualizzare le mosse effettuate e nel corretto ordine
 	 */
 	public static ArrayList<String> getArrayStoriaMosse() {
 		int i, j, k;

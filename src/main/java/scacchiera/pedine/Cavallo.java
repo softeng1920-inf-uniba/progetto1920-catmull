@@ -7,19 +7,22 @@ import scacchiera.Scacchiera;
 
 /**
  * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
- * movimento del Cavallo e' valido. La classe Cavallo e' di tipo noECB.
+ * movimento del Cavallo e' valido.
+ * <p>
+ * La classe Cavallo e' di tipo noECB.
  */
 public final class Cavallo extends Pezzo {
 
-	/**
-	 * Invoca il metodo della superclasse definendo il:
+	/** Invoca il metodo della superclasse
+	 * <p>
+	 * Vengono settati i valori dei vari parametri della classe, di cui:
 	 * <ul>
 	 *   <li>nome</li>
 	 *   <li>colore</li>
 	 *   <li>posizioneCorrente</li>
 	 *   <li>simbolo</li>
 	 * </ul>
-	 * 
+	 *
 	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
 	 */
 	public Cavallo(final Colore colore) {
@@ -54,11 +57,11 @@ public final class Cavallo extends Pezzo {
 
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
-	 * applicaMossa. Ad esempio: Cde4 diventa d2 e4
+	 * applicaMossa. Ad esempio: Cde4 =&gt; d2 e4
 	 *
 	 * @param  mossa Stringa rappresentante la mossa, scritta in notazione ridotta
 	 *
-	 * @return  mossa in output in notazione estesa
+	 * @return  Mossa in notazione estesa
 	 *
 	 */
 
@@ -214,11 +217,11 @@ public final class Cavallo extends Pezzo {
 
 	/**
 	 * Converte la mossa in caso di espressione regolare senza ambiguita'
-	 * 
+	 *
 	 * @param  endX intero indicante la coordinata delle colonne(compreso tra 0 e 7)
 	 * @param  endY intero indicante la coordinata delle righe(compreso tra 0 e 7)
 	 * @param  mossa Stringa indicante la mossa da convertire
-	 * @return mossa convertita 
+	 * @return mossa convertita
 	 */
 	private static String convertiMossaNonAmbigua(final int endX, final int endY, final String mossa) {
 

@@ -9,20 +9,25 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Re e' valido. La classe Re e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento del Re e' valido.
+ * <br>
+ * La classe Re e' di tipo noECB
+ *
  */
 public final class Re extends Pezzo {
 
 	/**
-	 * Invoca il metodo della superclasse definendo il:
+	 * Invoca il metodo della superclasse
+	 * <p>
+	 * Vengono settati i valori dei vari parametri della classe, di cui:
 	 * <ul>
 	 *   <li>nome</li>
 	 *   <li>colore</li>
 	 *   <li>posizioneCorrente</li>
 	 *   <li>simbolo</li>
 	 * </ul>
-	 * 
+	 *
 	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
 	 */
 	public Re(final Colore colore) {
@@ -72,24 +77,25 @@ public final class Re extends Pezzo {
 		return false;
 	}
 
-    /**
-     * L'arrocco e' valido se sono verificate tutte le seguenti condizioni: 
+    /**Identifica se le coordinate passate in input di Re e torre costituiscono un tipo di arrocco applicabile
+     * <p>
+     * L'arrocco e' valido se sono verificate tutte le seguenti condizioni:
      * <ul>
 	 *        <li>il giocatore non ha ancora mosso ne' il Re ne' la torre coinvolta nell'arrocco</li>
 	 *        <li>non ci devono essere pezzi (amici o avversari) fra il Re e la torre usata</li>
 	 *        <li>ne' la casa di partenza del Re, ne' la casa che esso deve
 	 *           attraversare, ne' quella di arrivo devono essere attaccabili da un
 	 *           pezzo avversario</li>
-	 * </ul>          
-     * 
+	 * </ul>
+     *
      * @param  startRe Cella indicante la posizione iniziale del Re sulla scacchiera
-     * @param  endRe Cella indicante la posizione finale del Re sulla scacchiera 
+     * @param  endRe Cella indicante la posizione finale del Re sulla scacchiera
      * @param  startTorre Cella indicante la posizione iniziale della torre sulla scacchiera
-     * @param  endTorre Cella indicante la posizione finale della torre sulla scacchiera 
+     * @param  endTorre Cella indicante la posizione finale della torre sulla scacchiera
      * @param  storicoMosse Lista di stringhe che rappresenta l'insieme di tutte le mosse
-     * @param  tipoArrocco intero indicante la tipologia di arrocco
-     * 
-     * @return  true se tutte le condizioni sono verificate,false altrimenti 
+     * @param  tipoArrocco Intero indicante la tipologia di arrocco
+     *
+     * @return  true se tutte le condizioni sono verificate, false altrimenti
      */
 
 	public boolean isArroccoValido(final Cella startRe, final Cella endRe, final Cella startTorre,
@@ -132,10 +138,10 @@ public final class Re extends Pezzo {
 	 * Restituisce una stringa nel formato e[1|8] [c|g][1|8], che indica la mossa da
 	 * effettuare per il re in base al colore e alla tipologia di arrocco.
 	 *
-	 * @param  tipoArrocco intero indicante la tipologia di arrocco
-	 * @param  c colore del giocatore in turno
-	 * 
-	 * @return  mossa da effettuare
+	 * @param  tipoArrocco Intero indicante la tipologia di arrocco
+	 * @param  c Colore del giocatore in turno
+	 *
+	 * @return  Mossa da effettuare in notazione estesa
 	 */
 	public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 
@@ -161,7 +167,7 @@ public final class Re extends Pezzo {
 
 	/**
 	 * Converte la stringa in input in stringa leggibile dalla funzione
-	 * applicaMossa. Ad esempio: Re4 diventa e3 e4
+	 * applicaMossa. Ad esempio: Re4 =&gt; e3 e4
 	 *
 	 * @param  mossa Stringa indicante la mossa in notazione algebrica
 	 * @return  mossa in notazione estesa
@@ -243,10 +249,10 @@ public final class Re extends Pezzo {
 	/**
 	 * Controlla se il re o la torre si sono mai spostati
 	 *
-	 * @param  storicoMosse lista di Stringhe indicanti gli spostamenti dei pezzi
-	 * @param  tipoArrocco intero indicante la tipologia di arrocco (corto e lungo)
-	 * 
-	 * @return  true se la prima mossa del re e' stata effettuata, false altrimenti
+	 * @param  storicoMosse Lista di Stringhe indicanti gli spostamenti dei pezzi
+	 * @param  tipoArrocco Intero indicante la tipologia di arrocco (corto o lungo)
+	 *
+	 * @return  true se la prima mossa del re o della torre e' stata effettuata, false altrimenti
 	 */
 	public static boolean isPrimaMossaEffettuata(final ArrayList<String> storicoMosse, final int tipoArrocco) {
 		final short numGiocatori = 2;
@@ -266,7 +272,7 @@ public final class Re extends Pezzo {
 	}
 
 	/**
-	 * Cerca il Re nella scacchiera dello stesso colore del giocatore in turno
+	 * Cerca il Re dello stesso colore del giocatore in turno nella scacchiera
 	 *
 	 * @return Cella che contiene il Re
 	 */

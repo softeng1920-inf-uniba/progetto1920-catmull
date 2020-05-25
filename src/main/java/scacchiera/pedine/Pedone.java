@@ -8,20 +8,24 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento del Pedone e' valido. La classe Pedone e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento del Pedone e' valido.
+ * <br>
+ * La classe Pedone e' di tipo noECB
  */
 public final class Pedone extends Pezzo {
 
-	/**
-	 * Invoca il metodo della superclasse definendo il:
+    	/**
+	 * Invoca il metodo della superclasse
+	 * <p>
+	 * Vengono settati i valori dei vari parametri della classe, di cui:
 	 * <ul>
 	 *   <li>nome</li>
 	 *   <li>colore</li>
 	 *   <li>posizioneCorrente</li>
 	 *   <li>simbolo</li>
 	 * </ul>
-	 * 
+	 *
 	 * @param  colore Colore indicante l'aspetto visivo: bianco o nero
 	 */
 	public Pedone(final Colore colore) {
@@ -82,8 +86,8 @@ public final class Pedone extends Pezzo {
 	 * @param  start Cella di partenza della mossa del pedone
 	 * @param  end   Cella di destinazione della mossa del pedone
 	 * @param  mosse Array di tutte le mosse effettuate, necessario per controllare
-	 *               il verificarsi dei criteri dell'en passant 
-	 *               
+	 *               il verificarsi dei criteri dell'en passant
+	 *
  	 * @return  true se l'en passant e' valido,false altrimenti
 	 */
     public boolean isEnPassantValido(final Cella start, final Cella end, final ArrayList<String> mosse) {
@@ -123,12 +127,11 @@ public final class Pedone extends Pezzo {
     }
 
     /**
-     * Converte il comando in input in una stringa nel formato
-     * a2 a4
+     * Converte il comando in input in una stringa in notazione estesa
      *
      * @param  mossa Stringa che puo' consistere in un'avanzata (es. a2) oppure in una cattura (es. axb3)
-     * 
-     * @return  mossa nel formato esteso
+     *
+     * @return  Mossa nel formato esteso
      */
     public static String convertiMossa(final String mossa) {
 	int variazione = 0;

@@ -9,10 +9,14 @@ import scacchiera.pedine.Regina;
 import scacchiera.pedine.Torre;
 
 /**
- * La classe scacchiera permette di rappresentare lo stato del gioco,
- * visualizzando i pezzi in essa. E'costituita da un numero costante di colonne
- * e di righe. La classe scacchiera � una matrice NxM di Celle. La classe
- * Scacchiera e' di tipo ENTITY
+ * La classe Scacchiera permette di rappresentare lo stato del gioco,
+ * visualizzando i pezzi in essa.
+ * <br>
+ * E'costituita da un numero costante di colonne
+ * e di righe.
+ * <br>
+ * La classe Scacchiera e' una matrice NxM di Celle.
+ * La classe Scacchiera e' di tipo ENTITY.
  */
 public final class Scacchiera {
 
@@ -44,7 +48,7 @@ public final class Scacchiera {
 	/**
 	 * Restituisce il numero di colonne della scacchiera
 	 *
-	 * @return  intero indicante il numero di colonne
+	 * @return  Intero indicante il numero di colonne
 	 */
 	public static int getNumeroColonne() {
 		return NUMEROCOLONNE;
@@ -53,7 +57,7 @@ public final class Scacchiera {
 	/**
 	 * Restituisce il numero di righe della scacchiera
 	 *
-	 * @return  intero indicante il numero di righe
+	 * @return  Intero indicante il numero di righe
 	 */
 	public static int getNumeroRighe() {
 		return NUMERORIGHE;
@@ -62,9 +66,9 @@ public final class Scacchiera {
 	/**
 	 * Date le coordinate, ritorna il riferimento di una cella della scacchiera.
 	 *
-	 * @param  x intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
-	 * @param  y intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
-	 * @return  riferimento di tipo Cella della scacchiera in posizione (x, y)
+	 * @param  x Intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
+	 * @param  y Intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
+	 * @return  Riferimento di tipo Cella della scacchiera in posizione (x, y)
 	 */
 	public static Cella getCella(final int x, final int y) {
 		return scacchiera[x][y];
@@ -74,8 +78,8 @@ public final class Scacchiera {
 	 * Controlla che le coordinate in input siano valide per la scacchiera, ovvero
 	 * non vadano oltre i limiti.
 	 *
-	 * @param  x intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
-	 * @param  y intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
+	 * @param  x Intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
+	 * @param  y Intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
 	 * 
 	 * @return  true se le coordinate inserite si riferiscono ad una cella della
 	 *          scacchiera, false altrimenti
@@ -173,11 +177,11 @@ public final class Scacchiera {
 	 * Permette di avere in output il nome del pezzo. Evita errori legati a indici
 	 * errati e cella vuota.
 	 *
-	 * @param  x intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
-	 * @param  y intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
+	 * @param  x Intero indicante la coordinata delle colonne (valore compreso fra 0 e 7)
+	 * @param  y Intero indicante la coordinata delle righe (valore compreso fra 0 e 7)
 	 * 
-	 * @return  nome del pezzo, se e' presente nella cella,
-	 *          "Vuota" altrimenti
+	 * @return  Stringa contenente il nome del pezzo, se e' presente nella cella.
+	 *          Stringa "Vuota" altrimenti
 	 */
 	public static String getNomePezzo(final int x, final int y) {
 		if (isRangeValido(x, y) && getCella(x, y).isOccupato()) {

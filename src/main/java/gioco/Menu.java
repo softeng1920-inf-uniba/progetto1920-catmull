@@ -1,9 +1,13 @@
 package gioco;
 
 /**
- * La classe Menu implementa i menu: il menu principale che compare all'inizio
- * del gioco e il menu che compare durante la partita. La classe contiene le
- * informazioni riguardo ai comandi: help, moves, quit, board, captures e play.
+ * La classe Menu implementa due menu:
+ * <ul>
+ * 	<li> il menu principale che compare all'inizio del gioco </li>
+ *  	<li> il menu che compare durante la partita </li>
+ * </ul>
+ * La classe contiene le informazioni riguardo ai comandi help, moves, quit, board, captures e play.
+ * <br>
  * La classe Menu e' di tipo Entity.
  */
 public final class Menu {
@@ -40,7 +44,7 @@ public final class Menu {
 	}
 
 	/**
-	 * Consente di chiamare il comando "help" in controller
+	 * Consente di chiamare il comando "help"
 	 *
 	 * @return  comando che permette di aiutare un utente nel cercare una voce del menu
 	 */
@@ -49,16 +53,16 @@ public final class Menu {
 	}
 
 	/**
-	 * Consente di chiamare il comando "moves" in controller
+	 * Consente di chiamare il comando "moves"
 	 *
-	 * @return  comando che consente di visualizzare la cronologia delle mosse giocate 
+	 * @return  comando che consente di visualizzare la cronologia delle mosse giocate
 	 */
 	public static Comando moves() {
 		return moves;
 	}
 
 	/**
-	 * Consente di chiamare il comando "quit" in controller
+	 * Consente di chiamare il comando "quit"
 	 *
 	 * @return  comando che consente di uscire dal gioco
 	 */
@@ -67,7 +71,7 @@ public final class Menu {
 	}
 
 	/**
-	 * Consente di chiamare il comando "board" in controller
+	 * Consente di chiamare il comando "board"
 	 *
 	 * @return  comando che consente di visualizzare la scacchiera del gioco
 	 */
@@ -76,7 +80,7 @@ public final class Menu {
 	}
 
 	/**
-	 * Consente di chiamare il comando "captures" in controller
+	 * Consente di chiamare il comando "captures"
 	 *
 	 * @return  comando che consente di visualizzare le catture
 	 */
@@ -85,7 +89,7 @@ public final class Menu {
 	}
 
 	/**
-	 * Consente di chiamare il comando "play" in controller
+	 * Consente di chiamare il comando "play"
 	 *
 	 * @return  comando che consente di iniziare una nuova partita
 	 */
@@ -101,8 +105,8 @@ public final class Menu {
 	 * @return  <ul>
 	 *            <li>1 se Arrocco corto;</li>
 	 *            <li>2 se Arrocco lungo;</li>
-	 *            <li>-1 se non e' un Arrocco.</li>
-	 *          </ul>  
+	 *            <li>-1 se non e' un Arrocco</li>
+	 *          </ul>
 	 */
 	public static int isArrocco(final String mossa) {
 
@@ -116,15 +120,22 @@ public final class Menu {
 
 	/**
 	 * Riconosce se il comando dato in input rientra tra quelli del menu di gioco.
-	 * I comandi validi nel menu di gioco sono: - help - board - captures -
-	 * moves - quit
+	 * <br>
+	 * I comandi validi nel menu di gioco sono:
+	 * <ul>
+	 * 	<li> help </li>
+	 * 	<li> board </li>
+	 * 	<li> captures </li>
+	 * 	<li> moves </li>
+	 * 	<li> quit </li>
+	 * </ul>
 
 	 *
 	 * @param  comando Comando dato in input
 	 *
 	 * @return  true se il comando rientra tra quelli del menu di gioco, false
 	 *          altrimenti
-	 */         
+	 */
 	public static boolean isComandoValido(final String comando) {
 
 		return (comando.equalsIgnoreCase(Menu.help().getNome())
@@ -136,11 +147,11 @@ public final class Menu {
 	}
 
 	/**
-	 * Controlla, attraverso un'espressione regolare, se la stringa inserita
+	 * Controlla attraverso un'espressione regolare se la stringa inserita
 	 * dall'utente e' riconosciuta come notazione algebrica.
 	 *
 	 * @param  mossa Stringa rappresentante la mossa inserita
-	 * 
+	 *
 	 * @return  true se la mossa e' riconosciuta come notazione algebrica; false altrimenti
 	 */
 	public static boolean isNotazioneAlgebrica(final String mossa) {

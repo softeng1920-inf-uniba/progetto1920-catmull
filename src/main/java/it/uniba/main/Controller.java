@@ -19,8 +19,9 @@ import scacchiera.pedine.Torre;
 
 /**
  * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
- * una nuova partita o di effettuarne una. La classe Controller e' di tipo
- * CONTROL
+ * una nuova partita o di effettuarne una.
+ * <br>
+ * La classe Controller e' di tipo CONTROL
  */
 public final class Controller {
 	private static final int EN_PASSANT = 3;
@@ -37,9 +38,8 @@ public final class Controller {
 	}
 
 	/**
-	 * Crea la partita e inizializza il gioco, chiama la classe Turno,Giocatore,Scacchiera,Comando
-	 * per poter effettura la partita 
-	 */	 
+	 * Crea la partita e inizializza il gioco
+	 */
 	static void playGame() {
 		boolean utenteVuoleRicominciare = false;
 		do {
@@ -93,7 +93,7 @@ public final class Controller {
 	 * restituisce false
 	 *
 	 * @param  mossaDaGiocare Stringa rappresentante la mossa inserita dal giocatore
-	 * 
+	 *
 	 * @return  true se la mossa e' valida; false altrimenti
 	 */
 	public static boolean mossaScacchi(final String mossaDaGiocare) {
@@ -153,13 +153,13 @@ public final class Controller {
 	 * Data la notazione algebrica inserita dall'utente, l'algoritmo restituisce:
 	 *  <ul>
 	 *    <li>0 se e' una mossa semplice;</li>
-	 *    <li>1 se e' una mossa di cattura;</li>  
-	 *    <li>2 se e' un arrocco;</li>   
+	 *    <li>1 se e' una mossa di cattura;</li>
+	 *    <li>2 se e' un arrocco;</li>
 	 *    <li>se e' di sicuro un en passant.</li>
 	 *  </ul>
-	 *    
+	 *
 	 * @param  mossaInInput Stringa rappresentante la mossa in notazione algebrica
-	 * 
+	 *
 	 * @return  intero rappresentante il tipo di mossa
 	 */
 	private static int getTipoMossa(final String mossaInInput) {
@@ -209,7 +209,7 @@ public final class Controller {
 	 * @param  startY intero compreso fra 0 e 7
 	 * @param  endX   intero compreso fra 0 e 7
 	 * @param  endY   intero compreso fra 0 e 7
-	 * 
+	 *
 	 * @return  true se i quattro parametri sono compresi fra 0 e 7, false altrimenti
 	 */
 	private static boolean isMossaValidaGlobale(final String comando, final int tipoMossa) {
@@ -227,7 +227,7 @@ public final class Controller {
 	/**
 	 * Dopo che sono stati effettuati i vari controlli,
 	 * a seconda della tipologia della mossa effettua
-	 * una cattura particolare nel caso di En Passant, una cattura o un 
+	 * una cattura particolare nel caso di En Passant, una cattura o un
 	 * avanzamento nel caso di mossa normale
 	 *
 	 * @param  cellaPartenza Cella contenente il pezzo da spostare
@@ -238,7 +238,7 @@ public final class Controller {
 	 * 				       <li>1: Mossa speciale (en passant) del pedone</li>
 	 * 			         </ul>
 	 */
-	
+
 	private static void applicaMossa(final Cella cellaPartenza,
 	final Cella cellaDestinazione, final int tipoMossa) {
 		Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
@@ -260,8 +260,8 @@ public final class Controller {
 		Scacchiera.scambiaCella(cellaPartenza, cellaDestinazione);
 	}
 
-	/**
-	 * @return  lista delle mosse convertite in notazione comprensibile da
+	/** Restituisce una lista di tutte le mosse convertite
+	 * @return  Lista delle mosse convertite in notazione comprensibile da
 	 * applicaMossa
 	 */
 	public static ArrayList<String> getMosseConvertite() {
@@ -270,7 +270,7 @@ public final class Controller {
 
 	/**
 	 * Aggiunge la mossa effettuata fra quelle convertite
-	 * 
+	 *
 	 * @param  mossa Stringa da aggiungere all'attributo di classe mosseConvertite
 	 */
 
@@ -281,20 +281,20 @@ public final class Controller {
 	/**
 	 * Data la mossa del Re e quella della torre, vengono effettuati tutti i
 	 * controlli che verificano se la mossa sia consentita o meno.
-	 *
+	 * <p>
 	 * L'arrocco e' valido se sono verificate tutte le seguenti condizioni:
-	 *        <ul> 
+	 *        <ul>
 	 *          <li>il giocatore non ha ancora mosso ne' il Re ne' la torre coinvolta nell'arrocco;</li>
 	 *          <li> non ci devono essere pezzi (amici o avversari) fra il Re e la torre usata;</li>
 	 *          <li>ne' la casa di partenza del Re, ne' la casa che esso deve</li>
 	 *          <li>attraversare, ne' quella di arrivo devono essere attaccabili da un
 	 *           pezzo avversario</li>
-	 *        </ul>  
+	 *        </ul>
 	 *
-	 * @param  mossaRe Stringa indicante la mossa del Re 
+	 * @param  mossaRe Stringa indicante la mossa del Re
 	 * @param  mossaTorre Stringa indicante la mossa della torre
-	 * @param  tipoArrocco intero indicante il tipo di arrocco
-	 * 
+	 * @param  tipoArrocco Intero indicante il tipo di arrocco
+	 *
 	 * @return  true se l'arrocco puo' essere effettuato, false altrimenti
 	 */
 	public static boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
@@ -330,16 +330,18 @@ public final class Controller {
 
 	/**
 	 * Controlla se il Re non sia sotto scacco nel caso in cui un pezzo del suo
-	 * stesso colore si muova in un'altra cella. Viene applicata la mossa
-	 * temporaneamente per effettuarne i controlli attraverso la funzione
+	 * stesso colore si muova in un'altra cella.
+	 * <br>
+	 * Viene applicata la mossa temporaneamente per effettuarne i controlli attraverso la funzione
 	 * isReSottoScacco: in caso positivo viene restituito un booleano con valore
-	 * false, altrimenti e' restituito un booleano con valore true. In entrambi i
-	 * casi viene ripristinata la situazione immediatamente precedente alla
+	 * false, altrimenti e' restituito un booleano con valore true.
+	 * <br>
+	 * In entrambi i casi viene ripristinata la situazione immediatamente precedente alla
 	 * applicazione della mossa.
 	 *
 	 * @param  partenza Cella da cui si muove il pezzo
 	 * @param  destinazione Cella in cui si desidera far giungere il pezzo
-	 * 
+	 *
 	 * @return  false se il Re e' sotto scacco, true altrimenti.
 	 */
 	public static boolean isReProtetto(final Cella partenza, final Cella destinazione) {

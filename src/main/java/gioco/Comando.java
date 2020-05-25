@@ -41,15 +41,18 @@ public class Comando {
 		this.descrizione = d;
 	}
 
-	/**
-	 * @return  nome del comando
+	/** Restituisce il nome del comando
+	 * 
+	 * @return  Stringa contenente il nome del comando
 	 */
 	public String getNome() {
 		return nome;
 	}
 
 	/**
-	 * Metodo che permette di visualizzare i comandi
+	 * Metodo che permette di visualizzare i comandi in formato testuale
+	 * 
+	 * @return   Stringa contenente la descrizione formattata del comando
 	 */
 	@Override
 	public String toString() {
