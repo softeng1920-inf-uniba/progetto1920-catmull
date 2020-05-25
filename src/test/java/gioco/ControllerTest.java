@@ -87,13 +87,13 @@ class ControllerTest {
 		// bianco
 		Scacchiera.getInstance().inizializzaScacchiera();
 		if (Controller.getInstance().mossaScacchi("a4")) {
-			Turno.getInstance().inizializzaTurno();
+			Turno.getInstance().cambioTurno();
 			if (Controller.getInstance().mossaScacchi("h5")) {
-				Turno.getInstance().inizializzaTurno();
+				Turno.getInstance().cambioTurno();
 				if (Controller.getInstance().mossaScacchi("a5")) {
-					Turno.getInstance().inizializzaTurno();
+					Turno.getInstance().cambioTurno();
 					if (Controller.getInstance().mossaScacchi("b5")) {
-						Turno.getInstance().inizializzaTurno();
+						Turno.getInstance().cambioTurno();
 						assertEquals(true, Controller.getInstance().mossaScacchi("axb6 e.p."));
 					}
 				}
@@ -106,13 +106,13 @@ class ControllerTest {
 		// bianco
 		Scacchiera.getInstance().inizializzaScacchiera();
 		if (Controller.getInstance().mossaScacchi("b4")) {
-			Turno.getInstance().inizializzaTurno();
+			Turno.getInstance().cambioTurno();
 			if (Controller.getInstance().mossaScacchi("a5")) {
-				Turno.getInstance().inizializzaTurno();
+				Turno.getInstance().cambioTurno();
 				if (Controller.getInstance().mossaScacchi("b5")) {
-					Turno.getInstance().inizializzaTurno();
+					Turno.getInstance().cambioTurno();
 					if (Controller.getInstance().mossaScacchi("h5")) {
-						Turno.getInstance().inizializzaTurno();
+						Turno.getInstance().cambioTurno();
 						assertEquals(false, Controller.getInstance().mossaScacchi("axb6"));
 					}
 				}
@@ -132,9 +132,9 @@ class ControllerTest {
 		// pedone nero mangia pedone bianco
 		Scacchiera.getInstance().inizializzaScacchiera();
 		if (Controller.getInstance().mossaScacchi("b4")) {
-			Turno.getInstance().inizializzaTurno();
+			Turno.getInstance().cambioTurno();
 			if (Controller.getInstance().mossaScacchi("a5")) {
-				Turno.getInstance().inizializzaTurno();
+				Turno.getInstance().cambioTurno();
 				assertEquals(true, Controller.getInstance().mossaScacchi("bxa5"));
 			}
 		}

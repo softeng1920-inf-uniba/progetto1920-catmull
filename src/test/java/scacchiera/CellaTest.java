@@ -5,13 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import gioco.Colore;
 import scacchiera.pedine.Re;
+
 class CellaTest {
-	
-	@Test
-	void testCostruttore() {
-		Cella c = new Cella(0, 0, new Re(Colore.bianco));
-	}
-	
+
 	@Test
 	void testStartX() {
 		String s = "a2 a4";
