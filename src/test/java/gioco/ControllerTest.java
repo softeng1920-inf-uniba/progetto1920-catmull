@@ -50,6 +50,11 @@ class ControllerTest {
 	}
 	
 	@Test
+	void testMossaScacchiIsArroccoValidoNonValido() {
+		assertEquals(false, Controller.getInstance().isArroccoValido("f1 g1","h1 f1", 2));
+	}
+	
+	@Test
 	void testMossaScacchiTorre() {
 		Scacchiera.getInstance().inizializzaScacchiera();
 		if(Controller.getInstance().mossaScacchi("h4"))

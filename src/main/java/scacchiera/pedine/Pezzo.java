@@ -89,11 +89,7 @@ public abstract class Pezzo {
 	 *
 	 * @param start Cella di partenza del pezzo
 	 * @param end   Cella di destinazione del pezzo
-<<<<<<< HEAD
-	 * @return boolean true se la mossa � valida per il pezzo su cui il metodo �
-=======
 	 * @return boolean true se la mossa è valida per il pezzo su cui il metodo è
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
 	 *         stato chiamato, false altrimenti
 	 */
     public abstract boolean isMossaValida(Cella start, Cella end);
