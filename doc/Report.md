@@ -197,9 +197,11 @@ Per i diagrammi di sequenza sono stati riportati i nomi delle classi poichè son
 
 - `Inizia nuova partita`: 
  E' stata scelta questa user story poiché, dopo l'inserimento del comando "Play", permette di iniziare una nuova partita e predispone l'applicazione all'acquisizione di un comando.  
+ 
 ![](/doc/drawings/IniziaNuovaPartita.png)  
   
-![](/doc/drawings/IniziaNuovaPartita2.png)    
+![](/doc/drawings/IniziaNuovaPartita2.png)  
+
 Il diagramma di sequenza evidenzia la differenza del comportamento del programma a seconda del momento in cui viene inserito il comando.
 Nello specifico, quando si inserisce il comando all'inizio dell'applicazione, è la classe AppMain che richiama il Controller che a
 sua volta inizializza le classi Scacchiera e Turno. Invece, se l'utente inserisce il comando Play durante una partita, la gestione avviene
@@ -210,27 +212,34 @@ comando "board".
 ![](/doc/drawings/MostrareLaScacchiera.png) 
   
 ![](/doc/drawings/MostrareLaScacchiera2.png)   
+
 Come si può notare dal diagramma di sequenza, se il comando è inserito prima dell'inizio di una nuova partita, la gestione e le chiamate ai metodi della classe InterfacciaUtente sono affidate alla classe AppMain, altrimenti questo avviene nella classe Controller.   
 
-- `Mostrare le mosse giocate`   
+- `Mostrare le mosse giocate`  
+
 ![](/doc/drawings/MostrareLeMosseGiocate.png)   
   
 ![](/doc/drawings/MostrareLeMosseGiocate2.png)    
+
 Analogamente alle user story precedenti, è stata fatta una distinzione nel diagramma di sequenza, in quanto all'inserimento del comando "moves" l'applicazione restistituisce le mosse giocate da entrambi i giocatori, quindi se viene inserito prima dell'inizio del gioco verrà restituito un messaggio di errore.   
 
 - `Muovere un pedone`: Questa user story è stata scelta in quanto il pedone è l'unica pedina con una mossa speciale, ovvero l'en passant, ed esemplifica la gestione delle mosse e delle catture all'interno del gioco.   
+
 ![](/doc/drawings/MuoverePedone.png)   
   
 ![](/doc/drawings/MuoverePedone2.png)   
+
 Al fine di non appesantire il diagramma di sequenza, sono riportate solo le chiamate e i messaggi più importanti. Inoltre, la gestione della mossa avviene nella classe Controller, il cui metodo principale è mossaScacchi, e nella classe Pedone, il cui metodo principale è isMossaValida.   
 
 ### <p align=center><strong>Sprint 2:</strong></p>
 - `Muovere il re`: Il re è la pedina più importante nel gioco degli scacchi. E' fondamentale conoscere la sua implementazione perchè ad ogni mossa l'utente
 non deve lasciare il proprio re sotto scacco. Per questo, con l'aggiunta di questa user story, possiamo rappresentare la gestione delle mosse in modo
 globale.   
+
 ![](/doc/drawings/MuovereRe.png)   
   
-Nel diagramma delle classi sono state inserite, a differenza dei precedenti, tutte le classi che rappresentano una pedina, in quanto sono necessarie per poter verificare che una mossa non implichi lo scacco del re.   
+Nel diagramma delle classi sono state inserite, a differenza dei precedenti, tutte le classi che rappresentano una pedina, in quanto sono necessarie per poter verificare che una mossa non implichi lo scacco del re.  
+
 ![](/doc/drawings/MuovereRe2.png) 
   
 Il diagramma di sequenza è uguale al precedente con la differenza della classe Re al posto della classe Pedone.    
@@ -382,7 +391,7 @@ Qui di seguito elenchiamo le possibili combinazioni:
 
 In questa ambiguità una delle due torri potrebbe avanzare sulla colonna e l'altra sulla traversa.
 Per disambiguare, l'utente dovrà inserire la seguente mossa:
-lettera T (in maiuscolo),seguita dalla colonna (lettera compresa tra a ed h)di partenza della torre da disambiguare, dalla colonna (lettera compresa tra a ed h) e dalla traversa (numero compreso tra 1 e 8) di destinazione.RIVEDERE SE ANCHE TRAVERSA
+lettera T (in maiuscolo),seguita dalla colonna (lettera compresa tra a ed h)di partenza della torre da disambiguare, dalla colonna (lettera compresa tra a ed h) e dalla traversa (numero compreso tra 1 e 8) di destinazione.
 
 
 ![](/res/img/report/Report-ambiguita_l.png) Ambiguità "ad L"  
