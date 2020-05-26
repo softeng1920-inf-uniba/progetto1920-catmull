@@ -8,15 +8,12 @@
 	- [Requisiti funzionali](#func_req)
 	- [Requisiti non funzionali](#not_func_req)
 1. [System Design](#sys_des)
-	- [Stile architetturale adottato (opzionale)](#arch_style)
-	- [Diagramma dei package, diagramma dei componenti (opzionali)](#pkg_cmpnts_diag)
-	- [Commentare le decisioni prese (opzionale)](#comments1)
+	- [Diagramma dei package](#pkg_cmpnts_diag)
 1. [OO Design](#oo_design)
-	- [Diagrammi delle classi e diagrammi di sequenza *(per le user story considerate più importanti)*](#class_seq_diag)
-	- [Menzionare l'eventuale applicazione di design pattern *(opzionale)*](#design_patt)
-	- [Commentare le decisioni prese *(opzionale)*](#comments2)
+	- [Diagrammi delle classi e diagrammi di sequenza](#class_seq_diag)
+	- [Applicazione design pattern](#design_patt)
 1. [Riepilogo del test](#test_recap)
-	- [Riportare la tabella riassuntiva di coveralls (o jacoco), con dati sul numero dei casi di test e copertura del codice](#coverall_stats)
+	- [Tabella riassuntiva di Coveralls](#coverall_stats)
 1. [Manuale utente](#user_man)
 1. [Processo di sviluppo e organizzazione del lavoro](#dev_proc)
 1. [Analisi retrospettiva](#retro_analysis)
@@ -24,13 +21,10 @@
 	* [Cosa vi ha fatto sentire insoddisfatti e vi ha deluso](#sad)
 	* [Cosa vi ha fatto «impazzire» e vi ha reso disperati](#crazy)
 
-
 <ol>
 <li>
 
 # <a name="intro"></a>Introduzione
-
-[Torna all'indice](#indice)
 
 
 ## <a name="cenni"> </a> i. &#160; Cenni storici
@@ -89,7 +83,7 @@ I pezzi sono i seguenti:
 
 Lo scopo principale di questa relazione è quello di realizzare un'applicazione in grado di
 simulare il gioco degli scacchi secondo il regolamento tradizionale. Per fare ciò
-è stato utilizzato il linguaggio di programmazione orientato agli oggetti, ovvero, Java al fine di consentire uno
+è stato utilizzato il linguaggio di programmazione orientato agli oggetti, ovvero Java, al fine di consentire uno
 sviluppo di alto livello.
 
 ## <a name="schema"></a>iii. &#160; Schema della relazione
@@ -119,14 +113,18 @@ processi di sviluppo dell' intero progetto e i principi secondo cui ciò è stat
 <li>il capitolo 9 è quello conclusivo in cui vengono analizzati i traguardi personali raggiunti
 ed eventuali aspetti considerati poco motivanti. </li>
 </ul>
-</li>
-<li>
+</li>  
 
+[Torna all'indice](#indice)
+
+<li>
 
 # <a name="dom_mod"></a>Modello di dominio
 
-[Torna all'indice](#indice)
+
 <p align="center"><img src="drawings/ModelloDiDominio.png" width=100% height=100%></p>
+
+[Torna all'indice](#indice)
 
 </li>
 <li>
@@ -195,10 +193,10 @@ Per i diagrammi di classe sono stati riportati solo i metodi e gli attributi che
 Per i diagrammi di sequenza sono stati riportati i nomi delle classi poichè sono classi speciali Singleton.
 ### <p align=center><strong>Sprint 1:</strong></p>
 
-- `Inizia nuova partita`: 
+- `Inizia nuova partita`:
  E' stata scelta questa user story poiché, dopo l'inserimento del comando "Play", permette di iniziare una nuova partita e predispone l'applicazione all'acquisizione di un comando.  
 ![](/doc/drawings/IniziaNuovaPartita.png)  
-  
+
 ![](/doc/drawings/IniziaNuovaPartita2.png)    
 Il diagramma di sequenza evidenzia la differenza del comportamento del programma a seconda del momento in cui viene inserito il comando.
 Nello specifico, quando si inserisce il comando all'inizio dell'applicazione, è la classe AppMain che richiama il Controller che a
@@ -207,20 +205,20 @@ esclusivamente nella classe Controller e, in aggiunta, è richiesta la conferma 
 
 - `Mostrare la scacchiera`: Questa user story è considerata primaria perché consente al giocatore di conoscere lo stato attuale del gioco, attraverso l'inserimento del
 comando "board".   
-![](/doc/drawings/MostrareLaScacchiera.png) 
-  
+![](/doc/drawings/MostrareLaScacchiera.png)
+
 ![](/doc/drawings/MostrareLaScacchiera2.png)   
 Come si può notare dal diagramma di sequenza, se il comando è inserito prima dell'inizio di una nuova partita, la gestione e le chiamate ai metodi della classe InterfacciaUtente sono affidate alla classe AppMain, altrimenti questo avviene nella classe Controller.   
 
 - `Mostrare le mosse giocate`   
 ![](/doc/drawings/MostrareLeMosseGiocate.png)   
-  
+
 ![](/doc/drawings/MostrareLeMosseGiocate2.png)    
-Analogamente alle user story precedenti, è stata fatta una distinzione nel diagramma di sequenza, in quanto all'inserimento del comando "moves" l'applicazione restistituisce le mosse giocate da entrambi i giocatori, quindi se viene inserito prima dell'inizio del gioco verrà restituito un messaggio di errore.   
+Analogamente alle user story precedenti, è stata fatta una distinzione nel diagramma di sequenza, in quanto all'inserimento del comando "moves" l'applicazione restituisce le mosse giocate da entrambi i giocatori, quindi se viene inserito prima dell'inizio del gioco verrà restituito un messaggio di errore.   
 
 - `Muovere un pedone`: Questa user story è stata scelta in quanto il pedone è l'unica pedina con una mossa speciale, ovvero l'en passant, ed esemplifica la gestione delle mosse e delle catture all'interno del gioco.   
 ![](/doc/drawings/MuoverePedone.png)   
-  
+
 ![](/doc/drawings/MuoverePedone2.png)   
 Al fine di non appesantire il diagramma di sequenza, sono riportate solo le chiamate e i messaggi più importanti. Inoltre, la gestione della mossa avviene nella classe Controller, il cui metodo principale è mossaScacchi, e nella classe Pedone, il cui metodo principale è isMossaValida.   
 
@@ -229,10 +227,10 @@ Al fine di non appesantire il diagramma di sequenza, sono riportate solo le chia
 non deve lasciare il proprio re sotto scacco. Per questo, con l'aggiunta di questa user story, possiamo rappresentare la gestione delle mosse in modo
 globale.   
 ![](/doc/drawings/MuovereRe.png)   
-  
+
 Nel diagramma delle classi sono state inserite, a differenza dei precedenti, tutte le classi che rappresentano una pedina, in quanto sono necessarie per poter verificare che una mossa non implichi lo scacco del re.   
-![](/doc/drawings/MuovereRe2.png) 
-  
+![](/doc/drawings/MuovereRe2.png)
+
 Il diagramma di sequenza è uguale al precedente con la differenza della classe Re al posto della classe Pedone.    
 
 
@@ -248,7 +246,7 @@ design Bridge è possibile selezionare l'implementazione del metodo direttamente
 
 - `MEDIATOR`: il Mediator è una classe che incapsula come interagiscono gli oggetti per poter gestire facilmente le iterazioni tra loro.
 Nel progetto è stata creata la classe Controller che gestisce tutte le comunicazioni tra le classi. Grazie a questa scelta è stato possibile centralizzare la gestione del gioco e facilitare la programmazione.
-Per esempio, la classe Scacchiera non deve comunicare direttamente con la classe Pedone durante la mossa di un pedone. 
+Per esempio, la classe Scacchiera non deve comunicare direttamente con la classe Pedone durante la mossa di un pedone.
 
 
 
@@ -262,7 +260,7 @@ Per esempio, la classe Scacchiera non deve comunicare direttamente con la classe
 
 Sono stati generati i test automatici tramite il testing framework open source di Java: JUnit. La copertura del codice scritto è pari all'80%.
 
-![](/res/img/coverallsScacchi.png)
+![](/res/img/report/coverallsScacchi.png)
 
 Seguono le immagini tratte dal report dei test automatici di Coveralls.
 
@@ -270,7 +268,7 @@ Le uniche classi escluse dai casi di test sono “InterfacciaUtente” e ”AppM
 
 La copertura della classe Controller è parziale poiché è stata esclusa la funzione playGame(), in quanto richiama i metodi della classe InterfacciaUtente e utilizza metodi già testati separatamente.  
 
-![](/res/img/coverallsStatus.png)  
+![](/res/img/report/coverallsStatus.png)  
 
 
 [Torna all'indice](#indice)
@@ -406,7 +404,7 @@ In questa ambiguità le due torri si trovano sulla stessa traversa e potrebbero 
 
 ![](/res/img/report/Report-Report-ambiguita_stessa_traversa.png) 1° torre in a3, 2° torre bianca in h3.
 
-Nella foto di esempio, la ambiguità viene risolta inserendo la mossa Tae3 oppure The3.
+Nella foto di esempio, l'ambiguità viene risolta inserendo la mossa Tae3 oppure The3.
 
 ---
 
@@ -444,10 +442,10 @@ Esempi di mosse di cattura: `Axe8`, `A:b1`.
 
 L'avanzata oppure la cattura del cavallo può essere descritta come due passi in orizzontale (verticale) seguito da un passo in verticale (orizzontale), in modo che il tragitto percorso formi idealmente una "L".  
 Le possibili combinazioni sono:
-* una casa in verticale o orizzonatale seguita da due case:
+* una casa in verticale o orizzontale seguita da due case:
   * a destra, oppure
   * a sinistra;
-* due case in verticale o orizzonatale seguita da una casa:
+* due case in verticale o orizzontale seguita da una casa:
   * a destra, oppure
   * a sinistra;   
 
@@ -576,7 +574,7 @@ Se un pedone compie un’avanzata di due case spostandosi in una casa con colonn
 Questa mossa è considerata *speciale*, poichè si tratta dell’unico caso in cui ad un pedone è concesso catturare un pezzo in una cella sulla sua stessa traversa.  
 Inoltre, un pedone può effettuare l’en passant solo se si verificano le seguenti condizioni:  
 * la casa finale non è occupata;  
-* il pedone era posizionato sulla cella adiacente a quella del pedone da mangiare, prima che esso abbia compiuto la prima mossa.  
+* il pedone era posizionato sulla cella adiacente a quella del pedone da mangiare, dopo che esso abbia compiuto la prima mossa.  
 
 ![](/res/img/report/en-passant.png)
 
@@ -620,7 +618,7 @@ N.B. Il gioco accetta anche le seguenti mosse:
 
 # <a name="dev_proc"></a>Processo di sviluppo e organizzazione del lavoro
 Lo sviluppo del software è stato eseguito da un team di sei componenti.   
-Lo stile di processo utilizzato è stato quello iterativo, basato sulla suddivisione del progetto in sottoinsiemi di funzionaità dette **iterazioni**; ogni iterazione si articola, a sua volta, in analisi, progetto, codifica e sperimentazione.    
+Lo stile di processo utilizzato è stato quello iterativo, basato sulla suddivisione del progetto in sottoinsiemi di funzionalità dette **iterazioni**; ogni iterazione si articola, a sua volta, in analisi, progetto, codifica e sperimentazione.    
 ![](/res/img/report/iterazioni.png)  
 Al termine di ogni iterazione viene, quindi, prodotta una build funzionante del codice che sarà poi testata ed integrata nel progetto. Inoltre, alla fine di ogni sprint, è prevista una verifica di quanto sviluppato con il product owner.    
 
@@ -708,8 +706,8 @@ Per eseguire l'immagine è stato prima lanciato il comando `docker pull docker.p
 -   Applicare  dei principi di programmazione ad oggetti che precedentemente erano stati acquisiti in maniera meramente teorica;
 -   Implementare un'interfaccia più elaborata del gioco attraverso colori, caratteri e font speciali;
 -   Imparare a lavorare in gruppo nell'ambito dello sviluppo software;
--   Generare i test automatici di quasi tutta l'applicazione, imparando ad utilizzare JUint e acquisendo una visione più completa del codice scritto;
--   Aver realizzato un gioco di strategia storico di tale portata e complessià.
+-   Generare i test automatici di quasi tutta l'applicazione, imparando ad utilizzare JUnit e acquisendo una visione più completa del codice scritto;
+-   Aver realizzato un gioco di strategia storico di tale portata e complessità.
 #### <a name="sad"></a>Cosa vi ha fatto sentire insoddisfatti e vi ha deluso
 -   Non aver potuto sviluppare e implementare la fine del gioco poiché lo sviluppo è stato arrestato alla fase di mediogioco.  
 #### <a name="crazy"></a>Cosa vi ha fatto «impazzire» e vi ha reso disperati
