@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnit Jupiter" tests="145" skipped="0" failures="0" errors="0" time="0.252" hostname="LAPTOP-N9R260GT" timestamp="2020-05-26T15:43:49">
+<testsuite name="JUnit Jupiter" tests="145" skipped="0" failures="0" errors="0" time="0.348" hostname="LAPTOP-N9R260GT" timestamp="2020-05-26T15:59:23">
 <properties>
 <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
 <property name="file.encoding" value="windows-1252"/>
@@ -57,19 +57,19 @@
 <property name="user.timezone" value="Europe/Berlin"/>
 <property name="user.variant" value=""/>
 </properties>
-<testcase name="testEndX()" classname="scacchiera.CellaTest" time="0.036">
+<testcase name="testEndX()" classname="scacchiera.CellaTest" time="0.04">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testEndX()]
 display-name: testEndX()
 ]]></system-out>
 </testcase>
-<testcase name="testEndY()" classname="scacchiera.CellaTest" time="0">
+<testcase name="testEndY()" classname="scacchiera.CellaTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testEndY()]
 display-name: testEndY()
 ]]></system-out>
 </testcase>
-<testcase name="testStartX()" classname="scacchiera.CellaTest" time="0">
+<testcase name="testStartX()" classname="scacchiera.CellaTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testStartX()]
 display-name: testStartX()
@@ -81,25 +81,25 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.CellaTest]/[method:testStart
 display-name: testStartY()
 ]]></system-out>
 </testcase>
-<testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.012">
+<testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.016">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testToString()]
 display-name: testToString()
 ]]></system-out>
 </testcase>
-<testcase name="testGetNome()" classname="scacchiera.pedine.PezzoTest" time="0">
+<testcase name="testGetNome()" classname="scacchiera.pedine.PezzoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetNome()]
 display-name: testGetNome()
 ]]></system-out>
 </testcase>
-<testcase name="testGetSimboloNero()" classname="scacchiera.pedine.PezzoTest" time="0">
+<testcase name="testGetSimboloNero()" classname="scacchiera.pedine.PezzoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetSimboloNero()]
 display-name: testGetSimboloNero()
 ]]></system-out>
 </testcase>
-<testcase name="testGetSimboloBianco()" classname="scacchiera.pedine.PezzoTest" time="0">
+<testcase name="testGetSimboloBianco()" classname="scacchiera.pedine.PezzoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PezzoTest]/[method:testGetSimboloBianco()]
 display-name: testGetSimboloBianco()
@@ -123,7 +123,7 @@ unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetGiocato
 display-name: testGetGiocatoreInAttesa()
 ]]></system-out>
 </testcase>
-<testcase name="testGetArrayStoriaMosseNero()" classname="gioco.TurnoTest" time="0">
+<testcase name="testGetArrayStoriaMosseNero()" classname="gioco.TurnoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseNero()]
 display-name: testGetArrayStoriaMosseNero()
@@ -135,7 +135,7 @@ unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArraySt
 display-name: testGetArrayStoriaMosseAttesaDim1Nero()
 ]]></system-out>
 </testcase>
-<testcase name="testSetNomeGiocatoreInTurno()" classname="gioco.TurnoTest" time="0">
+<testcase name="testSetNomeGiocatoreInTurno()" classname="gioco.TurnoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testSetNomeGiocatoreInTurno()]
 display-name: testSetNomeGiocatoreInTurno()
@@ -147,7 +147,7 @@ unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetGiocato
 display-name: testGetGiocatoreInTurno()
 ]]></system-out>
 </testcase>
-<testcase name="testGetArrayStoriaMosseAttesaDim1Bianco()" classname="gioco.TurnoTest" time="0.001">
+<testcase name="testGetArrayStoriaMosseAttesaDim1Bianco()" classname="gioco.TurnoTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseAttesaDim1Bianco()]
 display-name: testGetArrayStoriaMosseAttesaDim1Bianco()
@@ -159,13 +159,13 @@ unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArraySt
 display-name: testGetArrayStoriaMosseNeroDim1()
 ]]></system-out>
 </testcase>
-<testcase name="testGetArrayStoriaMosseBiancoDim1()" classname="gioco.TurnoTest" time="0">
+<testcase name="testGetArrayStoriaMosseBiancoDim1()" classname="gioco.TurnoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testGetArrayStoriaMosseBiancoDim1()]
 display-name: testGetArrayStoriaMosseBiancoDim1()
 ]]></system-out>
 </testcase>
-<testcase name="testSetNomeGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0">
+<testcase name="testSetNomeGiocatoreInAttesa()" classname="gioco.TurnoTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.TurnoTest]/[method:testSetNomeGiocatoreInAttesa()]
 display-name: testSetNomeGiocatoreInAttesa()
@@ -189,43 +189,43 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:
 display-name: testIsMossaValida_BassoSx2()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaAltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<testcase name="testConvertiMossaAltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.003">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testConvertiMossaAltoDx()]
 display-name: testConvertiMossaAltoDx()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_AltoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_AltoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx_PercorsoOccupato()]
 display-name: testIsMossaValida_AltoDx_PercorsoOccupato()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_AltoSx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_AltoSx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoSx_PercorsoOccupato()]
 display-name: testIsMossaValida_AltoSx_PercorsoOccupato()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_AltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<testcase name="testIsMossaValida_AltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx()]
 display-name: testIsMossaValida_AltoDx()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoSx()]
 display-name: testIsMossaValida_AltoSx()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_AltoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_AltoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx2()]
 display-name: testIsMossaValida_AltoDx2()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_AltoDx3()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_AltoDx3()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_AltoDx3()]
 display-name: testIsMossaValida_AltoDx3()
@@ -243,13 +243,13 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:
 display-name: testIsMossaValida_AltoDx_Mangiata()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoDx()]
 display-name: testIsMossaValida_BassoDx()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoSx()]
 display-name: testIsMossaValida_BassoSx()
@@ -261,13 +261,13 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:
 display-name: TestConvertiMossa_BassoDx2()
 ]]></system-out>
 </testcase>
-<testcase name="TestConvertiMossa_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<testcase name="TestConvertiMossa_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_BassoDx()]
 display-name: TestConvertiMossa_BassoDx()
 ]]></system-out>
 </testcase>
-<testcase name="TestConvertiMossa_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
+<testcase name="TestConvertiMossa_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:TestConvertiMossa_BassoSx()]
 display-name: TestConvertiMossa_BassoSx()
@@ -279,7 +279,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:
 display-name: TestConvertiMossa_Mangiata_AltoDx()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValida_BassoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0">
+<testcase name="testIsMossaValida_BassoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:testIsMossaValida_BassoDx_PercorsoOccupato()]
 display-name: testIsMossaValida_BassoDx_PercorsoOccupato()
@@ -297,7 +297,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.AlfiereTest]/[method:
 display-name: testIsMossaValida_BassoSx_PercorsoOccupato()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaCatturaPedone()" classname="scacchiera.pedine.PedoneTest" time="0">
+<testcase name="testConvertiMossaCatturaPedone()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaCatturaPedone()]
 display-name: testConvertiMossaCatturaPedone()
@@ -309,7 +309,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:t
 display-name: testIsMossaValidaObliquoNonValida()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaDueCelle()" classname="scacchiera.pedine.PedoneTest" time="0.003">
+<testcase name="testIsMossaValidaDueCelle()" classname="scacchiera.pedine.PedoneTest" time="0.008">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaDueCelle()]
 display-name: testIsMossaValidaDueCelle()
@@ -333,13 +333,13 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:t
 display-name: testisMossaValidaFinalePienaBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0">
+<testcase name="testIsMossaValidaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaUnaCellaBianco()]
 display-name: testIsMossaValidaUnaCellaBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testIsEnPassantValidoSenzaMossaDiDue()" classname="scacchiera.pedine.PedoneTest" time="0">
+<testcase name="testIsEnPassantValidoSenzaMossaDiDue()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsEnPassantValidoSenzaMossaDiDue()]
 display-name: testIsEnPassantValidoSenzaMossaDiDue()
@@ -351,7 +351,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:t
 display-name: testConvertiMossaDueAvanti()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaDueFinaleOccupata()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<testcase name="testIsMossaValidaDueFinaleOccupata()" classname="scacchiera.pedine.PedoneTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaDueFinaleOccupata()]
 display-name: testIsMossaValidaDueFinaleOccupata()
@@ -369,7 +369,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:t
 display-name: testConvertiMossaDueCelleBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaUnoAvanti()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<testcase name="testConvertiMossaUnoAvanti()" classname="scacchiera.pedine.PedoneTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaUnoAvanti()]
 display-name: testConvertiMossaUnoAvanti()
@@ -381,7 +381,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:t
 display-name: testIsMossaValidaInDietro()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaMossaNonvalida()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<testcase name="testIsMossaValidaMossaNonvalida()" classname="scacchiera.pedine.PedoneTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaMossaNonvalida()]
 display-name: testIsMossaValidaMossaNonvalida()
@@ -393,25 +393,25 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:t
 display-name: testIsEnPassantValidoBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaDueCelleBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001">
+<testcase name="testIsMossaValidaDueCelleBianco()" classname="scacchiera.pedine.PedoneTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaDueCelleBianco()]
 display-name: testIsMossaValidaDueCelleBianco()
 ]]></system-out>
 </testcase>
-<testcase name="testisMossaValidaUnaCellaNero()" classname="scacchiera.pedine.PedoneTest" time="0">
+<testcase name="testisMossaValidaUnaCellaNero()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testisMossaValidaUnaCellaNero()]
 display-name: testisMossaValidaUnaCellaNero()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaObliquoValida()" classname="scacchiera.pedine.PedoneTest" time="0">
+<testcase name="testIsMossaValidaObliquoValida()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testIsMossaValidaObliquoValida()]
 display-name: testIsMossaValidaObliquoValida()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0">
+<testcase name="testConvertiMossaUnaCellaBianco()" classname="scacchiera.pedine.PedoneTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.PedoneTest]/[method:testConvertiMossaUnaCellaBianco()]
 display-name: testConvertiMossaUnaCellaBianco()
@@ -429,7 +429,7 @@ unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazione
 display-name: testIsNotazioneAlgebricaAlfiereMossa()
 ]]></system-out>
 </testcase>
-<testcase name="testIsArrocco_000()" classname="gioco.MenuTest" time="0.001">
+<testcase name="testIsArrocco_000()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_000()]
 display-name: testIsArrocco_000()
@@ -441,7 +441,7 @@ unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_O
 display-name: testIsArrocco_OOO()
 ]]></system-out>
 </testcase>
-<testcase name="testIsArrocco_ooo()" classname="gioco.MenuTest" time="0.001">
+<testcase name="testIsArrocco_ooo()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsArrocco_ooo()]
 display-name: testIsArrocco_ooo()
@@ -453,13 +453,13 @@ unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoVa
 display-name: testIsComandoValidoHelp()
 ]]></system-out>
 </testcase>
-<testcase name="testIsComandoValidoMenu()" classname="gioco.MenuTest" time="0">
+<testcase name="testIsComandoValidoMenu()" classname="gioco.MenuTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoMenu()]
 display-name: testIsComandoValidoMenu()
 ]]></system-out>
 </testcase>
-<testcase name="testIsComandoValidoQuit()" classname="gioco.MenuTest" time="0.001">
+<testcase name="testIsComandoValidoQuit()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoQuit()]
 display-name: testIsComandoValidoQuit()
@@ -477,13 +477,13 @@ unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazione
 display-name: testIsNotazioneAlgebricaPedoneEP()
 ]]></system-out>
 </testcase>
-<testcase name="testIsComandoValidoCaptures()" classname="gioco.MenuTest" time="0.001">
+<testcase name="testIsComandoValidoCaptures()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoValidoCaptures()]
 display-name: testIsComandoValidoCaptures()
 ]]></system-out>
 </testcase>
-<testcase name="testPlay()" classname="gioco.MenuTest" time="0">
+<testcase name="testPlay()" classname="gioco.MenuTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testPlay()]
 display-name: testPlay()
@@ -537,19 +537,19 @@ unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazione
 display-name: testIsNotazioneAlgebricaReMossa()
 ]]></system-out>
 </testcase>
-<testcase name="testIsNotazioneAlgebricaPedoneMossa()" classname="gioco.MenuTest" time="0">
+<testcase name="testIsNotazioneAlgebricaPedoneMossa()" classname="gioco.MenuTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaPedoneMossa()]
 display-name: testIsNotazioneAlgebricaPedoneMossa()
 ]]></system-out>
 </testcase>
-<testcase name="testIsNotazioneAlgebricaAlfiereCattura()" classname="gioco.MenuTest" time="0.001">
+<testcase name="testIsNotazioneAlgebricaAlfiereCattura()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaAlfiereCattura()]
 display-name: testIsNotazioneAlgebricaAlfiereCattura()
 ]]></system-out>
 </testcase>
-<testcase name="testIsNotazioneAlgebricaComandoVuoto()" classname="gioco.MenuTest" time="0.001">
+<testcase name="testIsNotazioneAlgebricaComandoVuoto()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaComandoVuoto()]
 display-name: testIsNotazioneAlgebricaComandoVuoto()
@@ -591,7 +591,7 @@ unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsComandoVa
 display-name: testIsComandoValidoMoves()
 ]]></system-out>
 </testcase>
-<testcase name="testIsNotazioneAlgebricaTorreMossa()" classname="gioco.MenuTest" time="0">
+<testcase name="testIsNotazioneAlgebricaTorreMossa()" classname="gioco.MenuTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaTorreMossa()]
 display-name: testIsNotazioneAlgebricaTorreMossa()
@@ -603,13 +603,13 @@ unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazione
 display-name: testIsNotazioneAlgebricaErrata()
 ]]></system-out>
 </testcase>
-<testcase name="testIsNotazioneAlgebricaCavalloMossa()" classname="gioco.MenuTest" time="0.001">
+<testcase name="testIsNotazioneAlgebricaCavalloMossa()" classname="gioco.MenuTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.MenuTest]/[method:testIsNotazioneAlgebricaCavalloMossa()]
 display-name: testIsNotazioneAlgebricaCavalloMossa()
 ]]></system-out>
 </testcase>
-<testcase name="testMossaScacchi_Mangiata()" classname="it.uniba.main.ControllerTest" time="0.004">
+<testcase name="testMossaScacchi_Mangiata()" classname="it.uniba.main.ControllerTest" time="0.005">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.main.ControllerTest]/[method:testMossaScacchi_Mangiata()]
 display-name: testMossaScacchi_Mangiata()
@@ -645,19 +645,19 @@ unique-id: [engine:junit-jupiter]/[class:it.uniba.main.ControllerTest]/[method:t
 display-name: testMossaScacchiRe()
 ]]></system-out>
 </testcase>
-<testcase name="testMossaScacchiTorre()" classname="it.uniba.main.ControllerTest" time="0.001">
+<testcase name="testMossaScacchiTorre()" classname="it.uniba.main.ControllerTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.main.ControllerTest]/[method:testMossaScacchiTorre()]
 display-name: testMossaScacchiTorre()
 ]]></system-out>
 </testcase>
-<testcase name="testMossaScacchi_EnPassantNonValido()" classname="it.uniba.main.ControllerTest" time="0.001">
+<testcase name="testMossaScacchi_EnPassantNonValido()" classname="it.uniba.main.ControllerTest" time="0.003">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.main.ControllerTest]/[method:testMossaScacchi_EnPassantNonValido()]
 display-name: testMossaScacchi_EnPassantNonValido()
 ]]></system-out>
 </testcase>
-<testcase name="testMossaScacchi_EnPassant()" classname="it.uniba.main.ControllerTest" time="0.001">
+<testcase name="testMossaScacchi_EnPassant()" classname="it.uniba.main.ControllerTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:it.uniba.main.ControllerTest]/[method:testMossaScacchi_EnPassant()]
 display-name: testMossaScacchi_EnPassant()
@@ -717,13 +717,13 @@ unique-id: [engine:junit-jupiter]/[class:gioco.GiocatoreTest]/[method:testGetPez
 display-name: testGetPezziCatturati()
 ]]></system-out>
 </testcase>
-<testcase name="testRemovePezzoCatturato()" classname="gioco.GiocatoreTest" time="0.001">
+<testcase name="testRemovePezzoCatturato()" classname="gioco.GiocatoreTest" time="0.002">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.GiocatoreTest]/[method:testRemovePezzoCatturato()]
 display-name: testRemovePezzoCatturato()
 ]]></system-out>
 </testcase>
-<testcase name="testGetColore()" classname="gioco.GiocatoreTest" time="0">
+<testcase name="testGetColore()" classname="gioco.GiocatoreTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:gioco.GiocatoreTest]/[method:testGetColore()]
 display-name: testGetColore()
@@ -735,7 +735,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testConvertiMossaFull()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaAmbiguitaTravSx1()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossaAmbiguitaTravSx1()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTravSx1()]
 display-name: testConvertiMossaAmbiguitaTravSx1()
@@ -753,13 +753,13 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testConvertiMossab4()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossab6()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossab6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossab6()]
 display-name: testConvertiMossab6()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossac3()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossac3()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossac3()]
 display-name: testConvertiMossac3()
@@ -777,19 +777,19 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testConvertiMossae3()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossae7()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossae7()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossae7()]
 display-name: testConvertiMossae7()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaf4()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testConvertiMossaf4()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaf4()]
 display-name: testConvertiMossaf4()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaf6()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossaf6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaf6()]
 display-name: testConvertiMossaf6()
@@ -807,7 +807,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testIsMossaValidab4()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidab6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testIsMossaValidab6()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidab6()]
 display-name: testIsMossaValidab6()
@@ -825,37 +825,37 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testIsMossaValidae3()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidae7()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testIsMossaValidae7()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidae7()]
 display-name: testIsMossaValidae7()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaf4()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testIsMossaValidaf4()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidaf4()]
 display-name: testIsMossaValidaf4()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaf6()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testIsMossaValidaf6()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidaf6()]
 display-name: testIsMossaValidaf6()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaAmbiguitaColonnaDx()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossaAmbiguitaColonnaDx()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaColonnaDx()]
 display-name: testConvertiMossaAmbiguitaColonnaDx()
 ]]></system-out>
 </testcase>
-<testcase name="testIsMossaValidaEndOccupato()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testIsMossaValidaEndOccupato()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testIsMossaValidaEndOccupato()]
 display-name: testIsMossaValidaEndOccupato()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaAmbiguitaTrav2()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testConvertiMossaAmbiguitaTrav2()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTrav2()]
 display-name: testConvertiMossaAmbiguitaTrav2()
@@ -867,7 +867,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testConvertiMossaAmbiguitaTrav()
 ]]></system-out>
 </testcase>
-<testcase name="testisMossaValidac7()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testisMossaValidac7()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testisMossaValidac7()]
 display-name: testisMossaValidac7()
@@ -879,31 +879,31 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testConvertiMossaAmbiguitaColonna()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaCatturaAmbiguitaTrav()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testConvertiMossaCatturaAmbiguitaTrav()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCatturaAmbiguitaTrav()]
 display-name: testConvertiMossaCatturaAmbiguitaTrav()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaAmbiguitaColonnaPiena()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossaAmbiguitaColonnaPiena()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaColonnaPiena()]
 display-name: testConvertiMossaAmbiguitaColonnaPiena()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaCattura()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testConvertiMossaCattura()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCattura()]
 display-name: testConvertiMossaCattura()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaAmbiguitaTravFull()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testConvertiMossaAmbiguitaTravFull()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaTravFull()]
 display-name: testConvertiMossaAmbiguitaTravFull()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaAmbiguitaColonnaDx2()" classname="scacchiera.pedine.CavalloTest" time="0">
+<testcase name="testConvertiMossaAmbiguitaColonnaDx2()" classname="scacchiera.pedine.CavalloTest" time="0.001">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaAmbiguitaColonnaDx2()]
 display-name: testConvertiMossaAmbiguitaColonnaDx2()
@@ -921,7 +921,7 @@ unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:
 display-name: testConvertiMossaCatturaAmbiguitaColonne()
 ]]></system-out>
 </testcase>
-<testcase name="testConvertiMossaCatturaAmbiguitaColonneEmpty()" classname="scacchiera.pedine.CavalloTest" time="0.001">
+<testcase name="testConvertiMossaCatturaAmbiguitaColonneEmpty()" classname="scacchiera.pedine.CavalloTest" time="0">
 <system-out><![CDATA[
 unique-id: [engine:junit-jupiter]/[class:scacchiera.pedine.CavalloTest]/[method:testConvertiMossaCatturaAmbiguitaColonneEmpty()]
 display-name: testConvertiMossaCatturaAmbiguitaColonneEmpty()
