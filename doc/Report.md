@@ -101,9 +101,9 @@ Il diagramma di sequenza è uguale al precedente con la differenza della classe 
 Le classi Singleton sono: Turno, Menu, InterfacciaUtente, Controller e Scacchiera.
 Questa scelta è stata adottata perché è possibile giocare una partita alla volta, quindi, ad esempio, ci servirà solo una Scacchiera.
 
-- `BRIDGE`: per l'implemenazione delle pedine è stata creata la classe astratta di tipo Bridge "Pezzo". In questo modo è stata separata
+- `BRIDGE`: per l'implementazione delle pedine è stata creata la classe astratta di tipo Bridge "Pezzo". In questo modo è stata separata
 l’astrazione dall' implementazione del metodo isMossaValida, poiché ogni pedina effettua mosse differenti.
-E' stata presa questa decisione poiché la classe Scacchiera è formata da Celle che possono contene al più un Pezzo. Con l'utilizzo del
+E' stata presa questa decisione poiché la classe Scacchiera è formata da Celle che possono contenere al più un Pezzo. Con l'utilizzo del
 design Bridge è possibile selezionare l'implementazione del metodo direttamente a run-time a seconda del tipo specifico di pedina.
 
 - `MEDIATOR`: il Mediator è una classe che incapsula come interagiscono gli oggetti per poter gestire facilmente le iterazioni tra loro.
