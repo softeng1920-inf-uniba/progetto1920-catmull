@@ -61,7 +61,7 @@
 # <a name="test_recap"></a>Riepilogo del test
 #### <a name="coverall_stats"></a>Tabella riassuntiva di coveralls (o jacoco), con dati sul numero dei casi di test e copertura del codice
 
-Sono stati generati i test automatici tramite il testing framework open source di Java: JUnit. La copertura del codice scritto è pari al 80%.
+Sono stati generati i test automatici tramite il testing framework open source di Java: JUnit. La copertura del codice scritto è pari all' 80%.
 
 ![](/doc/drawings/coverallsScacchi.png) 
 
