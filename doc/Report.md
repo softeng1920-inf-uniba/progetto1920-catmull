@@ -71,7 +71,17 @@
 
 # <a name="retro_analysis"></a>Analisi retrospettiva
 #### <a name="happy"></a>Cosa vi ha fatto sentire soddisfatti e vi ha reso contenti
+-   Imparare e approfondire un nuovo linguaggio di programmazione;
+-   Conoscere e applicare le dinamiche dello sviluppo agile;
+-   Applicare  dei principi di programmazione ad oggetti che precedentemente erano stati acquisiti in maniera meramente teorica;
+-   Implementare un'interfaccia più elaborata del gioco attraverso colori, caratteri e font speciali;
+-   Imparare a lavorare in gruppo nell'ambito dello sviluppo software;
+-   Generare i test automatici di quasi tutta l'applicazione, imparando ad utilizzare JUint e acquisendo una visione più completa del codice scritto;
+-   Aver realizzato un gioco di strategia storico di tale portata e complessià.
 #### <a name="sad"></a>Cosa vi ha fatto sentire insoddisfatti e vi ha deluso
-#### <a name="crazy"></a>Cosa vi ha fatto «impazzire» e vi ha reso disperati
+-   Non aver potuto sviluppare e implementare la fine del gioco poiché lo sviluppo è stato arrestato alla fase di mediogioco.  
+#### <a name="crazy"></a>Cosa vi ha fatto «impazzire» e vi ha reso disperati 
+-   Lavorare in un gruppo di cui non si conosce parte dei componenti. E' risultato difficile e impegnativo combinare idee e approcci differenti ai compiti da svolgere;
+-   Bilanciare il tempo da dedicare al progetto con tutti gli altri corsi del semestre da seguire, soprattutto verso la fine del progetto, a causa di un carico di lavoro non indifferente. 
 
 [Torna all'indice](#indice)
