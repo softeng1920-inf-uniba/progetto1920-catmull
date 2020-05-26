@@ -8,126 +8,51 @@ package gioco;
 
 public class Comando {
 
-    public static final int ARROCCO_CORTO = 1;
-    public static final int ARROCCO_LUNGO = 2;
+	private String nome;
+	private String descrizione;
 
-    public static final int COLONNA_PARTENZA_MOSSA_NE = 0;
-    public static final int TRAVERSA_PARTENZA_MOSSA_NE = 1;
-
-    public static final int COLONNA_DESTINAZIONE_MOSSA_NE = 3;
-    public static final int TRAVERSA_DESTINAZIONE_MOSSA_NE = 4;
-
-    private String nome;
-    private String descrizione;
-
-    /**
-     * Metodo Costruttore
-     *
-     * @param n
-     * @param desc
-     */
-    Comando(final String n, final String desc) {
-	setNome(n);
-	setDescrizione(desc);
-    }
-
-    /**
-     * Metodo che permette di modificare il nome del comando
-     *
-     * @param n
-     */
-    void setNome(final String n) {
-	this.nome = n;
-    }
-
-    /**
-     * Metodo che permette di modificare la descrizione del comando
-     *
-     * @param d
-     */
-    void setDescrizione(final String d) {
-	this.descrizione = d;
-    }
-
-    /**
-     * @return nome del comando
-     */
-    public String getNome() {
-	return nome;
-    }
-
-    /**
-     * @return descrizione del comando
-     */
-    public String getDescrizione() {
-	return descrizione;
-    }
-
-    /**
-     * Metodo che permette di visualizzare i comandi
-     */
-    @Override
-    public String toString() {
-	return String.format("\u2022 " + "\033[1;37m" + nome + "\u001B[0m" + " -->    " + descrizione);
-    }
-
-    /**
-     * Data la mossa, se è un arrocco ne restituisce il tipo, altrimenti viene
-     * restituito -1
-     *
-     * @param mossa in notazione algebrica
-     * @return int 1 => Arrocco corto | 2 => Arrocco lungo | -1 => Non è un arrocco
-     */
-    public static int isArrocco(final String mossa) {
-
-	if (mossa.matches("(0|o|O)-(0|o|O)")) {
-	    return ARROCCO_CORTO;
-	} else if (mossa.matches("(0|o|O)-(0|o|O)-(0|o|O)")) {
-	    return ARROCCO_LUNGO;
+	/**
+	 * Metodo Costruttore
+	 *
+	 * @param n
+	 * @param desc
+	 */
+	Comando(final String n, final String desc) {
+		setNome(n);
+		setDescrizione(desc);
 	}
-	return -1;
 
-    }
+	/**
+	 * Metodo che permette di modificare il nome del comando
+	 *
+	 * @param n
+	 */
+	void setNome(final String n) {
+		this.nome = n;
+	}
 
-    /**
-     * Riconosce se il comando dato in input rientra tra quelli del menu di gioco
-     *
-     * @param comando
-     *
-     * @return true se il comando rientra tra quelli del menu di gioco, false
-     *         altrimenti
-     *
-     *         I comandi validi nel menu di gioco sono: - help - board - captures -
-     *         moves - quit
-     */
-    public static boolean isComandoValido(final String comando) {
+	/**
+	 * Metodo che permette di modificare la descrizione del comando
+	 *
+	 * @param d
+	 */
+	void setDescrizione(final String d) {
+		this.descrizione = d;
+	}
 
-	return (comando.equalsIgnoreCase(Menu.help().getNome()) || comando.equalsIgnoreCase(Menu.board().getNome())
-		|| comando.equalsIgnoreCase(Menu.captures().getNome())
-		|| comando.equalsIgnoreCase(Menu.moves().getNome()) || comando.equalsIgnoreCase(Menu.quit().getNome()));
+	/**
+	 * @return nome del comando
+	 */
+	public String getNome() {
+		return nome;
+	}
 
-    }
-
-    /**
-     * Controlla, attraverso un'espressione regolare, se la stringa inserita
-     * dall'utente e' riconosciuta come notazione algebrica.
-     *
-     * @param mossa
-     * @return boolean
-     */
-    public static boolean isNotazioneAlgebrica(final String mossa) {
-
-	String regex = String.join("|", new String[] {
-		"([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone
-		"D([x|:])?[a-h][1-8]", // mossa della regina
-		"T([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa della torre
-		"C([a-h]|[1-8])?([x|:])?([a-h][1-8])", // mossa cavallo
-		"A(x|:)?[a-h][1-8]", // mossa alfiere
-		"R(x|:)?[a-h][1-8]", // mossa del re
-		"(0|o|O)-(0|o|O)(-(0|o|O))?" // arrocco corto o lungo
-	});
-
-	return mossa.matches(regex);
-    }
+	/**
+	 * Metodo che permette di visualizzare i comandi
+	 */
+	@Override
+	public String toString() {
+		return String.format("\u2022 " + "\033[1;37m" + nome + "\u001B[0m" + " -->    " + descrizione);
+	}
 
 }
