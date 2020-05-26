@@ -262,7 +262,7 @@ Per esempio, la classe Scacchiera non deve comunicare direttamente con la classe
 
 Sono stati generati i test automatici tramite il testing framework open source di Java: JUnit. La copertura del codice scritto è pari all'80%.
 
-![](/res/img/coverallsScacchi.png)
+![](/res/img/report/coverallsScacchi.png)
 
 Seguono le immagini tratte dal report dei test automatici di Coveralls.
 
@@ -270,7 +270,7 @@ Le uniche classi escluse dai casi di test sono “InterfacciaUtente” e ”AppM
 
 La copertura della classe Controller è parziale poiché è stata esclusa la funzione playGame(), in quanto richiama i metodi della classe InterfacciaUtente e utilizza metodi già testati separatamente.  
 
-![](/res/img/coverallsStatus.png)  
+![](/res/img/report/coverallsStatus.png)  
 
 
 [Torna all'indice](#indice)
