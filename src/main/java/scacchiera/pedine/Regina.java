@@ -105,14 +105,13 @@ public final class Regina extends Pezzo {
 	}
 	return true;
     }
- 
-  /**
-    * Converte la mossa in input in una stringa con le coordinate della cella
-	  * iniziale e le coordinate della cella finale
-	  *
-	  * @param  mossa Stringa indicante la mossa da convertire in notazione algebrica estesa
-	  * @return  mossa convertita in notazione algebrica estesa
-	  */
+    /**
+     * Converte la mossa in input in una stringa con le coordinate della cella
+	 * iniziale e le coordinate della cella finale
+	 *
+	 * @param  mossa Stringa indicante la mossa da convertire in notazione algebrica estesa
+	 * @return  mossa convertita in notazione algebrica estesa
+	 */
     public static String convertiMossa(final String mossa) {
 	int startX = -1;
 	int startY = -1;

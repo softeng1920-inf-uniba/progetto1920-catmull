@@ -51,7 +51,7 @@ public final class InterfacciaUtente {
 
     /**
 	   * Stampa a video il simbolo del pezzo in input
-	   *  
+	   * 
 	   * @param  p Pezzo di cui si deve visualizzare il simbolo
 	   */
     private void disegnaPezzo(final Pezzo p) {
@@ -177,10 +177,9 @@ public final class InterfacciaUtente {
 		+ "#" + CYAN + "#" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#"
 		+ CYAN + " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "   )___(");
 	System.out.print(ANSI_RESET);
-
-    }
-  
-   /**
+	}
+    
+    /**
 	  * Stampa a video il nome del giocatore in turno chiamando
 	  * il metodo di classe della classe Giocatore
 	  *

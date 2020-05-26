@@ -12,8 +12,7 @@ import scacchiera.Scacchiera;
  * La classe Alfiere e' di tipo noECB.
  */
 public final class Alfiere extends Pezzo {
-  
-   /**
+	/**
 	  * Invoca il metodo della superclasse.
 	  * <br>
 	  * Vengono settati i valori dei vari parametri della classe, di cui:

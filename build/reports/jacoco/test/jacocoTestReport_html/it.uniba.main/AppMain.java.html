@@ -2,15 +2,13 @@
 
 import java.io.IOException;
 import java.io.PrintStream;
-
 import gioco.InterfacciaUtente;
 import gioco.Menu;
 
 /**
- * La classe AppMain e' di tipo BOUNDARY The main class for the project. It must
- * be customized to meet the project assignment specifications.
- *
- * &lt;b&gt;DO NOT RENAME&lt;/b&gt;
+ * Classe principale del gioco Scacchi, contenente il metodo di inizio del programma.
+ * &lt;br&gt;
+ * La classe AppMain e' di tipo BOUNDARY
  */
 public final class AppMain {
 
@@ -21,49 +19,46 @@ public final class AppMain {
 	}
 
 	/**
-	 * * This is the main entry of the application.
+	 * Questa e' la classe di lancio del software
 	 *
-	 * @param args The command-line arguments.
-	 * @throws IOException
-	 * @throws UnsupportedEncodingException
+	 * @param  args String indicating The command-line arguments.
+	 *
+	 * @throws  IOException se la stringa letta da Buffer e' vuota
 	 */
 	public static void main(final String[] args) throws IOException {
 
-<span class="nc" id="L31">		System.setOut(new PrintStream(System.out, false, &quot;UTF-8&quot;));</span>
-<span class="nc" id="L32">		Controller controller = Controller.getInstance();</span>
-<span class="nc" id="L33">		InterfacciaUtente interfaccia = InterfacciaUtente.getInstance();</span>
-<span class="nc" id="L34">		boolean play = false;</span>
-<span class="nc" id="L35">		Menu menuGioco = Menu.getInstance();</span>
+<span class="nc" id="L30">		System.setOut(new PrintStream(System.out, false, &quot;UTF-8&quot;));</span>
+<span class="nc" id="L31">		Controller controller = Controller.getInstance();</span>
+<span class="nc" id="L32">		InterfacciaUtente interfaccia = InterfacciaUtente.getInstance();</span>
+<span class="nc" id="L33">		boolean play = false;</span>
+<span class="nc" id="L34">		Menu menuGioco = Menu.getInstance();</span>
 
-<span class="nc" id="L37">		interfaccia.stampaIntro();</span>
-<span class="nc" id="L38">		interfaccia.stampaMenu();</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">		while (!play) {</span>
-<span class="nc" id="L40">			String nomeMenu = interfaccia.acquisireComando();</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">			if (nomeMenu != null) {</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">				if (nomeMenu.equalsIgnoreCase(menuGioco.help().getNome())) {</span>
-<span class="nc" id="L43">					interfaccia.mostrareElencoComandiMenu();</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(menuGioco.board().getNome())) {</span>
-<span class="nc" id="L45">					interfaccia.stampaScacchiera();</span>
-<span class="nc bnc" id="L46" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(menuGioco.quit().getNome())) {</span>
-<span class="nc bnc" id="L47" title="All 2 branches missed.">					if (interfaccia.utenteConfermaFinePartita()) {</span>
-<span class="nc" id="L48">						break;</span>
+<span class="nc" id="L36">		interfaccia.stampaIntro();</span>
+<span class="nc" id="L37">		interfaccia.stampaMenu();</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">		while (!play) {</span>
+<span class="nc" id="L39">			String nomeMenu = interfaccia.acquisireComando();</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">			if (nomeMenu != null) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">				if (nomeMenu.equalsIgnoreCase(menuGioco.help().getNome())) {</span>
+<span class="nc" id="L42">					interfaccia.mostrareElencoComandiMenu();</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(menuGioco.board().getNome())) {</span>
+<span class="nc" id="L44">					interfaccia.stampaScacchiera();</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(menuGioco.quit().getNome())) {</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">					if (interfaccia.utenteConfermaFinePartita()) {</span>
+<span class="nc" id="L47">						break;</span>
 					} else {
-<span class="nc" id="L50">						interfaccia.stampaMenu();</span>
+<span class="nc" id="L49">						interfaccia.stampaMenu();</span>
 					}
-<span class="nc bnc" id="L52" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(menuGioco.play().getNome())) {</span>
-<span class="nc" id="L53">					interfaccia.stampaNuovaPartita();</span>
-<span class="nc" id="L54">					controller.playGame();</span>
-<span class="nc" id="L55">					play = true;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">				} else if (nomeMenu.equalsIgnoreCase(menuGioco.play().getNome())) {</span>
+<span class="nc" id="L52">					interfaccia.stampaNuovaPartita();</span>
+<span class="nc" id="L53">					controller.playGame();</span>
+<span class="nc" id="L54">					play = true;</span>
 				} else {
-<span class="nc" id="L57">					interfaccia.stampaComandoErrato();</span>
-
+<span class="nc" id="L56">					interfaccia.stampaComandoErrato();</span>
 				}
 			} else {
 				break;
 			}
-
-<span class="nc" id="L62">		}</span>
-<span class="nc" id="L63">	}</span>
-
+<span class="nc" id="L61">		}</span>
+<span class="nc" id="L62">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

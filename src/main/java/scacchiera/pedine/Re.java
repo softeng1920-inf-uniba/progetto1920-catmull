@@ -215,13 +215,13 @@ public final class Re extends Pezzo {
 	}
 	return mossaConvertita;
     }
-  
-   /**
-	  * Controlla se il re e' sotto scacco
-	  *
-	  * @param  reCella Cella di destinazione del Re
-	  * @return  true se il re e' sotto scacco, false altrimenti
-	  */
+    
+    /**
+	 * Controlla se il re e' sotto scacco
+	 *
+	 * @param  reCella Cella di destinazione del Re
+	 * @return  true se il re e' sotto scacco, false altrimenti
+	 */
     public boolean isReSottoScacco(final Cella reCella) {
 	Colore c = getColore();
 	Re reTemp = new Re(c);

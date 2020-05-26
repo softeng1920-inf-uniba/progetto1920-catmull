@@ -4,9 +4,9 @@ import gioco.Colore;
 import scacchiera.Cella;
 
 /**
- * La classe Pezzo di tipo astratto tale classe funge da punto di partenza per
- * poi realizzare i pezzi del gioco nello specifico. Ogni pezzo contiene i
- * seguenti attributi che ne definiscono lo stato:
+ * La classe Pezzo di tipo astratto funge da punto di partenza per poi
+ * realizzare i pezzi del gioco nello specifico. &lt;br&gt;
+ * Ogni pezzo contiene i seguenti attributi che ne definiscono lo stato:
  * &lt;ul&gt;
  * &lt;li&gt;&lt;b&gt;nome&lt;/b&gt;&lt;/li&gt;
  * &lt;li&gt;&lt;b&gt;colore&lt;/b&gt;&lt;/li&gt;
@@ -14,6 +14,8 @@ import scacchiera.Cella;
  * &lt;li&gt;&lt;b&gt;vivo&lt;/b&gt;&lt;/li&gt;
  * &lt;li&gt;&lt;b&gt;posisizioneCorrente&lt;/b&gt;&lt;/li&gt;
  * &lt;/ul&gt;
+ * 
+ * &lt;br&gt;
  * La classe Pezzo e' di tipo ENTITY.
  **/
 public abstract class Pezzo {
@@ -23,75 +25,85 @@ public abstract class Pezzo {
     private char simbolo;
 
     /**
-     * @param n  Nome del pezzo
-     * @param c  Colore del pezzo
-     * @param pC Cella iniziale del pezzo
+     * Invoca il metodo della superclasse
+     * &lt;p&gt;
+     * Vengono settati i valori dei vari parametri della classe, di cui:
+     * &lt;ul&gt;
+     * &lt;li&gt;nome&lt;/li&gt;
+     * &lt;li&gt;colore&lt;/li&gt;
+     * &lt;li&gt;posizioneCorrente&lt;/li&gt;
+     * &lt;li&gt;simbolo&lt;/li&gt;
+     * &lt;/ul&gt;
+     * 
+     * 
+     * @param n Stringa indicante il nome del pezzo
+     * @param c Colore del pezzo
      */
-<span class="fc" id="L30">	public Pezzo(final String n, final Colore c) {</span>
-<span class="fc" id="L31">	this.nome = n;</span>
-<span class="fc" id="L32">	this.colore = c;</span>
-<span class="fc" id="L33">	this.simbolo = ' ';</span>
-<span class="fc" id="L34">    }</span>
+<span class="fc" id="L42">    public Pezzo(final String n, final Colore c) {</span>
+<span class="fc" id="L43">	this.nome = n;</span>
+<span class="fc" id="L44">	this.colore = c;</span>
+<span class="fc" id="L45">	this.simbolo = ' ';</span>
+<span class="fc" id="L46">    }</span>
 
     // --------Metodi di setting --------
 
     /**
-	 * setSimbolo modifica lo stato del simbolo
-	 *
-	 * @param s Carattere indicante il simbolo del pezzo da impostare
-	 */
+     * Modifica lo stato del simbolo
+     *
+     * @param s Carattere indicante il simbolo del pezzo da impostare
+     */
 
     public void setSimbolo(final char s) {
-<span class="fc" id="L45">	this.simbolo = s;</span>
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L57">	this.simbolo = s;</span>
+<span class="fc" id="L58">    }</span>
 
     // --------Metodi di Get--------
 
     /**
-	 * getNome restituisce il nome del pezzo
-	 *
-	 * @return nome Stringa indicante il nome del pezzo
-	 */
+     * Restituisce il nome del pezzo
+     *
+     * @return  nome Nome del pezzo
+     */
     public String getNome() {
-<span class="fc" id="L56">	return nome;</span>
+<span class="fc" id="L68">	return nome;</span>
     }
 
     /**
-	 * getColore restituisce il colore del pezzo (bianco o nero)
-	 *
-	 * @return colore Colore del pezzo (bianco o nero)
-	 */
+     * Restituisce il colore del pezzo
+     *
+     * @return colore Colore del pezzo (bianco o nero)
+     */
     public Colore getColore() {
-<span class="fc" id="L65">	return colore;</span>
+<span class="fc" id="L77">	return colore;</span>
     }
 
     /**
-	 * Restituisce il simbolo corrente del pezzo
-	 *
-	 * @return simbolo Carattere indicante il simbolo del pezzo
-	 */
+     * Restituisce il simbolo corrente del pezzo
+     *
+     * @return simbolo Simbolo del pezzo (in UTF-8)
+     */
     public char getSimbolo() {
-<span class="fc" id="L74">	return simbolo;</span>
+<span class="fc" id="L86">	return simbolo;</span>
     }
 
     /**
-     * E' possibile avere il nome del pezzo, con relativo colore e simbolo
-     * attraverso l'autocasting
+     * Restituisce una stringa con il nome del pezzo, relativo colore e simbolo
      */
     @Override
     public String toString() {
-<span class="fc" id="L83">	return String.format(nome + &quot; &quot; + colore + &quot; &quot; + simbolo);</span>
+<span class="fc" id="L94">	return String.format(nome + &quot; &quot; + colore + &quot; &quot; + simbolo);</span>
     }
 
-    /**
-	 * Controlla se la mossa data in input attraverso cella di partenza e cella di
-	 * destinazione sia valida per il pezzo corrente
-	 *
-	 * @param start Cella di partenza del pezzo
-	 * @param end   Cella di destinazione del pezzo
-	 * @return boolean true se la mossa Ã¨ valida per il pezzo su cui il metodo Ã¨
-	 *         stato chiamato, false altrimenti
-	 */
+   /**
+	  * Controlla se la mossa data in input attraverso cella di partenza e cella di
+    * destinazione sia valida per il pezzo corrente
+    *
+    * @param start Cella di partenza del pezzo
+    * @param end   Cella di destinazione del pezzo
+    * 
+    * @return true se la mossa e' valida per il pezzo su cui il metodo e' stato
+    *         chiamato, false altrimenti
+    */
     public abstract boolean isMossaValida(Cella start, Cella end);
 
 }

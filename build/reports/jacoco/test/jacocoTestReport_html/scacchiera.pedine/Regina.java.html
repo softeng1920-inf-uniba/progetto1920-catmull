@@ -6,158 +6,159 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Regina ï¿½ valido. La classe Regina e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento della Regina e' valido.
+ * &lt;br&gt;
+ * La classe Regina e' di tipo noECB
  */
 public final class Regina extends Pezzo {
 
     /** Costruttore */
     public Regina(final Colore colore) {
-<span class="fc" id="L16">	super(&quot;Regina&quot;, colore);</span>
-<span class="fc bfc" id="L17" title="All 2 branches covered.">	if (colore == Colore.nero) {</span>
-<span class="fc" id="L18">	    setSimbolo('\u265b');</span>
+<span class="fc" id="L18">	super(&quot;Regina&quot;, colore);</span>
+<span class="fc bfc" id="L19" title="All 2 branches covered.">	if (colore == Colore.nero) {</span>
+<span class="fc" id="L20">	    setSimbolo('\u265b');</span>
 	} else {
-<span class="fc" id="L20">	    setSimbolo('\u2655');</span>
+<span class="fc" id="L22">	    setSimbolo('\u2655');</span>
 	}
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L24">    }</span>
 
     @Override
     public boolean isMossaValida(final Cella start, final Cella end) {
 
-<span class="fc" id="L27">	int deltaX = end.getX() - start.getX();</span>
-<span class="fc" id="L28">	int deltaY = end.getY() - start.getY();</span>
+<span class="fc" id="L29">	int deltaX = end.getX() - start.getX();</span>
+<span class="fc" id="L30">	int deltaY = end.getY() - start.getY();</span>
 	int j;
 	// MOVIMENTI LINEARI
 	// stessa x, aumenta y
-<span class="fc bfc" id="L32" title="All 4 branches covered.">	if (end.getX() == start.getX() &amp;&amp; end.getY() &gt; start.getY()) {</span>
-<span class="fc bfc" id="L33" title="All 2 branches covered.">	    for (int i = start.getY() + 1; end.getY() &gt; i; i++) {</span>
-<span class="fc bfc" id="L34" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(end.getX(), i).isOccupato()) {</span>
-<span class="fc" id="L35">		    return false;</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">	if (end.getX() == start.getX() &amp;&amp; end.getY() &gt; start.getY()) {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">	    for (int i = start.getY() + 1; end.getY() &gt; i; i++) {</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(end.getX(), i).isOccupato()) {</span>
+<span class="fc" id="L37">		    return false;</span>
 		}
 	    }
-<span class="pc bpc" id="L38" title="1 of 4 branches missed.">	} else if (end.getX() == start.getX() &amp;&amp; end.getY() &lt; start.getY()) {</span>
+<span class="pc bpc" id="L40" title="1 of 4 branches missed.">	} else if (end.getX() == start.getX() &amp;&amp; end.getY() &lt; start.getY()) {</span>
 	    // stessa x, diminuisce y
-<span class="fc bfc" id="L40" title="All 2 branches covered.">	    for (int i = start.getY() - 1; end.getY() &lt; i; i--) {</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(end.getX(), i).isOccupato()) {</span>
-<span class="fc" id="L42">		    return false;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">	    for (int i = start.getY() - 1; end.getY() &lt; i; i--) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(end.getX(), i).isOccupato()) {</span>
+<span class="fc" id="L44">		    return false;</span>
 		}
 	    }
-<span class="fc bfc" id="L45" title="All 4 branches covered.">	} else if (end.getY() == start.getY() &amp;&amp; end.getX() &gt; start.getX()) {</span>
+<span class="fc bfc" id="L47" title="All 4 branches covered.">	} else if (end.getY() == start.getY() &amp;&amp; end.getX() &gt; start.getX()) {</span>
 	    // aumenta x, stessa y
-<span class="fc bfc" id="L47" title="All 2 branches covered.">	    for (int i = start.getX() + 1; end.getX() &gt; i; i++) {</span>
-<span class="fc bfc" id="L48" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, end.getY()).isOccupato()) {</span>
-<span class="fc" id="L49">		    return false;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">	    for (int i = start.getX() + 1; end.getX() &gt; i; i++) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, end.getY()).isOccupato()) {</span>
+<span class="fc" id="L51">		    return false;</span>
 		}
 	    }
-<span class="pc bpc" id="L52" title="1 of 4 branches missed.">	} else if (end.getY() == start.getY() &amp;&amp; end.getX() &lt; start.getX()) {</span>
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">	} else if (end.getY() == start.getY() &amp;&amp; end.getX() &lt; start.getX()) {</span>
 	    // diminuisce x, stessa y
-<span class="fc bfc" id="L54" title="All 2 branches covered.">	    for (int i = start.getX() - 1; end.getX() &lt; i; i--) {</span>
-<span class="fc bfc" id="L55" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, end.getY()).isOccupato()) {</span>
-<span class="fc" id="L56">		    return false;</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">	    for (int i = start.getX() - 1; end.getX() &lt; i; i--) {</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, end.getY()).isOccupato()) {</span>
+<span class="fc" id="L58">		    return false;</span>
 		}
 	    }
-<span class="fc bfc" id="L59" title="All 4 branches covered.">	} else if (deltaX == deltaY &amp;&amp; deltaX &gt; 0) {</span>
+<span class="fc bfc" id="L61" title="All 4 branches covered.">	} else if (deltaX == deltaY &amp;&amp; deltaX &gt; 0) {</span>
 	    // MOVIMENTI DIAGONALI (ALFIERE)
 	    // aumenta x e aumenta y
-<span class="fc" id="L62">	    j = start.getY() + 1;</span>
-<span class="pc bpc" id="L63" title="1 of 4 branches missed.">	    for (int i = start.getX() + 1; end.getX() &gt; i &amp;&amp; end.getY() &gt; j; i++) {</span>
-<span class="fc bfc" id="L64" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
-<span class="fc" id="L65">		    return false;</span>
+<span class="fc" id="L64">	    j = start.getY() + 1;</span>
+<span class="pc bpc" id="L65" title="1 of 4 branches missed.">	    for (int i = start.getX() + 1; end.getX() &gt; i &amp;&amp; end.getY() &gt; j; i++) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L67">		    return false;</span>
 		}
-<span class="fc" id="L67">		j++;</span>
+<span class="fc" id="L69">		j++;</span>
 	    }
-<span class="fc bfc" id="L69" title="All 6 branches covered.">	} else if (Math.abs(deltaX) == Math.abs(deltaY) &amp;&amp; deltaX &lt; 0 &amp;&amp; deltaY &gt; 0) {</span>
+<span class="fc bfc" id="L71" title="All 6 branches covered.">	} else if (Math.abs(deltaX) == Math.abs(deltaY) &amp;&amp; deltaX &lt; 0 &amp;&amp; deltaY &gt; 0) {</span>
 	    // diminuisce x e aumenta y
-<span class="fc" id="L71">	    j = start.getY() + 1;</span>
-<span class="pc bpc" id="L72" title="1 of 4 branches missed.">	    for (int i = start.getX() - 1; end.getX() &lt; i &amp;&amp; end.getY() &gt; j; i--) {</span>
-<span class="fc bfc" id="L73" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
-<span class="fc" id="L74">		    return false;</span>
+<span class="fc" id="L73">	    j = start.getY() + 1;</span>
+<span class="pc bpc" id="L74" title="1 of 4 branches missed.">	    for (int i = start.getX() - 1; end.getX() &lt; i &amp;&amp; end.getY() &gt; j; i--) {</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L76">		    return false;</span>
 		}
-<span class="fc" id="L76">		j++;</span>
+<span class="fc" id="L78">		j++;</span>
 
 	    }
-<span class="pc bpc" id="L79" title="1 of 4 branches missed.">	} else if (deltaX == deltaY &amp;&amp; deltaX &lt; 0) {</span>
+<span class="pc bpc" id="L81" title="1 of 4 branches missed.">	} else if (deltaX == deltaY &amp;&amp; deltaX &lt; 0) {</span>
 	    // diminuisce x e diminuisce y
-<span class="fc" id="L81">	    j = start.getY() - 1;</span>
-<span class="pc bpc" id="L82" title="1 of 4 branches missed.">	    for (int i = start.getX() - 1; end.getX() &lt; i &amp;&amp; end.getY() &lt; j; i--) {</span>
-<span class="fc bfc" id="L83" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
-<span class="fc" id="L84">		    return false;</span>
+<span class="fc" id="L83">	    j = start.getY() - 1;</span>
+<span class="pc bpc" id="L84" title="1 of 4 branches missed.">	    for (int i = start.getX() - 1; end.getX() &lt; i &amp;&amp; end.getY() &lt; j; i--) {</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L86">		    return false;</span>
 		}
-<span class="fc" id="L86">		j--;</span>
+<span class="fc" id="L88">		j--;</span>
 	    }
-<span class="pc bpc" id="L88" title="2 of 6 branches missed.">	} else if (Math.abs(deltaX) == Math.abs(end.getY() - start.getY()) &amp;&amp; deltaX &gt; 0 &amp;&amp; deltaY &lt; 0) {</span>
+<span class="pc bpc" id="L90" title="2 of 6 branches missed.">	} else if (Math.abs(deltaX) == Math.abs(end.getY() - start.getY()) &amp;&amp; deltaX &gt; 0 &amp;&amp; deltaY &lt; 0) {</span>
 	    // aumenta x e diminuisce y
-<span class="fc" id="L90">	    j = start.getY() - 1;</span>
-<span class="pc bpc" id="L91" title="1 of 4 branches missed.">	    for (int i = start.getX() + 1; end.getX() &gt; i &amp;&amp; end.getY() &lt; j; i++) {</span>
-<span class="fc bfc" id="L92" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
-<span class="fc" id="L93">		    return false;</span>
+<span class="fc" id="L92">	    j = start.getY() - 1;</span>
+<span class="pc bpc" id="L93" title="1 of 4 branches missed.">	    for (int i = start.getX() + 1; end.getX() &gt; i &amp;&amp; end.getY() &lt; j; i++) {</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L95">		    return false;</span>
 		}
-<span class="fc" id="L95">		j--;</span>
+<span class="fc" id="L97">		j--;</span>
 	    }
 	} else {
-<span class="fc" id="L98">	    return false;</span>
+<span class="fc" id="L100">	    return false;</span>
 	}
 	// controllo se puo' mangiare pezzo
-<span class="pc bpc" id="L101" title="1 of 4 branches missed.">	if (end.isOccupato() &amp;&amp; end.getPezzoCorrente().getColore() == getColore()) {</span>
-<span class="fc" id="L102">	    return false;</span>
+<span class="pc bpc" id="L103" title="1 of 4 branches missed.">	if (end.isOccupato() &amp;&amp; end.getPezzoCorrente().getColore() == getColore()) {</span>
+<span class="fc" id="L104">	    return false;</span>
 	}
-<span class="fc" id="L104">	return true;</span>
+<span class="fc" id="L106">	return true;</span>
     }
-
     /**
-     * Converte la mossa in input nell stringa con le coordinate della cella
-     * iniziale e le coordinate della cella finale
-     *
-     * @param mossa
-     * @return
-     */
+     * Converte la mossa in input in una stringa con le coordinate della cella
+	 * iniziale e le coordinate della cella finale
+	 *
+	 * @param  mossa Stringa indicante la mossa da convertire in notazione algebrica estesa
+	 * @return  mossa convertita in notazione algebrica estesa
+	 */
     public static String convertiMossa(final String mossa) {
-<span class="fc" id="L115">	int startX = -1;</span>
-<span class="fc" id="L116">	int startY = -1;</span>
-<span class="fc" id="L117">	int endX = -1;</span>
-<span class="fc" id="L118">	int endY = -1;</span>
-<span class="fc" id="L119">	String mossaConvertita = &quot;a0 a0&quot;;</span>
-<span class="fc" id="L120">	Colore coloreGiocatoreAttuale = Turno.getInstance().getGiocatoreInTurno().getColore();</span>
+<span class="fc" id="L116">	int startX = -1;</span>
+<span class="fc" id="L117">	int startY = -1;</span>
+<span class="fc" id="L118">	int endX = -1;</span>
+<span class="fc" id="L119">	int endY = -1;</span>
+<span class="fc" id="L120">	String mossaConvertita = &quot;a0 a0&quot;;</span>
+<span class="fc" id="L121">	Colore coloreGiocatoreAttuale = Turno.getInstance().getGiocatoreInTurno().getColore();</span>
 	// mossa semplice
-<span class="fc bfc" id="L122" title="All 2 branches covered.">	if (mossa.matches(&quot;D[a-h][1-8]&quot;)) {</span>
-<span class="fc" id="L123">	    final int colonnaDestinazioneAvanzata = 1;</span>
-<span class="fc" id="L124">	    final int traversaDestinazioneAvanzata = 2;</span>
-<span class="fc" id="L125">	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
-<span class="fc" id="L126">	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));</span>
-<span class="fc bfc" id="L127" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
-<span class="fc" id="L128">		return mossaConvertita;</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">	if (mossa.matches(&quot;D[a-h][1-8]&quot;)) {</span>
+<span class="fc" id="L124">	    final int colonnaDestinazioneAvanzata = 1;</span>
+<span class="fc" id="L125">	    final int traversaDestinazioneAvanzata = 2;</span>
+<span class="fc" id="L126">	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneAvanzata));</span>
+<span class="fc" id="L127">	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneAvanzata));</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
+<span class="fc" id="L129">		return mossaConvertita;</span>
 	    }
 	}
 	// mossa di cattura
-<span class="fc bfc" id="L132" title="All 2 branches covered.">	if (mossa.matches(&quot;D(x|:)[a-h][1-8]&quot;)) {</span>
-<span class="fc" id="L133">	    final int colonnaDestinazioneCattura = 2;</span>
-<span class="fc" id="L134">	    final int traversaDestinazioneCattura = 3;</span>
-<span class="fc" id="L135">	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));</span>
-<span class="fc" id="L136">	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));</span>
-<span class="fc bfc" id="L137" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
-<span class="fc" id="L138">		return mossaConvertita;</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">	if (mossa.matches(&quot;D(x|:)[a-h][1-8]&quot;)) {</span>
+<span class="fc" id="L134">	    final int colonnaDestinazioneCattura = 2;</span>
+<span class="fc" id="L135">	    final int traversaDestinazioneCattura = 3;</span>
+<span class="fc" id="L136">	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneCattura));</span>
+<span class="fc" id="L137">	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneCattura));</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
+<span class="fc" id="L139">		return mossaConvertita;</span>
 	    }
 	}
 	// ricerca la regina del giocatore in turno
-<span class="pc bpc" id="L142" title="1 of 2 branches missed.">	for (int i = 0; i &lt; Scacchiera.getInstance().getNumeroColonne(); i++) {</span>
-<span class="fc bfc" id="L143" title="All 2 branches covered.">	    for (int j = 0; j &lt; Scacchiera.getInstance().getNumeroRighe(); j++) {</span>
-<span class="fc bfc" id="L144" title="All 2 branches covered.">		if (Scacchiera.getInstance().getNomePezzo(i, j) == &quot;Regina&quot; &amp;&amp; Scacchiera.getInstance().getCella(i, j)</span>
-<span class="fc bfc" id="L145" title="All 2 branches covered.">			.getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {</span>
-<span class="fc" id="L146">		    startX = i;</span>
-<span class="fc" id="L147">		    startY = j;</span>
-<span class="fc" id="L148">		    break;</span>
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">	for (int i = 0; i &lt; Scacchiera.getInstance().getNumeroColonne(); i++) {</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">	    for (int j = 0; j &lt; Scacchiera.getInstance().getNumeroRighe(); j++) {</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">		if (Scacchiera.getInstance().getNomePezzo(i, j) == &quot;Regina&quot; &amp;&amp; Scacchiera.getInstance().getCella(i, j)</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">			.getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {</span>
+<span class="fc" id="L147">		    startX = i;</span>
+<span class="fc" id="L148">		    startY = j;</span>
+<span class="fc" id="L149">		    break;</span>
 		}
 	    }
-<span class="fc bfc" id="L151" title="All 2 branches covered.">	    if (startX != -1) {</span>
-<span class="fc" id="L152">		break;</span>
+<span class="fc bfc" id="L152" title="All 2 branches covered.">	    if (startX != -1) {</span>
+<span class="fc" id="L153">		break;</span>
 	    }
 	}
 	// solo se ha trovato la regina ha senso convertire la mossa
-<span class="pc bpc" id="L156" title="2 of 4 branches missed.">	if (startX != -1 &amp;&amp; startY != -1) {</span>
-<span class="fc" id="L157">	    mossaConvertita = Cella.coordXinChar(startX) + &quot;&quot; + Cella.coordYinChar(startY) + &quot; &quot;</span>
-<span class="fc" id="L158">		    + Cella.coordXinChar(endX) + &quot;&quot; + Cella.coordYinChar(endY);</span>
+<span class="pc bpc" id="L157" title="2 of 4 branches missed.">	if (startX != -1 &amp;&amp; startY != -1) {</span>
+<span class="fc" id="L158">	    mossaConvertita = Cella.coordXinChar(startX) + &quot;&quot; + Cella.coordYinChar(startY) + &quot; &quot;</span>
+<span class="fc" id="L159">		    + Cella.coordXinChar(endX) + &quot;&quot; + Cella.coordYinChar(endY);</span>
 	}
-<span class="fc" id="L160">	return mossaConvertita;</span>
+<span class="fc" id="L161">	return mossaConvertita;</span>
     }
 
 }

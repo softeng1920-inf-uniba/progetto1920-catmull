@@ -44,18 +44,18 @@ public final class Turno {
 	giocatoreInAttesa = temp;
     }
 
-   /**
-	  * Metodo che permette di ottenere il giocatore in turno
-	  * @return  Giocatore corrente
-	  */
+    /**
+     * Metodo che permette di ottenere il giocatore in turno
+	 * @return  Giocatore corrente
+	 */
     public Giocatore getGiocatoreInTurno() {
 	return giocatoreInTurno;
     }
   
-  /**
-	  * Metodo che permette di ottenere il giocatore in attesa
-	  * @return  Giocatore in attesa
-	  */
+    /**
+     * Metodo che permette di ottenere il giocatore in attesa
+	 * @return  Giocatore in attesa
+	 */
     public Giocatore getGiocatoreInAttesa() {
 	return giocatoreInAttesa;
     }

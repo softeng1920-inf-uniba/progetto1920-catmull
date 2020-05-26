@@ -15,8 +15,7 @@ import scacchiera.Scacchiera;
  * La classe Torre e' di tipo noECB
  */
 public final class Torre extends Pezzo {
-  
-    private static boolean isMossaCattura;
+	private static boolean isMossaCattura;
     static final String MOSSA_NON_VALIDA = "a0 a0";
     static final int DIM_MOSSA_NON_AMBIGUA = 3;
 
@@ -104,8 +103,8 @@ public final class Torre extends Pezzo {
 
     private static String posizioneValidaColonna(final ArrayList<String> possibiliPosizioniColonna, final int eX,
 	    final int eY, final Colore colorepedineGiocatoreCorrente) {
-	String posColonna = "";
-	String temp;
+   	String posColonna = "";
+    String temp;
 	int sX = 0;
 	int sY = 0;
 
