@@ -204,7 +204,7 @@ L'alfiere può avanzare, o in alternativa catturare, di quante case desidera nel
 * in basso a destra;
 * in basso a sinistra.   
 
-![](/res/img/report/alfiere.gif)  
+![](/res/img/report/alfiere.png)  
 
 
 ##### Avanzata dell'alfiere
