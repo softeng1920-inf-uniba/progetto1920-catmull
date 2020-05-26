@@ -110,7 +110,7 @@ Il workflow utilizzato da ogni membro del team è stato il `Github Flow` in cui 
 
 1. Subito prima di lavorare sul codice, è stato opportuno eseguire una `git pull` e lavorare sul codice più aggiornato;  
 
-2. Per ogni nuova feature user story o bug fix è stata creata l’issue su cui lavorare;  
+2. Per ogni nuova feature, user story o bug fix è stata creata l’issue su cui lavorare su GitHub;  
 
 3. E' stato creato un nuovo branch sul repository locale denominato con il numero oppure con il titolo dell'issue (`issue#n` oppure `titoloissue`) attraverso il comando `git branch <nome branch>`;    
 
