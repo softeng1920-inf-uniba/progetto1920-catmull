@@ -103,6 +103,7 @@ Oltre ai canali pubblici del workspace, il team per comunicare ha utilizzato un 
 
 ![](/res/img/report/slack2.png)  
 
+In aggiunta, a causa dell'emergenza sanitaria, le riunioni tenute dai vari componenti del team sono state svolte sulla piattafoma **"Microsoft Teams"**.
 
 **Lavoro sul codice dell' applicazione**
 
