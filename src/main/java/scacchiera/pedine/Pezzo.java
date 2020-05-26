@@ -94,16 +94,16 @@ public abstract class Pezzo {
 	return String.format(nome + " " + colore + " " + simbolo);
     }
 
-    /**
-     * Controlla se la mossa data in input attraverso cella di partenza e cella di
-     * destinazione sia valida per il pezzo corrente
-     *
-     * @param start Cella di partenza del pezzo
-     * @param end   Cella di destinazione del pezzo
-     * 
-     * @return true se la mossa e' valida per il pezzo su cui il metodo e' stato
-     *         chiamato, false altrimenti
-     */
+   /**
+	  * Controlla se la mossa data in input attraverso cella di partenza e cella di
+    * destinazione sia valida per il pezzo corrente
+    *
+    * @param start Cella di partenza del pezzo
+    * @param end   Cella di destinazione del pezzo
+    * 
+    * @return true se la mossa e' valida per il pezzo su cui il metodo e' stato
+    *         chiamato, false altrimenti
+    */
     public abstract boolean isMossaValida(Cella start, Cella end);
 
 }

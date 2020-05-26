@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Alfiere.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">scacchiera.pedine</a> &gt; <span class="el_source">Alfiere.java</span></div><h1>Alfiere.java</h1><pre class="source lang-java linenums">package scacchiera.pedine;
+
+import gioco.Colore;
+import gioco.Turno;
+import scacchiera.Cella;
+import scacchiera.Scacchiera;
+
+/**
+ * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
+ * movimento dell'Alfiere ï¿½ valido. La classe Alfiere e' di tipo noECB.
+ */
+public final class Alfiere extends Pezzo {
+
+    public Alfiere(final Colore colore) {
+<span class="fc" id="L15">	super(&quot;Alfiere&quot;, colore);</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">	if (colore == Colore.nero) {</span>
+<span class="fc" id="L17">	    setSimbolo('\u265d');</span>
+	} else {
+<span class="fc" id="L19">	    setSimbolo('\u2657');</span>
+	}
+<span class="fc" id="L21">    }</span>
+
+    @Override
+    public boolean isMossaValida(final Cella start, final Cella end) {
+
+<span class="fc" id="L26">	int deltaX = end.getX() - start.getX();</span>
+<span class="fc" id="L27">	int deltaY = end.getY() - start.getY();</span>
+	// aumenta x e aumenta y = aumenta x diminuisce y
+	int j;
+<span class="fc bfc" id="L30" title="All 4 branches covered.">	if (deltaX == deltaY &amp;&amp; deltaX &gt; 0) {</span>
+<span class="fc" id="L31">	    j = start.getY() + 1;</span>
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">	    for (int i = start.getX() + 1; end.getX() &gt; i &amp;&amp; end.getY() &gt; j; i++) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L34">		    return false;</span>
+		}
+<span class="fc" id="L36">		j++;</span>
+	    }
+<span class="fc bfc" id="L38" title="All 6 branches covered.">	} else if (Math.abs(deltaX) == Math.abs(deltaY) &amp;&amp; deltaX &lt; 0 &amp;&amp; end.getY() - start.getY() &gt; 0) { // diminuisce</span>
+	    // x e aumenta
+	    // y
+<span class="fc" id="L41">	    j = start.getY() + 1;</span>
+<span class="pc bpc" id="L42" title="1 of 4 branches missed.">	    for (int i = start.getX() - 1; end.getX() &lt; i &amp;&amp; end.getY() &gt; j; i--) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L44">		    return false;</span>
+		}
+<span class="fc" id="L46">		j++;</span>
+
+	    }
+<span class="pc bpc" id="L49" title="1 of 4 branches missed.">	} else if (deltaX == deltaY &amp;&amp; deltaX &lt; 0) { // diminuisce</span>
+	    // x e
+	    // diminuisce
+	    // y
+<span class="fc" id="L53">	    j = start.getY() - 1;</span>
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">	    for (int i = start.getX() - 1; end.getX() &lt; i &amp;&amp; end.getY() &lt; j; i--) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L56">		    return false;</span>
+		}
+<span class="fc" id="L58">		j--;</span>
+	    }
+<span class="pc bpc" id="L60" title="2 of 6 branches missed.">	} else if (Math.abs(deltaX) == Math.abs(deltaY) &amp;&amp; deltaX &gt; 0 &amp;&amp; deltaY &lt; 0) { // aumenta x e diminuisce y</span>
+<span class="fc" id="L61">	    j = start.getY() - 1;</span>
+<span class="pc bpc" id="L62" title="1 of 4 branches missed.">	    for (int i = start.getX() + 1; end.getX() &gt; i &amp;&amp; end.getY() &lt; j; i++) {</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		if (Scacchiera.getInstance().getCella(i, j).isOccupato()) {</span>
+<span class="fc" id="L64">		    return false;</span>
+		}
+<span class="fc" id="L66">		j--;</span>
+	    }
+	} else {
+<span class="fc" id="L69">	    return false;</span>
+	}
+	// controllo se puo' mangiare pezzo
+<span class="fc bfc" id="L72" title="All 4 branches covered.">	if (end.isOccupato() &amp;&amp; end.getPezzoCorrente().getColore() == getColore()) {</span>
+<span class="fc" id="L73">	    return false;</span>
+	}
+<span class="fc" id="L75">	return true;</span>
+    }
+
+    /**
+     * Converte la stringa in input in stringa leggibile dalla funzione
+     * applicaMossa. Ad esempio: Ae4 ==&gt; d2 e4
+     *
+     * @param mossa Stringa rappresentante la mossa in notazione algebrica
+     * @return mossa Stringa rappresentante la mossa in notazione estesa
+     */
+    public static String convertiMossa(final String mossa) {
+	// &quot;[A](x|:)?[a-h][1-8]&quot;
+
+<span class="fc" id="L88">	int startX = -1;</span>
+<span class="fc" id="L89">	int startY = -1;</span>
+<span class="fc" id="L90">	int endX = -1;</span>
+<span class="fc" id="L91">	int endY = -1;</span>
+<span class="fc" id="L92">	String mossaConvertita = &quot;a0 a0&quot;;</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">	if (mossa.matches(&quot;A[a-h][1-8]&quot;)) { // si muove senza ambiguita'</span>
+<span class="fc" id="L94">	    final int colonnaDestinazione = 1;</span>
+<span class="fc" id="L95">	    final int traversaDestinazione = 2;</span>
+
+<span class="fc" id="L97">	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazione));</span>
+<span class="fc" id="L98">	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazione));</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX, endY) != &quot;Vuota&quot;) {</span>
+<span class="fc" id="L100">		return mossaConvertita;</span>
+	    }
+	}
+
+<span class="fc bfc" id="L104" title="All 2 branches covered.">	if (mossa.matches(&quot;A[x|:][a-h][1-8]&quot;)) { // mangia senza ambiguita'</span>
+<span class="fc" id="L105">	    final int colonnaDestinazioneConCattura = 2;</span>
+<span class="fc" id="L106">	    final int traversaDestinazioneConCattura = 3;</span>
+<span class="fc" id="L107">	    endX = Cella.coordXinInt(mossa.charAt(colonnaDestinazioneConCattura));</span>
+<span class="fc" id="L108">	    endY = Cella.coordYinInt(mossa.charAt(traversaDestinazioneConCattura));</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX, endY) == &quot;Vuota&quot;) {</span>
+<span class="fc" id="L110">		return mossaConvertita;</span>
+	    }
+	}
+<span class="fc" id="L113">	Colore coloreGiocatoreAttuale = Turno.getInstance().getGiocatoreInTurno().getColore();</span>
+	// aumenta x e aumenta y
+<span class="fc bfc" id="L115" title="All 2 branches covered.">	for (int i = 1; Scacchiera.getInstance().isRangeValido(endX + i, endY + i); i++) {</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX + i, endY + i) == &quot;Alfiere&quot; &amp;&amp; Scacchiera.getInstance()</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">		    .getCella(endX + i, endY + i).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {</span>
+<span class="fc" id="L118">		startX = endX + i;</span>
+<span class="fc" id="L119">		startY = endY + i;</span>
+
+<span class="fc" id="L121">		break;</span>
+	    }
+	}
+	// aumenta x e diminuisce y
+<span class="fc bfc" id="L125" title="All 2 branches covered.">	for (int i = 1; Scacchiera.getInstance().isRangeValido(endX + i, endY - i); i++) {</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX + i, endY - i) == &quot;Alfiere&quot; &amp;&amp; Scacchiera.getInstance()</span>
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">		    .getCella(endX + i, endY - i).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {</span>
+<span class="fc" id="L128">		startX = endX + i;</span>
+<span class="fc" id="L129">		startY = endY - i;</span>
+
+<span class="fc" id="L131">		break;</span>
+	    }
+	}
+	// diminuisce x e aumenta y
+<span class="fc bfc" id="L135" title="All 2 branches covered.">	for (int i = 1; Scacchiera.getInstance().isRangeValido(endX - i, endY + i); i++) {</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX - i, endY + i) == &quot;Alfiere&quot; &amp;&amp; Scacchiera.getInstance()</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">		    .getCella(endX - i, endY + i).getPezzoCorrente().getColore() == coloreGiocatoreAttuale) {</span>
+<span class="fc" id="L138">		startX = endX - i;</span>
+<span class="fc" id="L139">		startY = endY + i;</span>
+
+<span class="fc" id="L141">		break;</span>
+	    }
+	}
+	// diminuisce x e diminuisce y
+<span class="fc bfc" id="L145" title="All 2 branches covered.">	for (int i = 1; Scacchiera.getInstance().isRangeValido(endX - i, endY - i); i++) {</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">	    if (Scacchiera.getInstance().getNomePezzo(endX - i, endY - i) == &quot;Alfiere&quot;</span>
+<span class="fc" id="L147">		    &amp;&amp; Scacchiera.getInstance().getCella(endX - i, endY - i).getPezzoCorrente().getColore() == Turno</span>
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">			    .getInstance().getGiocatoreInTurno().getColore()) {</span>
+<span class="fc" id="L149">		startX = endX - i;</span>
+<span class="fc" id="L150">		startY = endY - i;</span>
+
+<span class="fc" id="L152">		break;</span>
+	    }
+	}
+
+<span class="pc bpc" id="L156" title="1 of 2 branches missed.">	if (Scacchiera.getInstance().isRangeValido(startX, startY)</span>
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">		&amp;&amp; Scacchiera.getInstance().getCella(startX, startY).isOccupato()) {</span>
+
+<span class="fc" id="L159">			mossaConvertita = Cella.coordXinChar(startX) + &quot;&quot; + Cella.coordYinChar(startY) + &quot; &quot;</span>
+<span class="fc" id="L160">					+ Cella.coordXinChar(endX) + &quot;&quot; + Cella.coordYinChar(endY);</span>
+		}
+
+<span class="fc" id="L163">		return mossaConvertita;</span>
+
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

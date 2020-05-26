@@ -35,10 +35,10 @@ public final class Cella {
 		if (pC != null) {
 			this.occupato = true;
 		}
+
 	}
 
 	// ---------Metodi di setting---------
-
 	/**
 	 * Modifica la variabile <b>occupato</b>
 	 *
@@ -60,8 +60,6 @@ public final class Cella {
 			this.occupato = true;
 		}
 	}
-
-	// --------Metodi di Get--------
 
 	/**
 	 * Restituisce la coordinata X della cella corrente
@@ -172,7 +170,7 @@ public final class Cella {
      */
     public static char coordYinChar(final int coordY) {
 	final int carattere0Ascii = 48;
-	return (char) (Math.abs((coordY - Scacchiera.getNumeroColonne())) + carattere0Ascii);
+	return (char) (Math.abs((coordY - Scacchiera.getInstance().getNumeroColonne())) + carattere0Ascii);
     }
 
     /**

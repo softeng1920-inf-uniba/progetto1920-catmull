@@ -37,11 +37,10 @@ public final class Giocatore {
      */
     public Giocatore(final Colore c) {
 
-	setColore(c);
-	pezziCatturati = new ArrayList<Pezzo>();
-	mosseGiocate = new ArrayList<String>();
-
-    }
+		setColore(c);
+		pezziCatturati = new ArrayList<Pezzo>();
+		mosseGiocate = new ArrayList<String>();
+	}
 
     /**
      * Assegna il nome al campo nome del Giocatore
@@ -155,3 +154,4 @@ public final class Giocatore {
     }
 
 }
+
