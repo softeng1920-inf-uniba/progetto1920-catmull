@@ -139,6 +139,11 @@ Il workflow utilizzato da ogni membro del team è stato il `Github Flow` in cui 
   
 ![](/res/img/report/githubflow.png)  
 
+**Esecuzione immagine docker** 
+
+Una volta caricata l’immagine del container, da GitHub Actions su GitHub Packages, è stata scaricata l’immagine ed eseguito il container mediante l’installazione locale di Docker.  
+Per eseguire l'immagine è stato prima lanciato il comando `docker pull docker.pkg.github.com/softeng1920-inf-uniba/docker_1920/catmull:latest` e, in seguito, `docker run -it --rm docker.pkg.github.com/softeng1920-inf-uniba/docker_1920/catmull:latest`.  
+
 [Torna all'indice](#indice)
 
 # <a name="retro_analysis"></a>Analisi retrospettiva
