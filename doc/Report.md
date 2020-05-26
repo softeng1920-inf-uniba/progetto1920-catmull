@@ -77,7 +77,7 @@ I pezzi sono i seguenti:
 </ul>
 
 <p align="center">
-<img src="/res/img/report/Chessboard.png">
+<img src="/res/img/report/ChessBoard.png">
 <p align="center"><i>Scacchiera con pezzi allo stato iniziale</i>
 </p>
 
