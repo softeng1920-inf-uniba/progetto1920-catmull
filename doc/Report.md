@@ -30,9 +30,6 @@
 
 # <a name="intro"></a>Introduzione
 
-[Torna all'indice](#indice)
-
-
 ## <a name="cenni"> </a> i. &#160; Cenni storici
 
 Il **gioco degli scacchi** è un gioco di strategia in cui due giocatori fronteggiano
@@ -122,12 +119,14 @@ ed eventuali aspetti considerati poco motivanti. </li>
 </li>
 <li>
 
+[Torna all'indice](#indice)
 
 # <a name="dom_mod"></a>Modello di dominio
 
-[Torna all'indice](#indice)
+
 <p align="center"><img src="drawings/ModelloDiDominio.png" width=100% height=100%></p>
 
+[Torna all'indice](#indice)
 </li>
 <li>
 
