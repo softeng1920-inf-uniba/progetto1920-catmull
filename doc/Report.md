@@ -117,7 +117,7 @@ Il workflow utilizzato da ogni membro del team è stato il `Github Flow` in cui 
 
 4. E' stato effettuato uno spostamento (checkout) sul nuovo branch appena creato con il comando `git checkout <nome branch>`;  
 
-5. Con il comando `git commit -m "<descrizione>`, sono stati effettuati commit per ogni operazione consistente svolta sul progetto. Ogni commit è caratterizzato da una breve descrizione avente lo scopo di riassumere l'operazione effettuata;  
+5. Con il comando `git commit -m "<descrizione>"`, sono stati effettuati commit per ogni operazione consistente svolta sul progetto. Ogni commit è caratterizzato da una breve descrizione avente lo scopo di riassumere l'operazione effettuata;  
 
 6. Tramite il comando `git push origin <nome branch>` è stato aggiornato il branch sulla sorgente remota (origin) in GitHub;   
 
