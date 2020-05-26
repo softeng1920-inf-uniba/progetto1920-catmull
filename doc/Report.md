@@ -114,7 +114,7 @@ Il workflow utilizzato da ogni membro del team è stato il `Github Flow` in cui 
 
 3. E' stato creato un nuovo branch sul repository locale denominato con il numero oppure con il titolo dell'issue (`issue#n` oppure `titoloissue`) attraverso il comando `git branch <nome branch>`;    
 
-4. Spostarsi sul nuovo branch appena creato con il comando `git checkout <nome branch>`;  
+4. E' stato effettuato uno spostamento (checkout) sul nuovo branch appena creato con il comando `git checkout <nome branch>`;  
 
 5. Con il comando `git commit -m "<descrizione>`, sono stati effettuati commit per ogni operazione svolta sul progetto. Ogni commit è caratterizzato da una breve descrizione avente lo scopo di riassumere l'operazione effettuata;  
 
