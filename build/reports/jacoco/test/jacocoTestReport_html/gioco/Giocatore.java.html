@@ -119,22 +119,13 @@ public final class Giocatore {
 <span class="fc" id="L119">    }</span>
 
     /**
-     * Restituisce lo storico delle mosse giocate dal giocatore.
-     *
-     * @return Lista delle mosse giocate
-     */
-    public ArrayList&lt;String&gt; getMosseGiocate() {
-<span class="nc" id="L127">	return mosseGiocate;</span>
-    }
-
-    /**
      * Restituisce l'i-esima mossa giocata dal giocatore.
      *
      * @param i intero indicante la mossa
      * @return i-esima mossa giocata dal giocatore
      */
     public String getMossaGiocata(final int i) {
-<span class="fc" id="L137">	return mosseGiocate.get(i);</span>
+<span class="fc" id="L128">	return mosseGiocate.get(i);</span>
     }
 
     /**
@@ -143,15 +134,15 @@ public final class Giocatore {
      * @return Dimensione della lista delle mosse giocate
      */
     public int getNumeroMosseGiocate() {
-<span class="fc" id="L146">	return mosseGiocate.size();</span>
+<span class="fc" id="L137">	return mosseGiocate.size();</span>
     }
 
     /**
      * Rimuove un pezzo dalla lista dei pezzi catturati del giocatore
      */
     public void removePezzoCatturato() {
-<span class="fc" id="L153">	pezziCatturati.remove(pezziCatturati.size() - 1);</span>
-<span class="fc" id="L154">    }</span>
+<span class="fc" id="L144">	pezziCatturati.remove(pezziCatturati.size() - 1);</span>
+<span class="fc" id="L145">    }</span>
 
 }
 

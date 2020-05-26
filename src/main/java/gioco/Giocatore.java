@@ -119,15 +119,6 @@ public final class Giocatore {
     }
 
     /**
-     * Restituisce lo storico delle mosse giocate dal giocatore.
-     *
-     * @return Lista delle mosse giocate
-     */
-    public ArrayList<String> getMosseGiocate() {
-	return mosseGiocate;
-    }
-
-    /**
      * Restituisce l'i-esima mossa giocata dal giocatore.
      *
      * @param i intero indicante la mossa
