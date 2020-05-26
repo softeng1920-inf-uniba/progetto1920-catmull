@@ -8,58 +8,58 @@ import java.util.ArrayList;
  * le informazioni riguardo al turno del giocatore. La classe Turno e' di tipo
  * ENTITY
  */
-
 public final class Turno {
-<span class="fc" id="L13">    private static Turno instance = null;</span>
+<span class="fc" id="L12">    private static Turno instance = null;</span>
     private Giocatore giocatoreInTurno;
     private Giocatore giocatoreInAttesa;
 
-<span class="fc" id="L17">    private Turno() {</span>
-<span class="fc" id="L18">	giocatoreInTurno = new Giocatore(Colore.bianco);</span>
-<span class="fc" id="L19">	giocatoreInAttesa = new Giocatore(Colore.nero);</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L16">    private Turno() {</span>
+<span class="fc" id="L17">	giocatoreInTurno = new Giocatore(Colore.bianco);</span>
+<span class="fc" id="L18">	giocatoreInAttesa = new Giocatore(Colore.nero);</span>
+<span class="fc" id="L19">    }</span>
 
     public static Turno getInstance() {
-<span class="fc bfc" id="L23" title="All 2 branches covered.">	if (instance == null) {</span>
-<span class="fc" id="L24">	    instance = new Turno();</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">	if (instance == null) {</span>
+<span class="fc" id="L23">	    instance = new Turno();</span>
 	}
-<span class="fc" id="L26">	return instance;</span>
+<span class="fc" id="L25">	return instance;</span>
+
     }
 
     /**
      * Costruttore statico per classe Singleton
      */
     public void inizializzaTurno() {
-<span class="fc" id="L33">	giocatoreInTurno = new Giocatore(Colore.bianco);</span>
-<span class="fc" id="L34">	giocatoreInAttesa = new Giocatore(Colore.nero);</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L32">	giocatoreInTurno = new Giocatore(Colore.bianco);</span>
+<span class="fc" id="L33">	giocatoreInAttesa = new Giocatore(Colore.nero);</span>
+<span class="fc" id="L34">    }</span>
 
     /**
      * Scambia il ruolo dei due giocatori
      */
     public void cambioTurno() {
-<span class="fc" id="L41">	Giocatore temp = giocatoreInTurno;</span>
-<span class="fc" id="L42">	giocatoreInTurno = giocatoreInAttesa;</span>
-<span class="fc" id="L43">	giocatoreInAttesa = temp;</span>
-<span class="fc" id="L44">    }</span>
+<span class="fc" id="L40">	Giocatore temp = giocatoreInTurno;</span>
+<span class="fc" id="L41">	giocatoreInTurno = giocatoreInAttesa;</span>
+<span class="fc" id="L42">	giocatoreInAttesa = temp;</span>
+<span class="fc" id="L43">    }</span>
 
     // Funzioni di Get
 
     public Giocatore getGiocatoreInTurno() {
-<span class="fc" id="L49">	return giocatoreInTurno;</span>
+<span class="fc" id="L48">	return giocatoreInTurno;</span>
     }
 
     public Giocatore getGiocatoreInAttesa() {
-<span class="nc" id="L53">	return giocatoreInAttesa;</span>
+<span class="fc" id="L52">	return giocatoreInAttesa;</span>
     }
 
     public void setNomeGiocatoreInTurno(final String m) {
-<span class="nc" id="L57">	giocatoreInTurno.setNome(m);</span>
-<span class="nc" id="L58">    }</span>
+<span class="fc" id="L56">	giocatoreInTurno.setNome(m);</span>
+<span class="fc" id="L57">    }</span>
 
     public void setNomeGiocatoreInAttesa(final String m) {
-<span class="nc" id="L61">	giocatoreInAttesa.setNome(m);</span>
-<span class="nc" id="L62">    }</span>
+<span class="fc" id="L60">    	giocatoreInAttesa.setNome(m);</span>
+<span class="fc" id="L61">	}</span>
 
     /**
      * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
@@ -70,41 +70,41 @@ public final class Turno {
      */
     public ArrayList&lt;String&gt; getArrayStoriaMosse() {
 	int i, j, k;
-<span class="nc" id="L73">	int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();</span>
-<span class="nc" id="L74">	ArrayList&lt;String&gt; mosseGiocateTotali = new ArrayList&lt;String&gt;(dimensione);</span>
-<span class="nc bnc" id="L75" title="All 2 branches missed.">	if (getGiocatoreInTurno().getColore() == Colore.bianco) {</span>
-<span class="nc" id="L76">	    i = 0;</span>
-<span class="nc" id="L77">	    j = 0;</span>
-<span class="nc" id="L78">	    k = 0;</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">	    while (i &lt; getGiocatoreInTurno().getNumeroMosseGiocate()</span>
-<span class="nc bnc" id="L80" title="All 2 branches missed.">		    &amp;&amp; j &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()) {</span>
-<span class="nc" id="L81">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(i++));</span>
-<span class="nc" id="L82">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(j++));</span>
+<span class="fc" id="L71">	int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();</span>
+<span class="fc" id="L72">	ArrayList&lt;String&gt; mosseGiocateTotali = new ArrayList&lt;String&gt;(dimensione);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">	if (getGiocatoreInTurno().getColore() == Colore.bianco) {</span>
+<span class="fc" id="L74">	    i = 0;</span>
+<span class="fc" id="L75">	    j = 0;</span>
+<span class="fc" id="L76">	    k = 0;</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">	    while (i &lt; getGiocatoreInTurno().getNumeroMosseGiocate()</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		    &amp;&amp; j &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()) {</span>
+<span class="fc" id="L79">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(i++));</span>
+<span class="fc" id="L80">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(j++));</span>
 	    }
-<span class="nc bnc" id="L84" title="All 2 branches missed.">	    while (i &lt; getGiocatoreInTurno().getNumeroMosseGiocate()) {</span>
-<span class="nc" id="L85">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(i++));</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">	    while (i &lt; getGiocatoreInTurno().getNumeroMosseGiocate()) {</span>
+<span class="fc" id="L83">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(i++));</span>
 	    }
-<span class="nc bnc" id="L87" title="All 2 branches missed.">	    while (j &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()) {</span>
-<span class="nc" id="L88">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(j++));</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">	    while (j &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()) {</span>
+<span class="fc" id="L86">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(j++));</span>
 	    }
 	} else {
-<span class="nc" id="L91">	    i = 0;</span>
-<span class="nc" id="L92">	    j = 0;</span>
-<span class="nc" id="L93">	    k = 0;</span>
-<span class="nc bnc" id="L94" title="All 2 branches missed.">	    while (i &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()</span>
-<span class="nc bnc" id="L95" title="All 2 branches missed.">		    &amp;&amp; j &lt; getGiocatoreInTurno().getNumeroMosseGiocate()) {</span>
-<span class="nc" id="L96">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(i++));</span>
-<span class="nc" id="L97">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(j++));</span>
+<span class="fc" id="L89">	    i = 0;</span>
+<span class="fc" id="L90">	    j = 0;</span>
+<span class="fc" id="L91">	    k = 0;</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">	    while (i &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		    &amp;&amp; j &lt; getGiocatoreInTurno().getNumeroMosseGiocate()) {</span>
+<span class="fc" id="L94">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(i++));</span>
+<span class="fc" id="L95">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(j++));</span>
 	    }
-<span class="nc bnc" id="L99" title="All 2 branches missed.">	    while (i &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()) {</span>
-<span class="nc" id="L100">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(i++));</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">	    while (i &lt; getGiocatoreInAttesa().getNumeroMosseGiocate()) {</span>
+<span class="fc" id="L98">		mosseGiocateTotali.add(k++, getGiocatoreInAttesa().getMossaGiocata(i++));</span>
 	    }
-<span class="nc bnc" id="L102" title="All 2 branches missed.">	    while (j &lt; getGiocatoreInTurno().getNumeroMosseGiocate()) {</span>
-<span class="nc" id="L103">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(j++));</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">	    while (j &lt; getGiocatoreInTurno().getNumeroMosseGiocate()) {</span>
+<span class="fc" id="L101">		mosseGiocateTotali.add(k++, getGiocatoreInTurno().getMossaGiocata(j++));</span>
 	    }
 	}
 
-<span class="nc" id="L107">	return mosseGiocateTotali;</span>
+<span class="fc" id="L105">	return mosseGiocateTotali;</span>
     }
 
 }

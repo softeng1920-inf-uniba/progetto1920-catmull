@@ -2,7 +2,6 @@ package it.uniba.main;
 
 import java.io.IOException;
 import java.io.PrintStream;
-
 import gioco.InterfacciaUtente;
 import gioco.Menu;
 
@@ -61,6 +60,5 @@ public final class AppMain {
 				break;
 			}
 		}
-
 	}
 }

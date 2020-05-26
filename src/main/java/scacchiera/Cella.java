@@ -31,18 +31,13 @@ public final class Cella {
 		if (pC != null) {
 			this.occupato = true;
 		}
+
 	}
 
 	// ---------Metodi di setting---------
-
 	/**
 	 * Modifica la variabile occupato
-	 *
-<<<<<<< HEAD
 	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se �
-=======
-	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se è
->>>>>>> 40a92aa4f2c91103082888ba35a4cd697f676f07
 	 *            occupata o meno
 	 */
 	public void setOccupato(final boolean occ) {
@@ -60,8 +55,6 @@ public final class Cella {
 			this.occupato = true;
 		}
 	}
-
-	// --------Metodi di Get--------
 
 	/**
 	 * Restituisce la coordinata X per la cella corrente

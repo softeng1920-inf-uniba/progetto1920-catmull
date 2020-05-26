@@ -24,7 +24,7 @@
 	* [Cosa vi ha fatto sentire insoddisfatti e vi ha deluso](#sad)
 	* [Cosa vi ha fatto «impazzire» e vi ha reso disperati](#crazy)
 
-# <a name="intro"></a>Introduzione
+# <a name="intro"></a> Introduzione
 
 [Torna all'indice](#indice)
 
@@ -68,8 +68,6 @@
 [Torna all'indice](#indice)
 
 # <a name="dev_proc"></a>Processo di sviluppo e organizzazione del lavoro
-
-[Torna all'indice](#indice)
 
 # <a name="retro_analysis"></a>Analisi retrospettiva
 #### <a name="happy"></a>Cosa vi ha fatto sentire soddisfatti e vi ha reso contenti

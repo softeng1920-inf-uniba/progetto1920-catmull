@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * le informazioni riguardo al turno del giocatore. La classe Turno e' di tipo
  * ENTITY
  */
-
 public final class Turno {
     private static Turno instance = null;
     private Giocatore giocatoreInTurno;
@@ -58,9 +57,8 @@ public final class Turno {
     }
 
     public void setNomeGiocatoreInAttesa(final String m) {
-	giocatoreInAttesa.setNome(m);
-    }
-
+    	giocatoreInAttesa.setNome(m);
+	}
     /**
      * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
      * La fusione avviene in modo alternato. Permette di avere una visione completa

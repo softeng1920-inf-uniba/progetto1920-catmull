@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cella.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">scacchiera</a> &gt; <span class="el_source">Cella.java</span></div><h1>Cella.java</h1><pre class="source lang-java linenums">package scacchiera;
+
+import gioco.Menu;
+import scacchiera.pedine.Pezzo;
+
+/**
+ * La classe Cella contiene le informazioni riguardanti ogni singola cella della
+ * scacchiera, definendola con gli attributi: x indica la coordinata delle
+ * ascisse, y indica la coordinata delle ordinate, occupato indica lo stato
+ * della cella e pezzoCorrente da informazioni riguardo al pezzo contenuto nella
+ * cella. La classe Cella e' di tipo ENTITY
+ */
+public final class Cella {
+	private int x;
+	private int y;
+	private boolean occupato;
+	private Pezzo pezzoCorrente;
+
+	/**
+	 * Crea una nuova cella, assegnandogli delle coordinate e settando un pezzo se
+	 * presente nella cella.
+	 *
+	 * @param coordX - coordinata X per la cella
+	 * @param coordY - coordinata Y per la cella
+	 * @param pC     - Pezzo nella cella da settare
+	 */
+<span class="fc" id="L27">	public Cella(final int coordX, final int coordY, final Pezzo pC) {</span>
+<span class="fc" id="L28">		this.x = coordX;</span>
+<span class="fc" id="L29">		this.y = coordY;</span>
+<span class="fc" id="L30">		this.pezzoCorrente = pC;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">		if (pC != null) {</span>
+<span class="fc" id="L32">			this.occupato = true;</span>
+		}
+
+<span class="fc" id="L35">	}</span>
+
+	// ---------Metodi di setting---------
+	/**
+	 * Modifica la variabile occupato
+	 * @param occ Valore booleano da impostare sulla cella attuale, che indica se ï¿½
+	 *            occupata o meno
+	 */
+	public void setOccupato(final boolean occ) {
+<span class="fc" id="L44">		this.occupato = occ;</span>
+<span class="fc" id="L45">	}</span>
+
+	/**
+	 * Modifica il tipo di pezzo che la cella contiene
+	 *
+	 * @param pC Pezzo corrente che la cella attuale deve contenere
+	 */
+	void setPezzoCorrente(final Pezzo pC) {
+<span class="fc" id="L53">		this.pezzoCorrente = pC;</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">		if (pC != null) {</span>
+<span class="fc" id="L55">			this.occupato = true;</span>
+		}
+<span class="fc" id="L57">	}</span>
+
+	/**
+	 * Restituisce la coordinata X per la cella corrente
+	 *
+	 * @return valore intero della coordinata X
+	 */
+	public int getX() {
+<span class="fc" id="L65">		return x;</span>
+	}
+
+	/**
+	 * Restituisce la coordinata Y della cella corrente
+	 *
+	 * @return valore della coordinata Y
+	 */
+	public int getY() {
+<span class="fc" id="L74">		return y;</span>
+	}
+
+	/**
+	 * Restituisce un valore booleano che indica se la cella Ã¨ occupata da qualche
+	 * pezzo o meno.
+	 *
+	 * @return true se la cella Ã¨ occupata, false se vuota.
+	 */
+	public boolean isOccupato() {
+<span class="fc" id="L84">		return occupato;</span>
+	}
+
+	/**
+	 * Restituisce il pezzo contenuto nella cella attuale
+	 *
+	 * @return pezzo nella cella corrente
+	 */
+	public Pezzo getPezzoCorrente() {
+<span class="fc" id="L93">		return pezzoCorrente;</span>
+	}
+
+	// ------Metodi per aggiugere o togliere pezzi dalla scacchiera
+
+	/**
+	 * Aggiunge un pezzo nella scacchiera
+	 *
+	 * @param nuovoPezzo Pezzo da impostare all'interno della cella corrente
+	 */
+	public void aggiungiPezzo(final Pezzo nuovoPezzo) {
+
+<span class="fc" id="L105">		setPezzoCorrente(nuovoPezzo);</span>
+<span class="fc" id="L106">		setOccupato(true);</span>
+
+<span class="fc" id="L108">	}</span>
+
+	/**
+	 * Rimuove il pezzo dalla cella corrente
+	 */
+	public void rimuoviPezzoCorrente() {
+<span class="fc" id="L114">		setOccupato(false);</span>
+<span class="fc" id="L115">		setPezzoCorrente(null);</span>
+<span class="fc" id="L116">	}</span>
+
+	/**
+     * Preso un carattere della mossa, restituisce il corrispondente valore in
+     * intero, necessario per la matrice
+     *
+     * @param coordX Carattere in minuscolo da convertire in intero
+     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     */
+    public static int coordXinInt(final char coordX) {
+<span class="fc" id="L126">	final int aMinuscolaAscii = 97;</span>
+<span class="fc" id="L127">	return coordX - aMinuscolaAscii;</span>
+    }
+
+    /**
+     * Preso un carattere della mossa, restituisce il corrispondente valore in
+     * intero, necessario per la matrice
+     *
+     * @param coordY Compreso fra 1 e 8
+     * @return Coordinata convertita in intero, compreso tra 0 e 7
+     */
+    public static int coordYinInt(final char coordY) {
+<span class="fc" id="L138">	final int offsetUnoAscii = 49;</span>
+<span class="fc" id="L139">	final int offsetMenoUnoAscii = 7;</span>
+<span class="fc" id="L140">	return Math.abs((coordY - offsetUnoAscii) - offsetMenoUnoAscii);</span>
+    }
+
+    /**
+     * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
+     * traversa della scacchiera (carattere tra a e h)
+     *
+     * @param coordX intero da convertire in carattere
+     * @return Valore necessario per la scacchiera compreso fra a e h
+     */
+
+    public static char coordXinChar(final int coordX) {
+<span class="fc" id="L152">	final int aMinuscolaAscii = 97;</span>
+<span class="fc" id="L153">	return (char) (coordX + aMinuscolaAscii);</span>
+    }
+
+    /**
+     * Trasforma un valore da 0 a 7 (indici della matrice) in valori in termini di
+     * righe della scacchiera (carattere tra 1 e 8)
+     *
+     * @param coordY intero da convertire in carattere
+     * @return Valore necessario per la scacchiera compreso fra 1 e 8
+     */
+    public static char coordYinChar(final int coordY) {
+<span class="fc" id="L164">	final int carattere0Ascii = 48;</span>
+<span class="fc" id="L165">	return (char) (Math.abs((coordY - Scacchiera.getInstance().getNumeroColonne())) + carattere0Ascii);</span>
+    }
+
+    /**
+     * Converte la coordinata X di partenza data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra a e h
+     */
+    public static int startX(final String m) {
+<span class="fc" id="L175">		return Cella.coordXinInt(m.charAt(Menu.COLONNA_PARTENZA_MOSSA_NE));</span>
+    }
+
+    /**
+     * Converte la coordinata Y di partenza data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     */
+    public static int startY(final String m) {
+<span class="fc" id="L185">		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_PARTENZA_MOSSA_NE));</span>
+    }
+
+    /**
+     * Converte la coordinata X di destinazione data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra a e h
+     */
+    public static int endX(final String m) {
+<span class="fc" id="L195">		return Cella.coordXinInt(m.charAt(Menu.COLONNA_DESTINAZIONE_MOSSA_NE));</span>
+    }
+
+    /**
+     * Converte la coordinata Y di destinazione data in input in intero.
+     *
+     * @param m mossa in notazione estesa
+     * @return Valore necessario per la scacchiera compreso fra 0 e 7
+     */
+    public static int endY(final String m) {
+<span class="fc" id="L205">		return Cella.coordYinInt(m.charAt(Menu.TRAVERSA_DESTINAZIONE_MOSSA_NE));</span>
+    }
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
