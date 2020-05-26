@@ -10,9 +10,13 @@ import scacchiera.Scacchiera;
 import scacchiera.pedine.Pezzo;
 
 /**
- * La classe Stampa contiene i messaggi stampati a video e i metodi di stampa
- * dell'intero gioco. Contiene anche informazioni riguardo ai colori utilizzati
- * nelle stampe. La classe Stampa e' di tipo BOUNDARY.
+ * La classe InterfacciaUtente contiene i messaggi stampati a video e i metodi di stampa
+ * dell'intero gioco.
+ * <br>
+ * Contiene anche informazioni riguardo ai colori utilizzati
+ * nelle stampe.
+ * <br>
+ * La classe Stampa e' di tipo &lt;&lt;BOUNDARY&gt;&gt;
  */
 public final class InterfacciaUtente {
     // colore carattere e font
@@ -32,33 +36,39 @@ public final class InterfacciaUtente {
     // colore Intro
     public static final String ANSI_CYAN = "\u001B[36m";
 
-    private static InterfacciaUtente istance = null;
+    private static InterfacciaUtente instance = null;
 
     private InterfacciaUtente() {
 	// Costruttore privato
     }
 
+    /**
+     * Metodo di classe che restituisce l'istanza, se presente, della stessa,
+	 * altrimenti ne costruisce una
+     * 
+     * @return  Istanza della classe corrente
+     */
     public static InterfacciaUtente getInstance() {
-	if (istance == null) {
-	    istance = new InterfacciaUtente();
+	if (instance == null) {
+	    instance = new InterfacciaUtente();
 	}
-	return istance;
+	return instance;
     }
 
     /**
-     * Stampa a video il simbolo del pezzo in input
-     *
-     * @param p
-     */
+	   * Stampa a video il simbolo del pezzo in input
+	   * 
+	   * @param  p Pezzo di cui si deve visualizzare il simbolo
+	   */
     private void disegnaPezzo(final Pezzo p) {
 	System.out.print("\033[1;30m" + p.getSimbolo());
     }
 
-    /**
-     * Stampa a video il pezzo nella cella corrente
-     *
-     * @param cellaPezzo
-     */
+   /**
+	  * Stampa a video il pezzo nella cella corrente
+	  *
+	  * @param  cellaPezzo Cella corrente in cui si trova il pezzo
+	  */
     private void stampaPezzo(final Cella cellaPezzo) {
 	if (cellaPezzo.getPezzoCorrente() != null) {
 	    System.out.print(" ");
@@ -144,11 +154,12 @@ public final class InterfacciaUtente {
 	    System.out.println();
 
 	}
+
 	System.out.println("      a   b    c    d    e    f    g    h");
     }
 
     /**
-     * stampa introduttiva del gioco
+     * Stampa introduttiva del gioco
      */
     public void stampaIntro() {
 	System.out.println(CYAN + "\n _/|" + ANSI_RESET + "    #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#"
@@ -172,14 +183,13 @@ public final class InterfacciaUtente {
 		+ "#" + CYAN + "#" + ANSI_RESET + "   #" + CYAN + "#" + ANSI_RESET + "#" + CYAN + "#" + ANSI_RESET + "#"
 		+ CYAN + " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "   )___(");
 	System.out.print(ANSI_RESET);
-
-    }
-
+	}
     /**
-     * Stampa a video il giocatore in turno
-     *
-     * @param giocatoreAttivo
-     */
+	  * Stampa a video il nome del giocatore in turno chiamando
+	  * il metodo di classe della classe Giocatore
+	  *
+	  * @param  giocatoreAttivo Giocatore corrente di cui visualizzare il nome
+	  */
     public void stampaTurno(final Giocatore giocatoreAttivo) {
 	if (giocatoreAttivo.getColore() == Colore.bianco) {
 	    System.out.println("\nE' il turno di " + WHITE_BOLD_BRIGHT + WHITE_UNDERLINED_BRIGHT
@@ -226,7 +236,6 @@ public final class InterfacciaUtente {
 	System.out.println();
 	System.out.println(
 		"Sei sicuro di voler iniziare una nuova partita? \n" + "(Digita 'y' per confermare, 'n' altrimenti)");
-
     }
 
     /**
@@ -245,11 +254,11 @@ public final class InterfacciaUtente {
 	System.out.println("\n" + WHITE_BOLD_BRIGHT + "~ Nuova partita ~" + ANSI_RESET);
     }
 
-    /**
-     * Stampa a video i pezzi catturati per ogni giocatore
-     *
-     * @param giocatoreInteressato
-     */
+   /**
+	  * Stampa a video i pezzi catturati dal giocatore immesso in input
+	  *
+	  * @param  giocatoreInteressato Giocatore che ha effettuato le catture
+	  */
     public void stampaPezziCatturati(final Giocatore giocatoreInteressato) {
 
 	System.out.println("\nPezzi catturati dal giocatore " + WHITE_BOLD_BRIGHT
@@ -321,7 +330,6 @@ public final class InterfacciaUtente {
 	System.out.println();
     }
 
-
     /**
      * Permette la visualizzazione dell' elenco dei comandi del menu di gioco
      */
@@ -336,11 +344,11 @@ public final class InterfacciaUtente {
 	System.out.println();
     }
 
-    /**
-     * Stampa a video il messaggio per l'inserimento del nome del giocatore
-     *
-     * @param c
-     */
+   /**
+	  * Stampa a video il messaggio per l'inserimento del nome del giocatore
+	  *
+	  * @param  c Colore rappresentante il giocatore
+	  */
     public void stampaInserireGiocatore(final Colore c) {
 	if (c == Colore.bianco) {
 	    System.out.println("\nInserisci il nome del giocatore con le pedine di colore " + WHITE_BOLD_BRIGHT
@@ -351,7 +359,11 @@ public final class InterfacciaUtente {
 	}
 
     }
-
+   /**
+	  * Permette l'acquisizione di un comando da tastiera
+	  * 
+	  * @return Comando inserito dall'utente
+	  */
     public String acquisireComando() {
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in, Charset.forName("UTF-8")));
 	String comando = "";
@@ -362,9 +374,12 @@ public final class InterfacciaUtente {
 	}
 	return comando;
     }
-    /**
-     * Acquisisce il nome del giocatore da tastiera
-     */
+   /**
+	  * Acquisisce il nome del giocatore da tastiera
+	  * 
+	  * @param  c Colore del giocatore corrispondente
+	  * @return  Nome del giocatore
+	  */
     public String getNomeDaTastiera(final Colore c) {
 	stampaInserireGiocatore(c);
 	String s = null;
@@ -398,7 +413,7 @@ public final class InterfacciaUtente {
 		    stampaComandoErrato();
 		}
 	    }
-	}
+  }
 
     }
 

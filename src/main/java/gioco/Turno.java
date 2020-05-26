@@ -3,10 +3,12 @@ package gioco;
 import java.util.ArrayList;
 
 /**
- * La classe turno serve per identificare il turno corrente e di attesa del
- * gioco, quindi definisce se sta giocando il giocatore bianco o nero; Contiene
- * le informazioni riguardo al turno del giocatore. La classe Turno e' di tipo
- * ENTITY
+ * La classe Turno serve per identificare il turno corrente e di attesa del
+ * gioco, quindi definisce se sta giocando il giocatore bianco o nero.
+ * <br>
+ * Contiene le informazioni riguardo al turno del giocatore.
+ * <br>
+ * La classe Turno e' di tipo &lt;&lt;ENTITY&gt;&gt;
  */
 public final class Turno {
     private static Turno instance = null;
@@ -17,7 +19,12 @@ public final class Turno {
 	giocatoreInTurno = new Giocatore(Colore.bianco);
 	giocatoreInAttesa = new Giocatore(Colore.nero);
     }
-
+    /**
+     * Metodo di classe che restituisce l'istanza, se presente, della stessa,
+	 * altrimenti ne costruisce una
+     * 
+     * @return  Istanza della classe corrente
+     */
     public static Turno getInstance() {
 	if (instance == null) {
 	    instance = new Turno();
@@ -26,7 +33,7 @@ public final class Turno {
     }
 
     /**
-     * Costruttore statico per classe Singleton
+     * Imposta il giocatore in turno e quello in attesa
      */
     public void inizializzaTurno() {
 	giocatoreInTurno = new Giocatore(Colore.bianco);
@@ -42,30 +49,45 @@ public final class Turno {
 	giocatoreInAttesa = temp;
     }
 
-    // Funzioni di Get
-
+    /**
+     * Metodo che permette di ottenere il giocatore in turno
+	 * @return  Giocatore corrente
+	 */
     public Giocatore getGiocatoreInTurno() {
 	return giocatoreInTurno;
     }
-
+    /**
+     * Metodo che permette di ottenere il giocatore in attesa
+	 * @return  Giocatore in attesa
+	 */
     public Giocatore getGiocatoreInAttesa() {
 	return giocatoreInAttesa;
     }
-
+    /**
+	 * Modifica l'attributo di classe giocatoreInTurno
+	 *
+	 * @param  m Stringa indicante il giocatore che deve risultare in turno
+	 */
     public void setNomeGiocatoreInTurno(final String m) {
 	giocatoreInTurno.setNome(m);
     }
-
+    /**
+	 *  Modifica l'attributo di classe giocatoreInTurno
+	 *
+	 * @param  m Stringa indicante il giocatore che risultera' essere in attesa
+	 */
     public void setNomeGiocatoreInAttesa(final String m) {
     	giocatoreInAttesa.setNome(m);
 	}
     /**
-     * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
-     * La fusione avviene in modo alternato. Permette di avere una visione completa
-     * delle mosse giocate totali.
-     *
-     * @return ArrayList di stringhe.
-     */
+	  * Fonde le due liste in cui sono conservate le mosse giocate di ogni giocatore.
+	  * La fusione avviene in modo alternato.
+	  * <br>
+	  * Permette di avere una visione completa
+	  * delle mosse giocate totali
+	  *
+	  * @return  lista di stringhe che permette di visualizzare le mosse effettuate e nel corretto ordine
+	  */
     public ArrayList<String> getArrayStoriaMosse() {
 	int i, j, k;
 	int dimensione = getGiocatoreInAttesa().getNumeroMosseGiocate() + getGiocatoreInTurno().getNumeroMosseGiocate();

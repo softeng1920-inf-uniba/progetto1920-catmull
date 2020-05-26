@@ -3,7 +3,7 @@
 /**
  * La classe Comando definisce la struttura dei comandi mostrati nel menu del
  * gioco attraverso gli attributi nome e descrizione. La classe Comando e' di
- * tipo ENTITY.
+ * tipo &amp;lt;&amp;lt;ENTITY&amp;gt;&amp;gt;
  */
 
 public class Comando {
@@ -13,46 +13,50 @@ public class Comando {
 
 	/**
 	 * Metodo Costruttore
-	 *
-	 * @param n
-	 * @param desc
+	 * Avvalora gli attributi primitivi di classe
+	 * 
+	 * @param  n Stringa identificativa del comando
+	 * @param  desc Stringa che specifica il comando
 	 */
-<span class="fc" id="L20">	Comando(final String n, final String desc) {</span>
-<span class="fc" id="L21">		setNome(n);</span>
-<span class="fc" id="L22">		setDescrizione(desc);</span>
-<span class="fc" id="L23">	}</span>
+<span class="fc" id="L21">	Comando(final String n, final String desc) {</span>
+<span class="fc" id="L22">		setNome(n);</span>
+<span class="fc" id="L23">		setDescrizione(desc);</span>
+<span class="fc" id="L24">	}</span>
 
 	/**
-	 * Metodo che permette di modificare il nome del comando
+	 * Metodo che permette di modificare il &lt;b&gt;nome&lt;/b&gt; del comando
 	 *
-	 * @param n
+	 * @param  n Stringa indicante il comando
 	 */
 	void setNome(final String n) {
-<span class="fc" id="L31">		this.nome = n;</span>
-<span class="fc" id="L32">	}</span>
+<span class="fc" id="L32">		this.nome = n;</span>
+<span class="fc" id="L33">	}</span>
 
 	/**
-	 * Metodo che permette di modificare la descrizione del comando
+	 * Metodo che permette di modificare la &lt;b&gt;descrizione&lt;/b&gt; del comando
 	 *
-	 * @param d
+	 * @param  d Stringa che specifica il comando
 	 */
 	void setDescrizione(final String d) {
-<span class="fc" id="L40">		this.descrizione = d;</span>
-<span class="fc" id="L41">	}</span>
+<span class="fc" id="L41">		this.descrizione = d;</span>
+<span class="fc" id="L42">	}</span>
 
-	/**
-	 * @return nome del comando
+	/** Restituisce il nome del comando
+	 * 
+	 * @return  Stringa contenente il nome del comando
 	 */
 	public String getNome() {
-<span class="fc" id="L47">		return nome;</span>
+<span class="fc" id="L49">		return nome;</span>
 	}
 
 	/**
-	 * Metodo che permette di visualizzare i comandi
+	 * Metodo che permette di visualizzare i comandi in formato testuale
+	 * 
+	 * @return   Stringa contenente la descrizione formattata del comando
 	 */
 	@Override
 	public String toString() {
-<span class="fc" id="L55">		return String.format(&quot;\u2022 &quot; + &quot;\033[1;37m&quot; + nome + &quot;\u001B[0m&quot; + &quot; --&gt;    &quot; + descrizione);</span>
+<span class="fc" id="L59">		return String.format(&quot;\u2022 &quot; + &quot;\033[1;37m&quot; + nome + &quot;\u001B[0m&quot; + &quot; --&gt;    &quot; + descrizione);</span>
 	}
 
 }
