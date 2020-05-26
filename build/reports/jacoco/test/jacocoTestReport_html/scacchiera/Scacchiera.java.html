@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="it"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Scacchiera.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">scacchi</a> &gt; <a href="index.source.html" class="el_package">scacchiera</a> &gt; <span class="el_source">Scacchiera.java</span></div><h1>Scacchiera.java</h1><pre class="source lang-java linenums">package scacchiera;
+
+import gioco.Colore;
+import scacchiera.pedine.Alfiere;
+import scacchiera.pedine.Cavallo;
+import scacchiera.pedine.Pedone;
+import scacchiera.pedine.Re;
+import scacchiera.pedine.Regina;
+import scacchiera.pedine.Torre;
+
+/**
+ * La classe scacchiera permette di rappresentare lo stato del gioco,
+ * visualizzando i pezzi in essa. E'costituita da un numero costante di colonne
+ * e di righe. La classe scacchiera ï¿½ una matrice NxM di Celle. La classe
+ * Scacchiera e' di tipo ENTITY
+ */
+public final class Scacchiera {
+
+<span class="fc" id="L19">    private static Scacchiera istance = null;</span>
+    private Cella[][] scacchiera;
+    public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrÃ  valore 0, l'ottava avrÃ 
+						  // valore 7
+    public static final int NUMEROCOLONNE = 8;
+    public static final int NUMERORIGHE = 8;
+    /**
+     * Avvalora e inizializza la matrice di celle, una per una
+     */
+<span class="fc" id="L28">    private Scacchiera() {</span>
+<span class="fc" id="L29">	scacchiera = new Cella[getNumeroColonne()][getNumeroRighe()];</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">	for (int i = 0; i &lt; getNumeroColonne(); i++) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">	    for (int j = 0; j &lt; getNumeroRighe(); j++) {</span>
+<span class="fc" id="L32">		scacchiera[i][j] = new Cella(i, j, null);</span>
+	    }
+	}
+<span class="fc" id="L35">    }</span>
+
+    /**
+     * Costruttore statico per classe Singleton
+     */
+    public static Scacchiera getInstance() {
+<span class="fc bfc" id="L41" title="All 2 branches covered.">	if (istance == null) {</span>
+<span class="fc" id="L42">		istance = new Scacchiera();</span>
+	    }
+<span class="fc" id="L44">	return istance;</span>
+	}
+
+    /**
+     * Restituisce il numero di colonne della scacchiera
+     *
+     * @return Valore intero indicante il numero di colonne
+     */
+    public int getNumeroColonne() {
+<span class="fc" id="L53">	return NUMEROCOLONNE;</span>
+    }
+	/**
+
+    /**
+     * Restituisce il numero di righe della scacchiera
+     *
+     * @return Valore intero indicante il numero di righe
+     */
+    public int getNumeroRighe() {
+<span class="fc" id="L63">	return NUMERORIGHE;</span>
+    }
+
+    /**
+     * Date le coordinate, ritorna il riferimento di una cella della scacchiera.
+     *
+     * @param x coordinata delle colonne (valore compreso fra 0 e 7)
+     * @param y coordinata delle righe (valore compreso fra 0 e 7)
+     * @return Riferimento di tipo Cella della scacchiera in posizione (x, y)
+     */
+    public Cella getCella(final int x, final int y) {
+<span class="fc" id="L74">	return scacchiera[x][y];</span>
+    }
+
+    /**
+     * Controlla che le coordinate in input siano valide per la scacchiera, ovvero
+     * non vadano oltre i limiti.
+     *
+     * @param x coordinata delle colonne (valore compreso fra 0 e 7)
+     * @param y coordinata delle righe (valore compreso fra 0 e 7)
+     * @return true se le coordinate inserite si riferiscono ad una cella della
+     *         scacchiera, false altrimenti
+     */
+    public boolean isRangeValido(final int x, final int y) {
+<span class="fc bfc" id="L87" title="All 8 branches covered.">	return x &lt; getNumeroRighe() &amp;&amp; y &lt; getNumeroColonne() &amp;&amp; x &gt;= 0 &amp;&amp; y &gt;= 0;</span>
+    }
+
+    /**
+     * Imposta la scacchiera allo stato iniziale, con i pezzi nelle posizioni
+     * standard
+     */
+    public void inizializzaScacchiera() {
+
+<span class="fc" id="L96">	int primaRiga = Cella.coordYinInt('1');</span>
+<span class="fc" id="L97">	int ottavaRiga = Cella.coordYinInt('8');</span>
+
+<span class="fc" id="L99">	int primaTraversa = Cella.coordXinInt('a');</span>
+<span class="fc" id="L100">	int secondaTraversa = Cella.coordXinInt('b');</span>
+<span class="fc" id="L101">	int terzaTraversa = Cella.coordXinInt('c');</span>
+<span class="fc" id="L102">	int quartaTraversa = Cella.coordXinInt('d');</span>
+<span class="fc" id="L103">	int quintaTraversa = Cella.coordXinInt('e');</span>
+<span class="fc" id="L104">	int sestaTraversa = Cella.coordXinInt('f');</span>
+<span class="fc" id="L105">	int settimaTraversa = Cella.coordXinInt('g');</span>
+<span class="fc" id="L106">	int ottavaTraversa = Cella.coordXinInt('h');</span>
+
+	// permette di svuotare tutte le celle
+<span class="fc" id="L109">	svuotaScacchiera();</span>
+
+	// Inizializzazione della torre
+<span class="fc" id="L112">	getCella(primaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));</span>
+<span class="fc" id="L113">	getCella(ottavaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));</span>
+
+<span class="fc" id="L115">	getCella(primaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));</span>
+<span class="fc" id="L116">	getCella(ottavaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));</span>
+
+	// Inizializzazione del cavallo
+<span class="fc" id="L119">	getCella(secondaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));</span>
+<span class="fc" id="L120">	getCella(settimaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));</span>
+
+<span class="fc" id="L122">	getCella(secondaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));</span>
+<span class="fc" id="L123">	getCella(settimaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));</span>
+
+	// Inizializzazione dell'alfiere
+<span class="fc" id="L126">	getCella(terzaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));</span>
+<span class="fc" id="L127">	getCella(sestaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));</span>
+
+<span class="fc" id="L129">	getCella(terzaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));</span>
+<span class="fc" id="L130">	getCella(sestaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));</span>
+
+	// Inizializzazione della regina
+<span class="fc" id="L133">	getCella(quartaTraversa, primaRiga).setPezzoCorrente(new Regina(Colore.bianco));</span>
+<span class="fc" id="L134">	getCella(quartaTraversa, ottavaRiga).setPezzoCorrente(new Regina(Colore.nero));</span>
+
+	// Inizializzazione del re
+<span class="fc" id="L137">	getCella(quintaTraversa, primaRiga).setPezzoCorrente(new Re(Colore.bianco));</span>
+<span class="fc" id="L138">	getCella(quintaTraversa, ottavaRiga).setPezzoCorrente(new Re(Colore.nero));</span>
+
+	// Inizializzazione dei pedoni
+<span class="fc bfc" id="L141" title="All 2 branches covered.">	for (int i = 0; i &lt; getNumeroColonne(); i++) {</span>
+<span class="fc" id="L142">	    getCella(i, Cella.coordYinInt('7')).setPezzoCorrente(new Pedone(Colore.nero));</span>
+<span class="fc" id="L143">	    getCella(i, Cella.coordYinInt('2')).setPezzoCorrente(new Pedone(Colore.bianco));</span>
+	}
+<span class="fc" id="L145">    }</span>
+
+
+    private void svuotaScacchiera() {
+<span class="fc bfc" id="L149" title="All 2 branches covered.">	for (int i = 0; i &lt; getNumeroColonne(); i++) {</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">	    for (int j = 0; j &lt; getNumeroRighe(); j++) {</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">		if (scacchiera[i][j].isOccupato()) {</span>
+<span class="fc" id="L152">		    scacchiera[i][j].rimuoviPezzoCorrente();</span>
+		}
+	    }
+	}
+<span class="fc" id="L156">    }</span>
+
+    /**
+     * simula il movimento di un pezzo nella scacchiera
+     *
+     * @param c1 Cella di partenza di cui si vuole effettuare lo scambio
+     * @param c2 Cella di destinazione con cui si vuole effettuare lo scambio
+     */
+    public void scambiaCella(final Cella c1, final Cella c2) {
+<span class="fc" id="L165">	c2.setPezzoCorrente(c1.getPezzoCorrente());</span>
+<span class="fc" id="L166">	c2.setOccupato(c1.isOccupato());</span>
+<span class="fc" id="L167">	c1.rimuoviPezzoCorrente();</span>
+<span class="fc" id="L168">    }</span>
+
+    /**
+     * Permette di avere in output il nome del pezzo. Evita errori legati a indici
+     * errati e cella vuota.
+     *
+     * @param x coordinata delle colonne (valore compreso fra 0 e 7)
+     * @param y coordinata delle righe (valore compreso fra 0 e 7)
+     * @return Stringa indicante il nome del pezzo, se Ã¨ presente nella cella,
+     *         &quot;Vuota&quot; altrimenti
+     */
+    public String getNomePezzo(final int x, final int y) {
+<span class="fc bfc" id="L180" title="All 4 branches covered.">	if (isRangeValido(x, y) &amp;&amp; getCella(x, y).isOccupato()) {</span>
+<span class="fc" id="L181">	    return getCella(x, y).getPezzoCorrente().getNome();</span>
+
+	}
+<span class="fc" id="L184">	return &quot;Vuota&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -22,7 +22,6 @@ public final class Scacchiera {
 						  // valore 7
     public static final int NUMEROCOLONNE = 8;
     public static final int NUMERORIGHE = 8;
-
     /**
      * Avvalora e inizializza la matrice di celle, una per una
      */
@@ -40,10 +39,10 @@ public final class Scacchiera {
      */
     public static Scacchiera getInstance() {
 	if (istance == null) {
-	    istance = new Scacchiera();
-	}
+		istance = new Scacchiera();
+	    }
 	return istance;
-    }
+	}
 
     /**
      * Restituisce il numero di colonne della scacchiera
@@ -53,6 +52,7 @@ public final class Scacchiera {
     public int getNumeroColonne() {
 	return NUMEROCOLONNE;
     }
+	/**
 
     /**
      * Restituisce il numero di righe della scacchiera
@@ -142,8 +142,8 @@ public final class Scacchiera {
 	    getCella(i, Cella.coordYinInt('7')).setPezzoCorrente(new Pedone(Colore.nero));
 	    getCella(i, Cella.coordYinInt('2')).setPezzoCorrente(new Pedone(Colore.bianco));
 	}
-
     }
+
 
     private void svuotaScacchiera() {
 	for (int i = 0; i < getNumeroColonne(); i++) {
