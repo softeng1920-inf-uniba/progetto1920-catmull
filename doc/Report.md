@@ -61,6 +61,19 @@
 # <a name="test_recap"></a>Riepilogo del test
 #### <a name="coverall_stats"></a>Tabella riassuntiva di coveralls (o jacoco), con dati sul numero dei casi di test e copertura del codice
 
+Sono stati generati i test automatici tramite il testing framework open source di Java: JUnit. La copertura del codice scritto è pari al 80%.
+
+![](/doc/drawings/coverallsScacchi.png) 
+
+Seguono le immagini tratte dal report dei test automatici di JaCoCo.
+
+Le uniche classi escluse dai casi di test sono “InterfacciaUtente” e ”AppMain” poiché sono di tipo Boundary. Queste classi hanno l’esclusivo compito di comunicare con l’utente attraverso messaggi visualizzati a schermo oppure mediante richieste di inserimento da tastiera, dunque i test sui flussi di input e output sarebbero stati superflui, in quanto propri di Java. 
+
+La copertura della classe Controller è parziale poiché è stata esclusa la funzione playGame(), in quanto richiama i metodi della classe InterfacciaUtente e utilizza metodi già testati separatamente.  
+
+![](/doc/drawings/coverallsStatus.png)  
+
+
 [Torna all'indice](#indice)
 
 # <a name="user_man"></a>Manuale utente
