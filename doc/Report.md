@@ -71,12 +71,13 @@ I requisiti si suddividiono in funzionali e non funzionali: i requisiti funziona
 
 #### <a name="not_func_req"></a>Requisiti non funzionali
 <ul>
-<li> <b>RNF1</b> : il software deve essere eseguito su Linux con <i>Terminal</i>;</li>   
-<li> <b>RNF2</b> : il software deve essere eseguito su Mac OS con <i>Terminal</i>;</li>   
-<li> <b>RNF3</b> : il software deve essere eseguito su Windows con <i>Terminal del sottosistema Windows per Linux</i>, <i>Windows Terminal(preview)</i> e <i>Git Bash</i> (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....);</li>    
+<li> <b>RNF1</b> : il software deve essere eseguito su Linux con <i>Terminal</i> tramite container Docker;</li>   
+<li> <b>RNF2</b> : il software deve essere eseguito su Mac OS con <i>Terminal</i> tramite container Docker;</li>   
+<li> <b>RNF3</b> : il software deve essere eseguito su Windows con <i>Terminal del sottosistema Windows per Linux</i> e <i>Git Bash</i> (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....) tramite container Docker;</li>    
 <li> <b>RNF4</b>: il software deve mostrare la scacchiera contenente i pezzi in formato UTF-8 (Unicode Transformation Format, 8 bit);</li>  
 <li> <b>RNF5</b>: il software è stato sviluppato con il linguaggio Java;</li>   
-
+<li> <b>RNF6</b> : le build del software devono essere costruite con successo;</li>  
+<li> <b>RNF7</b> : il software deve avere l'immagine Docker caricata con successo nella repository delle immagini Docker;</li>  
 </ul>
 </ol>
 
