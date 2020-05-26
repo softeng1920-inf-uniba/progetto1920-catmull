@@ -54,4 +54,5 @@ public class Comando {
 	public String toString() {
 		return String.format("\u2022 " + "\033[1;37m" + nome + "\u001B[0m" + " -->    " + descrizione);
 	}
+
 }

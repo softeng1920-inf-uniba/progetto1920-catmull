@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="scacchiera.pedine.TestRegina" tests="25" skipped="0" failures="0" errors="0" timestamp="2020-05-26T08:29:46" hostname="LAPTOP-5EBE22AV" time="0.43">
+  <properties/>
+  <testcase name="testIsMossaValida_Sx_Occupato()" classname="scacchiera.pedine.TestRegina" time="0.004"/>
+  <testcase name="testIsMossaValida_Basso()" classname="scacchiera.pedine.TestRegina" time="0.015"/>
+  <testcase name="testConvertiMossa_Mangiata()" classname="scacchiera.pedine.TestRegina" time="0.002"/>
+  <testcase name="testConvertiMossa_BassoDx()" classname="scacchiera.pedine.TestRegina" time="0.004"/>
+  <testcase name="testConvertiMossa_BassoSx()" classname="scacchiera.pedine.TestRegina" time="0.002"/>
+  <testcase name="testIsMossaValida_AltoSx_Occupato()" classname="scacchiera.pedine.TestRegina" time="0.003"/>
+  <testcase name="testIsMossaValida_AltoDx()" classname="scacchiera.pedine.TestRegina" time="0.002"/>
+  <testcase name="testIsMossaValida_AltoSx()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_BassoSx_Occupato()" classname="scacchiera.pedine.TestRegina" time="0.08"/>
+  <testcase name="testIsMossaValida_Dx_Occupato()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_Alto()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testConvertiMossa_AltoDx()" classname="scacchiera.pedine.TestRegina" time="0.005"/>
+  <testcase name="testConvertiMossa_AltoSx()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_BassoDx()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_BassoSx()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_Mangiata()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testConvertiMossa()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_AltoDx_Occupato()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_Dx()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_Sx()" classname="scacchiera.pedine.TestRegina" time="0.002"/>
+  <testcase name="testIsMossaValida_BassoDx_Occupato()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_Alto_Occupato()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testConvertiMossa_MangiataVuota()" classname="scacchiera.pedine.TestRegina" time="0.002"/>
+  <testcase name="testIsMossaValida()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <testcase name="testIsMossaValida_BassoOccupato()" classname="scacchiera.pedine.TestRegina" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
