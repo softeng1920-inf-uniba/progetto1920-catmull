@@ -8,13 +8,10 @@
 	- [Requisiti funzionali](#func_req)
 	- [Requisiti non funzionali](#not_func_req)
 1. [System Design](#sys_des)
-	- [Stile architetturale adottato (opzionale)](#arch_style)
-	- [Diagramma dei package, diagramma dei componenti (opzionali)](#pkg_cmpnts_diag)
-	- [Commentare le decisioni prese (opzionale)](#comments1)
+	- [Diagramma dei package, diagramma dei componenti](#pkg_cmpnts_diag)
 1. [OO Design](#oo_design)
-	- [Diagrammi delle classi e diagrammi di sequenza *(per le user story considerate più importanti)*](#class_seq_diag)
-	- [Menzionare l'eventuale applicazione di design pattern *(opzionale)*](#design_patt)
-	- [Commentare le decisioni prese *(opzionale)*](#comments2)
+	- [Diagrammi delle classi e diagrammi di sequenza](#class_seq_diag)
+	- [Applicazione design pattern](#design_patt)
 1. [Riepilogo del test](#test_recap)
 	- [Riportare la tabella riassuntiva di coveralls (o jacoco), con dati sul numero dei casi di test e copertura del codice](#coverall_stats)
 1. [Manuale utente](#user_man)
@@ -24,11 +21,13 @@
 	* [Cosa vi ha fatto sentire insoddisfatti e vi ha deluso](#sad)
 	* [Cosa vi ha fatto «impazzire» e vi ha reso disperati](#crazy)
 
-
 <ol>
 <li>
 
 # <a name="intro"></a>Introduzione
+
+[Torna all'indice](#indice)
+
 
 ## <a name="cenni"> </a> i. &#160; Cenni storici
 
@@ -119,14 +118,12 @@ ed eventuali aspetti considerati poco motivanti. </li>
 </li>
 <li>
 
-[Torna all'indice](#indice)
 
 # <a name="dom_mod"></a>Modello di dominio
 
-
+[Torna all'indice](#indice)
 <p align="center"><img src="drawings/ModelloDiDominio.png" width=100% height=100%></p>
 
-[Torna all'indice](#indice)
 </li>
 <li>
 
@@ -196,11 +193,9 @@ Per i diagrammi di sequenza sono stati riportati i nomi delle classi poichè son
 
 - `Inizia nuova partita`: 
  E' stata scelta questa user story poiché, dopo l'inserimento del comando "Play", permette di iniziare una nuova partita e predispone l'applicazione all'acquisizione di un comando.  
- 
 ![](/doc/drawings/IniziaNuovaPartita.png)  
   
-![](/doc/drawings/IniziaNuovaPartita2.png)  
-
+![](/doc/drawings/IniziaNuovaPartita2.png)    
 Il diagramma di sequenza evidenzia la differenza del comportamento del programma a seconda del momento in cui viene inserito il comando.
 Nello specifico, quando si inserisce il comando all'inizio dell'applicazione, è la classe AppMain che richiama il Controller che a
 sua volta inizializza le classi Scacchiera e Turno. Invece, se l'utente inserisce il comando Play durante una partita, la gestione avviene
@@ -211,34 +206,27 @@ comando "board".
 ![](/doc/drawings/MostrareLaScacchiera.png) 
   
 ![](/doc/drawings/MostrareLaScacchiera2.png)   
-
 Come si può notare dal diagramma di sequenza, se il comando è inserito prima dell'inizio di una nuova partita, la gestione e le chiamate ai metodi della classe InterfacciaUtente sono affidate alla classe AppMain, altrimenti questo avviene nella classe Controller.   
 
-- `Mostrare le mosse giocate`  
-
+- `Mostrare le mosse giocate`   
 ![](/doc/drawings/MostrareLeMosseGiocate.png)   
   
 ![](/doc/drawings/MostrareLeMosseGiocate2.png)    
-
 Analogamente alle user story precedenti, è stata fatta una distinzione nel diagramma di sequenza, in quanto all'inserimento del comando "moves" l'applicazione restistituisce le mosse giocate da entrambi i giocatori, quindi se viene inserito prima dell'inizio del gioco verrà restituito un messaggio di errore.   
 
 - `Muovere un pedone`: Questa user story è stata scelta in quanto il pedone è l'unica pedina con una mossa speciale, ovvero l'en passant, ed esemplifica la gestione delle mosse e delle catture all'interno del gioco.   
-
 ![](/doc/drawings/MuoverePedone.png)   
   
 ![](/doc/drawings/MuoverePedone2.png)   
-
 Al fine di non appesantire il diagramma di sequenza, sono riportate solo le chiamate e i messaggi più importanti. Inoltre, la gestione della mossa avviene nella classe Controller, il cui metodo principale è mossaScacchi, e nella classe Pedone, il cui metodo principale è isMossaValida.   
 
 ### <p align=center><strong>Sprint 2:</strong></p>
 - `Muovere il re`: Il re è la pedina più importante nel gioco degli scacchi. E' fondamentale conoscere la sua implementazione perchè ad ogni mossa l'utente
 non deve lasciare il proprio re sotto scacco. Per questo, con l'aggiunta di questa user story, possiamo rappresentare la gestione delle mosse in modo
 globale.   
-
 ![](/doc/drawings/MuovereRe.png)   
   
-Nel diagramma delle classi sono state inserite, a differenza dei precedenti, tutte le classi che rappresentano una pedina, in quanto sono necessarie per poter verificare che una mossa non implichi lo scacco del re.  
-
+Nel diagramma delle classi sono state inserite, a differenza dei precedenti, tutte le classi che rappresentano una pedina, in quanto sono necessarie per poter verificare che una mossa non implichi lo scacco del re.   
 ![](/doc/drawings/MuovereRe2.png) 
   
 Il diagramma di sequenza è uguale al precedente con la differenza della classe Re al posto della classe Pedone.    
@@ -270,7 +258,7 @@ Per esempio, la classe Scacchiera non deve comunicare direttamente con la classe
 
 Sono stati generati i test automatici tramite il testing framework open source di Java: JUnit. La copertura del codice scritto è pari all'80%.
 
-![](/res/img/report/coverallsScacchi.png)
+![](/res/img/coverallsScacchi.png)
 
 Seguono le immagini tratte dal report dei test automatici di Coveralls.
 
@@ -278,7 +266,7 @@ Le uniche classi escluse dai casi di test sono “InterfacciaUtente” e ”AppM
 
 La copertura della classe Controller è parziale poiché è stata esclusa la funzione playGame(), in quanto richiama i metodi della classe InterfacciaUtente e utilizza metodi già testati separatamente.  
 
-![](/res/img/report/coverallsStatus.png)  
+![](/res/img/coverallsStatus.png)  
 
 
 [Torna all'indice](#indice)
@@ -390,7 +378,7 @@ Qui di seguito elenchiamo le possibili combinazioni:
 
 In questa ambiguità una delle due torri potrebbe avanzare sulla colonna e l'altra sulla traversa.
 Per disambiguare, l'utente dovrà inserire la seguente mossa:
-lettera T (in maiuscolo),seguita dalla colonna (lettera compresa tra a ed h)di partenza della torre da disambiguare, dalla colonna (lettera compresa tra a ed h) e dalla traversa (numero compreso tra 1 e 8) di destinazione.
+lettera T (in maiuscolo),seguita dalla colonna (lettera compresa tra a ed h)di partenza della torre da disambiguare, dalla colonna (lettera compresa tra a ed h) e dalla traversa (numero compreso tra 1 e 8) di destinazione.RIVEDERE SE ANCHE TRAVERSA
 
 
 ![](/res/img/report/Report-ambiguita_l.png) Ambiguità "ad L"  
