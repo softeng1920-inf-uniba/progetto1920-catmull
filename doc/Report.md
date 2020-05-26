@@ -118,7 +118,7 @@ Il workflow utilizzato da ogni membro del team è stato il `Github Flow` in cui 
 
 5. Con il comando `git commit -m "<descrizione>`, sono stati effettuati commit per ogni operazione consistente svolta sul progetto. Ogni commit è caratterizzato da una breve descrizione avente lo scopo di riassumere l'operazione effettuata;  
 
-6. Tramite il comando `git push origin <nome branch>` è stato aggiornato il branch sul server origin in GitHub;   
+6. Tramite il comando `git push origin <nome branch>` è stato aggiornato il branch sulla sorgente remota (origin) in GitHub;   
 
 7. Ogni parte del codice correttamente implementata è stata testata con opportuni test di unità;  
 
