@@ -51,7 +51,6 @@ public final class Turno {
     public Giocatore getGiocatoreInTurno() {
 	return giocatoreInTurno;
     }
-  
     /**
      * Metodo che permette di ottenere il giocatore in attesa
 	 * @return  Giocatore in attesa
@@ -60,20 +59,19 @@ public final class Turno {
 	return giocatoreInAttesa;
     }
 
-   /**
-	  * Modifica l'attributo di classe giocatoreInTurno
-	  *
-	  * @param  m Stringa indicante il giocatore che deve risultare in turno
-	  */
+    /**
+	 * Modifica l'attributo di classe giocatoreInTurno
+	 *
+	 * @param  m Stringa indicante il giocatore che deve risultare in turno
+	 */
     public void setNomeGiocatoreInTurno(final String m) {
 	giocatoreInTurno.setNome(m);
     }
-  
-   /**
-	  *  Modifica l'attributo di classe giocatoreInTurno
-	  *
-	  * @param  m Stringa indicante il giocatore che risultera' essere in attesa
-	  */
+    /**
+	 *  Modifica l'attributo di classe giocatoreInTurno
+	 *
+	 * @param  m Stringa indicante il giocatore che risultera' essere in attesa
+	 */
     public void setNomeGiocatoreInAttesa(final String m) {
     	giocatoreInAttesa.setNome(m);
 	}

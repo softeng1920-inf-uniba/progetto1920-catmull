@@ -7,23 +7,18 @@
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Giocatore.java">
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/InterfacciaUtente.java">
-<error line="181" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Menu.java">
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/gioco/Turno.java">
-<error line="54" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
-<error line="71" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/AppMain.java">
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/it/uniba/main/Controller.java">
-<error line="41" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/Cella.java">
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/Scacchiera.java">
-<error line="61" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Alfiere.java">
 </file>
@@ -34,7 +29,6 @@
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Pezzo.java">
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Re.java">
-<error line="218" severity="error" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
 <file name="/Users/antoniocurci/progetto1920-catmull/src/main/java/scacchiera/pedine/Regina.java">
 </file>

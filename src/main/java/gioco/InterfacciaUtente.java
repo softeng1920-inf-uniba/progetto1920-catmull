@@ -178,7 +178,6 @@ public final class InterfacciaUtente {
 		+ CYAN + " #" + CYAN + "     #" + CYAN + " #" + ANSI_RESET + "#" + CYAN + "#" + CYAN + "   )___(");
 	System.out.print(ANSI_RESET);
 	}
-    
     /**
 	  * Stampa a video il nome del giocatore in turno chiamando
 	  * il metodo di classe della classe Giocatore

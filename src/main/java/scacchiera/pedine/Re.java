@@ -215,7 +215,6 @@ public final class Re extends Pezzo {
 	}
 	return mossaConvertita;
     }
-    
     /**
 	 * Controlla se il re e' sotto scacco
 	 *

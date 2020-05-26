@@ -49,19 +49,18 @@ public final class Scacchiera {
 	}
 
    /**
-    * Restituisce il numero di colonne della scacchiera
-	  *
-	  * @return  Intero indicante il numero di colonne
-	  */
+     * Restituisce il numero di colonne della scacchiera
+	 *
+	 * @return  Intero indicante il numero di colonne
+	 */
     public int getNumeroColonne() {
 	return NUMEROCOLONNE;
     }
-
    /**
-	  * Restituisce il numero di righe della scacchiera 
-	  *
- 	  * @return  Intero indicante il numero di righe
-	  */
+    * Restituisce il numero di righe della scacchiera
+    *
+    * @return  Intero indicante il numero di righe
+    */
     public int getNumeroRighe() {
 	return NUMERORIGHE;
     }

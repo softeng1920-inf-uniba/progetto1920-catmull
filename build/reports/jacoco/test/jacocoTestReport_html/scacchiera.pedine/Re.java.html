@@ -215,7 +215,6 @@ public final class Re extends Pezzo {
 	}
 <span class="fc" id="L216">	return mossaConvertita;</span>
     }
-    
     /**
 	 * Controlla se il re e' sotto scacco
 	 *
@@ -223,22 +222,22 @@ public final class Re extends Pezzo {
 	 * @return  true se il re e' sotto scacco, false altrimenti
 	 */
     public boolean isReSottoScacco(final Cella reCella) {
-<span class="fc" id="L226">	Colore c = getColore();</span>
-<span class="fc" id="L227">	Re reTemp = new Re(c);</span>
-<span class="fc" id="L228">	Cella temp = new Cella(reCella.getX(), reCella.getY(), reTemp);</span>
-<span class="fc" id="L229">	temp.setOccupato(true);</span>
-<span class="fc bfc" id="L230" title="All 2 branches covered.">	for (int i = 0; i &lt; Scacchiera.getInstance().getNumeroRighe(); i++) {</span>
-<span class="fc bfc" id="L231" title="All 2 branches covered.">	    for (int j = 0; j &lt; Scacchiera.getInstance().getNumeroColonne(); j++) {</span>
-<span class="fc bfc" id="L232" title="All 2 branches covered.">		if (Scacchiera.getInstance().getNomePezzo(i, j) != &quot;Vuota&quot;</span>
-<span class="fc bfc" id="L233" title="All 2 branches covered.">			&amp;&amp; Scacchiera.getInstance().getCella(i, j).getPezzoCorrente().getColore() != c</span>
-<span class="fc bfc" id="L234" title="All 2 branches covered.">			&amp;&amp; Scacchiera.getInstance().getNomePezzo(i, j) != &quot;Re&quot;</span>
-<span class="fc" id="L235">			&amp;&amp; Scacchiera.getInstance().getCella(i, j).getPezzoCorrente()</span>
-<span class="pc bpc" id="L236" title="1 of 2 branches missed.">				.isMossaValida(Scacchiera.getInstance().getCella(i, j), temp)) {</span>
-<span class="nc" id="L237">		    return true;</span>
+<span class="fc" id="L225">	Colore c = getColore();</span>
+<span class="fc" id="L226">	Re reTemp = new Re(c);</span>
+<span class="fc" id="L227">	Cella temp = new Cella(reCella.getX(), reCella.getY(), reTemp);</span>
+<span class="fc" id="L228">	temp.setOccupato(true);</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">	for (int i = 0; i &lt; Scacchiera.getInstance().getNumeroRighe(); i++) {</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">	    for (int j = 0; j &lt; Scacchiera.getInstance().getNumeroColonne(); j++) {</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">		if (Scacchiera.getInstance().getNomePezzo(i, j) != &quot;Vuota&quot;</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">			&amp;&amp; Scacchiera.getInstance().getCella(i, j).getPezzoCorrente().getColore() != c</span>
+<span class="fc bfc" id="L233" title="All 2 branches covered.">			&amp;&amp; Scacchiera.getInstance().getNomePezzo(i, j) != &quot;Re&quot;</span>
+<span class="fc" id="L234">			&amp;&amp; Scacchiera.getInstance().getCella(i, j).getPezzoCorrente()</span>
+<span class="pc bpc" id="L235" title="1 of 2 branches missed.">				.isMossaValida(Scacchiera.getInstance().getCella(i, j), temp)) {</span>
+<span class="nc" id="L236">		    return true;</span>
 		}
 	    }
 	}
-<span class="fc" id="L241">	return false;</span>
+<span class="fc" id="L240">	return false;</span>
     }
 
    /**
@@ -250,18 +249,18 @@ public final class Re extends Pezzo {
 	  * @return  true se la prima mossa del re o della torre e' stata effettuata, false altrimenti
 	  */
     public static boolean isPrimaMossaEffettuata(final ArrayList&lt;String&gt; storicoMosse, final int tipoArrocco) {
-<span class="fc" id="L253">	final short numGiocatori = 2;</span>
-<span class="fc bfc" id="L254" title="All 2 branches covered.">	for (int i = 0; i &lt; storicoMosse.size(); i++) {</span>
-<span class="fc bfc" id="L255" title="All 6 branches covered.">	    if ((tipoArrocco == Menu.ARROCCO_CORTO &amp;&amp; storicoMosse.get(i).matches(&quot;(h|e)(1|8) [a-h][1-8]&quot;))</span>
-<span class="pc bpc" id="L256" title="1 of 2 branches missed.">		    || (tipoArrocco == Menu.ARROCCO_LUNGO &amp;&amp; storicoMosse.get(i).matches(&quot;(e|a)(1|8) [a-h][1-8]&quot;))) {</span>
-<span class="pc bpc" id="L257" title="2 of 6 branches missed.">		if (((i % numGiocatori) == 0 &amp;&amp; Turno.getInstance().getGiocatoreInTurno().getColore() == Colore.bianco)</span>
+<span class="fc" id="L252">	final short numGiocatori = 2;</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">	for (int i = 0; i &lt; storicoMosse.size(); i++) {</span>
+<span class="fc bfc" id="L254" title="All 6 branches covered.">	    if ((tipoArrocco == Menu.ARROCCO_CORTO &amp;&amp; storicoMosse.get(i).matches(&quot;(h|e)(1|8) [a-h][1-8]&quot;))</span>
+<span class="pc bpc" id="L255" title="1 of 2 branches missed.">		    || (tipoArrocco == Menu.ARROCCO_LUNGO &amp;&amp; storicoMosse.get(i).matches(&quot;(e|a)(1|8) [a-h][1-8]&quot;))) {</span>
+<span class="pc bpc" id="L256" title="2 of 6 branches missed.">		if (((i % numGiocatori) == 0 &amp;&amp; Turno.getInstance().getGiocatoreInTurno().getColore() == Colore.bianco)</span>
 			|| ((i % numGiocatori) != 0
-<span class="nc bnc" id="L259" title="All 2 branches missed.">				&amp;&amp; Turno.getInstance().getGiocatoreInTurno().getColore() == Colore.nero)) {</span>
-<span class="fc" id="L260">		    return true;</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">				&amp;&amp; Turno.getInstance().getGiocatoreInTurno().getColore() == Colore.nero)) {</span>
+<span class="fc" id="L259">		    return true;</span>
 		}
 	    }
 	}
-<span class="fc" id="L264">	return false;</span>
+<span class="fc" id="L263">	return false;</span>
     }
 
    /**
@@ -270,23 +269,23 @@ public final class Re extends Pezzo {
 	  * @return Cella che contiene il Re
 	  */
     public static Cella findRe() {
-<span class="fc" id="L273">	int startX = -1;</span>
-<span class="fc" id="L274">	int startY = -1;</span>
+<span class="fc" id="L272">	int startX = -1;</span>
+<span class="fc" id="L273">	int startY = -1;</span>
 	// ricerca il re del giocatore in turno
-<span class="pc bpc" id="L276" title="1 of 2 branches missed.">	for (int i = 0; i &lt; Scacchiera.getInstance().getNumeroColonne(); i++) {</span>
-<span class="fc bfc" id="L277" title="All 2 branches covered.">	    for (int j = 0; j &lt; Scacchiera.getInstance().getNumeroRighe(); j++) {</span>
-<span class="fc bfc" id="L278" title="All 2 branches covered.">		if (Scacchiera.getInstance().getNomePezzo(i, j) == &quot;Re&quot; &amp;&amp; Scacchiera.getInstance().getCella(i, j)</span>
-<span class="fc bfc" id="L279" title="All 2 branches covered.">			.getPezzoCorrente().getColore() == Turno.getInstance().getGiocatoreInTurno().getColore()) {</span>
-<span class="fc" id="L280">		    startX = i;</span>
-<span class="fc" id="L281">		    startY = j;</span>
-<span class="fc" id="L282">		    break;</span>
+<span class="pc bpc" id="L275" title="1 of 2 branches missed.">	for (int i = 0; i &lt; Scacchiera.getInstance().getNumeroColonne(); i++) {</span>
+<span class="fc bfc" id="L276" title="All 2 branches covered.">	    for (int j = 0; j &lt; Scacchiera.getInstance().getNumeroRighe(); j++) {</span>
+<span class="fc bfc" id="L277" title="All 2 branches covered.">		if (Scacchiera.getInstance().getNomePezzo(i, j) == &quot;Re&quot; &amp;&amp; Scacchiera.getInstance().getCella(i, j)</span>
+<span class="fc bfc" id="L278" title="All 2 branches covered.">			.getPezzoCorrente().getColore() == Turno.getInstance().getGiocatoreInTurno().getColore()) {</span>
+<span class="fc" id="L279">		    startX = i;</span>
+<span class="fc" id="L280">		    startY = j;</span>
+<span class="fc" id="L281">		    break;</span>
 		}
 	    }
-<span class="fc bfc" id="L285" title="All 2 branches covered.">	    if (startX != -1) {</span>
-<span class="fc" id="L286">		break;</span>
+<span class="fc bfc" id="L284" title="All 2 branches covered.">	    if (startX != -1) {</span>
+<span class="fc" id="L285">		break;</span>
 	    }
 	}
-<span class="fc" id="L289">	return Scacchiera.getInstance().getCella(startX, startY);</span>
+<span class="fc" id="L288">	return Scacchiera.getInstance().getCella(startX, startY);</span>
     }
 
 }

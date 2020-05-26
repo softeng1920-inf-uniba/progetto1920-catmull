@@ -38,7 +38,6 @@ public final class Controller {
 	menuGioco = Menu.getInstance();
 	turnoGioco = Turno.getInstance();
     }
-  
     /**
      * Costruttore privato per classe Singleton
      */
