@@ -65,7 +65,7 @@ Sono stati generati i test automatici tramite il testing framework open source d
 
 ![](/doc/drawings/coverallsScacchi.png) 
 
-Seguono le immagini tratte dal report dei test automatici di JaCoCo.
+Seguono le immagini tratte dal report dei test automatici di Coveralls.
 
 Le uniche classi escluse dai casi di test sono “InterfacciaUtente” e ”AppMain” poiché sono di tipo Boundary. Queste classi hanno l’esclusivo compito di comunicare con l’utente attraverso messaggi visualizzati a schermo oppure mediante richieste di inserimento da tastiera, dunque i test sui flussi di input e output sarebbero stati superflui, in quanto propri di Java. 
 
