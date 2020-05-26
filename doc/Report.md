@@ -91,7 +91,11 @@ Allo sprint planning è seguito lo **sprint backlog**, in cui il gruppo ha indiv
 Come mezzo di comunicazione tra il product owner, i vari gruppi e gli stessi membri del gruppo, è stato utilizzato il software **Slack**.    
 Per comunicare con il product owner e gli altri team è stato usato il workspace *softeng1920* suddiviso in cinque canali pubblici: `assistenza`, `reclami`, `general`, `consegne`, `cercooffrogruppo`.  
 
-Il canale `assistenza` è utilizzato per presentare le difficoltà riscontrate durante lo sprint e chiedere aiuto al committente o ai membri degli altri team; il canale `consegne` viene utilizzato per comunicare al committente di aver terminato il lavoro; il canale `cercooffrogruppo` è stato utilizzato solo nella fase precedente all'inizio del progetto con lo scopo di agevolare la formazione di team; il canale `general` viene utilizzato dal product owner per comunicare informazioni utili allo svolgimento del progetto; il canale `reclami` è utilizzato dopo la fine di ogni sprint per presentare un'eventuale dubbio riguardo alla valutazione attribuita allo sprint.  
+Il canale `assistenza` è stato utilizzato per presentare le difficoltà riscontrate durante lo sprint e chiedere aiuto al committente o ai membri degli altri team;  
+il canale `consegne` è stato utilizzato per comunicare al committente di aver terminato il lavoro;  
+il canale `cercooffrogruppo` è stato utilizzato solo nella fase precedente all'inizio del progetto con lo scopo di agevolare la formazione di team;  
+il canale `general` è stato utilizzato dal product owner per comunicare informazioni utili allo svolgimento del progetto;  
+il canale `reclami` è stato utilizzato dopo la fine di ogni sprint per presentare un'eventuale dubbio riguardo alla valutazione attribuita allo sprint.  
   
 ![](/res/img/report/slack1.png)  
 
