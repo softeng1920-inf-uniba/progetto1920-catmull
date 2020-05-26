@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="gioco.ComandoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-25T23:19:58" hostname="DESKTOP-4L7G6SD" time="0.147">
+<testsuite name="gioco.ComandoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-26T08:29:45" hostname="LAPTOP-5EBE22AV" time="0.075">
   <properties/>
-  <testcase name="testToString()" classname="gioco.ComandoTest" time="0.143"/>
+  <testcase name="testToString()" classname="gioco.ComandoTest" time="0.072"/>
   <testcase name="testGetNome()" classname="gioco.ComandoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

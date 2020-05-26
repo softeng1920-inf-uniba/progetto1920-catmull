@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="gioco.GiocatoreTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-05-25T23:19:58" hostname="DESKTOP-4L7G6SD" time="0.358">
+<testsuite name="gioco.GiocatoreTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-05-26T08:29:45" hostname="LAPTOP-5EBE22AV" time="0.132">
   <properties/>
-  <testcase name="testAddPezziCatturati()" classname="gioco.GiocatoreTest" time="0.272"/>
-  <testcase name="testIsEmptyPezziCatturati()" classname="gioco.GiocatoreTest" time="0.011"/>
-  <testcase name="testGetNome()" classname="gioco.GiocatoreTest" time="0.01"/>
-  <testcase name="testGetPezziCatturati()" classname="gioco.GiocatoreTest" time="0.015"/>
-  <testcase name="testRemovePezzoCatturato()" classname="gioco.GiocatoreTest" time="0.017"/>
-  <testcase name="testGetColore()" classname="gioco.GiocatoreTest" time="0.01"/>
+  <testcase name="testAddPezziCatturati()" classname="gioco.GiocatoreTest" time="0.047"/>
+  <testcase name="testIsEmptyPezziCatturati()" classname="gioco.GiocatoreTest" time="0.015"/>
+  <testcase name="testGetNome()" classname="gioco.GiocatoreTest" time="0.029"/>
+  <testcase name="testGetPezziCatturati()" classname="gioco.GiocatoreTest" time="0.008"/>
+  <testcase name="testRemovePezzoCatturato()" classname="gioco.GiocatoreTest" time="0.004"/>
+  <testcase name="testGetColore()" classname="gioco.GiocatoreTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

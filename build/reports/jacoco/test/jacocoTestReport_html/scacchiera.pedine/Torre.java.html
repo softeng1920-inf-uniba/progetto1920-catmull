@@ -45,14 +45,14 @@ public final class Torre extends Pezzo {
 <span class="fc" id="L45">	Colore giocatoreCorrente = Turno.getInstance().getGiocatoreInTurno().getColore();</span>
 <span class="fc" id="L46">	final short posSimboloCattura = 3;</span>
 	char ambiguita;
-<span class="pc bpc" id="L48" title="3 of 4 branches missed.">	if (mossa.length() &gt; DIM_MOSSA_NON_AMBIGUA &amp;&amp; mossa.charAt(1) != 'x') {</span>
-<span class="nc" id="L49">	    ambiguita = mossa.charAt(1);</span>
+<span class="fc bfc" id="L48" title="All 4 branches covered.">	if (mossa.length() &gt; DIM_MOSSA_NON_AMBIGUA &amp;&amp; mossa.charAt(1) != 'x') {</span>
+<span class="fc" id="L49">	    ambiguita = mossa.charAt(1);</span>
 	} else {
 <span class="fc" id="L51">	    ambiguita = ' ';</span>
 	}
 <span class="pc bpc" id="L53" title="1 of 2 branches missed.">	if (mossa.matches(regex)) {</span>
 	    // Controlla eventuale Cattura
-<span class="pc bpc" id="L55" title="1 of 2 branches missed.">	    isMossaCattura = (mossa.charAt(mossa.length() - posSimboloCattura) == 'x'</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">	    isMossaCattura = (mossa.charAt(mossa.length() - posSimboloCattura) == 'x'</span>
 <span class="pc bpc" id="L56" title="1 of 2 branches missed.">		    || mossa.charAt(mossa.length() - posSimboloCattura) == ':');</span>
 
 <span class="fc" id="L58">	    ArrayList&lt;String&gt; possibiliPosColonna = new ArrayList&lt;String&gt;(checkPosTorreColonna(eX, giocatoreCorrente));</span>
@@ -61,31 +61,31 @@ public final class Torre extends Pezzo {
 <span class="fc" id="L61">	    String posRiga = posizioneValidaRiga(possibiliPosRiga, eX, eY, giocatoreCorrente);</span>
 <span class="fc" id="L62">	    String posColonna = posizioneValidaColonna(possibiliPosColonna, eX, eY, giocatoreCorrente);</span>
 
-<span class="pc bpc" id="L64" title="2 of 4 branches missed.">	    if (!posColonna.equals(MOSSA_NON_VALIDA) &amp;&amp; !posRiga.equals(MOSSA_NON_VALIDA)) {</span>
+<span class="fc bfc" id="L64" title="All 4 branches covered.">	    if (!posColonna.equals(MOSSA_NON_VALIDA) &amp;&amp; !posRiga.equals(MOSSA_NON_VALIDA)) {</span>
 		// Ambiguita L
-<span class="nc bnc" id="L66" title="All 2 branches missed.">		if (ambiguita != ' ') {</span>
-<span class="nc bnc" id="L67" title="All 4 branches missed.">		    if (posColonna.charAt(1) == ambiguita || posColonna.charAt(0) == ambiguita) {</span>
-<span class="nc" id="L68">			return posColonna;</span>
-<span class="nc bnc" id="L69" title="All 4 branches missed.">		    } else if (posRiga.charAt(1) == ambiguita || posRiga.charAt(0) == ambiguita) {</span>
-<span class="nc" id="L70">			return posRiga;</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">		if (ambiguita != ' ') {</span>
+<span class="fc bfc" id="L67" title="All 4 branches covered.">		    if (posColonna.charAt(1) == ambiguita || posColonna.charAt(0) == ambiguita) {</span>
+<span class="fc" id="L68">			return posColonna;</span>
+<span class="pc bpc" id="L69" title="1 of 4 branches missed.">		    } else if (posRiga.charAt(1) == ambiguita || posRiga.charAt(0) == ambiguita) {</span>
+<span class="fc" id="L70">			return posRiga;</span>
 		    }
 		}
-<span class="pc bpc" id="L73" title="5 of 6 branches missed.">	    } else if (posColonna.equals(MOSSA_NON_VALIDA) &amp;&amp; posRiga.equals(MOSSA_NON_VALIDA) &amp;&amp; ambiguita != ' ') {</span>
+<span class="fc bfc" id="L73" title="All 6 branches covered.">	    } else if (posColonna.equals(MOSSA_NON_VALIDA) &amp;&amp; posRiga.equals(MOSSA_NON_VALIDA) &amp;&amp; ambiguita != ' ') {</span>
 		// Ambiguita riga colonna
-<span class="nc bnc" id="L75" title="All 2 branches missed.">		if (Character.isDigit(ambiguita)) {</span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">		    if (isMossaValidaPezzo(eX, Cella.coordYinInt(ambiguita), eX, eY, giocatoreCorrente)) {</span>
-<span class="nc" id="L77">			return destX + &quot;&quot; + ambiguita + &quot; &quot; + destX + &quot;&quot; + destY;</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		if (Character.isDigit(ambiguita)) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		    if (isMossaValidaPezzo(eX, Cella.coordYinInt(ambiguita), eX, eY, giocatoreCorrente)) {</span>
+<span class="fc" id="L77">			return destX + &quot;&quot; + ambiguita + &quot; &quot; + destX + &quot;&quot; + destY;</span>
 		    }
-<span class="nc bnc" id="L79" title="All 2 branches missed.">		} else if (isMossaValidaPezzo(Cella.coordXinInt(ambiguita), eY, eX, eY, giocatoreCorrente)) {</span>
-<span class="nc" id="L80">		    return ambiguita + &quot;&quot; + destY + &quot; &quot; + destX + &quot;&quot; + destY;</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">		} else if (isMossaValidaPezzo(Cella.coordXinInt(ambiguita), eY, eX, eY, giocatoreCorrente)) {</span>
+<span class="fc" id="L80">		    return ambiguita + &quot;&quot; + destY + &quot; &quot; + destX + &quot;&quot; + destY;</span>
 		}
-<span class="pc bpc" id="L82" title="3 of 4 branches missed.">	    } else if (!posRiga.equals(MOSSA_NON_VALIDA) &amp;&amp; ambiguita == ' ') {</span>
-<span class="nc" id="L83">		return posRiga;</span>
-<span class="pc bpc" id="L84" title="2 of 4 branches missed.">	    } else if (!posColonna.equals(MOSSA_NON_VALIDA) &amp;&amp; ambiguita == ' ') {</span>
+<span class="fc bfc" id="L82" title="All 4 branches covered.">	    } else if (!posRiga.equals(MOSSA_NON_VALIDA) &amp;&amp; ambiguita == ' ') {</span>
+<span class="fc" id="L83">		return posRiga;</span>
+<span class="fc bfc" id="L84" title="All 4 branches covered.">	    } else if (!posColonna.equals(MOSSA_NON_VALIDA) &amp;&amp; ambiguita == ' ') {</span>
 <span class="fc" id="L85">		return posColonna;</span>
 	    }
 	}
-<span class="nc" id="L88">	return MOSSA_NON_VALIDA;</span>
+<span class="fc" id="L88">	return MOSSA_NON_VALIDA;</span>
 
     }
 
@@ -103,19 +103,19 @@ public final class Torre extends Pezzo {
 <span class="fc" id="L103">	    temp = possibiliPosizioniColonna.get(i);</span>
 <span class="fc" id="L104">	    sX = Cella.coordXinInt(temp.charAt(0));</span>
 <span class="fc" id="L105">	    sY = Cella.coordYinInt(temp.charAt(1));</span>
-<span class="pc bpc" id="L106" title="1 of 2 branches missed.">	    if (isMossaValidaPezzo(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">	    if (isMossaValidaPezzo(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {</span>
 <span class="fc" id="L107">		count++;</span>
 <span class="fc" id="L108">		posColonna = temp + &quot; &quot; + Cella.coordXinChar(eX) + &quot;&quot; + Cella.coordYinChar(eY);</span>
 	    }
 <span class="fc" id="L110">	    i++;</span>
 	}
-<span class="pc bpc" id="L112" title="1 of 2 branches missed.">	if (count == 1) {</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">	if (count == 1) {</span>
 <span class="fc" id="L113">	    return posColonna;</span>
 	}
 	// Ritorna mossa non valida se nel vettore possibiliPosizioniColonna sono
 	// presenti due possibili posizioni
 	// di partenza della torre valide pertanto siamo nel caso di ambiguita
-<span class="nc" id="L118">	return MOSSA_NON_VALIDA;</span>
+<span class="fc" id="L118">	return MOSSA_NON_VALIDA;</span>
 
     }
 
@@ -128,19 +128,19 @@ public final class Torre extends Pezzo {
 <span class="fc" id="L128">	int sY = 0;</span>
 <span class="fc" id="L129">	int count = 0;</span>
 <span class="fc" id="L130">	int i = 0;</span>
-<span class="pc bpc" id="L131" title="1 of 2 branches missed.">	while (i &lt; possibiliPosizioniRiga.size()) {</span>
-<span class="nc" id="L132">	    temp = possibiliPosizioniRiga.get(i);</span>
-<span class="nc" id="L133">	    sX = Cella.coordXinInt(temp.charAt(0));</span>
-<span class="nc" id="L134">	    sY = Cella.coordYinInt(temp.charAt(1));</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">	while (i &lt; possibiliPosizioniRiga.size()) {</span>
+<span class="fc" id="L132">	    temp = possibiliPosizioniRiga.get(i);</span>
+<span class="fc" id="L133">	    sX = Cella.coordXinInt(temp.charAt(0));</span>
+<span class="fc" id="L134">	    sY = Cella.coordYinInt(temp.charAt(1));</span>
 
-<span class="nc bnc" id="L136" title="All 2 branches missed.">	    if (isMossaValidaPezzo(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {</span>
-<span class="nc" id="L137">		count++;</span>
-<span class="nc" id="L138">		posRiga = temp + &quot; &quot; + Cella.coordXinChar(eX) + &quot;&quot; + Cella.coordYinChar(eY);</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">	    if (isMossaValidaPezzo(sX, sY, eX, eY, colorepedineGiocatoreCorrente)) {</span>
+<span class="fc" id="L137">		count++;</span>
+<span class="fc" id="L138">		posRiga = temp + &quot; &quot; + Cella.coordXinChar(eX) + &quot;&quot; + Cella.coordYinChar(eY);</span>
 	    }
-<span class="nc" id="L140">	    i++;</span>
+<span class="fc" id="L140">	    i++;</span>
 	}
-<span class="pc bpc" id="L142" title="1 of 2 branches missed.">	if (count == 1) {</span>
-<span class="nc" id="L143">	    return posRiga;</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">	if (count == 1) {</span>
+<span class="fc" id="L143">	    return posRiga;</span>
 	}
 
 	// Ritorna mossa non valida se nel vettore possibiliPosizioniRiga sono presenti
@@ -158,10 +158,10 @@ public final class Torre extends Pezzo {
 <span class="fc bfc" id="L158" title="All 2 branches covered.">	for (int x = 0; x &lt; Scacchiera.getInstance().getNumeroRighe(); x++) {</span>
 <span class="fc" id="L159">	    Cella cellaCorrente = Scacchiera.getInstance().getCella(x, y);</span>
 <span class="fc" id="L160">	    Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
-<span class="pc bpc" id="L161" title="3 of 4 branches missed.">	    if (cellaCorrente.isOccupato() &amp;&amp; pezzoCorrente.getColore() == colorepedineGiocatoreCorrente</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">		    &amp;&amp; pezzoCorrente.getNome().equals(&quot;Torre&quot;)) {</span>
-<span class="nc" id="L163">		possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + &quot;&quot; + Cella.coordYinChar(y));</span>
-<span class="nc" id="L164">		numTorre++;</span>
+<span class="fc bfc" id="L161" title="All 4 branches covered.">	    if (cellaCorrente.isOccupato() &amp;&amp; pezzoCorrente.getColore() == colorepedineGiocatoreCorrente</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">		    &amp;&amp; pezzoCorrente.getNome().equals(&quot;Torre&quot;)) {</span>
+<span class="fc" id="L163">		possibiliPosizioni.add(numTorre, Cella.coordXinChar(x) + &quot;&quot; + Cella.coordYinChar(y));</span>
+<span class="fc" id="L164">		numTorre++;</span>
 	    }
 	}
 
@@ -200,57 +200,57 @@ public final class Torre extends Pezzo {
 <span class="fc" id="L200">	Cella cellaCorrente = Scacchiera.getInstance().getCella(sX, sY);</span>
 <span class="fc" id="L201">	Pezzo pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
 
-<span class="pc bpc" id="L203" title="3 of 10 branches missed.">	if (((sX != eX &amp;&amp; sY == eY) || (sX == eX &amp;&amp; sY != eY)) &amp;&amp; cellaCorrente.isOccupato()</span>
+<span class="pc bpc" id="L203" title="1 of 10 branches missed.">	if (((sX != eX &amp;&amp; sY == eY) || (sX == eX &amp;&amp; sY != eY)) &amp;&amp; cellaCorrente.isOccupato()</span>
 <span class="pc bpc" id="L204" title="1 of 2 branches missed.">		&amp;&amp; pezzoCorrente.getColore() == colorePezzoGiocatoreCorrente) {</span>
-<span class="pc bpc" id="L205" title="1 of 2 branches missed.">	    if (sY &gt; eY) {</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">	    if (sY &gt; eY) {</span>
 		// Movimento verso l'alto
 
 <span class="fc bfc" id="L208" title="All 2 branches covered.">		for (int i = sY - 1; i &gt;= eY; i--) {</span>
 
 <span class="fc" id="L210">		    cellaCorrente = Scacchiera.getInstance().getCella(sX, i);</span>
 <span class="fc" id="L211">		    pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
-<span class="pc bpc" id="L212" title="3 of 4 branches missed.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eY</span>
-<span class="nc bnc" id="L213" title="All 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
-<span class="nc" id="L214">			return true;</span>
-<span class="pc bpc" id="L215" title="3 of 8 branches missed.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eY &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
-<span class="nc" id="L216">			return false;</span>
+<span class="fc bfc" id="L212" title="All 4 branches covered.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eY</span>
+<span class="pc bpc" id="L213" title="1 of 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
+<span class="fc" id="L214">			return true;</span>
+<span class="pc bpc" id="L215" title="1 of 8 branches missed.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eY &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
+<span class="fc" id="L216">			return false;</span>
 		    }
 		}
-<span class="nc bnc" id="L219" title="All 2 branches missed.">	    } else if (sY &lt; eY) {</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">	    } else if (sY &lt; eY) {</span>
 		// Movimento verso il basso
-<span class="nc bnc" id="L221" title="All 2 branches missed.">		for (int i = sY + 1; i &lt;= eY; i++) {</span>
+<span class="fc bfc" id="L221" title="All 2 branches covered.">		for (int i = sY + 1; i &lt;= eY; i++) {</span>
 
-<span class="nc" id="L223">		    cellaCorrente = Scacchiera.getInstance().getCella(sX, i);</span>
-<span class="nc" id="L224">		    pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
-<span class="nc bnc" id="L225" title="All 4 branches missed.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eY</span>
-<span class="nc bnc" id="L226" title="All 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
-<span class="nc" id="L227">			return true;</span>
-<span class="nc bnc" id="L228" title="All 8 branches missed.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eY &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
-<span class="nc" id="L229">			return false;</span>
+<span class="fc" id="L223">		    cellaCorrente = Scacchiera.getInstance().getCella(sX, i);</span>
+<span class="fc" id="L224">		    pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
+<span class="fc bfc" id="L225" title="All 4 branches covered.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eY</span>
+<span class="pc bpc" id="L226" title="1 of 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
+<span class="fc" id="L227">			return true;</span>
+<span class="pc bpc" id="L228" title="1 of 8 branches missed.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eY &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
+<span class="fc" id="L229">			return false;</span>
 		    }
 		}
-<span class="nc bnc" id="L232" title="All 2 branches missed.">	    } else if (sX &gt; eX) {</span>
+<span class="fc bfc" id="L232" title="All 2 branches covered.">	    } else if (sX &gt; eX) {</span>
 		// Movimento verso sx
-<span class="nc bnc" id="L234" title="All 2 branches missed.">		for (int i = sX - 1; i &gt;= eX; i--) {</span>
-<span class="nc" id="L235">		    cellaCorrente = Scacchiera.getInstance().getCella(i, sY);</span>
-<span class="nc" id="L236">		    pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
-<span class="nc bnc" id="L237" title="All 4 branches missed.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eX</span>
-<span class="nc bnc" id="L238" title="All 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
-<span class="nc" id="L239">			return true;</span>
-<span class="nc bnc" id="L240" title="All 8 branches missed.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eX &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
-<span class="nc" id="L241">			return false;</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">		for (int i = sX - 1; i &gt;= eX; i--) {</span>
+<span class="fc" id="L235">		    cellaCorrente = Scacchiera.getInstance().getCella(i, sY);</span>
+<span class="fc" id="L236">		    pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
+<span class="fc bfc" id="L237" title="All 4 branches covered.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eX</span>
+<span class="pc bpc" id="L238" title="1 of 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
+<span class="fc" id="L239">			return true;</span>
+<span class="pc bpc" id="L240" title="1 of 8 branches missed.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eX &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
+<span class="fc" id="L241">			return false;</span>
 		    }
 		}
 	    } else {
 		// Movimento verso dx
-<span class="nc bnc" id="L246" title="All 2 branches missed.">		for (int i = sX + 1; i &lt;= eX; i++) {</span>
-<span class="nc" id="L247">		    cellaCorrente = Scacchiera.getInstance().getCella(i, sY);</span>
-<span class="nc" id="L248">		    pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
-<span class="nc bnc" id="L249" title="All 4 branches missed.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eX</span>
-<span class="nc bnc" id="L250" title="All 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
-<span class="nc" id="L251">			return true;</span>
-<span class="nc bnc" id="L252" title="All 8 branches missed.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eX &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
-<span class="nc" id="L253">			return false;</span>
+<span class="fc bfc" id="L246" title="All 2 branches covered.">		for (int i = sX + 1; i &lt;= eX; i++) {</span>
+<span class="fc" id="L247">		    cellaCorrente = Scacchiera.getInstance().getCella(i, sY);</span>
+<span class="fc" id="L248">		    pezzoCorrente = cellaCorrente.getPezzoCorrente();</span>
+<span class="fc bfc" id="L249" title="All 4 branches covered.">		    if (cellaCorrente.isOccupato() &amp;&amp; i == eX</span>
+<span class="pc bpc" id="L250" title="1 of 4 branches missed.">			    &amp;&amp; pezzoCorrente.getColore() != colorePezzoGiocatoreCorrente &amp;&amp; isMossaCattura) {</span>
+<span class="fc" id="L251">			return true;</span>
+<span class="fc bfc" id="L252" title="All 8 branches covered.">		    } else if (!cellaCorrente.isOccupato() &amp;&amp; i == eX &amp;&amp; isMossaCattura || cellaCorrente.isOccupato()) {</span>
+<span class="fc" id="L253">			return false;</span>
 		    }
 		}
 	    }
@@ -278,10 +278,10 @@ public final class Torre extends Pezzo {
 	    }
 	} else {
 	    // arrocco lungo
-<span class="pc bpc" id="L281" title="1 of 2 branches missed.">	    if (c == Colore.bianco) {</span>
+<span class="fc bfc" id="L281" title="All 2 branches covered.">	    if (c == Colore.bianco) {</span>
 <span class="fc" id="L282">		comando = &quot;a1 d1&quot;;</span>
 	    } else {
-<span class="nc" id="L284">		comando = &quot;a8 d8&quot;;</span>
+<span class="fc" id="L284">		comando = &quot;a8 d8&quot;;</span>
 	    }
 	}
 
