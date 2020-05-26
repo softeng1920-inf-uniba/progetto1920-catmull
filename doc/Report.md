@@ -136,15 +136,15 @@ Dopo l'inserimento dei nomi dei due giocatori, viene richiesto al giocatore in t
 
 ### ![](/res/img/report/Report-ae4570f3.png) Torre ![](/res/img/report/Report-ae4570f3.png)
 
-La torre può avanzare o catturare in una delle case che si trovano lungo la colonna o la traversa sulla quale si trova.
+La torre può avanzare o catturare in una delle case che si trovano lungo la colonna o la traversa della casa di partenza, purchè le case che attraversa non siano occupate. 
 
-Esistono due tipologie di mosse per la torre: avanzata e cattura.
+![](/res/img/report/torre.gif)  
 
 ##### Avanzata
 
-Per effettuare una mossa di avanzata, la casa di destinazione e le case attraversate non devono essere occupat da alcun pezzo.
+Per effettuare un'avanzata della torre, l'utente dovrà immettere una mossa nel seguente formato:
 
-Per far avanzare la torre, alla richiesta dell'inserimento della mossa l'utente deve inserire l'iniziale del pezzo **in maiuscolo** (T), seguito dalla colonna (lettera da a ad h **in minuscolo**) e dalla traversa (numero da 1 ad 8) della casa di destinazione.
+lettera *'T'* (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8). Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi:  
 Se si vuole fare avanzare la torre bianca da a1 ad a3 (pre-condizioni permettendo), l'utente dovrà inserire la mossa `Ta3`.   	
@@ -153,9 +153,9 @@ Se si vuole fare avanzare la torre nera da f5 ad h5, l'utente dovrà inserire la
 
 ##### Cattura di un pezzo avversario
 
-Per effettuare una cattura, la casa di destinazione della torre deve contenere un pezzo avversario, e le case che attraversa la torre non devono essere occupate da alcun pezzo.
+Per effettuare una cattura con una torre, l'utente dovrà immettere una mossa nel seguente formato:
 
-La mossa di cattura viene fatta digitando l'iniziale della torre (**T**), seguita dal carattere 'x' (in minuscolo) **o** dal carattere ':' (due punti), seguita dalla colonna e dalla traversa di destinazione del pezzo da catturare.
+lettera *'T'* (in **maiuscolo**), seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8) su cui sarà presente il pezzo avversario da catturare. Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi:`Txf7`, `T:h5`.  
 
@@ -197,20 +197,21 @@ Nella foto di esempio, la ambiguità viene risolta inserendo la mossa Tae3 oppur
 
 ### ![](/res/img/report/Report-0f0f721b.png) Alfiere ![](/res/img/report/Report-0f0f721b.png)
 
-L'alfiere può avanzare, o in alternativa catturare,di quante case desidera nelle quattro diagonali disponibili solo se le case che attraversa non sono occupate. Le possibili direzioni sono le seguenti:  
+L'alfiere può avanzare, o in alternativa catturare, di quante case desidera nelle quattro diagonali disponibili solo se le case che attraversa non sono occupate. Le possibili direzioni sono le seguenti:  
 
 * in alto a destra;  
 * in alto a sinistra;  
 * in basso a destra;
-* in basso a sinistra.  
+* in basso a sinistra.   
+
+![](/res/img/report/alfiere.gif)  
 
 
 ##### Avanzata dell'alfiere
 
 Per effettuare un'avanzata dell'alfiere, l'utente dovrà immettere una mossa nel seguente formato:
 
-lettera 'A' (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).  
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+lettera *'A'* (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8). Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi di un'avanzata: `Ad3`, `Ag7`.  
 
@@ -218,8 +219,7 @@ Esempi di un'avanzata: `Ad3`, `Ag7`.
 
 Per effettuare una cattura con l'alfiere, l'utente dovrà immettere una mossa nel seguente formato:
 
-lettera 'A' (in **maiuscolo**), seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8) su cui sarà presente il pezzo avversario da catturare.  
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+lettera *'A'* (in **maiuscolo**), seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8) su cui sarà presente il pezzo avversario da catturare. Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi di mosse di cattura: `Axe8`, `A:b1`.  
 
@@ -234,14 +234,15 @@ Le possibili combinazioni sono:
   * a sinistra; 
 * due case in verticale o orizzonatale seguita da una casa:
   * a destra, oppure
-  * a sinistra;  
+  * a sinistra;   
+
+![](/res/img/report/cavallo.gif)    
 
 ##### Avanzata del cavallo
 
 Per effettuare un'avanzata del cavallo, l'utente dovrà immettere una mossa nel seguente formato:
 
-lettera 'C' (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).  
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+lettera *'C'* (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8). Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi di un'avanzata: `Cc4`, `Cf7`.  
 
@@ -249,8 +250,7 @@ Esempi di un'avanzata: `Cc4`, `Cf7`.
 
 Per effettuare una cattura con il cavallo, l'utente dovrà immettere una mossa nel seguente formato:
 
-lettera C (in **maiuscolo**), seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).  
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+lettera *'C'* (in **maiuscolo**), seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8). Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi di una cattura: `C:c4`, `Cxf7`.  
 
@@ -261,8 +261,7 @@ Essendo il cavallo un pezzo che può generare ambiguità, elenchiamo le possibil
 
 Per disambiguare il cavallo che si vuole muovere, basterà inserire la colonna di partenza del pezzo.
 Il formato della mossa da inserire sarà il seguente:
-lettera C (in **maiuscolo**) seguita dalla colonna di partenza del pezzo (lettera compresa tra 'a' ed 'h' **in minuscolo**), (seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti) **SOLO** in caso di cattura), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).  
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+lettera C (in **maiuscolo**) seguita dalla colonna di partenza del pezzo (lettera compresa tra 'a' ed 'h' **in minuscolo**), (seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti) **SOLO** in caso di cattura), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).  Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi: `Cac2`, `Cexf4`.
 
@@ -284,10 +283,13 @@ La regina (anche chiamata *Donna*) può avanzare o catturare pezzi in verticale,
 Basti pensare che da una posizione centrale questo pezzo è in grado di raggiungere ben 27 case differenti e ciò rende bene l'idea di come questo sia sicuramente il pezzo più forte.  
 Di qui l'attribuzione del nominativo di 'pezzo pesante'.
 
+![](/res/img/report/regina.gif)   
+
 ##### Avanzata della regina
 
 Per effettuare l'avanzamento della Regina, l'utente dovrà immettere una mossa nel seguente formato:  
-lettera D (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).
+
+lettera *'D'* (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).
 Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempio di un avanzamento: `De4`, `Dh5`.
@@ -295,9 +297,7 @@ Esempio di un avanzamento: `De4`, `Dh5`.
 ##### Cattura di un pezzo avversario
 
 Per effettuare una mossa di cattura con la Regina, l'utente dovrà immettere la mossa nel seguente formato:  
-lettera D (in **maiuscolo**), seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguito dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8) su cui sarà presente un pezzo avversario.  
-
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+lettera *'D'* (in **maiuscolo**), seguita dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguito dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8) su cui sarà presente un pezzo avversario.  Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempio di una cattura effettuata: `Dxf2`, `D:g6`.
 
@@ -308,11 +308,13 @@ Esempio di una cattura effettuata: `Dxf2`, `D:g6`.
 
 Il Re può avanzare o catturare di una casa in tutte le case ad esso adiacenti.  
 Il Re non può spostarsi in case che sono sotto minaccia da parte di un qualunque pezzo avversario.  
-![](/res/img/report/king_mov.png)
+
+![](/res/img/report/re.png)  
 
 ##### Avanzata del Re
 
 Per effettuare l'avanzamento del Re, l'utente dovrà immettere una mossa nel seguente formato:  
+
 lettera *'R'* (in **maiuscolo**), seguita dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8).
 Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
@@ -321,9 +323,8 @@ Esempio di un avanzamento: `Rc3`, `Rf7`.
 ##### Cattura di un pezzo avversario
 
 Per effettuare una mossa di cattura con il Re, l'utente dovrà immettere la mossa nel seguente formato:  
-lettera *'R'* (in **maiuscolo**), seguito dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguito dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8) su cui sarà presente un pezzo avversario.  
 
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+lettera *'R'* (in **maiuscolo**), seguito dal carattere '*x*' (in **minuscolo**) o dal carattere ':' (due punti), seguito dalla colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e dalla traversa della casa di destinazione (numero compreso tra 1 ed 8) su cui sarà presente un pezzo avversario.  Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempio di una cattura: `Rxf2`, `R:g6`.  
 
@@ -332,14 +333,14 @@ Esempio di una cattura: `Rxf2`, `R:g6`.
 
 ### ![](/res/img/report/Report-Report-65045755.png) Pedone ![](/res/img/report/Report-Report-65045755.png)
 
-![](/res/img/report/Report-51610b83.png)
-*(a) Potenziali movimenti pedone* </div>
-
 Il pedone può avanzare di due case solo se è la sua prima mossa, altrimenti può avanzare di una sola casa purché la cella di destinazione sia libera.  
 Il pedone può catturare solo nelle due diagonali di fronte ad esso, muovendosi di una sola casa.
 
+![](/res/img/report/pedone.png)  
+
 ##### Avanzata del pedone
 Per effettuare l'avanzamento del pedone, l'utente dovrà immettere una mossa nel seguente formato:  
+
 colonna (lettera compresa tra 'a' ed 'h' **in minuscolo**) e traversa della casa di destinazione (numero compreso tra 1 ed 8).
 Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
@@ -347,8 +348,9 @@ Esempi di avanzata: `a4`, `f6`.
 
 ##### Cattura di un pezzo avversario
 
-Per effettuare una cattura con un pedone, l'utente deve inserire la colonna di partenza del pedone (lettera da a ad h in **minuscolo**), seguita dal carattere 'x' (in minuscolo) **o** dal carattere ':' (due punti), seguita dalla colonna e dalla traversa di destinazione del pezzo da catturare.  
-Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
+Per effettuare la cattura del pedone, l'utente dovrà immettere una mossa nel seguente formato:  
+
+colonna di partenza del pedone (lettera da a ad h in **minuscolo**), seguita dal carattere 'x' (in minuscolo) **o** dal carattere ':' (due punti), seguita dalla colonna e dalla traversa di destinazione del pezzo da catturare.  Infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) (invio).
 
 Esempi di cattura: `bxa4`, `g:f6`.
 
