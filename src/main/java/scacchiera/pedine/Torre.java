@@ -9,16 +9,28 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento della Torre è valido. La classe Torre e' di tipo noECB
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento della Torre e' valido.
+ * <p>
+ * La classe Torre e' di tipo &lt;&lt;noECB&gt;&gt;
  */
 public final class Torre extends Pezzo {
 
     private static boolean isMossaCattura;
     static final String MOSSA_NON_VALIDA = "a0 a0";
     static final int DIM_MOSSA_NON_AMBIGUA = 3;
-
-    /** Costruttore */
+    /** Invoca il metodo della superclasse
+ 	  * <p>
+ 	  * Vengono settati i valori dei vari parametri della classe, di cui:
+ 	  * <ul>
+ 	  *   <li>nome</li>
+ 	  *   <li>colore</li>
+ 	  *   <li>posizioneCorrente</li>
+ 	  *   <li>simbolo</li>
+ 	  * </ul>
+ 	  * 
+ 	  * @param  colore Colore indicante l'aspetto visivo: bianco o nero
+ 	  */
     public Torre(final Colore colore) {
 	super("Torre", colore);
 	if (colore == Colore.nero) {
@@ -30,12 +42,12 @@ public final class Torre extends Pezzo {
     }
 
     /**
-     * Converte la stringa in input in stringa leggibile dalla funzione
-     * applicaMossa. Ad esempio: Ta4 ==> a1 a4
-     *
-     * @param mossa Stringa rappresentante la mossa in notazione algebrica
-     * @return mossa Stringa rappresentante la mossa in notazione estesa
-     */
+ 	  * Converte la stringa in input in stringa leggibile dalla funzione
+ 	  * applicaMossa. Ad esempio: Ta4 =&gt; a1 a4
+ 	  *
+ 	  * @param  mossa Stringa rappresentante la mossa in notazione algebrica
+ 	  * @return  Mossa in notazione estesa
+ 	  */
     public static String convertiMossa(final String mossa) {
 	String regex = "T([a-h]|[1-8])?([x|:])?([a-h][1-8])";
 	char destX = mossa.charAt(mossa.length() - 2);
@@ -189,7 +201,6 @@ public final class Torre extends Pezzo {
 	return possibiliPosizioni;
 
     }
-
     @Override
     public boolean isMossaValida(final Cella start, final Cella end) {
 	return isMossaValidaPezzo(start.getX(), start.getY(), end.getX(), end.getY(), getColore());
@@ -260,14 +271,14 @@ public final class Torre extends Pezzo {
     }
 
     /**
-     * Restituisce una stringa nel formato [a|h][1|8] [f|d][1|8], che indica la
-     * mossa da effettuare per la torre in base al colore e alla tipologia di
-     * arrocco.
-     *
-     * @param tipoArrocco 0 - corto | 1 - lungo
-     * @param c           colore del giocatore in turno
-     * @return mossa da effettuare
-     */
+ 	  * Restituisce una stringa nel formato [a|h][1|8] [f|d][1|8], che indica la
+ 	  * mossa da effettuare per la torre in base al colore e alla tipologia di
+ 	  * arrocco
+ 	  *
+ 	  * @param  tipoArrocco intero indicante la tipologia di arrocco
+ 	  * @param  c colore del giocatore in turno
+ 	  * @return  mossa da effettuare
+ 	  */
     public static String getCoordinateArrocco(final int tipoArrocco, final Colore c) {
 	String comando;
 	if (tipoArrocco == Menu.ARROCCO_CORTO) {

@@ -5,141 +5,144 @@ import java.util.ArrayList;
 import scacchiera.pedine.Pezzo;
 
 /**
- * La classe Giocatore serve per identificare il giocatore che sta giocando. Ci
- * possono essere solo due giocatori e, al suo interno sono presenti tutte le
+ * La classe Giocatore serve per identificare il giocatore che sta giocando
+ * &lt;p&gt;
+ * Ci possono essere solo due giocatori e, al suo interno sono presenti tutte le
  * informazioni riguardo i giocatori: nome, colore, pezzi catturati e mosse
- * giocate. Il primo giocatore e' bianco e il secondo nero: al giocatore che fa
- * la prima mossa sara' assegnato il colore bianco. La classe Giocatore e' di
- * tipo ENTITY.
+ * giocate.
+ * &lt;p&gt;
+ * Il primo giocatore e' bianco e il secondo nero: al giocatore che fa la prima
+ * mossa sara' assegnato il colore bianco.
+ * &lt;p&gt;
+ * La classe Giocatore e' di tipo &amp;lt;&amp;lt;ENTITY&amp;gt;&amp;gt;.
  */
 
 public final class Giocatore {
 
-	private String nome;
-	private Colore colore;
-	private ArrayList&lt;Pezzo&gt; pezziCatturati;
-	private ArrayList&lt;String&gt; mosseGiocate;
+    private String nome;
+    private Colore colore;
+    private ArrayList&lt;Pezzo&gt; pezziCatturati;
+    private ArrayList&lt;String&gt; mosseGiocate;
 
-	/**
-	 * Costruttore della classe Giocatore
-	 *
-	 * Nel vettore &quot;pezziCatturati&quot; verranno conservati tutti i pezzi del giocatore
-	 * attuale catturati dal giocatore avversario.
-	 *
-	 * Nel vettore &quot;mosseGiocate&quot; ci sara' la storia delle mosse giocate dal
-	 * giocatore.
-	 *
-	 *
-	 * @param c Colore del giocatore
-	 */
-<span class="fc" id="L35">	public Giocatore(final Colore c) {</span>
+    /**
+     * Costruttore della classe Giocatore. &lt;br&gt;
+     * Nell'attributo pezziCatturati vengono conservati tutti i pezzi del giocatore
+     * corrente catturati dal giocatore avversario.
+     * &lt;p&gt;
+     * Nell'attributo mosseGiocate viene memorizzato lo storico delle mosse
+     * effettuate dal giocatore corrente
+     * &lt;p&gt;
+     *
+     * @param c Colore da assegnare al giocatore (bianco o nero)
+     */
+<span class="fc" id="L38">    public Giocatore(final Colore c) {</span>
 
-<span class="fc" id="L37">		setColore(c);</span>
-<span class="fc" id="L38">		pezziCatturati = new ArrayList&lt;Pezzo&gt;();</span>
-<span class="fc" id="L39">		mosseGiocate = new ArrayList&lt;String&gt;();</span>
-<span class="fc" id="L40">	}</span>
+<span class="fc" id="L40">		setColore(c);</span>
+<span class="fc" id="L41">		pezziCatturati = new ArrayList&lt;Pezzo&gt;();</span>
+<span class="fc" id="L42">		mosseGiocate = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L43">	}</span>
 
-	/**
-	 * Assegna il nome al campo nome del Giocatore.
-	 *
-	 * @param n Nome del giocatore
-	 */
-	public void setNome(final String n) {
-<span class="fc" id="L48">		this.nome = n;</span>
-<span class="fc" id="L49">	}</span>
+    /**
+     * Assegna il nome al campo nome del Giocatore
+     *
+     * @param n Stringa indicante il nome del giocatore
+     */
+    public void setNome(final String n) {
+<span class="fc" id="L51">	this.nome = n;</span>
+<span class="fc" id="L52">    }</span>
 
-	/**
-	 * Assegna il colore al campo colore del Giocatore.
-	 *
-	 * @param c
-	 */
-	public void setColore(final Colore c) {
-<span class="fc" id="L57">		this.colore = c;</span>
-<span class="fc" id="L58">	}</span>
+    /**
+     * Assegna il colore al campo colore del Giocatore.
+     *
+     * @param c Colore indicante il colore assegnato al giocatore(bianco o nero)
+     */
+    public void setColore(final Colore c) {
+<span class="fc" id="L60">	this.colore = c;</span>
+<span class="fc" id="L61">    }</span>
 
-	/**
-	 * Restituisce il nome del giocatore.
-	 *
-	 * @return nome
-	 */
-	public String getNome() {
-<span class="fc" id="L66">		return nome;</span>
-	}
+    /**
+     * Restituisce il nome del giocatore.
+     *
+     * @return nome del giocatore
+     */
+    public String getNome() {
+<span class="fc" id="L69">	return nome;</span>
+    }
 
-	/**
-	 * Restituisce il colore dei pezzi del giocatore.
-	 *
-	 * @return colore
-	 */
-	public Colore getColore() {
-<span class="fc" id="L75">		return colore;</span>
-	}
+    /**
+     * Restituisce il colore dei pezzi del giocatore.
+     *
+     * @return colore assegnato al giocatore
+     */
+    public Colore getColore() {
+<span class="fc" id="L78">	return colore;</span>
+    }
 
-	/**
-	 * Aggiunta la pedina p mangiata dal giocatore avversario al vettore
-	 * pezziCatturati
-	 *
-	 * @param p
-	 */
-	public void addPezziCatturati(final Pezzo p) {
-<span class="fc" id="L85">		pezziCatturati.add(p);</span>
-<span class="fc" id="L86">	}</span>
+    /**
+     * Aggiunge la pedina catturata dal giocatore avversario all'attributo di classe
+     * pezziCatturati
+     *
+     * @param p Pezzo catturato dal giocatore avversario
+     */
+    public void addPezziCatturati(final Pezzo p) {
+<span class="fc" id="L88">	pezziCatturati.add(p);</span>
+<span class="fc" id="L89">    }</span>
 
-	/**
-	 * Funzione che restituisce le pedine catturate dal giocatore avversario
-	 *
-	 * @return pezziCatturati
-	 *
-	 */
+    /**
+     * Funzione che restituisce le pedine catturate dal giocatore avversario
+     *
+     * @return Pezzi catturati dal giocatore avversario
+     *
+     */
+    public ArrayList&lt;Pezzo&gt; getPezziCatturati() {
+<span class="fc" id="L98">	return pezziCatturati;</span>
+    }
 
-	public ArrayList&lt;Pezzo&gt; getPezziCatturati() {
-<span class="fc" id="L96">		return pezziCatturati;</span>
-	}
+    /**
+     * Restituisce un valore booleano che individua se sono stati catturati dei
+     * pezzi dal giocatore avversario.
+     *
+     * @return true se il numero di pezzi catturati e' 0, false altrimenti
+     */
+    public boolean isEmptyPezziCatturati() {
+<span class="fc" id="L108">	return pezziCatturati.isEmpty();</span>
+    }
 
-	/**
-	 * Restituisce un valore booleano che individua se sono stati catturati dei
-	 * pezzi dal giocatore avversario.
-	 *
-	 * @return boolean
-	 */
-	public boolean isEmptyPezziCatturati() {
-<span class="fc" id="L106">		return pezziCatturati.isEmpty();</span>
-	}
+    /**
+     * Aggiunge la mossa corrente alla lista mosseGiocate.
+     *
+     * @param mossa Stringa da inserire nell'attributo primitivo di classe
+     *              mosseGiocate
+     */
+    public void setMosseGiocate(final String mossa) {
+<span class="fc" id="L118">	mosseGiocate.add(mossa);</span>
+<span class="fc" id="L119">    }</span>
 
-	/**
-	 * Aggiunge la mossa corrente alla lista mosseGiocate.
-	 *
-	 * @param mossa
-	 */
-	public void setMosseGiocate(final String mossa) {
-<span class="fc" id="L115">		mosseGiocate.add(mossa);</span>
-<span class="fc" id="L116">	}</span>
+    /**
+     * Restituisce l'i-esima mossa giocata dal giocatore.
+     *
+     * @param i intero indicante la mossa
+     * @return i-esima mossa giocata dal giocatore
+     */
+    public String getMossaGiocata(final int i) {
+<span class="fc" id="L128">	return mosseGiocate.get(i);</span>
+    }
 
-	/**
-	 * Restituisce l'i-esima mossa giocata dal giocatore.
-	 *
-	 * @param i
-	 * @return Stringa che contiene la mossa giocata.
-	 */
-	public String getMossaGiocata(final int i) {
-<span class="fc" id="L125">		return mosseGiocate.get(i);</span>
-	}
+    /**
+     * Restituisce il numero delle mosse giocate dal giocatore
+     *
+     * @return Dimensione della lista delle mosse giocate
+     */
+    public int getNumeroMosseGiocate() {
+<span class="fc" id="L137">	return mosseGiocate.size();</span>
+    }
 
-	/**
-	 * Restituisce il numero delle mosse giocate dal giocatore
-	 *
-	 * @return dimensione della lista delle mosse giocate
-	 */
-	public int getNumeroMosseGiocate() {
-<span class="fc" id="L134">		return mosseGiocate.size();</span>
-	}
-
-	/**
-	 * Rimuove un pezzo dalla lista dei pezzi catturati del giocatore
-	 */
-	public void removePezzoCatturato() {
-<span class="fc" id="L141">		pezziCatturati.remove(pezziCatturati.size() - 1);</span>
-<span class="fc" id="L142">	}</span>
+    /**
+     * Rimuove un pezzo dalla lista dei pezzi catturati del giocatore
+     */
+    public void removePezzoCatturato() {
+<span class="fc" id="L144">	pezziCatturati.remove(pezziCatturati.size() - 1);</span>
+<span class="fc" id="L145">    }</span>
 
 }
 

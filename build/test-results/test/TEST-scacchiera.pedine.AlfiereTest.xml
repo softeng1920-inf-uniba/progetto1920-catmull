@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="scacchiera.pedine.AlfiereTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2020-05-26T08:29:46" hostname="LAPTOP-5EBE22AV" time="0.086">
+<testsuite name="scacchiera.pedine.AlfiereTest" tests="21" skipped="0" failures="0" errors="0" timestamp="2020-05-26T14:23:51" hostname="MBP-di-Antonio" time="0.033">
   <properties/>
-  <testcase name="TestConvertiMossa_Mangiata_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.004"/>
-  <testcase name="testIsMossaValida_BassoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
-  <testcase name="testIsMossaValida_BassoSx2()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
-  <testcase name="testConvertiMossaAltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.002"/>
-  <testcase name="testIsMossaValida_AltoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="TestConvertiMossa_Mangiata_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.002"/>
+  <testcase name="testIsMossaValida_BassoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="testIsMossaValida_BassoSx2()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="testConvertiMossaAltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
+  <testcase name="testIsMossaValida_AltoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
   <testcase name="testIsMossaValida_AltoSx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
-  <testcase name="testIsMossaValida_AltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
-  <testcase name="testIsMossaValida_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
-  <testcase name="testIsMossaValida_AltoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
-  <testcase name="testIsMossaValida_AltoDx3()" classname="scacchiera.pedine.AlfiereTest" time="0.002"/>
-  <testcase name="testIsMossaValida_AltoSx2()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
-  <testcase name="testIsMossaValida_AltoDx_Mangiata()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
-  <testcase name="testIsMossaValida_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.002"/>
-  <testcase name="testIsMossaValida_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.004"/>
-  <testcase name="TestConvertiMossa_BassoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0.014"/>
-  <testcase name="TestConvertiMossa_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.005"/>
+  <testcase name="testIsMossaValida_AltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
+  <testcase name="testIsMossaValida_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="testIsMossaValida_AltoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="testIsMossaValida_AltoDx3()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="testIsMossaValida_AltoSx2()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
+  <testcase name="testIsMossaValida_AltoDx_Mangiata()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
+  <testcase name="testIsMossaValida_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="testIsMossaValida_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
+  <testcase name="TestConvertiMossa_BassoDx2()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
+  <testcase name="TestConvertiMossa_BassoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.003"/>
   <testcase name="TestConvertiMossa_BassoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
   <testcase name="TestConvertiMossa_Mangiata_AltoDx()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
   <testcase name="testIsMossaValida_BassoDx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.001"/>
-  <testcase name="TestConvertiMossa_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.005"/>
-  <testcase name="testIsMossaValida_BassoSx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.004"/>
+  <testcase name="TestConvertiMossa_AltoSx()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
+  <testcase name="testIsMossaValida_BassoSx_PercorsoOccupato()" classname="scacchiera.pedine.AlfiereTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

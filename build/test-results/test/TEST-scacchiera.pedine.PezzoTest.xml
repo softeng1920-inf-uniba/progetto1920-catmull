@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="scacchiera.pedine.PezzoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-26T08:29:46" hostname="LAPTOP-5EBE22AV" time="0.036">
+<testsuite name="scacchiera.pedine.PezzoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-26T14:23:51" hostname="MBP-di-Antonio" time="0.014">
   <properties/>
-  <testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.003"/>
-  <testcase name="testGetNome()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
-  <testcase name="testGetSimboloNero()" classname="scacchiera.pedine.PezzoTest" time="0.026"/>
-  <testcase name="testGetSimboloBianco()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
-  <testcase name="testGetColore()" classname="scacchiera.pedine.PezzoTest" time="0.003"/>
+  <testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
+  <testcase name="testGetNome()" classname="scacchiera.pedine.PezzoTest" time="0.009"/>
+  <testcase name="testGetSimboloNero()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
+  <testcase name="testGetSimboloBianco()" classname="scacchiera.pedine.PezzoTest" time="0.0"/>
+  <testcase name="testGetColore()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

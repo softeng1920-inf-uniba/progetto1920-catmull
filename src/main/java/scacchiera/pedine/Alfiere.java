@@ -6,11 +6,25 @@ import scacchiera.Cella;
 import scacchiera.Scacchiera;
 
 /**
- * Classe che rappresenta una pedina del gioco degli scacchi ,definisce se il
- * movimento dell'Alfiere � valido. La classe Alfiere e' di tipo noECB.
+ * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
+ * movimento dell'Alfiere e' valido.
+ * <br>
+ * La classe Alfiere e' di tipo &lt;&lt;noECB&gt;&gt;
  */
 public final class Alfiere extends Pezzo {
-
+	/**
+	  * Invoca il metodo della superclasse.
+	  * <br>
+	  * Vengono settati i valori dei vari parametri della classe, di cui:
+	  * <ul>
+	  *   <li>nome</li>
+	  *   <li>colore</li>
+	  *   <li>posizioneCorrente</li>
+	  *   <li>simbolo</li>
+	  * </ul>
+	  *
+	  * @param  colore Colore indicante l'aspetto visivo: bianco o nero
+	  */
     public Alfiere(final Colore colore) {
 	super("Alfiere", colore);
 	if (colore == Colore.nero) {
@@ -74,13 +88,12 @@ public final class Alfiere extends Pezzo {
 	}
 	return true;
     }
-
     /**
      * Converte la stringa in input in stringa leggibile dalla funzione
-     * applicaMossa. Ad esempio: Ae4 ==> d2 e4
+     * applicaMossa. Ad esempio: Ae4 =&gt; d2 e4s
      *
-     * @param mossa Stringa rappresentante la mossa in notazione algebrica
-     * @return mossa Stringa rappresentante la mossa in notazione estesa
+     * @param  mossa Stringa rappresentante la mossa in notazione algebrica
+	   * @return  mossa in notazione estesa
      */
     public static String convertiMossa(final String mossa) {
 	// "[A](x|:)?[a-h][1-8]"

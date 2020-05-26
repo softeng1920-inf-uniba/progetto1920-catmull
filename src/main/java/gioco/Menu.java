@@ -1,15 +1,19 @@
 package gioco;
 
 /**
- * La classe Menu implementa i menu: il menu principale che compare all'inizio
- * del gioco e il menu che compare durante la partita. La classe contiene le
- * informazioni riguardo ai comandi: help, moves, quit, board, captures e play.
- * La classe Menu e' di tipo Entity.
+ * La classe Menu implementa due menu:
+ * <ul>
+ * 	<li> il menu principale che compare all'inizio del gioco </li>
+ *  	<li> il menu che compare durante la partita </li>
+ * </ul>
+ * La classe contiene le informazioni riguardo ai comandi help, moves, quit, board, captures e play.
+ * <br>
+ * La classe Menu e' di tipo &lt;&lt;ENTITY&gt;&gt;
  */
 
 public final class Menu {
 
-    private static Menu istance = null;
+    private static Menu instance = null;
 
     private Comando help;
     private Comando moves;
@@ -36,79 +40,84 @@ public final class Menu {
 	play = new Comando("Play", "    Inizia una nuova partita");
     }
 
-    /**
-     * Costruttore statico per classe Singleton
-     *
-     * @return
-     */
+	 /**
+	  * Metodo di classe che restituisce l'istanza, se presente, della stessa,
+	  * altrimenti ne costruisce una
+	  * 
+	  * @return  Istanza della classe corrente
+	  */
     public static Menu getInstance() {
-	if (istance == null) {
-	    istance = new Menu();
+	if (instance == null) {
+	    instance = new Menu();
 	}
-	return istance;
+	return instance;
     }
 
     /**
-     * help consente di chiamare il comando "help" in controller
-     *
-     * @return help
-     */
+     * Consente di chiamare il comando "help"
+ 	  *
+ 	  * @return  Comando che permette di aiutare un utente nel cercare una voce del menu
+ 	  */
     public Comando help() {
 	return help;
     }
 
     /**
-     * history consente di chiamare il comando "history" in controller
-     *
-     * @return history
-     */
+ 	  * Consente di chiamare il comando "moves"
+ 	  *
+   	* @return  Comando che consente di visualizzare la cronologia delle mosse giocate
+ 	  */
     public Comando moves() {
 	return moves;
     }
 
     /**
-     * quit consente di chiamare il comando "quit" in controller
-     *
-     * @return quit
-     */
+ 	  * Consente di chiamare il comando "quit"
+ 	  *
+ 	  * @return  Comando che consente di uscire dal gioco
+ 	  */
     public Comando quit() {
 	return quit;
     }
 
     /**
-     * board consente di chiamare il comando "board" in controller
-     *
-     * @return board
-     */
+ 	  * Consente di chiamare il comando "board"
+ 	  *
+ 	  * @return  Comando che consente di visualizzare la scacchiera del gioco
+ 	  */
     public Comando board() {
 	return board;
     }
 
     /**
-     * captures consente di chiamare il comando "captures" in controller
-     *
-     * @return captures
-     */
+ 	  * Consente di chiamare il comando "captures"
+ 	  *
+ 	  * @return  Comando che consente di visualizzare le catture
+ 	  */
     public Comando captures() {
 	return captures;
     }
 
     /**
-     * play consente di chiamare il comando "play" in controller
-     *
-     * @return play
-     */
+ 	  * Consente di chiamare il comando "play"
+ 	  *
+ 	  * @return  Comando che consente di iniziare una nuova partita
+ 	  */
     public Comando play() {
 	return play;
     }
 
     /**
-     * Data la mossa, se e' un arrocco ne restituisce il tipo, altrimenti viene
-     * restituito -1
-     *
-     * @param mossa in notazione algebrica
-     * @return int 1 => Arrocco corto | 2 => Arrocco lungo | -1 => Non e' un arrocco
-     */
+ 	  * Data la mossa, se e' un arrocco ne restituisce il tipo, altrimenti viene
+ 	  * restituito -1
+ 	  *
+ 	  * @param  mossa  Stringa in notazione algebrica
+ 	  * @return  <ul>
+ 	  *            <li>1 se Arrocco corto;</li>
+ 	  *            <li>2 se Arrocco lungo;</li>
+ 	  *            <li>-1 se non e' un Arrocco</li>
+ 	  *          </ul>
+ 	  */
     public int isArrocco(final String mossa) {
 
 	if (mossa.matches("(0|o|O)-(0|o|O)")) {
@@ -120,16 +129,23 @@ public final class Menu {
     }
 
     /**
-     * Riconosce se il comando dato in input rientra tra quelli del menu di gioco
-     *
-     * @param comando
-     *
-     * @return true se il comando rientra tra quelli del menu di gioco, false
-     *         altrimenti
-     *
-     *         I comandi validi nel menu di gioco sono: - help - board - captures -
-     *         moves - quit
-     */
+ 	  * Riconosce se il comando dato in input rientra tra quelli del menu di gioco.
+ 	  * <br>
+ 	  * I comandi validi nel menu di gioco sono:
+ 	  * <ul>
+ 	  * 	<li> help </li>
+ 	  * 	<li> board </li>
+ 	  * 	<li> captures </li>
+ 	  * 	<li> moves </li>
+ 	  * 	<li> quit </li>
+ 	  * </ul>
+
+ 	  *
+ 	  * @param  comando Comando dato in input
+ 	  *
+ 	  * @return  true se il comando rientra tra quelli del menu di gioco, false
+ 	  *          altrimenti
+ 	  */
     public boolean isComandoValido(final String comando) {
 
 	return (comando.equalsIgnoreCase(help().getNome()) || comando.equalsIgnoreCase(board().getNome())
@@ -139,12 +155,13 @@ public final class Menu {
     }
 
     /**
-     * Controlla, attraverso un'espressione regolare, se la stringa inserita
-     * dall'utente e' riconosciuta come notazione algebrica.
-     *
-     * @param mossa
-     * @return boolean
-     */
+ 	  * Controlla attraverso un'espressione regolare se la stringa inserita
+ 	  * dall'utente e' riconosciuta come notazione algebrica.
+ 	  *
+ 	  * @param  mossa Stringa rappresentante la mossa inserita
+ 	  * 
+ 	  * @return  true se la mossa e' riconosciuta come notazione algebrica; false altrimenti
+ 	  */
     public boolean isNotazioneAlgebrica(final String mossa) {
 
 	String regex = String.join("|", new String[] {"([a-h](x|:))?([a-h][1-8])( e.p.)?", // mossa del pedone

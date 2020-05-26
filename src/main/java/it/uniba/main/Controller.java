@@ -18,12 +18,13 @@ import scacchiera.pedine.Regina;
 import scacchiera.pedine.Torre;
 
 /**
- * Classe che gestisce le varie funzionalita'� del gioco, permette di iniziare
- * una nuova partita o di effettuarne una. La classe Controller e' di tipo
- * CONTROL
+ * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
+ * una nuova partita o di effettuarne una.
+ * <br>
+ * La classe Controller e' di tipo &lt;&lt;CONTROL&gt;&gt;
  */
 public final class Controller {
-    private static Controller istance = null;
+    private static Controller instance = null;
     private static final int EN_PASSANT = 3;
     private ArrayList<String> mosseConvertite = new ArrayList<String>();
     private Scacchiera scacchieraGioco;
@@ -39,18 +40,20 @@ public final class Controller {
     }
 
     /**
-     * Costruttore privato per classe Singleton
+     * Metodo di classe che restituisce l'istanza, se presente, della stessa,
+	 * altrimenti ne costruisce una
+     * 
+     * @return  Istanza della classe corrente
      */
     public static Controller getInstance() {
-	if (istance == null) {
-	    istance = new Controller();
+	if (instance == null) {
+	    instance = new Controller();
 	}
-	return istance;
+	return instance;
     }
-
     /**
-     * inizializzaPartita implementa la fase iniziale della partita
-     */
+ 	  * Crea la partita e inizializza il gioco
+ 	  */
     public void playGame() {
 	boolean utenteVuoleRicominciare = false;
 	do {
@@ -100,13 +103,14 @@ public final class Controller {
     }
 
     /**
-     * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
-     * e restituisce true se la mossa � valida ed � stata applicata altrimenti
-     * restituisce false
-     *
-     * @param mossaDaGiocare
-     * @return
-     */
+ 	  * Dopo i dovuti controlli permette di giocare la mossa inserita dal giocatore,
+ 	  * restituisce true se la mossa e' valida ed e' stata applicata altrimenti
+ 	  * restituisce false
+ 	  *
+ 	  * @param  mossaDaGiocare Stringa rappresentante la mossa inserita dal giocatore
+ 	  *
+ 	  * @return  true se la mossa e' valida; false altrimenti
+ 	  */
     public boolean mossaScacchi(final String mossaDaGiocare) {
 	int tipoMossa = getTipoMossa(mossaDaGiocare);
 	if (tipoMossa == 2) {
@@ -159,13 +163,18 @@ public final class Controller {
     }
 
     /**
-     * Data la notazione algebrica inserita dall'utente, l'algoritmo restituisce 0
-     * se � una mossa semplice, 1 se � una mossa di cattura, 2 se � un arrocco e 3
-     * se � di sicuro un en passant
-     *
-     * @param mossaInInput
-     * @return
-     */
+ 	  * Data la notazione algebrica inserita dall'utente, l'algoritmo restituisce:
+ 	  *  <ul>
+ 	  *    <li>0 se e' una mossa semplice;</li>
+ 	  *    <li>1 se e' una mossa di cattura;</li>
+ 	  *    <li>2 se e' un arrocco;</li>
+ 	  *    <li>se e' di sicuro un en passant.</li>
+ 	  *  </ul>
+ 	  *
+ 	  * @param  mossaInInput Stringa rappresentante la mossa in notazione algebrica
+ 	  *
+ 	  * @return  intero rappresentante il tipo di mossa
+ 	  */
     private int getTipoMossa(final String mossaInInput) {
 	int tipoMossa = 0;
 	if (mossaInInput.matches("(D|R|T|A|C)?([a-h]|[1-8])?(x|:)[a-h][1-8]")) {
@@ -179,12 +188,12 @@ public final class Controller {
     }
 
     /**
-     * Trasforma il comando a seconda del pezzo da muovere
-     *
-     * @param mossa in notazione algebrica
-     * @return String comando in colonna e traversa di partenza seguite da uno
-     *         spazio, ed infine colonna e traversa di destinazione
-     */
+ 	  * Trasforma il comando inserito dall'utente,a seconda del pezzo da muovere,
+ 	  * in notazione estesa
+ 	  *
+ 	  * @param  mossa Stringa in notazione algebrica
+ 	  * @return  comando in notazione estesa
+ 	  */
     private String convertiMossaInEstesa(final String mossa) {
 
 	switch (mossa.charAt(0)) {
@@ -228,19 +237,19 @@ public final class Controller {
     }
 
     /**
-     * Dopo che sono stati effettuati i vari controlli (se la mossa inserita è
-     * valida, se è consentita ecc.), viene effettuato in base alla tipologia della
-     * mossa, il necessario per proseguire con il corretto funzionamento del gioco.
-     *
-     * L'applicazione della mossa non è univoca per ogni comando inserito (vedi
-     * e.p.)
-     *
-     * @param cellaPartenza
-     * @param cellaDestinazione
-     * @param tipoMossa         Tipologia della mossa: 0: Mossa normale (avanzata,
-     *                          cattura) di un pezzo 1: Mossa speciale (en passant)
-     *                          del pedone
-     */
+ 	  * Dopo che sono stati effettuati i vari controlli,
+ 	  * a seconda della tipologia della mossa effettua
+ 	  * una cattura particolare nel caso di En Passant, una cattura o un
+ 	  * avanzamento nel caso di mossa normale
+ 	  *
+ 	  * @param  cellaPartenza Cella contenente il pezzo da spostare
+ 	  * @param  cellaDestinazione Cella in cui si desidera spostare il pezzo contenuto in cellaPartenza
+ 	  * @param  tipoMossa int indicante la tipologia della mossa:
+ 	  * 			         <ul>
+ 	  * 				       <li>0: Mossa normale (avanzata,cattura) di un pezzo</li>
+ 	  * 				       <li>1: Mossa speciale (en passant) del pedone</li>
+ 	  * 			         </ul>
+ 	  */
     private void applicaMossa(final Cella cellaPartenza, final Cella cellaDestinazione, final int tipoMossa) {
 	Pezzo pezzoInCellaDestinazione = cellaDestinazione.getPezzoCorrente();
 	Giocatore giocatoreAttivo = turnoGioco.getGiocatoreInTurno();
@@ -261,39 +270,42 @@ public final class Controller {
 	scacchieraGioco.scambiaCella(cellaPartenza, cellaDestinazione);
     }
 
-    /**
-     * Restituisce la lista delle mosse convertite in notazione comprensibile da
-     * applicaMossa.
-     *
-     * @return mosseConverite
-     */
+    /** Restituisce una lista di tutte le mosse convertite
+ 	  * @return  Lista delle mosse convertite in notazione comprensibile da
+ 	  * applicaMossa
+ 	  */
     public ArrayList<String> getMosseConvertite() {
 	return mosseConvertite;
     }
 
     /**
-     * Aggiunge la mossa effettuata fra quelle convertite
-     */
+ 	  * Aggiunge la mossa effettuata fra quelle convertite
+ 	  *
+ 	  * @param  mossa Stringa da aggiungere all'attributo di classe mosseConvertite
+ 	  */
     public void addMosseConvertite(final String mossa) {
 	mosseConvertite.add(mossa);
     }
 
     /**
-     * Data la mossa del re e quella della torre, vengono effettuati tutti i
-     * controlli che validano se la mossa e' consentita o meno.
-     *
-     * @param mossaRe
-     * @param mossaTorre
-     * @param tipoArrocco
-     * @return true se l'arrocco può essere effettuato, false se l'arrocco e' stato
-     *         chiamato con pezzi non compatibili / celle vuote L'arrocco e' valido
-     *         se sono verificate tutte le seguenti condizioni: - Il giocatore non
-     *         ha ancora mosso ne' il re ne' la torre coinvolta nell'arrocco; - Non
-     *         ci devono essere pezzi (amici o avversari) fra il re e la torre
-     *         usata; - Ne' la casa di partenza del re, ne' la casa che esso deve
-     *         attraversare ne' quella di arrivo devono essere minacciate da un
-     *         pezzo avversario.
-     */
+ 	  * Data la mossa del Re e quella della torre, vengono effettuati tutti i
+ 	  * controlli che verificano se la mossa sia consentita o meno.
+ 	  * <p>
+ 	  * L'arrocco e' valido se sono verificate tutte le seguenti condizioni:
+ 	  *        <ul>
+ 	  *          <li>il giocatore non ha ancora mosso ne' il Re ne' la torre coinvolta nell'arrocco;</li>
+ 	  *          <li> non ci devono essere pezzi (amici o avversari) fra il Re e la torre usata;</li>
+ 	  *          <li>ne' la casa di partenza del Re, ne' la casa che esso deve</li>
+ 	  *          <li>attraversare, ne' quella di arrivo devono essere attaccabili da un
+ 	  *           pezzo avversario</li>
+ 	  *        </ul>
+ 	  *
+ 	  * @param  mossaRe Stringa indicante la mossa del Re
+ 	  * @param  mossaTorre Stringa indicante la mossa della torre
+ 	  * @param  tipoArrocco Intero indicante il tipo di arrocco
+ 	  *
+ 	  * @return  true se l'arrocco puo' essere effettuato, false altrimenti
+ 	  */
     public boolean isArroccoValido(final String mossaRe, final String mossaTorre, final int tipoArrocco) {
 
 	Cella cellaPartenzaRe = scacchieraGioco.getCella(Cella.startX(mossaRe), Cella.startY(mossaRe));
@@ -326,19 +338,21 @@ public final class Controller {
     }
 
     /**
-     * Controlla se il Re non e' sotto scacco nel caso in cui un pezzo del suo
-     * stesso colore si muove in un'altra cella. Viene applicata la mossa
-     * temporaneamente per effettuare i controlli attraverso la funzione
-     * isReSottoScacco: in caso positivo viene restituito un booleano con valore
-     * false, altrimenti e' restituito un booleano con valore true. In entrambi i
-     * casi viene ripristinata la situazione immediatamente precedente alla
-     * applicazione della mossa.
-     *
-     * @param partenza
-     * @param destinazione
-     * @param tipoMossa
-     * @return isReProtetto: falso se il Re è sotto scacco, vero altrimenti.
-     */
+ 	  * Controlla se il Re non sia sotto scacco nel caso in cui un pezzo del suo
+ 	  * stesso colore si muova in un'altra cella.
+ 	  * <br>
+ 	  * Viene applicata la mossa temporaneamente per effettuarne i controlli attraverso la funzione
+ 	  * isReSottoScacco: in caso positivo viene restituito un booleano con valore
+ 	  * false, altrimenti e' restituito un booleano con valore true.
+ 	  * <br>
+ 	  * In entrambi i casi viene ripristinata la situazione immediatamente precedente alla
+ 	  * applicazione della mossa.
+ 	  *
+ 	  * @param  partenza Cella da cui si muove il pezzo
+ 	  * @param  destinazione Cella in cui si desidera far giungere il pezzo
+ 	  *
+ 	  * @return  false se il Re e' sotto scacco, true altrimenti.
+ 	  */
     public boolean isReProtetto(final Cella partenza, final Cella destinazione) {
 
 	Cella cellaRe = Re.findRe();

@@ -3,7 +3,7 @@ package gioco;
 /**
  * La classe Comando definisce la struttura dei comandi mostrati nel menu del
  * gioco attraverso gli attributi nome e descrizione. La classe Comando e' di
- * tipo ENTITY.
+ * tipo &lt;&lt;ENTITY&gt;&gt;
  */
 
 public class Comando {
@@ -13,9 +13,10 @@ public class Comando {
 
 	/**
 	 * Metodo Costruttore
-	 *
-	 * @param n
-	 * @param desc
+	 * Avvalora gli attributi primitivi di classe
+	 * 
+	 * @param  n Stringa identificativa del comando
+	 * @param  desc Stringa che specifica il comando
 	 */
 	Comando(final String n, final String desc) {
 		setNome(n);
@@ -23,32 +24,35 @@ public class Comando {
 	}
 
 	/**
-	 * Metodo che permette di modificare il nome del comando
+	 * Metodo che permette di modificare il <b>nome</b> del comando
 	 *
-	 * @param n
+	 * @param  n Stringa indicante il comando
 	 */
 	void setNome(final String n) {
 		this.nome = n;
 	}
 
 	/**
-	 * Metodo che permette di modificare la descrizione del comando
+	 * Metodo che permette di modificare la <b>descrizione</b> del comando
 	 *
-	 * @param d
+	 * @param  d Stringa che specifica il comando
 	 */
 	void setDescrizione(final String d) {
 		this.descrizione = d;
 	}
 
-	/**
-	 * @return nome del comando
+	/** Restituisce il nome del comando
+	 * 
+	 * @return  Stringa contenente il nome del comando
 	 */
 	public String getNome() {
 		return nome;
 	}
 
 	/**
-	 * Metodo che permette di visualizzare i comandi
+	 * Metodo che permette di visualizzare i comandi in formato testuale
+	 * 
+	 * @return   Stringa contenente la descrizione formattata del comando
 	 */
 	@Override
 	public String toString() {

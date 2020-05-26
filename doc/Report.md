@@ -166,7 +166,7 @@ I requisiti si suddividiono in funzionali e non funzionali: i requisiti funziona
 <li> <b>RNF3</b> : il software deve essere eseguito su Windows con <i>Terminal del sottosistema Windows per Linux</i> e <i>Git Bash</i> (in questo caso il comando Docker ha come prefisso winpty; es: winpty docker -it ....) tramite container Docker;</li>    
 <li> <b>RNF4</b>: il software deve mostrare la scacchiera contenente i pezzi in formato UTF-8 (Unicode Transformation Format, 8 bit);</li>  
 <li> <b>RNF5</b>: il software è stato sviluppato con il linguaggio Java;</li>   
-<li> <b>RNF6</b> : le build del software devono essere costruite con successo;</li>  
+<li> <b>RNF6</b> : la build del software devono essere costruite con successo;</li>  
 <li> <b>RNF7</b> : il software deve avere l'immagine Docker caricata con successo nella repository delle immagini Docker;</li>  
 </ul>
 </ol>
@@ -262,7 +262,7 @@ Per esempio, la classe Scacchiera non deve comunicare direttamente con la classe
 
 Sono stati generati i test automatici tramite il testing framework open source di Java: JUnit. La copertura del codice scritto è pari all'80%.
 
-![](/doc/drawings/coverallsScacchi.png)
+![](/res/img/coverallsScacchi.png)
 
 Seguono le immagini tratte dal report dei test automatici di Coveralls.
 
@@ -270,7 +270,7 @@ Le uniche classi escluse dai casi di test sono “InterfacciaUtente” e ”AppM
 
 La copertura della classe Controller è parziale poiché è stata esclusa la funzione playGame(), in quanto richiama i metodi della classe InterfacciaUtente e utilizza metodi già testati separatamente.  
 
-![](/doc/drawings/coverallsStatus.png)  
+![](/res/img/coverallsStatus.png)  
 
 
 [Torna all'indice](#indice)
@@ -306,7 +306,7 @@ Nel caso in cui la partita è già in corso, digitando il comando 'play' viene r
 
   ##### <a name="nuovo_giocatore"></a> Creazione di un nuovo giocatore
   Una volta che l'utente avrà digitato il comando "**play**", seguito dal tasto ![](/res/img/report/Report-9cc4a2c7.png), il gioco chiederà all'utente di inserire i nomi dei due giocatori.  
-  
+
   ![](/res/img/report/Report-1f838d64.png)  
 
   Per convenzione, al primo giocatore verrà assegnato il colore *bianco*, mentre al secondo verrà assegnato il colore *nero*; l'utente potrà inserire qualsiasi nome e, in seguito premere il tasto ![](/res/img/report/Report-9cc4a2c7.png) per l'inserimento del nome del giocatore successivo.  
@@ -314,7 +314,7 @@ Nel caso in cui la partita è già in corso, digitando il comando 'play' viene r
 
 #### Visualizzazione della scacchiera (comando "board")
 Per visualizzare lo stato della scacchiera, l'utente dovrà immettere il comando "**board**", ed infine premere il tasto ![](/res/img/report/Report-9cc4a2c7.png).
- 
+
 ![](/res/img/report/board.png)
 
 Se il comando "**board**" viene digitato prima che la partita cominci, ossia, prima che venga digitato il comando "**play**", la scacchiera apparirà vuota.
@@ -351,7 +351,7 @@ Dopo l'inserimento dei nomi dei due giocatori, viene richiesto al giocatore in t
 
 ### ![](/res/img/report/Report-ae4570f3.png) Torre ![](/res/img/report/Report-ae4570f3.png)
 
-La torre può avanzare o catturare in una delle case che si trovano lungo la colonna o la traversa della casa di partenza, purchè le case che attraversa non siano occupate. 
+La torre può avanzare o catturare in una delle case che si trovano lungo la colonna o la traversa della casa di partenza, purchè le case che attraversa non siano occupate.
 
 ![](/res/img/report/torre.gif)  
 
@@ -446,7 +446,7 @@ L'avanzata oppure la cattura del cavallo può essere descritta come due passi in
 Le possibili combinazioni sono:
 * una casa in verticale o orizzonatale seguita da due case:
   * a destra, oppure
-  * a sinistra; 
+  * a sinistra;
 * due case in verticale o orizzonatale seguita da una casa:
   * a destra, oppure
   * a sinistra;   
@@ -587,7 +587,7 @@ Esempi di catture en passant validi (previe condizioni soddisfatte): `axb6 e.p.`
 
 ### Mossa speciale: Arrocco
 L'arrocco è una delle mosse particolare nel gioco degli scacchi e, coinvolge il re e una delle due torri.
-   
+
 Con l'immissione della mossa dell'arrocco, il Re viene trasferito dalla casa di partenza a quella che si trova 2 (se il tipo di
 arrocco è '*corto*') o 3 case (se il tipo di arrocco è '*lungo*') a sinistra (in caso il colore del giocatore in turno sia il **bianco**) o a destra (in caso il colore del giocatore in turno sia il **nero**).  
 Viceversa, la torre viene trasferita sulla casa che il Re ha appena attraversato, ovvero 2 case (in caso di arrocco '*corto*') o 3 case (in caso di arrocco '*lungo*') a sinistra (se il giocatore in turno ha il colore **nero**) o a destra (se il giocatore in turno ha il colore **bianco**).
