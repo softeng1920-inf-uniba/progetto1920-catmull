@@ -19,6 +19,7 @@ public final class AppMain {
 	private AppMain() {
 	}
 
+
 	/**
 	 * * This is the main entry of the application.
 	 *
