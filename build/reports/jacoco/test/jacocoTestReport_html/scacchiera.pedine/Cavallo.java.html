@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
  * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
  * movimento del Cavallo e' valido.
  * &lt;p&gt;
- * La classe Cavallo e' di tipo noECB.
+ * La classe Cavallo e' di tipo &amp;lt;&amp;lt;noECB&amp;gt;&amp;gt;.
  */
 public final class Cavallo extends Pezzo {
    /** Invoca il metodo della superclasse
@@ -106,7 +106,7 @@ public final class Cavallo extends Pezzo {
 <span class="fc" id="L106">		return mossaConvertita;</span>
 	    }
 	}
-	// esempio: Cde4 - Avanzata cavallo con ambiguit� su colonna
+	// esempio: Cde4 - Avanzata cavallo con ambiguitï¿½ su colonna
 <span class="fc bfc" id="L110" title="All 2 branches covered.">	if (mossa.matches(&quot;C[a-h]([a-h][1-8])&quot;)) {</span>
 <span class="fc" id="L111">	    final int colonnaPartenzaAvanzata = 1;</span>
 <span class="fc" id="L112">	    final int colonnaDestinazioneAvanzata = 2;</span>
@@ -118,7 +118,7 @@ public final class Cavallo extends Pezzo {
 <span class="fc" id="L118">		return mossaConvertita;</span>
 	    }
 	}
-	// esempio: C3e4 - Avanzata cavallo con ambiguit� su traversa
+	// esempio: C3e4 - Avanzata cavallo con ambiguitï¿½ su traversa
 <span class="fc bfc" id="L122" title="All 2 branches covered.">	if (mossa.matches(&quot;C[1-8]([a-h][1-8])&quot;)) {</span>
 <span class="fc" id="L123">	    final int traversaPartenzaAvanzata = 1;</span>
 <span class="fc" id="L124">	    final int colonnaDestinazioneAvanzata = 2;</span>

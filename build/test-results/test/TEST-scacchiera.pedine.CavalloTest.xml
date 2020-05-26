@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="scacchiera.pedine.CavalloTest" tests="33" skipped="0" failures="0" errors="0" timestamp="2020-05-26T09:11:53" hostname="MBP-di-Antonio" time="0.044">
+<testsuite name="scacchiera.pedine.CavalloTest" tests="33" skipped="0" failures="0" errors="0" timestamp="2020-05-26T10:57:01" hostname="LAPTOP-N9R260GT" time="0.117">
   <properties/>
   <testcase name="testConvertiMossaFull()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaAmbiguitaTravSx1()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaAmbiguitaTravSx2()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossab4()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossab6()" classname="scacchiera.pedine.CavalloTest" time="0.01"/>
+  <testcase name="testConvertiMossaAmbiguitaTravSx1()" classname="scacchiera.pedine.CavalloTest" time="0.002"/>
+  <testcase name="testConvertiMossaAmbiguitaTravSx2()" classname="scacchiera.pedine.CavalloTest" time="0.003"/>
+  <testcase name="testConvertiMossab4()" classname="scacchiera.pedine.CavalloTest" time="0.008"/>
+  <testcase name="testConvertiMossab6()" classname="scacchiera.pedine.CavalloTest" time="0.005"/>
   <testcase name="testConvertiMossac3()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
   <testcase name="testConvertiMossac7()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
   <testcase name="testConvertiMossae3()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossae7()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testConvertiMossaf4()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testConvertiMossaf6()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testConvertiMossaCatturaFinaleVuota()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testIsMossaValidab4()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testIsMossaValidab6()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
+  <testcase name="testConvertiMossae7()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testConvertiMossaf4()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testConvertiMossaf6()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testConvertiMossaCatturaFinaleVuota()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testIsMossaValidab4()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testIsMossaValidab6()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
   <testcase name="testIsMossaValidac3()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testIsMossaValidae3()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testIsMossaValidae7()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testIsMossaValidae3()" classname="scacchiera.pedine.CavalloTest" time="0.002"/>
+  <testcase name="testIsMossaValidae7()" classname="scacchiera.pedine.CavalloTest" time="0.002"/>
   <testcase name="testIsMossaValidaf4()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
   <testcase name="testIsMossaValidaf6()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaAmbiguitaColonnaDx()" classname="scacchiera.pedine.CavalloTest" time="0.002"/>
-  <testcase name="testIsMossaValidaEndOccupato()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaAmbiguitaTrav2()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
+  <testcase name="testConvertiMossaAmbiguitaColonnaDx()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testIsMossaValidaEndOccupato()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
+  <testcase name="testConvertiMossaAmbiguitaTrav2()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
   <testcase name="testConvertiMossaAmbiguitaTrav()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
   <testcase name="testisMossaValidac7()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
   <testcase name="testConvertiMossaAmbiguitaColonna()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaCatturaAmbiguitaTrav()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaAmbiguitaColonnaPiena()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testConvertiMossaCattura()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaAmbiguitaTravFull()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testConvertiMossaAmbiguitaColonnaDx2()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
-  <testcase name="testConvertiMossaCatturaAmbiguitaTravEmpty()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testConvertiMossaCatturaAmbiguitaColonne()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
-  <testcase name="testConvertiMossaCatturaAmbiguitaColonneEmpty()" classname="scacchiera.pedine.CavalloTest" time="0.0"/>
+  <testcase name="testConvertiMossaCatturaAmbiguitaTrav()" classname="scacchiera.pedine.CavalloTest" time="0.018"/>
+  <testcase name="testConvertiMossaAmbiguitaColonnaPiena()" classname="scacchiera.pedine.CavalloTest" time="0.004"/>
+  <testcase name="testConvertiMossaCattura()" classname="scacchiera.pedine.CavalloTest" time="0.002"/>
+  <testcase name="testConvertiMossaAmbiguitaTravFull()" classname="scacchiera.pedine.CavalloTest" time="0.002"/>
+  <testcase name="testConvertiMossaAmbiguitaColonnaDx2()" classname="scacchiera.pedine.CavalloTest" time="0.004"/>
+  <testcase name="testConvertiMossaCatturaAmbiguitaTravEmpty()" classname="scacchiera.pedine.CavalloTest" time="0.004"/>
+  <testcase name="testConvertiMossaCatturaAmbiguitaColonne()" classname="scacchiera.pedine.CavalloTest" time="0.001"/>
+  <testcase name="testConvertiMossaCatturaAmbiguitaColonneEmpty()" classname="scacchiera.pedine.CavalloTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

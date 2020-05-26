@@ -16,7 +16,7 @@ import scacchiera.pedine.Pezzo;
  * Contiene anche informazioni riguardo ai colori utilizzati
  * nelle stampe.
  * <br>
- * La classe Stampa e' di tipo BOUNDARY.
+ * La classe Stampa e' di tipo &lt;&lt;BOUNDARY&gt;&gt;
  */
 public final class InterfacciaUtente {
     // colore carattere e font
@@ -42,6 +42,11 @@ public final class InterfacciaUtente {
 	// Costruttore privato
     }
 
+    /**
+     * Costruttore privato per classe Singleton
+     * 
+     * @return  istanza della classe corrente
+     */
     public static InterfacciaUtente getInstance() {
 	if (istance == null) {
 	    istance = new InterfacciaUtente();

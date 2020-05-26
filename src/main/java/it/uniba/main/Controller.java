@@ -21,7 +21,7 @@ import scacchiera.pedine.Torre;
  * Classe che gestisce le varie funzionalita' del gioco, permette di iniziare
  * una nuova partita o di effettuarne una.
  * <br>
- * La classe Controller e' di tipo CONTROL
+ * La classe Controller e' di tipo &lt;&lt;CONTROL&gt;&gt;
  */
 public final class Controller {
     private static Controller istance = null;
@@ -40,7 +40,10 @@ public final class Controller {
     }
     /**
      * Costruttore privato per classe Singleton
+     *
+     * @return  istanza della classe corrente
      */
+
     public static Controller getInstance() {
 	if (istance == null) {
 	    istance = new Controller();

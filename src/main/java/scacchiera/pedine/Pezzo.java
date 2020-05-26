@@ -16,7 +16,7 @@ import scacchiera.Cella;
  * </ul>
  * 
  * <br>
- * La classe Pezzo e' di tipo ENTITY.
+ * La classe Pezzo e' di tipo &lt;&lt;ENTITY&gt;&gt;
  **/
 public abstract class Pezzo {
 

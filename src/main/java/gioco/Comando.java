@@ -3,7 +3,7 @@ package gioco;
 /**
  * La classe Comando definisce la struttura dei comandi mostrati nel menu del
  * gioco attraverso gli attributi nome e descrizione. La classe Comando e' di
- * tipo ENTITY.
+ * tipo &lt;&lt;ENTITY&gt;&gt;
  */
 
 public class Comando {

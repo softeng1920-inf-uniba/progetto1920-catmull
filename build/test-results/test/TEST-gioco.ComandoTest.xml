@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="gioco.ComandoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-26T09:11:53" hostname="MBP-di-Antonio" time="0.002">
+<testsuite name="gioco.ComandoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-26T10:57:01" hostname="LAPTOP-N9R260GT" time="0.041">
   <properties/>
-  <testcase name="testToString()" classname="gioco.ComandoTest" time="0.001"/>
-  <testcase name="testGetNome()" classname="gioco.ComandoTest" time="0.0"/>
+  <testcase name="testToString()" classname="gioco.ComandoTest" time="0.038"/>
+  <testcase name="testGetNome()" classname="gioco.ComandoTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

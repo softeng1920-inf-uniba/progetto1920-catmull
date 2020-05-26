@@ -16,13 +16,13 @@ import scacchiera.pedine.Torre;
  * e di righe.
  * &lt;br&gt;
  * La classe Scacchiera e' una matrice NxM di Celle.
- * La classe Scacchiera e' di tipo ENTITY.
+ * La classe Scacchiera e' di tipo &amp;lt;&amp;lt;ENTITY&amp;gt;&amp;gt;
  */
 public final class Scacchiera {
 
 <span class="fc" id="L23">    private static Scacchiera istance = null;</span>
     private Cella[][] scacchiera;
-    public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrà valore 0, l'ottava avrà
+    public static final int SETTIMA_TRAVERSA = 6; // La prima traversa avrÃ  valore 0, l'ottava avrÃ 
 						  // valore 7
     public static final int NUMEROCOLONNE = 8;
     public static final int NUMERORIGHE = 8;
@@ -40,12 +40,14 @@ public final class Scacchiera {
 
     /**
      * Costruttore statico per classe Singleton
+     * 
+     * @return  istanza della classe corrente
      */
     public static Scacchiera getInstance() {
-<span class="fc bfc" id="L45" title="All 2 branches covered.">	if (istance == null) {</span>
-<span class="fc" id="L46">		istance = new Scacchiera();</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">	if (istance == null) {</span>
+<span class="fc" id="L48">		istance = new Scacchiera();</span>
 	    }
-<span class="fc" id="L48">	return istance;</span>
+<span class="fc" id="L50">	return istance;</span>
 	}
 
    /**
@@ -54,7 +56,7 @@ public final class Scacchiera {
 	 * @return  Intero indicante il numero di colonne
 	 */
     public int getNumeroColonne() {
-<span class="fc" id="L57">	return NUMEROCOLONNE;</span>
+<span class="fc" id="L59">	return NUMEROCOLONNE;</span>
     }
    /**
     * Restituisce il numero di righe della scacchiera
@@ -62,7 +64,7 @@ public final class Scacchiera {
     * @return  Intero indicante il numero di righe
     */
     public int getNumeroRighe() {
-<span class="fc" id="L65">	return NUMERORIGHE;</span>
+<span class="fc" id="L67">	return NUMERORIGHE;</span>
     }
 
    /**
@@ -73,7 +75,7 @@ public final class Scacchiera {
 	  * @return  Riferimento di tipo Cella della scacchiera in posizione (x, y)
 	  */
     public Cella getCella(final int x, final int y) {
-<span class="fc" id="L76">	return scacchiera[x][y];</span>
+<span class="fc" id="L78">	return scacchiera[x][y];</span>
     }
 
    /**
@@ -87,7 +89,7 @@ public final class Scacchiera {
 	  *          scacchiera, false altrimenti
 	  */
     public boolean isRangeValido(final int x, final int y) {
-<span class="fc bfc" id="L90" title="All 8 branches covered.">	return x &lt; getNumeroRighe() &amp;&amp; y &lt; getNumeroColonne() &amp;&amp; x &gt;= 0 &amp;&amp; y &gt;= 0;</span>
+<span class="fc bfc" id="L92" title="All 8 branches covered.">	return x &lt; getNumeroRighe() &amp;&amp; y &lt; getNumeroColonne() &amp;&amp; x &gt;= 0 &amp;&amp; y &gt;= 0;</span>
     }
 
     /**
@@ -96,67 +98,67 @@ public final class Scacchiera {
      */
     public void inizializzaScacchiera() {
 
-<span class="fc" id="L99">	int primaRiga = Cella.coordYinInt('1');</span>
-<span class="fc" id="L100">	int ottavaRiga = Cella.coordYinInt('8');</span>
+<span class="fc" id="L101">	int primaRiga = Cella.coordYinInt('1');</span>
+<span class="fc" id="L102">	int ottavaRiga = Cella.coordYinInt('8');</span>
 
-<span class="fc" id="L102">	int primaTraversa = Cella.coordXinInt('a');</span>
-<span class="fc" id="L103">	int secondaTraversa = Cella.coordXinInt('b');</span>
-<span class="fc" id="L104">	int terzaTraversa = Cella.coordXinInt('c');</span>
-<span class="fc" id="L105">	int quartaTraversa = Cella.coordXinInt('d');</span>
-<span class="fc" id="L106">	int quintaTraversa = Cella.coordXinInt('e');</span>
-<span class="fc" id="L107">	int sestaTraversa = Cella.coordXinInt('f');</span>
-<span class="fc" id="L108">	int settimaTraversa = Cella.coordXinInt('g');</span>
-<span class="fc" id="L109">	int ottavaTraversa = Cella.coordXinInt('h');</span>
+<span class="fc" id="L104">	int primaTraversa = Cella.coordXinInt('a');</span>
+<span class="fc" id="L105">	int secondaTraversa = Cella.coordXinInt('b');</span>
+<span class="fc" id="L106">	int terzaTraversa = Cella.coordXinInt('c');</span>
+<span class="fc" id="L107">	int quartaTraversa = Cella.coordXinInt('d');</span>
+<span class="fc" id="L108">	int quintaTraversa = Cella.coordXinInt('e');</span>
+<span class="fc" id="L109">	int sestaTraversa = Cella.coordXinInt('f');</span>
+<span class="fc" id="L110">	int settimaTraversa = Cella.coordXinInt('g');</span>
+<span class="fc" id="L111">	int ottavaTraversa = Cella.coordXinInt('h');</span>
 
 	// permette di svuotare tutte le celle
-<span class="fc" id="L112">	svuotaScacchiera();</span>
+<span class="fc" id="L114">	svuotaScacchiera();</span>
 
 	// Inizializzazione della torre
-<span class="fc" id="L115">	getCella(primaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));</span>
-<span class="fc" id="L116">	getCella(ottavaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));</span>
+<span class="fc" id="L117">	getCella(primaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));</span>
+<span class="fc" id="L118">	getCella(ottavaTraversa, primaRiga).setPezzoCorrente(new Torre(Colore.bianco));</span>
 
-<span class="fc" id="L118">	getCella(primaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));</span>
-<span class="fc" id="L119">	getCella(ottavaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));</span>
+<span class="fc" id="L120">	getCella(primaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));</span>
+<span class="fc" id="L121">	getCella(ottavaTraversa, ottavaRiga).setPezzoCorrente(new Torre(Colore.nero));</span>
 
 	// Inizializzazione del cavallo
-<span class="fc" id="L122">	getCella(secondaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));</span>
-<span class="fc" id="L123">	getCella(settimaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));</span>
+<span class="fc" id="L124">	getCella(secondaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));</span>
+<span class="fc" id="L125">	getCella(settimaTraversa, primaRiga).setPezzoCorrente(new Cavallo(Colore.bianco));</span>
 
-<span class="fc" id="L125">	getCella(secondaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));</span>
-<span class="fc" id="L126">	getCella(settimaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));</span>
+<span class="fc" id="L127">	getCella(secondaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));</span>
+<span class="fc" id="L128">	getCella(settimaTraversa, ottavaRiga).setPezzoCorrente(new Cavallo(Colore.nero));</span>
 
 	// Inizializzazione dell'alfiere
-<span class="fc" id="L129">	getCella(terzaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));</span>
-<span class="fc" id="L130">	getCella(sestaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));</span>
+<span class="fc" id="L131">	getCella(terzaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));</span>
+<span class="fc" id="L132">	getCella(sestaTraversa, primaRiga).setPezzoCorrente(new Alfiere(Colore.bianco));</span>
 
-<span class="fc" id="L132">	getCella(terzaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));</span>
-<span class="fc" id="L133">	getCella(sestaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));</span>
+<span class="fc" id="L134">	getCella(terzaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));</span>
+<span class="fc" id="L135">	getCella(sestaTraversa, ottavaRiga).setPezzoCorrente(new Alfiere(Colore.nero));</span>
 
 	// Inizializzazione della regina
-<span class="fc" id="L136">	getCella(quartaTraversa, primaRiga).setPezzoCorrente(new Regina(Colore.bianco));</span>
-<span class="fc" id="L137">	getCella(quartaTraversa, ottavaRiga).setPezzoCorrente(new Regina(Colore.nero));</span>
+<span class="fc" id="L138">	getCella(quartaTraversa, primaRiga).setPezzoCorrente(new Regina(Colore.bianco));</span>
+<span class="fc" id="L139">	getCella(quartaTraversa, ottavaRiga).setPezzoCorrente(new Regina(Colore.nero));</span>
 
 	// Inizializzazione del re
-<span class="fc" id="L140">	getCella(quintaTraversa, primaRiga).setPezzoCorrente(new Re(Colore.bianco));</span>
-<span class="fc" id="L141">	getCella(quintaTraversa, ottavaRiga).setPezzoCorrente(new Re(Colore.nero));</span>
+<span class="fc" id="L142">	getCella(quintaTraversa, primaRiga).setPezzoCorrente(new Re(Colore.bianco));</span>
+<span class="fc" id="L143">	getCella(quintaTraversa, ottavaRiga).setPezzoCorrente(new Re(Colore.nero));</span>
 
 	// Inizializzazione dei pedoni
-<span class="fc bfc" id="L144" title="All 2 branches covered.">	for (int i = 0; i &lt; getNumeroColonne(); i++) {</span>
-<span class="fc" id="L145">	    getCella(i, Cella.coordYinInt('7')).setPezzoCorrente(new Pedone(Colore.nero));</span>
-<span class="fc" id="L146">	    getCella(i, Cella.coordYinInt('2')).setPezzoCorrente(new Pedone(Colore.bianco));</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">	for (int i = 0; i &lt; getNumeroColonne(); i++) {</span>
+<span class="fc" id="L147">	    getCella(i, Cella.coordYinInt('7')).setPezzoCorrente(new Pedone(Colore.nero));</span>
+<span class="fc" id="L148">	    getCella(i, Cella.coordYinInt('2')).setPezzoCorrente(new Pedone(Colore.bianco));</span>
 	}
-<span class="fc" id="L148">    }</span>
+<span class="fc" id="L150">    }</span>
 
 
     private void svuotaScacchiera() {
-<span class="fc bfc" id="L152" title="All 2 branches covered.">	for (int i = 0; i &lt; getNumeroColonne(); i++) {</span>
-<span class="fc bfc" id="L153" title="All 2 branches covered.">	    for (int j = 0; j &lt; getNumeroRighe(); j++) {</span>
-<span class="fc bfc" id="L154" title="All 2 branches covered.">		if (scacchiera[i][j].isOccupato()) {</span>
-<span class="fc" id="L155">		    scacchiera[i][j].rimuoviPezzoCorrente();</span>
+<span class="fc bfc" id="L154" title="All 2 branches covered.">	for (int i = 0; i &lt; getNumeroColonne(); i++) {</span>
+<span class="fc bfc" id="L155" title="All 2 branches covered.">	    for (int j = 0; j &lt; getNumeroRighe(); j++) {</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">		if (scacchiera[i][j].isOccupato()) {</span>
+<span class="fc" id="L157">		    scacchiera[i][j].rimuoviPezzoCorrente();</span>
 		}
 	    }
 	}
-<span class="fc" id="L159">    }</span>
+<span class="fc" id="L161">    }</span>
 
    /**
     * Simula il movimento di un pezzo nella scacchiera
@@ -165,10 +167,10 @@ public final class Scacchiera {
 	  * @param  c2 Cella di destinazione con cui si vuole effettuare lo scambio
 	  */
     public void scambiaCella(final Cella c1, final Cella c2) {
-<span class="fc" id="L168">	c2.setPezzoCorrente(c1.getPezzoCorrente());</span>
-<span class="fc" id="L169">	c2.setOccupato(c1.isOccupato());</span>
-<span class="fc" id="L170">	c1.rimuoviPezzoCorrente();</span>
-<span class="fc" id="L171">    }</span>
+<span class="fc" id="L170">	c2.setPezzoCorrente(c1.getPezzoCorrente());</span>
+<span class="fc" id="L171">	c2.setOccupato(c1.isOccupato());</span>
+<span class="fc" id="L172">	c1.rimuoviPezzoCorrente();</span>
+<span class="fc" id="L173">    }</span>
 
    /**
 	  * Permette di avere in output il nome del pezzo. Evita errori legati a indici
@@ -181,11 +183,11 @@ public final class Scacchiera {
 	  *          Stringa &quot;Vuota&quot; altrimenti
 	  */
     public String getNomePezzo(final int x, final int y) {
-<span class="fc bfc" id="L184" title="All 4 branches covered.">	if (isRangeValido(x, y) &amp;&amp; getCella(x, y).isOccupato()) {</span>
-<span class="fc" id="L185">	    return getCella(x, y).getPezzoCorrente().getNome();</span>
+<span class="fc bfc" id="L186" title="All 4 branches covered.">	if (isRangeValido(x, y) &amp;&amp; getCella(x, y).isOccupato()) {</span>
+<span class="fc" id="L187">	    return getCella(x, y).getPezzoCorrente().getNome();</span>
 
 	}
-<span class="fc" id="L188">	return &quot;Vuota&quot;;</span>
+<span class="fc" id="L190">	return &quot;Vuota&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
  * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
  * movimento dell'Alfiere e' valido.
  * <br>
- * La classe Alfiere e' di tipo noECB.
+ * La classe Alfiere e' di tipo &lt;&lt;noECB&gt;&gt;
  */
 public final class Alfiere extends Pezzo {
 	/**
@@ -91,7 +91,7 @@ public final class Alfiere extends Pezzo {
 
     /**
      * Converte la stringa in input in stringa leggibile dalla funzione
-     * applicaMossa. Ad esempio: Ae4 ==> d2 e4
+     * applicaMossa. Ad esempio: Ae4 diventa d2 e4
      *
      * @param  mossa Stringa rappresentante la mossa in notazione algebrica
 	   * @return  mossa in notazione estesa

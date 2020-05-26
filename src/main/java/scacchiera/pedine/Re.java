@@ -12,7 +12,7 @@ import scacchiera.Scacchiera;
  * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
  * movimento del Re e' valido.
  * <br>
- * La classe Re e' di tipo noECB
+ * La classe Re e' di tipo &lt;&lt;noECB&gt;&gt;
  *
  */
 public final class Re extends Pezzo {

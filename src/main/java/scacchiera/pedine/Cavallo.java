@@ -9,7 +9,7 @@ import scacchiera.Scacchiera;
  * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
  * movimento del Cavallo e' valido.
  * <p>
- * La classe Cavallo e' di tipo noECB.
+ * La classe Cavallo e' di tipo &lt;&lt;noECB&gt;&gt;.
  */
 public final class Cavallo extends Pezzo {
    /** Invoca il metodo della superclasse

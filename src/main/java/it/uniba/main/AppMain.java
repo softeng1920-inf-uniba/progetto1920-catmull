@@ -8,7 +8,7 @@ import gioco.Menu;
 /**
  * Classe principale del gioco Scacchi, contenente il metodo di inizio del programma.
  * <br>
- * La classe AppMain e' di tipo BOUNDARY
+ * La classe AppMain e' di tipo &lt;&lt;BOUNDARY&gt;&gt;
  */
 public final class AppMain {
 

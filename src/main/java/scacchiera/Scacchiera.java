@@ -16,7 +16,7 @@ import scacchiera.pedine.Torre;
  * e di righe.
  * <br>
  * La classe Scacchiera e' una matrice NxM di Celle.
- * La classe Scacchiera e' di tipo ENTITY.
+ * La classe Scacchiera e' di tipo &lt;&lt;ENTITY&gt;&gt;
  */
 public final class Scacchiera {
 
@@ -40,6 +40,8 @@ public final class Scacchiera {
 
     /**
      * Costruttore statico per classe Singleton
+     * 
+     * @return  istanza della classe corrente
      */
     public static Scacchiera getInstance() {
 	if (istance == null) {

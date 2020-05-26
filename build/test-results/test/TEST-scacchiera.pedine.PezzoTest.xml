@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="scacchiera.pedine.PezzoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-26T09:11:53" hostname="MBP-di-Antonio" time="0.005">
+<testsuite name="scacchiera.pedine.PezzoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-05-26T10:57:01" hostname="LAPTOP-N9R260GT" time="0.007">
   <properties/>
-  <testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
+  <testcase name="testToString()" classname="scacchiera.pedine.PezzoTest" time="0.003"/>
   <testcase name="testGetNome()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
   <testcase name="testGetSimboloNero()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>
   <testcase name="testGetSimboloBianco()" classname="scacchiera.pedine.PezzoTest" time="0.001"/>

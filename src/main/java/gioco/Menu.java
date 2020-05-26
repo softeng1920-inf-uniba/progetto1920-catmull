@@ -8,7 +8,7 @@ package gioco;
  * </ul>
  * La classe contiene le informazioni riguardo ai comandi help, moves, quit, board, captures e play.
  * <br>
- * La classe Menu e' di tipo Entity.
+ * La classe Menu e' di tipo &lt;&lt;ENTITY&gt;&gt;
  */
 public final class Menu {
 
@@ -45,7 +45,7 @@ public final class Menu {
     /**
      * Costruttore statico per classe Singleton
      *
-     * @return
+     * @return  istanza della classe corrente
      */
     public static Menu getInstance() {
 	if (istance == null) {

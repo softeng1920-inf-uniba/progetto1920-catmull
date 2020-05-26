@@ -12,7 +12,7 @@ import scacchiera.pedine.Pezzo;
  * 	<li> occupato indica lo stato della cella</li>
  * 	<li> pezzoCorrente da informazioni riguardo al pezzo contenuto nella cella </li>
  * </ul>
- * La classe Cella e' di tipo ENTITY
+ * La classe Cella e' di tipo &lt;&lt; ENTITY &gt;&gt;
  */
 public final class Cella {
 	private int x;

@@ -9,11 +9,15 @@ import scacchiera.Scacchiera;
  * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
  * movimento della Regina e' valido.
  * <br>
- * La classe Regina e' di tipo noECB
+ * La classe Regina e' di tipo &lt;&lt;noECB&gt;&gt;
  */
 public final class Regina extends Pezzo {
 
-    /** Costruttore */
+    /**
+     * Costruttore 
+     * 
+     * @param  colore Colore del pezzo Regina
+     */
     public Regina(final Colore colore) {
 	super("Regina", colore);
 	if (colore == Colore.nero) {

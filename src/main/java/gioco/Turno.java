@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * <br>
  * Contiene le informazioni riguardo al turno del giocatore.
  * <br>
- * La classe Turno e' di tipo ENTITY
+ * La classe Turno e' di tipo &lt;&lt;ENTITY&gt;&gt;
  */
 public final class Turno {
     private static Turno instance = null;
@@ -20,6 +20,11 @@ public final class Turno {
 	giocatoreInAttesa = new Giocatore(Colore.nero);
     }
 
+    /**
+     * Costruttore statico per la classe Singleton
+     * 
+     * @return  istanza del turno corrente
+     */
     public static Turno getInstance() {
 	if (instance == null) {
 	    instance = new Turno();
@@ -28,7 +33,7 @@ public final class Turno {
     }
 
     /**
-     * Costruttore statico per classe Singleton
+     * Imposta il giocatore in turno e quello in attesa
      */
     public void inizializzaTurno() {
 	giocatoreInTurno = new Giocatore(Colore.bianco);

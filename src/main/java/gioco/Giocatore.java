@@ -14,7 +14,7 @@ import scacchiera.pedine.Pezzo;
  * Il primo giocatore e' bianco e il secondo nero: al giocatore che fa la prima
  * mossa sara' assegnato il colore bianco.
  * <p>
- * La classe Giocatore e' di tipo ENTITY.
+ * La classe Giocatore e' di tipo &lt;&lt;ENTITY&gt;&gt;.
  */
 
 public final class Giocatore {

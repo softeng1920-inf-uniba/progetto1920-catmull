@@ -12,7 +12,7 @@ import scacchiera.Scacchiera;
  * Classe che rappresenta una pedina del gioco degli scacchi, definisce se il
  * movimento della Torre e' valido.
  * <p>
- * La classe Torre e' di tipo noECB
+ * La classe Torre e' di tipo &lt;&lt;noECB&gt;&gt;
  */
 public final class Torre extends Pezzo {
 	private static boolean isMossaCattura;
